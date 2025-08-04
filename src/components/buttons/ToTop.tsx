@@ -3,6 +3,13 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import Image from 'next/image';
+import { Murecho } from 'next/font/google';
+
+const murecho = Murecho({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap', 
+});
 
 const ToTop: React.FC = () => {
 
@@ -72,7 +79,7 @@ const ToTop: React.FC = () => {
                         width={50}
                         height={50}
                     />
-                    <p className="w-3/4 sm:w-full text-center"></p>
+                    <p className={murecho.className + ' w-3/4 sm:w-full text-center font-bold text-white'}>TOP</p>
                 </button>
             
         </div>
