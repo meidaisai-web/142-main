@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: {
@@ -49,6 +50,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <Head>
+        <meta name="referrer" content="origin" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="manifest" href="/manifest.json" />
+      </Head>
       <body
         className={`antialiased bg-primary`}
       >
