@@ -58,7 +58,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <body
-        className={`antialiased bg-primary text-white ${murecho.className}`}
+        className={`antialiased bg-primary text-white text-sm md:text-base lg:text-lg ${murecho.className}`}
       >
         {children}
         <ToTop />
