@@ -1,3 +1,4 @@
+import { Dela_Gothic_One, Murecho } from 'next/font/google';
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -37,14 +38,6 @@ const config: Config = {
             },
 
             fontFamily: {
-                body: [
-                    'var(--font-ZenMaruGothic)',
-                    {
-                        fontFeatureSettings: '"cv11", "ss01"',
-                        fontVariationSettings: '"opsz" 32'
-                    }
-                ],
-
                 copyRight: [
                     'Kozuka Gothic Pr6N', 'sans-serif',
                 ],

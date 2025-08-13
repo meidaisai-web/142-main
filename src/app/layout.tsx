@@ -2,16 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Head from "next/head";
 import ToTop from "@/components/buttons/ToTop";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { murecho } from "@/utils/fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -67,7 +58,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <body
-        className={`antialiased bg-primary`}
+        className={`antialiased bg-primary text-white ${murecho.className}`}
       >
         {children}
         <ToTop />
@@ -75,4 +66,3 @@ export default function RootLayout({
     </html>
   );
 }
-
