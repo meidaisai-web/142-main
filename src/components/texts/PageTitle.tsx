@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { delaGothic } from "@/utils/fonts";
 
 type PageTitleProps = {
   children: ReactNode;
@@ -9,7 +10,7 @@ export default function PageTitle({ children, className = "" }: PageTitleProps) 
   return (
     <div className={`relative w-full p-3 md:p-6 text-center ${className}`}>
       {/* タイトル本体 */}
-      <h1 className="inline-block text-white text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold dela-font whitespace-nowrap relative p-3 md:p-6">
+      <h1 className={`inline-block text-white text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold whitespace-nowrap relative p-3 md:p-6 ${delaGothic.className}`}>
         {children}
         {/* 下部の黄ライン */}
         <span
