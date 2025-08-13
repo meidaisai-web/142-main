@@ -3,13 +3,6 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import Image from 'next/image';
-import { Murecho } from 'next/font/google';
-
-const murecho = Murecho({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap', 
-});
 
 const ToTop: React.FC = () => {
 
@@ -45,43 +38,34 @@ const ToTop: React.FC = () => {
 
     const normalStyle: React.CSSProperties = {
         opacity: 0,
-        transition: '0.5s',
-        pointerEvents: 'none'
+        transition: '0.2s ease-in',
+        cursor: 'auto',
+        pointerEvents: 'none',
     }
     const activeStyle: React.CSSProperties = {
         opacity: 1,
-        transition: '0.5s',
-        height: 'max-content',
-        width: '50px',
-        position: 'fixed',
-        bottom: '12vh',
-        right: '4vw',
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: 'transparent',
-        alignItems: 'center',
-        zIndex: 25,
+        transition: '0.2s ease-out',
+        cursor: 'pointer',
     }
 
     const style = isVisible ? activeStyle : normalStyle
 
     return (
-        <div className="w-[50px] absolute">
-            
-                <button 
-                onClick={scrollToTop} 
-                style={style}>
-                    <Image
-                        className="w-3/4 sm:w-full object-contain"
-                        onClick={scrollToTop}
-                        src="/images/svg/Topbutton.svg"
-                        alt="Topへ戻る"
-                        width={50}
-                        height={50}
-                    />
-                    <p className={murecho.className + ' w-3/4 sm:w-full text-center font-bold text-white'}>TOP</p>
-                </button>
-            
+        <div className="w-12 absolute cursor-pointer">
+            <button
+                onClick={scrollToTop}
+                style={style}
+                className='fixed flex flex-col items-center right-4 sm:right-8 md:right-12 bottom-8 md:bottom-12 w-12 z-30'>
+                <Image
+                    className="w-3/4 sm:w-full object-contain"
+                    onClick={scrollToTop}
+                    src="/images/svg/Topbutton.svg"
+                    alt="Topへ戻る"
+                    width={50}
+                    height={50}
+                />
+                <p className={'w-full text-center font-bold'}>TOP</p>
+            </button>
         </div>
     );
 };
