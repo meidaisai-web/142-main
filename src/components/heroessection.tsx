@@ -1,9 +1,8 @@
 import Image from 'next/image';
-import IndexTitle from './IndexTitle';
+import Link from 'next/link';
 
 export default function HeroSection() {  
     return (
-        // Heroes Section        
         <div className="relative overflow-hidden bg-primary border border-primary">
             <Image
                 src="/images/svg/background.svg"
@@ -58,7 +57,7 @@ export default function HeroSection() {
                     />
                 </div>
                 
-                {/* <Link> */}
+                <Link href="/about">
                     <div className="absolute right-0 inset-0 mt-15  w-full h-full">
                         <div className="relative justify-end h-full">
                             <div className="absolute right-0 bottom-[20%]">
@@ -81,10 +80,7 @@ export default function HeroSection() {
                             </div>
                         </div>
                     </div>
-                {/* </Link> */}
-            </div>
-            <div className='h-20'>
-                {/* /*ここに続きを書く */ }
+                </Link>
             </div>
         </div>
     );
