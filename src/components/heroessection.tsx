@@ -63,8 +63,8 @@ export default function HeroSection() {
                         <div className="relative justify-end h-full">
                             <div className="absolute right-0 bottom-[20%]">
                                 <div className="relative z-30">
-                                    <div className="bg-accent text-primary rounded-l-full px-12 py-6  flex items-center dela-font lg:text-5xl md:text-4xl sm:text-3xl text-3xl
-                                        hover:brightness-95 transition lg:w-[28rem] md:w-[22rem] sm:w-[20rem] w-[22rem] md:h-[6rem] lg:h-[8rem] justify-between z-10">
+                                    <div className="bg-accent text-primary rounded-l-full px-12 py-6  flex items-center dela-font lg:text-5xl md:text-4xl sm:text-3xl text-2xl
+                                        hover:brightness-95 transition lg:w-[28rem] md:w-[22rem] sm:w-[20rem] w-[18rem] md:h-[6rem] lg:h-[8rem] justify-between z-10">
                                         明大祭とは
                                         <Image
                                             src="/images/svg/arrow.svg"
