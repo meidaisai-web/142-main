@@ -1,7 +1,13 @@
-export default function AccentText() {
+import { ReactNode } from 'react';
+
+type AccentTextProps = {
+	children: ReactNode;
+};
+
+export default function AccentText({ children }: AccentTextProps) {
 	return (
 		<div>
-			<h1 className="text-lg first-letter:text-accent">強調テキスト</h1>
+			<h1 className="text-lg first-letter:text-accent">{children}</h1>
 		</div>
 	)
 }
