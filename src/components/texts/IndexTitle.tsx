@@ -12,3 +12,4 @@ export default function IndexTitle({ children }: IndexTitleProps) {
         </h1>
     );
 }
+
