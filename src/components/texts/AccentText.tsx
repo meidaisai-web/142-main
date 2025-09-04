@@ -1,4 +1,4 @@
-export default function Page() {
+export default function AccentText() {
 	return (
 		<div>
 			<h1 className="text-lg first-letter:text-accent">強調テキスト</h1>
