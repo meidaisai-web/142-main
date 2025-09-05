@@ -51,14 +51,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" className="text-[12px] md:text-[16px]">
       <Head>
         <meta name="referrer" content="origin" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <body
-        className={`antialiased bg-primary text-white text-sm sm:text-base lg:text-lg ${murecho.className}`}
+        className={`antialiased bg-primary text-white ${murecho.className}`}
       >
         {children}
         <ToTop />
