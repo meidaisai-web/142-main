@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="footer w-full bg-secondary pt-15 pb-10">
@@ -7,9 +9,9 @@ export default function Footer() {
           <Image src="/images/svg/logo-title-concept-white.svg" alt="Logo" width={240} height={55} className="w-45 md:w-60 h-auto" />
         </div>
         <div className="flex my-11 px-15 max-w-96 gap-10 md:gap-15 justify-center">
-          <a
+          <link
             href="https://www.instagram.com/meidaisai"
-            target="_blank"
+          
             rel="noopener noreferrer"
           >
             <div className="relative w-8 h-8 md:w-11 md:h-11">
@@ -20,11 +22,11 @@ export default function Footer() {
                 className="object-contain"
               />
             </div>
-          </a>
+          </link>
 
-          <a
+          <link
             href="https://x.com/meidaisai"
-            target="_blank"
+            
             rel="noopener noreferrer"
           >
             <div className="relative w-8 h-8 md:w-11 md:h-11">
@@ -35,11 +37,11 @@ export default function Footer() {
                 className="object-contain"
               />
             </div>
-          </a>
+          </link>
 
-          <a
+          <link
             href="https://www.youtube.com/@meidaisainetpr"
-            target="_blank"
+      
             rel="noopener noreferrer"
           >
             <div className="relative w-8 h-8 md:w-11 md:h-11">
@@ -50,11 +52,11 @@ export default function Footer() {
                 className="object-contain"
               />
             </div>
-          </a>
+          </link>
 
-          <a
+          <link
             href="https://www.tiktok.com/@meidaisai_"
-            target="_blank"
+            
             rel="noopener noreferrer"
           >
             <div className="relative w-8 h-8 md:w-11 md:h-11">
@@ -65,7 +67,7 @@ export default function Footer() {
                 className="object-contain"
               />
             </div>
-          </a>
+          </link>
         </div>
 
         <div className="flex justify-center gap-4 sm:gap-6 lg:gap-8 text-white text-xs px-5 list-none">
