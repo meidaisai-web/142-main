@@ -3,20 +3,37 @@ import Link from 'next/link';
 
 export default function HeroSection() {  
     return (
-        <div className="relative overflow-hidden bg-primary h-screen bg-white">
-            <div className="">
-                <div className="absolute -translate-x-10 -translate-y-110 -rotate-25 bg-accent w-[60rem] h-[40rem] z-0"></div>
-                <div className="absolute -translate-x-169 translate-y-50 rotate-50 bg-secondary w-[100vw] max-w-[200rem] h-[50rem] z-10"></div>
-                <div className="absolute -translate-x-40 translate-y-196 -rotate-15 bg-primary w-[100rem] h-[40rem] z-20"></div>
-            </div>
+        <div className="relative overflow-hidden bg-white h-screen flex justify-center">            
+            <Image 
+                src="/images/svg/background-accent.svg"
+                alt="Background Image"
+                width={1920}
+                height={1080}
+                className="absolute w-[70vw] h-[50vh] object-fill z-10 min-w-[40rem] mr-[30vw]"
+            />
+            <Image
+                src="/images/svg/background-secondary.svg"
+                alt="Background Image"
+                width={1920}
+                height={1080}       
+                className="absolute w-[80vw] h-screen object-fill z-20 min-w-[40rem] mr-[20vw]"
+            />
+            <Image
+                src="/images/svg/background-primary.svg"
+                alt="Background Image"
+                width={1920}
+                height={1080}       
+                className="absolute w-full mt-[60vh] h-[40vh] object-fill z-30"
+            />
+        
             <div className="absolute inset-0 flex flex-col z-30">
-                <div className="lg:w-[40vw] md:w-[45vw] sm:w-[50vw] sm:h-[25vh] w-[55vw] h-[30vh]">
+                <div className="w-[70vw] [@media(min-width:375px)]:w-[50vw] [@media(min-width:425px)]:w-[40vw] [@media(min-width:768px)]:w-[40vw] md:w-[40vw] lg:w-[40vw] sm:h-[25vh]  h-[30vh]">
                     <Image
                         src="/images/svg/title.svg"
                         alt="第141回明大祭"
                         width={1200}
                         height={600}
-                        className="sm:ml-[10vw] ml-[5vw] mt-[5vh]"
+                        className="ml-[10vw] sm:mt-[5vh] mt-[7vh]"
                     />
                 </div>
                 <div className="md:w-[90vw] h-[40vh] w-[100vw]">
