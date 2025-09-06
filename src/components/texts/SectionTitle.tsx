@@ -3,11 +3,12 @@ import Image from "next/image";
 
 type SectionTitleProps = {
     children: ReactNode;
+    className?: string;
 };
 
-export default function SectionTitle({ children }: SectionTitleProps) {
+export default function SectionTitle({ children, className }: SectionTitleProps) {
     return (
-        <div className='w-full flex items-center justify-center pt-20 pb-2'>
+        <div className={`w-full flex items-center justify-center pt-20 pb-2 ${className}`}>
             <div className="relative w-fit flex items-center justify-center">
                 <Image
                     src="/images/svg/SectionTitleL.svg"

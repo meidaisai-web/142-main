@@ -7,18 +7,18 @@ type ContactViewProps = {
     department: string;
     mail: string;
     showPhone?: boolean;
+    showAddress?: boolean;
 };
 
-export default function ContactView({ department, mail, showPhone }: ContactViewProps) {
+export default function ContactView({ department, mail, showPhone, showAddress }: ContactViewProps) {
     return (
         <div className="w-full flex flex-col items-center pb-10">
-            <SectionTitle>お問い合わせ</SectionTitle>
             <p className="text-lg text-center py-5">
                 第141回明大祭実行委員会<br/>
                 {department}
             </p>
             <div className="flex flex-col sm:flex-row items-center">
-                <Address />
+                {showAddress && <Address />}
                 {showPhone ? <MailPhone mail={mail} /> : <Mail mail={mail} />}
             </div>
         </div>

@@ -35,6 +35,15 @@ export function ListItem({ children, className }: ListItemProps) {
     return <p className={className}>{children}</p>;
 };
 
+interface ListTextProps {
+    className?: string;
+    children: ReactNode;
+}
+
+export function ListText({ children, className }: ListTextProps) {
+    return <p className={className}>{children}</p>;
+}
+
 // List コンポーネント
 interface ListProps {
     children: ReactNode;
@@ -55,7 +64,7 @@ export function List({ children, mark, numbered, alphabetic, className }: ListPr
         } else if (alphabetic) {
             return String.fromCharCode(96 + index) + "."; // 97は'a'のASCIIコード
         } else {
-            return ""; // デフォルトはなし
+            return "　"; // デフォルトは全角スペース
         }
     }
 
@@ -66,41 +75,28 @@ export function List({ children, mark, numbered, alphabetic, className }: ListPr
                 if (isValidElement(child) && child.type === ListItem) {
                     listCount++;
                     // 子要素をコピーして、先頭にマークを追加
-                    const element = child as React.ReactElement<any>;
-                    return cloneElement(element, {
-                        ...element.props,
-                        children: (
-                            <li className="list-none flex items-start mb-1">
-                                <span className="mr-1">{listMark(listCount)}</span>
-                                <span>{element.props.children}</span>
-                            </li>
-                        ),
-                    });
+                    return (
+                        <li className="list-none flex items-start mb-1">
+                            <span className="mr-1">{listMark(listCount)}</span>
+                            <span>{child}</span>
+                        </li>
+                    )
                 }
 
                 if (isValidElement(child) && child.type === List) {
                     // Listコンポーネントが入れ子になっている場合、インデントを加える
                     return (
-                        <div className="ml-4">
+                        <div className="ml-6">
                             {child}
                         </div>
                     )
                 }
 
-                // Textコンポーネントが使用された場合、文字に揃うようにインデント調整
-                if (isValidElement(child) && child.type === Text) {
+                // ListTextコンポーネントが使用された場合、文字に揃うようにインデント調整
+                if (isValidElement(child) && child.type === ListText) {
                     return (
-                        <div className={`ml-4 pb-6`}>
+                        <div className={`ml-6 pb-4`}>
                             {child}
-                        </div>
-                    );
-                }
-
-                // 通常のテキストノードでもTextコンポーネント風の調整を適用
-                if (typeof child === "string" && child.trim()) {
-                    return (
-                        <div className="ml-4 pb-6">
-                            <p>{child}</p>
                         </div>
                     );
                 }
