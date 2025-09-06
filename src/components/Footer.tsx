@@ -2,100 +2,151 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
-  return (
-    <footer className="footer w-full bg-secondary pt-15 pb-10">
-      <div className="mx-auto flex flex-col items-center">
-        <div className="flex justify-center mx-10">
-          <Image src="/images/svg/logo-title-concept-white.svg" alt="Logo" width={240} height={55} className="w-45 md:w-60 h-auto" />
-        </div>
-        <div className="flex my-11 px-15 max-w-96 gap-10 md:gap-15 justify-center">
-          <link
-            href="https://www.instagram.com/meidaisai"
-          
-            rel="noopener noreferrer"
-          >
-            <div className="relative w-8 h-8 md:w-11 md:h-11">
-              <Image
-                src="/images/svg/Instagram_White.svg"
-                alt="instagram"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </link>
+	return (
+		<footer className="w-full mt-20">
+			<FooterTop />
+			<div className="w-full bg-secondary pt-15 pb-10 flex flex-col items-center">
+				<Catch />
+				{/* TODO: ここにバナーが入る */}
+				<FooterIconLinks />
+				<FooterLinks />
+				<Copyright />
+			</div>
+		</footer>
+	);
+}
 
-          <link
-            href="https://x.com/meidaisai"
-            
-            rel="noopener noreferrer"
-          >
-            <div className="relative w-8 h-8 md:w-11 md:h-11">
-              <Image
-                src="/images/svg/X-white.svg"
-                alt="x"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </link>
+function FooterTop() {
+	return (
+		<div className="w-full overflow-hidden">
+			<div className="flex">
+				{Array.from({ length: 60 }).map((_, i) => (
+					<div key={i} className="flex">
+						<div className="bg-secondary w-3 h-3" />
+						<div className="bg-accent w-3 h-3" />
+						<div className="bg-primary w-3 h-3" />
+					</div>
+				))}
+			</div>
+		</div>
+	)
+}
 
-          <link
-            href="https://www.youtube.com/@meidaisainetpr"
-      
-            rel="noopener noreferrer"
-          >
-            <div className="relative w-8 h-8 md:w-11 md:h-11">
-              <Image
-                src="/images/svg/youtube-white.svg"
-                alt="youtube"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </link>
+function Catch() {
+	return (
+		<div className="flex justify-center mx-10">
+			<Image src="/images/svg/logo-title-concept-white.svg" alt="Logo" width={240} height={55} className="w-45 sm:w-60 h-auto" />
+		</div>
+	)
+}
+interface FooterIconLinkProps {
+	href: string;
+	src: string;
+	alt: string;
+}
 
-          <link
-            href="https://www.tiktok.com/@meidaisai_"
-            
-            rel="noopener noreferrer"
-          >
-            <div className="relative w-8 h-8 md:w-11 md:h-11">
-              <Image
-                src="/images/svg/TikTok.svg"
-                alt="TikTok"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </link>
-        </div>
+function FooterIconLink({ href, src, alt }: FooterIconLinkProps) {
+	return (
+		<Link
+			href={href}
+			rel="noopener noreferrer"
+		>
+			<div className="relative w-8 h-8 sm:w-14 sm:h-14 md:w-11 md:h-11">
+				<Image
+					src={src}
+					alt={alt}
+					fill
+					className="object-contain"
+				/>
+			</div>
+		</Link>
+	);
+}
 
-        <div className="flex justify-center gap-4 sm:gap-6 lg:gap-8 text-white text-xs px-5 list-none">
-          <div>
-            <li className="border-b-[1.5px] border-b-transparent hover:border-b-white duration-250">
-              お問い合わせ
-            </li>
-          </div>
-          <div>
-            <li className="border-b-[1.5px] border-b-transparent hover:border-b-white duration-250">
-              リンク
-            </li>
-          </div>
-          <div>
-            <li className="border-b-[1.5px] border-b-transparent hover:border-b-white duration-250">
-              サイトマップ
-            </li>
-          </div>
-          <div>
-            <li className="border-b-[1.5px] border-b-transparent hover:border-b-white duration-250">
-              プライバシーポリシー
-            </li>
-          </div>
-        </div>
-        <div className="justify-center flex-col text-white text-sm font-copyright font-bold pt-9">
-          <p>©第141回明大祭実行委員会</p>
-        </div>
-      </div>
-    </footer>
-  );
+function FooterIconLinks() {
+	const iconLinks: FooterIconLinkProps[] = [
+		{
+			href: "https://www.instagram.com/meidaisai",
+			src: "/images/svg/Instagram_White.svg",
+			alt: "Instagram",
+		},
+		{
+			href: "https://x.com/meidaisai",
+			src: "/images/svg/X-white.svg",
+			alt: "x",
+		},
+		{
+			href: "https://youtube.com/@meidaisainetpr",
+			src: "/images/svg/youtube-white.svg",
+			alt: "youtube",
+		},
+		{
+			href: "https://www.tiktok.com/@meidaisai_",
+			src: "/images/svg/TikTok.svg",
+			alt: "TikTok",
+		},
+	];
+	return (
+		<div className="flex my-11 px-15 max-w-96 gap-10 sm:gap-15 justify-center">
+			{iconLinks.map((item) => (
+				<FooterIconLink
+					key={item.href}
+					href={item.href}
+					src={item.src}
+					alt={item.alt}
+				/>
+			))}
+		</div>
+	)
+}
+
+interface FooterLinkProps {
+	href: string;
+	children: React.ReactNode;
+}
+
+function FooterLink({ href, children }: FooterLinkProps) {
+	return (
+		<Link href={href} className="border-b-[1.5px] border-b-transparent hover:border-b-white duration-250">
+			{children}
+		</Link>
+	);
+}
+
+function FooterLinks() {
+	const links: FooterLinkProps[] = [
+		{
+			href: "/contact",
+			children: "お問い合わせ",
+		},
+		{
+			href: "/link",
+			children: "リンク",
+		},
+		{
+			href: "/sitemap",
+			children: "サイトマップ",
+		},
+		{
+			href: "/policy",
+			children: "プライバシーポリシー",
+		},
+	];
+	return (
+		<div className="flex justify-center gap-4 sm:gap-6 lg:gap-8 text-xs px-5 list-none">
+			{links.map((item) => (
+				<FooterLink key={item.href} href={item.href}>
+					{item.children}
+				</FooterLink>
+			))}
+		</div>
+	)
+}
+
+function Copyright() {
+	return (
+		<div className="justify-center text-white text-sm font-bold pt-9">
+			<p>©第141回明大祭実行委員会</p>
+		</div>
+	)
 }
