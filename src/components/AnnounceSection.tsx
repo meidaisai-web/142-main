@@ -4,7 +4,7 @@ import IndexTitle from "@/components/texts/IndexTitle";
 
 export default function AnnounceSection() {
   const announces = [
-    { src: "/images/svg/announce/keepout.svg", alt: "立ち入り禁止", text: "立ち入り禁止\nエリアあり" },
+    { src: "/images/svg/announce/keepout.svg", alt: "立ち入り禁止", text: "立ち入り禁止エリアあり" },
     { src: "/images/svg/announce/no-hate.svg", alt: "ヘイトスピーチ禁止", text: "SNS上での誹謗・中傷禁止" },
     { src: "/images/svg/announce/no-pet.svg", alt: "ペット禁止", text: "ペット同伴禁止\n(補助犬を除く)" },
     { src: "/images/svg/announce/no-activity.svg", alt: "活動禁止", text: "無許可活動禁止" },
@@ -16,7 +16,7 @@ export default function AnnounceSection() {
     <div>
       <IndexTitle>来場者のみなさまへ</IndexTitle>
       <div className="px-4">
-        <div className="mx-auto max-w-80 sm:max-w-3xl grid grid-cols-2 sm:grid-cols-3 gap-y-6 sm:gap-x-1 sm:gap-y-8 mt-8 justify-items-center">
+        <div className="mx-auto max-w-82 sm:max-w-3xl grid grid-cols-2 sm:grid-cols-3 gap-y-6 gap-x-3 sm:gap-x-2 sm:gap-y-8 mt-8 justify-items-center">
           {announces.map((item, index) => (
             <Item key={index} src={item.src} alt={item.alt}>
               {item.text}
@@ -37,7 +37,7 @@ function Item({ children, src, alt }: ItemProps) {
       <div className="w-full sm:w-36 sm:h-36">
         <Image src={src} alt={alt} width={200} height={200} className="w-full h-full object-contain p-2" />
       </div>
-      <p className="text-white whitespace-pre-line text-center sm:font-bold text-xs sm:text-base mt-1 sm:max-w-sm">
+      <p className="text-white whitespace-pre-line text-center font-bold sm:font-bold text-xs sm:text-base mt-1 sm:max-w-sm">
         {children}
       </p>
     </div>
