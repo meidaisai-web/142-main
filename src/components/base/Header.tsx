@@ -43,7 +43,7 @@ function CenterItems() {
     { href: "/search", src: "/images/svg/header/glass-white.svg", label: "企画を探す" },
   ]
   return (
-    <div className="flex justify-center gap-8 my-5">
+    <div className="w-full flex justify-center gap-8 my-5">
       {items.map(item => (
         <CenterItem key={item.href} href={item.href} src={item.src} label={item.label} />
       ))}
@@ -80,6 +80,7 @@ function HamburgerIcon({ isOpen, setOpen }: HamburgerIconProps) {
     <motion.button
       className="absolute cursor-pointer right-6 z-50"
       onClick={() => setOpen((v) => !v)}
+      initial="closed"
       animate={isOpen ? "open" : "closed"}
     >
       <motion.svg
