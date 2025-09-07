@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
 @import "tailwindcss";
 
 @theme {
   --color-primary: #B5364A;
+  --color-primary-trans: #B5364A7f;
   --color-primary-text: #EF9FAA;
   --color-secondary: #3571B8;
   --color-secondary-100: #D4F3E1;
@@ -18,6 +18,5 @@
   --color-background-loading: #fafdff;
 }
 
-.dela-font {
-  font-family: 'Dela Gothic One', sans-serif;
-}
+
+
