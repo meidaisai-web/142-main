@@ -2,7 +2,7 @@ import { Ad } from "./models/AdType";
 
 export const adData: Ad[] = [
     { url: "https://www.adachi-driving-school.com/", src: "/images/ad/adachi.jpg", id: "adachi" },//足立自動車学校
-    { url: "https://www.towaeng.co.jp/", src: "/images/ad/towa.jpg", id: "towa" },//東和エンジニアリング
+    { url: "https://www.towaeng.co.jp/", src: "/images/ad/towa.png", id: "towa" },//東和エンジニアリング
     { url: "https://www.axona-aichi.com/", src: "/images/ad/aichi.jpg", id: "aichi" },//愛知株式会社
     { url: "https://www.ginapartners.com/563252841732/internship-university-student?utm_source=meiji-festival&utm_medium=banner&utm_campaign=internship-abroad", src: "/images/ad/gina.jpg", id: "gina" },//Gina&Partners
     { url: "https://furisode-ichikura.jp/", src: "/images/ad/ichikura.jpg", id: "ichikura" },//株式会社一蔵
