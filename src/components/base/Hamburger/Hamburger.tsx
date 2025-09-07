@@ -11,6 +11,7 @@ export default function Hamburger({ isOpen }: HamburgerProps) {
     return (
         <motion.div
             className="absolute z-40 whitespace-nowrap m-0 bg-primary pt-18 top-0 right-0 origin-top-right"
+            initial="closed"
             animate={isOpen ? "open" : "closed"}
             transition={{
                 ease: "linear",

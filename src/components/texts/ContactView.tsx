@@ -11,7 +11,7 @@ type ContactViewProps = {
 
 export default function ContactView({ department, mail, showPhone, showAddress }: ContactViewProps) {
     return (
-        <div className="w-full flex flex-col items-center pb-10">
+        <div className="w-full flex flex-col items-center pb-10 pt-20">
             <p className="text-lg text-center py-5">
                 第141回明大祭実行委員会<br/>
                 {department}
