@@ -67,22 +67,22 @@ function FooterIconLinks() {
 	const iconLinks: FooterIconLinkProps[] = [
 		{
 			href: "https://www.instagram.com/meidaisai",
-			src: "/images/svg/Instagram_White.svg",
+			src: "/images/svg/sns/Instagram_White.svg",
 			alt: "Instagram",
 		},
 		{
 			href: "https://x.com/meidaisai",
-			src: "/images/svg/X-white.svg",
+			src: "/images/svg/sns/X-white.svg",
 			alt: "x",
 		},
 		{
 			href: "https://youtube.com/@meidaisainetpr",
-			src: "/images/svg/youtube-white.svg",
+			src: "/images/svg/sns/youtube-white.svg",
 			alt: "youtube",
 		},
 		{
 			href: "https://www.tiktok.com/@meidaisai_",
-			src: "/images/svg/TikTok.svg",
+			src: "/images/svg/sns/TikTok.svg",
 			alt: "TikTok",
 		},
 	];
