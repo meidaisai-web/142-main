@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme base {
+@theme {
   --color-primary: #B5364A;
   --color-primary-trans: #B5364A7f;
   --color-primary-text: #EF9FAA;
@@ -17,4 +17,6 @@
   --color-background: #fff7f9;
   --color-background-loading: #fafdff;
 }
+
+
 
