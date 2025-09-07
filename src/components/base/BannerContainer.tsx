@@ -2,19 +2,19 @@
 
 import { adData, smallAdData } from "@/utils/adData";
 import Banner from "./Banner";
-import { shuffleArray } from "@/utils/shuffleArray";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { shuffleArray } from "@/utils/arrayManager";
+import { useEffect, useState, useRef, useCallback, RefObject } from "react";
 import StickyBanner from "./StickyBanner";
-import { useGetElementProperty } from "@/models/useGetElementProperty";
-import { clickBanner } from "@/utils/clickBanner";
+import { useGetElementProperty } from "@/utils/useGetElementProperty";
+import { logEvent } from "@/utils/supabase/analytics";
 
 export default function BannerContainer() {
 
-    const ref = useRef(null);
-    const { getElementProperty } = useGetElementProperty<HTMLDivElement>(ref);
+    const ref = useRef<HTMLDivElement>(null);
+    const { getElementProperty } = useGetElementProperty<HTMLDivElement>(ref as RefObject<HTMLDivElement>);
 
-    const [shuffledAds, setShuffledAds] = useState(shuffleArray(adData));
-    const [shuffledSmallAds, setShuffledSmallAds] = useState(shuffleArray(smallAdData));
+    const [shuffledAds, setShuffledAds] = useState(adData);
+    const [shuffledSmallAds, setShuffledSmallAds] = useState(smallAdData);
 
     const [isBannerVisible, setIsBannerVisible] = useState(true);
 
@@ -22,29 +22,33 @@ export default function BannerContainer() {
         const newAds = [...adData]
         const newSmallAds = [...smallAdData]
         setShuffledAds(shuffleArray([...newAds]));
-        setShuffledSmallAds([...newSmallAds]);
+        setShuffledSmallAds(shuffleArray([...newSmallAds]));
     };
 
     function clickBanner1() {
-        clickBanner(shuffledAds[0].id, "long");
+        logEvent({ eventName: 'click_banner', eventData: shuffledAds[0].id, option: 'long' });
     }
     function clickBanner2() {
-        clickBanner(shuffledAds[1].id, "long");
+        logEvent({ eventName: 'click_banner', eventData: shuffledAds[1].id, option: 'long' });
     }
     function clickBanner3() {
-        clickBanner(shuffledAds[2].id, "long");
+        logEvent({ eventName: 'click_banner', eventData: shuffledAds[2].id, option: 'long' });
     }
     function clickBanner4() {
-        clickBanner(shuffledSmallAds[0].id, "short");
+        logEvent({ eventName: 'click_banner', eventData: shuffledSmallAds[0].id, option: 'short' });
     }
     function clickBanner5() {
-        clickBanner(shuffledSmallAds[1].id, "short");
+        logEvent({ eventName: 'click_banner', eventData: shuffledSmallAds[1].id, option: 'short' });
     }
     function clickBanner6() {
-        clickBanner(shuffledAds[0].id, "sticky");
+        logEvent({ eventName: 'click_banner', eventData: shuffledAds[0].id, option: 'sticky' });
     }
 
     useEffect(() => {
+        // 初回シャッフル
+        setShuffledAds(shuffleArray([...adData]));
+        setShuffledSmallAds(shuffleArray([...smallAdData]));
+        
         changeAds();
         const adsInterval = setInterval(() => {
             changeAds();
@@ -71,7 +75,7 @@ export default function BannerContainer() {
     }, [handleScroll]);
 
     return (
-        <div>
+        <div className="my-10">
             <div className="flex justify-center items-center">
                 {isBannerVisible && <div className="w-[100vw] flex justify-center" onClick={clickBanner6}><StickyBanner adData={shuffledAds[0]} /></div>}
             </div>

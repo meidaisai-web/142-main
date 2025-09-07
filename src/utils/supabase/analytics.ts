@@ -1,14 +1,24 @@
 import { createClient } from "./client";
 
-export async function logEvent(eventName: string, eventData: string) {
+type logEventProps = {
+    eventName: 'click_banner'
+    eventData: string,
+    option?: string
+}
+
+export async function logEvent({ eventName, eventData, option }: logEventProps) {
     const supabase = createClient();
-    const { data, error } = await supabase.from('Analytics').insert({
-        eventName: eventName,
-        eventData: eventData
+    const { error } = await supabase.from('Analytics').insert({
+        eventName,
+        eventData,
+        option
     })
+
     if (error) {
-        console.error('Error logging event:', error);
+        console.error('Error logging event:', error.message);
+        return false;
     } else {
-        console.log('Event logged successfully:', data);
+        console.log('Event logged successfully:', { eventName, eventData, option });
+        return true;
     }
 }
