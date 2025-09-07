@@ -3,6 +3,7 @@ import "./globals.css";
 import Head from "next/head";
 import ToTop from "@/components/buttons/ToTop";
 import { murecho } from "@/utils/fonts";
+import Base from "@/components/base/Base";
 
 export const metadata: Metadata = {
   title: {
@@ -60,8 +61,9 @@ export default function RootLayout({
       <body
         className={`antialiased bg-primary text-white ${murecho.className} font-normal`}
       >
-        {children}
-        <ToTop />
+        <Base>
+          {children}
+        </Base>
       </body>
     </html>
   );

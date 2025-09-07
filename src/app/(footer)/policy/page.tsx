@@ -1,4 +1,4 @@
-import PageContainer from "@/components/PageContainer";
+import PageContainer from "@/components/base/PageContainer";
 import { List, ListItem, ListText } from "@/components/texts/List";
 import PageTitle from "@/components/texts/PageTitle";
 import Text from "@/components/texts/Text";
