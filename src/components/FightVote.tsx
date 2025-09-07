@@ -76,7 +76,7 @@ const FightVote = () => {
     setIsSubmitting(true);
 
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from("FightVote")
         .insert([
           { first: selectedVote1, second: selectedVote2, last: selectedVote3 },

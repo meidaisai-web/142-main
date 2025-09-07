@@ -1,7 +1,6 @@
 import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
-import AccentText from "@/components/texts/AccentText"
 import PageContainer from "@/components/base/PageContainer"
 import ContactView from "@/components/texts/ContactView"
 import { List, ListItem } from "@/components/texts/List"
