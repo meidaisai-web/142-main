@@ -10,9 +10,7 @@ export default function Page() {
         <>
             <PageTitle>企業のみなさまへ</PageTitle>
             <PageContainer>
-
                 <SectionTitle>ご挨拶</SectionTitle>
-                <div className="w-full h-10"></div>
                 <Text className="mt-5">
                     第141回明大祭公式サイトをご覧いただき、誠にありがとうございます。
                 </Text>
@@ -28,17 +26,14 @@ export default function Page() {
                 </Text>
 
                 <SectionTitle>ご協賛金の使用用途</SectionTitle>
-                <div className="w-full h-10"></div>
                 <Text className="mt-5">
                     みなさまからいただいたご協賛金はステージ設営費や公式パンフレット制作費、装飾物製作費などの第141回明大祭運営費として使わせていただきます。
                 </Text>
                 <Text className="mt-5">
                     詳細につきましては、12月を目処にお送りする「開催報告書」や来春明大祭公式サイトに掲載される「第141回明大祭実行委員会最終決算報告」をご覧ください。
                     また何かご不明点などございましたら、下記の連絡先へお気軽にお問い合わせください。
-                </Text>  
-                
+                </Text>
                 <SectionTitle>ご来場の際のご案内</SectionTitle>
-                <div className="w-full h-10"></div>
                 <Text className="mt-5">
                    我々明大生の活動をお見せできる数少ない機会となりますので、ぜひご来場いただけますと幸いです。
                 </Text>
@@ -50,7 +45,6 @@ export default function Page() {
                 </Text>
 
                 <SectionTitle>来年度以降のご協賛のお願い</SectionTitle>
-                <div className="w-full h-10"></div>
                 <Text className="mt-5">
                    明大祭実行委員会では、企業のみなさまに明大祭へのご協賛のお願いさせていただいております。
                 </Text>
@@ -59,10 +53,9 @@ export default function Page() {
                 </Text>
                 <Text className="mt-5">
                 我々明大祭実行委員会一同、明大祭の成功と更なる発展を目指してまいりますので、ご理解ご協力賜りますよう、よろしくお願い申し上げます。
-                </Text>  
+                </Text>
 
                 <SectionTitle>ご協賛の方法</SectionTitle>
-                <div className="w-full h-10"></div>
                 <Text className="mt-5">
                   第141回明大祭では、以下の6つのご協賛方法を設けておりました。
                 </Text>
@@ -73,20 +66,19 @@ export default function Page() {
                     <ListItem>明大祭当日のブースの設置</ListItem>
                     <ListItem>メインステージに設置される大型ビジョンへの広告の放映</ListItem>
                     <ListItem>明大祭当日の企画における来場者への物品提供</ListItem>
-                </List> 
+                </List>
                 <Text className="mt-5">
                     ※以上の協賛方法は第141回明大祭でご案内させていただいたものです。
-                </Text>  
+                </Text>
                 <Text className="mt-5">
                     ご協賛方法は来年度変更となる可能性がございます。何卒ご了承ください。
-                </Text> 
+                </Text>
                 <Text className="mt-5">
                     上記の方法にて来年度のご協賛をご検討いただける企業のご担当者様には、本年度使用した資料を送付させていただきます。
-                </Text> 
+                </Text>
                 <Text className="mt-5">
                     上記以外の方法でのご協賛も検討いたしますので、お気軽に下記のお問い合わせ先までご連絡ください。
-                </Text> 
-                <div className="w-full h-60"></div>
+                </Text>
                 <ContactView department="渉外局界隈部門" mail="shogai@meidaisai.jp" showPhone showAddress />
             </PageContainer>
         </>
