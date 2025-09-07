@@ -1,7 +1,6 @@
 import Link from "next/link";
-import SectionTitle from "./SectionTitle";
 
-let phoneNumber = "03-3327-4363"
+const phoneNumber = "03-3327-4363"
 
 type ContactViewProps = {
     department: string;

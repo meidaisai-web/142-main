@@ -1,5 +1,4 @@
-import React, { ReactNode, CSSProperties, isValidElement, Children, cloneElement } from "react";
-import Text from "./Text";
+import React, { ReactNode, isValidElement, Children } from "react";
 
 // ListItemを子要素に持つことを想定
 // Listの中にListを入れ子にすることも可能
