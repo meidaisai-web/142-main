@@ -3,6 +3,7 @@ import "./globals.css";
 import Head from "next/head";
 import ToTop from "@/components/buttons/ToTop";
 import { murecho } from "@/utils/fonts";
+import Base from "@/components/base/Base";
 
 export const metadata: Metadata = {
   title: {
@@ -51,17 +52,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" className="text-[12px] md:text-[16px]">
       <Head>
         <meta name="referrer" content="origin" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <body
-        className={`antialiased bg-primary text-white text-sm sm:text-base lg:text-lg ${murecho.className}`}
+        className={`antialiased bg-primary text-white ${murecho.className} font-normal`}
       >
-        {children}
-        <ToTop />
+        <Base>
+          {children}
+        </Base>
       </body>
     </html>
   );
