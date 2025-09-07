@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BannerContainer from "./BannerContainer";
 
 export default function Footer() {
 	return (
@@ -7,7 +8,7 @@ export default function Footer() {
 			<FooterTop />
 			<div className="w-full bg-secondary pt-15 pb-10 flex flex-col items-center">
 				<Catch />
-				{/* TODO: ここにバナーが入る */}
+				<BannerContainer />
 				<FooterIconLinks />
 				<FooterLinks />
 				<Copyright />
