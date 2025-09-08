@@ -1,9 +1,9 @@
-import Loading from '@/components/Loading';
+import { div } from "framer-motion/client";
 
 export default function Home() {
   return (
     <div>
-      <Loading/>
+      
     </div>
   );
 }
