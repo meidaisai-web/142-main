@@ -12,31 +12,33 @@ export default function FireLoading() {
 
     // 初回表示・フェードアウト制御
     useEffect(() => {
-        setShow(true);
-        const fadeTimeout = setTimeout(() => setFadeout(true), 7000);
-        const hideTimeout = setTimeout(() => setShow(false), 7900);
+  const alreadyShown = sessionStorage.getItem("loadingShown");
 
-        return () => {
-            clearTimeout(fadeTimeout);
-            clearTimeout(hideTimeout);
-        };
-    }, []);
+  if (!alreadyShown) {
+    setShow(true);
+    sessionStorage.setItem("loadingShown", "true");
+
+    const fadeTimeout = setTimeout(() => setFadeout(true), 5500);
+    const hideTimeout = setTimeout(() => setShow(false), 6000);
+
+    return () => {
+      clearTimeout(fadeTimeout);
+      clearTimeout(hideTimeout);
+    };
+  } else {
+    setShow(false);
+  }
+}, []);
 
     // bounce → shockwave → complete の順で切り替え
     useEffect(() => {
-        const bounceTimer = setTimeout(() => setAnimationPhase("shockwave"), 1700);
-        const completeTimer = setTimeout(() => setAnimationPhase("complete"), 4500);
+        const bounceTimer = setTimeout(() => setAnimationPhase("shockwave"), 1000);
+        const completeTimer = setTimeout(() => setAnimationPhase("complete"), 4000);
 
         return () => {
             clearTimeout(bounceTimer);
             clearTimeout(completeTimer);
         };
-    }, []);
-
-    // ループ用（デモ用）
-    useEffect(() => {
-        const resetTimer = setInterval(() => setAnimationPhase("bounce"), 6000);
-        return () => clearInterval(resetTimer);
     }, []);
 
     if (!show) return null;
@@ -49,7 +51,7 @@ export default function FireLoading() {
             case "shockwave":
                 return { scale: [1, 1.3, 1.1], y: [0, -40, 0], rotate: 0, opacity: fadeout ? 0 : 1 };
             default:
-                return { scale: fadeout ? 0.5 : 1, y: 0, rotate: 0, opacity: fadeout ? 0 : 1 };
+                return { scale: 1, y: 0, rotate: 0, opacity: fadeout ? 0 : 1 };
         }
     })();
 
@@ -57,7 +59,7 @@ export default function FireLoading() {
         <motion.div
             initial={{ opacity: 1 }}
             animate={{ opacity: 0 }}
-            transition={{ duration: 1, delay: 7, ease: "easeOut" }}
+            transition={{ duration: 1, delay: 5, ease: "easeOut" }}
         >
             <div className="fixed z-50 w-screen h-screen overflow-hidden flex items-center justify-center bg-primary">
                 <div className="flex flex-col items-center justify-center gap-6 relative">
@@ -67,7 +69,7 @@ export default function FireLoading() {
                             className="absolute z-10 flex items-center justify-center"
                             initial={{ opacity: 1, scale: 0.1 }}
                             animate={{ ...logoAnimate, opacity: fadeout ? 0 : 1 }}
-                            transition={{ duration: animationPhase === "bounce" ? 1 : 0.6, opacity: { duration: 0.2, delay: animationPhase === "bounce" ? 1 : 0.6 }, delay: 0.1, ease: "easeInOut" }}
+                            transition={{ duration: animationPhase === "bounce" ? 0.6 : 0.6, opacity: { duration: 0.2, delay: animationPhase === "bounce" ? 1 : 0.6 }, delay: 0.1, ease: "easeInOut" }}
                         >
                             <Image
                                 src="/images/svg/LogoWhiteTop.svg"
@@ -82,7 +84,7 @@ export default function FireLoading() {
                             className="absolute z-10 flex items-center justify-center"
                             initial={{ opacity: 0 }}
                             animate={{ ...logoAnimate, opacity: fadeout ? 0 : 1 }}
-                            transition={{ duration: animationPhase === "bounce" ? 1 : 0.6, opacity: { duration: 1, delay: animationPhase === "bounce" ? 3.2 : 1.6 }, delay: 0.1, ease: "easeInOut" }}
+                            transition={{ duration: animationPhase === "bounce" ? 0.6 : 0.6, opacity: { duration: 1, delay: animationPhase === "bounce" ? 3.2 : 1.6 }, delay: 0.1, ease: "easeInOut" }}
                         >
                             <Image
                                 src="/images/svg/LogoTop.svg"
@@ -137,7 +139,7 @@ export default function FireLoading() {
                                     className="absolute"
                                     initial={{ scale: 0, opacity: 0 }}
                                     animate={{ scale: [0, (2 + ring * 1.2) * 0.7], opacity: [0, 0.9, 0] }}
-                                    transition={{ duration: 1.5, delay: ring * 0.3, ease: "easeOut" }}
+                                    transition={{ duration: 1.5, delay: 0.1 + ring * 0.3, ease: "easeOut" }}
                                 >
                                     <svg
                                         width={(80 + ring * 50) * 0.7}
@@ -163,7 +165,7 @@ export default function FireLoading() {
                 <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 12 }}
-                    transition={{ delay: 3, duration: 3, ease: "easeInOut" }}
+                    transition={{ delay: 2, duration: 3, ease: "easeInOut" }}
                     className="absolute size-96 bg-[#e1cccc] rounded-[50%]"
                 />
             </div>
