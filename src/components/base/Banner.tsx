@@ -1,5 +1,4 @@
 'use client'
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Ad } from '@/utils/models/AdType';
@@ -9,10 +8,7 @@ type BannerProps = {
     adData: Ad;
 };
 
-const basePath = '/assets/images/banners';
-
 export default function Banner({ type, adData }: BannerProps) {
-    const [isVisible, setIsVisible] = useState(true);
 
     const href = adData.url;
     const src = adData.src;
