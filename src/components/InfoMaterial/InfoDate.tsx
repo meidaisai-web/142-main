@@ -5,10 +5,8 @@ type InfoDateProps = {
 
 export default function InfoDate({ className, children }: InfoDateProps) {
   return (
-    <div className={`w-20 ${className}`}>
-      <h3 className="text-sm font-bold text-black">
-        {children}
-      </h3>
+    <div className={`w-20 text-sm font-bold text-black ${className}`}>
+      {children}
     </div>
   );
 }

@@ -1,24 +1,23 @@
 import React from "react";
-import InfoStamp from "./InfoStamp";
+import InfoStamp from "./InfoTags";
 import InfoDate from "./InfoDate";
 import InfoTitle from "./InfoTitle";
-import { InfomationItem } from "../Infomation";
+import { InformationItem } from "../../../InformationData";
 
 type InfoProps = {
-  item: InfomationItem;
+  item: InformationItem;
   isLast?: boolean;
-  isFirst?: boolean;
 };
 
-const Info = ({ item, isLast = false, isFirst = false }: InfoProps) => {
+const Info = ({ item, isLast = false }: InfoProps) => {
   return (
-    <div className={`${isFirst ? "pt-8" : ""}`}>
-      <div className="px-8 py-6 flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-        <div className="flex items-center gap-4">
+    <div>
+      <div className="px-8 py-6 flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
+        <div className="flex items-center">
           <InfoDate>{item.date}</InfoDate>
           <InfoStamp type={item.type} />
         </div>
-        <InfoTitle>{item.title}</InfoTitle>
+        <InfoTitle link={item.link}>{item.title}</InfoTitle>
       </div>
       {!isLast && <div className="bg-gray-300 h-[1px] mx-8" />}
     </div>
