@@ -75,7 +75,7 @@ export function List({ children, mark, numbered, alphabetic, className }: ListPr
                     listCount++;
                     // 子要素をコピーして、先頭にマークを追加
                     return (
-                        <li className="list-none flex items-start mb-1">
+                        <li className={`list-none flex items-start mb-1 ${numbered || alphabetic ? "ml-1" : ""}`}>
                             <span className="mr-1">{listMark(listCount)}</span>
                             <span>{child}</span>
                         </li>
@@ -85,7 +85,7 @@ export function List({ children, mark, numbered, alphabetic, className }: ListPr
                 if (isValidElement(child) && child.type === List) {
                     // Listコンポーネントが入れ子になっている場合、インデントを加える
                     return (
-                        <div className="ml-6">
+                        <div className={`${numbered || alphabetic ? 'ml-5' : 'ml-4'} mb-4`}>
                             {child}
                         </div>
                     )
@@ -94,7 +94,7 @@ export function List({ children, mark, numbered, alphabetic, className }: ListPr
                 // ListTextコンポーネントが使用された場合、文字に揃うようにインデント調整
                 if (isValidElement(child) && child.type === ListText) {
                     return (
-                        <div className={`ml-6 pb-4`}>
+                        <div className={`${numbered || alphabetic ? 'ml-5' : 'ml-4'} mb-4`}>
                             {child}
                         </div>
                     );
