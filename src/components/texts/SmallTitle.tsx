@@ -13,7 +13,7 @@ export default function SmallTitle({ className, children }: SmallTitleProps) {
                 alt=""
                 width={40}
                 height={40}
-                className="absolute -left-7 w-10 -z-10"
+                className="absolute -left-6 w-10 -z-10"
             />
             <h1 className="text-xl font-bold text-white">
                 {children}

@@ -35,8 +35,8 @@ function FooterTop() {
 
 function Catch() {
 	return (
-		<div className="flex justify-center mx-10">
-			<Image src="/images/svg/logo-title-concept-white.svg" alt="Logo" width={240} height={55} className="w-45 sm:w-60 h-auto" />
+		<div className="flex justify-center">
+			<Image src="/images/svg/logo-title-concept-white.svg" alt="Logo" width={240} height={55} className="w-72 sm:w-96 h-auto" />
 		</div>
 	)
 }

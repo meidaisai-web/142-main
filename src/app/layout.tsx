@@ -53,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="text-[12px] md:text-[16px]">
+    <html lang="ja" className="text-[14px] md:text-[16px] leading-7">
       <Head>
         <meta name="referrer" content="origin" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
