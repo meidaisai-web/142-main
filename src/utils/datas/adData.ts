@@ -1,4 +1,4 @@
-import { Ad } from "./models/AdType";
+import { Ad } from "../models/AdType";
 
 export const adData: Ad[] = [
     { url: "https://www.adachi-driving-school.com/", src: "/images/ad/adachi.jpg", id: "adachi" },//足立自動車学校
@@ -8,7 +8,7 @@ export const adData: Ad[] = [
     { url: "https://furisode-ichikura.jp/", src: "/images/ad/ichikura.jpg", id: "ichikura" },//株式会社一蔵
     { url: "https://www.fem-produce.co.jp/", src: "/images/ad/fem.jpg", id: "fem" },//フェム
     { url: "https://www.fbond.net", src: "/images/ad/kanda.jpg", id: "kanda" },//東京神田ゼミ
-    { url: "https://www.matsubarahifuka.com/", src: "/images/ad/matsubara.png", id: "matsubara" },//松原皮膚科
+    { url: "https://www.matsubarahifuka.com/", src: "/images/ad/matsubara.jpg", id: "matsubara" },//松原皮膚科
     { url: "https://cpa-net.jp/contact/request.php?utm_source=shanon&utm_medium=email&utm_campaign=2025_meidaisai", src: "/images/ad/cpa.jpg", id: "cpa" },//CPA
 ];
 
