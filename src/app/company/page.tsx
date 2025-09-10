@@ -81,7 +81,7 @@ export default function Page() {
                 <Text className="mt-5">
                     上記以外の方法でのご協賛も検討いたしますので、お気軽に下記のお問い合わせ先までご連絡ください。
                 </Text>
-                <ContactView department="渉外局界隈部門" mail="shogai@meidaisai.jp" showPhone showAddress />
+                <ContactView department="渉外局" mail="shogai@meidaisai.jp" showPhone showAddress />
             </PageContainer>
         </>
     )
