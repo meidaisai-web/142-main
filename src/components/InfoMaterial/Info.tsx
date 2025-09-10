@@ -1,3 +1,5 @@
+//日付、タグ、タイトルをまとめて表示するためのコンポーネントです。
+
 import React from "react";
 import InfoStamp from "./InfoTags";
 import InfoDate from "./InfoDate";
@@ -12,14 +14,14 @@ type InfoProps = {
 const Info = ({ item, isLast = false }: InfoProps) => {
   return (
     <div>
-      <div className="px-8 py-6 flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
-        <div className="flex items-center">
+      <div className="py-6 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+        <div className="flex items-center gap-3">
           <InfoDate>{item.date}</InfoDate>
           <InfoStamp type={item.type} />
         </div>
         <InfoTitle link={item.link}>{item.title}</InfoTitle>
       </div>
-      {!isLast && <div className="bg-gray-300 h-[1px] mx-8" />}
+      {!isLast && <div className="bg-gray-300 h-[1px]" />}
     </div>
   );
 };

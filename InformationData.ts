@@ -8,7 +8,7 @@ export type InformationItem = {
 };
 
 //お知らせの内容は以下に書いてください。
-//typeを変更するとtagの色も変わります。tagにつけられる名前はは重要、更新、お知らせの3つです。
+//typeを変更するとtagの色も変わります。typeがタグの名前になります。tagにつけられる名前は重要、更新、お知らせの3つです。
 export const InformationData: InformationItem[] = [
   {
     id: 1,
@@ -33,7 +33,7 @@ export const InformationData: InformationItem[] = [
   },
   {
     id: 4,
-    date: "2025.9.10",
+    date: "2025.10.28",
     type: "お知らせ",
     title: "新しいサービスを開始したっていう",
     link: "https://adgggggl3effhwdaf",
