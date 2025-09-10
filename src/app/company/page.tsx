@@ -62,9 +62,11 @@ export default function Page() {
                     <ListItem>メインステージに設置される大型ビジョンへの広告の放映</ListItem>
                     <ListItem>明大祭当日の企画における来場者への物品提供</ListItem>
                 </List>
-                <Text className="mt-5">
-                    ※以上の協賛方法は第141回明大祭でご案内させていただいたものです。
-                </Text>
+                <List mark="※">
+                    <ListItem>
+                    以上の協賛方法は第141回明大祭でご案内させていただいたものです。
+                    </ListItem>
+                </List>
                 <Text className="mt-5">
                     ご協賛方法は来年度変更となる可能性がございます。何卒ご了承ください。
                 </Text>
@@ -74,7 +76,7 @@ export default function Page() {
                 <Text className="mt-5">
                     上記以外の方法でのご協賛も検討いたしますので、お気軽に下記のお問い合わせ先までご連絡ください。
                 </Text>
-                <ContactView department="渉外局界隈部門" mail="shogai@meidaisai.jp" showPhone showAddress />
+                <ContactView department="渉外局" mail="shogai@meidaisai.jp" showPhone showAddress />
             </PageContainer>
         </>
     )
