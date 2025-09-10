@@ -1,8 +1,8 @@
-type InfoStampProps = {
+type NewsTagProps = {
   type: "重要" | "更新" | "お知らせ";
 };
 
-export default function InfoStamp({ type }: InfoStampProps) {
+export default function NewsTag({ type }: NewsTagProps) {
   const getBackgroundColor = () => {
     switch (type) {
       case "重要":

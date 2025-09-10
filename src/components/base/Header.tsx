@@ -21,7 +21,7 @@ export default function Header() {
     <header className="w-full bg-primary-trans flex justify-between items-center px-5 fixed opacity-100 h-18 z-50">
       <Link href="/" className="absolute left-5 z-50">
         <Image
-          src="/images/svg/logo-white.svg"
+          src="/images/svg/official/logo-white.svg"
           alt="Logo"
           width={40}
           height={40}

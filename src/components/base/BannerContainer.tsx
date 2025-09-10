@@ -1,6 +1,6 @@
 'use client'
 
-import { adData, smallAdData } from "@/utils/adData";
+import { adData, smallAdData } from "@/utils/datas/adData";
 import Banner from "./Banner";
 import { shuffleArray } from "@/utils/arrayManager";
 import { useEffect, useState, useRef, useCallback, RefObject } from "react";

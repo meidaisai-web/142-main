@@ -11,21 +11,21 @@ export default function HeroSection() {
         {/* 微妙にはみ出て白い線になってしまうことがあったため、ヒーローセクションの高さより少し小さくした白背景を追加 */}
         <div className="absolute -z-10 bg-white h-[calc(100vh-5.5rem)] w-full" />
         <Image
-          src="/images/svg/background-accent.svg"
+          src="/images/svg/heroSection/background-accent.svg"
           alt="Background Image"
           width={1920}
           height={1080}
           className="absolute w-[70vw] h-[50vh] object-fill z-0 min-w-[40rem] mr-[30vw]"
         />
         <Image
-          src="/images/svg/background-secondary.svg"
+          src="/images/svg/heroSection/background-secondary.svg"
           alt="Background Image"
           width={1920}
           height={1080}
           className="absolute w-[80vw] max-w-lg h-screen object-fill z-10 min-w-80"
         />
         <Image
-          src="/images/svg/background-primary.svg"
+          src="/images/svg/heroSection/background-primary.svg"
           alt="Background Image"
           width={1920}
           height={1080}
@@ -35,7 +35,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 flex flex-col z-30">
           <div className="w-[63vw] h-[30vh]">
             <Image
-              src="/images/svg/title.svg"
+              src="/images/svg/heroSection/title.svg"
               alt="第141回明大祭"
               width={1200}
               height={600}
@@ -45,7 +45,7 @@ export default function HeroSection() {
           <div className="relative transform translate-y-[1vh] translate-x-5 sm:-translate-x-12">
             {/* ロゴとコンセプト画像 */}
             <Image
-              src="/images/svg/logo-concept.svg"
+              src="/images/svg/official/logo-concept.svg"
               alt="熱狂の、その先へ。"
               width={1200}
               height={600}
@@ -53,7 +53,7 @@ export default function HeroSection() {
             />
             {/* ロゴだけ画像 */}
             <Image
-              src="/images/svg/logo.svg"
+              src="/images/svg/official/logo.svg"
               alt="第141回明大祭ロゴ"
               width={1200}
               height={600}
@@ -65,7 +65,7 @@ export default function HeroSection() {
         <div className="absolute w-3/5 max-w-80 flex flex-col items-end bottom-0 right-0">
           {/* 熱狂のその先へ（文字だけ）画像 */}
           <Image
-            src="/images/svg/concept.svg"
+            src="/images/svg/official/concept.svg"
             alt="熱狂の、その先へ。"
             width={1200}
             height={600}
@@ -83,14 +83,14 @@ function PlaceTime() {
     <div className="absolute z-30 bottom-[20vh] left-5 w-[33vw]">
       <div className="flex items-end mb-4">
         <Image
-          src="/images/svg/open.svg"
+          src="/images/svg/heroSection/open.svg"
           alt="開場"
           width={1200}
           height={600}
           className="flex w-[35%] max-w-20"
         />
         <Image
-          src="/images/svg/opentime.svg"
+          src="/images/svg/heroSection/opentime.svg"
           alt="10:00"
           width={1200}
           height={600}
@@ -99,7 +99,7 @@ function PlaceTime() {
       </div>
       <div>
         <Image
-          src="/images/svg/date.svg"
+          src="/images/svg/heroSection/date.svg"
           alt="2025年11月1日(土).2日(日).3日(月・祝) @明治大学和泉キャンパス"
           width={1200}
           height={600}
@@ -118,7 +118,7 @@ function AboutButton() {
           <div className='opacity-0 flex'>
             明大祭とは
             <Image
-              src="/images/svg/arrow.svg"
+              src="/images/svg/heroSection/arrow.svg"
               alt="Arrow Icon"
               width={60}
               height={60}
@@ -129,7 +129,7 @@ function AboutButton() {
         <div className={`flex items-center font-bold rounded-l-full hover:bg-accent-700 duration-100 bg-accent text-primary text-4xl py-3 pl-16 pr-24 relative z-10 ${delaGothic.className}`}>
           明大祭とは
           <Image
-            src="/images/svg/arrow.svg"
+            src="/images/svg/heroSection/arrow.svg"
             alt="Arrow Icon"
             width={60}
             height={60}
