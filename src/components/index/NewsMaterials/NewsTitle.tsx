@@ -1,9 +1,9 @@
-type InfoTitleProps = {
+type NewsTitleProps = {
   children: string;
   link?: string;
 };
 
-export default function InfoTitle({ children, link }: InfoTitleProps) {
+export default function NewsTitle({ children, link }: NewsTitleProps) {
   if (link) {
     return (
       <a href={link} className="text-sm font-bold text-black cursor-pointer">
