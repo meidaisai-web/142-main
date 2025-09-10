@@ -1,34 +1,32 @@
 'use client'
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useMediaQuery } from "@mui/material";
 import Image from "next/image";
 
 export default function FireLoading() {
     const [show, setShow] = useState(false);
     const [fadeout, setFadeout] = useState(false);
-    const isPC = useMediaQuery('(min-width: 900px)');
     const [animationPhase, setAnimationPhase] = useState<"bounce" | "shockwave" | "complete">("bounce");
 
     // 初回表示・フェードアウト制御
     useEffect(() => {
-  const alreadyShown = sessionStorage.getItem("loadingShown");
+        const alreadyShown = sessionStorage.getItem("loadingShown");
 
-  if (!alreadyShown) {
-    setShow(true);
-    sessionStorage.setItem("loadingShown", "true");
+        if (!alreadyShown) {
+            setShow(true);
+            sessionStorage.setItem("loadingShown", "true");
 
-    const fadeTimeout = setTimeout(() => setFadeout(true), 5500);
-    const hideTimeout = setTimeout(() => setShow(false), 6000);
+            const fadeTimeout = setTimeout(() => setFadeout(true), 5500);
+            const hideTimeout = setTimeout(() => setShow(false), 6000);
 
-    return () => {
-      clearTimeout(fadeTimeout);
-      clearTimeout(hideTimeout);
-    };
-  } else {
-    setShow(false);
-  }
-}, []);
+            return () => {
+                clearTimeout(fadeTimeout);
+                clearTimeout(hideTimeout);
+            };
+        } else {
+            setShow(false);
+        }
+    }, []);
 
     // bounce → shockwave → complete の順で切り替え
     useEffect(() => {
@@ -60,8 +58,9 @@ export default function FireLoading() {
             initial={{ opacity: 1 }}
             animate={{ opacity: 0 }}
             transition={{ duration: 1, delay: 5, ease: "easeOut" }}
+            className="fixed z-[60] w-screen h-screen overflow-hidden flex items-center justify-center bg-primary"
         >
-            <div className="fixed z-50 w-screen h-screen overflow-hidden flex items-center justify-center bg-primary">
+            <div className="flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center gap-6 relative">
                     {/* ロゴの跳ねアニメ */}
                     <div className="relative w-[275px] h-[220px] flex items-center justify-center">
@@ -69,7 +68,7 @@ export default function FireLoading() {
                             className="absolute z-10 flex items-center justify-center"
                             initial={{ opacity: 1, scale: 0.1 }}
                             animate={{ ...logoAnimate, opacity: fadeout ? 0 : 1 }}
-                            transition={{ duration: animationPhase === "bounce" ? 0.6 : 0.6, opacity: { duration: 0.2, delay: animationPhase === "bounce" ? 1 : 0.6 }, delay: 0.1, ease: "easeInOut" }}
+                            transition={{ duration: 0.6, opacity: { duration: 0.2, delay: animationPhase === "bounce" ? 1 : 0.6 }, delay: 0.1, ease: "easeInOut" }}
                         >
                             <Image
                                 src="/images/svg/LogoWhiteTop.svg"
@@ -84,7 +83,7 @@ export default function FireLoading() {
                             className="absolute z-10 flex items-center justify-center"
                             initial={{ opacity: 0 }}
                             animate={{ ...logoAnimate, opacity: fadeout ? 0 : 1 }}
-                            transition={{ duration: animationPhase === "bounce" ? 0.6 : 0.6, opacity: { duration: 1, delay: animationPhase === "bounce" ? 3.2 : 1.6 }, delay: 0.1, ease: "easeInOut" }}
+                            transition={{ duration: 0.6, opacity: { duration: 1, delay: animationPhase === "bounce" ? 3.2 : 1.6 }, delay: 0.1, ease: "easeInOut" }}
                         >
                             <Image
                                 src="/images/svg/LogoTop.svg"
@@ -95,7 +94,7 @@ export default function FireLoading() {
                             />
                         </motion.div>
                     </div>
-
+                    {/* ロゴの下のテキスト画像 */}
                     <div className="relative w-[250px] h-[60px] flex items-center justify-center">
                         <motion.div
                             className="absolute z-10 flex items-center justify-center"
@@ -160,8 +159,7 @@ export default function FireLoading() {
                         </>
                     )}
                 </AnimatePresence>
-
-
+                {/* 白い背景 */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 12 }}
@@ -170,6 +168,41 @@ export default function FireLoading() {
                 />
             </div>
         </motion.div>
-        
+    );
+}
+
+export function Loading() {
+    const [bounce, setBounce] = useState(true);
+
+    useEffect(() => {
+        const interval = setInterval(() => setBounce((prev) => !prev), 700);
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <div className="h-screen w-screen flex flex-col items-center justify-center">
+            <motion.div
+                animate={{
+                    scale: bounce ? [1, 1.15, 1] : [1, 1.1, 1],
+                    y: bounce ? [0, -18, 0] : [0, -12, 0],
+                    rotate: bounce ? [0, 6, -6, 0] : [0, 3, -3, 0],
+                }}
+                transition={{ duration: 0.7, ease: "easeInOut" }}
+            >
+                <Image
+                    src="/images/svg/LogoWhiteTop.svg"
+                    alt="Logo"
+                    width={250}
+                    height={250}
+                />
+            </motion.div>
+            <Image
+                src="/images/svg/LogoWhiteBottom.svg"
+                alt="Logo"
+                width={250}
+                height={250}
+                className="mt-4"
+            />
+        </div>
     );
 }
