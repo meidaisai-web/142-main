@@ -4,7 +4,6 @@ import Text from "@/components/texts/Text"
 import PageContainer from "@/components/base/PageContainer"
 import ContactView from "@/components/texts/ContactView"
 import { List, ListItem } from "@/components/texts/List"
-import { ListText } from "@/components/texts/List"
 export default function Page() {
     return (
         <>
