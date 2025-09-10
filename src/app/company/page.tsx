@@ -4,6 +4,7 @@ import Text from "@/components/texts/Text"
 import PageContainer from "@/components/base/PageContainer"
 import ContactView from "@/components/texts/ContactView"
 import { List, ListItem } from "@/components/texts/List"
+import { ListText } from "@/components/texts/List"
 export default function Page() {
     return (
         <>
@@ -66,9 +67,11 @@ export default function Page() {
                     <ListItem>メインステージに設置される大型ビジョンへの広告の放映</ListItem>
                     <ListItem>明大祭当日の企画における来場者への物品提供</ListItem>
                 </List>
-                <Text className="mt-5">
-                    ※以上の協賛方法は第141回明大祭でご案内させていただいたものです。
-                </Text>
+                <List mark="※">
+                    <ListItem>
+                    以上の協賛方法は第141回明大祭でご案内させていただいたものです。
+                    </ListItem>
+                </List>
                 <Text className="mt-5">
                     ご協賛方法は来年度変更となる可能性がございます。何卒ご了承ください。
                 </Text>
