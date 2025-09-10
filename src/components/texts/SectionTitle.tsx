@@ -11,7 +11,7 @@ export default function SectionTitle({ children, className }: SectionTitleProps)
         <div className={`w-full flex items-center justify-center pt-20 pb-2 ${className}`}>
             <div className="relative w-fit flex items-center justify-center">
                 <Image
-                    src="/images/svg/SectionTitleL.svg"
+                    src="/images/svg/title/SectionTitleL.svg"
                     alt=""
                     width={80}
                     height={80}
@@ -19,7 +19,7 @@ export default function SectionTitle({ children, className }: SectionTitleProps)
                 />
                 <h2 className="text-center font-bold text-2xl">{children}</h2>
                 <Image
-                    src="/images/svg/SectionTitleR.svg"
+                    src="/images/svg/title/SectionTitleR.svg"
                     alt=""
                     width={60}
                     height={60}

@@ -6,7 +6,7 @@ type TextProps = {
 
 export default function Text({ children, noTopPadding, className }: TextProps) {
     return (
-        <p className={`${noTopPadding ? "pt-0" : "pt-2"} ${className}`}>
+        <p className={`w-full text-justify ${noTopPadding ? "pt-0" : "pt-2"} ${className}`}>
             {children}
         </p>
     )

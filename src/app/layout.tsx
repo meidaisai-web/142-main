@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Head from "next/head";
-import ToTop from "@/components/buttons/ToTop";
 import { murecho } from "@/utils/fonts";
+import Base from "@/components/base/Base";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { googleTagManagerId } from "@/utils/gtm";
 
 export const metadata: Metadata = {
   title: {
@@ -51,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="text-[12px] md:text-[16px]">
+    <html lang="ja" className="text-[14px] md:text-[16px] leading-7">
       <Head>
         <meta name="referrer" content="origin" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -60,8 +62,13 @@ export default function RootLayout({
       <body
         className={`antialiased bg-primary text-white ${murecho.className} font-normal`}
       >
-        {children}
-        <ToTop />
+        <Base>
+          {children}
+        </Base>
+        {process.env.NEXT_PUBLIC_GA_ID &&
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        }
+        <GoogleTagManager gtmId={googleTagManagerId} />
       </body>
     </html>
   );

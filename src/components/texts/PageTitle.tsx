@@ -8,7 +8,7 @@ type PageTitleProps = {
 
 export default function PageTitle({ children, className = "" }: PageTitleProps) {
   return (
-    <div className={`px-9 md:px-15 pt-16 text-center pb-6 ${className}`}>
+    <div className={`px-9 md:px-15 pt-28 text-center ${className}`}>
       {/* タイトル本体 */}
       <div className={`relative inline-flex items-center justify-center gap-4 md:gap-8 text-white ${delaGothic.className}`}>
         {/* 中央のテキスト部分 */}

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BannerContainer from "./BannerContainer";
 
 export default function Footer() {
 	return (
@@ -7,7 +8,7 @@ export default function Footer() {
 			<FooterTop />
 			<div className="w-full bg-secondary pt-15 pb-10 flex flex-col items-center">
 				<Catch />
-				{/* TODO: ここにバナーが入る */}
+				<BannerContainer />
 				<FooterIconLinks />
 				<FooterLinks />
 				<Copyright />
@@ -34,8 +35,8 @@ function FooterTop() {
 
 function Catch() {
 	return (
-		<div className="flex justify-center mx-10">
-			<Image src="/images/svg/logo-title-concept-white.svg" alt="Logo" width={240} height={55} className="w-45 sm:w-60 h-auto" />
+		<div className="flex justify-center">
+			<Image src="/images/svg/logo-title-concept-white.svg" alt="Logo" width={240} height={55} className="w-72 sm:w-96 h-auto" />
 		</div>
 	)
 }
@@ -67,22 +68,22 @@ function FooterIconLinks() {
 	const iconLinks: FooterIconLinkProps[] = [
 		{
 			href: "https://www.instagram.com/meidaisai",
-			src: "/images/svg/Instagram_White.svg",
+			src: "/images/svg/sns/Instagram_White.svg",
 			alt: "Instagram",
 		},
 		{
 			href: "https://x.com/meidaisai",
-			src: "/images/svg/X-white.svg",
+			src: "/images/svg/sns/X-white.svg",
 			alt: "x",
 		},
 		{
 			href: "https://youtube.com/@meidaisainetpr",
-			src: "/images/svg/youtube-white.svg",
+			src: "/images/svg/sns/youtube-white.svg",
 			alt: "youtube",
 		},
 		{
 			href: "https://www.tiktok.com/@meidaisai_",
-			src: "/images/svg/TikTok.svg",
+			src: "/images/svg/sns/TikTok.svg",
 			alt: "TikTok",
 		},
 	];

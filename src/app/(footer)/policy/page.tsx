@@ -1,4 +1,4 @@
-import PageContainer from "@/components/PageContainer";
+import PageContainer from "@/components/base/PageContainer";
 import { List, ListItem, ListText } from "@/components/texts/List";
 import PageTitle from "@/components/texts/PageTitle";
 import Text from "@/components/texts/Text";
@@ -8,7 +8,7 @@ export default function Page() {
         <div>
             <PageTitle>プライバシーポリシー</PageTitle>
             <PageContainer>
-                <Text>第141回明大祭実行委員会（以下､当団体とする）は､第141回明大祭を実施・運営するうえで､個人情報に関する法令を遵守し､個人情報の適切な取り扱いに努めます｡</Text>
+                <Text className="mt-5">第141回明大祭実行委員会（以下､当団体とする）は､第141回明大祭を実施・運営するうえで､個人情報に関する法令を遵守し､個人情報の適切な取り扱いに努めます｡</Text>
                 <List numbered className="mt-10">
                     <ListItem>個人情報の取り扱い</ListItem>
                     <ListText>当団体は、以下の目的の範囲内で個人情報を取り扱います。</ListText>

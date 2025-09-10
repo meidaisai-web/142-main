@@ -11,7 +11,7 @@ type ContactViewProps = {
 
 export default function ContactView({ department, mail, showPhone, showAddress }: ContactViewProps) {
     return (
-        <div className="w-full flex flex-col items-center pb-10">
+        <div className="w-full flex flex-col items-center pb-10 pt-20">
             <p className="text-lg text-center py-5">
                 第141回明大祭実行委員会<br/>
                 {department}
@@ -81,7 +81,7 @@ function Base({ children }: { children: React.ReactNode }) {
                     {children}
                 </div>
             </div>
-            <div className="relative bg-white w-80 md:w-72 lg:w-80 py-10 px-10 md:px-6 lg:px-10 rounded-2xl outline-8 outline-accent outline-solid">
+            <div className="relative bg-background w-80 md:w-72 lg:w-80 py-10 px-10 md:px-6 lg:px-10 rounded-2xl outline-8 outline-accent outline-solid">
                 <div className="text-black">
                     {children}
                 </div>
