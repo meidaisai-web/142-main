@@ -34,35 +34,34 @@ export default function HeroSection() {
           height={1080}
           className="absolute w-full h-[40%] bottom-0 object-fill z-20"
         />
-
-        <div className="absolute inset-0 flex flex-col z-30">
-          <div className="w-[63vw] h-[30vh]">
-            <Image
-              src="/images/svg/heroSection/title.svg"
-              alt="第141回明大祭"
-              width={1200}
-              height={600}
-              className="absolute ml-20 mt-10 w-64 min-[500px]:w-[45vw] md:w-[45vw] max-w-2xl"
-            />
-          </div>
-          <div className="relative transform translate-y-[1vh] translate-x-5 sm:-translate-x-12">
-            {/* ロゴとコンセプト画像 */}
-            <Image
-              src="/images/svg/official/logo-concept.svg"
-              alt="熱狂の、その先へ。"
-              width={1200}
-              height={600}
-              className="absolute right-0 hidden sm:block w-[60vw]"
-            />
-            {/* ロゴだけ画像 */}
-            <Image
-              src="/images/svg/official/logo.svg"
-              alt="第141回明大祭ロゴ"
-              width={1200}
-              height={600}
-              className="absolute w-[48vw] ml-[35vw] transform translate-x-10 -translate-y-6 sm:hidden object-contain"
-            />
-          </div>
+        <div className="w-[63vw] h-[30vh]">
+          <Image
+            src="/images/svg/heroSection/title.svg"
+            alt="第141回明大祭"
+            width={1200}
+            height={600}
+            className="absolute ml-20 mt-10 w-64 min-[500px]:w-[45vw] md:w-[45vw] max-w-2xl"
+          />
+        </div>
+        <div className="relative transform translate-y-[1vh] translate-x-5 sm:-translate-x-12">
+          {/* ロゴとコンセプト画像 */}
+          <Image
+            src="/images/svg/official/logo-concept.svg"
+            alt="熱狂の、その先へ。"
+            width={1200}
+            height={600}
+            className="absolute right-0 hidden sm:block w-[60vw]"
+          />
+        </div>
+        {/* ロゴだけ画像 */}
+        <div className="absolute w-screen h-screen flex items-center justify-end top-0">
+          <Image
+            src="/images/svg/official/logo.svg"
+            alt="第141回明大祭ロゴ"
+            width={1200}
+            height={600}
+            className="w-[48vw] ml-[35vw] max-w-72 max-h-[40vh] mr-[10vw] transform -translate-y-12 sm:hidden object-contain"
+          />
         </div>
         <PlaceTime />
         <div className="absolute w-3/5 max-w-80 flex flex-col items-end bottom-0 right-0">
@@ -72,7 +71,7 @@ export default function HeroSection() {
             alt="熱狂の、その先へ。"
             width={1200}
             height={600}
-            className="relative w-4/5 right-0 sm:hidden z-30 mr-5"
+            className="relative w-[70%] right-0 sm:hidden z-30 mr-5"
           />
           <AboutButton />
         </div>
