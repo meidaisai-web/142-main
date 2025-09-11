@@ -65,7 +65,7 @@ export default function FireLoading({ setLoading }: FireLoadingProps) {
             initial={{ opacity: 1 }}
             animate={{ opacity: 0 }}
             transition={{ duration: 1, delay: 5, ease: "easeOut" }}
-            className="fixed z-[60] w-screen h-screen overflow-hidden flex items-center justify-center bg-primary"
+            className="fixed top-0 z-[60] w-screen h-screen overflow-hidden flex items-center justify-center bg-primary"
         >
             <div className="flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center gap-6 relative">

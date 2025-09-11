@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div>
       <FireLoading setLoading={setIsLoading} />
-      {!isLoading && <Contents />}
+      {!isLoading ? <Contents /> : <div className="h-screen w-screen bg-primary fixed top-0 z-50" />}
     </div>
   );
 }
