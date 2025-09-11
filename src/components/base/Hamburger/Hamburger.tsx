@@ -71,7 +71,7 @@ function HamburgerSP() {
     return (
         <div className="sm:hidden px-10 pt-5">
             <HamburgerTopButton />
-            <div className="flex flex-col gap-10 pt-15">
+            <div className="flex flex-col gap-10 py-15">
                 {hamburgerContents.map((section) => (
                     <HamburgerAccordion
                         key={section.title}
@@ -82,6 +82,7 @@ function HamburgerSP() {
                     />
                 ))}
             </div>
+            <SecondaryButton href="/about" className="mb-10">明大祭とは</SecondaryButton>
         </div>
     )
 }
@@ -95,7 +96,7 @@ function HamburgerPC() {
                     <HamburgerSection key={section.title} {...section} />
                 ))}
             </div>
-            <SecondaryButton href="/about" className="mt-20">明大祭について</SecondaryButton>
+            <SecondaryButton href="/about" className="mt-20">明大祭とは</SecondaryButton>
         </div>
     )
 }
