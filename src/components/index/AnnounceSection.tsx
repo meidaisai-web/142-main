@@ -36,11 +36,7 @@ function Item({ children, src, alt }: ItemProps) {
       <div className="w-full max-w-36 sm:w-36 sm:h-36">
         <Image src={src} alt={alt} width={200} height={200} className="w-full h-full object-contain p-2" />
       </div>
-<<<<<<< HEAD:src/components/AnnounceSection.tsx
-      <p className="text-white whitespace-pre-line text-center font-bold sm:font-bold text-xs sm:text-base mt-1 sm:max-w-sm">
-=======
       <p className="text-white whitespace-pre-line text-center font-bold text-xs sm:text-base mt-1 sm:max-w-sm">
->>>>>>> develop:src/components/index/AnnounceSection.tsx
         {children}
       </p>
     </div>
