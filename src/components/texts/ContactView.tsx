@@ -1,22 +1,23 @@
 import Link from "next/link";
 
-let phoneNumber = "03-3327-4363"
+const phoneNumber = "03-3327-4363"
 
 type ContactViewProps = {
     department: string;
     mail: string;
     showPhone?: boolean;
+    showAddress?: boolean;
 };
 
-export default function ContactView({ department, mail, showPhone }: ContactViewProps) {
+export default function ContactView({ department, mail, showPhone, showAddress }: ContactViewProps) {
     return (
-        <div className="w-full flex flex-col items-center">
+        <div className="w-full flex flex-col items-center pb-10 pt-20">
             <p className="text-lg text-center py-5">
                 第141回明大祭実行委員会<br/>
                 {department}
             </p>
             <div className="flex flex-col sm:flex-row items-center">
-                <Address />
+                {showAddress && <Address />}
                 {showPhone ? <MailPhone mail={mail} /> : <Mail mail={mail} />}
             </div>
         </div>
@@ -75,12 +76,12 @@ function MailPhone({ mail }: { mail: string; }) {
 function Base({ children }: { children: React.ReactNode }) {
     return (
         <div className="m-6">
-            <div className="absolute w-80 p-10 rounded-2xl outline-8 outline-secondary outline-solid rotate-5">
+            <div className="absolute w-80 md:w-72 lg:w-80 py-10 px-10 md:px-6 lg:px-10 rounded-2xl outline-8 outline-secondary outline-solid rotate-5">
                 <div className="opacity-0">
                     {children}
                 </div>
             </div>
-            <div className="relative bg-white w-80 p-10 rounded-2xl outline-8 outline-accent outline-solid">
+            <div className="relative bg-background w-80 md:w-72 lg:w-80 py-10 px-10 md:px-6 lg:px-10 rounded-2xl outline-8 outline-accent outline-solid">
                 <div className="text-black">
                     {children}
                 </div>

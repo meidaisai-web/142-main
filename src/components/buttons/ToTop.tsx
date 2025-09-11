@@ -55,16 +55,15 @@ const ToTop: React.FC = () => {
             <button
                 onClick={scrollToTop}
                 style={style}
-                className='fixed flex flex-col items-center right-4 sm:right-8 md:right-12 bottom-8 md:bottom-12 w-12 z-30'>
+                className='fixed flex flex-col items-center right-8 md:right-12 bottom-28 md:bottom-20 w-18 z-30'>
                 <Image
-                    className="w-3/4 sm:w-full object-contain"
-                    onClick={scrollToTop}
-                    src="/images/svg/Topbutton.svg"
+                    className="w-3/4 object-contain"
+                    src="/images/svg/ToTop.svg"
                     alt="Topへ戻る"
                     width={50}
                     height={50}
                 />
-                <p className={'w-full text-center font-bold'}>TOP</p>
+                <p className={'w-full text-center font-bold text-xl leading-3 stroke-black'}>TOP</p>
             </button>
         </div>
     );
