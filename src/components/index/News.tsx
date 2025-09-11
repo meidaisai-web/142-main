@@ -1,8 +1,8 @@
 import React from "react";
 import Button from "../buttons/Button";
-import NewsItem from "./NewsMaterials/NewsItem";
 import { NewsData } from "@/utils/datas/NewsData";
 import IndexTitle from "../texts/IndexTitle";
+import NewsItem from "./NewsMaterials/NewsItem";
 
 
 export default function News() {
@@ -16,17 +16,18 @@ export default function News() {
 };
 
 function Contents() {
+  const showData = NewsData.slice(0, 4)
   return (
     <div className="mt-10 px-8 bg-white rounded-4xl w-full max-w-2xl overflow-hidden">
       <div className="py-4">
-        {NewsData.map((item, index) => (
+        {showData.map((item, index) => (
           <NewsItem
             key={item.id}
             item={item}
-            isLast={index === NewsData.length - 1}
+            isLast={index === showData.length - 1}
           />
         ))}
       </div>
     </div>
   )
-}
+};

@@ -1,6 +1,5 @@
 //日付、タグ、タイトルをまとめて表示するためのコンポーネントです。
 
-import React from "react";
 import NewsTag from "./NewsTag";
 import NewsTitle from "./NewsTitle";
 import NewsDate from "./NewsDate";
