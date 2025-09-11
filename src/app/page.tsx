@@ -1,16 +1,18 @@
+'use client';
+
 import FireLoading from "@/components/base/Loading";
 import AnnounceSection from "@/components/index/AnnounceSection";
 import HeroSection from "@/components/index/HeroSection";
 import News from "@/components/index/News";
 import Rainbow from "@/components/index/Rainbow";
-
+import { useState } from "react";
 
 export default function Home() {
-
+  const [isLoading, setIsLoading] = useState(true);
   return (
     <div>
-      <FireLoading />
-      <Contents />
+      <FireLoading setLoading={setIsLoading} />
+      {!isLoading ? <Contents /> : <div className="h-screen w-screen bg-primary fixed top-0 z-50" />}
     </div>
   );
 }

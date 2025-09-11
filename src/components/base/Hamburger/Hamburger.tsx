@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import HamburgerTitle from "./HamburgerTitle";
 import SecondaryButton from "@/components/buttons/SecondaryButton";
+import HamburgerLink from "./HamburgerLink";
+import { HamburgerAccordion } from "./HamburgerAccordion";
+import { useState } from "react";
 
 interface HamburgerProps {
     isOpen: boolean;
@@ -40,7 +43,7 @@ export default function Hamburger({ isOpen }: HamburgerProps) {
     )
 }
 
-const HamburgerContents: HamburgerSectionProps[] = [
+const hamburgerContents: HamburgerSectionProps[] = [
     {
         title: "特集",
         content: [
@@ -60,9 +63,26 @@ const HamburgerContents: HamburgerSectionProps[] = [
 ]
 
 function HamburgerSP() {
+    const [openId, setOpenId] = useState<number | null>(null); // 開いているアコーディオンのIDを管理
+
+    const toggleAccordion = (id: number) => {
+        setOpenId(prev => (prev === id ? null : id)); // 開閉のトグル
+    };
     return (
         <div className="sm:hidden px-10 pt-5">
             <HamburgerTopButton />
+            <div className="flex flex-col gap-10 py-15">
+                {hamburgerContents.map((section) => (
+                    <HamburgerAccordion
+                        key={section.title}
+                        isOpen={openId === hamburgerContents.indexOf(section)}
+                        onClick={() => toggleAccordion(hamburgerContents.indexOf(section))}
+                        title={section.title}
+                        hamburgerContent={section.content.map(item => ({ title: item.label, href: item.href }))}
+                    />
+                ))}
+            </div>
+            <SecondaryButton href="/about" className="mb-10">明大祭とは</SecondaryButton>
         </div>
     )
 }
@@ -72,11 +92,11 @@ function HamburgerPC() {
         <div className="hidden sm:block px-16 pt-5">
             <HamburgerTopButton />
             <div className="flex flex-wrap justify-center gap-20 pt-5">
-                {HamburgerContents.map((section) => (
+                {hamburgerContents.map((section) => (
                     <HamburgerSection key={section.title} {...section} />
                 ))}
             </div>
-            <SecondaryButton href="/about" className="mt-20">明大祭について</SecondaryButton>
+            <SecondaryButton href="/about" className="mt-20">明大祭とは</SecondaryButton>
         </div>
     )
 }
@@ -98,9 +118,7 @@ function HamburgerSection({ title, content }: HamburgerSectionProps) {
             <HamburgerTitle>{title}</HamburgerTitle>
             <div className="flex flex-col gap-4 pt-4">
                 {content.map((item) => (
-                    <Link key={item.href} href={item.href} className="border-b border-transparent hover:border-white w-fit">
-                        {item.label}
-                    </Link>
+                    <HamburgerLink key={item.href} href={item.href}>{item.label}</HamburgerLink>
                 ))}
             </div>
         </div>
