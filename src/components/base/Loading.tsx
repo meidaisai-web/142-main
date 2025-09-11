@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
-export default function FireLoading() {
+interface FireLoadingProps {
+    setLoading: (finished: boolean) => void;
+}
+
+export default function FireLoading({ setLoading }: FireLoadingProps) {
     const [show, setShow] = useState(false);
     const [fadeout, setFadeout] = useState(false);
     const [animationPhase, setAnimationPhase] = useState<"bounce" | "shockwave" | "complete">("bounce");
@@ -31,7 +35,10 @@ export default function FireLoading() {
     // bounce → shockwave → complete の順で切り替え
     useEffect(() => {
         const bounceTimer = setTimeout(() => setAnimationPhase("shockwave"), 1000);
-        const completeTimer = setTimeout(() => setAnimationPhase("complete"), 4000);
+        const completeTimer = setTimeout(() => {
+            setLoading(false);
+            setAnimationPhase("complete")
+        }, 4000);
 
         return () => {
             clearTimeout(bounceTimer);
