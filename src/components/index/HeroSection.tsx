@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { delaGothic } from "@/utils/fonts";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
@@ -122,19 +125,32 @@ function AboutButton() {
               alt="Arrow Icon"
               width={60}
               height={60}
-              className="ml-5 sm:ml-10 w-8 min-[375px]:w-10"
+              className="ml-5 sm:ml-7 w-8 min-[375px]:w-10"
             />
           </div>
         </div>
         <div className={`flex items-center font-bold rounded-l-full hover:bg-accent-700 duration-100 bg-accent text-primary text-4xl py-3 pl-16 pr-24 relative z-10 ${delaGothic.className}`}>
           明大祭とは
-          <Image
-            src="/images/svg/heroSection/arrow.svg"
-            alt="Arrow Icon"
-            width={60}
-            height={60}
-            className="ml-5 sm:ml-10 w-8 min-[375px]:w-10"
-          />
+          <AnimatePresence>
+            <motion.div
+              initial={{ x: 0 }}
+              animate={{ x: [-5, 10, -5] }}
+              transition={{
+                repeat: Infinity,
+                duration: 1,
+                ease: "easeInOut"
+              }}
+              className="w-8 min-[375px]:w-10"
+            >
+              <Image
+                src="/images/svg/heroSection/arrow.svg"
+                alt="Arrow Icon"
+                width={60}
+                height={60}
+                className="ml-5 sm:ml-7 w-8 min-[375px]:w-10"
+              />
+            </motion.div>
+          </AnimatePresence>
         </div>
       </Link>
     </div>

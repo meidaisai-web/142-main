@@ -71,7 +71,7 @@ export default function FireLoading() {
                             transition={{ duration: 0.6, opacity: { duration: 0.2, delay: animationPhase === "bounce" ? 1 : 0.6 }, delay: 0.1, ease: "easeInOut" }}
                         >
                             <Image
-                                src="/images/svg/LogoWhiteTop.svg"
+                                src="/images/svg/official/logoWhiteTop.svg"
                                 alt="Logo"
                                 width={250}
                                 height={250}
@@ -86,7 +86,7 @@ export default function FireLoading() {
                             transition={{ duration: 0.6, opacity: { duration: 1, delay: animationPhase === "bounce" ? 3.2 : 1.6 }, delay: 0.1, ease: "easeInOut" }}
                         >
                             <Image
-                                src="/images/svg/LogoTop.svg"
+                                src="/images/svg/official/logoTop.svg"
                                 alt="Logo"
                                 width={250}
                                 height={250}
@@ -103,7 +103,7 @@ export default function FireLoading() {
                             transition={{ duration: 4, delay: 3, ease: "easeOut" }}
                         >
                             <Image
-                                src="/images/svg/LogoWhiteBottom.svg"
+                                src="/images/svg/official/logoWhiteBottom.svg"
                                 alt="Logo"
                                 width={250}
                                 height={250}
@@ -118,7 +118,7 @@ export default function FireLoading() {
                             transition={{ duration: 1, delay: 3, ease: "easeIn" }}
                         >
                             <Image
-                                src="/images/svg/LogoBottom.svg"
+                                src="/images/svg/official/logoBottom.svg"
                                 alt="Logo"
                                 width={250}
                                 height={250}
@@ -190,14 +190,14 @@ export function Loading() {
                 transition={{ duration: 0.7, ease: "easeInOut" }}
             >
                 <Image
-                    src="/images/svg/LogoWhiteTop.svg"
+                    src="/images/svg/official/logoWhiteTop.svg"
                     alt="Logo"
                     width={250}
                     height={250}
                 />
             </motion.div>
             <Image
-                src="/images/svg/LogoWhiteBottom.svg"
+                src="/images/svg/official/logoWhiteBottom.svg"
                 alt="Logo"
                 width={250}
                 height={250}
