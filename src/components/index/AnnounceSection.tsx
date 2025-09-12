@@ -4,7 +4,7 @@ import IndexTitle from "@/components/texts/IndexTitle";
 
 export default function AnnounceSection() {
   const announces = [
-    { src: "/images/svg/announce/keepout.svg", alt: "立ち入り禁止", text: "立ち入り禁止\nエリアあり" },
+    { src: "/images/svg/announce/keepout.svg", alt: "立ち入り禁止", text: "立ち入り禁止エリアあり" },
     { src: "/images/svg/announce/no-hate.svg", alt: "ヘイトスピーチ禁止", text: "SNS上での誹謗・中傷禁止" },
     { src: "/images/svg/announce/no-pet.svg", alt: "ペット禁止", text: "ペット同伴禁止\n(補助犬を除く)" },
     { src: "/images/svg/announce/no-activity.svg", alt: "活動禁止", text: "無許可活動禁止" },
