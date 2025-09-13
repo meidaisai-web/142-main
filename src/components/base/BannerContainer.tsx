@@ -6,8 +6,6 @@ import { shuffleArray } from "@/utils/arrayManager";
 import { useEffect, useState, useRef, useCallback, RefObject } from "react";
 import StickyBanner from "./StickyBanner";
 import { useGetElementProperty } from "@/utils/useGetElementProperty";
-import { logEvent } from "@/utils/supabase/analytics";
-import { sendClickBanner } from "@/utils/gtm";
 
 export default function BannerContainer() {
 
@@ -25,31 +23,6 @@ export default function BannerContainer() {
         setShuffledAds(shuffleArray([...newAds]));
         setShuffledSmallAds(shuffleArray([...newSmallAds]));
     };
-
-    // function clickBanner1() {
-    //     logEvent({ eventName: 'click_banner', eventData: shuffledAds[0].id, option: 'long' });
-    //     sendClickBanner(shuffledAds[0].id);
-    // }
-    // function clickBanner2() {
-    //     logEvent({ eventName: 'click_banner', eventData: shuffledAds[1].id, option: 'long' });
-    //     sendClickBanner(shuffledAds[1].id);
-    // }
-    // function clickBanner3() {
-    //     logEvent({ eventName: 'click_banner', eventData: shuffledAds[2].id, option: 'long' });
-    //     sendClickBanner(shuffledAds[2].id);
-    // }
-    // function clickBanner4() {
-    //     logEvent({ eventName: 'click_banner', eventData: shuffledSmallAds[0].id, option: 'short' });
-    //     sendClickBanner(shuffledSmallAds[0].id);
-    // }
-    // function clickBanner5() {
-    //     logEvent({ eventName: 'click_banner', eventData: shuffledSmallAds[1].id, option: 'short' });
-    //     sendClickBanner(shuffledSmallAds[1].id);
-    // }
-    // function clickBanner6() {
-    //     logEvent({ eventName: 'click_banner', eventData: shuffledAds[0].id, option: 'sticky' });
-    //     sendClickBanner(shuffledAds[0].id);
-    // }
 
     useEffect(() => {
         // 初回シャッフル

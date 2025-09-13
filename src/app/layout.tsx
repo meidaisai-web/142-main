@@ -4,7 +4,7 @@ import Head from "next/head";
 import { murecho } from "@/utils/fonts";
 import Base from "@/components/base/Base";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import { googleTagManagerId } from "@/utils/gtm";
+import { googleTagManagerId, googleAnalyticsId } from "@/utils/managers/analyticsManager";
 
 export const metadata: Metadata = {
   title: {
@@ -66,7 +66,7 @@ export default function RootLayout({
           {children}
         </Base>
       </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
+      <GoogleAnalytics gaId={googleAnalyticsId} />
       <GoogleTagManager gtmId={googleTagManagerId} />
     </html>
   );
