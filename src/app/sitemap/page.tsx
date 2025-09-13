@@ -29,7 +29,7 @@ export default function SitemapPage() {
         <div className="flex flex-wrap gap-4">
           <TransitionLink href="company">企業のみなさまへ</TransitionLink>
           <TransitionLink href="/area">界隈地域のみなさまへ</TransitionLink>
-          <TransitionLink href="/alumni">交友のみなさまへ</TransitionLink>
+          <TransitionLink href="/alumni">校友のみなさまへ</TransitionLink>
           <TransitionLink href="/media">メディアのみなさまへ</TransitionLink>
         </div>
 
