@@ -85,19 +85,17 @@ export default function BannerContainer() {
             <div className="flex justify-center items-center">
                 {isBannerVisible && <div className="w-screen flex justify-center" id='sticky_banner'><StickyBanner adData={shuffledAds[0]} /></div>}
             </div>
-
             <section className='w-[80vw] mx-auto flex flex-col items-center gap-6'>
                 <div className="flex flex-col gap-6 items-center  lg:flex-row lg:flex-wrap lg:justify-center max-w-[1000px]" ref={ref}>
-                    <div><Banner type="long" adData={shuffledAds[0]} /></div>
-                    <div><Banner type="long" adData={shuffledAds[1]} /></div>
-                    <div><Banner type="long" adData={shuffledAds[2]} /></div>
+                    <Banner type="long" adData={shuffledAds[0]} />
+                    <Banner type="long" adData={shuffledAds[1]} />
+                    <Banner type="long" adData={shuffledAds[2]} />
                     <div className="flex gap-6 justify-center">
-                        <div><Banner type='short' adData={shuffledSmallAds[0]} /></div>
-                        <div><Banner type='short' adData={shuffledSmallAds[1]} /></div>
+                        <Banner type='short' adData={shuffledSmallAds[0]} />
+                        <Banner type='short' adData={shuffledSmallAds[1]} />
                     </div>
                 </div>
             </section>
         </div>
-
     );
 }
