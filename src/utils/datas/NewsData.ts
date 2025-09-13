@@ -38,4 +38,25 @@ export const NewsData: NewsItem[] = [
     title: "新しいサービスを開始したっていう",
     link: "https://adgggggl3effhwdaf",
   },
+  {
+    id: 5,
+    date: "2025.10.28",
+    type: "お知らせ",
+    title: "新しいサービスを開始したっていう",
+    link: "https://adgggggl3effhwdaf",
+  },
+  {
+    id: 6,
+    date: "2025.10.28",
+    type: "お知らせ",
+    title: "新しいサービスを開始したっていう",
+    link: "https://adgggggl3effhwdaf",
+  },
+  {
+    id: 7,
+    date: "2025.10.28",
+    type: "お知らせ",
+    title: "新しいサービスを開始したっていう",
+    link: "https://adgggggl3effhwdaf",
+  },
 ];

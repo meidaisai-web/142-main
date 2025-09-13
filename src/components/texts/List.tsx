@@ -40,7 +40,7 @@ interface ListTextProps {
 }
 
 export function ListText({ children, className }: ListTextProps) {
-    return <p className={className}>{children}</p>;
+    return <div className={className}>{children}</div>;
 }
 
 // List コンポーネント
