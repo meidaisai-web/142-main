@@ -70,7 +70,7 @@ function MailPhone({ mail }: { mail: string; }) {
                         {phoneNumber}
                     </p>
                 </Link>
-                <p className="text-center text-xs">※開室時間：11:00〜18:00（平日のみ）</p>
+                <p className="text-center text-xs">※開室時間：11：00〜18：00（平日のみ）</p>
             </div>
         </Base>
     )
