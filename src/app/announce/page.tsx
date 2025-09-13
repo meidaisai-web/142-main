@@ -2,8 +2,8 @@ import PageContainer from "@/components/base/PageContainer"
 import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
-import RuleItem from "@/components/texts/RuleItem"
-import { List } from "@/components/texts/List"
+import { List, ListItem } from "@/components/texts/List"
+import SmallTitle from "@/components/texts/SmallTitle"
 
 const page = () => {
 
@@ -76,19 +76,13 @@ const page = () => {
             <PageTitle>ご来場のみなさまへ</PageTitle>
             <PageContainer>
 
-                <div className="m-10" />
-
-                <SectionTitle>
+                <SectionTitle className="m-10">
                     ご来場のみなさまへのお願い
                 </SectionTitle>
 
-                <div className="m-10" />
-
-                <Text>
+                <Text className="m-10">
                     第141回明大祭では､ご来場のみなさまに快適に楽しんでいただけるよう下記のルールを設けております｡場合によっては明大祭実行委員からお声掛けさせていただくことがございます｡また､状況に応じて退構を求める場合もございますので､あらかじめご了承ください｡
                 </Text>
-
-                <div className="m-10" />
 
                 {visitorsRules.map((rule, index) => (
                     <RuleItem
@@ -98,17 +92,13 @@ const page = () => {
                     />
                 ))}
 
-                <div className="m-10" />
-
-                <List>
-                    ※上記の他､公序良俗に反する行為､他のご来場のみなさまのご迷惑になる行為はご遠慮ください｡
+                <List mark="※" className="m-20">
+                    <ListItem>上記の他､公序良俗に反する行為､他のご来場のみなさまのご迷惑になる行為はご遠慮ください｡</ListItem>
                 </List>
 
-                <SectionTitle>
+                <SectionTitle className="m-10">
                     お困りの際は
                 </SectionTitle>
-
-                <div className="m-10" />
 
                 {helpItems.map((item, index) => (
                     <RuleItem
@@ -118,13 +108,32 @@ const page = () => {
                     />
                 ))}
 
-                <div className="m-10" />
-
-                <List>
-                    ※お困りの際は､お近くのインフォメーションブース､または紫紺の法被を着た明大祭実行委員までお気軽にお声掛けください｡
+                <List mark="※" className="m-20">
+                    <ListItem>
+                        お困りの際は､お近くのインフォメーションブース､または紫紺の法被を着た明大祭実行委員までお気軽にお声掛けください｡
+                    </ListItem>
                 </List>
 
             </PageContainer>
+        </div>
+    )
+}
+
+interface RuleItemProps {
+    title: string
+    content: string
+}
+
+const RuleItem = ({ title, content }: RuleItemProps) => {
+    return (
+        <div>
+            <div className="m-10" />
+            <SmallTitle>
+                {title}
+            </SmallTitle>
+            <Text>
+                {content}
+            </Text>
         </div>
     )
 }
