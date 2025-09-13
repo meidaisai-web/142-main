@@ -24,16 +24,18 @@ export default function Page() {
                 <SmallTitle>実施日時</SmallTitle>
                 <div className='my-5'>
                     <div className='flex'>
-                        <p>11月</p>
+                        <p className='w-8'>11月</p>
                         <p className='w-24'>1日(土)</p>
                         <p>11：00～18：00</p>
                     </div>
                     <div className='flex'>
-                        <p className='ml-7 w-24'>2日(日)</p>
+                        <div className='w-8' />
+                        <p className='w-24'>2日(日)</p>
                         <p>11：00～18：00</p>
                     </div>
                     <div className='flex'>
-                        <p className='ml-7 w-24'>3日(月・祝)</p>
+                        <div className='w-8' />
+                        <p className='w-24'>3日(月・祝)</p>
                         <p>11：00～17：20</p>
                     </div>
                 </div>
@@ -48,61 +50,62 @@ export default function Page() {
                 <Text>以下の企画に参加すると抽選券がもらえます。</Text>
                 <AccentText>Meidaisai Championship</AccentText>
                 <List>
-                    <ListItem>和泉図書館前Meidaisai Championship受付</ListItem>
+                    <ListText>和泉図書館前Meidaisai Championship受付</ListText>
                 </List>
                 <AccentText>Meijic Moment</AccentText>
                 <List>
-                    <ListItem>センターサークル前</ListItem>
+                    <ListText>センターサークル前</ListText>
                 </List>
                 <AccentText>当日ニーズ調査</AccentText>
                 <List>
-                    <ListItem>和泉図書館前アンケート回収受付</ListItem>
+                    <ListText>和泉図書館前アンケート回収受付</ListText>
                 </List>
                 <AccentText>企画効果測定</AccentText>
                 <List>
-                    <ListItem>アンケート回収受付</ListItem>
+                    <ListText>アンケート回収受付</ListText>
                     <ListText>以下の実行委員会企画に参加後、アンケートに回答することで抽選券がもらえます。</ListText>
-                    <List mark="・">
-                        <ListItem>演出局</ListItem>
+                    <List>
+                        <ListText><AccentText>演出局</AccentText></ListText>
                         <List mark='・'>
-                            <ListItem>第141回明大祭公式テーマソングMV</ListItem>
-                            <ListItem>中夜祭</ListItem>
                             <ListItem>I♡Fes！</ListItem>
                             <ListItem>Luminous Stage</ListItem>
                             <ListItem>Meiji United Clash</ListItem>
                             <ListItem>Opening</ListItem>
                             <ListItem>UNI ROCKFES</ListItem>
+                            <ListItem>第141回明大祭公式テーマソングMV</ListItem>
+                            <ListItem>中夜祭</ListItem>
                         </List>
-                        <ListItem>開発局</ListItem>
+                        <ListText><AccentText>開発局</AccentText></ListText>
                         <List mark='・'>
+                            <ListItem>EXPOrts2025 in 明治</ListItem>
+                            <ListItem>Re：Bond～リボンでつながる思い出～</ListItem>
+                            <ListItem>Stand by Memory</ListItem>
                             <ListItem>跡巡～あとめぐ～</ListItem>
                             <ListItem>一灯一想</ListItem>
                             <ListItem>出た目でGO～サイコロが教える君だけの明大祭攻略ルート～</ListItem>
                             <ListItem>ポンdeクエスト</ListItem>
                             <ListItem>明治大解剖ツアー</ListItem>
                             <ListItem>明治に恋する5秒前</ListItem>
-                            <ListItem>明大祭イルミネーション</ListItem>
                             <ListItem>明大SAY！</ListItem>
-                            <ListItem>EXPOrts2025 in 明治</ListItem>
-                            <ListItem>Re：Bond～リボンでつながる思い出～</ListItem>
-                            <ListItem>Stand by Memory</ListItem>
+                            <ListItem>明大祭イルミネーション</ListItem>
+                            <ListText>(明大祭イルミネーションは1日目・2日目は抽選券、3日目はお礼の品を渡します。)</ListText>
                         </List>
-                        <ListItem>広報局</ListItem>
+                        <ListText><AccentText>広報局</AccentText></ListText>
                         <List mark='・'>
                             <ListItem>Meijic Moment</ListItem>
                         </List>
-                        <ListItem>財務局</ListItem>
+                        <ListText><AccentText>財務局</AccentText></ListText>
                         <List mark='・'>
                             <ListItem>チャリティーバザー企画</ListItem>
                         </List>
-                        <ListItem>渉外局</ListItem>
+                        <ListText><AccentText>渉外局</AccentText></ListText>
                         <List mark='・'>
+                            <ListItem>KEIO×第141回明大祭デジタルスタンプラリー</ListItem>
                             <ListItem>企業ブース</ListItem>
                             <ListItem>校友歓迎スペース</ListItem>
                             <ListItem>松原小学校×明大祭</ListItem>
-                            <ListItem>KEIO×第141回明大祭デジタルスタンプラリー</ListItem>
                         </List>
-                        <ListItem>制作局</ListItem>
+                        <ListText><AccentText>制作局</AccentText></ListText>
                         <List mark='・'>
                             <ListItem>ステッカー企画</ListItem>
                             <ListItem>明大祭公式グッズ</ListItem>
