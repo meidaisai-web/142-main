@@ -26,30 +26,30 @@ export default function BannerContainer() {
         setShuffledSmallAds(shuffleArray([...newSmallAds]));
     };
 
-    function clickBanner1() {
-        logEvent({ eventName: 'click_banner', eventData: shuffledAds[0].id, option: 'long' });
-        sendClickBanner(shuffledAds[0].id);
-    }
-    function clickBanner2() {
-        logEvent({ eventName: 'click_banner', eventData: shuffledAds[1].id, option: 'long' });
-        sendClickBanner(shuffledAds[1].id);
-    }
-    function clickBanner3() {
-        logEvent({ eventName: 'click_banner', eventData: shuffledAds[2].id, option: 'long' });
-        sendClickBanner(shuffledAds[2].id);
-    }
-    function clickBanner4() {
-        logEvent({ eventName: 'click_banner', eventData: shuffledSmallAds[0].id, option: 'short' });
-        sendClickBanner(shuffledSmallAds[0].id);
-    }
-    function clickBanner5() {
-        logEvent({ eventName: 'click_banner', eventData: shuffledSmallAds[1].id, option: 'short' });
-        sendClickBanner(shuffledSmallAds[1].id);
-    }
-    function clickBanner6() {
-        logEvent({ eventName: 'click_banner', eventData: shuffledAds[0].id, option: 'sticky' });
-        sendClickBanner(shuffledAds[0].id);
-    }
+    // function clickBanner1() {
+    //     logEvent({ eventName: 'click_banner', eventData: shuffledAds[0].id, option: 'long' });
+    //     sendClickBanner(shuffledAds[0].id);
+    // }
+    // function clickBanner2() {
+    //     logEvent({ eventName: 'click_banner', eventData: shuffledAds[1].id, option: 'long' });
+    //     sendClickBanner(shuffledAds[1].id);
+    // }
+    // function clickBanner3() {
+    //     logEvent({ eventName: 'click_banner', eventData: shuffledAds[2].id, option: 'long' });
+    //     sendClickBanner(shuffledAds[2].id);
+    // }
+    // function clickBanner4() {
+    //     logEvent({ eventName: 'click_banner', eventData: shuffledSmallAds[0].id, option: 'short' });
+    //     sendClickBanner(shuffledSmallAds[0].id);
+    // }
+    // function clickBanner5() {
+    //     logEvent({ eventName: 'click_banner', eventData: shuffledSmallAds[1].id, option: 'short' });
+    //     sendClickBanner(shuffledSmallAds[1].id);
+    // }
+    // function clickBanner6() {
+    //     logEvent({ eventName: 'click_banner', eventData: shuffledAds[0].id, option: 'sticky' });
+    //     sendClickBanner(shuffledAds[0].id);
+    // }
 
     useEffect(() => {
         // 初回シャッフル
@@ -83,17 +83,17 @@ export default function BannerContainer() {
     return (
         <div className="my-10">
             <div className="flex justify-center items-center">
-                {isBannerVisible && <div className="w-screen flex justify-center" onClick={clickBanner6}><StickyBanner adData={shuffledAds[0]} /></div>}
+                {isBannerVisible && <div className="w-screen flex justify-center" id='sticky_banner'><StickyBanner adData={shuffledAds[0]} /></div>}
             </div>
 
             <section className='w-[80vw] mx-auto flex flex-col items-center gap-6'>
                 <div className="flex flex-col gap-6 items-center  lg:flex-row lg:flex-wrap lg:justify-center max-w-[1000px]" ref={ref}>
-                    <div onClick={clickBanner1}><Banner type="long" adData={shuffledAds[0]} /></div>
-                    <div onClick={clickBanner2}><Banner type="long" adData={shuffledAds[1]} /></div>
-                    <div onClick={clickBanner3}><Banner type="long" adData={shuffledAds[2]} /></div>
+                    <div><Banner type="long" adData={shuffledAds[0]} /></div>
+                    <div><Banner type="long" adData={shuffledAds[1]} /></div>
+                    <div><Banner type="long" adData={shuffledAds[2]} /></div>
                     <div className="flex gap-6 justify-center">
-                        <div onClick={clickBanner4}><Banner type='short' adData={shuffledSmallAds[0]} /></div>
-                        <div onClick={clickBanner5}><Banner type='short' adData={shuffledSmallAds[1]} /></div>
+                        <div><Banner type='short' adData={shuffledSmallAds[0]} /></div>
+                        <div><Banner type='short' adData={shuffledSmallAds[1]} /></div>
                     </div>
                 </div>
             </section>

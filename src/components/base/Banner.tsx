@@ -27,7 +27,7 @@ export default function Banner({ type, adData }: BannerProps) {
 
     // その他の場合はリンク付きで表示
     return (
-        <Link href={href} className={`block ${bannerWidth} ${bannerHeight}`} target='_blank'>
+        <Link id={`${type}_banner`} href={href} className={`block ${bannerWidth} ${bannerHeight}`} target='_blank'>
             <div className={`block ${bannerWidth} ${bannerHeight} relative`}>
                 {BannerImage}
             </div>
