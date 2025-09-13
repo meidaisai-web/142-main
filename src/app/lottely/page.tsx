@@ -12,8 +12,10 @@ export default function Page() {
             <PageTitle>明大祭大抽選会</PageTitle>
             <PageContainer>
                 <SectionTitle>明大祭大抽選会とは</SectionTitle>
-                <Text>
-                    明大祭実行委員会が実施している様々な企画に参加することで「明大祭大抽選会」の抽選券がもらえます！<br />
+                <Text moreTopPadding>
+                    明大祭実行委員会が実施している様々な企画に参加することで「明大祭大抽選会」の抽選券がもらえます！
+                </Text>
+                <Text moreTopPadding>
                     皆さんが欲しかったあんなものやこんなものが当たるかも…？第141回明大祭の思い出と一緒に、豪華景品をゲットして帰りましょう!
                 </Text>
                 <SmallTitle>実施場所</SmallTitle>
@@ -47,7 +49,7 @@ export default function Page() {
                     </ListItem>
                 </List>
                 <SectionTitle>抽選券がもらえる企画</SectionTitle>
-                <Text>以下の企画に参加すると抽選券がもらえます。</Text>
+                <Text moreTopPadding>以下の企画に参加すると抽選券がもらえます。</Text>
                 <AccentText>Meidaisai Championship</AccentText>
                 <List>
                     <ListText>和泉図書館前Meidaisai Championship受付</ListText>
