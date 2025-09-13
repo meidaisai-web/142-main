@@ -6,7 +6,6 @@ import { List, ListItem } from "@/components/texts/List"
 import SmallTitle from "@/components/texts/SmallTitle"
 
 const page = () => {
-
     //「ご来場のみなさまへのお願い」に書く内容を以下に記述してください。
     const visitorsRules = [
         {
@@ -75,15 +74,12 @@ const page = () => {
         <div>
             <PageTitle>ご来場のみなさまへ</PageTitle>
             <PageContainer>
-
-                <SectionTitle className="m-10">
+                <SectionTitle>
                     ご来場のみなさまへのお願い
                 </SectionTitle>
-
-                <Text className="m-10">
+                <Text moreTopPadding>
                     第141回明大祭では､ご来場のみなさまに快適に楽しんでいただけるよう下記のルールを設けております｡場合によっては明大祭実行委員からお声掛けさせていただくことがございます｡また､状況に応じて退構を求める場合もございますので､あらかじめご了承ください｡
                 </Text>
-
                 {visitorsRules.map((rule, index) => (
                     <RuleItem
                         key={index}
@@ -91,15 +87,12 @@ const page = () => {
                         content={rule.content}
                     />
                 ))}
-
-                <List mark="※" className="m-20">
+                <List mark="※">
                     <ListItem>上記の他､公序良俗に反する行為､他のご来場のみなさまのご迷惑になる行為はご遠慮ください｡</ListItem>
                 </List>
-
-                <SectionTitle className="m-10">
+                <SectionTitle>
                     お困りの際は
                 </SectionTitle>
-
                 {helpItems.map((item, index) => (
                     <RuleItem
                         key={index}
@@ -107,13 +100,11 @@ const page = () => {
                         content={item.content}
                     />
                 ))}
-
-                <List mark="※" className="m-20">
+                <List mark="※">
                     <ListItem>
                         お困りの際は､お近くのインフォメーションブース､または紫紺の法被を着た明大祭実行委員までお気軽にお声掛けください｡
                     </ListItem>
                 </List>
-
             </PageContainer>
         </div>
     )
@@ -127,7 +118,6 @@ interface RuleItemProps {
 const RuleItem = ({ title, content }: RuleItemProps) => {
     return (
         <div>
-            <div className="m-10" />
             <SmallTitle>
                 {title}
             </SmallTitle>
