@@ -20,13 +20,13 @@ export default function SitemapPage() {
 
 
         <SmallTitle>特集</SmallTitle>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
           <TransitionLink href="lottely">明大祭大抽選会</TransitionLink>
-          <TransitionLink href="matsubara">松原小×明大祭</TransitionLink>
+          <TransitionLink href="matsubara">松原小学校×明大祭</TransitionLink>
         </div>
 
         <SmallTitle>明大祭に関わってくださるみなさまへ</SmallTitle>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
           <TransitionLink href="company">企業のみなさまへ</TransitionLink>
           <TransitionLink href="/area">界隈地域のみなさまへ</TransitionLink>
           <TransitionLink href="/alumni">交友のみなさまへ</TransitionLink>
