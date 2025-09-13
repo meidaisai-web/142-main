@@ -1,11 +1,11 @@
 import React from 'react';
 import { Metadata } from "next";
-import SectionTitle from '@/components/texts/SectionTitle';
 import PageContainer from '@/components/base/PageContainer';
 import Text from '@/components/texts/Text';
 import { List, ListItem } from '@/components/texts/List';
 import SmallTitle from '@/components/texts/SmallTitle';
 import Image from 'next/image'
+import PageTitle from '@/components/texts/PageTitle';
 
 export const metadata: Metadata = {
     title: "アクセス",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const page = () => {
     return (
         <div>
-            <SectionTitle>アクセス</SectionTitle>
+            <PageTitle>アクセス</PageTitle>
             <PageContainer>
                 <Text moreTopPadding>
                     第141回明大祭が開催される明治大学和泉キャンパスまでのアクセス方法です。
