@@ -109,7 +109,7 @@ export default function Page() {
                         </List>
                         <ListText><AccentText>制作局</AccentText></ListText>
                         <List mark='・'>
-                            <ListItem>ステッカー企画</ListItem>
+                            <ListItem>明大祭オリジナルステッカー</ListItem>
                             <ListItem>明大祭公式グッズ</ListItem>
                         </List>
                     </List>
