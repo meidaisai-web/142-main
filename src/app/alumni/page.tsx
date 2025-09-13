@@ -23,7 +23,7 @@ export default function AlumniPage() {
                 <Text moreTopPadding>不躾なお願いではございますが、今年度も第141回明大祭へご賛助という形でのご支援をお願いしたく存じます。</Text>
                 <Text moreTopPadding>「明大祭」は学生が日々の活動の成果を発表する場であり、また学生同士だけでなく学内外を繋ぐ非常に重要な交流の場でもあります。
                     私たち第141回明大祭実行委員一同、第141回明大祭の成功とさらなる発展を目指してまいりますので、ご理解ご協力を賜りますよう何卒よろしくお願い申し上げます。</Text>
-                <Text moreTopPadding>なお、頂いたご賛助金は明大祭の運営費として「パンフレット制作」や「ステージ設営」など、明大祭のさらなる充実のために活用させていただきます。</Text>
+                <Text moreTopPadding>なお、頂いたご賛助金は明大祭の運営費として「公式パンフレット制作」や「ステージ設営」など、明大祭のさらなる充実のために活用させていただきます。</Text>
                 <SectionTitle>ご協賛の方法</SectionTitle>
                 <Text moreTopPadding>本趣旨にご賛同いただける場合は以下のリンク先から電話番号、
                     メールアドレスおよびご住所を<TransitionLink href="https://docs.google.com/forms/d/1bdu0jJer7b35WPeYk8bFX0GMIp9voZ9JE0ORgliNQ34/edit">Googleフォーム</TransitionLink>
