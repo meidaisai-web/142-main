@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
-export default function FireLoading() {
+interface FireLoadingProps {
+    setLoading: (finished: boolean) => void;
+}
+
+export default function FireLoading({ setLoading }: FireLoadingProps) {
     const [show, setShow] = useState(false);
     const [fadeout, setFadeout] = useState(false);
     const [animationPhase, setAnimationPhase] = useState<"bounce" | "shockwave" | "complete">("bounce");
@@ -31,7 +35,10 @@ export default function FireLoading() {
     // bounce → shockwave → complete の順で切り替え
     useEffect(() => {
         const bounceTimer = setTimeout(() => setAnimationPhase("shockwave"), 1000);
-        const completeTimer = setTimeout(() => setAnimationPhase("complete"), 4000);
+        const completeTimer = setTimeout(() => {
+            setLoading(false);
+            setAnimationPhase("complete")
+        }, 4000);
 
         return () => {
             clearTimeout(bounceTimer);
@@ -58,7 +65,7 @@ export default function FireLoading() {
             initial={{ opacity: 1 }}
             animate={{ opacity: 0 }}
             transition={{ duration: 1, delay: 5, ease: "easeOut" }}
-            className="fixed z-[60] w-screen h-screen overflow-hidden flex items-center justify-center bg-primary"
+            className="fixed top-0 z-[60] w-screen h-screen overflow-hidden flex items-center justify-center bg-primary"
         >
             <div className="flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center gap-6 relative">
