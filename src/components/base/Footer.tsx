@@ -35,8 +35,8 @@ function FooterTop() {
 
 function Catch() {
 	return (
-		<div className="flex justify-center mx-10">
-			<Image src="/images/svg/logo-title-concept-white.svg" alt="Logo" width={240} height={55} className="w-45 sm:w-60 h-auto" />
+		<div className="flex justify-center">
+			<Image src="/images/svg/official/logo-title-concept-white.svg" alt="Logo" width={240} height={55} className="w-72 sm:w-96 h-auto" />
 		</div>
 	)
 }
@@ -108,7 +108,7 @@ interface FooterLinkProps {
 
 function FooterLink({ href, children }: FooterLinkProps) {
 	return (
-		<Link href={href} className="border-b-[1.5px] border-b-transparent hover:border-b-white duration-250">
+		<Link href={href} className="text-xs sm:text-sm border-b-[1.5px] border-b-transparent hover:border-b-white duration-250">
 			{children}
 		</Link>
 	);
@@ -134,7 +134,7 @@ function FooterLinks() {
 		},
 	];
 	return (
-		<div className="flex justify-center gap-4 sm:gap-6 lg:gap-8 text-xs px-5 list-none">
+		<div className="w-full max-w-96 sm:max-w-md flex justify-between px-3 list-none">
 			{links.map((item) => (
 				<FooterLink key={item.href} href={item.href}>
 					{item.children}

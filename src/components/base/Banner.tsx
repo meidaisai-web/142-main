@@ -13,8 +13,8 @@ export default function Banner({ type, adData }: BannerProps) {
     const href = adData.url;
     const src = adData.src;
 
-    const bannerWidth = type === 'long' ? 'lg:w-[450px] sm:w-[300px]' : 'lg:w-[213px] sm:w-[142px]';
-    const bannerHeight = type === 'long' ? 'lg:h-[100px] sm:h-[67px]' : 'lg:h-[95px] sm:h-[63px]';
+    const bannerWidth = type === 'long' ? 'w-[300px] lg:w-[450px]' : 'w-[142px] lg:w-[213px]';
+    const bannerHeight = type === 'long' ? 'w-[67px] lg:h-[100px]' : 'w-[63px] lg:h-[95px]';
 
     const BannerImage = (
         <Image

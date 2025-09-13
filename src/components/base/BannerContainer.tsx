@@ -1,6 +1,6 @@
 'use client'
 
-import { adData, smallAdData } from "@/utils/adData";
+import { adData, smallAdData } from "@/utils/datas/adData";
 import Banner from "./Banner";
 import { shuffleArray } from "@/utils/arrayManager";
 import { useEffect, useState, useRef, useCallback, RefObject } from "react";
@@ -66,8 +66,8 @@ export default function BannerContainer() {
 
     const handleScroll = useCallback(() => {
         if (typeof window === 'undefined') return;
-        const { innerHeight, innerWidth } = window;
-        if (getElementProperty("y") >= innerHeight && innerWidth < 900) {
+        const { innerHeight } = window;
+        if (getElementProperty("y") >= innerHeight) {
             setIsBannerVisible(true);
         } else {
             setIsBannerVisible(false);
@@ -83,7 +83,7 @@ export default function BannerContainer() {
     return (
         <div className="my-10">
             <div className="flex justify-center items-center">
-                {isBannerVisible && <div className="w-[100vw] flex justify-center" onClick={clickBanner6}><StickyBanner adData={shuffledAds[0]} /></div>}
+                {isBannerVisible && <div className="w-screen flex justify-center" onClick={clickBanner6}><StickyBanner adData={shuffledAds[0]} /></div>}
             </div>
 
             <section className='w-[80vw] mx-auto flex flex-col items-center gap-6'>

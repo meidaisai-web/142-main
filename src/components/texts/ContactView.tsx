@@ -4,21 +4,24 @@ const phoneNumber = "03-3327-4363"
 
 type ContactViewProps = {
     department: string;
-    mail: string;
+    mail?: string;
     showPhone?: boolean;
     showAddress?: boolean;
+    noPadding?: boolean;
 };
 
-export default function ContactView({ department, mail, showPhone, showAddress }: ContactViewProps) {
+export default function ContactView({ department, mail, showPhone, showAddress, noPadding }: ContactViewProps) {
     return (
-        <div className="w-full flex flex-col items-center pb-10 pt-20">
+        <div className={`w-full flex flex-col items-center pb-10 ${noPadding ? "pt-0" : "pt-20"}`}>
             <p className="text-lg text-center py-5">
                 第141回明大祭実行委員会<br/>
                 {department}
             </p>
             <div className="flex flex-col sm:flex-row items-center">
                 {showAddress && <Address />}
-                {showPhone ? <MailPhone mail={mail} /> : <Mail mail={mail} />}
+                {mail &&
+                    (showPhone ? <MailPhone mail={mail} /> : <Mail mail={mail} />)
+                }
             </div>
         </div>
     )
@@ -81,7 +84,7 @@ function Base({ children }: { children: React.ReactNode }) {
                     {children}
                 </div>
             </div>
-            <div className="relative bg-white w-80 md:w-72 lg:w-80 py-10 px-10 md:px-6 lg:px-10 rounded-2xl outline-8 outline-accent outline-solid">
+            <div className="relative bg-background w-80 md:w-72 lg:w-80 py-10 px-10 md:px-6 lg:px-10 rounded-2xl outline-8 outline-accent outline-solid">
                 <div className="text-black">
                     {children}
                 </div>

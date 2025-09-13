@@ -14,23 +14,19 @@ export default function Page() {
                     第141回明大祭公式サイトをご覧いただき、誠にありがとうございます。
                 </Text>
                 <Text className="mt-5">
-                    この度、第141回明大祭を11月1日(土).2日(日).3日(月・祝)に明治大学和泉キャンパスにて開催することが決定いたしました。
-                </Text>
-                    我々が第141回明大祭開催という大きな目標を達成し、その盛況・発展に全力を注ぐことができるのは、ひとえにご協賛いただきましたみなさまのお力添えによるものです。
-                <Text className="mt-5">
-                    第141回明大祭実行委員会一同、心より感謝申し上げます。
+                    この度、第141回明大祭を11月1日(土).2日(日).3日(月・祝)に明治大学和泉キャンパスにて開催することが決定いたしました。我々が第141回明大祭開催という大きな目標を達成し、その盛況・発展に全力を注ぐことができるのは、ひとえにご協賛いただきましたみなさまのお力添えによるものです。
                 </Text>
                 <Text className="mt-5">
-                   みなさまのご期待にお応えできるよう尽力してまいりますので、引き続きよろしくお願いいたします。
+                    第141回明大祭実行委員会一同、心より感謝申し上げます。みなさまのご期待にお応えできるよう尽力してまいりますので、引き続きよろしくお願いいたします。
                 </Text>
 
-                <SectionTitle>ご協賛金の使用用途</SectionTitle>
+                <SectionTitle>ご協賛金の使途</SectionTitle>
                 <Text className="mt-5">
                     みなさまからいただいたご協賛金はステージ設営費や公式パンフレット制作費、装飾物製作費などの第141回明大祭運営費として使わせていただきます。
                 </Text>
                 <Text className="mt-5">
                     詳細につきましては、12月を目処にお送りする「開催報告書」や来春明大祭公式サイトに掲載される「第141回明大祭実行委員会最終決算報告」をご覧ください。
-                    また何かご不明点などございましたら、下記の連絡先へお気軽にお問い合わせください。
+                    またなにかご不明点などございましたら、下記の連絡先へお気軽にお問い合わせください。
                 </Text>
                 <SectionTitle>ご来場の際のご案内</SectionTitle>
                 <Text className="mt-5">
@@ -66,9 +62,11 @@ export default function Page() {
                     <ListItem>メインステージに設置される大型ビジョンへの広告の放映</ListItem>
                     <ListItem>明大祭当日の企画における来場者への物品提供</ListItem>
                 </List>
-                <Text className="mt-5">
-                    ※以上の協賛方法は第141回明大祭でご案内させていただいたものです。
-                </Text>
+                <List mark="※">
+                    <ListItem>
+                    以上の協賛方法は第141回明大祭でご案内させていただいたものです。
+                    </ListItem>
+                </List>
                 <Text className="mt-5">
                     ご協賛方法は来年度変更となる可能性がございます。何卒ご了承ください。
                 </Text>
@@ -78,7 +76,7 @@ export default function Page() {
                 <Text className="mt-5">
                     上記以外の方法でのご協賛も検討いたしますので、お気軽に下記のお問い合わせ先までご連絡ください。
                 </Text>
-                <ContactView department="渉外局界隈部門" mail="shogai@meidaisai.jp" showPhone showAddress />
+                <ContactView department="渉外局" mail="shogai@meidaisai.jp" showPhone showAddress />
             </PageContainer>
         </>
     )
