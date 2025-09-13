@@ -19,7 +19,7 @@ export default function Page() {
                 </Text>
                 <SectionTitle>企画実施日時・場所</SectionTitle>
                 <AccentText className="pt-4">日時</AccentText>
-                <Text>11月1日(土).2日(日).3日(月・祝) 10:00～18:00</Text>
+                <Text>11月1日(土).2日(日).3日(月・祝) 10：00～18：00</Text>
                 <AccentText>場所</AccentText>
                 <Text>メディア棟M509教室</Text>
                 <ContactView department="渉外局界隈部門" mail="shogai@meidaisai.jp" showPhone showAddress />
