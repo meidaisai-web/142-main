@@ -34,10 +34,10 @@ export default function About() {
           <Text moreTopPadding>
             ぜひこの3日間を存分に味わってください。歓声や笑顔、そして数えきれない出会いが、みなさまの心を揺さぶり、これからの人生を照らす原動力となることを信じています。
           </Text>
-          <Text className="moreTopPadding !text-right">第141回明大祭実行委員会<br/>委員長  鞠子 輝</Text>
+          <Text moreTopPadding className="!text-right">第141回明大祭実行委員会<br/>委員長  鞠子 輝</Text>
         </ImageText>
 
-        <div className="mx-10 moreTopPadding">
+        <div className="mx-10">
           <SectionTitle>昨年の明大祭の様子</SectionTitle>
         </div>
         <Text className="mt-10 !text-center">昨年度行われた第140回明大祭のEndingステージにて放映されたスライドショーです｡</Text>
