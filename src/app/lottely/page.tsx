@@ -69,11 +69,12 @@ export default function Page() {
                     <List>
                         <ListText><AccentText>演出局</AccentText></ListText>
                         <List mark='・'>
-                            <ListItem>I♡Fes！</ListItem>
+                            <ListItem>I♡Fes!</ListItem>
                             <ListItem>Luminous Stage</ListItem>
                             <ListItem>Meiji United Clash</ListItem>
+                            <ListItem>Meidaisai Championship</ListItem>
                             <ListItem>Opening</ListItem>
-                            <ListItem>UNI ROCKFES</ListItem>
+                            <ListItem>UNI ROCK FES</ListItem>
                             <ListItem>第141回明大祭公式テーマソングMV</ListItem>
                             <ListItem>中夜祭</ListItem>
                         </List>
