@@ -39,7 +39,7 @@ export default function Page() {
                 <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sengawa/">https://ekishop.keio-sc.jp/sengawa/</TransitionLink>
                 <AccentText>リトナードつつじヶ丘 3F エレベーター横（つつじヶ丘駅）</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/tsutsujigaoka/">"https://ekishop.keio-sc.jp/tsutsujigaoka/</TransitionLink>
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/tsutsujigaoka/">https://ekishop.keio-sc.jp/tsutsujigaoka/</TransitionLink>
                 <AccentText>トリエ京王調布（調布駅）※</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
                 <TransitionLink targetBlank href="https://trie-keiochofu.jp/">https://trie-keiochofu.jp/</TransitionLink>
