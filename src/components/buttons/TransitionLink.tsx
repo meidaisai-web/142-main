@@ -15,12 +15,15 @@ export default function TransitionLink({
   targetBlank,
 }: TransitionLinkProps) {
   return (
-    <Link
+    <div className={className}>
+      <Link
       href={href}
-      className={`text-accent border-b border-accent hover:text-secondary hover:border-secondary ${className}`}
+      className={`text-accent border-b border-accent hover:text-secondary hover:border-secondary`}
       target={targetBlank ? "_blank" : "_self"}
     >
       {children}
     </Link>
+    </div>
+    
   );
 }
