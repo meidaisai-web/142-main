@@ -64,16 +64,17 @@ export default function Page() {
                 </List>
                 <AccentText>企画効果測定</AccentText>
                 <List>
-                    <ListText>アンケート回収受付</ListText>
+                    <ListText>和泉図書館前アンケート回収受付</ListText>
                     <ListText>以下の実行委員会企画に参加後、アンケートに回答することで抽選券がもらえます。</ListText>
                     <List>
                         <ListText><AccentText>演出局</AccentText></ListText>
                         <List mark='・'>
-                            <ListItem>I♡Fes！</ListItem>
+                            <ListItem>I♡Fes!</ListItem>
                             <ListItem>Luminous Stage</ListItem>
                             <ListItem>Meiji United Clash</ListItem>
+                            <ListItem>Meidaisai Championship</ListItem>
                             <ListItem>Opening</ListItem>
-                            <ListItem>UNI ROCKFES</ListItem>
+                            <ListItem>UNI ROCK FES</ListItem>
                             <ListItem>第141回明大祭公式テーマソングMV</ListItem>
                             <ListItem>中夜祭</ListItem>
                         </List>
