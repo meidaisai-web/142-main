@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -26,7 +26,7 @@ export default function StickyBanner({ adData }: StickyBannerProps) {
 
     return (
         <div className="fixed bottom-0 md:hidden w-screen max-w-[375px] z-40 object-contain flex justify-center">
-            <Link href={adData.url} target='_blank'>
+            <Link id='sticky_banner' href={adData.url} target='_blank'>
                 <Image src={adData.src} alt="logo" width={375} height={83} className='object-contain' />
             </Link>
         </div>
