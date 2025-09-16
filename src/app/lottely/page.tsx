@@ -91,7 +91,7 @@ export default function Page() {
                             <ListItem>明治に恋する5秒前</ListItem>
                             <ListItem>明大SAY！</ListItem>
                             <ListItem>明大祭イルミネーション</ListItem>
-                            <ListText>(明大祭イルミネーションは1日目・2日目は抽選券、3日目はお礼の品を渡します。)</ListText>
+                            <ListText>(明大祭イルミネーションは1日目・2日目は抽選券、3日目はお礼の品をお渡しします。)</ListText>
                         </List>
                         <ListText><AccentText>広報局</AccentText></ListText>
                         <List mark='・'>
