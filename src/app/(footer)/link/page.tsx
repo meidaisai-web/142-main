@@ -27,7 +27,7 @@ export default function Page() {
                         明大祭や明大祭実行委員会に関する情報をわかりやすく、面白い動画で発信していきます！ぜひフォローして動画をお待ちください！
                     </ListText>
                     <ListItem>
-                        <TransitionLink href="https://www.youtube.com/@meidaisainetpr/videos" targetBlank>明大祭公式YouTube</TransitionLink>
+                        <TransitionLink href="https://www.youtube.com/@meidaisainetpr/videos" targetBlank>明大祭公式YouTubeチャンネル</TransitionLink>
                     </ListItem>
                     <ListText>
                         明大祭公式YouTubeチャンネルでは過去の明大祭の企画を見ることができるほか、今までのテーマソングを聴くこともできます。過去の企画やテーマソングを見てみたいという方はぜひご覧ください！
