@@ -15,7 +15,7 @@ export const adData: Ad[] = [
 export const smallAdData: Ad[] = [
     { url: "https://kyoundo-hospital.jp/", src: "/images/ad/kyoundo.png", id: "kyoundo" },//杏雲堂病院
     { url: "https://i.morecon.jp/jv6s", src: "/images/ad/riseup.jpg", id: "riseup" },//株式会社Rise UP
-    { url: "https://meidaisai.jp", src: "/images/ad/riso.jpg", id: "riso" },//株式会社リソー教育
+    { url: "https://www.tomas.co.jp/", src: "/images/ad/riso.jpg", id: "riso" },//株式会社リソー教育
     { url: "https://www.senko.co.jp/jp/", src: "/images/ad/senko.jpg", id: "senko" },//センコー
     { url: "https://www.densetsuko.co.jp/", src: "/images/ad/denko.jpg", id: "denko" },//日本電設工業
     { url: "https://www2.sundai.ac.jp/", src: "/images/ad/suruga.jpg", id: "suruga" },//駿河台学園
