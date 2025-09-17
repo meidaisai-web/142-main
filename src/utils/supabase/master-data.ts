@@ -12,9 +12,9 @@ export async function getAllMasterDatas(key: { page: number, limit: number }): P
     return data as MasterData[];
 }
 
-export async function getUniqueMasterData(): Promise<MasterData> {
+export async function getUniqueMasterData(id: string): Promise<MasterData> {
     const supabase = createClient();
-    const { data, error } = await supabase.from('MasterData').select('*').eq('type', 'unique').single();
+    const { data, error } = await supabase.from('MasterData').select('*').eq('id', id).single();
     if (error) {
         throw new Error(`Error fetching unique master data: ${error.message}`);
     }
