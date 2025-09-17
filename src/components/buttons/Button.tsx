@@ -21,7 +21,7 @@ export default function Button({ className, children, href, onClick, disabled }:
                         </ButtonContent>
                     </Link>
                 ) : (
-                    <button onClick={onClick} className="absolute -translate-x-1/2 left-1/2 whitespace-nowrap cursor-pointer">
+                    <button onClick={onClick} disabled={disabled} className="absolute -translate-x-1/2 left-1/2 whitespace-nowrap cursor-pointer">
                         <ButtonContent disabled={disabled}>
                             {children}
                         </ButtonContent>
