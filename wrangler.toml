@@ -1,5 +1,5 @@
   main = ".open-next/worker.js"
-  name = "141-main"
+  name = "meidaisai"
   compatibility_date = "2025-08-04"
   compatibility_flags = ["nodejs_compat"]
   [assets]
