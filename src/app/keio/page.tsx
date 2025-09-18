@@ -29,26 +29,26 @@ export default function Page() {
                 <SmallTitle>クイズ・スタンプ設置場所</SmallTitle>
                 <AccentText>フレンテ笹塚/京王クラウン街笹塚（笹塚駅）※</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/frente-sasazuka/">https://ekishop.keio-sc.jp/frente-sasazuka/</TransitionLink><br />
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sasazuka/">https://ekishop.keio-sc.jp/sasazuka/</TransitionLink>
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/frente-sasazuka/">フレンテ笹塚 公式サイト</TransitionLink><br />
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sasazuka/">京王クラウン街笹塚 公式サイト</TransitionLink>
                 <AccentText>フレンテ明大前 2F エレベーターホール前（明大前駅）</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/meidaimae/">https://ekishop.keio-sc.jp/meidaimae/</TransitionLink>
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/meidaimae/">フレンテ明大前 公式サイト</TransitionLink>
                 <AccentText>フレンテ仙川（仙川駅）</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sengawa/">https://ekishop.keio-sc.jp/sengawa/</TransitionLink>
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sengawa/">フレンテ仙川 公式サイト</TransitionLink>
                 <AccentText>リトナードつつじヶ丘 3F エレベーター横（つつじヶ丘駅）</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/tsutsujigaoka/">https://ekishop.keio-sc.jp/tsutsujigaoka/</TransitionLink>
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/tsutsujigaoka/">京王リトナードつつじヶ丘 公式サイト</TransitionLink>
                 <AccentText>トリエ京王調布（調布駅）※</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://trie-keiochofu.jp/">https://trie-keiochofu.jp/</TransitionLink>
+                <TransitionLink targetBlank href="https://trie-keiochofu.jp/">トリエ京王調布 公式サイト</TransitionLink>
                 <AccentText>リトナード永福町 1F 北口広場掲示板（永福町駅）</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/eifukucho/">https://ekishop.keio-sc.jp/eifukucho/</TransitionLink>
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/eifukucho/">京王リトナード永福町 公式サイト</TransitionLink>
                 <AccentText>キラリナ吉祥寺（吉祥寺駅）※</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://www.kirarinakeiokichijoji.jp/">https://www.kirarinakeiokichijoji.jp/</TransitionLink>
+                <TransitionLink targetBlank href="https://www.kirarinakeiokichijoji.jp/">キラリナ京王吉祥寺 公式サイト</TransitionLink>
                 <AccentText>明大祭会場</AccentText>
                 <Text moreTopPadding><Emphasis>注：※の商業施設ではクイズに正解することでスタンプを獲得できます。</Emphasis></Text>
                 <SmallTitle>景品受け渡し場所</SmallTitle>
