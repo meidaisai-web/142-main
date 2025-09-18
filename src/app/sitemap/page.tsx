@@ -21,7 +21,7 @@ export default function SitemapPage() {
 
         <SmallTitle>特集</SmallTitle>
         <div className="flex flex-wrap gap-4">
-          <TransitionLink href="lottely">明大祭大抽選会</TransitionLink>
+          <TransitionLink href="lottery">明大祭大抽選会</TransitionLink>
           <TransitionLink href="matsubara">松原小学校×明大祭</TransitionLink>
         </div>
 
