@@ -7,6 +7,7 @@ import ContactView from '@/components/texts/ContactView';
 import AccentText from '@/components/texts/AccentText';
 import SmallTitle from '@/components/texts/SmallTitle';
 import Emphasis from '@/components/texts/Emphasis';
+import OnlyImage from '@/components/OnlyImage';
 import { List, ListItem } from '@/components/texts/List';
 import Image from 'next/image';
 export default function Page() {
@@ -54,9 +55,7 @@ export default function Page() {
                 <Text moreTopPadding><Emphasis>注：※の商業施設ではクイズに正解することでスタンプを獲得できます。</Emphasis></Text>
                 <SmallTitle>景品受け渡し場所</SmallTitle>
                 <Text>明治大学和泉キャンパスメディア棟入口付近</Text>
-                <div className='mt-10 flex justify-center'>
-                <Image src="/images/ad/keio.jpg" alt="Campus Map" width={500} height={300}/>
-                </div>
+                <OnlyImage className="mt-5" src="/images/ad/keio.jpg" alt="Campus Map" />
                 <SectionTitle>ご案内</SectionTitle>
                 <Text moreTopPadding>ご不明点等ございましたら、下記のお問い合わせ先までご連絡ください。京王電鉄株式会社や各商業施設への直接のお問い合わせはご遠慮ください。</Text>
                 <ContactView department="渉外局" mail="shogai@meidaisai.jp" showPhone showAddress />
