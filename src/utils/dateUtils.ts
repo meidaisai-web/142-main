@@ -42,6 +42,17 @@ export function convertToJapanDateString(isoString: string): string {
 }
 
 /**
+ * ISO8601形式の日付文字列から日本時間の「日」（D）部分のみを取得する
+ * @param isoString ISO8601形式の日付文字列
+ * @returns 日（D）部分の数値（日本時間）
+ */
+export function getOnlyDate(isoString: string): number {
+    const date = new Date(isoString);
+    const japanDate = new Date(date.getTime() + (9 * 60 * 60 * 1000));
+    return japanDate.getDate(); // getDate()は頭に0がつかない数値を返します
+}
+
+/**
  * ISO8601形式の日付文字列を日本時間の日付文字列（YYYY.M.D形式）に変換する
  * @param isoString ISO8601形式の日付文字列
  * @returns YYYY.M.D形式の文字列（日本時間）

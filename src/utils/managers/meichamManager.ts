@@ -1,5 +1,5 @@
 import { MeichamVotedData } from "../models/MeichamVotedData";
-import { getJapanDateString, convertToJapanDateString, getJapanISOString, isSameDateInJapan } from "../dateUtils";
+import { getJapanDateString, convertToJapanDateString, getJapanISOString, isSameDateInJapan, getOnlyDate } from "../dateUtils";
 
 // 同じ日に同じIDで投票しているか確認する
 export function isAlreadyVoted(id: string, groupId: string, type: string): boolean {
@@ -26,4 +26,11 @@ export function saveVotedId(id: string, groupId: string, type: string) {
     const votedIds = JSON.parse(localStorage.getItem('votedMeichamIds') || '[]') as MeichamVotedData[];
     votedIds.push({ id, groupId, type, createdAt: getJapanISOString() });
     localStorage.setItem('votedMeichamIds', JSON.stringify(votedIds));
+}
+// 投票可能な時間か確認する
+// TODO: 夜間投票がありになるかどうか
+export function isVoteTime(dateString: string): boolean {
+    const today = getJapanDateString();
+    const date = getOnlyDate(today);
+    return dateString.includes(`${date}日`);
 }

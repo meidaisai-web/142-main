@@ -1,4 +1,4 @@
-import { isAlreadyVoted, saveVotedId } from "@/utils/managers/meichamManager";
+import { isAlreadyVoted, isVoteTime, saveVotedId } from "@/utils/managers/meichamManager";
 import { voteMeicham } from "@/utils/supabase/meichamAction";
 import { useEffect, useState } from "react";
 import Button from "../buttons/Button";
@@ -15,8 +15,12 @@ export default function VoteView({ id, groupId, type }: VoteViewProps) {
     const [hasVoted, setHasVoted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [buttonText, setButtonText] = useState("投票する");
 
     useEffect(() => {
+        if (!isVoteTime) {
+            setButtonText("投票可能時間外です。")
+        }
         if (isAlreadyVoted(id, groupId, type)) {
             setHasVoted(true);
         }
@@ -26,6 +30,12 @@ export default function VoteView({ id, groupId, type }: VoteViewProps) {
         if (isLoading) return; // 連打防止
         setIsLoading(true);
         setError(null);
+        if (!isVoteTime) {
+            setError("投票可能な時間ではありません。");
+            setButtonText("投票可能時間外です。");
+            setIsLoading(false);
+            return;
+        }
         // すでにその日に、その企画に投票しているか確認
         if (isAlreadyVoted(id, groupId, type)) {
             setError("本日すでにこの企画に投票しています。");
