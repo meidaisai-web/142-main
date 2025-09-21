@@ -30,47 +30,55 @@ export default function Page() {
             </FAQAccordion>
             <FAQAccordion question="大学構内にATMはありますか。">
                 大学構内にあるATMは以下のとおりです｡<br />
-                <table>
-                    <thead>
-                        <tr className="border">
-                            <th className="pr-4 text-center">金融機関名<br />（設置場所）</th>
-                            <th className="pr-4 text-center">日付</th>
-                            <th className="pr-4 text-center">稼働時間</th>
+               <table className="w-full table-auto border-collapse border border-slate-400 mt-4 mb-4 shadow-md">
+                    <thead className="bg-secondary text-white">
+                        <tr>
+                            <th className="border border-slate-300 px-4 py-3 text-center font-bold">
+                                金融機関名<br />（設置場所）
+                            </th>
+                            <th className="border border-slate-300 px-4 py-3 text-center font-bold">
+                                日付
+                            </th>
+                            <th className="border border-slate-300 px-4 py-3 text-center font-bold">
+                                稼働時間
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td className="text-center">
-                                <span>三井住友銀行<br /></span>
-                                <span>(第一校舎1階)</span>
+                        {/* 三井住友銀行 */}
+                        <tr className="bg-white hover:bg-gray-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 text-center font-semibold bg-white" rowSpan={3}>
+                                <span className="block text-black">三井住友銀行</span>
+                                <span className="block text-sm text-gray-600 mt-1">(第一校舎1階)</span>
                             </td>
-                            <td className="pl-4 text-left">11月1日(土)</td>
-                            <td className="pl-4 text-left">9:00~13:00</td>
+                            <td className="border border-slate-300 px-4 py-3 text-center">11月1日(土)</td>
+                            <td className="border border-slate-300 px-4 py-3 text-center font-medium">9:00~13:00</td>
                         </tr>
-                        <tr>
-                            <td className="pl-4 text-left">11月2日(日)</td>
-                            <td className="pl-4 text-left">休止</td>
+                        <tr className="bg-white hover:bg-gray-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 text-center">11月2日(日)</td>
+                            <td className="border border-slate-300 px-4 py-3 text-center text-red-600 font-medium">休止</td>
                         </tr>
-                        <tr>
-                            <td className="pl-4">11月3日(月・祝)</td>
-                            <td className="">休止</td>
+                        <tr className="bg-white hover:bg-gray-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 text-center">11月3日(月・祝)</td>
+                            <td className="border border-slate-300 px-4 py-3 text-center text-red-600 font-medium">休止</td>
                         </tr>
 
-                        <tr>
-                            <td className="text-center">
-                                <span>ゆうちょ銀行<br /></span>
-                                <span>(メディア棟1階)</span>
+                        {/* ゆうちょ銀行 */}
+                        <tr className="bg-white hover:bg-gray-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 text-center font-semibold bg-white" rowSpan={3}>
+                                <span className="block text-black">ゆうちょ銀行</span>
+                                <span className="block text-sm text-gray-600 mt-1">(メディア棟1階)</span>
                             </td>
-                            <td className="pl-4 text-left">11月1日(土)</td>
-                            <td className="pl-4 text-left">9:00~17:00</td>
+                            <td className="border border-slate-300 px-4 py-3 text-center">11月1日(土)</td>
+                            <td className="border border-slate-300 px-4 py-3 text-center font-medium">9:00~17:00</td>
                         </tr>
-                        <tr>
-                            <td className="pl-4 text-left">11月2日(日)</td>
-                            <td className="pl-4 text-left">休止</td>
+                        <tr className="bg-white hover:bg-gray-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 text-center">11月2日(日)</td>
+                            <td className="border border-slate-300 px-4 py-3 text-center text-red-600 font-medium">休止</td>
                         </tr>
-                        <tr>
-                            <td className="pl-4">11月3日(月・祝)</td>
-                            <td className="">休止</td>
+                        <tr className="bg-white hover:bg-gray-50 transition-colors">
+                            <td className="border border-slate-300 px-4 py-3 text-center">11月3日(日・祝)</td>
+                            <td className="border border-slate-300 px-4 py-3 text-center text-red-600 font-medium">休止</td>
                         </tr>
                     </tbody>
                 </table>
