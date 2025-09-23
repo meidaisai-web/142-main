@@ -13,12 +13,12 @@ export default function Voucher() {
     const [buttonText, setButtonText] = useState("引換不可");
 
     function isEnableExchange(): boolean {
-        // if (!isInTime()) {
-        //     setError('引換可能期間外です。')
-        //     setButtonText("引換不可")
-        //     setDisabled(true);
-        //     return false;
-        // }
+        if (!isInTime()) {
+            setError('引換可能期間外です。')
+            setButtonText("引換不可")
+            setDisabled(true);
+            return false;
+        }
         if (!hasVotedToday()) {
             setError('本日投票していないため、まだ引換できません。')
             setButtonText("引換不可")
