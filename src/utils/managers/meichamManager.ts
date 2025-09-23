@@ -3,7 +3,7 @@ import { getJapanDateString, getJapanISOString, isSameDate, getOnlyDate, getJapa
 
 // 同じ日に同じIDで投票しているか確認する
 export function isAlreadyVoted(id: string, groupId: string, type: string): boolean {
-    const today = getJapanDateString();
+    const today = getJapanDate();
     const votedIds = JSON.parse(localStorage.getItem('votedMeichamIds') || '[]') as MeichamVotedData[];
 
     const sameIdVotes = votedIds.filter(vote => vote.id === id);
