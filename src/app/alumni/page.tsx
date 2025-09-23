@@ -33,7 +33,7 @@ export default function AlumniPage() {
                     <Emphasis>第一校舎316・317教室</Emphasis>にて行う予定です。お時間に余裕がございましたら、お気軽にお越しください。
                 </Text>
                 <Text moreTopPadding>明大祭実行委員一同、心よりお待ちしております。</Text>
-                <ContactView department="渉外局（校友部門）" mail="shogai@meidaisai.jp" showPhone  />
+                <ContactView department="渉外局（校友部門）" mail="shogai@meidaisai.jp" showPhone />
             </PageContainer>
         </div>
     )
