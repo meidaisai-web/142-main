@@ -12,7 +12,7 @@ export function FAQAccordion({ children, question }: AccordionProps) {
     const [isOpen, setOpen] = useState<boolean>(false);
     return (
         <div className="flex flex-col items-center justify-center font-body pt-5">
-            <div role="grounp">
+            <div role="group">
                 <button
                     type="button"
                     aria-controls="contents"
@@ -21,7 +21,7 @@ export function FAQAccordion({ children, question }: AccordionProps) {
                     className="flex justify-center items-center rounded-xl"
                 >
                     <div className="flex pl-5 items-center text-left bg-white rounded-xl border-secondary border-4 w-[80vw] lg:w-[60vw] gap-3">
-                        <div className="text-2xl font-bold text-accent">Q.</div>
+                        <div className="text-2xl font-bold text-secondary">Q.</div>
                         <div className="text-base text-black font-bold p-5 sm:pr-0 lg:pr-10 flex-1">{question}</div>
                         <div className="pr-5">
                             <AnimatePresence>
@@ -32,7 +32,7 @@ export function FAQAccordion({ children, question }: AccordionProps) {
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.25 }}
                                     >
-                                        <div className="text-2xl text-accent">-</div>
+                                        <div className="text-5xl text-accent">-</div>
                                     </motion.div>
                                 ) : (
                                     <motion.div
@@ -41,7 +41,7 @@ export function FAQAccordion({ children, question }: AccordionProps) {
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.25 }}
                                     >
-                                        <div className="text-2xl text-accent">+</div>
+                                        <div className="text-4xl text-accent">+</div>
                                     </motion.div>
                                 )}
 
@@ -53,13 +53,17 @@ export function FAQAccordion({ children, question }: AccordionProps) {
                     <AnimatePresence>
                         {isOpen && (
                             <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.25 }}
+                                initial={{ opacity: 0, height: 0, y: -10}}
+                                animate={{ opacity: 1, height: "auto", y: 0 }}
+                                exit={{ opacity: 0, height: 0, y: -10 }}
+                                transition={{
+                                    duration: 0.25,
+                                    ease: "easeInOut"
+                                }}
+                                style={{ overflow: "hidden" }}
                             >
-                                <div className="flex justify-center items-center text-left bg-white rounded-xl border-secondary border-4 mt-6 w-[75vw] lg:w-[55vw]">
-                                    <div className="text-2xl font-bold text-secondary pl-5">A.</div>
+                                <div className="flex justify-center items-center text-left bg-white rounded-xl border-secondary border-4 mt-6 w-[80vw] lg:w-[60vw]">
+                                    <div className="text-2xl font-bold text-accent pl-5">A.</div>
                                     <div className="w-full text-base text-black font-semibold p-5">{children}</div>
                                 </div>
                             </motion.div>
