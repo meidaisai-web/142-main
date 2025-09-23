@@ -2,37 +2,38 @@ import Text from '@/components/texts/Text'
 import PageTitle from '@/components/texts/PageTitle'
 import SectionTitle from '@/components/texts/SectionTitle'
 import PageContainer from '@/components/base/PageContainer'
-import TransitionLink from '@/components/buttons/TransitionLink';
-import Button from '@/components/buttons/Button';
 import ContactView from '@/components/texts/ContactView';
+import Emphasis from '@/components/texts/Emphasis';
 
 export default function AlumniPage() {
     return (
         <div>
             <PageTitle>校友のみなさまへ</PageTitle>
             <PageContainer>
-                <SectionTitle>ご挨拶</SectionTitle>
-                <Text moreTopPadding>第141回明大祭公式サイトをご覧いただきありがとうございます｡
-                    この度､第141回明大祭を11月1日(土).2日(日).3日(月・祝)に明治大学和泉キャンパスにて開催することが決定いたしました｡</Text>
-                <Text moreTopPadding>昨年度は感謝の気持ちを込め、明大祭当日に校友のみなさまを対象とした企画をご用意させていただきました。
-                    今年度の明大祭におきましても、みなさまに感謝の気持ちをお伝えするとともに、より交流を深めるための企画をご用意させていただきたいと思っております。
-                    みなさまのご来場を心よりお待ちしております。また、今年度の明大祭は「関係者すべてに感動を響かせる」ことを目指しております。
-                    校友のみなさまのご期待を超えられるよう、明大祭実行委員一同精進してまいりますので何卒よろしくお願い申し上げます。</Text>
-                <SectionTitle>ご賛助のお願い</SectionTitle>
-                <Text moreTopPadding>日頃より明大祭へのご理解、ご協力ありがとうございます。校友のみなさまのご協力により明大祭を毎年開催できておりますこと、心より御礼申し上げます。</Text>
-                <Text moreTopPadding>不躾なお願いではございますが、今年度も第141回明大祭へご賛助という形でのご支援をお願いしたく存じます。</Text>
-                <Text moreTopPadding>「明大祭」は学生が日々の活動の成果を発表する場であり、また学生同士だけでなく学内外を繋ぐ非常に重要な交流の場でもあります。
-                    私たち第141回明大祭実行委員一同、第141回明大祭の成功とさらなる発展を目指してまいりますので、ご理解ご協力を賜りますよう何卒よろしくお願い申し上げます。</Text>
-                <Text moreTopPadding>なお、頂いたご賛助金は明大祭の運営費として「公式パンフレット制作」や「ステージ設営」など、明大祭のさらなる充実のために活用させていただきます。</Text>
-                <SectionTitle>ご協賛の方法</SectionTitle>
-                <Text moreTopPadding>本趣旨にご賛同いただける場合は以下のリンク先から電話番号、
-                    メールアドレスおよびご住所を<TransitionLink href="https://docs.google.com/forms/d/1bdu0jJer7b35WPeYk8bFX0GMIp9voZ9JE0ORgliNQ34/edit">Googleフォーム</TransitionLink>
-                    へ入力していただくか、下記のお問い合わせ先までご連絡ください。</Text>
-                <Text moreTopPadding>いただいたご連絡先に、改めてご住所の確認の連絡をさせていただいたのち、ご賛助に関する詳しい資料を送付させていただきます。</Text>
-                <Button href="https://docs.google.com/forms/d/1bdu0jJer7b35WPeYk8bFX0GMIp9voZ9JE0ORgliNQ34/edit" className="mt-5">
-                    Googleフォームはこちら
-                </Button>
-                <ContactView department="渉外局（校友部門）" mail="shogai@meidaisai.jp" showPhone showAddress />
+                <SectionTitle>開催のご報告</SectionTitle>
+                <Text moreTopPadding>
+                    この度、第141回明大祭を11月1日(土).2日(日).3日(月・祝)に明治大学和泉キャンパスにて開催することが決定いたしました。
+                    昨年度の第140回明大祭は、約4万人の方々に足をお運びいただき、教室企画や模擬店、ステージパフォーマンスなど様々な企画が盛況となりました。
+                    校友のみなさまの多大なるご支援に改めて厚く御礼申し上げます。</Text>
+                <Text moreTopPadding>今年度の明大祭におきましても、みなさまに感謝の気持ちをお伝えするとともに、より交流を深めるための企画をご用意させていただきたいと考えております。
+                    みなさまのご来場を心よりお待ちしております。</Text>
+                <Text moreTopPadding>また、今年度の明大祭は「関係者すべてに感動を響かせる」ことを目指しております。
+                    みなさまのご期待を超えられるよう、明大祭実行委員会一同精進してまいりますので、何卒よろしくお願い申し上げます。</Text>
+                <SectionTitle>ご賛助へのお礼</SectionTitle>
+                <Text moreTopPadding>第141回明大祭実行委員会にご賛助くださいましたみなさまに心から感謝申し上げます。</Text>
+                <Text moreTopPadding>みなさまのご協力により無事協賛活動を終了することができました。みなさまのお力添えにより、今年度も無事に明大祭を開催できますこと、心より
+                    嬉しく感じております。そのわずかなお礼として、5,000円以上のご賛助をいただいた方に記念品をご用意しております。本品の到着まで楽しみにお待ちください。
+                    また、ご希望の方は明大祭公式パンフレットにご芳名を掲載させていただきました。こちらのサイトから電子版をご覧にいただけますのでよろしければご確認ください。
+                </Text>
+                <Text moreTopPadding>改めまして、この度第141回明大祭にご賛助いただき誠にありがとうございました。今後とも何卒よろしくお願い申し上げます。</Text>
+                <SectionTitle>校友歓迎スペースについて</SectionTitle>
+                <Text moreTopPadding>今年度も第141回明大祭開催期間である11月1日(土).2日(日).3日(月・祝)の3日間、校友歓迎スペース企画を実施することが決定しました。</Text>
+                <Text moreTopPadding>校友歓迎スペース企画は、すべての校友のみなさまのために我々明大祭実行委員会渉外局校友部門がご用意させていただく企画となっております。
+                    昨年度は、縁日形式のミニゲームを通してみなさまと明大生が交流を深めることができました。今年度は、昨年度以上に楽しんでいただける企画をご用意しております。
+                    <Emphasis>第一校舎316・317教室</Emphasis>にて行う予定です。お時間に余裕がございましたら、お気軽にお越しください。
+                </Text>
+                <Text moreTopPadding>明大祭実行委員一同、心よりお待ちしております。</Text>
+                <ContactView department="渉外局（校友部門）" mail="shogai@meidaisai.jp" showPhone />
             </PageContainer>
         </div>
     )
