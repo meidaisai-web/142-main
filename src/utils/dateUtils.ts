@@ -48,7 +48,7 @@ export function convertToJapanDateString(isoString: string): string {
  */
 export function getOnlyDate(isoString: string): number {
     const date = new Date(isoString);
-    const japanDate = new Date(date.getTime() + (9 * 60 * 60 * 1000));
+    const japanDate = new Date(date.getTime());
     return japanDate.getDate(); // getDate()は頭に0がつかない数値を返します
 }
 
@@ -73,9 +73,11 @@ export function convertToJapanDateDisplayString(isoString: string): string {
  * @param date2 比較する日付2（ISO8601文字列またはDateオブジェクト）
  * @returns 同じ日付の場合はtrue、そうでなければfalse
  */
-export function isSameDateInJapan(date1: string | Date, date2: string | Date): boolean {
-    const dateStr1 = typeof date1 === 'string' ? convertToJapanDateString(date1) : convertToJapanDateString(date1.toISOString());
-    const dateStr2 = typeof date2 === 'string' ? convertToJapanDateString(date2) : convertToJapanDateString(date2.toISOString());
+export function isSameDate(date1: string | Date, date2: string | Date): boolean {
+    const dateStr1 = typeof date1 === 'string' ? getOnlyDate(date1) : getOnlyDate(date1.toISOString());
+    const dateStr2 = typeof date2 === 'string' ? getOnlyDate(date2) : getOnlyDate(date2.toISOString());
+    console.log(date1, date2);
+    console.log(dateStr1, dateStr2);
     return dateStr1 === dateStr2;
 }
 

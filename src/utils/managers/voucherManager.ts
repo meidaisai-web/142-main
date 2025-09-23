@@ -1,8 +1,8 @@
-import { getJapanDate, getOnlyDate } from "../dateUtils";
+import { getJapanDate, getJapanISOString, getOnlyDate } from "../dateUtils";
 
 // 引換処理を行う
 export function exchange() {
-    const exchangeDate = getOnlyDate(getJapanDate().toISOString());
+    const exchangeDate = getOnlyDate(getJapanISOString());
     localStorage.setItem('voucherExchangeDate', exchangeDate.toString());
 }
 
@@ -13,7 +13,7 @@ export function isAlreadyExchange() {
         return false;
     }
     const exchangeDateNum = Number(exchangeDate);
-    const nowDate = getOnlyDate(getJapanDate().toISOString());
+    const nowDate = getOnlyDate(getJapanISOString());
     return nowDate === exchangeDateNum;
 }
 
