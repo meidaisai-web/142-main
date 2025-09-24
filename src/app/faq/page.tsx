@@ -21,7 +21,7 @@ export default function Page() {
                 開催いたします｡ただし､豪雨の際などは中止となる企画がある場合がございます｡また､台風や災害の恐れがある際は開催が中止となる場合がございます｡その際は第141回明大祭公式サイトおよび各種公式SNSでお知らせをする予定です｡
             </FAQAccordion>
             <FAQAccordion question="公式パンフレットはもらえますか。">
-                インフォメーションブースにて配布しております｡インフォメーションブースの場所は､ <TransitionLink href="/pamphlet">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください｡
+                インフォメーションブースにて配布しております。インフォメーションブースの場所は、<TransitionLink href="/map">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください。また、サイト上で<TransitionLink href="/Pamphlet">電子パンフレット</TransitionLink>も公開しておりますので、あわせてご利用ください。
             </FAQAccordion>
             <FAQAccordion question="大学構内にATMはありますか。">
                 大学構内にあるATMは以下のとおりです｡<br />
@@ -48,15 +48,15 @@ export default function Page() {
                                 <span className="block text-xs sm:text-sm text-gray-600 mt-1">(第一校舎1階)</span>
                                 </td>
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月1日(土)</td>
-                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base"></td>
+                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base">9:00 ~ 17:00</td>
                             </tr>
                             <tr className="bg-white hover:bg-gray-50 transition-colors">
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月2日(日)</td>
-                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-red-600 font-medium text-xs sm:text-sm md:text-base"></td>
+                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-red-600 font-medium text-xs sm:text-sm md:text-base">未定</td>
                             </tr>
                             <tr className="bg-white hover:bg-gray-50 transition-colors">
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月3日(月・祝)</td>
-                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-red-600 font-medium text-xs sm:text-sm md:text-base"></td>
+                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-red-600 font-medium text-xs sm:text-sm md:text-base">未定</td>
                             </tr>
                             {/* ゆうちょ銀行 */}
                             <tr className="bg-white hover:bg-gray-50 transition-colors">
@@ -65,15 +65,15 @@ export default function Page() {
                                 <span className="block text-xs sm:text-sm text-gray-600 mt-1">(メディア棟1階)</span>
                                 </td>
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月1日(土)</td>
-                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base"></td>
+                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base">9:00 ~ 13:00</td>
                             </tr>
                             <tr className="bg-white hover:bg-gray-50 transition-colors">
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月2日(日)</td>
-                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-red-600 font-medium text-xs sm:text-sm md:text-base"></td>
+                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-red-600 font-medium text-xs sm:text-sm md:text-base">休止</td>
                             </tr>
                             <tr className="bg-white hover:bg-gray-50 transition-colors">
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月3日(月・祝)</td>
-                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-red-600 font-medium text-xs sm:text-sm md:text-base"></td>
+                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-red-600 font-medium text-xs sm:text-sm md:text-base">休止</td>
                             </tr>
                         </tbody>
                     </table>

@@ -62,7 +62,7 @@ export function FAQAccordion({ children, question }: AccordionProps) {
                                 }}
                                 style={{ overflow: "hidden" }}
                             >
-                                <div className="flex justify-center items-center text-left bg-white rounded-xl border-secondary border-4 mt-6 w-[80vw] lg:w-[60vw]">
+                                <div className="flex justify-center items-center text-left bg-white rounded-xl border-accent border-4 mt-6 w-[80vw] lg:w-[60vw]">
                                     <div className="text-2xl font-bold text-accent pl-5">A.</div>
                                     <div className="w-full text-base text-black font-semibold p-5">{children}</div>
                                 </div>
