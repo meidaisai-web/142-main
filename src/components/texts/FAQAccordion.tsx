@@ -20,10 +20,10 @@ export function FAQAccordion({ children, question }: AccordionProps) {
                     onClick={() => setOpen(!isOpen)}
                     className="flex justify-center items-center rounded-xl"
                 >
-                    <div className="flex pl-5 items-center text-left bg-white rounded-xl border-secondary border-4 w-[80vw] lg:w-[60vw] gap-3">
+                    <div className="flex pl-5 items-center text-left bg-white rounded-xl border-secondary border-4 w-[80vw] lg:w-[60vw]">
                         <div className="text-2xl font-bold text-secondary">Q.</div>
                         <div className="text-base text-black font-bold p-5 sm:pr-0 lg:pr-10 flex-1">{question}</div>
-                        <div className="pr-5">
+                        <div className="pr-5 flex items-center justify-center">
                             <AnimatePresence>
                                 {isOpen ? (
                                     <motion.div
@@ -32,7 +32,7 @@ export function FAQAccordion({ children, question }: AccordionProps) {
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.25 }}
                                     >
-                                        <div className="text-5xl text-accent">-</div>
+                                        <div className="text-2xl text-secondary leading-none flex justify-center items-center">ー</div>
                                     </motion.div>
                                 ) : (
                                     <motion.div
@@ -41,7 +41,7 @@ export function FAQAccordion({ children, question }: AccordionProps) {
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.25 }}
                                     >
-                                        <div className="text-4xl text-accent">+</div>
+                                        <div className="text-4xl text-secondary leading-none flex justify-center items-center">+</div>
                                     </motion.div>
                                 )}
 
