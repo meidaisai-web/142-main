@@ -3,7 +3,6 @@ import ContactView from "@/components/texts/ContactView";
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import Text from "@/components/texts/Text";
-import { div } from "framer-motion/client";
 
 export default function Page() {
     return (
