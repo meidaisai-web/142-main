@@ -24,7 +24,7 @@ export default function Page() {
                             </Text>
                         ))}
                     </div>
-                    <div className="ml-auto mr-auto">
+                    <div className="lg:ml-auto lg:mr-auto">
                         <AccentText>物品協賛</AccentText>
                         {companyGoodsList.map((company, index) => (
                             <Text key={index}>
