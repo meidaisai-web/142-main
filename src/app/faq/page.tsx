@@ -1,7 +1,6 @@
 
 import PageTitle from "@/components/texts/PageTitle";
 import { FAQAccordion } from "@/components/texts/FAQAccordion";
-import Link from "next/link";
 import TransitionLink from "@/components/buttons/TransitionLink";
 
 export default function Page() {
