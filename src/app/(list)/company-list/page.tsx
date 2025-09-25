@@ -15,7 +15,7 @@ export default function Page() {
                 <SectionTitle>ご協賛企業一覧</SectionTitle>
                 <SmallTitle>ご協賛企業名</SmallTitle>
                 <Text>(以下五十音順・敬称略)</Text>
-                <div className="flex flex-wrap gap-5">
+                <div className="flex flex-wrap gap-5 max-w-6xl">
                     <div>
                         <AccentText>広告協賛</AccentText>
                         {companyAdList.map((company, index) => (
@@ -24,7 +24,7 @@ export default function Page() {
                             </Text>
                         ))}
                     </div>
-                    <div className="lg:ml-auto lg:mr-auto">
+                    <div className="lg:ml-auto">
                         <AccentText>物品協賛</AccentText>
                         {companyGoodsList.map((company, index) => (
                             <Text key={index}>
