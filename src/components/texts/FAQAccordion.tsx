@@ -2,6 +2,7 @@
 
 import {ReactNode, useState} from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 
 interface AccordionProps {
     children: ReactNode;
@@ -32,7 +33,13 @@ export function FAQAccordion({ children, question }: AccordionProps) {
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.25 }}
                                     >
-                                        <div className="text-2xl text-secondary leading-none flex justify-center items-center">ー</div>
+                                        <Image
+                                        src="/images/svg/minus.svg"
+                                        alt=""
+                                        width="24"
+                                        height="24"
+                                        className="h-4 w-4"
+                                        />
                                     </motion.div>
                                 ) : (
                                     <motion.div
@@ -41,7 +48,13 @@ export function FAQAccordion({ children, question }: AccordionProps) {
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.25 }}
                                     >
-                                        <div className="text-4xl text-secondary leading-none flex justify-center items-center">+</div>
+                                        <Image
+                                        src="/images/svg/plus.svg"
+                                        alt=""
+                                        width="24"
+                                        height="24"
+                                        className="h-4 w-4"
+                                        />
                                     </motion.div>
                                 )}
 
