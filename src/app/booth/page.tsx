@@ -6,6 +6,7 @@ import Text from "@/components/texts/Text";
 import SecitioTitle from "@/components/texts/SectionTitle";
 import ImageText from "@/components/texts/ImageText";
 import SmallTitle from "@/components/texts/SmallTitle";
+import ContactView from "@/components/texts/ContactView";
 
 
 export default function Page() {
@@ -69,6 +70,7 @@ export default function Page() {
                         東京都では、若者のからだやこころの悩みにお答えする相談窓口「わかさぽ」を実施しています。「わかさぽ」ブースでは、お菓子つかみ取りを行います。オリジナルグッズもプレゼントしますので、ぜひお越しください！
                     </Text>
                 </ImageText>
+                <ContactView department="渉外局企業部門" mail="shogai@meidaisai.jp" showAddress showPhone/>
             </PageContainer>
         </div>
 
