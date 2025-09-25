@@ -21,7 +21,7 @@ export default function Page() {
                 開催いたします｡ただし､豪雨の際などは中止となる企画がある場合がございます｡また､台風や災害の恐れがある際は開催が中止となる場合がございます｡その際は第141回明大祭公式サイトおよび各種公式SNSでお知らせをする予定です｡
             </FAQAccordion>
             <FAQAccordion question="公式パンフレットはもらえますか。">
-                インフォメーションブースにて配布しております。インフォメーションブースの場所は、<TransitionLink href="/map">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください。また、サイト上で<TransitionLink href="/Pamphlet">電子パンフレット</TransitionLink>も公開しておりますので、あわせてご利用ください。
+                インフォメーションブースにて配布しております。インフォメーションブースの場所は、<TransitionLink href="/map">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください。また、サイト上で<TransitionLink href="/pamphlet">電子パンフレット</TransitionLink>も公開しておりますので、あわせてご利用ください。
             </FAQAccordion>
             <FAQAccordion question="大学構内にATMはありますか。">
                 大学構内にあるATMは以下のとおりです｡<br />
