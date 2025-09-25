@@ -2,14 +2,13 @@
 import PageTitle from "@/components/texts/PageTitle";
 import { FAQAccordion } from "@/components/texts/FAQAccordion";
 import TransitionLink from "@/components/buttons/TransitionLink";
-import Image from "next/image";
 
 export default function Page() {
     return (
         <div className="bg-primary">
             <PageTitle className="mb-5">よくある質問</PageTitle>
             <FAQAccordion question="明大祭の開催時間は何時から何時までですか。">
-                開場が10:00、開催時間が10:00~18:00です。
+                開場が10:00、開催時間が10：00〜18：00です。
             </FAQAccordion>
             <FAQAccordion question="チケットは予約は必要ですか。">
                 今年度は必要ありません。
@@ -48,7 +47,7 @@ export default function Page() {
                                 <span className="block text-xs sm:text-sm text-gray-600 mt-1">(第一校舎1階)</span>
                                 </td>
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月1日(土)</td>
-                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base">9:00 ~ 17:00</td>
+                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base">9：00〜17：00</td>
                             </tr>
                             <tr className="bg-white hover:bg-gray-50 transition-colors">
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月2日(日)</td>
@@ -65,7 +64,7 @@ export default function Page() {
                                 <span className="block text-xs sm:text-sm text-gray-600 mt-1">(メディア棟1階)</span>
                                 </td>
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月1日(土)</td>
-                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base">9:00 ~ 13:00</td>
+                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base">9：00〜13：00</td>
                             </tr>
                             <tr className="bg-white hover:bg-gray-50 transition-colors">
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月2日(日)</td>
