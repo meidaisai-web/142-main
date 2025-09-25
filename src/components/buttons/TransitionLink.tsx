@@ -15,12 +15,22 @@ export default function TransitionLink({
   targetBlank,
 }: TransitionLinkProps) {
   return (
+<<<<<<< Updated upstream
     <Link
+=======
+    <span className={className}>
+      <Link
+>>>>>>> Stashed changes
       href={href}
       className={`text-accent border-b border-accent hover:text-secondary hover:border-secondary ${className}`}
       target={targetBlank ? "_blank" : "_self"}
     >
       {children}
     </Link>
+<<<<<<< Updated upstream
+=======
+    </span>
+    
+>>>>>>> Stashed changes
   );
 }
