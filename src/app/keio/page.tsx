@@ -9,6 +9,7 @@ import Emphasis from '@/components/texts/Emphasis';
 import OnlyImage from '@/components/OnlyImage';
 import { List, ListItem } from '@/components/texts/List';
 import Button from '@/components/buttons/Button';
+import AccentText from '@/components/texts/AccentText';
 export default function Page() {
     return (
         <div>
@@ -22,60 +23,58 @@ export default function Page() {
                     <ListItem>各商業施設で営業時間が異なるため、場所によってスタンプ獲得可能時間が異なります。</ListItem>
                     <ListItem>景品の数には限りがあるため抽選を引くことができない場合がございます。予めご了承ください。</ListItem>
                 </List>
-                <SectionTitle>企画実施日時・場所</SectionTitle>
+                <SectionTitle>企画実施日時</SectionTitle>
                 <SmallTitle>日時</SmallTitle>
                 <Text>10月22日(水)～11月3日(月・祝)</Text>
                 <SmallTitle>景品受け渡し日時</SmallTitle>
                 <Text>11月1日(土).2日(日).3日(月・祝) 11：00～18：00</Text>
-                <SmallTitle>スタンプ設置場所</SmallTitle>
-                <Emphasis>フレンテ笹塚/京王クラウン街笹塚（笹塚駅）※</Emphasis>
-                <Text className='font-bold'>クイズ出題ポスター設置場所</Text>
+                <SectionTitle>企画実施場所</SectionTitle>
+                <SmallTitle>フレンテ笹塚/京王クラウン街笹塚（笹塚駅）※</SmallTitle>
+                <AccentText>クイズ出題ポスター設置場所</AccentText>
                 <Text>京王クラウン街笹塚 KFC脇</Text>
-                <Text className='font-bold'>商業施設の詳細</Text>
+                <AccentText>商業施設の詳細</AccentText>
                 <Text>フレンテ笹塚HP：
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/frente-sasazuka/">https://ekishop.keio-sc.jp/frente-sasazuka/</TransitionLink></Text>
                 <Text>京王クラウン街笹塚HP：
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sasazuka/">https://ekishop.keio-sc.jp/sasazuka/</TransitionLink></Text>
-                <div><Emphasis>フレンテ明大前 2F エレベーターホール前（明大前駅）</Emphasis></div>
-                <Text className='font-bold'>スタンプポスター設置場所</Text>
+                    <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sasazuka/">https://ekishop.keio-sc.jp/sasazuka/</TransitionLink></Text>
+                <SmallTitle>フレンテ笹塚/フレンテ明大前 2F エレベーターホール前（明大前駅）</SmallTitle>
+                <AccentText>スタンプポスター設置場所</AccentText>
                 <Text>2階 エレベーターホール前</Text>
-                <Text className='font-bold'>商業施設の詳細</Text>
+                <AccentText>商業施設の詳細</AccentText>
                 <Text>フレンテ明大前HP：
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/meidaimae/">https://ekishop.keio-sc.jp/meidaimae/</TransitionLink></Text>
-                <div><Emphasis>フレンテ仙川（仙川駅）</Emphasis></div>
-                <Text className='font-bold'>スタンプポスター設置場所</Text>
+                <SmallTitle>フレンテ仙川（仙川駅）</SmallTitle>
+                <AccentText>スタンプポスター設置場所</AccentText>
                 <Text>2階 エレベーターホール前</Text>
-                <Text className='font-bold'>商業施設の詳細</Text>
+                <AccentText>商業施設の詳細</AccentText>
                 <Text>フレンテ仙川HP：
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sengawa/">https://ekishop.keio-sc.jp/sengawa/</TransitionLink></Text>
-                <div><Emphasis>リトナードつつじが丘（つつじヶ丘駅）</Emphasis></div>
-                <Text className='font-bold'>スタンプポスター設置場所</Text>
+                <SmallTitle>リトナードつつじが丘（つつじヶ丘駅）</SmallTitle>
+                <AccentText>スタンプポスター設置場所</AccentText>
                 <Text>3階 エレベーターホール横</Text>
-                <Text className='font-bold'>商業施設の詳細</Text>
+                <AccentText>商業施設の詳細</AccentText>
                 <Text>リトナードつつじが丘HP：
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/tsutsujigaoka/">https://ekishop.keio-sc.jp/tsutsujigaoka/</TransitionLink></Text>
-                <div><Emphasis>トリエ京王調布（調布駅）※</Emphasis></div>
-                <Text className='font-bold'>クイズ出題ポスター設置場所</Text>
+                <SmallTitle>トリエ京王調布（調布駅）※</SmallTitle>
+                <AccentText>クイズ出題ポスター設置場所</AccentText>
                 <Text>未定</Text>
-                <Text className='font-bold'>商業施設の詳細</Text>
+                <AccentText>商業施設の詳細</AccentText>
                 <Text>トリエ京王調布HP：
                     <TransitionLink targetBlank href="https://trie-keiochofu.jp/">https://trie-keiochofu.jp/</TransitionLink></Text>
-                <div><Emphasis>リトナード永福町（永福町駅）</Emphasis></div>
-                <Text className='font-bold'>スタンプポスター設置場所</Text>
+                <SmallTitle>リトナード永福町（永福町駅）</SmallTitle>
+                <AccentText>スタンプポスター設置場所</AccentText>
                 <Text>1階 北口広場掲示板</Text>
-                <Text className='font-bold'>商業施設の詳細</Text>
+                <AccentText>商業施設の詳細</AccentText>
                 <Text>リトナード永福町HP：
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/eifukucho/">https://ekishop.keio-sc.jp/eifukucho/</TransitionLink></Text>
-                 <div><Emphasis>キラリナ京王吉祥寺（吉祥寺駅）※</Emphasis></div>
-                <Text className='font-bold'>クイズ出題ポスター設置場所</Text>
+                <SmallTitle>キラリナ京王吉祥寺（吉祥寺駅）※</SmallTitle>
+                <AccentText>クイズ出題ポスター設置場所</AccentText>
                 <Text>3階 Bエレベーターホール</Text>
-                <Text className='font-bold'>商業施設の詳細</Text>
+                <AccentText>商業施設の詳細</AccentText>
                 <Text>キラリナ京王吉祥寺HP：
                     <TransitionLink targetBlank href="https://www.kirarinakeiokichijoji.jp/">https://www.kirarinakeiokichijoji.jp/</TransitionLink></Text>
-                <div>
-                    <Emphasis>第141回明大祭会場</Emphasis>
-                </div>
-                <Text className='font-bold'>スタンプポスター設置場所</Text>
+                <SmallTitle>第141回明大祭会場</SmallTitle>
+                <AccentText>スタンプポスター設置場所</AccentText>
                 <Text>メディア棟 2階 メディア自習室前</Text>
                 <Text moreTopPadding><Emphasis>注：※の商業施設ではクイズに正解することでスタンプを獲得できます。</Emphasis></Text>
                 <SmallTitle>景品受け渡し場所</SmallTitle>
