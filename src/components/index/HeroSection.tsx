@@ -7,25 +7,25 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <div className="relative overflow-hidden h-screen w-screen">
+    <div className="relative overflow-hidden h-[100svh] w-screen">
       {/* ヘッダーの高さ分だけ余白を作る */}
       <div className="w-full h-18" />
-      <div className="relative h-[calc(100vh-4.5rem)] w-full">
+      <div className="relative h-[calc(100svh-4.5rem)] w-full">
         {/* 微妙にはみ出て白い線になってしまうことがあったため、ヒーローセクションの高さより少し小さくした白背景を追加 */}
-        <div className="absolute -z-10 bg-white h-[calc(100vh-5.5rem)] w-full" />
+        <div className="absolute -z-10 bg-white h-[calc(100svh-5.5rem)] w-full" />
         <Image
           src="/images/svg/heroSection/background-accent.svg"
           alt="Background Image"
           width={1920}
           height={1080}
-          className="absolute w-[70vw] h-[50vh] object-fill z-0 min-w-[40rem] mr-[30vw]"
+          className="absolute w-[70vw] h-[50svh] object-fill z-0 min-w-[40rem] mr-[30vw]"
         />
         <Image
           src="/images/svg/heroSection/background-secondary.svg"
           alt="Background Image"
           width={1920}
           height={1080}
-          className="absolute w-[80vw] max-w-lg h-screen object-fill z-10 min-w-80"
+          className="absolute w-[80vw] max-w-lg h-[100svh] object-fill z-10 min-w-80"
         />
         <Image
           src="/images/svg/heroSection/background-primary.svg"
@@ -34,7 +34,7 @@ export default function HeroSection() {
           height={1080}
           className="absolute w-full h-[40%] bottom-0 object-fill z-20"
         />
-        <div className="w-[63vw] h-[30vh]">
+        <div className="w-[63vw] h-[30svh]">
           <Image
             src="/images/svg/heroSection/title.svg"
             alt="第141回明大祭"
@@ -43,14 +43,14 @@ export default function HeroSection() {
             className="absolute ml-20 mt-10 w-64 min-[500px]:w-[45vw] md:w-[45vw] max-w-2xl"
           />
         </div>
-        <div className="relative transform translate-y-[1vh] translate-x-5 sm:-translate-x-12">
+        <div className="relative transform translate-y-[1svh] translate-x-5 sm:-translate-x-12">
           {/* ロゴとコンセプト画像 */}
           <Image
             src="/images/svg/official/logo-concept.svg"
             alt="熱狂の、その先へ。"
             width={1200}
             height={600}
-            className="absolute right-0 hidden sm:block w-[60vw] max-h-[30vh] object-contain"
+            className="absolute right-0 hidden sm:block w-[60vw] max-h-[30svh] object-contain"
           />
         </div>
         {/* ロゴだけ画像 */}
@@ -60,7 +60,7 @@ export default function HeroSection() {
             alt="第141回明大祭ロゴ"
             width={1200}
             height={600}
-            className="w-[48vw] ml-[35vw] max-w-72 max-h-[40vh] mr-[10vw] transform -translate-y-[10vw] sm:hidden object-contain"
+            className="w-[45vw] ml-[35vw] max-w-72 max-h-[40svh] mr-[10vw] transform -translate-y-[10vw] sm:hidden object-contain"
           />
         </div>
         <PlaceTime />
