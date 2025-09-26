@@ -82,7 +82,7 @@ export default function Page() {
                 <OnlyImage className="mt-5" src="/images/ad/keio.jpg" alt="Campus Map" />
                 <SectionTitle>ご案内</SectionTitle>
                 <Text>本企画参加には、スポットツアーから参加する必要があるため下記リンクを踏んでいただきご参加ください。</Text>
-                <Button href="https://app.spottour.jp/9NnEEeemQs0nKmHH/" className="mt-5">
+                <Button href="https://app.spottour.jp/9NnEEeemQs0nKmHH/" targetBlank className="mt-5">
                     スポットツアーはこちら
                 </Button>
                 <Text moreTopPadding>また、ご不明点などございましたら、下記のお問い合わせ先までご連絡ください。京王電鉄株式会社や各商業施設への直接のお問い合わせはご遠慮ください。</Text>

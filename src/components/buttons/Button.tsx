@@ -6,12 +6,13 @@ type ButtonProps = {
     className?: string;
     children: React.ReactNode;
     href: string;
+    targetBlank?: boolean;
 }
 
-export default function Button({ className, children, href }: ButtonProps) {
+export default function Button({ className, children, href, targetBlank }: ButtonProps) {
     return (
         <div className={`${className} relative p-5 h-24`}>
-            <Link href={href} className="absolute -translate-x-1/2 left-1/2 whitespace-nowrap">
+            <Link href={href} target={targetBlank ? "_blank" : "_self"} className="absolute -translate-x-1/2 left-1/2 whitespace-nowrap">
                 <div className='-rotate-3 rounded-full border-4 border-secondary py-3 px-20 sm:px-30 text-center absolute -translate-x-1/2 left-1/2'>
                     <p className='opacity-0'>{children}</p>
                 </div>
