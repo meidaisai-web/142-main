@@ -19,8 +19,10 @@ export default function ContactView({ department, mail, showPhone, showAddress, 
             </p>
             <div className="flex flex-col sm:flex-row items-center">
                 {showAddress && <Address />}
-                {mail &&
+                {mail ?
                     (showPhone ? <MailPhone mail={mail} /> : <Mail mail={mail} />)
+                    :
+                    (showPhone && <Phone />)
                 }
             </div>
         </div>
@@ -48,6 +50,22 @@ function Mail({ mail }: { mail: string }) {
             <Link href={`mailto:${mail}`}>
                 <p className="text-primary hover:text-secondary text-center text-lg font-bold underline">{mail}</p>
             </Link>
+        </Base>
+    )
+}
+
+function Phone() {
+    return (
+        <Base>
+            <div className="flex flex-col items-center gap-5">
+                <h2 className="w-full text-center text-sm">電話</h2>
+                <Link href={`tel:${phoneNumber}`}>
+                    <p className="text-primary hover:text-secondary text-center text-2xl font-bold underline">
+                        {phoneNumber}
+                    </p>
+                </Link>
+                <p className="text-center text-xs">※開室時間：11：00〜18：00（平日のみ）</p>
+            </div>
         </Base>
     )
 }

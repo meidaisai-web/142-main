@@ -34,7 +34,10 @@ export default function Page() {
                     本の街である神保町で行われたイベントの盛況に、ボランティアとして微力ながら尽力いたしました。</Text>
                 <SmallTitle>中野キャンパス周辺での取り組み</SmallTitle>
                 <AccentText>中野チャンプルーフェスタ</AccentText>
-                <ImageText src="/images/ad/Nakanofes.jpg" alt="NakanoFes Image">中野キャンパス竣工以来、中野チャンプルーフェスタにお手伝いとして参加させていただいております。7月19日(土)、20日(日)に開催された｢中野チャンプルーフェスタ2024｣にお手伝いとして参加させていただきました。模擬店出店や動線管理など、イベントの盛況に微力ながら尽力いたしました。</ImageText>
+                <ImageText src="/images/ad/Nakanofes.jpg" alt="NakanoFes Image">中野キャンパス竣工以来、中野チャンプルーフェスタにお手伝いとして参加させていただいております。7月19日(土)、20日(日)に開催された｢中野チャンプルーフェスタ2025｣にお手伝いとして参加させていただきました。模擬店出店や動線管理など、イベントの盛況に微力ながら尽力いたしました。</ImageText>
+                <SmallTitle>下北沢周辺地域での取り組み</SmallTitle>
+                <AccentText>下北沢盆踊り</AccentText>
+                <ImageText src="/images/ad/shimokita.jpg" alt="shimokita Image">下北沢において、8月9日(土)、10日(日)に開催された下北沢盆踊りに参加させていただきました。ボランティアとして地域の輪に入り、イベントの盛況に微力ながら尽力いたしました。</ImageText>
                 <ContactView department="渉外局" mail="shogai@meidaisai.jp" showAddress showPhone />
             </PageContainer>
         </div>

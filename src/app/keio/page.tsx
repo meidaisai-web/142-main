@@ -7,7 +7,9 @@ import ContactView from '@/components/texts/ContactView';
 import AccentText from '@/components/texts/AccentText';
 import SmallTitle from '@/components/texts/SmallTitle';
 import Emphasis from '@/components/texts/Emphasis';
+import OnlyImage from '@/components/OnlyImage';
 import { List, ListItem } from '@/components/texts/List';
+import Image from 'next/image';
 export default function Page() {
     return (
         <div>
@@ -29,33 +31,33 @@ export default function Page() {
                 <SmallTitle>クイズ・スタンプ設置場所</SmallTitle>
                 <AccentText>フレンテ笹塚/京王クラウン街笹塚（笹塚駅）※</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/frente-sasazuka/">https://ekishop.keio-sc.jp/frente-sasazuka/</TransitionLink><br />
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sasazuka/">https://ekishop.keio-sc.jp/sasazuka/</TransitionLink>
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/frente-sasazuka/">フレンテ笹塚 公式サイト 京王えきSHOPガイド</TransitionLink><br />
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sasazuka/">京王クラウン街笹塚 公式サイト 京王えきSHOPガイド</TransitionLink>
                 <AccentText>フレンテ明大前 2F エレベーターホール前（明大前駅）</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/meidaimae/">https://ekishop.keio-sc.jp/meidaimae/</TransitionLink>
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/meidaimae/">フレンテ明大前 公式サイト 京王えきSHOPガイド</TransitionLink>
                 <AccentText>フレンテ仙川（仙川駅）</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sengawa/">https://ekishop.keio-sc.jp/sengawa/</TransitionLink>
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sengawa/">フレンテ仙川 公式サイト 京王えきSHOPガイド</TransitionLink>
                 <AccentText>リトナードつつじヶ丘 3F エレベーター横（つつじヶ丘駅）</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/tutujigaoka/">https://ekishop.keio-sc.jp/tutujigaoka/</TransitionLink>
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/tsutsujigaoka/">京王リトナードつつじヶ丘 公式サイト 京王えきSHOPガイド</TransitionLink>
                 <AccentText>トリエ京王調布（調布駅）※</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://trie-keiochofu.jp/">https://trie-keiochofu.jp/</TransitionLink>
+                <TransitionLink targetBlank href="https://trie-keiochofu.jp/">【トリエ京王調布】公式サイト 京王線・京王相模原線調布駅のショッピングセンター</TransitionLink>
                 <AccentText>リトナード永福町 1F 北口広場掲示板（永福町駅）</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/eifukucho/">https://ekishop.keio-sc.jp/eifukucho/</TransitionLink>
+                <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/eifukucho/">京王リトナード永福町 公式サイト 京王えきSHOPガイド</TransitionLink>
                 <AccentText>キラリナ吉祥寺（吉祥寺駅）※</AccentText>
                 <Text>商業施設の詳細はこちら↓↓</Text>
-                <TransitionLink targetBlank href="https://www.kirarinakeiokichijoji.jp/">https://www.kirarinakeiokichijoji.jp/</TransitionLink>
+                <TransitionLink targetBlank href="https://www.kirarinakeiokichijoji.jp/">キラリナ京王吉祥寺 公式サイト</TransitionLink>
                 <AccentText>明大祭会場</AccentText>
                 <Text moreTopPadding><Emphasis>注：※の商業施設ではクイズに正解することでスタンプを獲得できます。</Emphasis></Text>
                 <SmallTitle>景品受け渡し場所</SmallTitle>
                 <Text>明治大学和泉キャンパスメディア棟入口付近</Text>
+                <OnlyImage className="mt-5" src="/images/ad/keio.jpg" alt="Campus Map" />
                 <SectionTitle>ご案内</SectionTitle>
-                <Text moreTopPadding>本企画参加には、スポットツアーから参加する必要があるため下記リンクを踏んでいただきご参加ください。</Text>
-                <Text moreTopPadding>また、ご不明点等ございましたら、下記のお問い合わせ先までご連絡ください。京王電鉄株式会社や各商業施設への直接のお問い合わせはご遠慮ください。</Text>
+                <Text moreTopPadding>ご不明点等ございましたら、下記のお問い合わせ先までご連絡ください。京王電鉄株式会社や各商業施設への直接のお問い合わせはご遠慮ください。</Text>
                 <ContactView department="渉外局" mail="shogai@meidaisai.jp" showPhone showAddress />
             </PageContainer>
         </div>
