@@ -67,7 +67,7 @@ export default function FireLoading({ setLoading }: FireLoadingProps) {
             initial={{ opacity: 1 }}
             animate={{ opacity: 0 }}
             transition={{ duration: 1, delay: 5, ease: "easeOut" }}
-            className="fixed top-0 z-[50] w-screen h-[100lvh] flex items-center justify-center bg-primary"
+            className="fixed top-0 z-[50] w-screen h-[100svh] flex items-center justify-center bg-primary"
         >
             {/* iOS26のsafariにより、上下に隙間が開くのを軽減 */}
             {/* 改善の余地あり */}
