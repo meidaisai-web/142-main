@@ -17,12 +17,12 @@ export default function TransitionLink({
   return (
     <span className={className}>
       <Link
-      href={href}
-      className={`text-accent border-b border-accent hover:text-secondary hover:border-secondary ${className}`}
-      target={targetBlank ? "_blank" : "_self"}
-    >
-      {children}
-    </Link>
+        href={href}
+        className={`text-accent border-b border-accent hover:text-secondary hover:border-secondary`}
+        target={targetBlank ? "_blank" : "_self"}
+      >
+        {children}
+      </Link>
     </span>
     
   );
