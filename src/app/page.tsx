@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div>
       <FireLoading setLoading={setIsLoading} />
-      {!isLoading ? <Contents /> : <div className="h-screen w-screen bg-primary fixed top-0 z-50" />}
+      {isLoading ? <div className="h-screen w-screen bg-primary fixed top-0 z-50" /> : <Contents />}
     </div>
   );
 }
