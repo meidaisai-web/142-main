@@ -77,7 +77,7 @@ export default function Tour() {
                     10：00～16：00
                 </Text>
                 <SmallTitle>参加方法</SmallTitle>
-                <Text moreTopPadding>
+                <Text>
                     和泉図書館前企画受付にて予約制で承っております。
                 </Text>
                 <ScheduleTable days={days} times={times} />

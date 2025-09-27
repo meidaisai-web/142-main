@@ -12,7 +12,7 @@ const ScheduleTable: React.FC<ScheduleTableProps> = ({ days, times, widths, col2
     return (
         <div className="overflow-x-auto mx-auto m-5">
             <table className={`
-        sm:w-[76%] mx-auto table-auto border-separate border-spacing-0 border-primary border"
+        sm:w-[76%] mx-auto table-auto border-separate border-spacing-0 border-2 border-black rounded-lg overflow-hidden"
         ${col2 ? 'lg:w-6/12 sm:text-sm lg:text-xl' : 'sm:max-w-[420px]'}
       `}>
                 <thead>
@@ -24,7 +24,7 @@ const ScheduleTable: React.FC<ScheduleTableProps> = ({ days, times, widths, col2
                                     key={index}
                                     colSpan={hasMinutes ? 2 : 1} // minutesがあるときはcolSpan=2､ないときは1
                                     className={`
-                    border border-primary lg:p-2 py-2 bg-secondary text-center text-white
+                    border border-black lg:p-2 py-2 bg-secondary text-center text-white
                     ${index === 0 && 'rounded-tl-lg'}
                     ${index === days.length - 1 && 'rounded-tr-lg'}
                   `}
@@ -49,7 +49,7 @@ const ScheduleTable: React.FC<ScheduleTableProps> = ({ days, times, widths, col2
                                     <React.Fragment key={`day-${colIndex}`} >
                                         {/* 時間セル */}
                                         <td
-                                            className={`whitespace-nowrap border border-primary bg-white text-center text-secondary font-bold
+                                            className={`whitespace-nowrap border border-black bg-white text-center text-secondary font-bold
                       ${rowIndex === times[0].hours.length - 1 && colIndex === 0 ? 'rounded-bl-lg' : ''}
                       ${rowIndex === times[0].hours.length - 1 && colIndex === days.length - 1 && !hasMinutes ? 'rounded-br-lg' : ''}
                       ${col2 ? 'sm:text-left lg:px-8 sm:pl-2 sm:p-1' : 'lg:p-2'}
@@ -63,7 +63,7 @@ const ScheduleTable: React.FC<ScheduleTableProps> = ({ days, times, widths, col2
                                         {hasMinutes && (
                                             <td
                                                 className={`
-                          border border-primary text-center lg:text-left bg-white text-secondary font-bold p-2
+                          border border-black text-center lg:text-left bg-white text-secondary font-bold p-2
                           ${rowIndex === times[0].hours.length - 1 && colIndex === days.length - 1 ? 'rounded-br-lg' : ''}
                         `}
                                                 style={{ width: widths ? widths[colIndex + 1] : '18%' }} // 親コンポーネントから幅を受け取る
