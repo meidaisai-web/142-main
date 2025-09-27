@@ -8,7 +8,7 @@ export default function Page() {
         <div className="bg-primary">
             <PageTitle className="mb-5">よくある質問</PageTitle>
             <FAQAccordion question="明大祭の開催時間は何時から何時までですか。">
-                開場が10:00、開催時間が10：00〜18：00です。
+                開場が10：00、開催時間が10：00〜18：00です。
             </FAQAccordion>
             <FAQAccordion question="チケットは予約は必要ですか。">
                 今年度は必要ありません。
