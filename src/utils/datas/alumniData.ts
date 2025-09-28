@@ -358,7 +358,7 @@ export const alumniList = [
     },
     {
         "id": 51,
-        "name": "内田日名子",
+        "name": "内田日奈子",
         "year": "令和7年",
         "division": "情報コミュニケーション",
         "position": "第139回明大祭実行委員会委員長",
