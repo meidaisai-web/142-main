@@ -118,7 +118,7 @@ function InfoView({ group, date, location, catchphrase, detail, instagram, x, ti
             </div>
             <div>
                 <div className="border-b-2 border-accent w-fit gap-4"><AccentText>{catchphrase}</AccentText></div>
-                <Text>{detail}</Text>
+                <Text className="font-medium">{detail}</Text>
             </div>
             <div className="flex justify-end items-center gap-6 mt-4">
                 {instagram && (
