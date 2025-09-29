@@ -5,6 +5,7 @@ import { getAllMasterDatas } from "@/utils/supabase/masterDataAction";
 import useSWRInfinite from "swr/infinite";
 import Button from "../buttons/Button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Search() {
     const limit = 10;
@@ -38,11 +39,13 @@ interface EventItemProps {
 
 function EventItem({ data }: EventItemProps) {
     return (
-        <div className="rounded-2xl overflow-hidden border-4 border-black">
-            <ItemHeader title={data.eventName} groupName={data.groupName} />
-            <ItemBody imageUrl={data.imageUrl} icons={data.icons} genre={data.genre} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} />
-            <ItemFooter />
-        </div>
+        <Link href={`/search/${data.id}`}>
+            <div className="rounded-2xl overflow-hidden border-4 border-black">
+                <ItemHeader title={data.eventName} groupName={data.groupName} />
+                <ItemBody imageUrl={data.imageUrl} icons={data.icons} genre={data.genre} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} />
+                <ItemFooter />
+            </div>
+        </Link>
     )
 }
 
@@ -70,10 +73,10 @@ interface ItemBodyProps {
 }
 
 function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemBodyProps) {
-    const showIcons = [...icons];
-    while (showIcons.length < 3) {
-        showIcons.push('empty');
-    }
+    // const showIcons = [...icons];
+    // while (showIcons.length < 3) {
+    //     showIcons.push('empty');
+    // }
 
     return (
         <div className="bg-white text-black p-3 text-xs font-medium">

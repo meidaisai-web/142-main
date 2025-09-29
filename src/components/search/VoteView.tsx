@@ -58,7 +58,6 @@ export default function VoteView({ id, groupId, type }: VoteViewProps) {
 
     return (
         <div>
-            <div>VoteView</div>
             <Button onClick={handleVote} disabled={hasVoted || isLoading}>
                 {hasVoted ? "投票済み" : isLoading ? "投票中..." : "投票する"}
             </Button>

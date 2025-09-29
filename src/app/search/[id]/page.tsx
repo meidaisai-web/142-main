@@ -1,10 +1,10 @@
-import DetailContent from "@/components/search/DetailContent";
+import DetailEventContent from "@/components/search/DetailEventContent";
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
     return (
         <div>
-            <DetailContent id={id} />
+            <DetailEventContent id={id} />
         </div>
     )
 }
