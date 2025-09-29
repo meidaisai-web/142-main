@@ -54,6 +54,7 @@ export default function TabsExample() {
   return (
     <div>
       <PageTitle>実行委員企画</PageTitle>
+      <div className="h-6" />
       <PageContainer>
         <div className="flex">
           {tabs.map((tab, index) => (
