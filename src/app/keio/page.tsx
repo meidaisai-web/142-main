@@ -29,6 +29,9 @@ export default function Page() {
                 <SmallTitle>景品受け渡し日時</SmallTitle>
                 <Text>11月1日(土).2日(日).3日(月・祝) 11：00～18：00</Text>
                 <SectionTitle>企画実施場所</SectionTitle>
+                 <SmallTitle>明大祭会場</SmallTitle>
+                <AccentText>スタンプポスター設置場所</AccentText>
+                <Text>メディア棟 2階 メディア自習室前</Text>
                 <SmallTitle>フレンテ笹塚/京王クラウン街笹塚（笹塚駅）※</SmallTitle>
                 <AccentText>クイズ出題ポスター設置場所</AccentText>
                 <Text>京王クラウン街笹塚 KFC脇</Text>
@@ -37,7 +40,7 @@ export default function Page() {
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/frente-sasazuka/">https://ekishop.keio-sc.jp/frente-sasazuka/</TransitionLink></Text>
                 <Text>京王クラウン街笹塚HP：
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sasazuka/">https://ekishop.keio-sc.jp/sasazuka/</TransitionLink></Text>
-                <SmallTitle>フレンテ笹塚/フレンテ明大前 2F エレベーターホール前（明大前駅）</SmallTitle>
+                <SmallTitle>フレンテ明大前（明大前駅）</SmallTitle>
                 <AccentText>スタンプポスター設置場所</AccentText>
                 <Text>2階 エレベーターホール前</Text>
                 <AccentText>商業施設の詳細</AccentText>
@@ -45,27 +48,27 @@ export default function Page() {
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/meidaimae/">https://ekishop.keio-sc.jp/meidaimae/</TransitionLink></Text>
                 <SmallTitle>フレンテ仙川（仙川駅）</SmallTitle>
                 <AccentText>スタンプポスター設置場所</AccentText>
-                <Text>2階 エレベーターホール前</Text>
+                <Text>2階 エスカレーター付近</Text>
                 <AccentText>商業施設の詳細</AccentText>
                 <Text>フレンテ仙川HP：
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sengawa/">https://ekishop.keio-sc.jp/sengawa/</TransitionLink></Text>
-                <SmallTitle>リトナードつつじが丘（つつじヶ丘駅）</SmallTitle>
+                <SmallTitle>京王リトナードつつじが丘（つつじヶ丘駅）</SmallTitle>
                 <AccentText>スタンプポスター設置場所</AccentText>
-                <Text>3階 エレベーターホール横</Text>
+                <Text>3階 エレベーター横</Text>
                 <AccentText>商業施設の詳細</AccentText>
-                <Text>リトナードつつじが丘HP：
+                <Text>京王リトナードつつじが丘HP：
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/tsutsujigaoka/">https://ekishop.keio-sc.jp/tsutsujigaoka/</TransitionLink></Text>
                 <SmallTitle>トリエ京王調布（調布駅）※</SmallTitle>
                 <AccentText>クイズ出題ポスター設置場所</AccentText>
-                <Text>未定</Text>
+                <Text>A館1階 南側通路 柱</Text>
                 <AccentText>商業施設の詳細</AccentText>
                 <Text>トリエ京王調布HP：
                     <TransitionLink targetBlank href="https://trie-keiochofu.jp/">https://trie-keiochofu.jp/</TransitionLink></Text>
-                <SmallTitle>リトナード永福町（永福町駅）</SmallTitle>
+                <SmallTitle>京王リトナード永福町（永福町駅）</SmallTitle>
                 <AccentText>スタンプポスター設置場所</AccentText>
                 <Text>1階 北口広場掲示板</Text>
                 <AccentText>商業施設の詳細</AccentText>
-                <Text>リトナード永福町HP：
+                <Text>京王リトナード永福町HP：
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/eifukucho/">https://ekishop.keio-sc.jp/eifukucho/</TransitionLink></Text>
                 <SmallTitle>キラリナ京王吉祥寺（吉祥寺駅）※</SmallTitle>
                 <AccentText>クイズ出題ポスター設置場所</AccentText>
@@ -73,15 +76,13 @@ export default function Page() {
                 <AccentText>商業施設の詳細</AccentText>
                 <Text>キラリナ京王吉祥寺HP：
                     <TransitionLink targetBlank href="https://www.kirarinakeiokichijoji.jp/">https://www.kirarinakeiokichijoji.jp/</TransitionLink></Text>
-                <SmallTitle>第141回明大祭会場</SmallTitle>
-                <AccentText>スタンプポスター設置場所</AccentText>
-                <Text>メディア棟 2階 メディア自習室前</Text>
-                <Text moreTopPadding><Emphasis>注：※の商業施設ではクイズに正解することでスタンプを獲得できます。</Emphasis></Text>
+                <Text moreTopPadding><Emphasis>注：※の商業施設ではクイズに正解することでスタンプを獲得できます。また、回答ポスターの設置場所はクイズ出題ポスターに書かれています。</Emphasis></Text>
+                <Text><Emphasis>注：各商業施設により営業時間が異なります。詳しくは各HPをご確認ください。</Emphasis></Text>
                 <SmallTitle>景品受け渡し場所</SmallTitle>
                 <Text>明治大学和泉キャンパスメディア棟入口付近</Text>
                 <OnlyImage className="mt-5" src="/images/ad/keio.jpg" alt="Campus Map" />
                 <SectionTitle>ご案内</SectionTitle>
-                <Text>本企画参加には、スポットツアーから参加する必要があるため下記リンクを踏んでいただきご参加ください。</Text>
+                <Text>本企画参加には、専用アプリ「Spot Tour」のダウンロードが必要です。下記リンクを踏んでいただきアプリをダウンロードしてください。</Text>
                 <Button href="https://app.spottour.jp/9NnEEeemQs0nKmHH/" targetBlank className="mt-5">
                     スポットツアーはこちら
                 </Button>
