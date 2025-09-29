@@ -24,7 +24,7 @@ export default function Page() {
                     ))}
                 </div>
                 <div className="lg:ml-auto">
-                    <AccentText>物品協賛</AccentText>
+                    <AccentText>パンフレット広告協賛</AccentText>
                     <div className="max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-x-28">
                         {areaAdList.map((area, index) => (
                             <Text key={index}>
