@@ -36,7 +36,9 @@ export default function FireLoading({ setLoading }: FireLoadingProps) {
     useEffect(() => {
         const bounceTimer = setTimeout(() => setAnimationPhase("shockwave"), 1000);
         const completeTimer = setTimeout(() => {
+            // なぜか4秒待たずにfalseになってしまっている
             setLoading(false);
+            console.log("Loading complete, setLoading(false) called");
             setAnimationPhase("complete")
         }, 4000);
 
@@ -65,8 +67,13 @@ export default function FireLoading({ setLoading }: FireLoadingProps) {
             initial={{ opacity: 1 }}
             animate={{ opacity: 0 }}
             transition={{ duration: 1, delay: 5, ease: "easeOut" }}
-            className="fixed top-0 z-[60] w-screen h-screen overflow-hidden flex items-center justify-center bg-primary"
+            className="fixed top-0 z-[50] w-screen h-[100svh] flex items-center justify-center bg-primary"
         >
+            {/* iOS26のsafariにより、上下に隙間が開くのを軽減 */}
+            {/* 改善の余地あり */}
+            <div className="fixed top-0 bg-primary h-20 w-full" />
+            <div className="fixed bottom-0 bg-primary h-20 w-full" />
+            {/* ここまで */}
             <div className="flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center gap-6 relative">
                     {/* ロゴの跳ねアニメ */}

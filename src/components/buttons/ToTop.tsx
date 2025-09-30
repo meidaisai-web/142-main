@@ -3,9 +3,10 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const ToTop: React.FC = () => {
-
+    const pathname = usePathname();
     const [isVisible, setIsVisible] = useState(false);
 
     const scrollToTop = () => {
@@ -49,13 +50,14 @@ const ToTop: React.FC = () => {
     }
 
     const style = isVisible ? activeStyle : normalStyle
+    const bottomClass = pathname === '/' ? 'bottom-8' : 'bottom-28 md:bottom-20';
 
     return (
         <div className="w-12 absolute cursor-pointer">
             <button
                 onClick={scrollToTop}
                 style={style}
-                className='fixed flex flex-col items-center right-8 md:right-12 bottom-28 md:bottom-20 w-18 z-30'>
+                className={`fixed flex flex-col items-center right-8 md:right-12 ${bottomClass} w-18 z-30`}>
                 <Image
                     className="w-3/4 object-contain"
                     src="/images/svg/ToTop.svg"
