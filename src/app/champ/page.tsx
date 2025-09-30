@@ -15,7 +15,7 @@ export default function ChampPage() {
         <div>
             <PageTitle>Meidaisai Championship</PageTitle>
             <PageContainer>
-                <OnlyImage className="mt-15" src="/images/ad/Meidaisai Championship.jpg" alt="Meidaisai Championship Image" />
+                <OnlyImage className="mt-15" src="/images/ad/meichamp-logo.jpg" alt="Meidaisai Championship Image" />
                 <SectionTitle>明大祭の頂点、今ここに！</SectionTitle>
                 <ImageText className="mt-8" src="/images/ad/championship.jpg" alt="Championship Image">みなさまの投票によって明大祭No.1企画を決定します。「屋外ステージ部門」「教室部門」「模擬店部門」の3つにわけ、各部門の1位を決めます。
                     そして、最も多くの票を獲得した団体がChampionとなります。結果は11月3日(月・祝)に行われるEndingにて発表します。また投票してくださった方は、
