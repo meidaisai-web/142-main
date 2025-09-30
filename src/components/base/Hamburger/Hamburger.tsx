@@ -62,6 +62,14 @@ const hamburgerContents: HamburgerSectionProps[] = [
         ]
     },
     {
+        title: "ご協賛一覧",
+        content: [
+            { href: "/company-list", label: "ご協賛企業一覧" },
+            { href: "/area-list", label: "ご協賛店舗一覧" },
+            { href: "/alumni-list", label: "ご賛助ご芳名" },
+        ]
+    },
+    {
         title: "明大祭に関わってくださるみなさまへ",
         content: [
             { href: "/company", label: "企業のみなさまへ" },
@@ -70,14 +78,6 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/media", label: "メディアのみなさまへ" },
         ]
     },
-    {
-        title: "ご協賛一覧",
-        content: [
-            { href: "/company-list", label: "ご協賛企業一覧" },
-            { href: "/area-list", label: "ご協賛店舗一覧" },
-            { href: "/alumni-list", label: "ご賛助ご芳名" },
-        ]
-    }
 ]
 
 function HamburgerSP() {
@@ -109,12 +109,12 @@ function HamburgerPC() {
     return (
         <div className="hidden sm:block px-16 pt-5">
             <HamburgerTopButton />
-            <div className="flex flex-wrap justify-center gap-x-20 gap-y-5 pt-5">
+            <div className="flex flex-wrap gap-x-20">
                 {hamburgerContents.map((section) => (
                     <HamburgerSection key={section.title} {...section} />
                 ))}
             </div>
-            <SecondaryButton href="/about" className="mt-20">明大祭とは</SecondaryButton>
+            <SecondaryButton href="/about" className="mt-5">明大祭とは</SecondaryButton>
         </div>
     )
 }
