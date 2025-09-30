@@ -9,7 +9,7 @@ export default function Page() {
         <div>
             <PageTitle>ご賛助ご芳名</PageTitle>
             <PageContainer>
-                <Text>明大祭の開催にあたりまして､多くの方々に多大なるご支援をいただきました｡ この場をお借りしまして､ご支援いただきましたみなさまのご紹介をさせていただきます｡（敬称略）</Text>
+                <Text moreTopPadding>明大祭の開催にあたりまして､多くの方々に多大なるご支援をいただきました｡ この場をお借りしまして､ご支援いただきましたみなさまのご紹介をさせていただきます｡（敬称略）</Text>
                 <SectionTitle>ご芳名一覧</SectionTitle>
                 <div className="max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-x-28 gap-y-5">
                     {alumniList.map((alumni) => (

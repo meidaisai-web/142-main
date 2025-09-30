@@ -16,4 +16,10 @@ export const NewsData: NewsItem[] = [
     type: "更新",
     title: "第141回明大祭公式サイトをリニューアルしました。",
   },
+  {
+    id: 2,
+    date: "2025.10.1",
+    type: "更新",
+    title: "ページを追加しました。"
+  }
 ];
