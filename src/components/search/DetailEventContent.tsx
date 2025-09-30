@@ -45,18 +45,18 @@ export default function DetailEventContent({ id }: DetailContentProps) {
     return (
         <div>
             {loading && (
-                <PageTitle>読み込み中...</PageTitle>
+                <EventTitle>読み込み中...</EventTitle>
             )}
 
             {error && (
                 <div>
-                    <PageTitle>企画が見つかりませんでした</PageTitle>
+                    <EventTitle>企画が見つかりませんでした</EventTitle>
                 </div>
             )}
 
             {!loading && !error && data && (
                 <>
-                    <PageTitle>{data.eventName}</PageTitle>
+                    <EventTitle>{data.eventName}</EventTitle>
                     <PageContainer>
                         <div className="flex justify-center items-center lg:items-start gap-8 mt-16 flex-col lg:flex-row">
                             <ImageView type={data.type} imageUrl={data.imageUrl} />
@@ -144,6 +144,34 @@ function InfoView({ group, date, location, catchphrase, detail, instagram, x, ti
                 {homepage && (
                     <TransitionLink href={homepage} targetBlank>公式サイト</TransitionLink>
                 )}
+            </div>
+        </div>
+    )
+}
+
+interface EventTitleProps {
+    children: React.ReactNode;
+}
+
+function EventTitle({ children }: EventTitleProps) {
+    return (
+        <div className={`w-full flex items-center justify-center pt-32 pb-2`}>
+            <div className="relative w-fit flex items-center justify-center">
+                <Image
+                    src="/images/svg/title/SectionTitleL.svg"
+                    alt=""
+                    width={80}
+                    height={80}
+                    className="absolute w-14 h-14 -left-9 -z-10"
+                />
+                <h2 className="text-center font-bold text-3xl">{children}</h2>
+                <Image
+                    src="/images/svg/title/SectionTitleR.svg"
+                    alt=""
+                    width={60}
+                    height={60}
+                    className="absolute w-14 h-14 -right-9 -z-10"
+                />
             </div>
         </div>
     )
