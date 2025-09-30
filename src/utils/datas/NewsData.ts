@@ -14,6 +14,6 @@ export const NewsData: NewsItem[] = [
     id: 1,
     date: "2025.9.17",
     type: "更新",
-    title: "第141回明大祭公式サイトを更新しました。",
+    title: "第141回明大祭公式サイトをリニューアルしました。",
   },
 ];
