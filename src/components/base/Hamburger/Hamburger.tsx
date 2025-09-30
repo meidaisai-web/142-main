@@ -45,10 +45,20 @@ export default function Hamburger({ isOpen }: HamburgerProps) {
 
 const hamburgerContents: HamburgerSectionProps[] = [
     {
+        title: "ご来場のみなさまへ",
+        content: [
+            { href: "/announce", label: "ご来場のみなさまへのお願い" },
+            { href: "/access", label: "アクセス" },
+            { href: "/news", label: "お知らせ" },
+        ]
+    },
+    {
         title: "特集",
         content: [
             { href: "/lottery", label: "明大祭大抽選会" },
             { href: "/matsubara", label: "松原小学校×明大祭" },
+            { href: "/crowdfunding", label: "クラウドファンディング" },
+            { href: "/booth", label: "企業ブース" },
         ]
     },
     {
@@ -58,6 +68,14 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/area", label: "界隈地域のみなさまへ" },
             { href: "/alumni", label: "校友のみなさまへ" },
             { href: "/media", label: "メディアのみなさまへ" },
+        ]
+    },
+    {
+        title: "ご協賛一覧",
+        content: [
+            { href: "/company-list", label: "ご協賛企業一覧" },
+            { href: "/area-list", label: "ご協賛店舗一覧" },
+            { href: "/alumni-list", label: "ご賛助ご芳名" },
         ]
     }
 ]
