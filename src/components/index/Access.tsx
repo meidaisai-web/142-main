@@ -1,0 +1,18 @@
+import Button from "../buttons/Button";
+import IndexTitle from "../texts/IndexTitle"
+import Image from 'next/image';
+
+const Access = () => {
+    return (
+        <div>
+            <IndexTitle>アクセス</IndexTitle>
+            <div className="mt-10 text-center text-xl font-bold">京王線・京王井の頭線「明大前駅」より徒歩5分</div>
+            <div className="mt-10 w-3/4 lg:w-5/12 mx-auto rounded-3xl overflow-hidden">
+                <Image src="/images/map/accessmap.jpg" alt="アクセスマップ" width={400} height={400} className="w-full h-full" />
+            </div>
+            <Button href="/access" className="mt-8">詳しく見る</Button>
+        </div>
+    )
+}
+
+export default Access
