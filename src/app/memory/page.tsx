@@ -18,13 +18,12 @@ export default function Page() {
             <SectionTitle>企画実施日時</SectionTitle>
             <SmallTitle>日時</SmallTitle>
             <Text>
-                11月1日(土).2日(日).3日(月・祝)10:00～18:00（最終日のみ17:00まで）
+                11月1日(土).2日(日).3日(月・祝) 10:00～18:00（最終日のみ17:00まで）
             </Text>
             <SmallTitle>場所</SmallTitle>
             <Text>和泉ラーニングスクエアLS201教室(階段教室)</Text>
             </PageContainer>
             <ContactView department="開発局想越部門" mail="141st-souetsu@meidaisai.jp" showPhone showAddress />
-
         </>
     )
 }
