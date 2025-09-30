@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       "2025年11月1日(土).2日(日).3日(月・祝)に開催される明治大学の学園祭、第141回明大祭の公式サイトです！",
     images: [
       {
-        url: "https://www.meidaisai.jp/assets/images/xcard.jpg",
+        url: "https://www.meidaisai.jp/images/xcard.png",
         alt: "第141回明大祭公式サイト",
       },
     ],
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       "2025年11月1日(土).2日(日).3日(月・祝)に開催される明治大学の学園祭、第141回明大祭の公式サイトです！",
     images: [
       {
-        url: "https://www.meidaisai.jp/assets/images/xcard.jpg",
+        url: "https://www.meidaisai.jp/images/xcard.png",
         alt: "第141回明大祭公式サイト",
       },
     ],

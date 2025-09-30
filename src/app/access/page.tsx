@@ -37,7 +37,7 @@ const page = () => {
                     明大前駅までのアクセス
                 </SmallTitle>
                 <div className="mt-5 sm:w-3/4 lg:w-5/12 mx-auto rounded-lg overflow-hidden">
-                    <Image src="/images/ad/accessmap.jpg" alt="アクセスマップ" width={400} height={400} className="w-full" />
+                    <Image src="/images/map/accessmap.jpg" alt="アクセスマップ" width={400} height={400} className="w-full" />
                 </div>
                 <SmallTitle>
                     明大前駅から和泉キャンパスまでのアクセス

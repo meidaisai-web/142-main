@@ -7,14 +7,15 @@ type ButtonProps = {
     href?: string;
     onClick?: () => void;
     disabled?: boolean;
+    targetBlank?: boolean;
 }
 
-export default function Button({ className, children, href, onClick, disabled }: ButtonProps) {
+export default function Button({ className, children, href, onClick, disabled, targetBlank }: ButtonProps) {
     return (
         <div className={`${className} relative p-5 h-24`}>
             {
                 href ? (
-                    <Link href={href} className="absolute -translate-x-1/2 left-1/2 whitespace-nowrap">
+                    <Link href={href} target={targetBlank ? "_blank" : "_self"} className="absolute -translate-x-1/2 left-1/2 whitespace-nowrap">
                         <ButtonContent>
                             {children}
                         </ButtonContent>

@@ -4,7 +4,7 @@ export type NewsItem = {
   date: string;
   type: NewsType;
   title: string;
-  link: string;
+  link?: string;
 };
 
 //お知らせの内容は以下に書いてください。
@@ -12,51 +12,8 @@ export type NewsItem = {
 export const NewsData: NewsItem[] = [
   {
     id: 1,
-    date: "2025.9.7",
-    type: "重要",
-    title: "新しいサービスを開始しました",
-    link: "https://adwdaf",
-  },
-  {
-    id: 2,
-    date: "2025.9.8",
+    date: "2025.9.17",
     type: "更新",
-    title: "新しいサービスだよ",
-    link: "https://adffffffgwdaf",
-  },
-  {
-    id: 3,
-    date: "2025.9.9",
-    type: "お知らせ",
-    title: "新しいサービスを開始したって",
-    link: "https://adggggglhwdaf",
-  },
-  {
-    id: 4,
-    date: "2025.10.28",
-    type: "お知らせ",
-    title: "新しいサービスを開始したっていう",
-    link: "https://adgggggl3effhwdaf",
-  },
-  {
-    id: 5,
-    date: "2025.10.28",
-    type: "お知らせ",
-    title: "新しいサービスを開始したっていう",
-    link: "https://adgggggl3effhwdaf",
-  },
-  {
-    id: 6,
-    date: "2025.10.28",
-    type: "お知らせ",
-    title: "新しいサービスを開始したっていう",
-    link: "https://adgggggl3effhwdaf",
-  },
-  {
-    id: 7,
-    date: "2025.10.28",
-    type: "お知らせ",
-    title: "新しいサービスを開始したっていう",
-    link: "https://adgggggl3effhwdaf",
+    title: "第141回明大祭公式サイトをリニューアルしました。",
   },
 ];
