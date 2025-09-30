@@ -26,11 +26,7 @@ export default function Page() {
                 <Text>11月1日(土).2日(日).3日(月・祝) 10：00〜17：30</Text>
                 <AccentText>実施場所</AccentText>
                 <Text>和泉図書館横</Text>
-                <OnlyImage
-                src="/images/booth-location.jpg"
-                alt="和泉図書館横"
-                className="my-5 w-[80vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw] xl:w-[25vw] 2xl:w-[20vw] "
-                />
+                <OnlyImage src="/images/booth-location.jpg" alt="和泉図書館横" className="max-w-72" />
                 <SectionTitle className="mb-5">出展企業一覧</SectionTitle>
                 {data.map((item) => (
                     <div key={item.name} className="mb-5">
