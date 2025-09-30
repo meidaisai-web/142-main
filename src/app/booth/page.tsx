@@ -1,6 +1,7 @@
 import AccentText from "@/components/texts/AccentText";
 import PageTitle from "@/components/texts/PageTitle";
 import PageContainer from "@/components/base/PageContainer";
+import Image from "next/image";
 import Text from "@/components/texts/Text";
 import ImageText from "@/components/texts/ImageText";
 import SectionTitle from "@/components/texts/SectionTitle";
@@ -25,11 +26,14 @@ export default function Page() {
                 <AccentText>実施日時</AccentText>
                 <Text>11月1日(土).2日(日).3日(月・祝) 10：00〜17：30</Text>
                 <AccentText>実施場所</AccentText>
-                <ImageText
+                <Text>和泉図書館横</Text>
+                <Image
                 src="/images/booth-location.jpg"
-                alt="企業ブースの実施場所はこちら"
-                className="text-2xl"
-                >和泉図書館横</ImageText>
+                alt="和泉図書館横"
+                width={800}
+                height={600}
+                className="my-5 rounded-lg w-[80vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw] xl:w-[25vw] 2xl:w-[20vw] "
+                />
                 <SectionTitle className="mb-5">出展企業一覧</SectionTitle>
                 {data.map((item) => (
                     <div key={item.name} className="mb-5">
