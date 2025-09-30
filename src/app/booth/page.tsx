@@ -19,7 +19,11 @@ export default function Page() {
                 <AccentText>実施日時</AccentText>
                 <Text>11月1日(土).2日(日).3日(月・祝)　10：00〜17：30</Text>
                 <AccentText>実施場所</AccentText>
-                <Text>和泉図書館横</Text>
+                <ImageText
+                src="/images/booth-location.jpg"
+                alt="企業ブースの実施場所はこちら"
+                className="text-2xl"
+                >和泉図書館横</ImageText>
                 <SectionTitle className="mb-5">出展企業一覧</SectionTitle>
 
                 <SmallTitle>Qoo10</SmallTitle>
