@@ -3,7 +3,6 @@ import PageTitle from "@/components/texts/PageTitle";
 import PageContainer from "@/components/base/PageContainer";
 import Image from "next/image";
 import Text from "@/components/texts/Text";
-import ImageText from "@/components/texts/ImageText";
 import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import ContactView from "@/components/texts/ContactView";
