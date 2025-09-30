@@ -10,8 +10,8 @@ export default function Page() {
             <FAQAccordion question="明大祭の開催時間は何時から何時までですか。">
                 開場が10：00、開催時間が10：00〜18：00です。
             </FAQAccordion>
-            <FAQAccordion question="チケットは予約は必要ですか。">
-                今年度は必要ありません。
+            <FAQAccordion question="入場に際してチケットや予約は必要ですか。">
+                入場は無料ですので、チケットや予約は必要ありません。一部企画ではチケットの事前購入が必要な場合があります。
             </FAQAccordion>
             <FAQAccordion question="企画の入場制限はありますか。">
                 企画によっては入場制限を設ける場合がございます｡詳しくは､こちらの<TransitionLink href="/search">｢企画を探す｣</TransitionLink>ページよりご確認ください｡
