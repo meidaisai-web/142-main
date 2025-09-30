@@ -13,7 +13,7 @@ interface HamburgerProps {
 export default function Hamburger({ isOpen }: HamburgerProps) {
     return (
         <motion.div
-            className="absolute z-40 whitespace-nowrap m-0 bg-primary pt-18 top-0 right-0 origin-top-right"
+            className="absolute z-40 whitespace-nowrap m-0 bg-primary pt-18 top-0 right-0 origin-top-right overflow-scroll"
             initial="closed"
             animate={isOpen ? "open" : "closed"}
             transition={{
@@ -109,7 +109,7 @@ function HamburgerPC() {
     return (
         <div className="hidden sm:block px-16 pt-5">
             <HamburgerTopButton />
-            <div className="flex flex-wrap justify-center gap-20 pt-5">
+            <div className="flex flex-wrap justify-center gap-x-20 gap-y-5 pt-5">
                 {hamburgerContents.map((section) => (
                     <HamburgerSection key={section.title} {...section} />
                 ))}
