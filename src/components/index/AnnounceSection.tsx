@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 import IndexTitle from "@/components/texts/IndexTitle";
+import Button from "../buttons/Button";
 
 export default function AnnounceSection() {
   const announces = [
@@ -24,6 +25,7 @@ export default function AnnounceSection() {
           ))}
         </div>
       </div>
+      <Button href="/announce" className="mt-8">詳しく見る</Button>
     </div>
   );
 }

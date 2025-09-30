@@ -1,11 +1,11 @@
 import PageContainer from "@/components/base/PageContainer"
+import OnlyImage from "@/components/OnlyImage"
 import ContactView from "@/components/texts/ContactView"
 import { List, ListItem } from "@/components/texts/List"
 import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import SmallTitle from "@/components/texts/SmallTitle"
 import Text from "@/components/texts/Text"
-import Image from "next/image"
 
 const page = () => {
     return (
@@ -32,7 +32,7 @@ const page = () => {
                 <Text>11：00～18：00</Text>
                 <SmallTitle>抽選実施場所</SmallTitle>
                 <Text>明治大学和泉キャンパスメディア棟入口付近</Text>
-                <Image src="/images/ad/shop-lottery-map.jpg" alt="終戦実施場所map" width={400} height={400} className="m-5 mx-auto rounded-lg" />
+                <OnlyImage src="/images/map/lottery.jpg" alt="抽選実施場所map" className="max-w-72" />
                 {/* <SectionTitle>企画協力店舗一覧</SectionTitle> */}
                 <SmallTitle>ご案内</SmallTitle>
                 <Text>ご不明点などございましたらお気軽に下記のお問い合わせ先にご連絡ください。</Text>

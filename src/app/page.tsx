@@ -1,6 +1,7 @@
 'use client';
 
 import FireLoading from "@/components/base/Loading";
+import Access from "@/components/index/Access";
 import AnnounceSection from "@/components/index/AnnounceSection";
 import HeroSection from "@/components/index/HeroSection";
 import News from "@/components/index/News";
@@ -35,6 +36,8 @@ function Contents() {
       <AnnounceSection />
       <Rainbow />
       <News />
+      <Rainbow className="mt-10" />
+      <Access />
     </div>
   )
 }
