@@ -6,6 +6,7 @@ import PageTitle from '@/components/texts/PageTitle'
 import Emphasis from '@/components/texts/Emphasis'
 import SmallTitle from '@/components/texts/SmallTitle'
 import AccentText from '@/components/texts/AccentText'
+import OnlyImage from '@/components/OnlyImage'
 export default function Page() {
     return (
         <div>
@@ -23,6 +24,7 @@ export default function Page() {
                 <List mark="※">
                     <ListItem>2つの抽選企画の会場が隣接しているためご注意ください。</ListItem>
                 </List>
+                <OnlyImage className="max-w-72" src="/images/map/lottery.jpg" alt="抽選会会場" />
                 <SmallTitle>実施日時</SmallTitle>
                 <div className='my-5'>
                     <div className='flex'>
