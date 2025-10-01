@@ -20,7 +20,7 @@ export default function Page() {
         <div>
             <PageTitle className="mb-5">企業ブース</PageTitle>
             <PageContainer>
-                <SectionTitle>今年も、あの企業ブースが帰ってきた。</SectionTitle>
+                <SectionTitle>今年も、あの企業ブースが帰ってきた！</SectionTitle>
                 <Text moreTopPadding>さまざまな企業が多種多様な企画を行い、明大祭を盛り上げます。</Text>
                 <AccentText>実施日時</AccentText>
                 <Text>11月1日(土).2日(日).3日(月・祝) 10：00〜17：30</Text>
