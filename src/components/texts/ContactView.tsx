@@ -4,21 +4,26 @@ const phoneNumber = "03-3327-4363"
 
 type ContactViewProps = {
     department: string;
-    mail: string;
+    mail?: string;
     showPhone?: boolean;
     showAddress?: boolean;
+    noPadding?: boolean;
 };
 
-export default function ContactView({ department, mail, showPhone, showAddress }: ContactViewProps) {
+export default function ContactView({ department, mail, showPhone, showAddress, noPadding }: ContactViewProps) {
     return (
-        <div className="w-full flex flex-col items-center pb-10 pt-20">
+        <div className={`w-full flex flex-col items-center pb-10 ${noPadding ? "pt-0" : "pt-20"}`}>
             <p className="text-lg text-center py-5">
                 第141回明大祭実行委員会<br/>
                 {department}
             </p>
             <div className="flex flex-col sm:flex-row items-center">
                 {showAddress && <Address />}
-                {showPhone ? <MailPhone mail={mail} /> : <Mail mail={mail} />}
+                {mail ?
+                    (showPhone ? <MailPhone mail={mail} /> : <Mail mail={mail} />)
+                    :
+                    (showPhone && <Phone />)
+                }
             </div>
         </div>
     )
@@ -49,6 +54,22 @@ function Mail({ mail }: { mail: string }) {
     )
 }
 
+function Phone() {
+    return (
+        <Base>
+            <div className="flex flex-col items-center gap-5">
+                <h2 className="w-full text-center text-sm">電話</h2>
+                <Link href={`tel:${phoneNumber}`}>
+                    <p className="text-primary hover:text-secondary text-center text-2xl font-bold underline">
+                        {phoneNumber}
+                    </p>
+                </Link>
+                <p className="text-center text-xs">※開室時間：11：00〜18：00（平日のみ）</p>
+            </div>
+        </Base>
+    )
+}
+
 function MailPhone({ mail }: { mail: string; }) {
     return (
         <Base>
@@ -67,7 +88,7 @@ function MailPhone({ mail }: { mail: string; }) {
                         {phoneNumber}
                     </p>
                 </Link>
-                <p className="text-center text-xs">※開室時間：11:00〜18:00（平日のみ）</p>
+                <p className="text-center text-xs">※開室時間：11：00〜18：00（平日のみ）</p>
             </div>
         </Base>
     )
@@ -81,7 +102,7 @@ function Base({ children }: { children: React.ReactNode }) {
                     {children}
                 </div>
             </div>
-            <div className="relative bg-white w-80 md:w-72 lg:w-80 py-10 px-10 md:px-6 lg:px-10 rounded-2xl outline-8 outline-accent outline-solid">
+            <div className="relative bg-background w-80 md:w-72 lg:w-80 py-10 px-10 md:px-6 lg:px-10 rounded-2xl outline-8 outline-accent outline-solid">
                 <div className="text-black">
                     {children}
                 </div>

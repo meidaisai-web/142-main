@@ -3,6 +3,8 @@ import "./globals.css";
 import Head from "next/head";
 import { murecho } from "@/utils/fonts";
 import Base from "@/components/base/Base";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { googleTagManagerId, googleAnalyticsId } from "@/utils/managers/analyticsManager";
 
 export const metadata: Metadata = {
   title: {
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
       "2025年11月1日(土).2日(日).3日(月・祝)に開催される明治大学の学園祭、第141回明大祭の公式サイトです！",
     images: [
       {
-        url: "https://www.meidaisai.jp/assets/images/xcard.jpg",
+        url: "https://www.meidaisai.jp/images/xcard.png",
         alt: "第141回明大祭公式サイト",
       },
     ],
@@ -36,7 +38,7 @@ export const metadata: Metadata = {
       "2025年11月1日(土).2日(日).3日(月・祝)に開催される明治大学の学園祭、第141回明大祭の公式サイトです！",
     images: [
       {
-        url: "https://www.meidaisai.jp/assets/images/xcard.jpg",
+        url: "https://www.meidaisai.jp/images/xcard.png",
         alt: "第141回明大祭公式サイト",
       },
     ],
@@ -51,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="text-[12px] md:text-[16px]">
+    <html lang="ja" className="text-[14px] md:text-[16px] leading-7">
       <Head>
         <meta name="referrer" content="origin" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -64,6 +66,8 @@ export default function RootLayout({
           {children}
         </Base>
       </body>
+      <GoogleAnalytics gaId={googleAnalyticsId} />
+      <GoogleTagManager gtmId={googleTagManagerId} />
     </html>
   );
 }
