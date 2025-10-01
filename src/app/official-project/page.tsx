@@ -31,7 +31,7 @@ const TABS: Tab[] = [
     key: 'tab2',
     label: '２日目',
     content: (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-9">
+      <div className="flex flex-col md:flex-row md:flex-wrap gap-9">
         <Project
           title="Luminous Stage"
           description="響鳴せよ、輝く舞台で。"
@@ -53,11 +53,11 @@ const TABS: Tab[] = [
     key: 'tab3',
     label: '３日目',
     content: (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-9">
+      <div className="flex flex-col md:flex-row md:flex-wrap gap-9">
         <Project
           title="I♡Fes!"
           description="踊って、叫んで、また好きになる。"
-          image="/images/nogi/k1.jpg"
+          image="/imagmdes/nogi/k1.jpg"
           alt="Image for Day 1 Project"
           tags={['13:00~14:00', 'エントランスエリア']}
         />
