@@ -6,6 +6,10 @@ import useSWRInfinite from "swr/infinite";
 import Button from "../buttons/Button";
 import Image from "next/image";
 import Link from "next/link";
+import PageContainer from "../base/PageContainer";
+import SectionTitle from "../texts/SectionTitle";
+import SearchBar from "../texts/SearchBar";
+import { useState } from "react";
 
 export default function Search() {
     const limit = 10;
@@ -14,6 +18,35 @@ export default function Search() {
         return { page: pageIndex, limit: limit, table: 'store' }; // SWR キー
     };
     const { data: datas, size, setSize, isLoading, isValidating } = useSWRInfinite(getKey, getAllMasterDatas)
+
+    return (
+        <div>
+            <FilterView />
+            <EventItems datas={datas} />
+            <Button onClick={() => setSize(size + 1)} disabled={isLoading || isValidating}>
+                Load More
+            </Button>
+        </div>
+    )
+}
+
+function FilterView() {
+    const [keyword, setKeyword] = useState<string>('');
+    return (
+        <div>
+            <PageContainer>
+                <SectionTitle>キーワード検索</SectionTitle>
+                <SearchBar text={keyword} setText={setKeyword} />
+            </PageContainer>
+        </div>
+    )
+}
+
+interface EventItemsProps {
+    datas: (MasterData[] | null)[] | undefined;
+}
+
+function EventItems({ datas }: EventItemsProps) {
 
     return(
         <div className="px-5">
@@ -26,9 +59,6 @@ export default function Search() {
                 </div>
                 )
             ))}
-            <Button onClick={() => setSize(size + 1)} disabled={isLoading || isValidating}>
-                Load More
-            </Button>
         </div>
     )
 }
