@@ -5,152 +5,139 @@ import { getAllMasterDatas } from "@/utils/supabase/masterDataAction";
 import useSWRInfinite from "swr/infinite";
 import Button from "../buttons/Button";
 import Image from "next/image";
-import Link from "next/link";
 import PageContainer from "../base/PageContainer";
-import SectionTitle from "../texts/SectionTitle";
-import SearchBar from "../texts/SearchBar";
-import { useState } from "react";
+import FilterView from "./FilterView";
+import EventItems from "./EventListView";
+import { useState, useEffect, useRef } from "react";
 
 export default function Search() {
+    const eventItemsRef = useRef<HTMLDivElement>(null);
+
+    // localStorageのキー定数
+    const STORAGE_KEY = 'searchConditions';
+
+    // 一時的な検索条件（フィルター変更時に更新される）
+    const [keyword, setKeyword] = useState<string>('');
+    const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+    const [selectedDates, setSelectedDates] = useState<string[]>([]);
+    const [selectedPlaces, setSelectedPlaces] = useState<string[]>([]);
+    const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+
+    // 実際の検索条件（検索ボタン押下時に更新される）
+    const [searchKeyword, setSearchKeyword] = useState<string>('');
+    const [searchTypes, setSearchTypes] = useState<string[]>([]);
+    const [searchDates, setSearchDates] = useState<string[]>([]);
+    const [searchPlaces, setSearchPlaces] = useState<string[]>([]);
+    const [searchGenres, setSearchGenres] = useState<string[]>([]);
+
+    // localStorageから検索条件を復元
+    useEffect(() => {
+        try {
+            const savedConditions = localStorage.getItem(STORAGE_KEY);
+            if (savedConditions) {
+                const conditions = JSON.parse(savedConditions);
+                setKeyword(conditions.keyword || '');
+                setSelectedTypes(conditions.selectedTypes || []);
+                setSelectedDates(conditions.selectedDates || []);
+                setSelectedPlaces(conditions.selectedPlaces || []);
+                setSelectedGenres(conditions.selectedGenres || []);
+                // 検索条件も同時に設定（前回の検索結果を表示）
+                setSearchKeyword(conditions.keyword || '');
+                setSearchTypes(conditions.selectedTypes || []);
+                setSearchDates(conditions.selectedDates || []);
+                setSearchPlaces(conditions.selectedPlaces || []);
+                setSearchGenres(conditions.selectedGenres || []);
+            }
+        } catch (error) {
+            console.error('Failed to load search conditions from localStorage:', error);
+        }
+    }, []);
+
+    // 検索条件をlocalStorageに保存
+    const saveSearchConditions = () => {
+        try {
+            const conditions = {
+                keyword,
+                selectedTypes,
+                selectedDates,
+                selectedPlaces,
+                selectedGenres
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(conditions));
+        } catch (error) {
+            console.error('Failed to save search conditions to localStorage:', error);
+        }
+    };
+
     const limit = 10;
     const getKey = (pageIndex: number, previousPageData: MasterData[]) => {
         if (previousPageData && !previousPageData.length) return null; // 最後に到達した
-        return { page: pageIndex, limit: limit, table: 'store' }; // SWR キー
+        return { page: pageIndex, limit: limit, keyword: searchKeyword, types: searchTypes, dates: searchDates, places: searchPlaces, genres: searchGenres }; // SWR キー
     };
     const { data: datas, size, setSize, isLoading, isValidating } = useSWRInfinite(getKey, getAllMasterDatas)
 
+    // これ以上データがあるかどうかを判定
+    const hasMoreData = datas ? datas[datas.length - 1]?.length === limit : true;
+
     return (
-        <div>
-            <FilterView />
-            <EventItems datas={datas} />
-            <Button onClick={() => setSize(size + 1)} disabled={isLoading || isValidating}>
-                Load More
-            </Button>
-        </div>
+        <PageContainer>
+            <FilterView
+                keyword={keyword}
+                setKeyword={setKeyword}
+                selectedTypes={selectedTypes}
+                setSelectedTypes={setSelectedTypes}
+                selectedDates={selectedDates}
+                setSelectedDates={setSelectedDates}
+                selectedPlaces={selectedPlaces}
+                setSelectedPlaces={setSelectedPlaces}
+                selectedGenres={selectedGenres}
+                setSelectedGenres={setSelectedGenres}
+            />
+            <Button onClick={() => {
+                // 検索条件をlocalStorageに保存
+                saveSearchConditions();
+
+                // 検索条件を更新
+                setSearchKeyword(keyword);
+                setSearchTypes(selectedTypes);
+                setSearchDates(selectedDates);
+                setSearchPlaces(selectedPlaces);
+                setSearchGenres(selectedGenres);
+                // 検索実行
+                setSize(1);
+
+                // EventItemsまでスクロール（少し上に調整）
+                const offset = -100; // スクロール位置を少し上に調整
+                const top = eventItemsRef.current?.getBoundingClientRect().top || 0;
+                window.scrollTo({
+                    top: window.scrollY + top + offset,
+                    behavior: "smooth"
+                });
+            }}>検索</Button>
+            <IconList />
+            <div ref={eventItemsRef}>
+                <EventItems datas={datas} />
+            </div>
+            {hasMoreData && (
+                <Button onClick={() => setSize(size + 1)} disabled={isLoading || isValidating}>
+                    Load More
+                </Button>
+            )}
+        </PageContainer>
     )
 }
 
-function FilterView() {
-    const [keyword, setKeyword] = useState<string>('');
+function IconList() {
+    const iconLists: string[][] = [['shoot', 'ticket', 'food', 'drink'], ['sell', 'experience', 'eco']]
     return (
-        <div>
-            <PageContainer>
-                <SectionTitle>キーワード検索</SectionTitle>
-                <SearchBar text={keyword} setText={setKeyword} />
-            </PageContainer>
-        </div>
-    )
-}
-
-interface EventItemsProps {
-    datas: (MasterData[] | null)[] | undefined;
-}
-
-function EventItems({ datas }: EventItemsProps) {
-
-    return(
-        <div className="px-5">
-            {datas?.map((data) => (
-                data && (
-                <div key={data[0].id}>
-                    {data.map((item) => (
-                        <EventItem key={item.id} data={item} />
+        <div className="flex flex-wrap justify-center gap-5 my-8">
+            {iconLists.map((icons) => (
+                <div key={icons[0]} className="flex justify-center gap-5">
+                    {icons.map((icon) => (
+                        <Image key={icon} src={`/images/svg/status/${icon}.svg`} alt={icon} width={100} height={100} className="w-14 h-14 rounded-xl" />
                     ))}
                 </div>
-                )
             ))}
-        </div>
-    )
-}
-
-interface EventItemProps {
-    data: MasterData;
-}
-
-function EventItem({ data }: EventItemProps) {
-    return (
-        <Link href={`/search/${data.id}`}>
-            <div className="rounded-2xl overflow-hidden border-4 border-black">
-                <ItemHeader title={data.eventName} groupName={data.groupName} />
-                <ItemBody imageUrl={data.imageUrl} icons={data.icons} genre={data.genre} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} />
-                <ItemFooter />
-            </div>
-        </Link>
-    )
-}
-
-interface ItemHeaderProps {
-    title: string;
-    groupName: string;
-}
-
-function ItemHeader({ title, groupName }: ItemHeaderProps) {
-    return (
-        <div className="bg-secondary pt-3 px-3 pb-1">
-            <h2 className="font-bold h-6">{title}</h2>
-            <p className="font-medium text-sm">{groupName}</p>
-        </div>
-    )
-}
-
-interface ItemBodyProps {
-    imageUrl: string;
-    icons: string[];
-    genre: string;
-    date: string;
-    location: string;
-    catchphrase: string;
-}
-
-function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemBodyProps) {
-    // const showIcons = [...icons];
-    // while (showIcons.length < 3) {
-    //     showIcons.push('empty');
-    // }
-
-    return (
-        <div className="bg-white text-black p-3 text-xs font-medium">
-            <div className="flex">
-                <div>
-                    <Image src={imageUrl} alt="企画画像" width={100} height={100} className="rounded-md" />
-                    <div className="flex">
-                        
-                    </div>
-                </div>
-                <div>
-                    <div className="flex">
-                        <p>{genre}</p>
-                    </div>
-                    <div className="flex">
-                        <p>{date}</p>
-                    </div>
-                    <div className="flex">
-                        <p>{location}</p>
-                    </div>
-                    <p>
-                        {catchphrase}
-                    </p>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-function ItemFooter() {
-    return (
-        <div className="bg-secondary">
-            <p>Read More</p>
-        </div>
-    )
-}
-
-interface IconProps {
-    name: string;
-}
-function Icon({ name }: IconProps) {
-    return (
-        <div>
-            <Image src={`/images/search/icons/${name}.svg`} alt={name} width={30} height={30} />
         </div>
     )
 }

@@ -2,7 +2,6 @@
 
 import { getUniqueMasterData } from "@/utils/supabase/masterDataAction";
 import { useEffect, useState } from "react";
-import PageTitle from "../texts/PageTitle";
 import { MasterData } from "@/utils/models/MasterData";
 import VoteView from "./VoteView";
 import AccentText from "../texts/AccentText";
@@ -11,6 +10,7 @@ import Image from "next/image";
 import PageContainer from "../base/PageContainer";
 import Link from "next/link";
 import TransitionLink from "../buttons/TransitionLink";
+import Label from "../texts/Label";
 
 interface DetailContentProps {
     id: string;
@@ -189,23 +189,6 @@ function TypeLabel({ children }: TypeLabelProps) {
             </div>
             <div className={`rounded-full transition duration-100 bg-secondary py-1 px-10 relative w-72 z-10`}>
                 <p className='text-lg font-bold text-center'>{children}</p>
-            </div>
-        </div>
-    )
-}
-
-interface LabelProps {
-    children: React.ReactNode;
-}
-
-function Label({ children }: LabelProps) {
-    return (
-        <div className="pr-1 py-1">
-            <div className={`-rotate-3 rounded-full border-2 border-accent py-1 text-center absolute -translate-y-0.5 w-24`}>
-                <p className='opacity-0 text-sm text-center'>{children}</p>
-            </div>
-            <div className={`rounded-full transition duration-100 bg-secondary py-1 relative z-10 w-24`}>
-                <p className='text-sm font-bold text-center'>{children}</p>
             </div>
         </div>
     )

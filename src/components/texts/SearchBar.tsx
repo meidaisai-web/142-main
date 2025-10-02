@@ -14,7 +14,7 @@ export default function SearchBar({ text, setText }: SearchBarProps) {
     };
 
     return (
-        <div className="relative flex justify-center py-10">
+        <div className="relative flex justify-center py-12">
             <div className="absolute w-3/5 min-w-72 h-10 md:h-14 rounded-full border-secondary border-4 rotate-3 -z-10" />
             <div
                 className="bg-white rounded-full h-10 md:h-14 w-3/5 min-w-72 flex justify-center items-center cursor-text py-3 px-5"

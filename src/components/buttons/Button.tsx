@@ -12,7 +12,7 @@ type ButtonProps = {
 
 export default function Button({ className, children, href, onClick, disabled, targetBlank }: ButtonProps) {
     return (
-        <div className={`${className} relative p-5 h-24`}>
+        <div className={`${className} relative p-5 h-24 select-none`}>
             {
                 href ? (
                     <Link href={href} target={targetBlank ? "_blank" : "_self"} className="absolute -translate-x-1/2 left-1/2 whitespace-nowrap">
