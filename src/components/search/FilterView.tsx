@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionTitle from "../texts/SectionTitle";
 import SearchBar from "../texts/SearchBar";
 import Label from "../texts/Label";
 import Checkbox from "../buttons/Checkbox";
+import Button from "../buttons/Button";
 
 interface FilterViewProps {
     keyword: string;
@@ -20,21 +22,50 @@ interface FilterViewProps {
 }
 
 export default function FilterView({ keyword, setKeyword, selectedTypes, setSelectedTypes, selectedDates, setSelectedDates, selectedPlaces, setSelectedPlaces, selectedGenres, setSelectedGenres }: FilterViewProps) {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <div>
             <SectionTitle>キーワード検索</SectionTitle>
             <SearchBar text={keyword} setText={setKeyword} />
-            <SectionTitle>詳細検索</SectionTitle>
-            <DetailFilterView
-                selectedTypes={selectedTypes}
-                setSelectedTypes={setSelectedTypes}
-                selectedDates={selectedDates}
-                setSelectedDates={setSelectedDates}
-                selectedPlaces={selectedPlaces}
-                setSelectedPlaces={setSelectedPlaces}
-                selectedGenres={selectedGenres}
-                setSelectedGenres={setSelectedGenres}
-            />
+            <div className="flex justify-center">
+                <button onClick={() => setIsOpen(!isOpen)} className="relative h-14 w-72">
+                    <div className={`-rotate-3 rounded-full border-4 border-secondary w-full h-full text-center absolute -z-10`}>
+                        <div className='opacity-0'>
+                            <p>詳しく絞り込む</p>
+                        </div>
+                    </div>
+                    <div className={`font-bold rounded-full hover:bg-accent transition duration-100 border-accent border-4 w-full h-full`}>
+                        <div className="h-full w-full flex justify-center items-center">
+                            <p>{isOpen ? "閉じる" : "詳しく絞り込む"}</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        style={{ overflow: "hidden" }}
+                    >
+                        <SectionTitle>詳細検索</SectionTitle>
+                        <DetailFilterView
+                            selectedTypes={selectedTypes}
+                            setSelectedTypes={setSelectedTypes}
+                            selectedDates={selectedDates}
+                            setSelectedDates={setSelectedDates}
+                            selectedPlaces={selectedPlaces}
+                            setSelectedPlaces={setSelectedPlaces}
+                            selectedGenres={selectedGenres}
+                            setSelectedGenres={setSelectedGenres}
+                        />
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     )
 }
