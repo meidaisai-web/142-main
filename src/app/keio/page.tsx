@@ -10,6 +10,7 @@ import OnlyImage from '@/components/OnlyImage';
 import { List, ListItem, ListText } from '@/components/texts/List';
 import Button from '@/components/buttons/Button';
 import AccentText from '@/components/texts/AccentText';
+import MapImage from '@/components/MapImage';
 export default function Page() {
     return (
         <div>

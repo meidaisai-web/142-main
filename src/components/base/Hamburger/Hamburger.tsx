@@ -13,7 +13,7 @@ interface HamburgerProps {
 export default function Hamburger({ isOpen }: HamburgerProps) {
     return (
         <motion.div
-            className="absolute z-40 whitespace-nowrap m-0 bg-primary pt-18 top-0 right-0 origin-top-right"
+            className="absolute z-40 whitespace-nowrap m-0 bg-primary pt-18 top-0 right-0 origin-top-right overflow-scroll"
             initial="closed"
             animate={isOpen ? "open" : "closed"}
             transition={{
@@ -45,10 +45,28 @@ export default function Hamburger({ isOpen }: HamburgerProps) {
 
 const hamburgerContents: HamburgerSectionProps[] = [
     {
+        title: "ご来場のみなさまへ",
+        content: [
+            { href: "/announce", label: "ご来場のみなさまへのお願い" },
+            { href: "/access", label: "アクセス" },
+            { href: "/news", label: "お知らせ" },
+        ]
+    },
+    {
         title: "特集",
         content: [
             { href: "/lottery", label: "明大祭大抽選会" },
             { href: "/matsubara", label: "松原小学校×明大祭" },
+            { href: "/crowdfunding", label: "クラウドファンディング" },
+            // { href: "/booth", label: "企業ブース" },
+        ]
+    },
+    {
+        title: "ご協賛一覧",
+        content: [
+            { href: "/company-list", label: "ご協賛企業一覧" },
+            { href: "/area-list", label: "ご協賛店舗一覧" },
+            { href: "/alumni-list", label: "ご賛助ご芳名" },
         ]
     },
     {
@@ -59,7 +77,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/alumni", label: "校友のみなさまへ" },
             { href: "/media", label: "メディアのみなさまへ" },
         ]
-    }
+    },
 ]
 
 function HamburgerSP() {
@@ -91,12 +109,12 @@ function HamburgerPC() {
     return (
         <div className="hidden sm:block px-16 pt-5">
             <HamburgerTopButton />
-            <div className="flex flex-wrap justify-center gap-20 pt-5">
+            <div className="flex flex-wrap gap-x-20">
                 {hamburgerContents.map((section) => (
                     <HamburgerSection key={section.title} {...section} />
                 ))}
             </div>
-            <SecondaryButton href="/about" className="mt-20">明大祭とは</SecondaryButton>
+            <SecondaryButton href="/about" className="mt-5">明大祭とは</SecondaryButton>
         </div>
     )
 }
