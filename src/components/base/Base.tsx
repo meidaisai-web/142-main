@@ -9,7 +9,9 @@ export default function Base({ children }: { children: React.ReactNode }) {
         <Suspense fallback={<Loading />}>
             <div className="min-h-screen">
                 <Header />
-                {children}
+                <main>
+                    {children}
+                </main>
                 <ToTop />
                 <Footer />
             </div>

@@ -10,7 +10,11 @@ export default function News() {
     <div className="w-full px-8 sm:px-28 flex flex-col items-center">
       <IndexTitle>お知らせ</IndexTitle>
       <Contents />
-      <Button href="/news" className="mt-8">もっと見る</Button>
+      {NewsData.length > 4 ? (
+        <Button href="/news" className="mt-8">もっと見る</Button>
+      ) : (
+        <div className="h-20" />
+      )}
     </div>
   );
 };
