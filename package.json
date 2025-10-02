@@ -14,7 +14,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@next/third-parties": "^15.5.2",
+    "@next/third-parties": "^15.5.3",
     "@opennextjs/cloudflare": "^1.6.3",
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.56.1",
