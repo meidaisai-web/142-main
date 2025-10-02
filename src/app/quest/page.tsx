@@ -6,7 +6,6 @@ import ContactView from "@/components/texts/ContactView"
 import { List, ListItem } from "@/components/texts/List"
 import Emphasis from "@/components/texts/Emphasis"
 import SmallTitle from "@/components/texts/SmallTitle"
-
 export default function Page() {
     return (
         <>
