@@ -58,7 +58,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/lottery", label: "明大祭大抽選会" },
             { href: "/matsubara", label: "松原小学校×明大祭" },
             { href: "/crowdfunding", label: "クラウドファンディング" },
-            { href: "/booth", label: "企業ブース" },
+            // { href: "/booth", label: "企業ブース" },
         ]
     },
     {
