@@ -18,7 +18,7 @@ const page = () => {
                 <Text moreTopPadding>集めた抽選券で豪華景品が当たるチャンス！</Text>
                 <Text moreTopPadding>ぜひこの機会に明大前商店街でのお買い物と、明大祭をお楽しみください！</Text>
                 <List mark="※">
-                    <ListItem>抽選券は1度のお買い物につき最大10枚までお渡ししております。</ListItem>
+                    <ListItem>抽選券は1度のお買い物につき最大5枚までお渡ししております。</ListItem>
                     <ListItem>抽選券は数に限りがございますのでご了承ください。</ListItem>
                     <ListItem>1回列にお並びいただく毎に最大10回抽選いただけます。10枚以上お持ちの方は再度お並びいただきます、ご了承ください。</ListItem>
                     <ListItem>景品の数には限りがございます。抽選券をお持ちいただいても抽選できない場合がございます。ご了承ください。</ListItem>
