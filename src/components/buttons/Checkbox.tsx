@@ -14,7 +14,7 @@ export default function Checkbox({ label, checked, setChecked }: CheckboxProps) 
                     <Image src='/images/svg/check-secondary.svg' alt='' width={20} height={20} className="w-5 h-5"  />
                 }
             </div>
-            <p>{label}</p>
+            <p className="font-medium">{label}</p>
         </div>
     )
 }

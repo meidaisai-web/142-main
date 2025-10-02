@@ -41,7 +41,7 @@ export async function getAllMasterDatas(key: { page: number, limit: number, keyw
 
     // 日程フィルター（OR検索、部分一致）
     if (key.dates && key.dates.length > 0) {
-        const normalizedDates = key.dates.map(date => date.slice(0, 5)); // なぜかデコードするときに勝手にカッコが全角になってしまうので、曜日は除外する
+        const normalizedDates = key.dates.map(date => date.slice(3, 5)); // なぜかデコードするときに勝手にカッコが全角になってしまうので、曜日は除外する
         const dateConditions = normalizedDates.map(date => `eventDate.ilike.%${date}%`);
         query = query.or(dateConditions.join(','));
     }

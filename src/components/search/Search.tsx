@@ -93,7 +93,7 @@ export default function Search() {
                 selectedGenres={selectedGenres}
                 setSelectedGenres={setSelectedGenres}
             />
-            <Button onClick={() => {
+            <Button className="mb-20" onClick={() => {
                 // 検索条件をlocalStorageに保存
                 saveSearchConditions();
 
@@ -115,7 +115,7 @@ export default function Search() {
                 });
             }}>検索</Button>
             <IconList />
-            <div ref={eventItemsRef}>
+            <div className="mt-20" ref={eventItemsRef}>
                 <EventItems datas={datas} />
             </div>
             {hasMoreData && (
@@ -128,13 +128,26 @@ export default function Search() {
 }
 
 function IconList() {
-    const iconLists: string[][] = [['shoot', 'ticket', 'food', 'drink'], ['sell', 'experience', 'eco']]
+    const iconLists = [[
+        { id: 'shoot', label: '撮影禁止'},
+        { id: 'ticket', label: 'チケット制'},
+        { id: 'food', label: '食べ物'},
+        { id: 'drink', label: '飲み物'},
+    ], [
+        { id: 'sell', label: '物品販売'},
+        { id: 'experience', label: '参加体験'},
+        { id: 'eco', label: 'エコトレー'},
+    ]]
+    // const iconLists = [['shoot', 'ticket', 'food', 'drink'], ['sell', 'experience', 'eco']]
     return (
         <div className="flex flex-wrap justify-center gap-5 my-8">
             {iconLists.map((icons) => (
-                <div key={icons[0]} className="flex justify-center gap-5">
+                <div key={icons[0].id} className="flex justify-center gap-5">
                     {icons.map((icon) => (
-                        <Image key={icon} src={`/images/svg/status/${icon}.svg`} alt={icon} width={100} height={100} className="w-14 h-14 rounded-xl" />
+                        <div key={icon.id} className="flex flex-col items-center gap-1">
+                            <Image src={`/images/svg/status/${icon.id}.svg`} alt={icon.label} width={100} height={100} className="w-14 h-14 rounded-xl" />
+                            <label className='text-xs font-medium'>{icon.label}</label>
+                        </div>
                     ))}
                 </div>
             ))}

@@ -6,7 +6,7 @@ import SectionTitle from "../texts/SectionTitle";
 import SearchBar from "../texts/SearchBar";
 import Label from "../texts/Label";
 import Checkbox from "../buttons/Checkbox";
-import Button from "../buttons/Button";
+import Image from "next/image";
 
 interface FilterViewProps {
     keyword: string;
@@ -24,22 +24,37 @@ interface FilterViewProps {
 export default function FilterView({ keyword, setKeyword, selectedTypes, setSelectedTypes, selectedDates, setSelectedDates, selectedPlaces, setSelectedPlaces, selectedGenres, setSelectedGenres }: FilterViewProps) {
     const [isOpen, setIsOpen] = useState(false);
 
+    // チェックされているフィルターの軸の数を計算
+    const activeFilterCount = [
+        selectedTypes.length > 0 ? 1 : 0,
+        selectedDates.length > 0 ? 1 : 0,
+        selectedPlaces.length > 0 ? 1 : 0,
+        selectedGenres.length > 0 ? 1 : 0
+    ].reduce((sum, count) => sum + count, 0);
+
     return (
-        <div>
+        <div className="mb-16">
             <SectionTitle>キーワード検索</SectionTitle>
             <SearchBar text={keyword} setText={setKeyword} />
             <div className="flex justify-center">
-                <button onClick={() => setIsOpen(!isOpen)} className="relative h-14 w-72">
-                    <div className={`-rotate-3 rounded-full border-4 border-secondary w-full h-full text-center absolute -z-10`}>
+                <button onClick={() => setIsOpen(!isOpen)} className="relative h-14 w-72 group">
+                    <div className={`-rotate-3 rounded-full border-4 border-accent w-full h-full text-center absolute`}>
                         <div className='opacity-0'>
                             <p>詳しく絞り込む</p>
                         </div>
                     </div>
-                    <div className={`font-bold rounded-full hover:bg-accent transition duration-100 border-accent border-4 w-full h-full`}>
+                    <div className={`font-bold rounded-full group-hover:bg-secondary transition duration-100 border-secondary border-4 w-full h-full`}>
                         <div className="h-full w-full flex justify-center items-center">
-                            <p>{isOpen ? "閉じる" : "詳しく絞り込む"}</p>
+                            <p className="w-28 text-center">{isOpen ? "閉じる" : "詳しく絞り込む"}</p>
+                            <Image src="/images/svg/arrow.svg" alt="" width={24} height={24} className={`w-5 ml-4 transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`} />
                         </div>
                     </div>
+                    {/* フィルター数のバッジ */}
+                    {activeFilterCount > 0 && (
+                        <div className="absolute -top-2 -right-2 bg-accent text-black rounded-full w-7 h-7 flex items-center justify-center text-sm font-bold shadow-md">
+                            {activeFilterCount}
+                        </div>
+                    )}
                 </button>
             </div>
 
