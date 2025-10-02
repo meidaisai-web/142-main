@@ -5,7 +5,7 @@ import Text from "@/components/texts/Text";
 import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import ContactView from "@/components/texts/ContactView";
-import OnlyImage from "@/components/OnlyImage";
+import MapImage from "@/components/MapImage";
 
 
 export default function Page() {
@@ -26,7 +26,7 @@ export default function Page() {
                 <Text>11月1日(土).2日(日).3日(月・祝) 10：00〜17：30</Text>
                 <AccentText>実施場所</AccentText>
                 <Text>和泉図書館横</Text>
-                <OnlyImage src="/images/map/booth.jpg" alt="和泉図書館横" className="max-w-72" />
+                <MapImage src="/images/map/booth.jpg" alt="和泉図書館横" />
                 <SectionTitle className="mb-5">出展企業一覧</SectionTitle>
                 {data.map((item) => (
                     <div key={item.name} className="mb-5">

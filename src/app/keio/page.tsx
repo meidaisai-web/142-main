@@ -6,10 +6,10 @@ import PageTitle from '@/components/texts/PageTitle';
 import ContactView from '@/components/texts/ContactView';
 import SmallTitle from '@/components/texts/SmallTitle';
 import Emphasis from '@/components/texts/Emphasis';
-import OnlyImage from '@/components/OnlyImage';
 import { List, ListItem } from '@/components/texts/List';
 import Button from '@/components/buttons/Button';
 import AccentText from '@/components/texts/AccentText';
+import MapImage from '@/components/MapImage';
 export default function Page() {
     return (
         <div>
@@ -80,7 +80,7 @@ export default function Page() {
                 <Text><Emphasis>注：各商業施設により営業時間が異なります。詳しくは各HPをご確認ください。</Emphasis></Text>
                 <SmallTitle>景品受け渡し場所</SmallTitle>
                 <Text>明治大学和泉キャンパスメディア棟入口付近</Text>
-                <OnlyImage className="max-w-72" src="/images/map/keio.jpg" alt="Campus Map" />
+                <MapImage src="/images/map/keio.jpg" alt="Campus Map" />
                 <SectionTitle>ご案内</SectionTitle>
                 <Text>本企画参加には、専用アプリ「Spot Tour」のダウンロードが必要です。下記リンクを踏んでいただきアプリをダウンロードしてください。</Text>
                 <Button href="https://app.spottour.jp/9NnEEeemQs0nKmHH/" targetBlank className="mt-5">
