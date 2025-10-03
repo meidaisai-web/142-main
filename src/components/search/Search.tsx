@@ -93,7 +93,16 @@ export default function Search() {
                 selectedGenres={selectedGenres}
                 setSelectedGenres={setSelectedGenres}
             />
-            <Button className="mb-20" onClick={() => {
+            <div className="flex justify-center">
+                <button className="text-accent border-primary hover:border-accent border-b-2 font-medium" onClick={() => {
+                    setKeyword('');
+                    setSelectedTypes([]);
+                    setSelectedDates([]);
+                    setSelectedPlaces([]);
+                    setSelectedGenres([]);
+                }}>検索条件をクリア</button>
+            </div>
+            <Button className="mt-10 mb-20" onClick={() => {
                 // 検索条件をlocalStorageに保存
                 saveSearchConditions();
 

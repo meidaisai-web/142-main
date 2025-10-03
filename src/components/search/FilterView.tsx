@@ -33,7 +33,7 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
     ].reduce((sum, count) => sum + count, 0);
 
     return (
-        <div className="mb-16">
+        <div className="mb-6">
             <SectionTitle>キーワード検索</SectionTitle>
             <SearchBar text={keyword} setText={setKeyword} />
             <div className="flex justify-center">
