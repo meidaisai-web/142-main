@@ -56,7 +56,7 @@ export default function Page() {
                 {data.map((item) => (
                     <div key={item.name} className="mb-5 lg:text-lg">
                         <SmallTitle>{item.name}</SmallTitle>
-                        <OnlyImage src={item.image} alt={item.name} className="w-[90vw] h-[30vh] md:w-[50vw]"/>
+                        <OnlyImage src={item.image} alt={item.name} className="w-[15rem] h-[15rem]"/>
                         <AccentText>出展日</AccentText>
                         <Text>{item.date}</Text>
                         <AccentText>企画内容</AccentText>
