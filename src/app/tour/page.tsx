@@ -8,6 +8,7 @@ import Emphasis from '@/components/texts/Emphasis'
 import { List, ListItem } from "@/components/texts/List";
 import { ScheduleTable } from "@/components/ScheduleTable";
 import Image from "next/image";
+import MapImage from "@/components/MapImage";
 
 
 const days = ['11月2日(土)', '11月3日(日)', '11月4日(月・祝)'];
@@ -91,7 +92,7 @@ export default function Tour() {
                 <Text>
                     和泉図書館前企画受付にて予約制で承っております。
                 </Text>
-                <Image src="/images/ad/tourmap.jpg" alt="ツアー受付場所" width={400} height={400} className="m-5 mx-auto rounded-xl" />
+                <MapImage src="/images/ad/tourmap.jpg" alt="ツアー受付場所" className="m-5" />
                 <ContactView department="開発局" mail="kaihatsu@meidaisai.jp" showPhone showAddress />
             </PageContainer>
         </div>
