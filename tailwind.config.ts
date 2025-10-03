@@ -34,6 +34,9 @@ const config: Config = {
                     DEFAULT: "var(--color-background)",
                     loading: "var(--color-background-loading)"
                 },
+                gray: {
+                    cover: "var(--color-gray-cover"
+                }
             },
 
             fontFamily: {
