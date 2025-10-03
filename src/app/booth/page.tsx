@@ -26,7 +26,7 @@ export default function Page() {
             name: "シチズン時計株式会社",
             date: "11月1日(土).2日(日).3日(月・祝)",
             contentTitle:"【秒でかわいい！wiccaセルフフォトブース】",
-            content: "wiccaの腕時計で盛れる♡韓国っぽ本格セルフ写真が撮れるブース！ 生年月日に合わせた「生まれて○○秒」の限定ステッカーもプレゼント♪友達との記念にも♡ぴったり！"
+            content: "wiccaの腕時計で盛れる♡韓国っぽ本格セルフ写真が撮れるブース！ 生年月日に合わせた「生まれて○○秒」の限定ステッカーもプレゼント♪友達との記念にも♡"
         },
         {
             image: "/images/svg/booth/DonQuixote.svg",
