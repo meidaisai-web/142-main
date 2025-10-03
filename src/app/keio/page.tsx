@@ -83,7 +83,7 @@ export default function Page() {
                 <Text>11月1日(土).2日(日).3日(月・祝) 11：00～18：00</Text>
                 <SmallTitle>実施場所</SmallTitle>
                 <Text>明治大学和泉キャンパス メディア棟入口付近</Text>
-                <OnlyImage className="mt-5" src="/images/ad/keio.jpg" alt="Campus Map" />
+                <MapImage src='/images/map/keio.jpg' alt='Campus Map' />
                 <List className='mt-5' mark="※">
                 <ListItem><Emphasis>獲得したスタンプ数が4個で1回、5個で2回、6個以上で3回抽選を行うことができます。</Emphasis></ListItem>
                 <ListItem><Emphasis>抽選会への参加は、お一人様につき1回までとなります。(参加時のスタンプ獲得個数に応じて抽選回数が決まります。)</Emphasis></ListItem>
