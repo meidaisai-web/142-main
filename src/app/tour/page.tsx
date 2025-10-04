@@ -92,7 +92,7 @@ export default function Tour() {
                 <Text>
                     和泉図書館前企画受付にて予約制で承っております。
                 </Text>
-                <MapImage src="/images/ad/tourmap.jpg" alt="ツアー受付場所" className="m-5" />
+                <MapImage src="/images/ad/tourmap.jpg" alt="ツアー受付場所" />
                 <ContactView department="開発局" mail="kaihatsu@meidaisai.jp" showPhone showAddress />
             </PageContainer>
         </div>
