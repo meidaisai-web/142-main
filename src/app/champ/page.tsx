@@ -17,8 +17,8 @@ export default function ChampPage() {
             <PageContainer>
                 <OnlyImage className="mt-15" src="/images/ad/meichamp-logo.jpg" alt="Meidaisai Championship Image" />
                 <SectionTitle>明大祭の頂点、今ここに！</SectionTitle>
-                <ImageText className="mt-8" src="/images/ad/championship.jpg" alt="Championship Image">みなさまの投票によって明大祭No.1企画を決定します。「屋外ステージ部門」「教室部門」「模擬店部門」の3つにわけ、各部門の1位を決めます。
-                    そして、最も多くの票を獲得した団体がChampionとなります。結果は11月3日(月・祝)に行われるEndingにて発表します。また投票してくださった方は、
+                <ImageText className="mt-8" src="/images/ad/championship.jpg" alt="Championship Image">みなさまの投票によって明大祭No.1企画を決定します。<br />「屋外ステージ部門」「教室部門」「模擬店部門」の3つにわけ、各部門の1位を決めます。
+                    そして、最も多くの票を獲得した団体がChampionとなります。<Emphasis>結果は11月3日(月・祝)に行われるEndingにて発表します。</Emphasis><br />また投票してくださった方は、
                     明大祭大抽選会に参加することができます。抽選企画の詳細は明大祭大抽選会のページをご覧ください。</ImageText>
                 <SmallTitle>投票日時</SmallTitle>
                 <Text>11月1日(土) 10：00 〜 11月3日(月・祝) 17：00</Text>
