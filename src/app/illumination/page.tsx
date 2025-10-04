@@ -3,6 +3,7 @@ import PageContainer from "@/components/base/PageContainer"
 import Text from "@/components/texts/Text"
 import SectionTitle from "@/components/texts/SectionTitle"
 import SmallTitle from "@/components/texts/SmallTitle"
+import Image from "next/image"
 
 
 export default function Page() {
@@ -21,6 +22,13 @@ export default function Page() {
                 <Text>11月1日(土).2日(日).3日(月・祝)16：00〜</Text>
                 <SmallTitle>【場所】</SmallTitle>
                 <Text>和泉キャンパス正門付近</Text>
+                <Image
+                    src="/images/svg/illumination-location.svg"
+                    alt="和泉キャンパス正門付近"
+                    width={800}
+                    height={600}
+                    className="my-10 rounded-lg w-[30rem]"
+                />
             </PageContainer>
         </div>
     )
