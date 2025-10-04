@@ -20,7 +20,7 @@ export default function Page() {
                 開催いたします｡ただし､豪雨の際などは中止となる企画がある場合がございます｡また､台風や災害の恐れがある際は開催が中止となる場合がございます｡その際は第141回明大祭公式サイトおよび各種公式SNSでお知らせをする予定です｡
             </FAQAccordion>
             <FAQAccordion question="公式パンフレットはもらえますか。">
-                インフォメーションブースにて配布しております。インフォメーションブースの場所は、<TransitionLink href="/map">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください。また、サイト上で<TransitionLink href="/pamphlet">電子パンフレット</TransitionLink>も公開しておりますので、あわせてご利用ください。
+                インフォメーションブース付近にて配布しております。インフォメーションブースの場所は、<TransitionLink href="/map">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください。また、サイト上で<TransitionLink href="/pamphlet">電子パンフレット</TransitionLink>も公開しておりますので、あわせてご利用ください。
             </FAQAccordion>
             <FAQAccordion question="大学構内にATMはありますか。">
                 大学構内にあるATMは以下のとおりです｡<br />
@@ -85,7 +85,7 @@ export default function Page() {
                 可能です｡休憩所がございますので､飲食の際はそちらをご利用ください｡休憩所の場所は､ <TransitionLink href="/map">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください｡
             </FAQAccordion>
             <FAQAccordion question="食堂は営業していますか。">
-                明大祭期間中､食堂は1階のみ11時から14時に営業しております｡営業終了後は休憩所としてご利用いただけます｡
+                明大祭期間中､1階と2階の一部のみ11時から14時に営業しております｡営業終了後は休憩所としてご利用いただけます｡
             </FAQAccordion>
             <FAQAccordion question="コンビニエンスストアはありますか。">
                 キャンパス内に｢ファミリーマート明大マート和泉店｣がございます｡ただし､商品数を減らして営業している場合がございますので､予めご了承ください。
