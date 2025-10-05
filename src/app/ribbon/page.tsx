@@ -12,7 +12,7 @@ export default function Page() {
             <PageContainer>
                 <SectionTitle>企画概要</SectionTitle>
                 <Text moreTopPadding>
-                    <Emphasis>明大祭での思い出を、自分だけの形に残そう！</Emphasis>
+                    <SmallTitle>明大祭での思い出を、自分だけの形に残そう！</SmallTitle>
                 </Text>
                 <Text>
                     第141回明大祭公式テーマカラーである焔紅、蒼炎、軌光の3色のリボンを選んで、スタンプなどでデコレーションすると
