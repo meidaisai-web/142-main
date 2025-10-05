@@ -38,8 +38,8 @@ export default function ChampPage() {
                 <List numbered>
                     <ListItem>和泉図書館前総合インフォメーションブースMeidaisai Championship受付までお越しください。</ListItem>
                     <ListItem>公式サイト内にある明大祭大抽選会抽選券引き換え画面を提示してください。</ListItem>
-                    <ListItem>提示していただいたのち、「抽選券と交換する」をタップしてください。抽選券に交換いたします。</ListItem>
-                    <ListText>引き換えボタンは、<Emphasis>インフォメーションブースで引き換えるタイミングでタップしてください。</Emphasis>事前にタップしてしまうと抽選券と引き換えることができなくなってしまいます。</ListText>
+                    <ListItem>提示していただいたのち、「抽選券と交換する」をタップしてください。抽選券に交換いたします。<br/>
+                    引き換えボタンは、<Emphasis>インフォメーションブースで引き換えるタイミングでタップしてください。</Emphasis>事前にタップしてしまうと抽選券と引き換えることができなくなってしまいます。</ListItem>
                     <ListItem>メディア棟前企画受付にある「明大祭大抽選会」まで行くと、抽選に参加できます！</ListItem>
                 </List>
                 <Text>抽選券の引き換え、企画に関するお問い合わせは、和泉図書館前総合インフォメーションブースMeidaisai Championship受付までお越しください。</Text>
