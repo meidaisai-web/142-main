@@ -1,10 +1,23 @@
 import { MasterData } from "../models/MasterData";
+import { SortType } from "../models/SortType";
 import { createClient } from "./client";
 
-export async function getAllMasterDatas(key: { page: number, limit: number, keyword: string, types: string[], dates: string[], places: string[], genres: string[] }): Promise<MasterData[] | null> {
+export async function getAllMasterDatas(key: { page: number, limit: number, keyword: string, types: string[], dates: string[], places: string[], genres: string[], sortType: SortType }): Promise<MasterData[] | null> {
     const supabase = createClient();
     const start = key.limit * key.page;
     const end = start + key.limit - 1;
+    const orderColumns = ['eventName', 'catchphrase', 'eventContent', 'groupName', 'eventDate', 'location', 'createdAt'];
+
+    function order() {
+        if (key.sortType.orderColumn === 'free') {
+            return {
+                orderColumn: orderColumns[Math.floor(Math.random() * orderColumns.length)],
+                ascending: Math.random() < 0.5
+             }
+        } else {
+            return key.sortType;
+        }
+    }
 
     let query = supabase.from('MasterData').select('*');
 
@@ -69,13 +82,10 @@ export async function getAllMasterDatas(key: { page: number, limit: number, keyw
     // ジャンルフィルター（OR検索、完全一致）
     if (key.genres && key.genres.length > 0) {
         const genreConditions = key.genres.map(genre => `genre.eq.${genre}`);
-        console.log(genreConditions);
         query = query.or(genreConditions.join(','));
     }
 
-    console.log('Final query:', JSON.stringify(query, null, 2));
-
-    const { data, error } = await query.range(start, end);
+    const { data, error } = await query.range(start, end).order(order().orderColumn, { ascending: order().ascending });
     console.log('Fetched data:', data);
     console.log('Fetch error:', error);
 

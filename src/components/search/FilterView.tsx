@@ -7,6 +7,7 @@ import SearchBar from "../texts/SearchBar";
 import Label from "../texts/Label";
 import Checkbox from "../buttons/Checkbox";
 import Image from "next/image";
+import { SortType } from "@/utils/models/SortType";
 
 interface FilterViewProps {
     keyword: string;
@@ -19,9 +20,11 @@ interface FilterViewProps {
     setSelectedPlaces: React.Dispatch<React.SetStateAction<string[]>>;
     selectedGenres: string[];
     setSelectedGenres: React.Dispatch<React.SetStateAction<string[]>>;
+    sortType: SortType;
+    setSortType: React.Dispatch<React.SetStateAction<SortType>>;
 }
 
-export default function FilterView({ keyword, setKeyword, selectedTypes, setSelectedTypes, selectedDates, setSelectedDates, selectedPlaces, setSelectedPlaces, selectedGenres, setSelectedGenres }: FilterViewProps) {
+export default function FilterView({ keyword, setKeyword, selectedTypes, setSelectedTypes, selectedDates, setSelectedDates, selectedPlaces, setSelectedPlaces, selectedGenres, setSelectedGenres, sortType, setSortType }: FilterViewProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     // チェックされているフィルターの軸の数を計算
@@ -40,12 +43,12 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
                 <button onClick={() => setIsOpen(!isOpen)} className="relative h-14 w-72 group">
                     <div className={`-rotate-3 rounded-full border-4 border-accent w-full h-full text-center absolute`}>
                         <div className='opacity-0'>
-                            <p>詳しく絞り込む</p>
+                            <p>詳細検索</p>
                         </div>
                     </div>
                     <div className={`font-bold rounded-full group-hover:bg-secondary transition duration-100 border-secondary border-4 w-full h-full`}>
                         <div className="h-full w-full flex justify-center items-center">
-                            <p className="w-28 text-center">{isOpen ? "閉じる" : "詳しく絞り込む"}</p>
+                            <p className="w-28 text-center">{isOpen ? "閉じる" : "詳細検索"}</p>
                             <Image src="/images/svg/arrow.svg" alt="" width={24} height={24} className={`w-5 ml-4 transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`} />
                         </div>
                     </div>
@@ -67,7 +70,7 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         style={{ overflow: "hidden" }}
                     >
-                        <SectionTitle>詳細検索</SectionTitle>
+                        <SectionTitle>絞り込み</SectionTitle>
                         <DetailFilterView
                             selectedTypes={selectedTypes}
                             setSelectedTypes={setSelectedTypes}
@@ -78,6 +81,8 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
                             selectedGenres={selectedGenres}
                             setSelectedGenres={setSelectedGenres}
                         />
+                        <SectionTitle>並び替え</SectionTitle>
+                        <SortView sortType={sortType} setSortType={setSortType} />
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -183,6 +188,45 @@ function DetailFilterView({ selectedTypes, setSelectedTypes, selectedDates, setS
                     </div>
                 </div>
             ))}
+        </div>
+    )
+}
+
+interface SortViewProps {
+    sortType: SortType;
+    setSortType: React.Dispatch<React.SetStateAction<SortType>>;
+}
+function SortView({ sortType, setSortType }: SortViewProps) {
+    const sortList = [
+        { id: 'eventName', label: '企画名' },
+        { id: 'groupName', label: '団体名' },
+        { id: 'eventDate', label: '実施日' },
+        { id: 'location', label: '場所' },
+        { id: 'free', label: 'おまかせ'}
+    ]
+
+    function handleSortClick(id: string) {
+        if (id === 'free') {
+            setSortType({ orderColumn: 'free', ascending: true });
+        } else if (sortType.orderColumn === id) {
+            // 同じ列がクリックされた場合、昇順・降順を切り替え
+            setSortType({ orderColumn: id, ascending: !sortType.ascending });
+        } else {
+            // 別の列がクリックされた場合、その列で昇順に設定
+            setSortType({ orderColumn: id, ascending: true });
+        }
+    }
+
+    return (
+        <div className="flex justify-center">
+            <div className="flex flex-wrap mt-8 gap-4">
+                {sortList.map((sort) => (
+                    <button key={sort.id} onClick={() => handleSortClick(sort.id)} className={`flex justify-center items-center text-sm text-center w-24 py-1 border-2 border-accent rounded-full hover:bg-secondary-400 transition ${sort.id === sortType.orderColumn && 'bg-secondary'}`}>
+                        <p>{sort.label}</p>
+                        { (sort.id === sortType.orderColumn && sort.id !== 'free') && ( sortType.ascending ? <Image src="/images/svg/triangle-down.svg" alt="" width={10} height={10} className="ml-2" /> : <Image src="/images/svg/triangle-up.svg" alt="" width={10} height={10} className="ml-2" />) }
+                    </button>
+                ))}
+            </div>
         </div>
     )
 }

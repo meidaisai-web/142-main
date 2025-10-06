@@ -22,6 +22,7 @@ export default function Search() {
     const [selectedDates, setSelectedDates] = useState<string[]>([]);
     const [selectedPlaces, setSelectedPlaces] = useState<string[]>([]);
     const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+    const [sortType, setSortType] = useState<{ orderColumn: string; ascending: boolean }>({ orderColumn: 'free', ascending: true });
 
     // 実際の検索条件（検索ボタン押下時に更新される）
     const [searchKeyword, setSearchKeyword] = useState<string>('');
@@ -29,6 +30,7 @@ export default function Search() {
     const [searchDates, setSearchDates] = useState<string[]>([]);
     const [searchPlaces, setSearchPlaces] = useState<string[]>([]);
     const [searchGenres, setSearchGenres] = useState<string[]>([]);
+    const [searchSortType, setSearchSortType] = useState<{ orderColumn: string; ascending: boolean }>({ orderColumn: 'free', ascending: true });
 
     // localStorageから検索条件を復元
     useEffect(() => {
@@ -41,12 +43,14 @@ export default function Search() {
                 setSelectedDates(conditions.selectedDates || []);
                 setSelectedPlaces(conditions.selectedPlaces || []);
                 setSelectedGenres(conditions.selectedGenres || []);
+                setSortType(conditions.sortType || { orderColumn: 'free', ascending: true });
                 // 検索条件も同時に設定（前回の検索結果を表示）
                 setSearchKeyword(conditions.keyword || '');
                 setSearchTypes(conditions.selectedTypes || []);
                 setSearchDates(conditions.selectedDates || []);
                 setSearchPlaces(conditions.selectedPlaces || []);
                 setSearchGenres(conditions.selectedGenres || []);
+                setSearchSortType(conditions.sortType || { orderColumn: 'free', ascending: true });
             }
         } catch (error) {
             console.error('Failed to load search conditions from localStorage:', error);
@@ -61,7 +65,8 @@ export default function Search() {
                 selectedTypes,
                 selectedDates,
                 selectedPlaces,
-                selectedGenres
+                selectedGenres,
+                sortType
             };
             localStorage.setItem(STORAGE_KEY, JSON.stringify(conditions));
         } catch (error) {
@@ -72,12 +77,35 @@ export default function Search() {
     const limit = 10;
     const getKey = (pageIndex: number, previousPageData: MasterData[]) => {
         if (previousPageData && !previousPageData.length) return null; // 最後に到達した
-        return { page: pageIndex, limit: limit, keyword: searchKeyword, types: searchTypes, dates: searchDates, places: searchPlaces, genres: searchGenres }; // SWR キー
+        return { page: pageIndex, limit: limit, keyword: searchKeyword, types: searchTypes, dates: searchDates, places: searchPlaces, genres: searchGenres, sortType: searchSortType }; // SWR キー
     };
     const { data: datas, size, setSize, isLoading, isValidating } = useSWRInfinite(getKey, getAllMasterDatas)
 
     // これ以上データがあるかどうかを判定
     const hasMoreData = datas ? datas[datas.length - 1]?.length === limit : true;
+
+    function onTapSearchButton() {
+        // 検索条件をlocalStorageに保存
+        saveSearchConditions();
+
+        // 検索条件を更新
+        setSearchKeyword(keyword);
+        setSearchTypes(selectedTypes);
+        setSearchDates(selectedDates);
+        setSearchPlaces(selectedPlaces);
+        setSearchGenres(selectedGenres);
+        setSearchSortType(sortType);
+        // 検索実行
+        setSize(1);
+
+        // EventItemsまでスクロール（少し上に調整）
+        const offset = -100; // スクロール位置を少し上に調整
+        const top = eventItemsRef.current?.getBoundingClientRect().top || 0;
+        window.scrollTo({
+            top: window.scrollY + top + offset,
+            behavior: "smooth"
+        });
+    }
 
     return (
         <div className="flex flex-col items-center">
@@ -93,6 +121,8 @@ export default function Search() {
                     setSelectedPlaces={setSelectedPlaces}
                     selectedGenres={selectedGenres}
                     setSelectedGenres={setSelectedGenres}
+                    sortType={sortType}
+                    setSortType={setSortType}
                 />
                 <div className="flex justify-center">
                     <button className="text-accent border-primary hover:border-accent border-b-2 font-medium" onClick={() => {
@@ -101,29 +131,10 @@ export default function Search() {
                         setSelectedDates([]);
                         setSelectedPlaces([]);
                         setSelectedGenres([]);
+                        setSortType({ orderColumn: 'free', ascending: true });
                     }}>検索条件をクリア</button>
                 </div>
-                <Button className="mt-10 mb-20" onClick={() => {
-                    // 検索条件をlocalStorageに保存
-                    saveSearchConditions();
-
-                    // 検索条件を更新
-                    setSearchKeyword(keyword);
-                    setSearchTypes(selectedTypes);
-                    setSearchDates(selectedDates);
-                    setSearchPlaces(selectedPlaces);
-                    setSearchGenres(selectedGenres);
-                    // 検索実行
-                    setSize(1);
-
-                    // EventItemsまでスクロール（少し上に調整）
-                    const offset = -100; // スクロール位置を少し上に調整
-                    const top = eventItemsRef.current?.getBoundingClientRect().top || 0;
-                    window.scrollTo({
-                        top: window.scrollY + top + offset,
-                        behavior: "smooth"
-                    });
-                }}>検索</Button>
+                <Button className="mt-10 mb-20" onClick={() => onTapSearchButton()}>検索</Button>
                 <IconList />
             </PageContainer>
             <EventItems datas={datas} ref={eventItemsRef} />

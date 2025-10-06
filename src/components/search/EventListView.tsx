@@ -121,7 +121,7 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
 function ItemFooter() {
     return (
         <div className="flex justify-end items-center bg-secondary pr-5 py-1 transition-colors duration-300 group-hover:bg-secondary-400 group-active:bg-secondary-700">
-            <p className="text-sm text-end font-medium">Read More</p>
+            <p className="text-sm text-end font-medium">Read More!</p>
             <Image src='/images/svg/triangle-right.svg' alt='' width={10} height={10} className="ml-2 transition-transform duration-300 group-hover:translate-x-2" />
         </div>
     )
