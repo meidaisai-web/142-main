@@ -4,6 +4,7 @@ import SectionTitle from '@/components/texts/SectionTitle'
 import PageContainer from '@/components/base/PageContainer'
 import ContactView from '@/components/texts/ContactView';
 import Emphasis from '@/components/texts/Emphasis';
+import TransitionLink from '@/components/buttons/TransitionLink';
 
 export default function AlumniPage() {
     return (
@@ -23,7 +24,7 @@ export default function AlumniPage() {
                 <Text moreTopPadding>第141回明大祭実行委員会にご賛助くださいましたみなさまに心から感謝申し上げます。</Text>
                 <Text moreTopPadding>みなさまのご協力により無事協賛活動を終了することができました。みなさまのお力添えにより、今年度も無事に明大祭を開催できますこと、心より
                     嬉しく感じております。そのわずかなお礼として、5,000円以上のご賛助をいただいた方に記念品をご用意しております。本品の到着まで楽しみにお待ちください。
-                    また、ご希望の方は明大祭公式パンフレットにご芳名を掲載させていただきました。こちらのサイトから電子版をご覧にいただけますのでよろしければご確認ください。
+                    また、ご希望の方は明大祭公式パンフレットと公式サイトにご芳名を掲載させていただきました。<TransitionLink href="/alumni-list">こちらのページ</TransitionLink>からご覧にいただけますのでよろしければご確認ください。
                 </Text>
                 <Text moreTopPadding>改めまして、この度第141回明大祭にご賛助いただき誠にありがとうございました。今後とも何卒よろしくお願い申し上げます。</Text>
                 <SectionTitle>校友歓迎スペースについて</SectionTitle>

@@ -1,6 +1,7 @@
 'use client';
 
 import FireLoading from "@/components/base/Loading";
+import Access from "@/components/index/Access";
 import AnnounceSection from "@/components/index/AnnounceSection";
 import HeroSection from "@/components/index/HeroSection";
 import News from "@/components/index/News";
@@ -22,7 +23,7 @@ export default function Home() {
   return (
     <div>
       <FireLoading setLoading={setIsLoading} />
-      {!isLoading ? <Contents /> : <div className="h-screen w-screen bg-primary fixed top-0 z-50" />}
+      {isLoading ? <div className="h-screen w-screen bg-primary fixed top-0 z-50" /> : <Contents />}
     </div>
   );
 }
@@ -35,6 +36,8 @@ function Contents() {
       <AnnounceSection />
       <Rainbow />
       <News />
+      <Rainbow className="mt-10" />
+      <Access />
     </div>
   )
 }
