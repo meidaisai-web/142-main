@@ -6,6 +6,7 @@ import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import ContactView from "@/components/texts/ContactView";
 import MapImage from "@/components/MapImage";
+import OnlyImage from "@/components/OnlyImage";
 
 export default function Page() {
     const data = [
