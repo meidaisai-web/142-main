@@ -80,59 +80,59 @@ export default function Search() {
     const hasMoreData = datas ? datas[datas.length - 1]?.length === limit : true;
 
     return (
-        <PageContainer>
-            <FilterView
-                keyword={keyword}
-                setKeyword={setKeyword}
-                selectedTypes={selectedTypes}
-                setSelectedTypes={setSelectedTypes}
-                selectedDates={selectedDates}
-                setSelectedDates={setSelectedDates}
-                selectedPlaces={selectedPlaces}
-                setSelectedPlaces={setSelectedPlaces}
-                selectedGenres={selectedGenres}
-                setSelectedGenres={setSelectedGenres}
-            />
-            <div className="flex justify-center">
-                <button className="text-accent border-primary hover:border-accent border-b-2 font-medium" onClick={() => {
-                    setKeyword('');
-                    setSelectedTypes([]);
-                    setSelectedDates([]);
-                    setSelectedPlaces([]);
-                    setSelectedGenres([]);
-                }}>検索条件をクリア</button>
-            </div>
-            <Button className="mt-10 mb-20" onClick={() => {
-                // 検索条件をlocalStorageに保存
-                saveSearchConditions();
+        <div className="flex flex-col items-center">
+            <PageContainer>
+                <FilterView
+                    keyword={keyword}
+                    setKeyword={setKeyword}
+                    selectedTypes={selectedTypes}
+                    setSelectedTypes={setSelectedTypes}
+                    selectedDates={selectedDates}
+                    setSelectedDates={setSelectedDates}
+                    selectedPlaces={selectedPlaces}
+                    setSelectedPlaces={setSelectedPlaces}
+                    selectedGenres={selectedGenres}
+                    setSelectedGenres={setSelectedGenres}
+                />
+                <div className="flex justify-center">
+                    <button className="text-accent border-primary hover:border-accent border-b-2 font-medium" onClick={() => {
+                        setKeyword('');
+                        setSelectedTypes([]);
+                        setSelectedDates([]);
+                        setSelectedPlaces([]);
+                        setSelectedGenres([]);
+                    }}>検索条件をクリア</button>
+                </div>
+                <Button className="mt-10 mb-20" onClick={() => {
+                    // 検索条件をlocalStorageに保存
+                    saveSearchConditions();
 
-                // 検索条件を更新
-                setSearchKeyword(keyword);
-                setSearchTypes(selectedTypes);
-                setSearchDates(selectedDates);
-                setSearchPlaces(selectedPlaces);
-                setSearchGenres(selectedGenres);
-                // 検索実行
-                setSize(1);
+                    // 検索条件を更新
+                    setSearchKeyword(keyword);
+                    setSearchTypes(selectedTypes);
+                    setSearchDates(selectedDates);
+                    setSearchPlaces(selectedPlaces);
+                    setSearchGenres(selectedGenres);
+                    // 検索実行
+                    setSize(1);
 
-                // EventItemsまでスクロール（少し上に調整）
-                const offset = -100; // スクロール位置を少し上に調整
-                const top = eventItemsRef.current?.getBoundingClientRect().top || 0;
-                window.scrollTo({
-                    top: window.scrollY + top + offset,
-                    behavior: "smooth"
-                });
-            }}>検索</Button>
-            <IconList />
-            <div className="mt-20" ref={eventItemsRef}>
-                <EventItems datas={datas} />
-            </div>
+                    // EventItemsまでスクロール（少し上に調整）
+                    const offset = -100; // スクロール位置を少し上に調整
+                    const top = eventItemsRef.current?.getBoundingClientRect().top || 0;
+                    window.scrollTo({
+                        top: window.scrollY + top + offset,
+                        behavior: "smooth"
+                    });
+                }}>検索</Button>
+                <IconList />
+            </PageContainer>
+            <EventItems datas={datas} ref={eventItemsRef} />
             {hasMoreData && (
                 <Button onClick={() => setSize(size + 1)} disabled={isLoading || isValidating}>
-                    Load More
+                    {isLoading || isValidating ? '読み込み中...' : 'もっと見る'}
                 </Button>
             )}
-        </PageContainer>
+        </div>
     )
 }
 
@@ -147,9 +147,8 @@ function IconList() {
         { id: 'experience', label: '参加体験'},
         { id: 'eco', label: 'エコトレー'},
     ]]
-    // const iconLists = [['shoot', 'ticket', 'food', 'drink'], ['sell', 'experience', 'eco']]
     return (
-        <div className="flex flex-wrap justify-center gap-5 my-8">
+        <div className="flex flex-wrap justify-center gap-5 my-8 w-full">
             {iconLists.map((icons) => (
                 <div key={icons[0].id} className="flex justify-center gap-5">
                     {icons.map((icon) => (

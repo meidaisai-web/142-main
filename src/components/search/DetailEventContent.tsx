@@ -45,26 +45,26 @@ export default function DetailEventContent({ id }: DetailContentProps) {
     return (
         <div>
             {loading && (
-                <EventTitle>読み込み中...</EventTitle>
+                <div className="w-full px-12 sm:px-14 md:px-18 lg:px-24">
+                    <EventTitle>読み込み中...</EventTitle>
+                </div>
             )}
 
             {error && (
-                <div>
+                <div className="w-full px-12 sm:px-14 md:px-18 lg:px-24">
                     <EventTitle>企画が見つかりませんでした</EventTitle>
                 </div>
             )}
 
             {!loading && !error && data && (
-                <>
+                <div className="w-full px-12 sm:px-14 md:px-18 lg:px-24">
                     <EventTitle>{data.eventName}</EventTitle>
-                    <PageContainer>
-                        <div className="flex justify-center items-center lg:items-start gap-8 mt-16 flex-col lg:flex-row">
-                            <ImageView type={data.type} imageUrl={data.imageUrl} />
-                            <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
-                        </div>
-                        <VoteView id={id} groupId={data.groupId} type={data.type} />
-                    </PageContainer>
-                </>
+                    <div className="flex justify-center items-center lg:items-start gap-8 mt-16 flex-col lg:flex-row">
+                        <ImageView type={data.type} imageUrl={data.imageUrl} />
+                        <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
+                    </div>
+                    <VoteView id={id} groupId={data.groupId} type={data.type} />
+                </div>
             )}
         </div>
     )
