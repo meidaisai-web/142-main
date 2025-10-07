@@ -11,8 +11,8 @@ export async function getAllMasterDatas(key: { page: number, limit: number, keyw
     function order() {
         if (key.sortType.orderColumn === 'free') {
             return {
-                orderColumn: orderColumns[Math.floor(Math.random() * orderColumns.length)],
-                ascending: Math.random() < 0.5
+                orderColumn: 'createdAt',
+                ascending: false
              }
         } else {
             return key.sortType;
