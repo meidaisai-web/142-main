@@ -17,7 +17,7 @@ export default function Page() {
                 企画によっては入場制限を設ける場合がございます｡詳しくは､こちらの<TransitionLink href="/search">｢企画を探す｣</TransitionLink>ページよりご確認ください｡
             </FAQAccordion>
             <FAQAccordion question="雨天時でも明大祭は開催しますか。">
-                開催いたします｡ただし､豪雨の際などは中止となる企画がある場合がございます｡また､台風や災害の恐れがある際は開催が中止となる場合がございます｡その際は第141回明大祭公式サイトおよび各種公式SNSでお知らせをする予定です｡
+                開催いたします｡ただし､豪雨の際などは中止となる企画がある場合がございます｡また､台風や災害の恐れがある際は開催が中止となる場合がございます｡その際は大学公式サイト、第141回明大祭公式サイトおよび各種公式SNSでお知らせをする予定です｡
             </FAQAccordion>
             <FAQAccordion question="公式パンフレットはもらえますか。">
                 インフォメーションブース付近にて配布しております。インフォメーションブースの場所は、<TransitionLink href="/map">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください。また、サイト上で<TransitionLink href="/pamphlet">電子パンフレット</TransitionLink>も公開しておりますので、あわせてご利用ください。
@@ -47,7 +47,7 @@ export default function Page() {
                                 <span className="block text-xs sm:text-sm text-gray-600 mt-1">(第一校舎1階)</span>
                                 </td>
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月1日(土)</td>
-                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base">9：00〜17：00</td>
+                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base">9：00〜13：00</td>
                             </tr>
                             <tr className="bg-white hover:bg-gray-50 transition-colors">
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月2日(日)</td>
@@ -64,7 +64,7 @@ export default function Page() {
                                 <span className="block text-xs sm:text-sm text-gray-600 mt-1">(メディア棟1階)</span>
                                 </td>
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月1日(土)</td>
-                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base">9：00〜13：00</td>
+                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base">9：00〜17：00</td>
                             </tr>
                             <tr className="bg-white hover:bg-gray-50 transition-colors">
                                 <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">11月2日(日)</td>
@@ -85,10 +85,10 @@ export default function Page() {
                 可能です｡休憩所がございますので､飲食の際はそちらをご利用ください｡休憩所の場所は､ <TransitionLink href="/map">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください｡
             </FAQAccordion>
             <FAQAccordion question="食堂は営業していますか。">
-                明大祭期間中､1階と2階の一部のみ11時から14時に営業しております｡営業終了後は休憩所としてご利用いただけます｡
+                明大祭期間中、1階と2階の一部のみ11時から14時まで営業しております。ラストオーダーは13：30でございます。また、営業終了後は休憩所としてご利用いただけます。
             </FAQAccordion>
             <FAQAccordion question="コンビニエンスストアはありますか。">
-                キャンパス内に｢ファミリーマート明大マート和泉店｣がございます｡ただし､商品数を減らして営業している場合がございますので､予めご了承ください。
+                キャンパス内に｢ファミリーマート明大マート和泉店｣がございます｡ただし､商品数を減らして営業している場合がございますので､あらかじめご了承ください。
             </FAQAccordion>
             <FAQAccordion question="駐車場はありますか。">
                 ご用意しておりません｡電車やバスなどの公共交通機関でのご来場をお願いしております｡
