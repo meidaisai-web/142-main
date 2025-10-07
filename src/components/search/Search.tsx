@@ -157,15 +157,16 @@ function IconList() {
         { id: 'sell', label: '物品販売'},
         { id: 'experience', label: '参加体験'},
         { id: 'eco', label: 'エコトレー'},
+        { id: 'cashless', label: 'キャッシュレス'},
     ]]
     return (
-        <div className="flex flex-wrap justify-center gap-5 my-8 w-full">
+        <div className="flex flex-wrap justify-center my-8 w-full gap-y-5">
             {iconLists.map((icons) => (
-                <div key={icons[0].id} className="flex justify-center gap-5">
+                <div key={icons[0].id} className="flex justify-center">
                     {icons.map((icon) => (
-                        <div key={icon.id} className="flex flex-col items-center gap-1">
+                        <div key={icon.id} className="flex flex-col items-center gap-1 w-20 overflow-visible">
                             <Image src={`/images/svg/status/${icon.id}.svg`} alt={icon.label} width={100} height={100} className="w-14 h-14 rounded-xl" />
-                            <label className='text-xs font-medium'>{icon.label}</label>
+                            <label className='text-xs font-medium text-nowrap'>{icon.label}</label>
                         </div>
                     ))}
                 </div>
