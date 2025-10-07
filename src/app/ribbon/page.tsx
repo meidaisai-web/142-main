@@ -11,9 +11,7 @@ export default function Page() {
             <PageTitle>Re:Bond～リボンでつながる思い出～</PageTitle>
             <PageContainer>
                 <SectionTitle>企画概要</SectionTitle>
-                <Text moreTopPadding>
                     <SmallTitle>明大祭での思い出を、自分だけの形に残そう！</SmallTitle>
-                </Text>
                 <Text>
                     第141回明大祭公式テーマカラーである焔紅、蒼炎、軌光の3色のリボンを選んで、スタンプなどでデコレーションすると
                     <Emphasis>自分だけのオリジナルキーホルダーが作れる！</Emphasis>
