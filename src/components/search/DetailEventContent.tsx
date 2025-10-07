@@ -7,9 +7,7 @@ import VoteView from "./VoteView";
 import AccentText from "../texts/AccentText";
 import Text from "../texts/Text";
 import Image from "next/image";
-import PageContainer from "../base/PageContainer";
 import Link from "next/link";
-import TransitionLink from "../buttons/TransitionLink";
 import Label from "../texts/Label";
 
 interface DetailContentProps {
@@ -57,12 +55,13 @@ export default function DetailEventContent({ id }: DetailContentProps) {
             )}
 
             {!loading && !error && data && (
-                <div className="w-full px-12 sm:px-14 md:px-18 lg:px-24">
+                <div className="w-full px-12 sm:px-14 md:px-18 lg:px-24 flex flex-col items-center">
                     <EventTitle>{data.eventName}</EventTitle>
                     <div className="flex justify-center items-center lg:items-start gap-8 mt-16 flex-col lg:flex-row">
                         <ImageView type={data.type} imageUrl={data.imageUrl} />
-                        <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
+                        <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} icons={data.icons} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
                     </div>
+                    <Menu menus={data.menuItems || []} />
                     <VoteView id={id} groupId={data.groupId} type={data.type} />
                 </div>
             )}
@@ -90,6 +89,7 @@ interface InfoViewProps {
     location: string;
     catchphrase: string;
     detail: string;
+    icons?: string[];
     instagram?: string;
     x?: string;
     tiktok?: string;
@@ -97,9 +97,16 @@ interface InfoViewProps {
     homepage?: string;
 }
 
-function InfoView({ group, date, location, catchphrase, detail, instagram, x, tiktok, youtube, homepage }: InfoViewProps) {
+function InfoView({ group, date, location, catchphrase, detail, icons, instagram, x, tiktok, youtube, homepage }: InfoViewProps) {
     return (
         <div className="max-w-xl flex flex-col gap-5">
+            <div className="flex flex-wrap items-center gap-4 text-sm">
+                {icons && icons.map((icon) => (
+                    <div key={icon} className="px-3 py-1 text-center border-accent border-2 rounded-full">
+                        {icon}
+                    </div>
+                ))}
+            </div>
             <div className="flex items-center gap-4">
                 <Label>団体</Label>
                 <p className="font-bold">{group}</p>
@@ -142,7 +149,7 @@ function InfoView({ group, date, location, catchphrase, detail, instagram, x, ti
                     </Link>
                 )}
                 {homepage && (
-                    <TransitionLink href={homepage} targetBlank>公式サイト</TransitionLink>
+                    <Link href={homepage} target="_blank" className="underline hover:text-accent text-lg">公式サイト</Link>
                 )}
             </div>
         </div>
@@ -203,6 +210,44 @@ function EventImage({ imageUrl }: EventImageProps) {
         <div className="relative pr-3 mb-3">
             <Image src={imageUrl} alt="企画画像" width={300} height={300} className="rounded-lg w-72 h-72" />
             <div className="w-72 h-72 bg-secondary absolute top-3 left-3 rounded-lg -z-10" />
+        </div>
+    )
+}
+
+interface MenuProps {
+    menus: string[]
+}
+function Menu({ menus }: MenuProps) {
+    if (menus.length === 0) {
+        return null;
+    }
+    return (
+        <div className="relative mt-20">
+            <Image src='/images/svg/pin-menu.svg' alt='' width={40} height={40} className="w-10 h-10 absolute -top-5 left-36" />
+            <div className="absolute rounded-3xl border-black border-4 overflow-hidden w-80 -z-10 top-3 left-3">
+                <div className="bg-secondary-900 border-b-2 border-secondary-900 text-center w-full text-3xl py-3 font-bold">
+                    Menu
+                </div>
+                <div className="bg-secondary-900 text-secondary-900 font-semibold px-10 py-3 text-lg min-h-96">
+                    {menus.map((menu) => (
+                        <div key={menu} className="border-b-1 border-secondary-900 pt-6 pb-1">
+                            {menu}
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="rounded-3xl border-black border-4 overflow-hidden w-80">
+                <div className="bg-secondary border-b-2 border-black text-center w-full text-3xl py-3 font-bold">
+                    Menu
+                </div>
+                <div className="bg-white text-secondary font-semibold px-10 py-3 text-lg min-h-96">
+                    {menus.map((menu) => (
+                        <div key={menu} className="border-b-1 border-black pt-6 pb-1">
+                            {menu}
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     )
 }

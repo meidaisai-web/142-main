@@ -89,7 +89,7 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
                 <div>
                     <Image src={imageUrl} alt="企画画像" width={100} height={100} className="rounded-md" />
                     <div className="flex justify-between mt-2">
-                        {showIcons.map((icon, index) => (
+                        {showIcons.slice(0, 3).map((icon, index) => (
                             <div key={index} className="w-8 h-8">
                                 <Icon name={icon} />
                             </div>
@@ -145,6 +145,8 @@ function Icon({ name }: IconProps) {
         id: 'experience', label: '参加体験'
     }, {
         id: 'eco', label: 'エコトレー'
+    }, {
+        id: 'cashless', label: 'キャッシュレス'
     }]
     if (name === "empty") {
         return (
