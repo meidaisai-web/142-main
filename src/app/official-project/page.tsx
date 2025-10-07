@@ -38,6 +38,27 @@ const TABS: Tab[] = [
           tags={['10:00~18:00', '第一校舎316･317教室']}
         />
         <Project
+          title="KEIO×第141回明大祭デジタルスタンプラリー"
+          description="京王電鉄株式会社とコラボしたデジタルスタンプラリー！"
+          image="/images/project/keio-stamp.jpg"
+          alt="KEIO×第141回明大祭デジタルスタンプラリー"
+          tags={['11:00~18:00', 'メディア棟入口付近']}
+        />
+        <Project
+          title="KEIO×第141回明大祭デジタルスタンプラリー"
+          description="京王電鉄株式会社とコラボしたデジタルスタンプラリー！"
+          image="/images/project/keio-stamp.jpg"
+          alt="KEIO×第141回明大祭デジタルスタンプラリー"
+          tags={['11:00~18:00', 'メディア棟入口付近']}
+        />
+        <Project
+          title="明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～"
+          description="明大前商店街振興組合とコラボした抽選企画！"
+          image="/images/project/meidaimae-lottery.jpg"
+          alt="明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～"
+          tags={['11:00~18:00', 'メディア棟入口横']}
+        />
+        <Project
           title="Stand by Memory"
           description="この一瞬を永遠に。"
           image="/images/project/memory.jpg"
@@ -123,6 +144,27 @@ const TABS: Tab[] = [
           tags={['10:00~18:00', '第一校舎316･317教室']}
         />
         <Project
+          title="KEIO×第141回明大祭デジタルスタンプラリー"
+          description="京王電鉄株式会社とコラボしたデジタルスタンプラリー！"
+          image="/images/project/keio-stamp.jpg"
+          alt="KEIO×第141回明大祭デジタルスタンプラリー"
+          tags={['11:00~18:00', 'メディア棟入口付近']}
+        />
+        <Project
+          title="KEIO×第141回明大祭デジタルスタンプラリー"
+          description="京王電鉄株式会社とコラボしたデジタルスタンプラリー！"
+          image="/images/project/keio-stamp.jpg"
+          alt="KEIO×第141回明大祭デジタルスタンプラリー"
+          tags={['11:00~18:00', 'メディア棟入口付近']}
+        />
+        <Project
+          title="明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～"
+          description="明大前商店街振興組合とコラボした抽選企画！"
+          image="/images/project/meidaimae-lottery.jpg"
+          alt="明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～"
+          tags={['11:00~18:00', 'メディア棟入口横']}
+        />
+        <Project
           title="Stand by Memory"
           description="この一瞬を永遠に。"
           image="/images/project/memory.jpg"
@@ -206,6 +248,27 @@ const TABS: Tab[] = [
           image="/images/project/koyuwelcome.jpg"
           alt="校友歓迎スペース"
           tags={['10:00~18:00', '第一校舎316･317教室']}
+        />
+        <Project
+          title="KEIO×第141回明大祭デジタルスタンプラリー"
+          description="京王電鉄株式会社とコラボしたデジタルスタンプラリー！"
+          image="/images/project/keio-stamp.jpg"
+          alt="KEIO×第141回明大祭デジタルスタンプラリー"
+          tags={['11:00~18:00', 'メディア棟入口付近']}
+        />
+        <Project
+          title="KEIO×第141回明大祭デジタルスタンプラリー"
+          description="京王電鉄株式会社とコラボしたデジタルスタンプラリー！"
+          image="/images/project/keio-stamp.jpg"
+          alt="KEIO×第141回明大祭デジタルスタンプラリー"
+          tags={['11:00~18:00', 'メディア棟入口付近']}
+        />
+        <Project
+          title="明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～"
+          description="明大前商店街振興組合とコラボした抽選企画！"
+          image="/images/project/meidaimae-lottery.jpg"
+          alt="明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～"
+          tags={['11:00~18:00', 'メディア棟入口横']}
         />
         <Project
           title="Stand by Memory"
