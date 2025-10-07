@@ -1,0 +1,29 @@
+export type MasterData = {
+    id: number;
+    groupId: string;
+    projectId: number;
+    imageUrl: string;
+    eventName: string;
+    groupName: string;
+    catchphrase: string;
+    eventContent: string;
+    genre: string;
+    icons: string[];
+    location: string;
+    eventDate: string;
+    xAccount: string;
+    instagramAccount: string;
+    tiktokAccount: string;
+    youtubeAccount: string;
+    homepageUrl: string;
+    searchKeywords: string;
+    createdAt: Date;
+    updatedAt: Date;
+    type: string;
+    enableShooting: boolean;
+    ticket: string;
+    foodIcons: string[];
+    otherIcons: string[];
+    menuItems: string[];
+    qrcode: string;
+}
