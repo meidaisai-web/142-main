@@ -1,6 +1,9 @@
+'use client';
+
 import { MasterData } from "@/utils/models/MasterData";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 interface EventItemsProps {
     datas: (MasterData[] | null)[] | undefined;
@@ -72,6 +75,7 @@ interface ItemBodyProps {
 }
 
 function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemBodyProps) {
+    const [imgSrc, setImgSrc] = useState(imageUrl);
     const showIcons = Array.isArray(icons) ? [...icons] : [];
     while (showIcons.length < 3) {
         showIcons.push('empty');
@@ -87,7 +91,14 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
         <div className="bg-white text-black border-y-2 border-black px-3 py-4 text-xs font-medium">
             <div className="flex gap-3">
                 <div>
-                    <Image src={imageUrl} alt="企画画像" width={100} height={100} className="rounded-md" />
+                    <Image
+                        src={imgSrc}
+                        alt="企画画像"
+                        width={100}
+                        height={100}
+                        className="rounded-md object-cover w-[100px] h-[100px]"
+                        onError={() => setImgSrc('/images/svg/no-image.svg')}
+                    />
                     <div className="flex justify-between mt-2">
                         {showIcons.slice(0, 3).map((icon, index) => (
                             <div key={index} className="w-8 h-8">

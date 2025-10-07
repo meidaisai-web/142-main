@@ -148,8 +148,11 @@ function InfoView({ group, date, location, catchphrase, detail, icons, instagram
                         <Image src={'/images/svg/sns/youtube-white.svg'} alt="youtube" width={35} height={35} className="w-8" />
                     </Link>
                 )}
-                {homepage && (
+                {(homepage && !group.includes("明大祭実行委員会")) && (
                     <Link href={homepage} target="_blank" className="underline hover:text-accent text-lg">公式サイト</Link>
+                )}
+                {(homepage && group.includes("明大祭実行委員会")) && (
+                    <Link href={homepage} className="underline hover:text-accent text-lg">詳細はこちら</Link>
                 )}
             </div>
         </div>
@@ -206,9 +209,18 @@ interface EventImageProps {
 }
 
 function EventImage({ imageUrl }: EventImageProps) {
+    const [imgSrc, setImgSrc] = useState(imageUrl);
+
     return (
         <div className="relative pr-3 mb-3">
-            <Image src={imageUrl} alt="企画画像" width={300} height={300} className="rounded-lg w-72 h-72" />
+            <Image
+                src={imgSrc}
+                alt="企画画像"
+                width={300}
+                height={300}
+                className="rounded-lg w-72 h-72 object-cover"
+                onError={() => setImgSrc('/images/svg/no-image.svg')}
+            />
             <div className="w-72 h-72 bg-secondary absolute top-3 left-3 rounded-lg -z-10" />
         </div>
     )
