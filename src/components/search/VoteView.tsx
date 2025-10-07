@@ -107,7 +107,7 @@ export default function VoteView({ id, groupId, type }: VoteViewProps) {
                 <VoteButton onClick={handleVote} disabled={hasVoted || isLoading}>
                     {buttonText}
                 </VoteButton>
-                <Link href='/meicham'>
+                <Link href='/champ'>
                     <div className="bg-secondary hover:bg-secondary-700 text-white rounded-full px-8 py-2 mt-5 text-center">
                         詳しくはこちら
                     </div>
