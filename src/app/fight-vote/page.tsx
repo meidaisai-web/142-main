@@ -7,6 +7,7 @@ import SmallTitle from "@/components/texts/SmallTitle";
 import { supabase } from "@/utils/supabase/fight-vote";
 import React from "react";
 import { useState } from "react";
+import Image from "next/image";
 
 const FightVote = () => {
   const [selectedVote1, setSelectedVote1] = useState<number | null>(null);
@@ -16,6 +17,15 @@ const FightVote = () => {
   const [flamingButtons, setFlamingButtons] = useState<{ [key: string]: boolean }>({});
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState<'submitting' | 'success' | 'error'>('submitting');
+  const [hasVoted, setHasVoted] = useState(false);
+
+  // ページ読み込み時に投票済みかチェック
+  React.useEffect(() => {
+    const voted = localStorage.getItem('fight-vote-submitted');
+    if (voted === 'true') {
+      setHasVoted(true);
+    }
+  }, []);
 
 
   //企画一覧
@@ -102,6 +112,9 @@ const FightVote = () => {
 
       // 成功モーダルを表示
       setModalType('success');
+      // localStorageに投票済みフラグを保存
+      localStorage.setItem('fight-vote-submitted', 'true');
+      setHasVoted(true);
       setTimeout(() => {
         setShowModal(false);
         //送信後初期化
@@ -192,8 +205,25 @@ const FightVote = () => {
       <PageContainer>
         <SectionTitle>投票フォーム</SectionTitle>
 
-        {/* 投票対象を並べる */}
-        <div>
+        {hasVoted ? (
+          <div className="text-center py-12">
+            <div className="mb-8">
+              <div style={{ margin: '0 auto', width: '300px', height: '180px', position: 'relative' }}>
+                <Image
+                  src="/images/ad/fight-logo.jpg"
+                  alt="Meiji United Clash Logo"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+            </div>
+            <p className="text-2xl text-accent font-bold mb-4">投票ありがとうございました！</p>
+            <p className="text-white">既に投票済みです。</p>
+          </div>
+        ) : (
+          <>
+            {/* 投票対象を並べる */}
+            <div>
           <div className="mt-8">
             {fightVoteData.map((data, index) => (
               <div key={data.label} className="mb-16">
@@ -296,6 +326,8 @@ const FightVote = () => {
             </div>
           </div>
         </div>
+          </>
+        )}
       </PageContainer>
 
       {/* カッコいいモーダル */}
@@ -368,9 +400,14 @@ const FightVote = () => {
                     borderRadius: '50%'
                   }}></div>
                 </div>
-                <h2 style={{ color: '#D8CE48', fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
-                  ⚔️ BATTLE VOTE ⚔️
-                </h2>
+                <div style={{ margin: '0 auto 16px', width: '300px', height: '180px', position: 'relative' }}>
+                  <Image
+                    src="/images/ad/fight-logo.jpg"
+                    alt="Meiji United Clash Logo"
+                    fill
+                    style={{ objectFit: 'contain' }}
+                  />
+                </div>
                 <p style={{ color: '#fff', fontSize: '20px' }}>投票を送信中...</p>
                 <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center', gap: '4px' }}>
                   <div style={{ width: '8px', height: '8px', backgroundColor: '#B5364A', borderRadius: '50%' }}></div>
@@ -394,9 +431,14 @@ const FightVote = () => {
                 }}>
                   <span style={{ fontSize: '32px', color: 'white' }}>✓</span>
                 </div>
-                <h2 style={{ color: '#D8CE48', fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
-                  Meiji United Clash
-                </h2>
+                <div style={{ margin: '0 auto 16px', width: '300px', height: '180px', position: 'relative' }}>
+                  <Image
+                    src="/images/ad/fight-logo.jpg"
+                    alt="Meiji United Clash Logo"
+                    fill
+                    style={{ objectFit: 'contain' }}
+                  />
+                </div>
                 <p style={{ color: '#fff', fontSize: '20px' }}>投票が送信されました</p>
               </div>
             )}
