@@ -12,11 +12,14 @@ const config: Config = {
                 foreground: "var(--foreground)",
                 primary: {
                     DEFAULT: "var(--color-primary)",
+                    700: "var(--color-primary-700)",
                     text: "var(--color-primary-text)"
                 },
                 secondary: {
                     100: "var(--color-secondary-100)",
                     400: "var(--color-secondary-400)",
+                    700: "var(--color-secondary-700)",
+                    900: "var(--color-secondary-900)",
                     DEFAULT: "var(--color-secondary)"
                 },
                 accent: {

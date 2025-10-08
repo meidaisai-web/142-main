@@ -51,6 +51,16 @@ const ToTop: React.FC = () => {
 
     const style = isVisible ? activeStyle : normalStyle
     const bottomClass = pathname === '/' ? 'bottom-8' : 'bottom-28 md:bottom-20';
+    const textStrokeStyle: React.CSSProperties = {
+        WebkitTextStroke: '0.6px #000',
+        // Fallback for browsers without text-stroke support
+        textShadow: `
+            0 0.5px 0 #000,
+            0 -0.5px 0 #000,
+            0.5px 0 0 #000,
+            -0.5px 0 0 #000
+        `
+    }
 
     return (
         <div className="w-12 absolute cursor-pointer">
@@ -65,7 +75,8 @@ const ToTop: React.FC = () => {
                     width={50}
                     height={50}
                 />
-                <p className={'w-full text-center font-bold text-xl leading-3 stroke-black'}>TOP</p>
+                {/* <p className={'w-full text-center font-bold text-xl leading-3'} style={textStrokeStyle}>TOP</p> */}
+                <p className={'w-full text-center font-bold text-xl leading-3'} style={{ textShadow: '1px 1px 0 #3571B8'}}>TOP</p>
             </button>
         </div>
     );
