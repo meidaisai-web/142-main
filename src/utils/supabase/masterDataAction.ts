@@ -12,7 +12,7 @@ export async function getAllMasterDatas(key: { page: number, limit: number, keyw
         if (key.sortType.orderColumn === 'free') {
             return {
                 orderColumn: 'createdAt',
-                ascending: false
+                ascending: true
              }
         } else {
             return key.sortType;

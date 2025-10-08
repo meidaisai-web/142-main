@@ -240,7 +240,7 @@ function Menu({ menus }: MenuProps) {
                 <div className="bg-secondary-900 border-b-2 border-secondary-900 text-center w-full text-3xl py-3 font-bold">
                     Menu
                 </div>
-                <div className="bg-secondary-900 text-secondary-900 font-semibold px-10 py-3 text-lg min-h-96">
+                <div className="bg-secondary-900 text-secondary-900 font-semibold px-10 pt-3 pb-10 text-lg">
                     {menus.map((menu) => (
                         <div key={menu} className="border-b-1 border-secondary-900 pt-6 pb-1">
                             {menu}
@@ -252,7 +252,7 @@ function Menu({ menus }: MenuProps) {
                 <div className="bg-secondary border-b-2 border-black text-center w-full text-3xl py-3 font-bold">
                     Menu
                 </div>
-                <div className="bg-white text-secondary font-semibold px-10 py-3 text-lg min-h-96">
+                <div className="bg-white text-secondary font-semibold px-10 pt-3 pb-10 text-lg">
                     {menus.map((menu) => (
                         <div key={menu} className="border-b-1 border-black pt-6 pb-1">
                             {menu}
