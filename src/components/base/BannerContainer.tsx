@@ -15,7 +15,7 @@ export default function BannerContainer() {
     const [shuffledAds, setShuffledAds] = useState(adData);
     const [shuffledSmallAds, setShuffledSmallAds] = useState(smallAdData);
 
-    const [isBannerVisible, setIsBannerVisible] = useState(true);
+    const [isBannerVisible, setIsBannerVisible] = useState(false);
 
     function changeAds() {
         const newAds = [...adData]
