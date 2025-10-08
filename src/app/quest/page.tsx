@@ -7,19 +7,18 @@ import { List, ListItem } from "@/components/texts/List"
 import Emphasis from "@/components/texts/Emphasis"
 import SmallTitle from "@/components/texts/SmallTitle"
 import AccentText from "@/components/texts/AccentText"
-import MapImage from '@/components/MapImage'
 export default function Page() {
     return (
         <>
             <PageTitle>ポンdeクエスト</PageTitle>
             <PageContainer>
                 <SectionTitle>企画概要</SectionTitle>
-                <Text className="mt-5">
+                <Text moreTopPadding>
                     <Emphasis>
                         「どこの企画に行くか迷ってる！」「どこからまわろう？」そんなあなたにはスタンプラリー企画がおすすめ！
                     </Emphasis>
                 </Text>
-                <Text className="mt-5">
+                <Text moreTopPadding>
                     屋内の教室企画に参加してスタンプを集めよう！明大祭の魅力をもっと発見できるチャンス！
                     抽選券対象の実行委員会企画！！スタンプを5つ以上集めると素敵な景品もプレゼント！
                 </Text>
@@ -35,8 +34,7 @@ export default function Page() {
                 <Text>
                     スタンプを集めて、各地に散らばった宝と仲間を集結させよう！戦力を集めて万全の状態で魔王を倒せ！
                 </Text>
-                <SectionTitle className="mt-10
-                ">企画実施日時・場所</SectionTitle>
+                <SectionTitle className="mt-10">企画実施日時・場所</SectionTitle>
                 <AccentText >日時</AccentText>
                 <Text>
                     11月1日(土)、2日(日)10：00〜18：00
@@ -44,15 +42,14 @@ export default function Page() {
                 <Text>
                     11月3日(月・祝)10：00～17：00
                 </Text>
-                <AccentText className="mt-5">場所</AccentText>
+                <SmallTitle className="mt-5">場所</SmallTitle>
                 <Text>
                     明治大学和泉キャンパス
                 </Text>
-                <AccentText className="mt-5">参加方法</AccentText>
-                <Text>
+                <SectionTitle className="mt-5">参加方法</SectionTitle>
+                <Text moreTopPadding>
                     和泉図書館前企画受付または和泉ラーニングスクエアLS506教室にてスタンプ台紙を配布しております。
                 </Text>
-                <MapImage src="/images/questmap.jpg" alt="スタンプ台紙のマップ"/>
                 <List mark="※">
                     <ListItem>
                         スタンプ台紙の配布は<Emphasis>先着順</Emphasis>となっております。受付開始時刻は<Emphasis>10：00</Emphasis>です
@@ -64,8 +61,8 @@ export default function Page() {
                         景品には限りがございますのでご了承ください。
                     </ListItem>
                 </List>
-                <SmallTitle className="mt-10">協力団体 </SmallTitle>
-                <List mark="・">
+                <SectionTitle className="mt-10">協力団体 </SectionTitle>
+                <List mark="・" className="mt-8">
                     <ListItem>
                         競技麻雀サークル明雀会
                     </ListItem>
@@ -112,9 +109,12 @@ export default function Page() {
                         SHIP
                     </ListItem>
                 </List>
-                <SmallTitle>お問い合わせ</SmallTitle>
+                <SectionTitle>お問い合わせ</SectionTitle>
+                <Text moreTopPadding>
+                    明大祭期間外におけるお問い合わせは、下記のお問い合わせ先までご連絡をお願いいたします。
+                </Text>
                 <Text>
-                    本祭期間外におけるお問い合わせは、下記のお問い合わせ先までご連絡をお願いいたします。本祭期間中は和泉図書館前企画受付までお越しください。
+                    明大祭期間中は和泉図書館前企画受付までお越しください。
                 </Text>
                 <ContactView department="開発局想越部門" mail="141st-souetsu@meidaisai.jp" showPhone showAddress />
             </PageContainer>

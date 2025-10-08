@@ -3,9 +3,10 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const ToTop: React.FC = () => {
-
+    const pathname = usePathname();
     const [isVisible, setIsVisible] = useState(false);
 
     const scrollToTop = () => {
@@ -49,21 +50,33 @@ const ToTop: React.FC = () => {
     }
 
     const style = isVisible ? activeStyle : normalStyle
+    const bottomClass = pathname === '/' ? 'bottom-8' : 'bottom-28 md:bottom-20';
+    const textStrokeStyle: React.CSSProperties = {
+        WebkitTextStroke: '0.6px #000',
+        // Fallback for browsers without text-stroke support
+        textShadow: `
+            0 0.5px 0 #000,
+            0 -0.5px 0 #000,
+            0.5px 0 0 #000,
+            -0.5px 0 0 #000
+        `
+    }
 
     return (
         <div className="w-12 absolute cursor-pointer">
             <button
                 onClick={scrollToTop}
                 style={style}
-                className='fixed flex flex-col items-center right-8 md:right-12 bottom-12 w-18 z-30'>
+                className={`fixed flex flex-col items-center right-8 md:right-12 ${bottomClass} w-18 z-30`}>
                 <Image
                     className="w-3/4 object-contain"
-                    src="/images/svg/Topbutton.svg"
+                    src="/images/svg/ToTop.svg"
                     alt="Topへ戻る"
                     width={50}
                     height={50}
                 />
-                <p className={'w-full text-center font-bold text-xl'}>TOP</p>
+                {/* <p className={'w-full text-center font-bold text-xl leading-3'} style={textStrokeStyle}>TOP</p> */}
+                <p className={'w-full text-center font-bold text-xl leading-3'} style={{ textShadow: '1px 1px 0 #3571B8'}}>TOP</p>
             </button>
         </div>
     );

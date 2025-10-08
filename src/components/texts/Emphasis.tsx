@@ -7,8 +7,15 @@ type EmphasisProps = {
 
 export default function Emphasis({ children, bold = false }: EmphasisProps) {
     return (
-        <span className={`relative ${bold ? 'text-xl font-bold' : 'font-medium'}`}>
-            <span className="absolute left-0 bottom-0 w-full h-2 bg-secondary-trans -z-10" />
+        <span
+            className={`${bold ? 'text-xl font-bold' : 'font-medium'}`}
+            style={{
+                backgroundImage: `linear-gradient(transparent 60%, var(--color-secondary-trans) 60%)`,
+                backgroundSize: '100% 1.2em',
+                backgroundRepeat: 'repeat',
+                backgroundPosition: '0 0'
+            }}
+        >
             {children}
         </span>
     )

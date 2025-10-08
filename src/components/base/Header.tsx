@@ -17,11 +17,26 @@ export default function Header() {
     setOpenHamburger(false)
   }, [pathname])
 
+  // ハンバーガーメニューが開いてる時は裏のスクロールを無効化
+  useEffect(() => {
+    const body = document.body;
+
+    if (isOpenHamburger) {
+      body.classList.add("overflow-hidden");
+    } else {
+      body.classList.remove("overflow-hidden");
+    }
+
+    return () => {
+      body.classList.remove("overflow-hidden");
+    };
+  }, [isOpenHamburger]);
+
   return (
     <header className="w-full bg-primary-trans flex justify-between items-center px-5 fixed opacity-100 h-18 z-50">
       <Link href="/" className="absolute left-5 z-50">
         <Image
-          src="/images/svg/logo-white.svg"
+          src="/images/svg/official/logo-white.svg"
           alt="Logo"
           width={40}
           height={40}

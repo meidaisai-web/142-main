@@ -1,5 +1,5 @@
-<svg width="98" height="72" viewBox="0 0 98 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="-0.000244141" y="26.5293" width="93.9707" height="16.7059" rx="8.35295" fill="#B5364A"/>
-<rect x="45.8525" width="61.0708" height="16.7059" rx="8.35295" transform="rotate(32.1945 45.8525 0)" fill="#B5364A"/>
-<rect width="61.0708" height="16.7059" rx="8.35295" transform="matrix(0.846245 -0.532795 -0.532795 -0.846245 44.3994 71.1172)" fill="#B5364A"/>
+<svg width="37" height="41" viewBox="0 0 37 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="3.50953" y1="18.428" x2="18.428" y2="37.4905" stroke="white" stroke-width="5" stroke-linecap="round"/>
+<line x1="2.5" y1="-2.5" x2="26.7062" y2="-2.5" transform="matrix(-0.616308 0.787505 0.787505 0.616308 37 18)" stroke="white" stroke-width="5" stroke-linecap="round"/>
+<line x1="19" y1="3" x2="19" y2="36" stroke="white" stroke-width="6" stroke-linecap="round"/>
 </svg>
