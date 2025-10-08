@@ -20,9 +20,9 @@ export default function Page() {
                 <Text>（演出局Opening企画に関する詳細は<TransitionLink href="https://www.meidaisai.jp/opening">こちら</TransitionLink>）</Text>
                 <SectionTitle className="mt-15 mb-5">コメント</SectionTitle>
                 <Emphasis>【演奏団体】栗沢踊ル者</Emphasis>
-                <ImageText src="/images/mv/groupphoto.jpg" alt="group photo Image" className="mb-20">この度、第141回明大祭公式テーマソングを担当させていただきました。長い歴史を誇る明大祭。その中で紡がれてきた、一人ひとりの物語に思いを馳せながら、ちょっと切ない気持ちや胸が躍るような瞬間を込めて、この楽曲を制作しました。</ImageText>
+                <ImageText src="/images/mv/group.jpg" alt="group photo Image" className="mb-20">この度、第141回明大祭公式テーマソングを担当させていただきました。長い歴史を誇る明大祭。その中で紡がれてきた、一人ひとりの物語に思いを馳せながら、ちょっと切ない気持ちや胸が躍るような瞬間を込めて、この楽曲を制作しました。</ImageText>
                 <Emphasis>【制作団体】学生映像制作チームNext Film監督　小池耀人</Emphasis>
-                <ImageText src="/images/mv/mvdirector.jpg" alt="mv director Image" className="mb-20">監督を務めました学生映像制作チームNext Filmの小池耀人です。素敵な曲のMVを任せていただけて光栄です。楽しい現場にできたのはみなさんのおかげです。よろしければ観てください。</ImageText>
+                <ImageText src="/images/mv/director.jpg" alt="mv director Image" className="mb-20">監督を務めました学生映像制作チームNext Filmの小池耀人です。素敵な曲のMVを任せていただけて光栄です。楽しい現場にできたのはみなさんのおかげです。よろしければ観てください。</ImageText>
                 <Emphasis>【主演】宮澤侑希</Emphasis>
                 <ImageText src="/images/mv/maincast1.jpg" alt="main cast1 Image" className="mb-20">この度、第141回明大祭公式テーマソングMVに出演させていただき、大変嬉しく思います。私にとってはすべてが初めての挑戦であり、新しい世界との出会いでした。先が見えない時代だからこそ、今を楽しみ、何事も挑戦してみたい。そんな思いから出演を決意しました。この作品が、挑戦するすべての人の背中を押せるようなものになれば幸いです。</ImageText>
                 <Emphasis>【主演】山元理央</Emphasis>
