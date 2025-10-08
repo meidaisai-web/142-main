@@ -7,6 +7,7 @@ import { List, ListItem } from "@/components/texts/List"
 import Emphasis from "@/components/texts/Emphasis"
 import SmallTitle from "@/components/texts/SmallTitle"
 import AccentText from "@/components/texts/AccentText"
+import MapImage from "@/components/MapImage"
 export default function Page() {
     return (
         <>
@@ -61,6 +62,7 @@ export default function Page() {
                         景品には限りがございますのでご了承ください。
                     </ListItem>
                 </List>
+                <MapImage src='/images/map/quest.jpg' alt="スタンプ台紙のマップ"/>
                 <SectionTitle className="mt-10">協力団体 </SectionTitle>
                 <List mark="・" className="mt-8">
                     <ListItem>
