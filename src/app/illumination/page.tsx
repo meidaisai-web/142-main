@@ -16,7 +16,7 @@ export default function Page() {
                 <Text moreTopPadding>明大祭の夜を、色鮮やかなイルミネーションが照らします。</Text>
                 <Text>光の中で、熱狂の余韻に存分に浸ってみませんか？</Text>
                 <Text>忘れられないひとときを、あなたにお届けします。</Text>
-                <SectionTitle className="mb-10">企画実施日時</SectionTitle>
+                <SectionTitle>企画実施日時</SectionTitle>
                 <SmallTitle>日時</SmallTitle>
                 <Text>11月1日(土).2日(日).3日(月・祝) 16：00〜</Text>
                 <SmallTitle>場所</SmallTitle>
