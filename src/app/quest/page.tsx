@@ -7,6 +7,7 @@ import { List, ListItem } from "@/components/texts/List"
 import Emphasis from "@/components/texts/Emphasis"
 import SmallTitle from "@/components/texts/SmallTitle"
 import AccentText from "@/components/texts/AccentText"
+import MapImage from '@/components/MapImage'
 export default function Page() {
     return (
         <>
@@ -34,7 +35,8 @@ export default function Page() {
                 <Text>
                     スタンプを集めて、各地に散らばった宝と仲間を集結させよう！戦力を集めて万全の状態で魔王を倒せ！
                 </Text>
-                <SectionTitle className="mt-10">企画実施日時・場所</SectionTitle>
+                <SectionTitle className="mt-10
+                ">企画実施日時・場所</SectionTitle>
                 <AccentText >日時</AccentText>
                 <Text>
                     11月1日(土)、2日(日)10：00〜18：00
@@ -50,6 +52,7 @@ export default function Page() {
                 <Text>
                     和泉図書館前企画受付または和泉ラーニングスクエアLS506教室にてスタンプ台紙を配布しております。
                 </Text>
+                <MapImage src="/images/questmap.jpg" alt="スタンプ台紙のマップ"/>
                 <List mark="※">
                     <ListItem>
                         スタンプ台紙の配布は<Emphasis>先着順</Emphasis>となっております。受付開始時刻は<Emphasis>10：00</Emphasis>です
