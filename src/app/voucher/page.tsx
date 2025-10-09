@@ -4,7 +4,7 @@ import { List, ListItem } from "@/components/texts/List";
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import Text from "@/components/texts/Text";
-import Voucher from "@/components/voucher/Voucher";
+import Voucher from "@/components/Voucher";
 
 export default function Page() {
     return(

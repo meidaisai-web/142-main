@@ -1,8 +1,4 @@
 /**
- * 日本時間（JST: UTC+9）での日付処理を行うユーティリティ関数
- */
-
-/**
  * 現在の日本時間のDateオブジェクトを取得する
  * @returns 日本時間のDateオブジェクト
  */
@@ -30,41 +26,13 @@ export function getJapanDateString(): string {
 }
 
 /**
- * ISO8601形式の日付文字列を日本時間の日付部分に変換する
- * @param isoString ISO8601形式の日付文字列
- * @returns YYYY-MM-DD形式の文字列（日本時間）
- */
-export function convertToJapanDateString(isoString: string): string {
-    const date = new Date(isoString);
-    // 日本時間に変換
-    const japanDate = new Date(date.getTime() + (9 * 60 * 60 * 1000));
-    return japanDate.toISOString().split('T')[0];
-}
-
-/**
  * ISO8601形式の日付文字列から日本時間の「日」（D）部分のみを取得する
  * @param isoString ISO8601形式の日付文字列
  * @returns 日（D）部分の数値（日本時間）
  */
 export function getOnlyDate(isoString: string): number {
-    const date = new Date(isoString);
-    const japanDate = new Date(date.getTime());
-    return japanDate.getDate(); // getDate()は頭に0がつかない数値を返します
-}
-
-/**
- * ISO8601形式の日付文字列を日本時間の日付文字列（YYYY.M.D形式）に変換する
- * @param isoString ISO8601形式の日付文字列
- * @returns YYYY.M.D形式の文字列（日本時間）
- */
-export function convertToJapanDateDisplayString(isoString: string): string {
-    const date = new Date(isoString);
-    // 日本時間に変換
-    const japanDate = new Date(date.getTime() + (9 * 60 * 60 * 1000));
-    const year = japanDate.getFullYear();
-    const month = japanDate.getMonth() + 1; // 0ベースなので+1
-    const day = japanDate.getDate();
-    return `${year}.${month}.${day}`;
+    const date = Number(isoString.slice(8, 10));
+    return date; // getDate()は頭に0がつかない数値を返します
 }
 
 /**
@@ -76,22 +44,5 @@ export function convertToJapanDateDisplayString(isoString: string): string {
 export function isSameDate(date1: string | Date, date2: string | Date): boolean {
     const dateStr1 = typeof date1 === 'string' ? getOnlyDate(date1) : getOnlyDate(date1.toISOString());
     const dateStr2 = typeof date2 === 'string' ? getOnlyDate(date2) : getOnlyDate(date2.toISOString());
-    console.log(date1, date2);
-    console.log(dateStr1, dateStr2);
     return dateStr1 === dateStr2;
-}
-
-/**
- * ISO8601形式の日付文字列を日本時間で読みやすい形式（YYYY年M月D日）に変換する
- * @param isoString ISO8601形式の日付文字列
- * @returns YYYY年M月D日形式の文字列（日本時間）
- */
-export function convertToJapanDateJapaneseFormat(isoString: string): string {
-    const date = new Date(isoString);
-    // 日本時間に変換
-    const japanDate = new Date(date.getTime() + (9 * 60 * 60 * 1000));
-    const year = japanDate.getFullYear();
-    const month = japanDate.getMonth() + 1;
-    const day = japanDate.getDate();
-    return `${year}年${month}月${day}日`;
 }
