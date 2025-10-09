@@ -21,7 +21,7 @@ export default function Page() {
                 11月1日(土).2日(日)10:00～18:00
             </Text>
             <Text>    
-                3日(月・祝)10:00～17:00
+                11月3日(月・祝)10:00～17:00
             </Text>
             <SmallTitle>場所</SmallTitle>
             <Text>和泉ラーニングスクエアLS201教室(階段教室)</Text>
