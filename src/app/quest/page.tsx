@@ -6,7 +6,6 @@ import ContactView from "@/components/texts/ContactView"
 import { List, ListItem } from "@/components/texts/List"
 import Emphasis from "@/components/texts/Emphasis"
 import SmallTitle from "@/components/texts/SmallTitle"
-import AccentText from "@/components/texts/AccentText"
 import MapImage from "@/components/MapImage"
 export default function Page() {
     return (
@@ -36,7 +35,7 @@ export default function Page() {
                     スタンプを集めて、各地に散らばった宝と仲間を集結させよう！戦力を集めて万全の状態で魔王を倒せ！
                 </Text>
                 <SectionTitle className="mt-10">企画実施日時・場所</SectionTitle>
-                <AccentText >日時</AccentText>
+                <SmallTitle >日時</SmallTitle>
                 <Text>
                     11月1日(土)、2日(日)10：00〜18：00
                 </Text>
