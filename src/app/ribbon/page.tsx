@@ -29,6 +29,8 @@ export default function Page() {
                 <SmallTitle>日時</SmallTitle>
                 <Text>
                     11月1日(土).2日(日)10:00～18:00
+                </Text>
+                <Text>   
                     11月3日(月・祝)10:00～17:00
                 </Text>
                 <SmallTitle>場所</SmallTitle>
