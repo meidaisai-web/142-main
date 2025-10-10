@@ -5,17 +5,21 @@ import Text from "../texts/Text";
 import Image from "next/image";
 import { List, ListItem } from "../texts/List";
 import Link from "next/link";
+import Alert from "../Alert";
 
 interface VoteViewProps {
     id: string;
     groupId: string;
     type: string;
+    eventName: string;
+    groupName: string;
     eventDate: string;
 }
 
-export default function VoteView({ id, groupId, type, eventDate }: VoteViewProps) {
+export default function VoteView({ id, groupId, type, eventName, groupName, eventDate }: VoteViewProps) {
 
     const [isEnable, setIsEnable] = useState(true);
+    const [hiddenAlert, setHiddenAlert] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [buttonText, setButtonText] = useState("投票する");
 
@@ -30,6 +34,10 @@ export default function VoteView({ id, groupId, type, eventDate }: VoteViewProps
             setButtonText("投票済み");
         }
     }, [])
+
+    function onTapVote() {
+        setHiddenAlert(false);
+    }
 
     async function handleVote() {
         if (!isEnable) return; // 連打防止
@@ -104,7 +112,7 @@ export default function VoteView({ id, groupId, type, eventDate }: VoteViewProps
                 <List mark="※" className="pt-3">
                     <ListItem>企画へのお問い合わせは、総合インフォメーションまでお越しください。</ListItem>
                 </List>
-                <VoteButton onClick={handleVote} disabled={!isEnable}>
+                <VoteButton onClick={onTapVote} disabled={!isEnable}>
                     {buttonText}
                 </VoteButton>
                 <p className="text-primary text-center">{error}</p>
@@ -113,6 +121,7 @@ export default function VoteView({ id, groupId, type, eventDate }: VoteViewProps
                     <Link href='/voucher' className="text-secondary hover:underline">抽選券引き換え画面</Link>
                 </div>
             </div>
+            <Alert title="この企画に投票しますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: '投票する', action: () => handleVote() }}>企画名: {eventName}<br />団体名: {groupName}</Alert>
         </div>
     )
 }
