@@ -92,7 +92,7 @@ export default function VoteView({ id, groupId, type, eventDate }: VoteViewProps
             </div>
             {/* 本体 */}
             <div className="flex flex-col items-center bg-white border-4 rounded-3xl border-accent text-black font-medium p-7 text-sm sm:text-base">
-                <Image src="/images/meichamp-logo.jpg" alt="Meidaisai Championship ロゴ" width={200} height={200} />
+                <Image src="/images/meichamp-logo.jpg" alt="Meidaisai Championship ロゴ" width={200} height={200} className="max-w-full w-64" />
                 <div className="flex flex-wrap justify-center font-bold text-lg">
                     <p>明大祭のチャンピオンに</p>
                     <p>輝くのは誰だ！</p>
@@ -108,11 +108,10 @@ export default function VoteView({ id, groupId, type, eventDate }: VoteViewProps
                     {buttonText}
                 </VoteButton>
                 <p className="text-primary text-center">{error}</p>
-                <Link href='/champ'>
-                    <div className="bg-secondary hover:bg-secondary-700 text-white rounded-full px-8 py-2 mt-5 text-center">
-                        詳しくはこちら
-                    </div>
-                </Link>
+                <div className="flex flex-col gap-5 w-full mt-5 items-center">
+                    <Link href='/champ' className="text-secondary hover:underline">Meidaisai Championsipとは</Link>
+                    <Link href='/voucher' className="text-secondary hover:underline">抽選券引き換え画面</Link>
+                </div>
             </div>
         </div>
     )
@@ -127,10 +126,10 @@ interface VoteButtonProps {
 function VoteButton({ onClick, disabled, children }: VoteButtonProps) {
     return (
         <button onClick={onClick} disabled={disabled} className="relative whitespace-nowrap cursor-pointer z-0 py-5">
-            <div className={`-rotate-3 rounded-full border-4 border-accent py-3 w-60 text-center absolute -z-10`}>
+            <div className={`-rotate-3 rounded-full border-4 border-accent py-3 w-52 text-center absolute -z-10`}>
                 <p className='opacity-0'>{children}</p>
             </div>
-            <div className={`font-bold rounded-full hover:bg-primary-700 transition duration-100 py-3 w-60 ${disabled ? 'bg-primary-700 text-gray-300 cursor-not-allowed' : 'bg-primary text-white'}`}>
+            <div className={`font-bold rounded-full hover:bg-primary-700 transition duration-100 py-3 w-52 ${disabled ? 'bg-primary-700 text-gray-300 cursor-not-allowed' : 'bg-primary text-white'}`}>
                 {children}
             </div>
         </button>
