@@ -1,7 +1,6 @@
 import { isAlreadyVoted, isVoteTime, saveVotedId } from "@/utils/managers/meichamManager";
 import { voteMeicham } from "@/utils/supabase/meichamAction";
 import { useEffect, useState } from "react";
-import Text from "../texts/Text";
 import Image from "next/image";
 import { List, ListItem } from "../texts/List";
 import Link from "next/link";
@@ -92,10 +91,11 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                     <VoteButton onClick={handleVote} disabled={!isEnable}>
                         {buttonText}
                     </VoteButton>
-                    <div className="rounded-full px-8 py-2 mt-5 text-center">
-                        詳しくはこちら
+                    <p className="text-center">{error}</p>
+                    <div className="flex flex-col gap-5 w-full mt-5 items-center">
+                        <p>Meidaisai Championsipとは</p>
+                        <p>抽選券引き換え画面</p>
                     </div>
-                    <Text>{error}</Text>
                 </div>
             </div>
             {/* 本体 */}
