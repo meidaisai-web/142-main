@@ -1,6 +1,6 @@
 'use client';
 
-import Alert from "@/components/Alert/page";
+import Alert from "@/components/Alert";
 import FireLoading from "@/components/base/Loading";
 import Access from "@/components/index/Access";
 import AnnounceSection from "@/components/index/AnnounceSection";

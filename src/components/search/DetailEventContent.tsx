@@ -62,7 +62,7 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                         <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} icons={data.icons} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
                     </div>
                     <Menu menus={data.menuItems || []} />
-                    <VoteView id={id} groupId={data.groupId} type={data.type} />
+                    <VoteView id={id} groupId={data.groupId} type={data.type} eventDate={data.eventDate} />
                 </div>
             )}
         </div>
