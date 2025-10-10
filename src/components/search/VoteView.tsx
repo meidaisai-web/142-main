@@ -1,7 +1,6 @@
 import { isAlreadyVoted, isVoteTime, saveVotedId } from "@/utils/managers/meichamManager";
 import { voteMeicham } from "@/utils/supabase/meichamAction";
 import { useEffect, useState } from "react";
-import Button from "../buttons/Button";
 import Text from "../texts/Text";
 import Image from "next/image";
 import { List, ListItem } from "../texts/List";
@@ -11,57 +10,58 @@ interface VoteViewProps {
     id: string;
     groupId: string;
     type: string;
+    eventDate: string;
 }
 
-export default function VoteView({ id, groupId, type }: VoteViewProps) {
+export default function VoteView({ id, groupId, type, eventDate }: VoteViewProps) {
 
-    const [hasVoted, setHasVoted] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isEnable, setIsEnable] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [buttonText, setButtonText] = useState("投票する");
 
     useEffect(() => {
-        if (!isVoteTime) {
-            setButtonText("投票可能時間外です")
-        }
+        // if (!isVoteTime(eventDate)) {
+        //     setButtonText("投票可能時間外です")
+        //     setIsEnable(false);
+        //     return;
+        // }
         if (isAlreadyVoted(id, groupId, type)) {
-            setHasVoted(true);
+            setIsEnable(false);
             setButtonText("投票済み");
         }
-    }, [id])
+    }, [])
 
     async function handleVote() {
-        if (isLoading) return; // 連打防止
-        setIsLoading(true);
+        if (!isEnable) return; // 連打防止
+        setIsEnable(false);
         setError(null);
         setButtonText("投票中...");
-        if (!isVoteTime) {
-            setError("投票可能な時間ではありません。");
-            setButtonText("投票可能時間外です");
-            setIsLoading(false);
-            return;
-        }
+        // if (!isVoteTime(eventDate)) {
+        //     setError("投票可能な時間ではありません。");
+        //     setButtonText("投票可能時間外です");
+        //     setIsEnable(false);
+        //     return;
+        // }
         // すでにその日に、その企画に投票しているか確認
         if (isAlreadyVoted(id, groupId, type)) {
             setError("本日すでにこの企画に投票しています。");
             setButtonText("投票済み");
-            setIsLoading(false);
+            setIsEnable(false);
             return;
         }
         // 投票していなければ、投票を実行
         const success = await voteMeicham(id, groupId, type);
         if (!success) {
             setError("投票に失敗しました。もう一度お試しください。");
-            setIsLoading(false);
+            setIsEnable(true);
             setButtonText("投票する");
             return;
         }
-        setHasVoted(true);
+        setIsEnable(false);
         setError(null);
         setButtonText("投票済み");
         // localStorageに投票済みの企画IDを保存
         saveVotedId(id, groupId, type);
-        setIsLoading(false);
     }
 
     return (
@@ -81,7 +81,7 @@ export default function VoteView({ id, groupId, type }: VoteViewProps) {
                     <List mark="※" className="pt-3">
                         <ListItem>企画へのお問い合わせは、総合インフォメーションまでお越しください。</ListItem>
                     </List>
-                    <VoteButton onClick={handleVote} disabled={hasVoted || isLoading}>
+                    <VoteButton onClick={handleVote} disabled={!isEnable}>
                         {buttonText}
                     </VoteButton>
                     <div className="rounded-full px-8 py-2 mt-5 text-center">
@@ -104,15 +104,15 @@ export default function VoteView({ id, groupId, type }: VoteViewProps) {
                 <List mark="※" className="pt-3">
                     <ListItem>企画へのお問い合わせは、総合インフォメーションまでお越しください。</ListItem>
                 </List>
-                <VoteButton onClick={handleVote} disabled={hasVoted || isLoading}>
+                <VoteButton onClick={handleVote} disabled={!isEnable}>
                     {buttonText}
                 </VoteButton>
+                <p className="text-primary text-center">{error}</p>
                 <Link href='/champ'>
                     <div className="bg-secondary hover:bg-secondary-700 text-white rounded-full px-8 py-2 mt-5 text-center">
                         詳しくはこちら
                     </div>
                 </Link>
-                <Text>{error}</Text>
             </div>
         </div>
     )
