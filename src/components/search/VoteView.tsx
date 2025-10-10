@@ -1,7 +1,6 @@
 import { isAlreadyVoted, isVoteTime, saveVotedId } from "@/utils/managers/meichamManager";
 import { voteMeicham } from "@/utils/supabase/meichamAction";
 import { useEffect, useState } from "react";
-import Text from "../texts/Text";
 import Image from "next/image";
 import { List, ListItem } from "../texts/List";
 import Link from "next/link";

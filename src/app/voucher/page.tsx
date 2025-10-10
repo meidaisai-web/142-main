@@ -1,4 +1,5 @@
 import PageContainer from "@/components/base/PageContainer";
+import MapImage from "@/components/MapImage";
 import Emphasis from "@/components/texts/Emphasis";
 import { List, ListItem } from "@/components/texts/List";
 import PageTitle from "@/components/texts/PageTitle";
@@ -22,6 +23,7 @@ export default function Page() {
                     <ListItem>メディア棟前企画受付にある「明大祭大抽選会」まで行くと、抽選に参加できます！</ListItem>
                 </List>
                 <Text>抽選券の引き換え、企画に関するお問い合わせは、和泉図書館前総合インフォメーションブースMeidaisai Championship受付までお越しください。</Text>
+                <MapImage src="/images/map/exchange.jpg" alt="和泉図書館前総合インフォメーションブース" />
                 <List mark="※" className="mt-8">
                     <ListItem>抽選券の引き換えは1日につき、お一人様<Emphasis>1回</Emphasis>までです。</ListItem>
                     <ListItem>なお、抽選券に交換した後も投票することができます。</ListItem>
