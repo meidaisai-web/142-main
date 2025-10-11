@@ -8,6 +8,101 @@ import { supabase } from "@/utils/supabase/fight-vote";
 import React from "react";
 import { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+
+type QueenButtonProps = {
+  name: string;
+  index: number;
+  isSelected: boolean;
+  isFlaming: boolean;
+  onClick: () => void;
+};
+
+const QueenButton = ({ name, index, isSelected, isFlaming, onClick }: QueenButtonProps) => {
+  return (
+    <motion.button
+      type="button"
+      className={`flex-1 p-3 relative translate-x-[min(1.5rem,4vw)] text-white`}
+      style={{
+        clipPath: 'polygon(0 0, 80% 0, 90% 100%, 0 100%)'
+      }}
+      initial={false}
+      animate={
+        isFlaming ? {
+          rotate: [-1, 1, -0.5, 0.5, 0],
+          scale: [1, 1.05, 1.1, 1.05, isSelected ? 1.1 : 1],
+          backgroundColor: isSelected ? '#374151' : '#6b7280',
+          boxShadow: [
+            '0 0 20px #B5364A, 0 0 40px #3571B8, 0 0 60px #D8CE48',
+            '0 0 25px #3571B8, 0 0 50px #D8CE48, 0 0 80px #B5364A',
+            '0 0 30px #D8CE48, 0 0 60px #B5364A, 0 0 100px #3571B8',
+            '0 0 25px #B5364A, 0 0 50px #3571B8, 0 0 80px #D8CE48',
+            isSelected ? '0 0 20px rgba(216, 206, 72, 0.5)' : '0 0 0px transparent'
+          ]
+        } : isSelected ? {
+          scale: 1.1,
+          backgroundColor: '#374151',
+          boxShadow: '0 0 20px rgba(216, 206, 72, 0.5)'
+        } : {
+          backgroundColor: '#6b7280'
+        }
+      }
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      whileHover={isSelected ? {} : { scale: 1.05, backgroundColor: '#D8CE48', skewX: -1, opacity: 0.8, boxShadow: '0 0 30px rgba(216, 206, 72, 0.3)' }}
+      whileTap={{ scale: 1.25, backgroundColor: '#3571B8', skewX: -2, opacity: 1, boxShadow: '0 0 80px rgba(213, 206, 72, 0.7)' }}
+      onClick={onClick}
+    >
+      <span className="relative z-10">{name}</span>
+    </motion.button>
+  );
+};
+
+type KingButtonProps = {
+  name: string;
+  index: number;
+  isSelected: boolean;
+  isFlaming: boolean;
+  onClick: () => void;
+};
+
+const KingButton = ({ name, index, isSelected, isFlaming, onClick }: KingButtonProps) => {
+  return (
+    <motion.button
+      type="button"
+      className={`flex-1 p-3 relative translate-x-[max(-1.5rem,-4vw)] text-white`}
+      style={{
+        clipPath: 'polygon(10% 0, 100% 0, 100% 100%, 20% 100%)'
+      }}
+      initial={false}
+      animate={
+        isFlaming ? {
+          rotate: [-1, 1, -0.5, 0.5, 0],
+          scale: [1, 1.05, 1.1, 1.05, isSelected ? 1.1 : 1],
+          backgroundColor: isSelected ? '#374151' : '#6b7280',
+          boxShadow: [
+            '0 0 20px #B5364A, 0 0 40px #3571B8, 0 0 60px #D8CE48',
+            '0 0 25px #3571B8, 0 0 50px #D8CE48, 0 0 80px #B5364A',
+            '0 0 30px #D8CE48, 0 0 60px #B5364A, 0 0 100px #3571B8',
+            '0 0 25px #B5364A, 0 0 50px #3571B8, 0 0 80px #D8CE48',
+            isSelected ? '0 0 20px rgba(53, 113, 184, 0.5)' : '0 0 0px transparent'
+          ]
+        } : isSelected ? {
+          scale: 1.1,
+          backgroundColor: '#374151',
+          boxShadow: '0 0 20px rgba(53, 113, 184, 0.5)'
+        } : {
+          backgroundColor: '#6b7280'
+        }
+      }
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      whileHover={isSelected ? {} : { scale: 1.05, backgroundColor: '#3571B8', skewX: 1, opacity: 0.8, boxShadow: '0 0 30px rgba(53, 113, 184, 0.3)' }}
+      whileTap={{ scale: 1.25, backgroundColor: '#D8CE48', skewX: 2, opacity: 1, boxShadow: '0 0 80px rgba(216, 206, 72, 0.7)' }}
+      onClick={onClick}
+    >
+      <span className="relative z-10">{name}</span>
+    </motion.button>
+  );
+};
 
 const FightVote = () => {
   const [selectedVote1, setSelectedVote1] = useState<number | null>(null);
@@ -26,7 +121,6 @@ const FightVote = () => {
       setHasVoted(true);
     }
   }, []);
-
 
   //企画一覧
   type FightVoteType = {
@@ -80,7 +174,7 @@ const FightVote = () => {
       console.log("Some votes are null, showing error modal");
       setModalType('error');
       setShowModal(true);
-      // 10秒後に自動で閉じる（長めに設定）
+      // 10秒後に自動で閉じる
       setTimeout(() => setShowModal(false), 10000);
       return;
     }
@@ -133,87 +227,36 @@ const FightVote = () => {
 
   return (
     <div>
-      <style>{`
-        @keyframes flame {
-          0%, 100% {
-            transform: rotate(-1deg) scale(1);
-            box-shadow: 0 0 20px #B5364A, 0 0 40px #3571B8, 0 0 60px #D8CE48;
-          }
-          25% {
-            transform: rotate(1deg) scale(1.05);
-            box-shadow: 0 0 25px #3571B8, 0 0 50px #D8CE48, 0 0 80px #B5364A;
-          }
-          50% {
-            transform: rotate(-0.5deg) scale(1.1);
-            box-shadow: 0 0 30px #D8CE48, 0 0 60px #B5364A, 0 0 100px #3571B8;
-          }
-          75% {
-            transform: rotate(0.5deg) scale(1.05);
-            box-shadow: 0 0 25px #B5364A, 0 0 50px #3571B8, 0 0 80px #D8CE48;
-          }
-        }
-        .flame-animation {
-          animation: flame 0.3s ease-in-out;
-        }
-        @keyframes modalSlideIn {
-          0% {
-            opacity: 0;
-            transform: scale(0.5) rotate(-10deg);
-          }
-          50% {
-            transform: scale(1.1) rotate(5deg);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1) rotate(0deg);
-          }
-        }
-        @keyframes pulse {
-          0%, 100% {
-            transform: scale(1);
-            box-shadow: 0 0 20px #B5364A;
-          }
-          50% {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px #3571B8, 0 0 60px #D8CE48;
-          }
-        }
-        @keyframes success {
-          0% {
-            transform: scale(0);
-            opacity: 0;
-          }
-          50% {
-            transform: scale(1.3);
-          }
-          100% {
-            transform: scale(1);
-            opacity: 1;
-          }
-        }
-        .modal-animation {
-          animation: modalSlideIn 0.5s ease-out;
-        }
-        .pulse-animation {
-          animation: pulse 1.5s ease-in-out infinite;
-        }
-        .success-animation {
-          animation: success 0.6s ease-out;
-        }
-      `}</style>
       <PageTitle>Meiji United Clash</PageTitle>
       <PageContainer>
         <SectionTitle>投票フォーム</SectionTitle>
 
+        {/* ========== 開発用: 投票状態切り替えボタン (リリース時にコメントアウト) ========== */}
+        <div className="mb-8 p-4 bg-yellow-500/20 border-2 border-yellow-500 rounded-lg">
+          <p className="text-yellow-300 text-sm mb-2">【開発用】投票状態切り替え</p>
+          <button
+            onClick={() => {
+              const newState = !hasVoted;
+              setHasVoted(newState);
+              localStorage.setItem('fight-vote-submitted', String(newState));
+            }}
+            className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded"
+          >
+            {hasVoted ? '投票前の画面に戻す' : '投票済みの画面にする'}
+          </button>
+        </div>
+        {/* ========== 開発用ボタンここまで ========== */}
+
+        {/* 投票されてたらページ遷移 */}
         {hasVoted ? (
           <div className="text-center py-12">
             <div className="mb-8">
-              <div style={{ margin: '0 auto', width: '300px', height: '180px', position: 'relative' }}>
+              <div className="mx-auto w-[300px] h-[180px] relative">
                 <Image
                   src="/images/ad/fight-logo.jpg"
                   alt="Meiji United Clash Logo"
                   fill
-                  style={{ objectFit: 'contain' }}
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -224,253 +267,241 @@ const FightVote = () => {
           <>
             {/* 投票対象を並べる */}
             <div>
-          <div className="mt-8">
-            {fightVoteData.map((data, index) => (
-              <div key={data.label} className="mb-16">
-                <SmallTitle>
-                  {(() => {
-                    if (index === 0) return "1st BATTLE";
-                    if (index === 1) return "2nd BATTLE";
-                    if (index === 2) return "3rd BATTLE";
-                  })()}
-                </SmallTitle>
-                <div className="flex m-5 mb-4">
-                  <div className="flex-1 text-left" style={{ transform: 'translateX(min(1.5rem, 4vw))' }}>
-                    <span className="text-3xl font-bold text-white">QUEEN</span>
-                  </div>
-                  <div className="flex-1 text-right" style={{ transform: 'translateX(max(-1.5rem, -4vw))' }}>
-                    <span className="text-3xl font-bold text-white">KING</span>
-                  </div>
-                </div>
-                <div className="flex m-5 h-64 mb-6">
-                  <button
-                    type="button"
-                    className={`flex-1 p-3 relative transition-all duration-300 transform ${flamingButtons[`queen-${index}`] ? 'flame-animation' : ''} ${(index === 0 && selectedVote1 === 1) ||
-                      (index === 1 && selectedVote2 === 1) ||
-                      (index === 2 && selectedVote3 === 1)
-                      ? 'bg-gray-700 text-white scale-110 shadow-2xl shadow-primary/50'
-                      : 'bg-gray-500 hover:bg-accent hover:scale-105 hover:shadow-xl hover:shadow-primary/30 hover:-skew-x-1 hover:opacity-80 active:scale-125 active:bg-secondary active:shadow-2xl active:shadow-accent/70 active:-skew-x-2 active:opacity-100'
-                      }`}
-                    style={{
-                      clipPath: 'polygon(0 0, 80% 0, 90% 100%, 0 100%)',
-                      transform: 'translateX(min(1.5rem, 4vw))'
-                    }}
-                    onClick={() => {
-                      // 燃えるアニメーションを開始
-                      const buttonKey = `queen-${index}`;
-                      setFlamingButtons(prev => ({ ...prev, [buttonKey]: true }));
-                      setTimeout(() => setFlamingButtons(prev => ({ ...prev, [buttonKey]: false })), 300);
+              <div className="mt-8">
+                {fightVoteData.map((data, index) => (
+                  <div key={data.label} className="mb-16">
+                    <SmallTitle>
+                      {(() => {
+                        if (index === 0) return "1st BATTLE";
+                        if (index === 1) return "2nd BATTLE";
+                        if (index === 2) return "3rd BATTLE";
+                      })()}
+                    </SmallTitle>
+                    <div className="flex m-5 mb-4">
+                      <div className="flex-1 text-left translate-x-[min(1.5rem,4vw)]">
+                        <span className="text-3xl font-bold text-white">QUEEN</span>
+                      </div>
+                      <div className="flex-1 text-right translate-x-[max(-1.5rem,-4vw)]">
+                        <span className="text-3xl font-bold text-white">KING</span>
+                      </div>
+                    </div>
+                    <div className="flex m-5 h-64 mb-6">
+                      <QueenButton
+                        name={data.queen.name}
+                        index={index}
+                        isSelected={(index === 0 && selectedVote1 === 1) || (index === 1 && selectedVote2 === 1) || (index === 2 && selectedVote3 === 1)}
+                        isFlaming={flamingButtons[`queen-${index}`] || false}
+                        onClick={() => {
+                          const buttonKey = `queen-${index}`;
+                          setFlamingButtons(prev => ({ ...prev, [buttonKey]: true }));
+                          setTimeout(() => setFlamingButtons(prev => ({ ...prev, [buttonKey]: false })), 300);
 
-                      if (index === 0) setSelectedVote1(1);
-                      if (index === 1) setSelectedVote2(1);
-                      if (index === 2) setSelectedVote3(1);
-                    }}
-                  >
-                    <span className="relative z-10">{data.queen.name}</span>
-                  </button>
-                  <button
-                    type="button"
-                    className={`flex-1 p-3 relative transition-all duration-300 transform ${flamingButtons[`king-${index}`] ? 'flame-animation' : ''} ${(index === 0 && selectedVote1 === 0) ||
-                      (index === 1 && selectedVote2 === 0) ||
-                      (index === 2 && selectedVote3 === 0)
-                      ? 'bg-gray-700 text-white scale-110 shadow-2xl shadow-secondary/50'
-                      : 'bg-gray-500 hover:bg-secondary hover:scale-105 hover:shadow-xl hover:shadow-secondary/30 hover:skew-x-1 hover:opacity-80 active:scale-125 active:bg-accent active:shadow-2xl active:shadow-primary/70 active:skew-x-2 active:opacity-100'
-                      }`}
-                    style={{
-                      clipPath: 'polygon(10% 0, 100% 0, 100% 100%, 20% 100%)',
-                      transform: 'translateX(max(-1.5rem, -4vw))'
-                    }}
-                    onClick={() => {
-                      // 燃えるアニメーションを開始
-                      const buttonKey = `king-${index}`;
-                      setFlamingButtons(prev => ({ ...prev, [buttonKey]: true }));
-                      setTimeout(() => setFlamingButtons(prev => ({ ...prev, [buttonKey]: false })), 300);
+                          if (index === 0) setSelectedVote1(1);
+                          if (index === 1) setSelectedVote2(1);
+                          if (index === 2) setSelectedVote3(1);
+                        }}
+                      />
+                      <KingButton
+                        name={data.king.name}
+                        index={index}
+                        isSelected={(index === 0 && selectedVote1 === 0) || (index === 1 && selectedVote2 === 0) || (index === 2 && selectedVote3 === 0)}
+                        isFlaming={flamingButtons[`king-${index}`] || false}
+                        onClick={() => {
+                          const buttonKey = `king-${index}`;
+                          setFlamingButtons(prev => ({ ...prev, [buttonKey]: true }));
+                          setTimeout(() => setFlamingButtons(prev => ({ ...prev, [buttonKey]: false })), 300);
 
-                      if (index === 0) setSelectedVote1(0);
-                      if (index === 1) setSelectedVote2(0);
-                      if (index === 2) setSelectedVote3(0);
-                    }}
-                  >
-                    <span className="relative z-10">{data.king.name}</span>
-                  </button>
-                </div>
-                <div className="flex m-5 mt-4">
-                  <div className="flex-1 text-left" style={{ transform: 'translateX(min(1.5rem, 4vw))' }}>
-                    <span className="text-xl text-white">{data.queen.name}</span>
+                          if (index === 0) setSelectedVote1(0);
+                          if (index === 1) setSelectedVote2(0);
+                          if (index === 2) setSelectedVote3(0);
+                        }}
+                      />
+                    </div>
+                    <div className="flex m-5 mt-4">
+                      <div className="flex-1 text-left translate-x-[min(1.5rem,4vw)]">
+                        <span className="text-xl text-white">{data.queen.name}</span>
+                      </div>
+                      <div className="flex-1 text-right translate-x-[max(-1.5rem,-4vw)]">
+                        <span className="text-xl text-white">{data.king.name}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-1 text-right" style={{ transform: 'translateX(max(-1.5rem, -4vw))' }}>
-                    <span className="text-xl text-white">{data.king.name}</span>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
 
-          <div className="flex justify-center mt-12">
-            <div className={`relative p-5 h-24 ${isFlaming ? 'flame-animation' : ''}`}>
-              <button
-                onClick={handleSubmit}
-                disabled={selectedVote1 === null || selectedVote2 === null || selectedVote3 === null || isSubmitting}
-                className="absolute -translate-x-1/2 left-1/2 whitespace-nowrap"
-              >
-                <div className='-rotate-3 rounded-full border-4 border-secondary py-3 px-20 sm:px-30 text-center absolute -translate-x-1/2 left-1/2'>
-                  <p className='opacity-0'>{isSubmitting ? "送信中..." : "投票を送信"}</p>
-                </div>
-                <div className={`font-bold rounded-full transition duration-100 text-black py-3 px-20 sm:px-30 absolute z-10 -translate-x-1/2 left-1/2 ${selectedVote1 === null || selectedVote2 === null || selectedVote3 === null || isSubmitting
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-accent hover:bg-accent-700 cursor-pointer'
-                  }`}>
-                  {isSubmitting ? "送信中..." : "投票を送信"}
-                </div>
-              </button>
+              <div className="flex justify-center mt-12">
+                <motion.div
+                  className="relative p-5 h-24"
+                  animate={isFlaming ? {
+                    rotate: [-1, 1, -0.5, 0.5, 0],
+                    scale: [1, 1.05, 1.1, 1.05, 1],
+                    boxShadow: [
+                      '0 0 20px #B5364A, 0 0 40px #3571B8, 0 0 60px #D8CE48',
+                      '0 0 25px #3571B8, 0 0 50px #D8CE48, 0 0 80px #B5364A',
+                      '0 0 30px #D8CE48, 0 0 60px #B5364A, 0 0 100px #3571B8',
+                      '0 0 25px #B5364A, 0 0 50px #3571B8, 0 0 80px #D8CE48',
+                      '0 0 20px #B5364A, 0 0 40px #3571B8, 0 0 60px #D8CE48'
+                    ]
+                  } : {}}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                >
+                  <button
+                    onClick={handleSubmit}
+                    disabled={selectedVote1 === null || selectedVote2 === null || selectedVote3 === null || isSubmitting}
+                    className="absolute -translate-x-1/2 left-1/2 whitespace-nowrap"
+                  >
+                    <div className='-rotate-3 rounded-full border-4 border-secondary py-3 px-20 sm:px-30 text-center absolute -translate-x-1/2 left-1/2'>
+                      <p className='opacity-0'>{isSubmitting ? "送信中..." : "投票を送信"}</p>
+                    </div>
+                    <div className={`font-bold rounded-full transition duration-100 text-black py-3 px-20 sm:px-30 absolute z-10 -translate-x-1/2 left-1/2 ${selectedVote1 === null || selectedVote2 === null || selectedVote3 === null || isSubmitting
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-accent hover:bg-accent-700 cursor-pointer'
+                      }`}>
+                      {isSubmitting ? "送信中..." : "投票を送信"}
+                    </div>
+                  </button>
+                </motion.div>
+              </div>
             </div>
-          </div>
-        </div>
           </>
         )}
       </PageContainer>
 
-      {/* カッコいいモーダル */}
-      {showModal && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0,0,0,0.8)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 99999
-          }}
-          onClick={() => setShowModal(false)}
-        >
-          <div
-            style={{
-              position: 'relative',
-              background: 'linear-gradient(to bottom right, #B5364A, #8B2635)',
-              padding: '32px',
-              borderRadius: '16px',
-              border: `4px solid ${modalType === 'success' ? '#D8CE48' : modalType === 'error' ? '#3571B8' : '#D8CE48'}`,
-              boxShadow: '0 25px 50px -12px rgba(181, 54, 74, 0.5)',
-              maxWidth: '400px',
-              width: '100%',
-              margin: '16px',
-              textAlign: 'center'
-            }}
-            onClick={(e) => e.stopPropagation()}
+      {/* モーダル表示 */}
+      <AnimatePresence>
+        {showModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 w-full h-full bg-black/80 flex items-center justify-center z-[99999]"
+            onClick={() => setShowModal(false)}
           >
-            {/* 閉じるボタン */}
-            <button
-              onClick={() => setShowModal(false)}
-              style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
-                background: 'none',
-                border: 'none',
-                color: '#D8CE48',
-                fontSize: '24px',
-                cursor: 'pointer',
-                padding: '5px'
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              exit={{ opacity: 0, scale: 0.5, rotate: 10 }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+                scale: { type: "spring", damping: 15, stiffness: 200 }
               }}
+              className={`relative bg-gradient-to-br from-[#B5364A] to-[#8B2635] p-8 rounded-2xl border-4 shadow-[0_25px_50px_-12px_rgba(181,54,74,0.5)] max-w-[400px] w-full m-4 text-center ${modalType === 'success' ? 'border-[#D8CE48]' : modalType === 'error' ? 'border-[#3571B8]' : 'border-[#D8CE48]'
+                }`}
+              onClick={(e) => e.stopPropagation()}
             >
-              ×
-            </button>
+              {/* 閉じるボタン */}
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute top-[10px] right-[10px] bg-none border-none text-[#D8CE48] text-2xl cursor-pointer p-[5px]"
+              >
+                ×
+              </button>
 
-            {modalType === 'submitting' && (
-              <div>
-                <div style={{
-                  width: '80px',
-                  height: '80px',
-                  margin: '0 auto 24px',
-                  borderRadius: '50%',
-                  background: 'linear-gradient(to right, #B5364A, #3571B8)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <div style={{
-                    width: '32px',
-                    height: '32px',
-                    border: '4px solid white',
-                    borderTop: '4px solid transparent',
-                    borderRadius: '50%'
-                  }}></div>
+              {modalType === 'submitting' && (
+                <div>
+                  <motion.div
+                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-[#B5364A] to-[#3571B8] flex items-center justify-center"
+                    animate={{
+                      scale: [1, 1.05, 1],
+                      boxShadow: [
+                        '0 0 20px #B5364A',
+                        '0 0 40px #3571B8, 0 0 60px #D8CE48',
+                        '0 0 20px #B5364A'
+                      ]
+                    }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <motion.div
+                      className="w-8 h-8 border-4 border-white border-t-transparent rounded-full"
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    />
+                  </motion.div>
+                  <div className="mx-auto mb-4 w-[300px] h-[180px] relative">
+                    <Image
+                      src="/images/ad/fight-logo.jpg"
+                      alt="Meiji United Clash Logo"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <p className="text-white text-xl">投票を送信中...</p>
+                  <div className="mt-4 flex justify-center gap-1">
+                    <motion.div
+                      className="w-2 h-2 bg-[#B5364A] rounded-full"
+                      animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+                      transition={{ duration: 1, repeat: Infinity, delay: 0 }}
+                    />
+                    <motion.div
+                      className="w-2 h-2 bg-[#3571B8] rounded-full"
+                      animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+                      transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
+                    />
+                    <motion.div
+                      className="w-2 h-2 bg-[#D8CE48] rounded-full"
+                      animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+                      transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
+                    />
+                  </div>
                 </div>
-                <div style={{ margin: '0 auto 16px', width: '300px', height: '180px', position: 'relative' }}>
-                  <Image
-                    src="/images/ad/fight-logo.jpg"
-                    alt="Meiji United Clash Logo"
-                    fill
-                    style={{ objectFit: 'contain' }}
-                  />
-                </div>
-                <p style={{ color: '#fff', fontSize: '20px' }}>投票を送信中...</p>
-                <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center', gap: '4px' }}>
-                  <div style={{ width: '8px', height: '8px', backgroundColor: '#B5364A', borderRadius: '50%' }}></div>
-                  <div style={{ width: '8px', height: '8px', backgroundColor: '#3571B8', borderRadius: '50%' }}></div>
-                  <div style={{ width: '8px', height: '8px', backgroundColor: '#D8CE48', borderRadius: '50%' }}></div>
-                </div>
-              </div>
-            )}
+              )}
 
-            {modalType === 'success' && (
-              <div>
-                <div style={{
-                  width: '80px',
-                  height: '80px',
-                  margin: '0 auto 24px',
-                  borderRadius: '50%',
-                  background: 'linear-gradient(to right, #B5364A, #D8CE48)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <span style={{ fontSize: '32px', color: 'white' }}>✓</span>
+              {modalType === 'success' && (
+                <div>
+                  <motion.div
+                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-[#B5364A] to-[#D8CE48] flex items-center justify-center"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.6, ease: "easeOut", type: "spring", damping: 10 }}
+                  >
+                    <motion.span
+                      className="text-[32px] text-white"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: [0, 1.3, 1] }}
+                      transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                    >
+                      ✓
+                    </motion.span>
+                  </motion.div>
+                  <div className="mx-auto mb-4 w-[300px] h-[180px] relative">
+                    <Image
+                      src="/images/ad/fight-logo.jpg"
+                      alt="Meiji United Clash Logo"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <p className="text-white text-xl">投票が送信されました</p>
                 </div>
-                <div style={{ margin: '0 auto 16px', width: '300px', height: '180px', position: 'relative' }}>
-                  <Image
-                    src="/images/ad/fight-logo.jpg"
-                    alt="Meiji United Clash Logo"
-                    fill
-                    style={{ objectFit: 'contain' }}
-                  />
-                </div>
-                <p style={{ color: '#fff', fontSize: '20px' }}>投票が送信されました</p>
-              </div>
-            )}
+              )}
 
-            {modalType === 'error' && (
-              <div>
-                <div style={{
-                  width: '80px',
-                  height: '80px',
-                  margin: '0 auto 24px',
-                  borderRadius: '50%',
-                  background: 'linear-gradient(to right, #B5364A, #3571B8)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <span style={{ fontSize: '32px', color: 'white' }}>⚠️</span>
+              {modalType === 'error' && (
+                <div>
+                  <motion.div
+                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-[#B5364A] to-[#3571B8] flex items-center justify-center"
+                    animate={{
+                      rotate: [0, -5, 5, -5, 5, 0],
+                    }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                  >
+                    <span className="text-[32px] text-white">⚠️</span>
+                  </motion.div>
+                  <h2 className="text-[#D8CE48] text-2xl font-bold mb-4">
+                    ⚠️ ERROR ⚠️
+                  </h2>
+                  <p className="text-white text-xl">
+                    {selectedVote1 === null || selectedVote2 === null || selectedVote3 === null
+                      ? "すべての投票を選択してください！"
+                      : "投票の送信に失敗しました"}
+                  </p>
+                  <p className="text-[#D8CE48] text-sm mt-2">もう一度お試しください</p>
                 </div>
-                <h2 style={{ color: '#D8CE48', fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
-                  ⚠️ ERROR ⚠️
-                </h2>
-                <p style={{ color: '#fff', fontSize: '20px' }}>
-                  {selectedVote1 === null || selectedVote2 === null || selectedVote3 === null
-                    ? "すべての投票を選択してください！"
-                    : "投票の送信に失敗しました"}
-                </p>
-                <p style={{ color: '#D8CE48', fontSize: '14px', marginTop: '8px' }}>もう一度お試しください</p>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
