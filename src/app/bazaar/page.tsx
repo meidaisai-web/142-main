@@ -5,7 +5,9 @@ import Text from "@/components/texts/Text"
 import SmallTitle from "@/components/texts/SmallTitle"
 import AccentText from "@/components/texts/AccentText"
 import MapImage from "@/components/MapImage"
-import { div } from "framer-motion/client"
+
+import { List } from "@/components/texts/List"
+import { ListItem } from "@/components/texts/List"
 
 export default function Page(){
     return(
@@ -15,8 +17,10 @@ export default function Page(){
                 <SectionTitle>実行委員会によるバザー企画開催！</SectionTitle>
                 <Text moreTopPadding>学生が持ち寄った本や服など、様々なアイテムが勢ぞろい！この機会にあなただけの特別な一品を見つけに来ませんか？</Text>
                 <Text>バザーの収益金は、災害に見舞われた方に対する救援活動や復興支援のために、<span className="font-bold">日本赤十字社に寄付</span>されます。</Text>
-                <Text>※売り切れ次第終了となります。</Text>
-                <Text>※最終募金金額については、明大祭終了後にこちらのページにてご報告させていただきます。</Text>
+                <List mark="※">
+                    <ListItem>売り切れ次第終了となります。</ListItem>
+                    <ListItem>最終募金金額については、明大祭終了後にこちらのページにてご報告させていただきます。</ListItem>
+                </List>
                 <SmallTitle>企画実施場所・日時</SmallTitle>
                 <AccentText>実施場所</AccentText>
                 <Text>第一校舎正面右側</Text>
