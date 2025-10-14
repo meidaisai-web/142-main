@@ -96,7 +96,7 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
                         alt="企画画像"
                         width={100}
                         height={100}
-                        className="rounded-md object-cover w-[100px] h-[100px]"
+                        className="rounded-md object-cover w-[100px] h-[100px] border-2 border-black"
                         onError={() => setImgSrc('/images/svg/no-image.svg')}
                     />
                     <div className="flex justify-between mt-2">

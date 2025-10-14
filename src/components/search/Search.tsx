@@ -38,6 +38,16 @@ export default function Search() {
             const savedConditions = localStorage.getItem(STORAGE_KEY);
             if (savedConditions) {
                 const conditions = JSON.parse(savedConditions);
+                const savedTimestamp = conditions.timestamp;
+                const currentTime = Date.now();
+                const fiveMinutesInMs = 5 * 60 * 1000; // 5分をミリ秒に変換
+
+                // 5分以上経過していたらlocalStorageをクリアして終了
+                if (!savedTimestamp || currentTime - savedTimestamp > fiveMinutesInMs) {
+                    localStorage.removeItem(STORAGE_KEY);
+                    return;
+                }
+
                 setKeyword(conditions.keyword || '');
                 setSelectedTypes(conditions.selectedTypes || []);
                 setSelectedDates(conditions.selectedDates || []);
@@ -66,7 +76,8 @@ export default function Search() {
                 selectedDates,
                 selectedPlaces,
                 selectedGenres,
-                sortType
+                sortType,
+                timestamp: Date.now() // 現在時刻をタイムスタンプとして保存
             };
             localStorage.setItem(STORAGE_KEY, JSON.stringify(conditions));
         } catch (error) {
@@ -123,6 +134,7 @@ export default function Search() {
                     setSelectedGenres={setSelectedGenres}
                     sortType={sortType}
                     setSortType={setSortType}
+                    onEnter={onTapSearchButton}
                 />
                 <div className="flex justify-center">
                     <button className="text-accent border-primary hover:border-accent border-b-2 font-medium" onClick={() => {

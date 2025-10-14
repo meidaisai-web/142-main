@@ -22,9 +22,10 @@ interface FilterViewProps {
     setSelectedGenres: React.Dispatch<React.SetStateAction<string[]>>;
     sortType: SortType;
     setSortType: React.Dispatch<React.SetStateAction<SortType>>;
+    onEnter?: () => void;
 }
 
-export default function FilterView({ keyword, setKeyword, selectedTypes, setSelectedTypes, selectedDates, setSelectedDates, selectedPlaces, setSelectedPlaces, selectedGenres, setSelectedGenres, sortType, setSortType }: FilterViewProps) {
+export default function FilterView({ keyword, setKeyword, selectedTypes, setSelectedTypes, selectedDates, setSelectedDates, selectedPlaces, setSelectedPlaces, selectedGenres, setSelectedGenres, sortType, setSortType, onEnter }: FilterViewProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     // チェックされているフィルターの軸の数を計算
@@ -38,9 +39,9 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
     return (
         <div className="mb-6">
             <SectionTitle>キーワード検索</SectionTitle>
-            <SearchBar text={keyword} setText={setKeyword} />
+            <SearchBar text={keyword} setText={setKeyword} onEnter={onEnter} />
             <div className="flex justify-center">
-                <button onClick={() => setIsOpen(!isOpen)} className="relative h-14 w-72 group">
+                <button onClick={() => setIsOpen(!isOpen)} className="relative h-14 w-52 sm:w-64 group">
                     <div className={`-rotate-3 rounded-full border-4 border-accent w-full h-full text-center absolute`}>
                         <div className='opacity-0'>
                             <p>詳細検索</p>
