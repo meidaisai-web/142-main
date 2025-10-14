@@ -11,9 +11,7 @@ export default function Page() {
             <PageTitle>Re:Bond～リボンでつながる思い出～</PageTitle>
             <PageContainer>
                 <SectionTitle>企画概要</SectionTitle>
-                <Text moreTopPadding>
-                    <Emphasis>明大祭での思い出を、自分だけの形に残そう！</Emphasis>
-                </Text>
+                    <SmallTitle>明大祭での思い出を、自分だけの形に残そう！</SmallTitle>
                 <Text>
                     第141回明大祭公式テーマカラーである焔紅、蒼炎、軌光の3色のリボンを選んで、スタンプなどでデコレーションすると
                     <Emphasis>自分だけのオリジナルキーホルダーが作れる！</Emphasis>
@@ -30,11 +28,14 @@ export default function Page() {
                 <SectionTitle>企画実施日時・場所</SectionTitle>
                 <SmallTitle>日時</SmallTitle>
                 <Text>
-                    11月1日(土).2日(日).3日(月・祝)10:00~18:00 （最終日のみ17：00まで）
+                    11月1日(土).2日(日)10：00～18：00 
+                </Text>    
+                <Text>      
+                    11月3日(月・祝)10：00～17：00
                 </Text>
                 <SmallTitle>場所</SmallTitle>
                 <Text>第一校舎前正面左側</Text>
-                <MapImage src='/images/map/ReBond.jpg' alt='Campus Map' />
+                <MapImage src='/images/map/ribbon.jpg' alt='Campus Map'/>
             </PageContainer>
         </>
     )
