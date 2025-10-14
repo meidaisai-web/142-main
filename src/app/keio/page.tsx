@@ -6,9 +6,7 @@ import PageTitle from '@/components/texts/PageTitle';
 import ContactView from '@/components/texts/ContactView';
 import SmallTitle from '@/components/texts/SmallTitle';
 import Emphasis from '@/components/texts/Emphasis';
-import OnlyImage from '@/components/OnlyImage';
-import { List, ListItem, ListText } from '@/components/texts/List';
-import Button from '@/components/buttons/Button';
+import { List, ListItem } from '@/components/texts/List';
 import AccentText from '@/components/texts/AccentText';
 import MapImage from '@/components/MapImage';
 export default function Page() {
@@ -32,7 +30,7 @@ export default function Page() {
                 <SmallTitle>明大祭会場</SmallTitle>
                 <AccentText>スタンプポスター設置場所</AccentText>
                 <Text>メディア棟 2階 メディア自習室前</Text>
-                <SmallTitle>フレンテ笹塚/京王クラウン街笹塚（笹塚駅）※</SmallTitle>
+                <SmallTitle>フレンテ笹塚/京王クラウン街笹塚（笹塚駅）※</SmallTitle>
                 <AccentText>クイズ出題ポスター設置場所</AccentText>
                 <Text>京王クラウン街笹塚 KFC脇</Text>
                 <AccentText>商業施設の詳細</AccentText>
@@ -52,11 +50,11 @@ export default function Page() {
                 <AccentText>商業施設の詳細</AccentText>
                 <Text>フレンテ仙川HP：
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/sengawa/">https://ekishop.keio-sc.jp/sengawa/</TransitionLink></Text>
-                <SmallTitle>京王リトナードつつじが丘（つつじヶ丘駅）</SmallTitle>
+                <SmallTitle>京王リトナードつつじヶ丘（つつじヶ丘駅）</SmallTitle>
                 <AccentText>スタンプポスター設置場所</AccentText>
                 <Text>3階 エレベーター横</Text>
                 <AccentText>商業施設の詳細</AccentText>
-                <Text>京王リトナードつつじが丘HP：
+                <Text>京王リトナードつつじヶ丘HP：
                     <TransitionLink targetBlank href="https://ekishop.keio-sc.jp/tsutsujigaoka/">https://ekishop.keio-sc.jp/tsutsujigaoka/</TransitionLink></Text>
                 <SmallTitle>トリエ京王調布（調布駅）※</SmallTitle>
                 <AccentText>クイズ出題ポスター設置場所</AccentText>
@@ -85,9 +83,9 @@ export default function Page() {
                 <Text>明治大学和泉キャンパス メディア棟入口付近</Text>
                 <MapImage src='/images/map/keio.jpg' alt='Campus Map' />
                 <List className='mt-5' mark="※">
-                <ListItem><Emphasis>獲得したスタンプ数が4個で1回、5個で2回、6個以上で3回抽選を行うことができます。</Emphasis></ListItem>
-                <ListItem><Emphasis>抽選会への参加は、お一人様につき1回までとなります。(参加時のスタンプ獲得個数に応じて抽選回数が決まります。)</Emphasis></ListItem>
-                <ListItem><Emphasis>参加賞については、スタンプ獲得数に関わらず、スタンプを獲得した方に先着順でお渡しします。</Emphasis></ListItem>
+                    <ListItem><Emphasis>獲得したスタンプ数が4個で1回、5個で2回、6個以上で3回抽選を行うことができます。</Emphasis></ListItem>
+                    <ListItem><Emphasis>抽選会への参加は、お一人様につき1回までとなります。(参加時のスタンプ獲得個数に応じて抽選回数が決まります。)</Emphasis></ListItem>
+                    <ListItem><Emphasis>参加賞については、スタンプ獲得数に関わらず、スタンプを獲得した方に先着順でお渡しします。</Emphasis></ListItem>
                 </List>
                 <SectionTitle>お問い合わせ</SectionTitle>
                 <Text moreTopPadding>ご不明点などございましたら、下記のお問い合わせ先までご連絡ください。京王電鉄株式会社や各商業施設への直接のお問い合わせはご遠慮ください。</Text>

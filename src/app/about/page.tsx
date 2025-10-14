@@ -45,9 +45,7 @@ export default function About() {
           <SectionTitle>昨年の明大祭の様子</SectionTitle>
         </div>
         <Text className="mt-10 !text-center">昨年度行われた第140回明大祭のEndingステージにて放映されたスライドショーです。</Text>
-        <div className="mt-5 mx-10">
-          <Movie href="https://www.youtube.com/embed/yZS7Xf1UkoU?si=OaNyIaVhTOGUFQun"/>
-        </div>
+        <Movie href="https://www.youtube.com/embed/yZS7Xf1UkoU?si=OaNyIaVhTOGUFQun"/>
       </PageContainer>
 
     </div>

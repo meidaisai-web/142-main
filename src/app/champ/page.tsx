@@ -8,6 +8,7 @@ import { List, ListItem, ListText } from '@/components/texts/List'
 import ContactView from "@/components/texts/ContactView";
 import ImageText from "@/components/texts/ImageText";
 import Emphasis from "@/components/texts/Emphasis";
+import MapImage from "@/components/MapImage";
 
 
 export default function ChampPage() {
@@ -43,6 +44,7 @@ export default function ChampPage() {
                     <ListItem>メディア棟前企画受付にある「明大祭大抽選会」まで行くと、抽選に参加できます！</ListItem>
                 </List>
                 <Text>抽選券の引き換え、企画に関するお問い合わせは、和泉図書館前総合インフォメーションブースMeidaisai Championship受付までお越しください。</Text>
+                <MapImage src="/images/map/exchange.jpg" alt="和泉図書館前総合インフォメーションブース" />
                 <ContactView department="演出局" mail="141st-ensyutu@meidaisai.jp"></ContactView>
             </PageContainer>
         </div>
