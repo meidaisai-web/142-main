@@ -26,7 +26,7 @@ export default function Page() {
             image: "/images/svg/booth/Wicca.svg",
             name: "シチズン時計株式会社",
             date: "11月1日(土).2日(日).3日(月・祝)",
-            contentTitle:"【秒でかわいい！wiccaセルフフォトブース】",
+            contentTitle: "【秒でかわいい！wiccaセルフフォトブース】",
             content: "wiccaの腕時計で盛れる♡韓国っぽ本格セルフ写真が撮れるブース！ 生年月日に合わせた「生まれて○○秒」の限定ステッカーもプレゼント♪友達との記念にも♡"
         },
         {
@@ -52,12 +52,12 @@ export default function Page() {
                 <Text>11月1日(土).2日(日).3日(月・祝) 10：00〜17：30</Text>
                 <AccentText>実施場所</AccentText>
                 <Text>和泉図書館横</Text>
-                <MapImage src="/images/map/booth.jpg" alt="和泉図書館横" />
+                <OnlyImage src="/images/booth-location.jpg" alt="和泉図書館横" className="max-w-72" />
                 <SectionTitle className="mb-5">出展企業一覧</SectionTitle>
                 {data.map((item) => (
                     <div key={item.name} className="mb-5 lg:text-lg">
                         <SmallTitle>{item.name}</SmallTitle>
-                        <OnlyImage src={item.image} alt={item.name} className="w-60 h-40 my-5"/>
+                        <OnlyImage src={item.image} alt={item.name} className="w-60 h-40 my-5" />
                         <AccentText>出展日</AccentText>
                         <Text>{item.date}</Text>
                         <AccentText>企画内容</AccentText>
@@ -65,7 +65,7 @@ export default function Page() {
                         <Text noTopPadding>{item.content}</Text>
                     </div>
                 ))}
-                <ContactView department="渉外局企業部門" mail="shogai@meidaisai.jp" showAddress showPhone/>
+                <ContactView department="渉外局企業部門" mail="shogai@meidaisai.jp" showAddress showPhone />
             </PageContainer>
         </div>
     )

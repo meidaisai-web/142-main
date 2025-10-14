@@ -63,7 +63,7 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                     </div>
                     <Menu menus={data.menuItems || []} />
                     {!data.groupName.includes("明大祭実行委員会") &&
-                        <VoteView id={id} groupId={data.groupId} type={data.type} />
+                        <VoteView id={id} groupId={data.groupId} type={data.type} eventName={data.eventName} groupName={data.groupName} eventDate={data.eventDate} />
                     }
                 </div>
             )}

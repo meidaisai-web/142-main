@@ -6,6 +6,7 @@ import ContactView from "@/components/texts/ContactView"
 import { List, ListItem } from "@/components/texts/List"
 import Emphasis from "@/components/texts/Emphasis"
 import SmallTitle from "@/components/texts/SmallTitle"
+import MapImage from "@/components/MapImage"
 export default function Page() {
     return (
         <>
@@ -34,7 +35,7 @@ export default function Page() {
                     スタンプを集めて、各地に散らばった宝と仲間を集結させよう！戦力を集めて万全の状態で魔王を倒せ！
                 </Text>
                 <SectionTitle className="mt-10">企画実施日時・場所</SectionTitle>
-                <SmallTitle>日時</SmallTitle>
+                <SmallTitle >日時</SmallTitle>
                 <Text>
                     11月1日(土)、2日(日)10：00〜18：00
                 </Text>
@@ -60,7 +61,8 @@ export default function Page() {
                         景品には限りがございますのでご了承ください。
                     </ListItem>
                 </List>
-                <SectionTitle className="mt-10">協力団体 </SectionTitle>
+                <MapImage src='/images/map/Quest.jpg' alt="スタンプ台紙のマップ"/>
+                <SectionTitle className="mt-7">協力団体 </SectionTitle>
                 <List mark="・" className="mt-8">
                     <ListItem>
                         競技麻雀サークル明雀会
