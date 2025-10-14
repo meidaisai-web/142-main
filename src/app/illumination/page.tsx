@@ -18,7 +18,7 @@ export default function Page() {
                 <Text>忘れられないひとときを、あなたにお届けします。</Text>
                 <SectionTitle>企画実施日時</SectionTitle>
                 <SmallTitle>日時</SmallTitle>
-                <Text>11月1日(土).2日(日).3日(月・祝) 16：00〜</Text>
+                <Text>11月1日(土).2日(日).3日(月・祝) 16：00〜19：00</Text>
                 <SmallTitle>場所</SmallTitle>
                 <Text>和泉キャンパス正門付近</Text>
                 <MapImage src="/images/map/illumination.jpg" alt="和泉キャンパス正門付近"/>
