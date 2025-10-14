@@ -31,7 +31,7 @@ export default function Page() {
                 <Text className="mb-20">人々の歩む道を照らし、未来へ導く希望の軌道となるような祭になってほしいという願い</Text>
                 <SectionTitle>第141回明大祭テーマソング</SectionTitle>
                 <Text className="mt-3">詳しくは<TransitionLink href="https://www.meidaisai.jp/mv">こちら</TransitionLink></Text>
-                <Movie href="https://www.youtube.com/embed/hy9vlDdDjC4?si=73144Wq1-VOer2o-"/>
+                <Movie href="https://www.youtube.com/embed/11D-ItNDt-Q?si=ZNNPwvGwMVKvqmzL"/>
             </PageContainer>
         </>
     )
