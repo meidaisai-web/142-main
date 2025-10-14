@@ -12,7 +12,7 @@ export default function Page() {
             <PageTitle>第141回明大祭公式テーマソングミュージックビデオ</PageTitle>
             <PageContainer>
                 <SectionTitle className="mt-5 mb-3">文明開化のメロディーが、明大祭をさらに盛り上げる！</SectionTitle>
-                <Movie href="https://www.youtube.com/embed/hy9vlDdDjC4?si=73144Wq1-VOer2o-"/>
+                <Movie href="https://www.youtube.com/embed/11D-ItNDt-Q?si=ZNNPwvGwMVKvqmzL"/>
                 <Text moreTopPadding>候補曲の中から投票によって選ばれた、第141回明大祭公式テーマソング「文明開化の音が鳴る」のミュージックビデオが完成しました！</Text>
                 <Text>今年度の明大祭コンセプトである『熱狂の、その先へ。』をそのまま体現した、心に熱狂を呼び覚ます一曲となっております。また、ミュージックビデオは主演、バンド演奏、撮影・編集まで、すべてを明大生が手がけました。</Text>
                 <Text moreTopPadding>毎年、演出局Opening企画では、公式テーマソングを生演奏で披露しています！ぜひミュージックビデオをご覧いただき、明大生ならではのパワーを感じていただきたいです！</Text>
