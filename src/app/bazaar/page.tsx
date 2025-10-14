@@ -3,10 +3,8 @@ import PageContainer from "@/components/base/PageContainer"
 import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
 import SmallTitle from "@/components/texts/SmallTitle"
-import AccentText from "@/components/texts/AccentText"
 import MapImage from "@/components/MapImage"
 import Emphasis from "@/components/texts/Emphasis"
-
 import { List } from "@/components/texts/List"
 import { ListItem } from "@/components/texts/List"
 
@@ -22,12 +20,12 @@ export default function Page(){
                     <ListItem>売り切れ次第終了となります。</ListItem>
                     <ListItem>最終募金金額については、明大祭終了後にこちらのページにてご報告させていただきます。</ListItem>
                 </List>
-                <SmallTitle>企画実施場所・日時</SmallTitle>
-                <AccentText>実施場所</AccentText>
+                <SectionTitle>企画実施場所・日時</SectionTitle>
+                <SmallTitle>実施場所</SmallTitle>
                 <Text>第一校舎正面右側</Text>
                 <MapImage src="/images/map/bazaar.jpg" alt="第一校舎正面右側"/>
-                <AccentText>実施日時</AccentText>
-                <Text>1月1日(土).11月2日(日).11月3日(月・祝) 10：00〜18：00</Text>
+                <SmallTitle>実施日時</SmallTitle>
+                <Text>11月1日(土).11月2日(日).11月3日(月・祝) 10：00〜18：00</Text>
             </PageContainer>
         </div>
     )
