@@ -18,7 +18,7 @@ export default function Page() {
                     ガチャガチャ　缶バッジ（全6種内1種シークレット）　1回100円
                 </Text>
                 <OnlyImage
-                    src="/images/goods_badge.jpg"
+                    src="/images/goods/badge.jpg"
                     alt="めいじろう缶バッジ一覧_01"
                     width={1700}
                     height={500}
@@ -26,7 +26,7 @@ export default function Page() {
                 />
                 <Text> ボールペン　250円</Text>
                 <OnlyImage
-                    src="/images/goods_pen.jpg"
+                    src="/images/goods/pen.jpg"
                     alt="ボールペン_02"
                     width={1700}
                     height={500}
@@ -34,7 +34,7 @@ export default function Page() {
                 />
                 <Text>ラバーバンド　各200円</Text>
                 <OnlyImage
-                    src="/images/goods_band.jpg"
+                    src="/images/goods/band.jpg"
                     alt="ラバーバンド一覧_03"
                     width={1700}
                     height={500}
@@ -42,21 +42,21 @@ export default function Page() {
                 />
                 <Text>クリアファイル　各200円</Text>
                 <OnlyImage
-                    src="/images/goods_file3.jpg"
+                    src="/images/goods/file3.jpg"
                     alt="めいじろうクリアファイル(パンフレット表紙)_04"
                     width={1700}
                     height={500}
                     className="w-full max-w-lg mt-4"
                 />
                 <OnlyImage
-                    src="/images/goods_file1.jpg"
+                    src="/images/goods/file1.jpg"
                     alt="めいじろうクリアファイル(蒼炎)_05"
                     width={1700}
                     height={500}
                     className="w-full max-w-lg my-10"
                 />
                 <OnlyImage
-                    src="/images/goods_file2.jpg"
+                    src="/images/goods/file2.jpg"
                     alt="めいじろうクリアファイル(軌光)_06"
                     width={1700}
                     height={500}
@@ -64,7 +64,7 @@ export default function Page() {
                 />
                 <Text>アクリルキーホルダー　350円</Text>
                 <OnlyImage
-                    src="/images/goods_acrylic.jpg"
+                    src="/images/goods/acrylic.jpg"
                     alt="めいじろうアクリルキーホルダー_07"
                     width={1700}
                     height={500}
@@ -72,7 +72,7 @@ export default function Page() {
                 />
                 <Text>絵馬型キーホルダー　350円</Text>
                 <OnlyImage
-                    src="/images/goods_ema.jpg"
+                    src="/images/goods/ema.jpg"
                     alt="絵馬型キーホルダー_08"
                     width={1700}
                     height={500}
@@ -88,7 +88,7 @@ export default function Page() {
                 <List className="mt-8" mark="・">
                     <ListItem>お支払いは<Emphasis>現金・キャッシュレス</Emphasis>に対応しております。</ListItem>
                     <OnlyImage
-                        src="/images/goods_payment.jpg"
+                        src="/images/goods/payment.jpg"
                         alt="キャッシュレス決済一覧_09"
                         width={1700}
                         height={500}
