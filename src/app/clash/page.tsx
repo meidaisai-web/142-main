@@ -32,11 +32,11 @@ export default function Page() {
                 <Text>メインステージ</Text>
 
                 <SmallTitle>出演団体</SmallTitle>
-                <Text>【TEAM QUEEN】</Text>
+                <AccentText>TEAM QUEEN</AccentText>
                 <Text>chocolat lumière：ユニドル全国優勝経験者</Text>
                 <Text>アカペラサークルSound Arts：ハモネプ優勝経験者</Text>
                 <Text>中野ダンスサークルSIGN：前人未到の3連覇へ</Text>
-                <Text>【TEAM KING】</Text>
+                <AccentText>TEAM KING</AccentText>
                 <Text>SHINE：中野ダンスサークルSIGNからの刺客</Text>
                 <Text>アカペラサークルamour：音で挑み、声で勝つ。</Text>
                 <Text>K-POPカバーダンスサークルMercie：打倒・王者。悲願達成へ。</Text>
