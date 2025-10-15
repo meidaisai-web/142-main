@@ -451,6 +451,7 @@ export default function TabsSwipe() {
         <div className="h-6" />
 
         <Swiper
+          spaceBetween={100}
           onSwiper={(s) => {
             contentRef.current = s;
             enableIndicatorTransition();
