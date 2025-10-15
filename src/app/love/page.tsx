@@ -25,10 +25,10 @@ export default function Page() {
                 </Text>
                 <SectionTitle>企画実施日時・場所</SectionTitle>
                 <SmallTitle>日時</SmallTitle>
-                <Text>11月1日(土)、2日(日) 10：00～18：00</Text>
+                <Text>11月1日(土).2日(日) 10：00～18：00</Text>
                 <Text>11月3日(月・祝) 10：00～17：30</Text>
                 <SmallTitle>場所</SmallTitle>
-                <Text>メディア棟4階Aラウンジ(相談会)、M402・403教室(展示) </Text>
+                <Text>メディア棟4階Aラウンジ(相談会)、M402・M403教室(展示) </Text>
                 <SectionTitle>参加方法</SectionTitle>
                 <Text moreTopPadding>
                     展示は常時開放しています。相談会は予約制となっており、明大祭当日は和泉図書館前企画受付にて予約を承っております。
