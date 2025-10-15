@@ -25,7 +25,7 @@ export default function Page(){
                 <Text>第一校舎正面右側</Text>
                 <MapImage src="/images/map/bazaar.jpg" alt="第一校舎正面右側"/>
                 <SmallTitle>実施日時</SmallTitle>
-                <Text>11月1日(土).11月2日(日).11月3日(月・祝) 10：00〜18：00</Text>
+                <Text>11月1日(土).2日(日).3日(月・祝) 10：00〜18：00</Text>
             </PageContainer>
         </div>
     )
