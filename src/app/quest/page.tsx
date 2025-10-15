@@ -61,7 +61,7 @@ export default function Page() {
                         景品には限りがございますのでご了承ください。
                     </ListItem>
                 </List>
-                <MapImage src='/images/map/Quest.jpg' alt="スタンプ台紙のマップ"/>
+                <MapImage src='/images/map/quest.jpg' alt="スタンプ台紙のマップ"/>
                 <SectionTitle className="mt-7">協力団体 </SectionTitle>
                 <List mark="・" className="mt-8">
                     <ListItem>
