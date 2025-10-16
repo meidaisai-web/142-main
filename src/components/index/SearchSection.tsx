@@ -11,14 +11,14 @@ export default function SearchSection() {
         { src: "/images/svg/index/glass.svg", label: "詳しく絞り込む" },
         // { src: "/images/svg/index/timetable.svg", label: "タイムテーブル" }
     ]
-    function onClickSearch() {
-        console.log("Searching for:", searchText);
+    function transSearch() {
+        window.location.href = `/search?keyword=${searchText}`;
     }
     return (
         <div>
             <IndexTitle>企画を探す</IndexTitle>
-            <SearchBar text={searchText} setText={setSearchText} />
-            <Button onClick={onClickSearch}>検索</Button>
+            <SearchBar text={searchText} setText={setSearchText} onEnter={transSearch} />
+            <Button href={`/search?keyword=${searchText}`}>検索</Button>
             <div className="flex justify-center gap-16 mt-10">
                 {detailList.map((item, index) => (
                     <DetailButton key={index} src={item.src} label={item.label} />
