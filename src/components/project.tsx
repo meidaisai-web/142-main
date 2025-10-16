@@ -18,7 +18,7 @@ export default function Project({ title, description, image, alt, tags, link }: 
             rel="noopener noreferrer"
             className="block transition duration-200 rounded-2xl"
         >
-            <div className="bg-white hover:bg-gray-500 rounded-2xl p-4 flex flex-row md:flex-col items-center gap-6 border-7 border-accent shadow-[10px_10px_0px_0px_#3571B8] w-full md:w-[380px]">
+            <div className="bg-white rounded-2xl p-4 flex flex-row md:flex-col items-center gap-6 border-7 border-accent shadow-[10px_10px_0px_0px_#3571B8] w-full md:w-[380px] transition duration-200 transform hover:-translate-y-1 hover:-translate-x-1">
                 <div className="w-1/2 md:w-full flex justify-center">
                     <Image src={image} alt={alt} width={200} height={200} className="rounded-lg object-cover" />
                 </div>

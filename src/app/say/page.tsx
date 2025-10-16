@@ -12,9 +12,9 @@ export default function Page() {
             <PageTitle>明大SAY！</PageTitle>
             <PageContainer>
                 <SectionTitle>企画内容</SectionTitle>
-                <Text moreTopPadding>和泉ラーニングスクエアのGBでは脱出ゲームと明大生が考えた明治大学にちなんだ「あるある」の展示を行います！</Text>
+                <Text moreTopPadding>和泉ラーニングスクエアのグループボックスでは脱出ゲームと明大生が考えた明治大学にちなんだ「あるある」の展示を行います！</Text>
                 <SmallTitle>明大迷宮</SmallTitle>
-                <Text>和泉ラーニングスクエアには怪しげなGBも出現しているとか…仲間と協力して脱出ゲームをクリアしよう！この明大迷宮では、明大生から募集したキーワードが答えとなっています！クリアできれば明大生の生態がわかるかも！？</Text>
+                <Text>和泉ラーニングスクエアには怪しげなグループボックスも出現しているとか…仲間と協力して脱出ゲームをクリアしよう！この明大迷宮では、明大生から募集したキーワードが答えとなっています！クリアできれば明大生の生態がわかるかも！？</Text>
                 <SmallTitle>クラスに一人はいるよね展・懐かしいもの展</SmallTitle>
                 <Text>思わず共感してしまうあるあるを明大生から募集しました！みなさんの「わかるー！」の声をお待ちしています！</Text>
                 <Text moreTopPadding>みなさんのご参加お待ちしています！</Text>

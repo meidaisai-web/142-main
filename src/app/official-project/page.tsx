@@ -15,7 +15,7 @@ const TABS: Tab[] = [
     key: 'tab1',
     label: '１日目',
     content: (
-      <div className="flex flex-col md:flex-row md:flex-wrap gap-9">
+      <div className="flex flex-col md:flex-row md:flex-wrap gap-9 p-1">
         <Project
           title="Opening"
           description="今鳴り響く開幕の合図"
@@ -35,7 +35,7 @@ const TABS: Tab[] = [
         <Project
           title="校友歓迎スペース"
           description="おかえりなさい！明大生"
-          image="/images/project/koyuwelcome.png"
+          image="/images/project/alumni.png"
           alt="校友歓迎スペース"
           tags={['10:00~18:00', '第一校舎316･317教室']}
           link="/alumni"
@@ -51,7 +51,7 @@ const TABS: Tab[] = [
         <Project
           title="明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～"
           description="明大前商店街振興組合とコラボした抽選企画！"
-          image="/images/project/meidaimae-lottery.png"
+          image="/images/project/meidaimae-lottery.jpg"
           alt="明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～"
           tags={['11:00~18:00', 'メディア棟入口横']}
           link="/lottry-shop"
@@ -67,7 +67,7 @@ const TABS: Tab[] = [
         <Project
           title="ポンdeクエスト"
           description="スタンプを集めて魔王を倒せ！！"
-          image="/images/project/ponde.png"
+          image="/images/project/quest.png"
           alt="ポンdeクエスト"
           tags={['10:00~18:00', '和泉ラーニングスクエアLS506教室']}
           link='/quest'
@@ -75,7 +75,7 @@ const TABS: Tab[] = [
         <Project
           title="明大SAY！"
           description="共感と謎解きの世界へようこそ！"
-          image="/images/project/meidaisay.png"
+          image="/images/project/say.png"
           alt="明大SAY！"
           tags={['10:00~18:00', '和泉ラーニングスクエアGB2-1~3・3-3･4']}
           link="/say"
@@ -83,7 +83,7 @@ const TABS: Tab[] = [
         <Project
           title="跡巡ーあとめぐー"
           description="君は解ける？謎解きクイズラリー"
-          image="/images/project/atomegu.png"
+          image="/images/project/rally.png"
           alt="跡巡ーあとめぐー"
           tags={['10:00~18:00', '和泉ラーニングスクエアLS506教室、図書館前受付']}
           link="/rally"
@@ -99,7 +99,7 @@ const TABS: Tab[] = [
         <Project
           title="一灯一想"
           description="扉を開けるとランタンの世界へ！"
-          image="/images/project/ittouisso.png"
+          image="/images/project/wish.png"
           alt="一灯一想"
           tags={['10:00~18:00', '第一校舎403・405教室']}
           link="/wish"
@@ -111,6 +111,14 @@ const TABS: Tab[] = [
           alt="明治に恋する5秒前"
           tags={['10:00~18:00', 'メディア棟M402･403教室・4階ラウンジ']}
           link="/love"
+        />
+        <Project
+          title="明大祭公式グッズ企画"
+          description="手にすれば、もっと明大祭。"
+          image="/images/project/goods.png"
+          alt="明大祭公式グッズ企画"
+          tags={['10:00~18:00', '和泉図書館前']}
+          link="/goods"
         />
         <Project
           title="Meiji United Clash"
@@ -127,7 +135,7 @@ const TABS: Tab[] = [
     key: 'tab2',
     label: '２日目',
     content: (
-      <div className="flex flex-col md:flex-row md:flex-wrap gap-9">
+      <div className="flex flex-col md:flex-row md:flex-wrap gap-9 p-1">
         <Project
           title="Luminous Stage"
           description="響鳴せよ、輝く舞台で。"
@@ -147,7 +155,7 @@ const TABS: Tab[] = [
         <Project
           title="校友歓迎スペース"
           description="おかえりなさい！明大生"
-          image="/images/project/koyuwelcome.png"
+          image="/images/project/alumni.png"
           alt="校友歓迎スペース"
           tags={['10:00~18:00', '第一校舎316･317教室']}
           link="/alumni"
@@ -179,7 +187,7 @@ const TABS: Tab[] = [
         <Project
           title="ポンdeクエスト"
           description="スタンプを集めて魔王を倒せ！！"
-          image="/images/project/ponde.png"
+          image="/images/project/quest.png"
           alt="ポンdeクエスト"
           tags={['10:00~18:00', '和泉ラーニングスクエアLS506教室']}
           link='/quest'
@@ -187,7 +195,7 @@ const TABS: Tab[] = [
         <Project
           title="明大SAY！"
           description="共感と謎解きの世界へようこそ！"
-          image="/images/project/meidaisay.png"
+          image="/images/project/say.png"
           alt="明大SAY！"
           tags={['10:00~18:00', '和泉ラーニングスクエアGB2-1~3・3-3･4']}
           link="/say"
@@ -195,7 +203,7 @@ const TABS: Tab[] = [
         <Project
           title="跡巡ーあとめぐー"
           description="君は解ける？謎解きクイズラリー"
-          image="/images/project/atomegu.png"
+          image="/images/project/rally.png"
           alt="跡巡ーあとめぐー"
           tags={['10:00~18:00', '和泉ラーニングスクエアLS506教室、図書館前受付']}
           link="/rally"
@@ -211,7 +219,7 @@ const TABS: Tab[] = [
         <Project
           title="一灯一想"
           description="扉を開けるとランタンの世界へ！"
-          image="/images/project/ittouisso.png"
+          image="/images/project/wish.png"
           alt="一灯一想"
           tags={['10:00~18:00', '第一校舎403・405教室']}
           link="/wish"
@@ -223,6 +231,14 @@ const TABS: Tab[] = [
           alt="明治に恋する5秒前"
           tags={['10:00~18:00', 'メディア棟M402･403教室・4階ラウンジ']}
           link="/love"
+        />
+        <Project
+          title="明大祭公式グッズ企画"
+          description="手にすれば、もっと明大祭。"
+          image="/images/project/goods.png"
+          alt="明大祭公式グッズ企画"
+          tags={['10:00~18:00', '和泉図書館前']}
+          link="/goods"
         />
         <Project
           title="UNI ROCK FES"
@@ -247,7 +263,7 @@ const TABS: Tab[] = [
     key: 'tab3',
     label: '３日目',
     content: (
-      <div className="flex flex-col md:flex-row md:flex-wrap gap-9">
+      <div className="flex flex-col md:flex-row md:flex-wrap gap-9 p-1">
         <Project
           title="松原小学校×明大祭"
           description="小学生と大学生とのコラボ企画！"
@@ -259,7 +275,7 @@ const TABS: Tab[] = [
         <Project
           title="校友歓迎スペース"
           description="おかえりなさい！明大生"
-          image="/images/project/koyuwelcome.png"
+          image="/images/project/alumni.png"
           alt="校友歓迎スペース"
           tags={['10:00~18:00', '第一校舎316･317教室']}
           link="/alumni"
@@ -291,7 +307,7 @@ const TABS: Tab[] = [
         <Project
           title="ポンdeクエスト"
           description="スタンプを集めて魔王を倒せ！！"
-          image="/images/project/ponde.png"
+          image="/images/project/quest.png"
           alt="ポンdeクエスト"
           tags={['10:00~17:00', '和泉ラーニングスクエアLS506教室']}
           link='/quest'
@@ -299,7 +315,7 @@ const TABS: Tab[] = [
         <Project
           title="明大SAY！"
           description="共感と謎解きの世界へようこそ！"
-          image="/images/project/meidaisay.png"
+          image="/images/project/say.png"
           alt="明大SAY！"
           tags={['10:00~18:00', '和泉ラーニングスクエアGB2-1~3・3-3･4']}
           link="/say"
@@ -307,7 +323,7 @@ const TABS: Tab[] = [
         <Project
           title="跡巡ーあとめぐー"
           description="君は解ける？謎解きクイズラリー"
-          image="/images/project/atomegu.png"
+          image="/images/project/rally.png"
           alt="跡巡ーあとめぐー"
           tags={['10:00~17:00', '和泉ラーニングスクエアLS506教室、図書館前受付']}
           link="/rally"
@@ -323,7 +339,7 @@ const TABS: Tab[] = [
         <Project
           title="一灯一想"
           description="扉を開けるとランタンの世界へ！"
-          image="/images/project/ittouisso.png"
+          image="/images/project/wish.png"
           alt="一灯一想"
           tags={['10:00~17:00', '第一校舎403・405教室']}
           link="/wish"
@@ -335,6 +351,14 @@ const TABS: Tab[] = [
           alt="明治に恋する5秒前"
           tags={['10:00~17:30', 'メディア棟M402･403教室・4階ラウンジ']}
           link="/love"
+        />
+        <Project
+          title="明大祭公式グッズ企画"
+          description="手にすれば、もっと明大祭。"
+          image="/images/project/goods.png"
+          alt="明大祭公式グッズ企画"
+          tags={['10:00~18:00', '和泉図書館前']}
+          link="/goods"
         />
         <Project
           title="I♡Fes!"
