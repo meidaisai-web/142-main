@@ -62,7 +62,7 @@ function Contents() {
       <HeroSection />
       <Rainbow className="mt-10" />
       <SearchSection />
-      <Rainbow className="mt-10" />
+      <Rainbow className="mt-20" />
       <AnnounceSection />
       <Rainbow />
       <News />
