@@ -9,7 +9,7 @@ export default function Page() {
         <div>
             <PageTitle>お問い合わせ</PageTitle>
             <PageContainer>
-                <Text className="!text-center mt-5">明大祭や明大祭実行委員会に関するご質問がございましたら､下記のお問い合わせ先までご連絡ください｡</Text>
+                <Text className="!text-center mt-5">明大祭や明大祭実行委員会に関するご質問がございましたら、下記のお問い合わせ先までご連絡ください。</Text>
                 <SectionTitle>所在地</SectionTitle>
                 <ContactView department="" showPhone showAddress noPadding />
                 <SectionTitle>第141回明大祭への参加に関するお問い合わせ</SectionTitle>
