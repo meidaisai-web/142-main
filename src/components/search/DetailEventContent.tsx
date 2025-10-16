@@ -9,6 +9,7 @@ import Text from "../texts/Text";
 import Image from "next/image";
 import Link from "next/link";
 import Label from "../texts/Label";
+import ZoomableImage from "../ZoomableImage";
 
 interface DetailContentProps {
     id: string;
@@ -61,6 +62,9 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                         <ImageView type={data.type} imageUrl={data.imageUrl} />
                         <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} icons={data.icons} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
                     </div>
+                    {data.location.includes("テント配置番号") && (
+                        <ZoomableImage src="/images/map/tent.jpg" alt="テントマップ" width={600} height={300} className="bg-white p-1 rounded-xl object-contain w-full h-fit max-w-xl mt-16" />
+                    )}
                     <Menu menus={data.menuItems || []} />
                     {!data.groupName.includes("明大祭実行委員会") &&
                         <VoteView id={id} groupId={data.groupId} type={data.type} eventName={data.eventName} groupName={data.groupName} eventDate={data.eventDate} />
