@@ -7,6 +7,7 @@ import { List, ListItem } from "@/components/texts/List"
 import Emphasis from "@/components/texts/Emphasis"
 import SmallTitle from "@/components/texts/SmallTitle"
 import MapImage from "@/components/MapImage"
+import LogoImage from "@/components/LogoImage"
 export default function Page() {
     const groups = [
         "競技麻雀サークル明雀会",
@@ -29,6 +30,7 @@ export default function Page() {
         <>
             <PageTitle>ポンdeクエスト</PageTitle>
             <PageContainer>
+                <LogoImage src="/images/kaihatsu/quest.jpg" alt="ポンdeクエスト ロゴ" className="mt-10" />
                 <SectionTitle>企画概要</SectionTitle>
                 <Text moreTopPadding>
                     <Emphasis>
