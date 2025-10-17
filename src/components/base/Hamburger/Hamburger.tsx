@@ -50,6 +50,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/announce", label: "ご来場のみなさまへのお願い" },
             { href: "/access", label: "アクセス" },
             { href: "/news", label: "お知らせ" },
+            { href: "/faq", label: "よくある質問" },
         ]
     },
     {
@@ -59,6 +60,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/crowdfunding", label: "クラウドファンディング" },
             { href: "/champ", label: "Meidaisai Championship" },
             { href: "/lottery", label: "明大祭大抽選会" },
+            { href: "/illumination", label: "明大祭イルミネーション" },
             // { href: "/ribbon", label: "Re:Bond～リボンでつながる思い出～" },
             // { href: "/say", label: "明大SAY！"},
             // { href: "/sports", label: "EXPOrts2025 in 明治"},
