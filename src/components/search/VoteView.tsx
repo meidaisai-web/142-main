@@ -28,7 +28,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         //     setIsEnable(false);
         //     return;
         // }
-        if (isAlreadyVoted(id, groupId, type)) {
+        if (isAlreadyVoted(id)) {
             setIsEnable(false);
             setButtonText("投票済み");
         }
@@ -50,7 +50,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         //     return;
         // }
         // すでにその日に、その企画に投票しているか確認
-        if (isAlreadyVoted(id, groupId, type)) {
+        if (isAlreadyVoted(id)) {
             setError("本日すでにこの企画に投票しています。");
             setButtonText("投票済み");
             setIsEnable(false);

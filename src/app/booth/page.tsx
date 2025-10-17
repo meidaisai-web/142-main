@@ -39,7 +39,7 @@ export default function Page() {
             image: "/images/svg/booth/Wakasapo.svg",
             name: "東京都 とうきょう若者ヘルスサポート（わかさぽ）",
             date: "11月3日(月・祝)",
-            content: "東京都では、若者のからだやこころの悩みにお答えする相談窓口「わかさぽ」を実施しています。「わかさぽ」ブースでは、お菓子つかみ取りを行います。オリジナルグッズもプレゼントしますので、ぜひお越しください！"
+            content: "「わかさぽ」では、看護師等が若者のからだやこころの悩みにお答えしています。わかさぽの紹介のほか、ユースヘルスケアに関するクイズに挑戦した方へお菓子・ノベルティをプレゼント！イベント限定動画も公開！"
         }
     ]
     return (
@@ -52,7 +52,7 @@ export default function Page() {
                 <Text>11月1日(土).2日(日).3日(月・祝) 10：00〜17：30</Text>
                 <AccentText>実施場所</AccentText>
                 <Text>和泉図書館横</Text>
-                <OnlyImage src="/images/booth-location.jpg" alt="和泉図書館横" className="max-w-72" />
+                <MapImage src="/images/map/booth.jpg" alt="和泉図書館横" />
                 <SectionTitle className="mb-5">出展企業一覧</SectionTitle>
                 {data.map((item) => (
                     <div key={item.name} className="mb-5 lg:text-lg">

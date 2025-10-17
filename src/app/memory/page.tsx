@@ -5,11 +5,13 @@ import PageContainer from "@/components/base/PageContainer"
 import ContactView from "@/components/texts/ContactView"
 import Emphasis from "@/components/texts/Emphasis"
 import SmallTitle from "@/components/texts/SmallTitle"
+import LogoImage from "@/components/LogoImage"
 export default function Page() {
     return (
         <>
             <PageTitle>Stand by Memory</PageTitle>
             <PageContainer>
+                <LogoImage src="/images/kaihatsu/memory.jpg" alt="Stand by Memory ロゴ" className="mt-10" />
                 <SectionTitle>企画概要</SectionTitle>
                 <SmallTitle>明大祭ベストショットを撮ろう！</SmallTitle>
                 <Text moreTopPadding>お子様連れでも大歓迎！カイダン教室がフォトスポットに！？</Text>
@@ -24,7 +26,7 @@ export default function Page() {
                 11月3日(月・祝)10：00～17：00
             </Text>
             <SmallTitle>場所</SmallTitle>
-            <Text>和泉ラーニングスクエアLS201教室(カイダン教室)</Text>
+            <Text>和泉ラーニングスクエアLS201教室（カイダン教室）</Text>
             </PageContainer>
             <ContactView department="開発局想越部門" mail="141st-souetsu@meidaisai.jp" showPhone showAddress />
         </>
