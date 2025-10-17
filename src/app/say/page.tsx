@@ -5,12 +5,14 @@ import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
 import Emphasis from '@/components/texts/Emphasis'
+import LogoImage from "@/components/LogoImage";
 
 export default function Page() {
     return (
         <div>
             <PageTitle>明大SAY！</PageTitle>
             <PageContainer>
+                <LogoImage src="/images/kaihatsu/say.jpg" alt="明大SAY！ ロゴ" className="mt-10" />
                 <SectionTitle>企画内容</SectionTitle>
                 <Text moreTopPadding>和泉ラーニングスクエアのグループボックスでは脱出ゲームと明大生が考えた明治大学にちなんだ「あるある」の展示を行います！</Text>
                 <SmallTitle>明大迷宮</SmallTitle>
