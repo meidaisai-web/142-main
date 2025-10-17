@@ -5,16 +5,14 @@ import PageContainer from "@/components/base/PageContainer"
 import SmallTitle from "@/components/texts/SmallTitle"
 import Emphasis from "@/components/texts/Emphasis"
 import ContactView from "@/components/texts/ContactView"
-import OnlyImage from "@/components/OnlyImage"
+import LogoImage from "@/components/LogoImage"
+import MapImage from "@/components/MapImage"
 export default function Page() {
     return (
         <>
             <PageTitle>出た目でGO～サイコロが教える君だけの明大祭攻略ルート～</PageTitle>
             <PageContainer>
-                <OnlyImage
-                    src="/images/dice/dicelogo.jpg"
-                    alt="出た目でGOのロゴ" 
-                    className="mx-auto w-full max-w-xs mt-10 mb-5"/>
+                <LogoImage src="/images/kaihatsu/dice.jpg" alt="出た目でGO～サイコロが教える君だけの明大祭攻略ルート～ ロゴ" className="mt-10" />
                 <SectionTitle>企画内容</SectionTitle>
                 <Text moreTopPadding>
                     <Emphasis>あなただけの明大祭攻略ルートをご紹介！</Emphasis>
@@ -33,6 +31,7 @@ export default function Page() {
                 <Text>11月1日(土).2日(日).3日(月・祝) 10：00～17：00</Text>
                 <SmallTitle>場所</SmallTitle>
                 <Text>和泉図書館付近のブース</Text>
+                <MapImage src='/images/map/dice.jpg' alt='出た目でGOのマップ' />
                 <ContactView department="開発局" mail="141st-souetsu@meidaisai.jp" showPhone showAddress />
             </PageContainer>
         </>
