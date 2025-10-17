@@ -2,7 +2,7 @@ import { MeichamVotedData } from "../models/MeichamVotedData";
 import { getJapanDateString, getJapanISOString, isSameDate, getOnlyDate, getJapanDate } from "../dateUtils";
 
 // 同じ日に同じIDで投票しているか確認する
-export function isAlreadyVoted(id: string, groupId: string, type: string): boolean {
+export function isAlreadyVoted(id: string): boolean {
     const today = getJapanDate();
     const votedIds = JSON.parse(localStorage.getItem('votedMeichamIds') || '[]') as MeichamVotedData[];
 
@@ -34,6 +34,9 @@ export function hasVotedToday(): boolean {
 // 投票可能な時間か確認する
 export function isVoteTime(dateString: string): boolean {
     const today = getJapanDateString();
+    if (!today.startsWith("2025-11")) {
+        return false;
+    }
     const date = getOnlyDate(today);
     return dateString.includes(`${date}日`);
 }

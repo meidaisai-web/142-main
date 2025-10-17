@@ -7,7 +7,6 @@ import Text from '@/components/texts/Text'
 import Emphasis from '@/components/texts/Emphasis'
 import { List, ListItem } from "@/components/texts/List";
 import { ScheduleTable } from "@/components/ScheduleTable";
-import Image from "next/image";
 import MapImage from "@/components/MapImage";
 
 
