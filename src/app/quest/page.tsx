@@ -8,6 +8,23 @@ import Emphasis from "@/components/texts/Emphasis"
 import SmallTitle from "@/components/texts/SmallTitle"
 import MapImage from "@/components/MapImage"
 export default function Page() {
+    const groups = [
+        "競技麻雀サークル明雀会",
+        "クイズサークルイージオス",
+        "三文文士会",
+        "手話サークルあうるはうす",
+        "情報コミュニケーション学部島田剛ゼミナール",
+        "情報コミュニケーション学部久保田達之助ゼミナール",
+        "第141回明大祭実行委員会 渉外局 校友部門",
+        "中野ボードゲーム同好会",
+        "明治大学学生ボランティア団体Tree",
+        "明治大学落語研究会",
+        "ミステリ研究会",
+        "Empower MEiji",
+        "greenhearts",
+        "M.U.A",
+        "SHIP"
+    ]
     return (
         <>
             <PageTitle>ポンdeクエスト</PageTitle>
@@ -64,51 +81,9 @@ export default function Page() {
                 <MapImage src='/images/map/quest.jpg' alt="スタンプ台紙のマップ"/>
                 <SectionTitle className="mt-7">協力団体 </SectionTitle>
                 <List mark="・" className="mt-8">
-                    <ListItem>
-                        競技麻雀サークル明雀会
-                    </ListItem>
-                    <ListItem>
-                        クイズサークルイージオス
-                    </ListItem>
-                    <ListItem>
-                        三文文士会
-                    </ListItem>
-                    <ListItem>
-                        手話サークルあうるはうす
-                    </ListItem>
-                    <ListItem>
-                        情報コミュニケーション学部島田剛ゼミナール
-                    </ListItem>
-                    <ListItem>
-                        情報コミュニケーション学部久保田達之助ゼミナール
-                    </ListItem>
-                    <ListItem>
-                        第141回明大祭実行委員会 渉外局 校友部門
-                    </ListItem>
-                    <ListItem>
-                        中野ボードゲーム同好会
-                    </ListItem>
-                    <ListItem>
-                        明治大学学生ボランティア団体Tree
-                    </ListItem>
-                    <ListItem>
-                        明治大学落語研究会
-                    </ListItem>
-                    <ListItem>
-                        ミステリ研究会
-                    </ListItem>
-                    <ListItem>
-                        Empower MEiji
-                    </ListItem>
-                    <ListItem>
-                        greenhearts
-                    </ListItem>
-                    <ListItem>
-                        M.U.A
-                    </ListItem>
-                    <ListItem>
-                        SHIP
-                    </ListItem>
+                    {groups.map((group) => (
+                        <ListItem key={group}>{group}</ListItem>
+                    ))}
                 </List>
                 <SectionTitle>お問い合わせ</SectionTitle>
                 <Text moreTopPadding>
