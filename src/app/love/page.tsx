@@ -4,11 +4,13 @@ import Text from "@/components/texts/Text"
 import PageContainer from "@/components/base/PageContainer"
 import TransitionLink from "@/components/buttons/TransitionLink"
 import SmallTitle from "@/components/texts/SmallTitle"
+import LogoImage from "@/components/LogoImage"
 export default function Page() {
     return (
         <>
             <PageTitle>明治に恋する５秒前</PageTitle>
             <PageContainer>
+                <LogoImage src="/images/kaihatsu/love.jpg" alt="明治に恋する5秒前 ロゴ" className="mt-10" />
                 <SectionTitle>企画概要</SectionTitle>
                 <Text moreTopPadding>
                     明治大学に興味がある、保護者の方や受験を戦うみなさまにおすすめしたいのが、大好評の受験生企画です！
