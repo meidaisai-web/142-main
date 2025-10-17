@@ -103,8 +103,9 @@ const page = () => {
                 <SmallTitle>抽選実施場所</SmallTitle>
                 <Text>明治大学和泉キャンパスメディア棟入口付近</Text>
                 <MapImage src="/images/map/lottery.jpg" alt="抽選実施場所map" />
-                <SectionTitle>企画協力店舗一覧</SectionTitle>
-                <List mark="・" className="mt-8">
+                <SectionTitle>企画協力店舗様一覧</SectionTitle>
+                <Text moreTopPadding>（以下五十音順・敬称略）</Text>
+                <List mark="・">
                     {storeList.map((store) => (
                         <ListItem key={store}>{store}</ListItem>
                     ))}
