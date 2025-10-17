@@ -77,10 +77,10 @@ export default function Page() {
                         手話サークルあうるはうす
                     </ListItem>
                     <ListItem>
-                        情報コミュニケーション学部島田ゼミナール
+                        情報コミュニケーション学部島田剛ゼミナール
                     </ListItem>
                     <ListItem>
-                        情報コミュニケーション学部久保田ゼミナール
+                        情報コミュニケーション学部久保田達之助ゼミナール
                     </ListItem>
                     <ListItem>
                         第141回明大祭実行委員会 渉外局 校友部門
