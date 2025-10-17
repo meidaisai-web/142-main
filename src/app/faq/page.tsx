@@ -2,7 +2,6 @@
 import PageTitle from "@/components/texts/PageTitle";
 import { FAQAccordion } from "@/components/texts/FAQAccordion";
 import TransitionLink from "@/components/buttons/TransitionLink";
-import { time } from "console";
 
 export default function Page() {
     const faqList = [
