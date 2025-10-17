@@ -23,11 +23,11 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
     const [buttonText, setButtonText] = useState("投票する");
 
     useEffect(() => {
-        if (!isVoteTime(eventDate)) {
-            setButtonText("投票可能時間外です")
-            setIsEnable(false);
-            return;
-        }
+        // if (!isVoteTime(eventDate)) {
+        //     setButtonText("投票可能時間外です")
+        //     setIsEnable(false);
+        //     return;
+        // }
         if (isAlreadyVoted(id)) {
             setIsEnable(false);
             setButtonText("投票済み");
@@ -43,12 +43,12 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         setIsEnable(false);
         setError(null);
         setButtonText("投票中...");
-        if (!isVoteTime(eventDate)) {
-            setError("投票可能な時間ではありません。");
-            setButtonText("投票可能時間外です");
-            setIsEnable(false);
-            return;
-        }
+        // if (!isVoteTime(eventDate)) {
+        //     setError("投票可能な時間ではありません。");
+        //     setButtonText("投票可能時間外です");
+        //     setIsEnable(false);
+        //     return;
+        // }
         // すでにその日に、その企画に投票しているか確認
         if (isAlreadyVoted(id)) {
             setError("本日すでにこの企画に投票しています。");
@@ -94,7 +94,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                     <p className="text-center">{error}</p>
                     <div className="flex flex-col gap-5 w-full mt-5 items-center">
                         <p>Meidaisai Championsipとは</p>
-                        {/* <p>抽選券引き換え画面</p> */}
+                        <p>抽選券引き換え画面</p>
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                 <p className="text-primary text-center">{error}</p>
                 <div className="flex flex-col gap-5 w-full mt-5 items-center">
                     <Link href='/champ' className="text-secondary hover:underline">Meidaisai Championsipとは</Link>
-                    {/* <Link href='/voucher' className="text-secondary hover:underline">抽選券引き換え画面</Link> */}
+                    <Link href='/voucher' className="text-secondary hover:underline">抽選券引き換え画面</Link>
                 </div>
             </div>
             <Alert title="この企画に投票しますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: '投票する', action: () => handleVote() }}>企画名: {eventName}<br />団体名: {groupName}</Alert>

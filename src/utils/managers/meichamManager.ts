@@ -34,9 +34,6 @@ export function hasVotedToday(): boolean {
 // 投票可能な時間か確認する
 export function isVoteTime(dateString: string): boolean {
     const today = getJapanDateString();
-    if (!today.startsWith("2025-11")) {
-        return false;
-    }
     const date = getOnlyDate(today);
     return dateString.includes(`${date}日`);
 }
