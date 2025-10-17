@@ -7,7 +7,7 @@ import Emphasis from '@/components/texts/Emphasis'
 import SmallTitle from '@/components/texts/SmallTitle'
 import AccentText from '@/components/texts/AccentText'
 import MapImage from '@/components/MapImage'
-import OnlyImage from '@/components/OnlyImage'
+
 export default function Page() {
     return (
         <div>
