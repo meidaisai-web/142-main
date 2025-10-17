@@ -121,7 +121,25 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                     <Link href='/voucher' className="text-secondary hover:underline">抽選券引き換え画面</Link>
                 </div>
             </div>
-            <Alert title="この企画に投票しますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: '投票する', action: () => handleVote() }}>企画名: {eventName}<br />団体名: {groupName}</Alert>
+            <Alert title="この企画に投票しますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: '投票する', action: () => handleVote() }}>
+                <div className="text-sm sm:text-base">
+                    <div className="flex mb-2">
+                        <p className="min-w-14 mr-2">企画名:</p>
+                        <p>{eventName}</p>
+                    </div>
+                    <div className="flex">
+                        <p className="min-w-14 mr-2">団体名:</p>
+                        {id === "80" ? (
+                            <div>
+                                <p className="mb-1">体育同好会連合会チアリーディングチーム・JAGUARS</p>
+                                <p>男子チアリーディングチーム ANCHORS</p>
+                            </div>
+                        ) : (
+                            <p>{groupName}</p>
+                        )}
+                    </div>
+                </div>
+            </Alert>
         </div>
     )
 }
