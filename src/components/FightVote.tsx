@@ -1,6 +1,6 @@
 "use client";
 
-import { supabase } from "@/utils/supabase/fight-vote";
+import { supabase } from "@/utils/supabase/fightVoteAction";
 import React from "react";
 import { useState } from "react";
 
