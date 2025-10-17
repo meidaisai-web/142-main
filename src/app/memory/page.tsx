@@ -24,7 +24,7 @@ export default function Page() {
                 11月3日(月・祝)10：00～17：00
             </Text>
             <SmallTitle>場所</SmallTitle>
-            <Text>和泉ラーニングスクエアLS201教室(カイダン教室)</Text>
+            <Text>和泉ラーニングスクエアLS201教室（カイダン教室）</Text>
             </PageContainer>
             <ContactView department="開発局想越部門" mail="141st-souetsu@meidaisai.jp" showPhone showAddress />
         </>
