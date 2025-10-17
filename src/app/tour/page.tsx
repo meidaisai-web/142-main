@@ -8,8 +8,6 @@ import Emphasis from '@/components/texts/Emphasis'
 import { List, ListItem } from "@/components/texts/List";
 import { ScheduleTable } from "@/components/ScheduleTable";
 import MapImage from "@/components/MapImage";
-import LogoImage from "@/components/LogoImage";
-
 
 const days = ['11月2日(土)', '11月3日(日)', '11月4日(月・祝)'];
 
