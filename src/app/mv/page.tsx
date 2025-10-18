@@ -12,11 +12,11 @@ export default function Page() {
             <PageTitle>第141回明大祭公式テーマソングミュージックビデオ</PageTitle>
             <PageContainer>
                 <SectionTitle className="mt-5 mb-3">文明開化のメロディーが、明大祭をさらに盛り上げる！</SectionTitle>
-                <Movie href="https://www.youtube.com/embed/hy9vlDdDjC4?si=73144Wq1-VOer2o-"/>
+                <Movie href="https://www.youtube.com/embed/11D-ItNDt-Q?si=ZNNPwvGwMVKvqmzL"/>
                 <Text moreTopPadding>候補曲の中から投票によって選ばれた、第141回明大祭公式テーマソング「文明開化の音が鳴る」のミュージックビデオが完成しました！</Text>
                 <Text>今年度の明大祭コンセプトである『熱狂の、その先へ。』をそのまま体現した、心に熱狂を呼び覚ます一曲となっております。また、ミュージックビデオは主演、バンド演奏、撮影・編集まで、すべてを明大生が手がけました。</Text>
                 <Text moreTopPadding>毎年、演出局Opening企画では、公式テーマソングを生演奏で披露しています！ぜひミュージックビデオをご覧いただき、明大生ならではのパワーを感じていただきたいです！</Text>
-                <Text>そして当日11月1日(金)10：00から行われるOpening企画での生演奏にも、ぜひ足をお運びください！</Text>
+                <Text>そして当日11月1日(土)10：00から行われるOpening企画での生演奏にも、ぜひ足をお運びください！</Text>
                 <Text>（演出局Opening企画に関する詳細は<TransitionLink href="https://www.meidaisai.jp/opening">こちら</TransitionLink>）</Text>
                 <SectionTitle className="mt-15 mb-5">コメント</SectionTitle>
                 <SmallTitle>【演奏団体】栗沢踊ル者</SmallTitle>
