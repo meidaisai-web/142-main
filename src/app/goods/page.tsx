@@ -44,7 +44,7 @@ export default function Page() {
                 <List className="mt-8" mark="・">
                     <ListItem>お支払いは<Emphasis>現金・キャッシュレス</Emphasis>に対応しております。</ListItem>
                     <OnlyImage
-                        src="/images/goods/payment.jpg"
+                        src="/images/cashless/payment.jpg"
                         alt="キャッシュレス決済一覧_09"
                         className="w-full max-w-xs mt-4 mb-10"
                     />
