@@ -182,7 +182,7 @@ const FightVote = () => {
                       {(() => {
                         if (index === 0) return "1st BATTLE";
                         if (index === 1) return "2nd BATTLE";
-                        if (index === 2) return "3rd BATTLE";
+                        if (index === 2) return "Final BATTLE";
                       })()}
                     </SmallTitle>
                     <div className="flex m-5 mb-4">
