@@ -7,6 +7,7 @@ import ContactView from "@/components/texts/ContactView"
 import Emphasis from "@/components/texts/Emphasis"
 import OnlyImage from "@/components/OnlyImage"
 import SmallTitle from "@/components/texts/SmallTitle"
+import MapImage from "@/components/MapImage"
 
 export default function Page() {
     const goodsList = [
@@ -38,6 +39,7 @@ export default function Page() {
                 <Text>11月1日(土).2日(日).3日(月・祝)10：00～18：00</Text>
                 <SmallTitle>販売場所</SmallTitle>
                 <Text>明治大学和泉キャンパス明大祭公式グッズ販売ブース（和泉図書館前）</Text>
+                <MapImage src="/images/map/goods.jpg" alt="明大祭公式グッズ販売ブースの場所" />
                 <SectionTitle>注意事項</SectionTitle>
                 <List className="mt-8" mark="・">
                     <ListItem>お支払いは<Emphasis>現金・キャッシュレス</Emphasis>に対応しております。</ListItem>
