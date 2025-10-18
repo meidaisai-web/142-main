@@ -3,7 +3,6 @@ import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import Emphasis from "@/components/texts/Emphasis";
 import SmallTitle from "@/components/texts/SmallTitle";
-import AccentText from "@/components/texts/AccentText";
 import Text from "@/components/texts/Text";
 import LogoImage from "@/components/LogoImage";
 import OnlyImage from "@/components/OnlyImage";
