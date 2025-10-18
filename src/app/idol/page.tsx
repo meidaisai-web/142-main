@@ -31,7 +31,9 @@ export default function Page() {
                 </div>
                 <SectionTitle>踊って、叫んで、また好きになる。</SectionTitle>
                 <Text moreTopPadding>
-                    <Emphasis>響き合う声が重なったとききっと忘れられない瞬間になる。さぁ、今日1番のきらめくステージへ！</Emphasis>
+                    <Text><Emphasis>響き合う声が重なったとき</Emphasis></Text>
+                    <Text><Emphasis>きっと忘れられない瞬間になる。</Emphasis></Text>
+                    <Text><Emphasis>さぁ、I♡Fes!へようこそ！</Emphasis></Text>
                 </Text>
                 <SectionTitle>企画概要</SectionTitle>
                 <Text moreTopPadding>
