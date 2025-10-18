@@ -7,25 +7,25 @@ import Emphasis from "@/components/texts/Emphasis"
 import ContactView from "@/components/texts/ContactView"
 import OnlyImage from "@/components/OnlyImage"
 import { List, ListItem } from '@/components/texts/List'
+import LogoImage from "@/components/LogoImage"
 export default function Page() {
     return (
         <>
             <PageTitle>Ending</PageTitle>
             <PageContainer>
-                <OnlyImage 
-                    src="/images/ending/endinglogo.jpg" 
+                <LogoImage
+                    src="/images/ensyutsu/ending-logo.jpg"
                     alt='エンディングロゴの画像'
-                    className="mx-auto w-full max-w-xs mt-10 mb-5"
+                    className="mt-10 mb-5"
+                />
+                <OnlyImage
+                    src="/images/ensyutsu/ending.jpg"
+                    alt='エンディングステージの画像'
+                    className="mt-7 mb-5"
                 />
                 <SectionTitle>「祭、終結」</SectionTitle>
-                <OnlyImage 
-                    src="/images/ending/ending.jpg" 
-                    alt='エンディングステージの画像'
-                    className="mx-auto w-full max-w-lg mt-7 mb-5"
-                />
-                <Text moreTopPadding>
-                    <Emphasis>「煌めく星の下、戻ることのないこの夜に。高鳴る鼓動、熱狂の余韻、そして熱きステージが——今、終結。</Emphasis>
-                </Text>
+                <Text moreTopPadding><Emphasis>煌めく星の下、戻ることのないこの夜に。</Emphasis></Text>
+                <Text><Emphasis>高鳴る鼓動、熱狂の余韻、そして熱きステージが——今、終結。</Emphasis></Text>
                 <SectionTitle>企画概要</SectionTitle>
                 <Text moreTopPadding>
                     明大祭の最後を彩るEnding！
