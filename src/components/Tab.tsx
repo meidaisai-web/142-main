@@ -1,39 +1,179 @@
-import Image from "next/image"
-import Link from "next/link"
+import { Fragment, ReactNode, useEffect, useRef, useState } from "react";
+import TabButton from "./buttons/TabButton";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperType } from "swiper";
 
-type ProjectProps = {
-    title: string;
-    description: string;
-    image: string;
-    alt : string;
-    tags: string[];
-    link: string;
+interface TabProps {
+    tabs: {
+        key: number;
+        label: string;
+        content: ReactNode;
+    }[];
 }
 
-export default function Project({ title, description, image, alt, tags, link }: ProjectProps) {
+export default function Tab({ tabs }: TabProps) {
+    const [active, setActive] = useState(0);
+    const contentRef = useRef<SwiperType | null>(null);
+    const buttonRefs = useRef<HTMLButtonElement[]>([]);
+    buttonRefs.current = [];
+
+    const [indicator, setIndicator] = useState({ left: 0, width: 0 });
+    const indicatorRef = useRef<HTMLDivElement | null>(null);
+    const tabsWrapRef = useRef<HTMLDivElement | null>(null);
+
+    /**
+     * 指定されたインデックスのタブに遷移する
+     * アクティブ状態を更新し、インジケーターをアニメーション付きで移動させ、コンテンツをスライドさせる
+     */
+    const go = (idx: number) => {
+        setActive(idx);
+
+        enableIndicatorTransition();
+        contentRef.current?.slideTo(idx);
+
+        snapIndicatorToIndex(idx);
+    };
+
+    /**
+     * インジケーターを指定されたインデックスのタブ位置に即座に移動させる
+     * タブボタンの位置とサイズを取得し、インジケーターの位置と幅を設定する
+     */
+    const snapIndicatorToIndex = (idx: number) => {
+        const wrapLeft = tabsWrapRef.current?.getBoundingClientRect().left ?? 0;
+        const btn = buttonRefs.current[idx];
+        if (!btn) return;
+        const rect = btn.getBoundingClientRect();
+        setIndicator({
+            left: rect.left - wrapLeft,
+            width: rect.width,
+        });
+    };
+
+    /**
+     * インジケーターを2つのタブ間で線形補間して移動させる
+     * スワイプ中のスムーズなインジケーター移動を実現するための関数
+     * @param i - 開始タブのインデックス
+     * @param frac - 補間率（0.0～1.0、0が開始タブ位置、1が次のタブ位置）
+     */
+    const lerpIndicator = (i: number, frac: number) => {
+        const wrapLeft = tabsWrapRef.current?.getBoundingClientRect().left ?? 0;
+        const a = buttonRefs.current[i];
+        const b = buttonRefs.current[i + 1];
+
+        if (!a) return;
+        const ra = a.getBoundingClientRect();
+        const la = ra.left - wrapLeft;
+        const wa = ra.width;
+
+        if (!b || frac <= 0) {
+            setIndicator({ left: la, width: wa });
+            return;
+        }
+
+        const rb = b.getBoundingClientRect();
+        const lb = rb.left - wrapLeft;
+        const wb = rb.width;
+
+        const left = la + (lb - la) * Math.min(Math.max(frac, 0), 1);
+        const width = wa + (wb - wa) * Math.min(Math.max(frac, 0), 1);
+        setIndicator({ left, width });
+    };
+
+    /**
+     * インジケーターのトランジション（アニメーション）を有効化する
+     * タブクリック時などの滑らかな移動を実現する
+     */
+    const enableIndicatorTransition = () => {
+        const el = indicatorRef.current;
+        if (!el) return;
+        el.style.transition = 'transform 200ms, width 200ms';
+    };
+
+    /**
+     * インジケーターのトランジション（アニメーション）を無効化する
+     * スワイプ中のリアルタイムな追従動作に使用される
+     */
+    const disableIndicatorTransition = () => {
+        const el = indicatorRef.current;
+        if (!el) return;
+        el.style.transition = 'none';
+    };
+
+
+    useEffect(() => {
+        snapIndicatorToIndex(active);
+        const onResize = () => snapIndicatorToIndex(active);
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+
+    }, []);
+
     return (
-        <Link
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block transition duration-200 rounded-2xl"
-        >
-            <div className="bg-white rounded-2xl p-4 flex flex-row md:flex-col items-center gap-6 border-7 border-accent shadow-[10px_10px_0px_0px_#3571B8] w-full md:w-[380px] transition duration-200 transform hover:-translate-y-1 hover:-translate-x-1">
-                <div className="w-1/2 md:w-full flex justify-center">
-                    <Image src={image} alt={alt} width={200} height={200} className="rounded-lg object-cover" />
+        <div className="w-full">
+            <div className="relative mt-10">
+                <div ref={tabsWrapRef} className="flex">
+                    {tabs.map((tab, index) => (
+                        <Fragment key={tab.key}>
+                            <TabButton
+                                label={tab.label}
+                                isActive={active === index}
+                                onClick={() => go(index)}
+                                ref={(el) => {
+                                    if (el) buttonRefs.current[index] = el;
+                                }}
+                            />
+                            {index < tabs.length - 1 && (
+                                <div className="w-1 bg-white/70 my-2" />
+                            )}
+                        </Fragment>
+                    ))}
                 </div>
-                <div className="flex-1 md:flex-none md:w-full flex flex-col gap-4">
-                    <h2 className="text-xl text-black font-bold">{title}</h2>
-                    <p className="text-base text-black">{description}</p>
-                    <div className="flex flex-wrap gap-2">
-                        {tags.map((tag) => (
-                            <span key={tag} className="bg-secondary rounded-full px-3 py-1 text-sm font-semibold">
-                                {`#${tag}`}
-                            </span>
-                        ))}
-                    </div>
-                </div>
+                <div
+                    ref={indicatorRef}
+                    aria-hidden
+                    className={`pointer-events-none absolute bottom-0 h-[3px] bg-white`}
+                    style={{
+                        transform: `translateX(${indicator.left}px)`,
+                        width: `${indicator.width}px`,
+                    }}
+                />
             </div>
-        </Link>
+
+            <Swiper
+                spaceBetween={100}
+                onSwiper={(s) => {
+                    contentRef.current = s;
+                    enableIndicatorTransition();
+                }}
+                onSlideChange={(s) => {
+                    setActive(s.activeIndex);
+                    enableIndicatorTransition();
+                    snapIndicatorToIndex(s.activeIndex);
+                }}
+                onProgress={(s, progress) => {
+                    disableIndicatorTransition();
+
+                    const maxSeg = tabs.length - 1;
+                    const t = Math.min(Math.max(progress * maxSeg, 0), maxSeg);
+                    const i = Math.floor(t);
+                    const frac = t - i;
+
+                    lerpIndicator(i, frac);
+                }}
+                onTouchStart={() => {
+                    disableIndicatorTransition();
+                }}
+                onTouchEnd={() => {
+                    enableIndicatorTransition();
+                }}
+                className="mt-10"
+            >
+                {tabs.map((tab) => (
+                    <SwiperSlide key={tab.key}>
+                        {tab.content}
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </div>
     );
 }
