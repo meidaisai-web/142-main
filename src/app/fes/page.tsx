@@ -7,25 +7,26 @@ import Emphasis from "@/components/texts/Emphasis"
 import ContactView from "@/components/texts/ContactView"
 import OnlyImage from "@/components/OnlyImage"
 import { List, ListItem } from '@/components/texts/List'
+import LogoImage from "@/components/LogoImage"
 export default function Page() {
     return (
         <>
             <PageTitle>UNI ROCK FES</PageTitle>
             <PageContainer>
-                <OnlyImage 
-                    src="/images/fes/feslogo.jpg" 
+                <LogoImage
+                    src="/images/ensyutsu/fes-logo.jpg"
                     alt='UNI ROCK FESのロゴ'
-                    className="mx-auto w-full max-w-xs mt-10 mb-5"
+                    className="mt-10 mb-5"
                     />
-                <SectionTitle>響け、叫べ、ひとつになれ。</SectionTitle>
-                <OnlyImage 
-                    src="/images/fes/fes.jpg" 
+                <OnlyImage
+                    src="/images/ensyutsu/fes.jpg"
                     alt='UNI ROCK FESの画像'
-                    className="mx-auto w-full max-w-lg mt-7 mb-5"
+                    className="mt-7 mb-5"
                 />
-                <Text moreTopPadding>
-                    <Emphasis>鳴らせ、鼓動繋げ、一体感。この熱響を、共に創る。</Emphasis>
-                </Text>
+                <SectionTitle>響け、叫べ、ひとつになれ。</SectionTitle>
+                <Text moreTopPadding><Emphasis>鳴らせ、鼓動</Emphasis></Text>
+                <Text><Emphasis>繋げ、一体感。</Emphasis></Text>
+                <Text><Emphasis>この熱響を、共に創る。</Emphasis></Text>
                 <SectionTitle>企画概要</SectionTitle>
                 <Text moreTopPadding>
                     誰もが楽しめる音楽フェスが今開幕！
