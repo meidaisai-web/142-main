@@ -4,112 +4,17 @@ import PageContainer from "@/components/base/PageContainer";
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
-import { supabase } from "@/utils/supabase/fight-vote";
+import { supabase } from "@/utils/supabase/fightVoteAction";
 import React from "react";
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-
-type QueenButtonProps = {
-  name: string;
-  index: number;
-  isSelected: boolean;
-  isFlaming: boolean;
-  onClick: () => void;
-};
-
-const QueenButton = ({ name, index, isSelected, isFlaming, onClick }: QueenButtonProps) => {
-  return (
-    <motion.button
-      type="button"
-      className={`flex-1 p-3 relative translate-x-[min(1.5rem,4vw)] text-white`}
-      style={{
-        clipPath: 'polygon(0 0, 80% 0, 90% 100%, 0 100%)'
-      }}
-      initial={false}
-      animate={
-        isFlaming ? {
-          rotate: [-1, 1, -0.5, 0.5, 0],
-          scale: [1, 1.05, 1.1, 1.05, isSelected ? 1.1 : 1],
-          backgroundColor: isSelected ? '#374151' : '#6b7280',
-          boxShadow: [
-            '0 0 20px #B5364A, 0 0 40px #3571B8, 0 0 60px #D8CE48',
-            '0 0 25px #3571B8, 0 0 50px #D8CE48, 0 0 80px #B5364A',
-            '0 0 30px #D8CE48, 0 0 60px #B5364A, 0 0 100px #3571B8',
-            '0 0 25px #B5364A, 0 0 50px #3571B8, 0 0 80px #D8CE48',
-            isSelected ? '0 0 20px rgba(216, 206, 72, 0.5)' : '0 0 0px transparent'
-          ]
-        } : isSelected ? {
-          scale: 1.1,
-          backgroundColor: '#374151',
-          boxShadow: '0 0 20px rgba(216, 206, 72, 0.5)'
-        } : {
-          backgroundColor: '#6b7280'
-        }
-      }
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
-      whileHover={isSelected ? {} : { scale: 1.05, backgroundColor: '#D8CE48', skewX: -1, opacity: 0.8, boxShadow: '0 0 30px rgba(216, 206, 72, 0.3)' }}
-      whileTap={{ scale: 1.25, backgroundColor: '#3571B8', skewX: -2, opacity: 1, boxShadow: '0 0 80px rgba(213, 206, 72, 0.7)' }}
-      onClick={onClick}
-    >
-      <span className="relative z-10">{name}</span>
-    </motion.button>
-  );
-};
-
-type KingButtonProps = {
-  name: string;
-  index: number;
-  isSelected: boolean;
-  isFlaming: boolean;
-  onClick: () => void;
-};
-
-const KingButton = ({ name, index, isSelected, isFlaming, onClick }: KingButtonProps) => {
-  return (
-    <motion.button
-      type="button"
-      className={`flex-1 p-3 relative translate-x-[max(-1.5rem,-4vw)] text-white`}
-      style={{
-        clipPath: 'polygon(10% 0, 100% 0, 100% 100%, 20% 100%)'
-      }}
-      initial={false}
-      animate={
-        isFlaming ? {
-          rotate: [-1, 1, -0.5, 0.5, 0],
-          scale: [1, 1.05, 1.1, 1.05, isSelected ? 1.1 : 1],
-          backgroundColor: isSelected ? '#374151' : '#6b7280',
-          boxShadow: [
-            '0 0 20px #B5364A, 0 0 40px #3571B8, 0 0 60px #D8CE48',
-            '0 0 25px #3571B8, 0 0 50px #D8CE48, 0 0 80px #B5364A',
-            '0 0 30px #D8CE48, 0 0 60px #B5364A, 0 0 100px #3571B8',
-            '0 0 25px #B5364A, 0 0 50px #3571B8, 0 0 80px #D8CE48',
-            isSelected ? '0 0 20px rgba(53, 113, 184, 0.5)' : '0 0 0px transparent'
-          ]
-        } : isSelected ? {
-          scale: 1.1,
-          backgroundColor: '#374151',
-          boxShadow: '0 0 20px rgba(53, 113, 184, 0.5)'
-        } : {
-          backgroundColor: '#6b7280'
-        }
-      }
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
-      whileHover={isSelected ? {} : { scale: 1.05, backgroundColor: '#3571B8', skewX: 1, opacity: 0.8, boxShadow: '0 0 30px rgba(53, 113, 184, 0.3)' }}
-      whileTap={{ scale: 1.25, backgroundColor: '#D8CE48', skewX: 2, opacity: 1, boxShadow: '0 0 80px rgba(216, 206, 72, 0.7)' }}
-      onClick={onClick}
-    >
-      <span className="relative z-10">{name}</span>
-    </motion.button>
-  );
-};
+import Photoframe from "@/components/Photoframe";
 
 const FightVote = () => {
   const [selectedVote1, setSelectedVote1] = useState<number | null>(null);
   const [selectedVote2, setSelectedVote2] = useState<number | null>(null);
   const [selectedVote3, setSelectedVote3] = useState<number | null>(null);
-  const [isFlaming, setIsFlaming] = useState(false);
-  const [flamingButtons, setFlamingButtons] = useState<{ [key: string]: boolean }>({});
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState<'submitting' | 'success' | 'error'>('submitting');
   const [hasVoted, setHasVoted] = useState(false);
@@ -125,40 +30,47 @@ const FightVote = () => {
   //企画一覧
   type FightVoteType = {
     label: string;
-    king: FightGroupType;
     queen: FightGroupType;
+    king: FightGroupType;
   };
 
   type FightGroupType = {
     name: string;
+    imagePath?: string;
   };
 
   const fightVoteData: FightVoteType[] = [
     {
       label: "first",
-      king: {
-        name: "企画k-1",
-      },
       queen: {
-        name: "企画q-1",
+        name: "chocolat lumière",
+        imagePath: "/images/fight-vote/chocolat.jpg",
+      },
+      king: {
+        name: "SHINE",
+        imagePath: "/images/fight-vote/shine.jpg",
       },
     },
     {
       label: "second",
-      king: {
-        name: "企画k-2",
-      },
       queen: {
-        name: "企画q-2",
+        name: "アカペラサークル Sound Arts",
+        imagePath: "/images/fight-vote/soundarts.jpg",
+      },
+      king: {
+        name: "アカペラサークル amour",
+        imagePath: "/images/fight-vote/amour.jpg",
       },
     },
     {
       label: "last",
-      king: {
-        name: "企画k-3",
-      },
       queen: {
-        name: "企画q-3",
+        name: "中野ダンスサークル SIGN",
+        imagePath: "/images/fight-vote/sign.jpg",
+      },
+      king: {
+        name: "K-POPカバーダンスサークル Mercie",
+        imagePath: "/images/fight-vote/mercie.jpg",
       },
     },
   ];
@@ -178,10 +90,6 @@ const FightVote = () => {
       setTimeout(() => setShowModal(false), 10000);
       return;
     }
-
-    // 燃えるアニメーションを開始
-    setIsFlaming(true);
-    setTimeout(() => setIsFlaming(false), 300);
 
     console.log("送信ボタンが押されました");
     console.log("selectedVote1:", selectedVote1);
@@ -278,50 +186,38 @@ const FightVote = () => {
                       })()}
                     </SmallTitle>
                     <div className="flex m-5 mb-4">
-                      <div className="flex-1 text-left translate-x-[min(1.5rem,4vw)]">
+                      <div className="flex-1 text-left translate-x-10">
                         <span className="text-3xl font-bold text-white">QUEEN</span>
                       </div>
-                      <div className="flex-1 text-right translate-x-[max(-1.5rem,-4vw)]">
+                      <div className="flex-1 text-right -translate-x-10">
                         <span className="text-3xl font-bold text-white">KING</span>
                       </div>
                     </div>
-                    <div className="flex m-5 h-64 mb-6">
-                      <QueenButton
-                        name={data.queen.name}
-                        index={index}
-                        isSelected={(index === 0 && selectedVote1 === 1) || (index === 1 && selectedVote2 === 1) || (index === 2 && selectedVote3 === 1)}
-                        isFlaming={flamingButtons[`queen-${index}`] || false}
-                        onClick={() => {
-                          const buttonKey = `queen-${index}`;
-                          setFlamingButtons(prev => ({ ...prev, [buttonKey]: true }));
-                          setTimeout(() => setFlamingButtons(prev => ({ ...prev, [buttonKey]: false })), 300);
-
-                          if (index === 0) setSelectedVote1(1);
-                          if (index === 1) setSelectedVote2(1);
-                          if (index === 2) setSelectedVote3(1);
-                        }}
-                      />
-                      <KingButton
-                        name={data.king.name}
-                        index={index}
-                        isSelected={(index === 0 && selectedVote1 === 0) || (index === 1 && selectedVote2 === 0) || (index === 2 && selectedVote3 === 0)}
-                        isFlaming={flamingButtons[`king-${index}`] || false}
-                        onClick={() => {
-                          const buttonKey = `king-${index}`;
-                          setFlamingButtons(prev => ({ ...prev, [buttonKey]: true }));
-                          setTimeout(() => setFlamingButtons(prev => ({ ...prev, [buttonKey]: false })), 300);
-
-                          if (index === 0) setSelectedVote1(0);
-                          if (index === 1) setSelectedVote2(0);
-                          if (index === 2) setSelectedVote3(0);
-                        }}
-                      />
-                    </div>
+                    <Photoframe
+                      leftName={data.queen.name}
+                      leftImagePath={data.queen.imagePath}
+                      rightName={data.king.name}
+                      rightImagePath={data.king.imagePath}
+                      leftSelected={(index === 0 && selectedVote1 === 1) || (index === 1 && selectedVote2 === 1) || (index === 2 && selectedVote3 === 1)}
+                      rightSelected={(index === 0 && selectedVote1 === 0) || (index === 1 && selectedVote2 === 0) || (index === 2 && selectedVote3 === 0)}
+                      onLeftClick={() => {
+                        console.log('onLeftClick called', index);
+                        if (index === 0) setSelectedVote1(1);
+                        if (index === 1) setSelectedVote2(1);
+                        if (index === 2) setSelectedVote3(1);
+                      }}
+                      onRightClick={() => {
+                        console.log('onRightClick called', index);
+                        if (index === 0) setSelectedVote1(0);
+                        if (index === 1) setSelectedVote2(0);
+                        if (index === 2) setSelectedVote3(0);
+                      }}
+                    />
                     <div className="flex m-5 mt-4">
-                      <div className="flex-1 text-left translate-x-[min(1.5rem,4vw)]">
+                      <div className="flex-1 text-left">
                         <span className="text-xl text-white">{data.queen.name}</span>
                       </div>
-                      <div className="flex-1 text-right translate-x-[max(-1.5rem,-4vw)]">
+                      <div className="flex-1 text-right">
                         <span className="text-xl text-white">{data.king.name}</span>
                       </div>
                     </div>
@@ -330,21 +226,7 @@ const FightVote = () => {
               </div>
 
               <div className="flex justify-center mt-12">
-                <motion.div
-                  className="relative p-5 h-24"
-                  animate={isFlaming ? {
-                    rotate: [-1, 1, -0.5, 0.5, 0],
-                    scale: [1, 1.05, 1.1, 1.05, 1],
-                    boxShadow: [
-                      '0 0 20px #B5364A, 0 0 40px #3571B8, 0 0 60px #D8CE48',
-                      '0 0 25px #3571B8, 0 0 50px #D8CE48, 0 0 80px #B5364A',
-                      '0 0 30px #D8CE48, 0 0 60px #B5364A, 0 0 100px #3571B8',
-                      '0 0 25px #B5364A, 0 0 50px #3571B8, 0 0 80px #D8CE48',
-                      '0 0 20px #B5364A, 0 0 40px #3571B8, 0 0 60px #D8CE48'
-                    ]
-                  } : {}}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
-                >
+                <div className="relative p-5 h-24">
                   <button
                     onClick={handleSubmit}
                     disabled={selectedVote1 === null || selectedVote2 === null || selectedVote3 === null || isSubmitting}
@@ -360,7 +242,7 @@ const FightVote = () => {
                       {isSubmitting ? "送信中..." : "投票を送信"}
                     </div>
                   </button>
-                </motion.div>
+                </div>
               </div>
             </div>
           </>
