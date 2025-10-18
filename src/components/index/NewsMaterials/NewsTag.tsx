@@ -16,7 +16,7 @@ export default function NewsTag({ type }: NewsTagProps) {
 
   return (
     <span
-      className={`px-4 py-1 w-16 rounded-full text-xs whitespace-nowrap flex items-center justify-center  ${getBackgroundColor()}`}
+      className={`px-4 py-1 w-16 rounded-full text-xs whitespace-nowrap flex items-center justify-center font-semibold  ${getBackgroundColor()}`}
     >
       {type}
     </span>

@@ -20,11 +20,11 @@ const page = () => {
                     第141回明大祭が開催される明治大学和泉キャンパスまでのアクセス方法です。
                 </Text>
                 <Text moreTopPadding>
-                    ご来場の際は公共交通機関のご利用をお願いいたします｡
+                    ご来場の際は公共交通機関のご利用をお願いいたします。
                 </Text>
                 <List mark="※">
                     <ListItem>
-                        明大祭当日はキャンパス内の駐車場､駐輪場はご利用いただけません｡
+                        明大祭当日はキャンパス内の駐車場、駐輪場はご利用いただけません。
                     </ListItem>
                 </List>
                 <SmallTitle>
@@ -37,7 +37,7 @@ const page = () => {
                     明大前駅までのアクセス
                 </SmallTitle>
                 <div className="mt-5 sm:w-3/4 lg:w-5/12 mx-auto rounded-lg overflow-hidden">
-                    <Image src="/images/ad/accessmap.jpg" alt="アクセスマップ" width={400} height={400} className="w-full" />
+                    <Image src="/images/map/accessmap.jpg" alt="アクセスマップ" width={400} height={400} className="w-full" />
                 </div>
                 <SmallTitle>
                     明大前駅から和泉キャンパスまでのアクセス

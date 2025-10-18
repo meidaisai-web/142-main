@@ -10,12 +10,9 @@ export default function Page() {
             <PageTitle>KEIO×第141回明大祭デジタルスタンプラリー</PageTitle>
             <PageContainer>
                 <SectionTitle>残念ながら不正解です！</SectionTitle>
-                <Text moreTopPadding className="!text-center">もう一度問題を解いて、正解だと思うQRコードを探しに行きましょう！</Text>
+                <Text moreTopPadding className="!text-center">もう一度問題を解いて、正解だと思う二次元コードを探しに行きましょう！</Text>
                 <ContactView department="渉外局" mail="shogai@meidaisai.jp" showPhone showAddress></ContactView>
             </PageContainer>
         </div>
     )
 }
-
-
-
