@@ -7,6 +7,7 @@ import AnnounceSection from "@/components/index/AnnounceSection";
 import HeroSection from "@/components/index/HeroSection";
 import News from "@/components/index/News";
 import Rainbow from "@/components/index/Rainbow";
+import SearchSection from "@/components/index/SearchSection";
 import { NewsData } from "@/utils/datas/NewsData";
 import Link from "next/link";
 import { ReactNode, useEffect, useState } from "react";
@@ -60,6 +61,8 @@ function Contents() {
       </Alert>
       <HeroSection />
       <Rainbow className="mt-10" />
+      <SearchSection />
+      <Rainbow className="mt-20" />
       <AnnounceSection />
       <Rainbow />
       <News />
