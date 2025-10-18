@@ -32,25 +32,82 @@ export default function Search() {
     const [searchGenres, setSearchGenres] = useState<string[]>([]);
     const [searchSortType, setSearchSortType] = useState<{ orderColumn: string; ascending: boolean }>({ orderColumn: 'free', ascending: true });
 
-    // localStorageから検索条件を復元
+        // URLパラメータまたはlocalStorageから検索条件を復元
     useEffect(() => {
         try {
-            const savedConditions = localStorage.getItem(STORAGE_KEY);
-            if (savedConditions) {
-                const conditions = JSON.parse(savedConditions);
-                setKeyword(conditions.keyword || '');
-                setSelectedTypes(conditions.selectedTypes || []);
-                setSelectedDates(conditions.selectedDates || []);
-                setSelectedPlaces(conditions.selectedPlaces || []);
-                setSelectedGenres(conditions.selectedGenres || []);
-                setSortType(conditions.sortType || { orderColumn: 'free', ascending: true });
-                // 検索条件も同時に設定（前回の検索結果を表示）
-                setSearchKeyword(conditions.keyword || '');
-                setSearchTypes(conditions.selectedTypes || []);
-                setSearchDates(conditions.selectedDates || []);
-                setSearchPlaces(conditions.selectedPlaces || []);
-                setSearchGenres(conditions.selectedGenres || []);
-                setSearchSortType(conditions.sortType || { orderColumn: 'free', ascending: true });
+            // URLパラメータからkeywordを取得
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlKeyword = urlParams.get('keyword');
+
+            if (urlKeyword !== null) {
+                // URLにkeywordパラメータが含まれている場合（空文字も含む）、localStorageをリセット
+                localStorage.removeItem(STORAGE_KEY);
+                
+                // keywordとtimestampだけを保存（空文字の場合も保存）
+                const conditions = {
+                    keyword: urlKeyword,
+                    selectedTypes: [],
+                    selectedDates: [],
+                    selectedPlaces: [],
+                    selectedGenres: [],
+                    sortType: { orderColumn: 'free', ascending: true },
+                    timestamp: Date.now()
+                };
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(conditions));
+
+                // URLのkeywordを検索条件に設定（空文字の場合も設定）
+                setKeyword(urlKeyword);
+                setSelectedTypes([]);
+                setSelectedDates([]);
+                setSelectedPlaces([]);
+                setSelectedGenres([]);
+                setSortType({ orderColumn: 'free', ascending: true });
+                // 検索条件も同時に設定(すぐに検索結果を表示)
+                setSearchKeyword(urlKeyword);
+                setSearchTypes([]);
+                setSearchDates([]);
+                setSearchPlaces([]);
+                setSearchGenres([]);
+                setSearchSortType({ orderColumn: 'free', ascending: true });
+
+                // EventItemsまでスクロール（少し上に調整）
+                setTimeout(() => {
+                    const offset = -100; // スクロール位置を少し上に調整
+                    const top = eventItemsRef.current?.getBoundingClientRect().top || 0;
+                    window.scrollTo({
+                        top: window.scrollY + top + offset,
+                        behavior: "smooth"
+                    });
+                }, 100); // DOM更新を待つために少し遅延
+            } else {
+                // URLにkeywordがない場合、localStorageから復元
+                const savedConditions = localStorage.getItem(STORAGE_KEY);
+                if (savedConditions) {
+                    const conditions = JSON.parse(savedConditions);
+                    const savedTimestamp = conditions.timestamp;
+                    const currentTime = Date.now();
+                    const fiveMinutesInMs = 5 * 60 * 1000; // 5分をミリ秒に変換
+
+                    // 5分以上経過していたらlocalStorageをクリアして終了
+                    if (!savedTimestamp || currentTime - savedTimestamp > fiveMinutesInMs) {
+                        localStorage.removeItem(STORAGE_KEY);
+                        return;
+                    }
+
+                    setKeyword(conditions.keyword || '');
+                    setSelectedTypes(conditions.selectedTypes || []);
+                    setSelectedDates(conditions.selectedDates || []);
+                    setSelectedPlaces(conditions.selectedPlaces || []);
+                    setSelectedGenres(conditions.selectedGenres || []);
+                    setSortType(conditions.sortType || { orderColumn: 'free', ascending: true });
+                    // 検索条件も同時に設定(前回の検索結果を表示)
+                    setSearchKeyword(conditions.keyword || '');
+                    setSearchTypes(conditions.selectedTypes || []);
+                    setSearchDates(conditions.selectedDates || []);
+                    setSearchPlaces(conditions.selectedPlaces || []);
+                    setSearchGenres(conditions.selectedGenres || []);
+                    setSearchSortType(conditions.sortType || { orderColumn: 'free', ascending: true });
+                }
             }
         } catch (error) {
             console.error('Failed to load search conditions from localStorage:', error);
@@ -66,7 +123,8 @@ export default function Search() {
                 selectedDates,
                 selectedPlaces,
                 selectedGenres,
-                sortType
+                sortType,
+                timestamp: Date.now() // 現在時刻をタイムスタンプとして保存
             };
             localStorage.setItem(STORAGE_KEY, JSON.stringify(conditions));
         } catch (error) {
@@ -123,6 +181,7 @@ export default function Search() {
                     setSelectedGenres={setSelectedGenres}
                     sortType={sortType}
                     setSortType={setSortType}
+                    onEnter={onTapSearchButton}
                 />
                 <div className="flex justify-center">
                     <button className="text-accent border-primary hover:border-accent border-b-2 font-medium" onClick={() => {

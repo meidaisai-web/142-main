@@ -1,15 +1,16 @@
 import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
-import AccentText from "@/components/texts/AccentText"
 import PageContainer from "@/components/base/PageContainer"
 import TransitionLink from "@/components/buttons/TransitionLink"
 import SmallTitle from "@/components/texts/SmallTitle"
+import LogoImage from "@/components/LogoImage"
 export default function Page() {
     return (
         <>
             <PageTitle>明治に恋する５秒前</PageTitle>
             <PageContainer>
+                <LogoImage src="/images/kaihatsu/love.jpg" alt="明治に恋する5秒前 ロゴ" className="mt-10" />
                 <SectionTitle>企画概要</SectionTitle>
                 <Text moreTopPadding>
                     明治大学に興味がある、保護者の方や受験を戦うみなさまにおすすめしたいのが、大好評の受験生企画です！
@@ -28,7 +29,7 @@ export default function Page() {
                 <Text>11月1日(土).2日(日) 10：00～18：00</Text>
                 <Text>11月3日(月・祝) 10：00～17：30</Text>
                 <SmallTitle>場所</SmallTitle>
-                <Text>メディア棟4階Aラウンジ(相談会)、M402・403教室(展示) </Text>
+                <Text>メディア棟4階Aラウンジ（相談会）、M402・M403教室（展示）</Text>
                 <SectionTitle>参加方法</SectionTitle>
                 <Text moreTopPadding>
                     展示は常時開放しています。相談会は予約制となっており、明大祭当日は和泉図書館前企画受付にて予約を承っております。

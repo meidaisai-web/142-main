@@ -1,67 +1,74 @@
 import { isAlreadyVoted, isVoteTime, saveVotedId } from "@/utils/managers/meichamManager";
 import { voteMeicham } from "@/utils/supabase/meichamAction";
 import { useEffect, useState } from "react";
-import Button from "../buttons/Button";
-import Text from "../texts/Text";
 import Image from "next/image";
 import { List, ListItem } from "../texts/List";
 import Link from "next/link";
+import Alert from "../Alert";
 
 interface VoteViewProps {
     id: string;
     groupId: string;
     type: string;
+    eventName: string;
+    groupName: string;
+    eventDate: string;
 }
 
-export default function VoteView({ id, groupId, type }: VoteViewProps) {
+export default function VoteView({ id, groupId, type, eventName, groupName, eventDate }: VoteViewProps) {
 
-    const [hasVoted, setHasVoted] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isEnable, setIsEnable] = useState(true);
+    const [hiddenAlert, setHiddenAlert] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [buttonText, setButtonText] = useState("投票する");
 
     useEffect(() => {
-        if (!isVoteTime) {
-            setButtonText("投票可能時間外です")
-        }
-        if (isAlreadyVoted(id, groupId, type)) {
-            setHasVoted(true);
+        // if (!isVoteTime(eventDate)) {
+        //     setButtonText("投票可能時間外です")
+        //     setIsEnable(false);
+        //     return;
+        // }
+        if (isAlreadyVoted(id)) {
+            setIsEnable(false);
             setButtonText("投票済み");
         }
-    }, [id])
+    }, [])
+
+    function onTapVote() {
+        setHiddenAlert(false);
+    }
 
     async function handleVote() {
-        if (isLoading) return; // 連打防止
-        setIsLoading(true);
+        if (!isEnable) return; // 連打防止
+        setIsEnable(false);
         setError(null);
         setButtonText("投票中...");
-        if (!isVoteTime) {
-            setError("投票可能な時間ではありません。");
-            setButtonText("投票可能時間外です");
-            setIsLoading(false);
-            return;
-        }
+        // if (!isVoteTime(eventDate)) {
+        //     setError("投票可能な時間ではありません。");
+        //     setButtonText("投票可能時間外です");
+        //     setIsEnable(false);
+        //     return;
+        // }
         // すでにその日に、その企画に投票しているか確認
-        if (isAlreadyVoted(id, groupId, type)) {
+        if (isAlreadyVoted(id)) {
             setError("本日すでにこの企画に投票しています。");
             setButtonText("投票済み");
-            setIsLoading(false);
+            setIsEnable(false);
             return;
         }
         // 投票していなければ、投票を実行
         const success = await voteMeicham(id, groupId, type);
         if (!success) {
             setError("投票に失敗しました。もう一度お試しください。");
-            setIsLoading(false);
+            setIsEnable(true);
             setButtonText("投票する");
             return;
         }
-        setHasVoted(true);
+        setIsEnable(false);
         setError(null);
         setButtonText("投票済み");
         // localStorageに投票済みの企画IDを保存
         saveVotedId(id, groupId, type);
-        setIsLoading(false);
     }
 
     return (
@@ -81,18 +88,19 @@ export default function VoteView({ id, groupId, type }: VoteViewProps) {
                     <List mark="※" className="pt-3">
                         <ListItem>企画へのお問い合わせは、総合インフォメーションまでお越しください。</ListItem>
                     </List>
-                    <VoteButton onClick={handleVote} disabled={hasVoted || isLoading}>
+                    <VoteButton onClick={handleVote} disabled={!isEnable}>
                         {buttonText}
                     </VoteButton>
-                    <div className="rounded-full px-8 py-2 mt-5 text-center">
-                        詳しくはこちら
+                    <p className="text-center">{error}</p>
+                    <div className="flex flex-col gap-5 w-full mt-5 items-center">
+                        <p>Meidaisai Championsipとは</p>
+                        <p>抽選券引き換え画面</p>
                     </div>
-                    <Text>{error}</Text>
                 </div>
             </div>
             {/* 本体 */}
             <div className="flex flex-col items-center bg-white border-4 rounded-3xl border-accent text-black font-medium p-7 text-sm sm:text-base">
-                <Image src="/images/meichamp-logo.jpg" alt="Meidaisai Championship ロゴ" width={200} height={200} />
+                <Image src="/images/meichamp-logo.jpg" alt="Meidaisai Championship ロゴ" width={200} height={200} className="max-w-full w-64" />
                 <div className="flex flex-wrap justify-center font-bold text-lg">
                     <p>明大祭のチャンピオンに</p>
                     <p>輝くのは誰だ！</p>
@@ -104,16 +112,34 @@ export default function VoteView({ id, groupId, type }: VoteViewProps) {
                 <List mark="※" className="pt-3">
                     <ListItem>企画へのお問い合わせは、総合インフォメーションまでお越しください。</ListItem>
                 </List>
-                <VoteButton onClick={handleVote} disabled={hasVoted || isLoading}>
+                <VoteButton onClick={onTapVote} disabled={!isEnable}>
                     {buttonText}
                 </VoteButton>
-                <Link href='/champ'>
-                    <div className="bg-secondary hover:bg-secondary-700 text-white rounded-full px-8 py-2 mt-5 text-center">
-                        詳しくはこちら
-                    </div>
-                </Link>
-                <Text>{error}</Text>
+                <p className="text-primary text-center">{error}</p>
+                <div className="flex flex-col gap-5 w-full mt-5 items-center">
+                    <Link href='/champ' className="text-secondary hover:underline">Meidaisai Championsipとは</Link>
+                    <Link href='/voucher' className="text-secondary hover:underline">抽選券引き換え画面</Link>
+                </div>
             </div>
+            <Alert title="この企画に投票しますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: '投票する', action: () => handleVote() }}>
+                <div className="text-sm sm:text-base">
+                    <div className="flex mb-2">
+                        <p className="min-w-14 mr-2">企画名:</p>
+                        <p>{eventName}</p>
+                    </div>
+                    <div className="flex">
+                        <p className="min-w-14 mr-2">団体名:</p>
+                        {id === "80" ? (
+                            <div>
+                                <p className="mb-1">体育同好会連合会チアリーディングチーム・JAGUARS</p>
+                                <p>男子チアリーディングチーム ANCHORS</p>
+                            </div>
+                        ) : (
+                            <p>{groupName}</p>
+                        )}
+                    </div>
+                </div>
+            </Alert>
         </div>
     )
 }
@@ -127,10 +153,10 @@ interface VoteButtonProps {
 function VoteButton({ onClick, disabled, children }: VoteButtonProps) {
     return (
         <button onClick={onClick} disabled={disabled} className="relative whitespace-nowrap cursor-pointer z-0 py-5">
-            <div className={`-rotate-3 rounded-full border-4 border-accent py-3 w-60 text-center absolute -z-10`}>
+            <div className={`-rotate-3 rounded-full border-4 border-accent py-3 w-52 text-center absolute -z-10`}>
                 <p className='opacity-0'>{children}</p>
             </div>
-            <div className={`font-bold rounded-full hover:bg-primary-700 transition duration-100 py-3 w-60 ${disabled ? 'bg-primary-700 text-gray-300 cursor-not-allowed' : 'bg-primary text-white'}`}>
+            <div className={`font-bold rounded-full hover:bg-primary-700 transition duration-100 py-3 w-52 ${disabled ? 'bg-primary-700 text-gray-300 cursor-not-allowed' : 'bg-primary text-white'}`}>
                 {children}
             </div>
         </button>

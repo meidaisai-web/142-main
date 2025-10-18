@@ -6,6 +6,8 @@ import PageTitle from '@/components/texts/PageTitle'
 import Emphasis from '@/components/texts/Emphasis'
 import SmallTitle from '@/components/texts/SmallTitle'
 import AccentText from '@/components/texts/AccentText'
+import MapImage from '@/components/MapImage'
+
 export default function Page() {
     return (
         <div>
@@ -23,6 +25,7 @@ export default function Page() {
                 <List mark="※">
                     <ListItem>2つの抽選企画の会場が隣接しているためご注意ください。</ListItem>
                 </List>
+                <MapImage src="/images/map/lottery.jpg" alt="大抽選会会場" />
                 <SmallTitle>実施日時</SmallTitle>
                 <div className='my-5'>
                     <div className='flex'>
@@ -115,8 +118,9 @@ export default function Page() {
                         </List>
                     </List>
                 </List>
-                {/* <SmallTitle>対象の抽選券</SmallTitle> */}
-                <List mark='※'>
+                <SmallTitle>対象の抽選券</SmallTitle>
+                <MapImage src="/images/lottery-ticket.jpg" alt="抽選券見本" />
+                <List mark='※' className='mt-5'>
                     <ListItem>
                         <Emphasis>抽選券1枚につき1回抽選に参加できます。（お1人様最大5回まで）</Emphasis>
                     </ListItem>

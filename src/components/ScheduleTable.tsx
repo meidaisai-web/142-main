@@ -22,7 +22,7 @@ const ScheduleTable: React.FC<ScheduleTableProps> = ({ days, times, widths, col2
                             return (
                                 <th
                                     key={index}
-                                    colSpan={hasMinutes ? 2 : 1} // minutesがあるときはcolSpan=2､ないときは1
+                                    colSpan={hasMinutes ? 2 : 1} // minutesがあるときはcolSpan=2、ないときは1
                                     className={`
                     border border-black lg:p-2 py-2 bg-secondary text-center text-white
                     ${index === 0 && 'rounded-tl-lg'}
@@ -92,7 +92,7 @@ const ScheduleTable: React.FC<ScheduleTableProps> = ({ days, times, widths, col2
 // ----------------------- MergedScheduleTable -----------------------
 type MergedScheduleTableProps = {
     headers: string[][]; // ヘッダーのタイトルを二次元配列で指定
-    rows: (string[] | string)[][]; // 1列目はstring[]またはstring､2列目と3列目はstring
+    rows: (string[] | string)[][]; // 1列目はstring[]またはstring、2列目と3列目はstring
     widths?: string[]; // 列の幅を指定するプロパティ
 };
 

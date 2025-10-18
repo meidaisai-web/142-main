@@ -6,13 +6,12 @@ export async function getAllMasterDatas(key: { page: number, limit: number, keyw
     const supabase = createClient();
     const start = key.limit * key.page;
     const end = start + key.limit - 1;
-    const orderColumns = ['eventName', 'catchphrase', 'eventContent', 'groupName', 'eventDate', 'location', 'createdAt'];
 
     function order() {
         if (key.sortType.orderColumn === 'free') {
             return {
                 orderColumn: 'createdAt',
-                ascending: false
+                ascending: true
              }
         } else {
             return key.sortType;

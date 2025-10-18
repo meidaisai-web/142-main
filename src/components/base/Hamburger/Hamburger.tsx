@@ -50,15 +50,44 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/announce", label: "ご来場のみなさまへのお願い" },
             { href: "/access", label: "アクセス" },
             { href: "/news", label: "お知らせ" },
+            { href: "/faq", label: "よくある質問" },
         ]
     },
     {
         title: "特集",
         content: [
-            { href: "/lottery", label: "明大祭大抽選会" },
-            { href: "/matsubara", label: "松原小学校×明大祭" },
+            { href: "/search", label: "企画検索" },
             { href: "/crowdfunding", label: "クラウドファンディング" },
+            { href: "/champ", label: "Meidaisai Championship" },
+            { href: "/lottery", label: "明大祭大抽選会" },
+            { href: "/illumination", label: "明大祭イルミネーション" },
+            // { href: "/ribbon", label: "Re:Bond～リボンでつながる思い出～" },
+            // { href: "/say", label: "明大SAY！"},
+            // { href: "/sports", label: "EXPOrts2025 in 明治"},
+            // { href: "/rally", label: "跡巡〜あとめぐ〜"},
+            // { href: "/tour", label: "明治大解剖ツアー"},
+            // { href: "/wish", label: "一灯一想"},
             // { href: "/booth", label: "企業ブース" },
+        ]
+    },
+    {
+        title: "コラボ企画",
+        content: [
+            { href: "/matsubara", label: "松原小学校×明大祭" },
+            { href: "/keio", label: "KEIO×第141回明大祭デジタルスタンプラリー" },
+            { href: "/lottely-shop", label: "明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～" },
+        ]
+    },
+]
+
+const forOutside = [
+    {
+        title: "関係者のみなさまへ",
+        content: [
+            { href: "/company", label: "企業のみなさまへ" },
+            { href: "/area", label: "界隈地域のみなさまへ" },
+            { href: "/alumni", label: "校友のみなさまへ" },
+            { href: "/media", label: "メディアのみなさまへ" },
         ]
     },
     {
@@ -67,15 +96,6 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/company-list", label: "ご協賛企業一覧" },
             { href: "/area-list", label: "ご協賛店舗一覧" },
             { href: "/alumni-list", label: "ご賛助ご芳名" },
-        ]
-    },
-    {
-        title: "明大祭に関わってくださるみなさまへ",
-        content: [
-            { href: "/company", label: "企業のみなさまへ" },
-            { href: "/area", label: "界隈地域のみなさまへ" },
-            { href: "/alumni", label: "校友のみなさまへ" },
-            { href: "/media", label: "メディアのみなさまへ" },
         ]
     },
 ]
@@ -99,6 +119,17 @@ function HamburgerSP() {
                         hamburgerContent={section.content.map(item => ({ title: item.label, href: item.href }))}
                     />
                 ))}
+                <div className="flex flex-col gap-10">
+                    {forOutside.map((section) => (
+                        <HamburgerAccordion
+                            key={section.title}
+                            isOpen={openId === hamburgerContents.length + forOutside.indexOf(section)}
+                            onClick={() => toggleAccordion(hamburgerContents.length + forOutside.indexOf(section))}
+                            title={section.title}
+                            hamburgerContent={section.content.map(item => ({ title: item.label, href: item.href }))}
+                        />
+                    ))}
+                </div>
             </div>
             <SecondaryButton href="/about" className="mb-10">明大祭とは</SecondaryButton>
         </div>
@@ -113,6 +144,11 @@ function HamburgerPC() {
                 {hamburgerContents.map((section) => (
                     <HamburgerSection key={section.title} {...section} />
                 ))}
+                <div className="flex gap-x-20">
+                    {forOutside.map((section) => (
+                        <HamburgerSection key={section.title} {...section} />
+                    ))}
+                </div>
             </div>
             <SecondaryButton href="/about" className="mt-5">明大祭とは</SecondaryButton>
         </div>
