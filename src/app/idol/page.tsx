@@ -18,7 +18,7 @@ export default function Page() {
                     alt='I♡Fes!ロゴ'
                     className="mt-10"
                 />
-                <div className="md:flex md:gap-5 my-5">
+                <div className="md:flex md:gap-5 mt-10">
                     <OnlyImage
                         src="/images/ensyutsu/ifes1.jpg"
                         alt='I♡Fes!ウェブ広報写真1'

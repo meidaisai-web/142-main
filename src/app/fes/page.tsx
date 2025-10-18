@@ -13,16 +13,8 @@ export default function Page() {
         <>
             <PageTitle>UNI ROCK FES</PageTitle>
             <PageContainer>
-                <LogoImage
-                    src="/images/ensyutsu/fes-logo.jpg"
-                    alt='UNI ROCK FESのロゴ'
-                    className="mt-10 mb-5"
-                    />
-                <OnlyImage
-                    src="/images/ensyutsu/fes.jpg"
-                    alt='UNI ROCK FESの画像'
-                    className="mt-7 mb-5"
-                />
+                <LogoImage src="/images/ensyutsu/fes-logo.jpg" alt='UNI ROCK FESのロゴ' className="mt-10" />
+                <OnlyImage src="/images/ensyutsu/fes.jpg" alt='UNI ROCK FESの画像' className="mt-10" />
                 <SectionTitle>響け、叫べ、ひとつになれ。</SectionTitle>
                 <Text moreTopPadding><Emphasis>鳴らせ、鼓動</Emphasis></Text>
                 <Text><Emphasis>繋げ、一体感。</Emphasis></Text>
