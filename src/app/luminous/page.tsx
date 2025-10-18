@@ -1,43 +1,48 @@
 import PageContainer from "@/components/base/PageContainer";
 import PageTitle from "@/components/texts/PageTitle";
-import Image from "next/image";
 import SectionTitle from "@/components/texts/SectionTitle";
 import Emphasis from "@/components/texts/Emphasis";
 import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
 import Text from "@/components/texts/Text";
+import LogoImage from "@/components/LogoImage";
+import OnlyImage from "@/components/OnlyImage";
+import { List, ListItem } from "@/components/texts/List";
 
 export default function LuminousPage() {
     return (
         <>
             <PageTitle>Luminous Stage</PageTitle>
             <PageContainer>
-                <Image src="/images/LuminousStage.pdf" alt="Luminous Stage" />
-                <Image src="/images/LSweb1.jpg" alt="Luminous Stage" />
-                <Image src="/images/LSweb2.jpg" alt="Luminous Stage" />
+                <LogoImage src="/images/ensyutsu/luminous-logo.png" alt="Luminous Stageのロゴ" className="mt-10" />
+                <div className="md:flex md:gap-5 mt-5">
+                    <OnlyImage src="/images/ensyutsu/luminous1.jpg" alt="Luminous Stage" className="mb-5" />
+                    <OnlyImage src="/images/ensyutsu/luminous2.jpg" alt="Luminous Stage" className="mb-5" />
+                </div>
                 <SectionTitle>響鳴せよ、輝く舞台で。</SectionTitle>
-                <div className="mt-10" />
-                <Emphasis>響鳴せよ、輝く舞台で。</Emphasis>
-                <div className="mt-10" />
-                <text>客席と舞台がひとつに！</text>
-                <text>360度広がる全方位パフォーマンス。</text>
-                <text>普段の教室が輝くステージへ。</text>
-                <div className="mt-10" />
-                <AccentText>企画概要：</AccentText>
-                <text>教室全体を使用した斬新な屋内ステージ新企画！！</text>
-                <text>今までにない新たな演出方法で観客一体型の空間を創り上げます。</text>
-                <text>屋内ステージだからこそできる、魅力あふれるステージパフォーマンスをご覧あれ。</text>
-                <div className="mt-5" />
-                <AccentText>日時：11月2日(日)10:30～11:30</AccentText>
-                <AccentText>場所：和泉ラーニングスクエアLS101教室</AccentText>
-                <AccentText>出演団体：</AccentText>
-                <Text>フラッシュモ部</Text>
-                <Text>ジャグリングサークルDietz</Text>
-                <Text>ミュージカル研究会</Text>
-                <Text>中野ダンスサークルSIGN</Text>
-                <Text>K-POPカバーダンスサークルMercie</Text>
-                <div className="mt-5" />
-                <text>※コンテンツの都合上、入場規制をさせていただく時間があります。</text>
+                <Text moreTopPadding><Emphasis>輝きが交差するその瞬間</Emphasis></Text>
+                <Text><Emphasis>教室がステージに代わり、すべての想いがひとつになる。</Emphasis></Text>
+                <Text>客席と舞台がひとつに！</Text>
+                <Text>360度広がる全方位パフォーマンス。</Text>
+                <Text>普段の教室が輝くステージへ。</Text>
+                <SectionTitle>企画概要</SectionTitle>
+                <Text>教室全体を使用した斬新な屋内ステージ新企画！！</Text>
+                <Text>今までにない新たな演出方法で観客一体型の空間を創り上げます。</Text>
+                <Text>屋内ステージだからこそできる、魅力あふれるステージパフォーマンスをご覧あれ。</Text>
+                <SectionTitle>企画実施日時・場所</SectionTitle>
+                <SmallTitle>日時</SmallTitle>
+                <Text>11月2日(日)10：30～11：30</Text>
+                <SmallTitle>場所</SmallTitle>
+                <Text>和泉ラーニングスクエアLS101教室</Text>
+                <SectionTitle>出演団体</SectionTitle>
+                <List mark="・" className="mt-8">
+                    <ListItem>フラッシュモ部</ListItem>
+                    <ListItem>ジャグリングサークルDietz</ListItem>
+                    <ListItem>ミュージカル研究会</ListItem>
+                    <ListItem>中野ダンスサークルSIGN</ListItem>
+                    <ListItem>K-POPカバーダンスサークルMercie</ListItem>
+                </List>
+                <Text>※コンテンツの都合上、入場規制をさせていただく時間があります。</Text>
                 {/*　動画を入れる　*/}
             </PageContainer>
         </>
