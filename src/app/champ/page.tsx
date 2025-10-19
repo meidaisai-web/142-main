@@ -33,6 +33,7 @@ export default function ChampPage() {
                 <List mark="・">
                     <ListItem>投票できるのは、各企画1日1回までです。</ListItem>
                     <ListItem>よいと思った企画すべてに投票することができます。</ListItem>
+                    <ListItem>ブラウザがプライベートモード、シークレットモードなどの状態では投票できません。必ず通常モードでアクセスしてください。</ListItem>
                 </List>
                 <SmallTitle>抽選会への参加方法</SmallTitle>
                 <Text>投票してくださった方は、明大祭大抽選会に参加ができます！</Text>
