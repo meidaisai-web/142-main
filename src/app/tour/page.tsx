@@ -7,7 +7,7 @@ import Text from '@/components/texts/Text'
 import Emphasis from '@/components/texts/Emphasis'
 import { List, ListItem } from "@/components/texts/List";
 import { ScheduleTable } from "@/components/ScheduleTable";
-
+import MapImage from "@/components/MapImage";
 
 const days = ['11月2日(土)', '11月3日(日)', '11月4日(月・祝)'];
 
@@ -71,14 +71,7 @@ export default function Tour() {
                 <Sectiontitle>企画実施日時・場所</Sectiontitle>
                 <SmallTitle>日時</SmallTitle>
                 <Text>
-                    11月1日(土).2日(日).3日(月・祝)
-                </Text>
-                <Text>
-                    10：00～16：00
-                </Text>
-                <SmallTitle>参加方法</SmallTitle>
-                <Text>
-                    和泉図書館前企画受付にて予約制で承っております。
+                    11月1日(土).2日(日).3日(月・祝) 10：00～16：00
                 </Text>
                 <ScheduleTable days={days} times={times} />
                 <List mark="※">
@@ -90,6 +83,11 @@ export default function Tour() {
                 <List mark="※">
                     <ListItem>各日<Emphasis>13：00</Emphasis>、<Emphasis>15：00</Emphasis>の便は明治大学連合父母会の方を優先とさせていただきます。</ListItem>
                 </List>
+                <SmallTitle>参加方法</SmallTitle>
+                <Text>
+                    和泉図書館前企画受付にて予約制で承っております。
+                </Text>
+                <MapImage src="/images/ad/tourmap.jpg" alt="ツアー受付場所" />
                 <ContactView department="開発局" mail="kaihatsu@meidaisai.jp" showPhone showAddress />
             </PageContainer>
         </div>

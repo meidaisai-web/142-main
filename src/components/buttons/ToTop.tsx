@@ -65,7 +65,8 @@ const ToTop: React.FC = () => {
                     width={50}
                     height={50}
                 />
-                <p className={'w-full text-center font-bold text-xl leading-3 stroke-black'}>TOP</p>
+                {/* <p className={'w-full text-center font-bold text-xl leading-3'} style={textStrokeStyle}>TOP</p> */}
+                <p className={'w-full text-center font-bold text-xl leading-3'} style={{ textShadow: '1px 1px 0 #3571B8'}}>TOP</p>
             </button>
         </div>
     );

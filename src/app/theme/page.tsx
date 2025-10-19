@@ -9,6 +9,7 @@ import ImageText from "@/components/texts/ImageText"
 import Movie from "@/components/movie"
 import TransitionLink from "@/components/buttons/TransitionLink"
 import Image from 'next/image'
+
 export default function Page() {
     return (
         <>
