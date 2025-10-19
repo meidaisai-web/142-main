@@ -150,7 +150,7 @@ export default function Page() {
                 <MapImage src="/images/map/goods.jpg" alt="公式グッズ販売ブースのマップ" className="mb-5" />
                 <TransitionLink href="/goods">明大祭公式グッズの詳細はこちら</TransitionLink>
                 <SectionTitle>ご利用いただけるキャッシュレス決済ブランド</SectionTitle>
-                <OnlyImage src="/images/payment.jpg" alt="キャッシュレス決済一覧" className="mt-8"/>
+                <OnlyImage src="/images/cashless/payment.jpg" alt="キャッシュレス決済一覧" className="mt-8"/>
                 <SmallTitle>会場でキャッシュレス決済が利用可能か確認する方法</SmallTitle>
                 <List numbered>
                     <ListItem>キャンパスマップに、各ブースのキャッシュレス決済対応状況を記載しています。</ListItem>
