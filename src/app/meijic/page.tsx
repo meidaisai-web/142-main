@@ -11,7 +11,7 @@ export default function Page() {
         <div>
             <PageTitle>Meijic Moment</PageTitle>
             <PageContainer>
-                <SectionTitle>"Meijic Moment"で明大祭をもっと特別に！</SectionTitle>
+                <SectionTitle>”Meijic Moment”で明大祭をもっと特別に！</SectionTitle>
                 <Text moreTopPadding><Emphasis>フォトブースで撮影</Emphasis>し、<Emphasis>Instagramをフォロー & SNS投稿</Emphasis>で抽選券をゲット！</Text>
                 <Text>明大祭大抽選会に参加すれば豪華景品が当たるチャンスも！</Text>
                 <Text>さらに！運が良ければめいじろうと写真が撮れるかも？！</Text>
