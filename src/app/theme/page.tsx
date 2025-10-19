@@ -4,14 +4,28 @@ import Text from "@/components/texts/Text"
 import SmallTitle from "@/components/texts/SmallTitle"
 import PageContainer from "@/components/base/PageContainer"
 import { List, ListItem } from "@/components/texts/List"
+import ThemeImage from "@/components/texts/ThemeImage"
 import ImageText from "@/components/texts/ImageText"
 import Movie from "@/components/movie"
 import TransitionLink from "@/components/buttons/TransitionLink"
+import Image from 'next/image'
 export default function Page() {
     return (
         <>
             <PageTitle>第141回明大祭テーマ</PageTitle>
             <PageContainer>
+                <Text className="mt-15">今年度の明大祭を象徴する第141回明大祭テーマ。テーマはロゴ・コンセプト・カラーの3つの要素から構成されています。</Text>
+                <Text>テーマに込められている思いを胸に、第141回明大祭を一緒に盛り上げていきましょう！</Text>
+                <SectionTitle className="mt-10 mb-10">第141回明大祭コンセプト</SectionTitle>
+                <Image src="/images/theme/concept1.png" alt="Concept Image" width={250} height={100} className="mx-auto mb-10" />
+                <div className="text-center">
+                  <p>ステージの声援、屋台の喧騒、笑い声や拍手、その全てが”熱狂”を生み出す。</p>
+                  <p>私たちが目指すのは、その”熱狂”をただのゴールにしない祭</p>
+                  <p>終わったあとも誰かの心に残り続ける、価値ある体験と心揺さぶる感情</p>
+                  <p>そして、人生を変える出会いと気づき、</p>
+                  <p>ただ楽しいだけでは満たされない、だから創る。</p>
+                  <p>誰かの人生に刻まれる、そんな3日間を。</p>
+                </div>
                 <SectionTitle className="mt-5">第141回明大祭ロゴ</SectionTitle>
                 <ImageText src="/images/theme-logo.jpg" alt="Logo Image" className="mt-12">
                     <List mark="・">
@@ -21,14 +35,22 @@ export default function Page() {
                     </List>
                 </ImageText>
                 <SectionTitle className="mt-8 mb-8">第141回明大祭カラー</SectionTitle>
+                <ThemeImage src="/images/theme/ennku1.png" alt="焔紅（えんく）">
                 <SmallTitle>【焔紅（えんく）】</SmallTitle>
-                <Text>心に灯る情熱の焔が、熱狂の渦となって燃え上がるような力強く輝かしい祭になって欲しいという願い</Text>
-                <SmallTitle className="mt-5">【蒼炎（そうえん）】</SmallTitle>
-                <Text>火の中心にある蒼い炎は人々の心に潜む情熱の象徴</Text>
+                心に灯る情熱の焔が、熱狂の渦となって燃え上がるような力強く輝かしい祭になって欲しいという願い
+                </ThemeImage>
+                <div className="mt-10"></div>
+                <ThemeImage src="/images/theme/souenn1.png" alt="蒼炎（そうえん）">
+                <SmallTitle>【蒼炎（そうえん）】</SmallTitle>
+                火の中心にある蒼い炎は人々の心に潜む情熱の象徴
                 <Text>内なる情熱が解き放たれるような祭になってほしいという願い</Text>
-                <SmallTitle className="mt-5">【軌光（きこう）】</SmallTitle>
-                <Text>熱狂の先にある未来や希望を象徴する光</Text>
+                </ThemeImage>
+                <div className="mt-10"></div>
+                <ThemeImage src="/images/theme/kikou1.png" alt="軌光（きこう）">
+                <SmallTitle>【軌光（きこう）】</SmallTitle>
+                熱狂の先にある未来や希望を象徴する光
                 <Text className="mb-20">人々の歩む道を照らし、未来へ導く希望の軌道となるような祭になってほしいという願い</Text>
+                 </ThemeImage>
                 <SectionTitle>第141回明大祭テーマソング</SectionTitle>
                 <Text className="mt-3">詳しくは<TransitionLink href="https://www.meidaisai.jp/mv">こちら</TransitionLink></Text>
                 <Movie href="https://www.youtube.com/embed/hy9vlDdDjC4?si=73144Wq1-VOer2o-"/>
