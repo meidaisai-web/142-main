@@ -16,18 +16,18 @@ export default function Page() {
                 <Text>各校舎の1階にて配布します。</Text>
                 <SectionTitle>ラインナップ</SectionTitle>
                 <SmallTitle>まるver.</SmallTitle>
-                <div className="gap-4 flex flex-col xl:flex-row">
-                    <div className="flex flex-col sm:flex-row gap-4">
+                <div className="gap-4 flex flex-col xl:flex-row items-center justify-center">
+                    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                         <Image src="/images/sticker/circle1.png" alt="ステッカー" width={200} height={200} className="w-full max-w-60" />
                         <Image src="/images/sticker/circle2.png" alt="ステッカー" width={200} height={200} className="w-full max-w-60" />
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                         <Image src="/images/sticker/circle3.png" alt="ステッカー" width={200} height={200} className="w-full max-w-60" />
                         <Image src="/images/sticker/circle4.png" alt="ステッカー" width={200} height={200} className="w-full max-w-60" />
                     </div>
                 </div>
                 <SmallTitle>しかくver.</SmallTitle>
-                <div className="gap-4 flex flex-col lg:flex-row">
+                <div className="gap-4 flex flex-col lg:flex-row items-center justify-center">
                     <Image src="/images/sticker/square1.png" alt="ステッカー" width={200} height={200} className="w-full max-w-60 rounded-xl" />
                     <Image src="/images/sticker/square2.png" alt="ステッカー" width={200} height={200} className="w-full max-w-60 rounded-xl" />
                     <Image src="/images/sticker/square3.png" alt="ステッカー" width={200} height={200} className="w-full max-w-60 rounded-xl" />
