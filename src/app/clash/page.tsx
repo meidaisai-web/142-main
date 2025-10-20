@@ -17,7 +17,7 @@ export default function Page() {
                 <OnlyImage src="/images/ensyutsu/clash.jpg" alt="" className="mt-10"/>
                 <SectionTitle>共闘の刻ー賭けろ、すべてを。</SectionTitle>
                 <Text moreTopPadding><Emphasis>勝つか、散るか。</Emphasis></Text>
-                <Text><Emphasis>プライドを掛けた運命の1戦</Emphasis></Text>
+                <Text><Emphasis>プライドを掛けた運命の一戦</Emphasis></Text>
                 <Text><Emphasis>盤上の支配者が今宵、ここで決まる。</Emphasis></Text>
 
                 <Text moreTopPadding>戦い続けた団体が</Text>
@@ -25,10 +25,11 @@ export default function Page() {
                 <Text>この頂点は、間違いなく最強だ。</Text>
 
                 <SectionTitle>企画概要</SectionTitle>
-                <Text moreTopPadding>勝敗を決めるのは、あなたの１票。明大祭初夜、頂点を懸けた戦いが始まる。勝利を手にするのは、3連覇を狙う中野ダンスサークルSIGN擁するTEAM QUEENか—悲願達成を誓うK-POPカバーダンスサークルMercie擁するTEAM KINGか。激闘の行く末に待っているものとは—その瞬間を、見逃すな。</Text>
+                <Text moreTopPadding>勝敗を決めるのは、あなたの１票。明大祭初夜、頂点を懸けた戦いが始まる。勝利を手にするのは、3連覇を狙う中野ダンスサークルSIGN擁するTEAM QUEENか—悲願達成を誓う</Text>
+                <Text noTopPadding>K-POPカバーダンスサークルMercie擁するTEAM KINGか。激闘の行く末に待っているものとは—その瞬間を、見逃すな。</Text>
                 <SectionTitle>企画実施日時・場所</SectionTitle>
                 <SmallTitle>日時</SmallTitle>
-                <Text>11月1日(土) 17：00〜18：00</Text>
+                <Text>11月1日(土) 17：10〜18：00</Text>
 
                 <SmallTitle>場所</SmallTitle>
                 <Text>メインステージ</Text>
