@@ -13,7 +13,7 @@ export default function Page() {
         <>
             <PageTitle>Ending</PageTitle>
             <PageContainer>
-                <LogoImage src="/images/ensyutsu/ending-logo.jpg" alt='エンディングロゴの画像' className="mt-10" />
+                <LogoImage src="/images/ensyutsu/ending-logo.jpg" alt='エンディングロゴの画像' className="my-10" />
                 <OnlyImage src="/images/ensyutsu/ending.jpg" alt='エンディングステージの画像' />
                 <SectionTitle>「祭、終結」</SectionTitle>
                 <Text moreTopPadding><Emphasis>煌めく星の下、戻ることのないこの夜に。</Emphasis></Text>
