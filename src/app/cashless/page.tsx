@@ -134,7 +134,7 @@ export default function Page() {
                 <List mark="※">
                     <ListItem>現金はすべてのブースで使用可能です。</ListItem>
                     <ListItem>一部、キャッシュレス非対応のブースもあります。</ListItem>
-                    <ListItem>初年度導入のため、決済にお時間を要する場合があります。ご了承ください。</ListItem>
+                    <ListItem>導入初年度のため、決済にお時間を要する場合があります。ご了承ください。</ListItem>
                 </List>
                 <SectionTitle>キャッシュレス導入ブース一覧</SectionTitle>
                 <SmallTitle>模擬店企画</SmallTitle>
