@@ -7,26 +7,27 @@ import Emphasis from "@/components/texts/Emphasis"
 import ContactView from "@/components/texts/ContactView"
 import OnlyImage from "@/components/OnlyImage"
 import { List, ListItem } from '@/components/texts/List'
+import LogoImage from "@/components/LogoImage"
 export default function Page() {
     return (
         <>
             <PageTitle>I♡Fes!</PageTitle>
             <PageContainer>
-                <OnlyImage
+                <LogoImage
                     src="/images/ensyutsu/ifes-logo.png"
                     alt='I♡Fes!ロゴ'
-                    className="mx-auto w-full max-w-xs mt-10"
+                    className="mt-10"
                 />
-                <div className="md:flex md:gap-5 my-5">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-5 my-5">
                     <OnlyImage
                         src="/images/ensyutsu/ifes1.jpg"
                         alt='I♡Fes!ウェブ広報写真1'
-                        className="mx-auto w-full max-w-lg mb-5"
+                        className="w-full max-w-lg"
                     />
                     <OnlyImage
                         src="/images/ensyutsu/ifes2.jpg"
                         alt='I♡Fes!ウェブ広報写真2'
-                        className="mx-auto w-full max-w-lg mb-5"
+                        className="w-full max-w-lg"
                     />
                 </div>
                 <SectionTitle>踊って、叫んで、また好きになる。</SectionTitle>
