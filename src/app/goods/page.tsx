@@ -44,13 +44,13 @@ export default function Page() {
                 <List className="mt-8" mark="・">
                     <ListItem>お支払いは<Emphasis>現金・キャッシュレス</Emphasis>に対応しております。</ListItem>
                     <OnlyImage
-                        src="/images/goods/payment.jpg"
+                        src="/images/cashless/payment.jpg"
                         alt="キャッシュレス決済一覧_09"
                         className="w-full max-w-xs mt-4 mb-10"
                     />
                     <ListItem>商品がなくなりしだい終了となります。</ListItem>
                     <ListItem>不良品以外返品・交換はできません。</ListItem>
-                    <ListItem>購入後、アンケートに回答していただいた方には、実行委員主催の抽選企画の抽選券をお渡しいたします。</ListItem>
+                    <ListItem>購入後、アンケートに回答していただいた方には、第141回明大祭実行委員会主催の抽選企画の抽選券をお渡しいたします。</ListItem>
                 </List>
                 <ContactView department="制作局　明大祭公式グッズチーム" mail="141st-goodsteam@meidaisai.jp" showPhone showAddress />
             </PageContainer>

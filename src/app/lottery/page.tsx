@@ -27,23 +27,8 @@ export default function Page() {
                 </List>
                 <MapImage src="/images/map/lottery.jpg" alt="大抽選会会場" />
                 <SmallTitle>実施日時</SmallTitle>
-                <div className='my-5'>
-                    <div className='flex'>
-                        <p className='w-8'>11月</p>
-                        <p className='w-24'>1日(土)</p>
-                        <p>11：00～18：00</p>
-                    </div>
-                    <div className='flex'>
-                        <div className='w-8' />
-                        <p className='w-24'>2日(日)</p>
-                        <p>11：00～18：00</p>
-                    </div>
-                    <div className='flex'>
-                        <div className='w-8' />
-                        <p className='w-24'>3日(月・祝)</p>
-                        <p>11：00～17：20</p>
-                    </div>
-                </div>
+                <Text>11月1日(土).2日(日) 11：00～18：00</Text>
+                <Text>11月3日(月・祝) 11：00～17：20</Text>
                 <List mark="※">
                     <ListItem>
                         <Emphasis>
