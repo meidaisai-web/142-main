@@ -51,16 +51,6 @@ const ToTop: React.FC = () => {
 
     const style = isVisible ? activeStyle : normalStyle
     const bottomClass = pathname === '/' ? 'bottom-8' : 'bottom-28 md:bottom-20';
-    const textStrokeStyle: React.CSSProperties = {
-        WebkitTextStroke: '0.6px #000',
-        // Fallback for browsers without text-stroke support
-        textShadow: `
-            0 0.5px 0 #000,
-            0 -0.5px 0 #000,
-            0.5px 0 0 #000,
-            -0.5px 0 0 #000
-        `
-    }
 
     return (
         <div className="w-12 absolute cursor-pointer">

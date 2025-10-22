@@ -31,7 +31,7 @@ interface ListItemProps {
     children: ReactNode;
 }
 export function ListItem({ children, className }: ListItemProps) {
-    return <p className={className}>{children}</p>;
+    return <div className={className}>{children}</div>;
 };
 
 interface ListTextProps {
@@ -49,10 +49,11 @@ interface ListProps {
     mark?: string; // カスタムマーク
     numbered?: boolean;
     alphabetic?: boolean;
+    gap?: number;
     className?: string;
 }
 
-export function List({ children, mark, numbered, alphabetic, className }: ListProps) {
+export function List({ children, mark, numbered, alphabetic, gap, className }: ListProps) {
     let listCount = 0;
     // 行頭文字の決定
     function listMark(index: number) {
@@ -67,6 +68,8 @@ export function List({ children, mark, numbered, alphabetic, className }: ListPr
         }
     }
 
+    const gapClass = gap ? `mb-${gap}` : 'mb-1';
+
     return (
         <ul className={`mb-6 ${className}`}>
             {Children.map(children, (child) => {
@@ -75,7 +78,7 @@ export function List({ children, mark, numbered, alphabetic, className }: ListPr
                     listCount++;
                     // 子要素をコピーして、先頭にマークを追加
                     return (
-                        <li className={`list-none flex items-start mb-1 ${numbered || alphabetic ? "ml-1" : ""}`}>
+                        <li className={`list-none flex items-start ${gapClass} ${numbered || alphabetic ? "ml-1" : ""}`}>
                             <span className="mr-1">{listMark(listCount)}</span>
                             <span>{child}</span>
                         </li>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { List, ListItem } from "../texts/List";
 import Link from "next/link";
 import Alert from "../Alert";
+import { detectIncognito } from "detectincognitojs";
 
 interface VoteViewProps {
     id: string;
@@ -23,15 +24,25 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
     const [buttonText, setButtonText] = useState("投票する");
 
     useEffect(() => {
-        // if (!isVoteTime(eventDate)) {
-        //     setButtonText("投票可能時間外です")
-        //     setIsEnable(false);
-        //     return;
-        // }
-        if (isAlreadyVoted(id, groupId, type)) {
-            setIsEnable(false);
-            setButtonText("投票済み");
+        async function initialize() {
+            // if (!isVoteTime(eventDate)) {
+            //     setButtonText("投票可能時間外です")
+            //     setIsEnable(false);
+            //     return;
+            // }
+            const incognito = await detectIncognito();
+            if (incognito.isPrivate) {
+                setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
+                setButtonText("投票できません");
+                setIsEnable(false);
+                return;
+            }
+            if (isAlreadyVoted(id)) {
+                setIsEnable(false);
+                setButtonText("投票済み");
+            }
         }
+        initialize();
     }, [])
 
     function onTapVote() {
@@ -49,8 +60,18 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         //     setIsEnable(false);
         //     return;
         // }
+
+        // プライベートモードの場合はエラー（localStorageにうまく保存できないため）
+        // おそらくsafariのみでChrome系は大丈夫だと思われるが一応プライベートモードの場合はすべて投票不可にする
+        const incognito = await detectIncognito();
+        if (incognito.isPrivate) {
+            setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
+            setButtonText("投票できません");
+            setIsEnable(false);
+            return;
+        }
         // すでにその日に、その企画に投票しているか確認
-        if (isAlreadyVoted(id, groupId, type)) {
+        if (isAlreadyVoted(id)) {
             setError("本日すでにこの企画に投票しています。");
             setButtonText("投票済み");
             setIsEnable(false);
@@ -117,11 +138,29 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                 </VoteButton>
                 <p className="text-primary text-center">{error}</p>
                 <div className="flex flex-col gap-5 w-full mt-5 items-center">
-                    <Link href='/champ' className="text-secondary hover:underline">Meidaisai Championsipとは</Link>
+                    <Link href='/champ' className="text-secondary hover:underline">Meidaisai Championshipとは</Link>
                     <Link href='/voucher' className="text-secondary hover:underline">抽選券引き換え画面</Link>
                 </div>
             </div>
-            <Alert title="この企画に投票しますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: '投票する', action: () => handleVote() }}>企画名: {eventName}<br />団体名: {groupName}</Alert>
+            <Alert title="この企画に投票しますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: '投票する', action: () => handleVote() }}>
+                <div className="text-sm sm:text-base">
+                    <div className="flex mb-2">
+                        <p className="min-w-14 mr-2">企画名:</p>
+                        <p>{eventName}</p>
+                    </div>
+                    <div className="flex">
+                        <p className="min-w-14 mr-2">団体名:</p>
+                        {id === "80" ? (
+                            <div>
+                                <p className="mb-1">体育同好会連合会チアリーディングチーム・JAGUARS</p>
+                                <p>男子チアリーディングチーム ANCHORS</p>
+                            </div>
+                        ) : (
+                            <p>{groupName}</p>
+                        )}
+                    </div>
+                </div>
+            </Alert>
         </div>
     )
 }

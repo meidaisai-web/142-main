@@ -43,8 +43,7 @@ export default function Header() {
           className="h-11"
         />
       </Link>
-      {/* TODO: 10/15日に更新する */}
-      {/* <CenterItems /> */}
+      <CenterItems />
       <HamburgerIcon isOpen={isOpenHamburger} setOpen={setOpenHamburger} />
       <Hamburger isOpen={isOpenHamburger} />
     </header>
@@ -53,8 +52,8 @@ export default function Header() {
 
 function CenterItems() {
   const items = [
-    { href: "/announce", src: "/images/svg/header/people.png", label: "ご来場者のみなさまへ" },
-    { href: "/feature", src: "/images/svg/header/point.png", label: "特集" },
+    // { href: "/announce", src: "/images/svg/header/people.png", label: "ご来場者のみなさまへ" },
+    // { href: "/feature", src: "/images/svg/header/point.png", label: "特集" },
     { href: "/search", src: "/images/svg/header/glass-white.svg", label: "企画を探す" },
   ]
   return (
@@ -72,15 +71,15 @@ interface CenterItemProps {
 }
 function CenterItem({ href, src, label }: CenterItemProps) {
   return (
-    <Link href={href}>
+    <Link href={href} className="flex gap-2">
       <Image
         src={src}
         alt={label}
         width={25}
         height={20}
-        className="hidden max-[35rem]:block"
+        className="w-5"
       />
-      <p className="max-[35rem]:hidden font-bold text-center">{label}</p>
+      <p className="font-bold text-center">{label}</p>
     </Link>
   )
 }

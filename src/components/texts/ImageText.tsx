@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Text from "./Text";
 
 type ImageTextProps = {
   src: string;
