@@ -21,7 +21,7 @@ export default function Page() {
                 <SmallTitle>日時</SmallTitle>
                 <Text>11月1日(土).2日(日).3日(月・祝) 11：00～18：00</Text>
                 <SmallTitle>場所</SmallTitle>
-                <Text>センターサークル前のフォトブース前</Text>
+                <Text>センターサークルのフォトブース前</Text>
                 <MapImage src="/images/map/meijic.jpg" alt="Meijic Moment 会場マップ" />
             </PageContainer>
         </div>
