@@ -140,7 +140,7 @@ const FightVote = () => {
         <SectionTitle>投票フォーム</SectionTitle>
 
         {/* ========== 開発用: 投票状態切り替えボタン (リリース時にコメントアウト) ========== */}
-        <div className="mb-8 p-4 bg-yellow-500/20 border-2 border-yellow-500 rounded-lg">
+        {/* <div className="mb-8 p-4 bg-yellow-500/20 border-2 border-yellow-500 rounded-lg">
           <p className="text-yellow-300 text-sm mb-2">【開発用】投票状態切り替え</p>
           <button
             onClick={() => {
@@ -152,7 +152,7 @@ const FightVote = () => {
           >
             {hasVoted ? '投票前の画面に戻す' : '投票済みの画面にする'}
           </button>
-        </div>
+        </div> */}
         {/* ========== 開発用ボタンここまで ========== */}
 
         {/* 投票されてたらページ遷移 */}
