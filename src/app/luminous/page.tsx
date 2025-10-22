@@ -14,9 +14,9 @@ export default function LuminousPage() {
             <PageTitle>Luminous Stage</PageTitle>
             <PageContainer>
                 <LogoImage src="/images/ensyutsu/luminous-logo.png" alt="Luminous Stageのロゴ" className="mt-10" />
-                <div className="md:flex md:gap-5 mt-5">
-                    <OnlyImage src="/images/ensyutsu/luminous1.jpg" alt="Luminous Stage" className="mb-5" />
-                    <OnlyImage src="/images/ensyutsu/luminous2.jpg" alt="Luminous Stage" className="mb-5" />
+                <div className="flex flex-col md:flex-row justify-center items-center gap-5 my-5">
+                    <OnlyImage src="/images/ensyutsu/luminous1.jpg" alt="Luminous Stage" />
+                    <OnlyImage src="/images/ensyutsu/luminous2.jpg" alt="Luminous Stage" />
                 </div>
                 <SectionTitle>響鳴せよ、輝く舞台で。</SectionTitle>
                 <Text moreTopPadding><Emphasis>輝きが交差するその瞬間</Emphasis></Text>
