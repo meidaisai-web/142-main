@@ -2,7 +2,6 @@
 
 import { useRef } from 'react';
 import PageTitle from '@/components/texts/PageTitle';
-import PageContainer from '@/components/base/PageContainer';
 import Link from 'next/link';
 import Image from 'next/image';
 import { officialProjects } from '@/utils/datas/officialProjectData';
@@ -25,15 +24,16 @@ export default function TabsSwipe() {
 			key: tab.key,
 			label: tab.label,
 			content: (
-				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8'>
+				<div className='flex flex-wrap gap-y-8 gap-10 justify-center'>
 					{tab.data.map((data) => (
 						<Project
 							key={data.title}
 							title={data.title}
 							description={data.description}
 							image={data.image}
+							time={tab.label === '11月3日' ? data.thirdTime || data.time : data.time}
+							place={data.place}
 							alt={data.alt}
-							tags={data.tags}
 							link={data.link}
 						/>
 					))}
@@ -55,26 +55,28 @@ type ProjectProps = {
 	description: string;
 	image: string;
 	alt: string;
-	tags: string[];
+	time: string;
+	place: string;
 	link: string;
 }
 
-function Project({ title, description, image, alt, tags, link }: ProjectProps) {
+function Project({ title, description, image, alt, time, place, link }: ProjectProps) {
 	return (
 		<Link href={link}>
-			<div className="bg-white rounded-2xl p-4 flex flex-row md:flex-col items-center gap-6 border-7 border-accent shadow-[10px_10px_0px_0px_#3571B8] w-full md:w-80 transition duration-200 transform hover:-translate-y-1 hover:-translate-x-1">
-				<div className="w-1/2 md:w-full flex justify-center">
+			<div className="bg-white h-full rounded-2xl p-4 flex flex-col items-center gap-6 border-7 border-accent shadow-[10px_10px_0px_0px_#3571B8] w-80 transition duration-200 transform hover:-translate-y-1 hover:-translate-x-1">
+				<div className="w-2/3 md:w-full flex justify-center">
 					<Image src={image} alt={alt} width={200} height={200} className="rounded-lg object-cover" />
 				</div>
-				<div className="flex-1 md:flex-none md:w-full flex flex-col gap-4">
+				<div className="flex-1 flex flex-col gap-4 w-full">
 					<h2 className="text-xl text-black font-bold">{title}</h2>
 					<p className="text-base text-black">{description}</p>
-					<div className="flex flex-wrap gap-2">
-						{tags.map((tag) => (
-							<span key={tag} className="bg-secondary rounded-full px-3 py-1 text-sm font-semibold">
-								{`#${tag}`}
-							</span>
-						))}
+					<div className="flex flex-wrap gap-2 mt-auto">
+						<span className="bg-secondary rounded-full px-3 py-1 text-sm font-semibold">
+							{time}
+						</span>
+						<span className="bg-secondary rounded-full px-3 py-1 text-sm font-semibold">
+							{place}
+						</span>
 					</div>
 				</div>
 			</div>

@@ -1,10 +1,21 @@
-export const officialProjects = [
+export const officialProjects: {
+    title: string,
+    description: string,
+    image: string,
+    alt: string,
+    time: string,
+    thirdTime?: string,
+    place: string,
+    link: string,
+    date: number[]
+}[] = [
     {
         title: "Opening",
         description: "今鳴り響く開幕の合図",
         image: "/images/project/opening.png",
         alt: "Opening",
-        tags: ["10:00~10:50", "メインステージ"],
+        time: "10:00~10:50",
+        place: "メインステージ",
         link: "/opening",
         date: [1]
     },
@@ -13,7 +24,8 @@ export const officialProjects = [
         description: "小学生と大学生とのコラボ企画！",
         image: "/images/project/matsubara.png",
         alt: "松原小学校×明大祭",
-        tags: ["10:00~18:00", "メディア棟M509教室"],
+        time: "10:00~18:00",
+        place: "メディア棟M509教室",
         link: "/matsubara",
         date: [1, 2, 3]
     },
@@ -22,7 +34,8 @@ export const officialProjects = [
         description: "おかえりなさい！明大生",
         image: "/images/project/alumni.png",
         alt: "校友歓迎スペース",
-        tags: ["10:00~18:00", "第一校舎316･317教室"],
+        time: "10:00~18:00",
+        place: "第一校舎316･317教室",
         link: "/alumni",
         date: [1, 2, 3]
     },
@@ -31,7 +44,8 @@ export const officialProjects = [
         description: "京王電鉄株式会社とコラボしたデジタルスタンプラリー！",
         image: "/images/project/keio-stamp.png",
         alt: "KEIO×第141回明大祭デジタルスタンプラリー",
-        tags: ["11:00~18:00", "メディア棟入口付近"],
+        time: "11:00~18:00",
+        place: "メディア棟入口付近",
         link: "/keio",
         date: [1, 2, 3]
     },
@@ -40,8 +54,20 @@ export const officialProjects = [
         description: "明大前商店街振興組合とコラボした抽選企画！",
         image: "/images/project/meidaimae-lottery.jpg",
         alt: "明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～",
-        tags: ["11:00~18:00", "メディア棟入口横"],
-        link: "/lottery-shop",
+        time: "11:00~18:00",
+        place: "メディア棟入口横",
+        link: "/lottely-shop",
+        date: [1, 2, 3]
+    },
+    {
+        title: "明大祭大抽選会",
+        description: "欲しかったものが当たるかも?!",
+        image: "/images/project/lottery.png",
+        alt: "明大祭大抽選会",
+        time: "11:00~18:00",
+        thirdTime: "11:00~17:20",
+        place: "メディア棟前明大祭大抽選会受付",
+        link: "/lottery",
         date: [1, 2, 3]
     },
     {
@@ -49,7 +75,9 @@ export const officialProjects = [
         description: "この一瞬を永遠に。",
         image: "/images/project/memory.png",
         alt: "Stand by Memory",
-        tags: ["10:00~18:00", "和泉ラーニングスクエアLS201教室"],
+        time: "10:00~18:00",
+        thirdTime: "10:00~17:00",
+        place: "和泉ラーニングスクエアLS201教室",
         link: "/memory",
         date: [1, 2, 3]
     },
@@ -58,7 +86,9 @@ export const officialProjects = [
         description: "スタンプを集めて魔王を倒せ！！",
         image: "/images/project/quest.png",
         alt: "ポンdeクエスト",
-        tags: ["10:00~18:00", "和泉ラーニングスクエアLS506教室"],
+        time: "10:00~18:00",
+        thirdTime: "10:00~17:00",
+        place: "和泉ラーニングスクエアLS506教室、図書館前受付",
         link: "/quest",
         date: [1, 2, 3]
     },
@@ -67,7 +97,9 @@ export const officialProjects = [
         description: "共感と謎解きの世界へようこそ！",
         image: "/images/project/say.png",
         alt: "明大SAY！",
-        tags: ["10:00~18:00", "和泉ラーニングスクエアGB2-1~3・3-3･4"],
+        time: "10:00~18:00",
+        thirdTime: "10:00~17:00",
+        place: "和泉ラーニングスクエアGB2-1~3・3-1･2",
         link: "/say",
         date: [1, 2, 3]
     },
@@ -76,7 +108,9 @@ export const officialProjects = [
         description: "君は解ける？謎解きクイズラリー",
         image: "/images/project/rally.png",
         alt: "跡巡ーあとめぐー",
-        tags: ["10:00~18:00", "和泉ラーニングスクエアLS506教室、図書館前受付"],
+        time: "10:00~18:00",
+        thirdTime: "10:00~17:00",
+        place: "和泉ラーニングスクエアLS506教室、図書館前受付",
         link: "/rally",
         date: [1, 2, 3]
     },
@@ -85,7 +119,9 @@ export const officialProjects = [
         description: "明大スポーツ万博、開幕！",
         image: "/images/project/exports2025.png",
         alt: "EXPOrts2025 in 明治",
-        tags: ["10:00~18:00", "和泉ラーニングスクエアLS406･407教室・4階アゴラ"],
+        time: "10:00~18:00",
+        thirdTime: "10:00~17:00",
+        place: "和泉ラーニングスクエアLS406･407教室・4階アゴラ",
         link: "/sports",
         date: [1, 2, 3]
     },
@@ -94,7 +130,9 @@ export const officialProjects = [
         description: "扉を開けるとランタンの世界へ！",
         image: "/images/project/wish.png",
         alt: "一灯一想",
-        tags: ["10:00~18:00", "第一校舎403・405教室"],
+        time: "10:00~18:00",
+        thirdTime: "10:00~17:00",
+        place: "第一校舎403・405教室",
         link: "/wish",
         date: [1, 2, 3]
     },
@@ -103,7 +141,9 @@ export const officialProjects = [
         description: "This is Meijism.",
         image: "/images/project/mk5.png",
         alt: "明治に恋する5秒前",
-        tags: ["10:00~18:00", "メディア棟M402･403教室・4階ラウンジ"],
+        time: "10:00~18:00",
+        thirdTime: "10:00~17:30",
+        place: "メディア棟M402･403教室・4階Aラウンジ",
         link: "/love",
         date: [1, 2, 3]
     },
@@ -112,7 +152,8 @@ export const officialProjects = [
         description: "手にすれば、もっと明大祭。",
         image: "/images/project/goods.png",
         alt: "明大祭公式グッズ企画",
-        tags: ["10:00~18:00", "和泉図書館前"],
+        time: "10:00~18:00",
+        place: "和泉図書館前",
         link: "/goods",
         date: [1, 2, 3]
     },
@@ -121,7 +162,8 @@ export const officialProjects = [
         description: "共闘の刻ー賭けろ、すべてを。",
         image: "/images/project/clash.png",
         alt: "Meiji United Clash",
-        tags: ["17:00~18:00", "メインステージ"],
+        time: "17:10~18:00",
+        place: "メインステージ",
         link: "/clash",
         date: [1]
     },
@@ -130,7 +172,8 @@ export const officialProjects = [
         description: "響鳴せよ、輝く舞台で。",
         image: "/images/project/luminous.png",
         alt: "Luminous Stage",
-        tags: ["10:30~11:30", "和泉ラーニングスクエアLS101"],
+        time: "10:30~11:30",
+        place: "和泉ラーニングスクエアLS101教室",
         link: "/luminous",
         date: [2]
     },
@@ -139,7 +182,8 @@ export const officialProjects = [
         description: "響け、叫べ、ひとつになれ。",
         image: "/images/project/rock.png",
         alt: "UNI ROCK FES",
-        tags: ["13:40~14:25", "メインステージ"],
+        time: "13:40~14:25",
+        place: "メインステージ",
         link: "/fes",
         date: [2]
     },
@@ -148,7 +192,8 @@ export const officialProjects = [
         description: "Description for Day 2 Project",
         image: "/images/project/midnight.png",
         alt: "中夜祭",
-        tags: ["17:10~18:00", "メインステージ"],
+        time: "17:10~18:00",
+        place: "メインステージ",
         link: "/midnight",
         date: [2]
     },
@@ -157,7 +202,8 @@ export const officialProjects = [
         description: "踊って、叫んで、また好きになる。",
         image: "/images/project/ifes.png",
         alt: "I♡Fes!",
-        tags: ["13:00~14:00", "エントランスエリア"],
+        time: "13:00~14:00",
+        place: "エントランスエリア",
         link: "/idol",
         date: [3]
     },
@@ -166,7 +212,8 @@ export const officialProjects = [
         description: "祭、終結",
         image: "/images/project/ending.png",
         alt: "Ending",
-        tags: ["17:25~18:00", "メインステージ"],
+        time: "17:25~18:00",
+        place: "メインステージ",
         link: "/ending",
         date: [3]
     }

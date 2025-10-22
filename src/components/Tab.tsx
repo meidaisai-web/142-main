@@ -169,7 +169,7 @@ export default function Tab({ tabs }: TabProps) {
                 className="mt-10"
             >
                 {tabs.map((tab) => (
-                    <SwiperSlide key={tab.key}>
+                    <SwiperSlide key={tab.key} className="px-5">
                         {tab.content}
                     </SwiperSlide>
                 ))}
