@@ -2,7 +2,6 @@
 import PageTitle from "@/components/texts/PageTitle";
 import { FAQAccordion } from "@/components/texts/FAQAccordion";
 import TransitionLink from "@/components/buttons/TransitionLink";
-import { time } from "console";
 
 export default function Page() {
     const faqList = [
@@ -33,9 +32,9 @@ export default function Page() {
         },
         {
             question: "入試案内はどこにありますか。",
-            answer: <>大学ガイドブックは正門付近の守衛所脇にご用意しております。ご自由にお取りください。また、第141回明大祭では受験生応援企画を行っています。詳しくは
+            answer: <>大学ガイドブック・学部ガイドブックは第141回明大祭で行われている受験生応援企画教室（メディア棟4階Aラウンジ、M402・M403教室）に置かれています。企画の詳細は
                 <TransitionLink href="/love">こちらのページ</TransitionLink>
-                をご覧ください。</>
+                をご覧ください。<br/>また、大学公式サイトで電子版が公開されているので、そちらもご覧ください。</>
         },
         {
             question: "会場でキャッシュレス決済は可能ですか。",

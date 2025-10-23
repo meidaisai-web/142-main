@@ -4,8 +4,6 @@ import Text from "@/components/texts/Text"
 import SectionTitle from "@/components/texts/SectionTitle"
 import SmallTitle from "@/components/texts/SmallTitle"
 import MapImage from "@/components/MapImage"
-import Image from "next/image"
-
 
 export default function Page() {
     return (

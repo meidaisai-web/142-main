@@ -11,15 +11,11 @@ import Text from "@/components/texts/Text"
 import Link from "next/link"
 
 const nameList = [
-    "古川敬久",
-    "名工大小島",
-    "おにちゃん",
-    "井内織",
-    "深野翔",
-    "長谷川萌花",
-    "けんしん＆ことみ",
-    "鹿礒純志",
-    "鹿礒洋子",
+    "中野ダンスサークルSIGN",
+    "上川倉庫株式会社",
+    "井内悦子",
+    "畠田美恵子",
+    "明大祭応援隊家族",
     "山田智恵子",
     "中尾勝哉",
     "井内正樹",
@@ -32,11 +28,15 @@ const nameList = [
     "小川智久",
     "椛嶋裕人",
     "佐久間康郎",
-    "井内悦子",
-    "畠田美恵子",
-    "明大祭応援隊家族",
-    "上川倉庫株式会社",
-    "中野ダンスサークルSIGN",
+    "井内織香",
+    "深野翔",
+    "長谷川萌花",
+    "けんしん＆ことみ",
+    "鹿礒純志",
+    "鹿礒洋子",
+    "古川敬久",
+    "名工大小島",
+    "おにちゃん",
 ]
 
 const page = () => {
@@ -66,7 +66,7 @@ const page = () => {
                 </List>
                 <SectionTitle>ご支援いただいた方のご芳名一覧</SectionTitle>
                 <List mark="※" className="mt-8">
-                    <ListItem>10月10日現在の情報</ListItem>
+                    <ListItem>10月14日現在の情報</ListItem>
                 </List>
                 <List mark="・">
                     {nameList.map((name) => (

@@ -1,14 +1,14 @@
 import PageContainer from "@/components/base/PageContainer";
-import OnlyImage from "@/components/OnlyImage";
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import Text from "@/components/texts/Text";
-import { List, ListItem, ListText } from '@/components/texts/List'
+import { List, ListItem } from '@/components/texts/List'
 import ContactView from "@/components/texts/ContactView";
 import ImageText from "@/components/texts/ImageText";
 import Emphasis from "@/components/texts/Emphasis";
 import MapImage from "@/components/MapImage";
+import LogoImage from "@/components/LogoImage";
 
 
 export default function ChampPage() {
@@ -16,9 +16,9 @@ export default function ChampPage() {
         <div>
             <PageTitle>Meidaisai Championship</PageTitle>
             <PageContainer>
-                <OnlyImage className="mt-15" src="/images/ad/meichamp-logo.jpg" alt="Meidaisai Championship Image" />
+                <LogoImage src="/images/ensyutsu/meichamp-logo.jpg" alt="Meidaisai Championship ロゴ" className="mt-10" />
                 <SectionTitle>明大祭の頂点、今ここに！</SectionTitle>
-                <ImageText className="mt-8" src="/images/ad/championship.jpg" alt="Championship Image"><Text>みなさまの投票によって明大祭No.1企画を決定します。</Text>
+                <ImageText className="mt-8" src="/images/ensyutsu/championship.jpg" alt="Championship Image"><Text>みなさまの投票によって明大祭No.1企画を決定します。</Text>
                     <Text>「屋外ステージ部門」「教室部門」「模擬店部門」の3つにわけ、各部門の1位を決めます。そして、最も多くの票を獲得した団体がChampionとなります。<Emphasis>結果は11月3日(月・祝)に行われるEndingにて発表します。</Emphasis></Text>
                     <Text>また投票してくださった方は、明大祭大抽選会に参加することができます。抽選企画の詳細は明大祭大抽選会のページをご覧ください。</Text></ImageText>
                 <SmallTitle>投票日時</SmallTitle>
@@ -33,6 +33,7 @@ export default function ChampPage() {
                 <List mark="・">
                     <ListItem>投票できるのは、各企画1日1回までです。</ListItem>
                     <ListItem>よいと思った企画すべてに投票することができます。</ListItem>
+                    <ListItem>ブラウザがプライベートモード、シークレットモードなどの状態では投票できません。必ず通常モードでアクセスしてください。</ListItem>
                 </List>
                 <SmallTitle>抽選会への参加方法</SmallTitle>
                 <Text>投票してくださった方は、明大祭大抽選会に参加ができます！</Text>

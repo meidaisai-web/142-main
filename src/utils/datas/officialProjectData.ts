@@ -31,10 +31,10 @@ export const officialProjects: {
     },
     {
         title: "校友歓迎スペース",
-        description: "おかえりなさい！明大生",
-        image: "/images/project/alumni.png",
+        description: "懐かしの場所で、学生と温かい一時を。",
+        image: "/images/project/alumni.jpg",
         alt: "校友歓迎スペース",
-        time: "10:00~18:00",
+        time: "10:00~17:00",
         place: "第一校舎316･317教室",
         link: "/alumni",
         date: [1, 2, 3]
@@ -62,7 +62,7 @@ export const officialProjects: {
     {
         title: "明大祭大抽選会",
         description: "欲しかったものが当たるかも?!",
-        image: "/images/project/lottery.png",
+        image: "/images/project/lottery.jpg",
         alt: "明大祭大抽選会",
         time: "11:00~18:00",
         thirdTime: "11:00~17:20",
@@ -73,7 +73,7 @@ export const officialProjects: {
     {
         title: "Stand by Memory",
         description: "この一瞬を永遠に。",
-        image: "/images/project/memory.png",
+        image: "/images/kaihatsu/memory.jpg",
         alt: "Stand by Memory",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
@@ -84,7 +84,7 @@ export const officialProjects: {
     {
         title: "ポンdeクエスト",
         description: "スタンプを集めて魔王を倒せ！！",
-        image: "/images/project/quest.png",
+        image: "/images/kaihatsu/quest.jpg",
         alt: "ポンdeクエスト",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
@@ -95,7 +95,7 @@ export const officialProjects: {
     {
         title: "明大SAY！",
         description: "共感と謎解きの世界へようこそ！",
-        image: "/images/project/say.png",
+        image: "/images/kaihatsu/say.jpg",
         alt: "明大SAY！",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
@@ -106,7 +106,7 @@ export const officialProjects: {
     {
         title: "跡巡ーあとめぐー",
         description: "君は解ける？謎解きクイズラリー",
-        image: "/images/project/rally.png",
+        image: "/images/kaihatsu/rally.jpg",
         alt: "跡巡ーあとめぐー",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
@@ -117,7 +117,7 @@ export const officialProjects: {
     {
         title: "EXPOrts2025 in 明治",
         description: "明大スポーツ万博、開幕！",
-        image: "/images/project/exports2025.png",
+        image: "/images/kaihatsu/sports.jpg",
         alt: "EXPOrts2025 in 明治",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
@@ -128,7 +128,7 @@ export const officialProjects: {
     {
         title: "一灯一想",
         description: "扉を開けるとランタンの世界へ！",
-        image: "/images/project/wish.png",
+        image: "/images/kaihatsu/wish.jpg",
         alt: "一灯一想",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
@@ -139,7 +139,7 @@ export const officialProjects: {
     {
         title: "明治に恋する5秒前",
         description: "This is Meijism.",
-        image: "/images/project/mk5.png",
+        image: "/images/kaihatsu/love.jpg",
         alt: "明治に恋する5秒前",
         time: "10:00~18:00",
         thirdTime: "10:00~17:30",
@@ -150,7 +150,7 @@ export const officialProjects: {
     {
         title: "明大祭公式グッズ企画",
         description: "手にすれば、もっと明大祭。",
-        image: "/images/project/goods.png",
+        image: "/images/project/goods.jpg",
         alt: "明大祭公式グッズ企画",
         time: "10:00~18:00",
         place: "和泉図書館前",

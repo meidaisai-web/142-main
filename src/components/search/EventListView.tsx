@@ -163,7 +163,7 @@ function Icon({ name }: IconProps) {
         return (
             <div className="w-full h-full rounded-md border-2 border-black" />
         )
-    }``
+    }
     if (!iconData.find(icon => icon.label === name)) {
         return (
             <div className="w-full h-full rounded-md border-2 border-black" />
