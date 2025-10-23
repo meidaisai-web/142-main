@@ -13,7 +13,7 @@ export default function Page() {
         <>
             <PageTitle>Ending</PageTitle>
             <PageContainer>
-                <LogoImage src="/images/ensyutsu/ending-logo.jpg" alt='エンディングロゴの画像' className="my-10" />
+                <LogoImage src="/images/ensyutsu/ending-logo-black.png" alt='エンディングロゴの画像' className="my-10" />
                 <OnlyImage src="/images/ensyutsu/ending.jpg" alt='エンディングステージの画像' />
                 <SectionTitle>「祭、終結」</SectionTitle>
                 <Text moreTopPadding><Emphasis>煌めく星の下、戻ることのないこの夜に。</Emphasis></Text>
@@ -36,12 +36,12 @@ export default function Page() {
                 <SectionTitle>出演団体</SectionTitle>
                 <div className="mt-10">
                 <List mark="・">
-                    <ListItem>男子チアリーディングチームANCHORS</ListItem>
-                    <ListItem>アカペラサークルamour</ListItem>
-                    <ListItem>K-POPカバーダンスサークルMercie</ListItem>
+                    <ListItem>男子チアリーディングチーム ANCHORS</ListItem>
+                    <ListItem>アカペラサークル amour</ListItem>
+                    <ListItem>K-POPカバーダンスサークル Mercie</ListItem>
                     <ListItem>中野ダンスサークルre：SIGN</ListItem>
-                    <ListItem>明治大学インカレダンスサークルMDD</ListItem>
-                    <ListItem>明治大学体同連チアリーディングチームJAGUARS</ListItem>
+                    <ListItem>明治大学インカレダンスサークル MDD</ListItem>
+                    <ListItem>明治大学体同連チアリーディングチーム JAGUARS</ListItem>
                 </List>
                 </div>
                 <ContactView department="演出局煌彩部門" mail="kosai-141@meidaisai.jp"/>
