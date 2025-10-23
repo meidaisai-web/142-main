@@ -43,7 +43,7 @@ export default function Page() {
                 <div className="mt-10">
                 <List mark="・">
                     <ListItem>バイブスのアゲ者</ListItem>
-                    <ListItem>チアダンスチームBlooms</ListItem>
+                    <ListItem>チアダンスチーム Blooms</ListItem>
                     <ListItem>Abbey Road</ListItem>
                     <ListItem>DJ Shibu</ListItem>
                     <ListItem>DJ aqi</ListItem>
