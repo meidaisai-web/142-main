@@ -20,7 +20,7 @@ export default function Page() {
                 <SectionTitle className="mt-10 mb-10">第141回明大祭コンセプト</SectionTitle>
                 <Image src="/images/theme/concept1.png" alt="Concept Image" width={250} height={100} className="mx-auto mb-10" />
                 <div className="text-center">
-                  <p>ステージの声援、屋台の喧騒、笑い声や拍手、その全てが”熱狂”を生み出す。</p>
+                  <p>ステージの声援、屋台の喧騒、笑い声や拍手、そのすべてが”熱狂”を生み出す。</p>
                   <p>私たちが目指すのは、その”熱狂”をただのゴールにしない祭</p>
                   <p>終わったあとも誰かの心に残り続ける、価値ある体験と心揺さぶる感情</p>
                   <p>そして、人生を変える出会いと気づき、</p>
@@ -38,7 +38,7 @@ export default function Page() {
                 <SectionTitle className="mt-8 mb-8">第141回明大祭カラー</SectionTitle>
                 <ThemeImage src="/images/theme/ennku1.png" alt="焔紅（えんく）">
                 <SmallTitle>焔紅（えんく）</SmallTitle>
-                心に灯る情熱の焔が、熱狂の渦となって燃え上がるような力強く輝かしい祭になって欲しいという願い
+                心に灯る情熱の焔が、熱狂の渦となって燃え上がるような力強く輝かしい祭になってほしいという願い
                 </ThemeImage>
                 <div className="mt-10"></div>
                 <ThemeImage src="/images/theme/souenn1.png" alt="蒼炎（そうえん）">
