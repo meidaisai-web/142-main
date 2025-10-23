@@ -14,7 +14,7 @@ export default function Page() {
                     <ListItem>画像をクリックすると別タブで表示されます｡</ListItem>
                 </List>
                 <div className="bg-white rounded-2xl p-4 mt-8 max-w-lg mx-auto">
-                    <TransitionLink href="" className="justify-center">
+                    <TransitionLink href="">
                         <OnlyImage src="/images/pamphlet.svg" alt="第141回明大祭公式パンフレット表紙" />
                     </TransitionLink>
                 </div>
