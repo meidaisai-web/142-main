@@ -10,12 +10,14 @@ export default function Page() {
         <div>
             <PageTitle>第141回明大祭公式パンフレット</PageTitle>
             <PageContainer>
-                <List mark="※">
+                <List mark="※" className="mt-5">
                     <ListItem>画像をクリックすると別タブで表示されます｡</ListItem>
                 </List>
-                <TransitionLink href=" ">
-                    <OnlyImage src="/images/panphlet/panphlet2023-1.png" alt="第141回明大祭公式パンフレット表紙" />
-                </TransitionLink>
+                <div className="bg-white rounded-lg p-4 mt-4 w-[30rem]">
+                    <TransitionLink href="">
+                        <OnlyImage src="/images/pamphlet.svg" alt="第141回明大祭公式パンフレット表紙" />
+                    </TransitionLink>
+                </div>
             </PageContainer>
         </div>
     )
