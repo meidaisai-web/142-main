@@ -36,10 +36,10 @@ export default function LuminousPage() {
                 <SectionTitle>出演団体</SectionTitle>
                 <List mark="・" className="mt-8">
                     <ListItem>フラッシュモ部</ListItem>
-                    <ListItem>ジャグリングサークルDietz</ListItem>
+                    <ListItem>ジャグリングサークル Dietz</ListItem>
                     <ListItem>ミュージカル研究会</ListItem>
-                    <ListItem>中野ダンスサークルSIGN</ListItem>
-                    <ListItem>K-POPカバーダンスサークルMercie</ListItem>
+                    <ListItem>中野ダンスサークル SIGN</ListItem>
+                    <ListItem>K-POPカバーダンスサークル Mercie</ListItem>
                 </List>
                 <Text>※コンテンツの都合上、入場規制をさせていただく時間があります。</Text>
                 {/*　動画を入れる　*/}
