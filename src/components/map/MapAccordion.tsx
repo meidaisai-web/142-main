@@ -36,7 +36,7 @@ export function MapAccordion({
                             open: { rotate: 180 },
                             closed: { rotate: 0 },
                         }}
-                        transition={{ duration: 0.2, ease: "easeInOut" }}
+                        transition={{ duration: 0.2, ease: "linear" }}
                         className="flex-shrink-0"
                     >
                         <Image

@@ -10,6 +10,33 @@ import Image from "next/image";
 export default function LocationMap() {
     const [isOpenId, setIsOpenId] = useState<number | null>(null);
     const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
+    
+    // カスタムスクロール関数: スピードを調整可能
+    const smoothScrollTo = (targetY: number, duration: number = 600) => {
+        const startY = window.scrollY;
+        const distance = targetY - startY;
+        const startTime = performance.now();
+
+        const easeInOutCubic = (t: number): number => {
+            return t < 0.5
+                ? 4 * t * t * t
+                : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        };
+
+        const scroll = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = easeInOutCubic(progress);
+            window.scrollTo(0, startY + distance * easeProgress);
+
+            if (progress < 1) {
+                requestAnimationFrame(scroll);
+            }
+        };
+
+        requestAnimationFrame(scroll);
+    };
+
     const locationList: { name: Location }[] = [
         {
             name: "第一校舎"
@@ -34,20 +61,19 @@ export default function LocationMap() {
     function handleAccordionClick(index: number) {
         const currentOpenId = isOpenId;
         const newOpenId = isOpenId === index ? null : index;
-        
+
         // 状態を更新
         setIsOpenId(newOpenId);
-        
+
         // スクロール処理: 既に開いているアコーディオンより下のアコーディオンを開く場合
         if (currentOpenId !== null && currentOpenId < index && newOpenId === index) {
             // スクロール処理を実行
             setTimeout(() => {
                 const offset = -100; // スクロール位置を少し上に調整
-                const top = accordionRefs.current[index]?.getBoundingClientRect().top || 0;
-                window.scrollTo({
-                    top: window.scrollY + top + offset,
-                    behavior: "smooth"
-                });
+                const top = accordionRefs.current[currentOpenId]?.getBoundingClientRect().top || 0;
+                const targetY = window.scrollY + top + offset;
+
+                smoothScrollTo(targetY, 900);
             }, 300); // アコーディオンの開閉アニメーション後にスクロール
         }
     }
