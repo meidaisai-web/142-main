@@ -110,21 +110,21 @@ function HamburgerSP() {
         <div className="sm:hidden px-10 pt-5">
             <HamburgerTopButton />
             <div className="flex flex-col gap-10 py-15">
-                {hamburgerContents.map((section) => (
+                {hamburgerContents.map((section, index) => (
                     <HamburgerAccordion
                         key={section.title}
-                        isOpen={openId === hamburgerContents.indexOf(section)}
-                        onClick={() => toggleAccordion(hamburgerContents.indexOf(section))}
+                        isOpen={openId === index}
+                        onClick={() => toggleAccordion(index)}
                         title={section.title}
                         hamburgerContent={section.content.map(item => ({ title: item.label, href: item.href }))}
                     />
                 ))}
                 <div className="flex flex-col gap-10">
-                    {forOutside.map((section) => (
+                    {forOutside.map((section, index) => (
                         <HamburgerAccordion
                             key={section.title}
-                            isOpen={openId === hamburgerContents.length + forOutside.indexOf(section)}
-                            onClick={() => toggleAccordion(hamburgerContents.length + forOutside.indexOf(section))}
+                            isOpen={openId === hamburgerContents.length + index}
+                            onClick={() => toggleAccordion(hamburgerContents.length + index)}
                             title={section.title}
                             hamburgerContent={section.content.map(item => ({ title: item.label, href: item.href }))}
                         />
