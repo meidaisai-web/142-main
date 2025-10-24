@@ -320,7 +320,7 @@ export const mapData: MapDataType[] = [
         name: '第一校舎 診療所',
         legend: '診療所',
         location: ['第一校舎'],
-        src: '/images/campusmap/clinic_first.jpg',
+        src: '/images/campusmap/infirmary_first.jpg',
         description: '第一校舎202教室の前にございます。明大祭期間中は10:00〜19:00まで解放しております。体調がすぐれない場合、けがをした場合はご利用ください。'
     },
     {
