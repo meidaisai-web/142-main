@@ -26,7 +26,7 @@ export default function Page() {
                 <Text>明大祭の扉をさぁ開け！</Text>
                 <SectionTitle>企画実施日時・場所</SectionTitle>
                 <SmallTitle>日時</SmallTitle>
-                <Text>11月1日(土)10：00〜10：50</Text>
+                <Text>11月1日(土) 10：00〜10：50</Text>
                 <SmallTitle>場所</SmallTitle>
                 <Text>メインステージ</Text>
                 <SectionTitle>出演団体</SectionTitle>

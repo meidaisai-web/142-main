@@ -21,8 +21,8 @@ export default function Page() {
                 <Text>※企画で扱う部活は、体育会競走部、野球部、サッカー部、ラグビー部のみとなっております。</Text>
                 <SectionTitle className="mt-5">企画実施日時・場所</SectionTitle>
                 <SmallTitle className="mt-5">日時</SmallTitle>
-                <Text>11月1日(土).2日(日)　10：00〜18：00</Text>
-                <Text>11月3日(月・祝)　10：00～17：00</Text>
+                <Text>11月1日(土).2日(日) 10：00〜18：00</Text>
+                <Text>11月3日(月・祝) 10：00～17：00</Text>
                 <SmallTitle  className="mt-5">場所</SmallTitle>
                 <AccentText>展示・掲示企画</AccentText>
                 <Text>和泉ラーニングスクエアLS406・407教室</Text>
