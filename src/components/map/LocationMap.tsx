@@ -79,7 +79,7 @@ export default function LocationMap() {
     }
 
     return (
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col border-t-2 border-white w-full max-w-4xl mx-auto ">
             {locationList.map((location, index) => (
                 <div key={index} ref={(el) => { accordionRefs.current[index] = el }}>
                     <MapAccordion isOpen={isOpenId === index} onClick={() => handleAccordionClick(index)} title={location.name}>
