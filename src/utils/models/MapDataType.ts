@@ -8,6 +8,7 @@ export type MapDataType = {
 
 export type ShowLocationType = {
     legend: Legend;
+    src: string;
     contents: MapDataType[];
 }
 

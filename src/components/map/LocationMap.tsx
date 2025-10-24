@@ -5,6 +5,7 @@ import { MapAccordion } from "./MapAccordion"
 import { useState, useRef } from "react";
 import { searchLocation } from "@/utils/managers/mapManager";
 import MapItem from "./MapItem";
+import Image from "next/image";
 
 export default function LocationMap() {
     const [isOpenId, setIsOpenId] = useState<number | null>(null);
@@ -56,10 +57,10 @@ export default function LocationMap() {
             {locationList.map((location, index) => (
                 <div key={index} ref={(el) => { accordionRefs.current[index] = el }}>
                     <MapAccordion isOpen={isOpenId === index} onClick={() => handleAccordionClick(index)} title={location.name}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {searchLocation(location.name).map((legendSection, idx) => (
                             <div key={idx}>
-                                <h4>{legendSection.legend}</h4>
+                                <Image src={legendSection.src} alt={`${legendSection.legend}の画像`} width={600} height={300} className="object-fit w-60 mt-4" />
                                 <div className="flex flex-col gap-2 mt-2">
                                     {legendSection.contents.map((item, id) => (
                                         <MapItem key={id} {...item} />
