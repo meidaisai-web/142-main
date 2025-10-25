@@ -210,7 +210,7 @@ const FightVote = () => {
             <Button
               onClick={handleSubmit}
               disabled={selectedVote1 === null || selectedVote2 === null || selectedVote3 === null || isSubmitting}
-              className="mx-auto mb-16"
+              className="mx-auto mb-48"
             >
               {isSubmitting ? "送信中..." : "投票を送信"}
             </Button>
