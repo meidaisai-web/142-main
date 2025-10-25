@@ -13,7 +13,7 @@ export default function LuminousPage() {
         <>
             <PageTitle>Luminous Stage</PageTitle>
             <PageContainer>
-                <LogoImage src="/images/ensyutsu/luminous-logo.png" alt="Luminous Stageのロゴ" className="mt-10" />
+                <LogoImage src="/images/ensyutsu/luminous-logo.jpg" alt="Luminous Stageのロゴ" className="mt-10" />
                 <div className="flex flex-col md:flex-row justify-center items-center gap-5 my-5">
                     <OnlyImage src="/images/ensyutsu/luminous1.jpg" alt="Luminous Stage" />
                     <OnlyImage src="/images/ensyutsu/luminous2.jpg" alt="Luminous Stage" />
