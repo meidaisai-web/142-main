@@ -18,16 +18,16 @@ export default function Page() {
                     alt='I♡Fes!ロゴ'
                     className="mt-10"
                 />
-                <div className="md:flex md:gap-5 mt-10">
+                <div className="flex flex-col md:flex-row justify-center items-center gap-5 my-5">
                     <OnlyImage
                         src="/images/ensyutsu/ifes1.jpg"
                         alt='I♡Fes!ウェブ広報写真1'
-                        className="mb-5"
+                        className="w-full max-w-lg"
                     />
                     <OnlyImage
                         src="/images/ensyutsu/ifes2.jpg"
                         alt='I♡Fes!ウェブ広報写真2'
-                        className="mb-5"
+                        className="w-full max-w-lg"
                     />
                 </div>
                 <SectionTitle>踊って、叫んで、また好きになる。</SectionTitle>
@@ -50,7 +50,7 @@ export default function Page() {
                 <div className="mt-10">
                     <List mark="・">
                         <ListItem>na-nam</ListItem>
-                        <ListItem>中野ダンスサークルSIGN</ListItem>
+                        <ListItem>中野ダンスサークル SIGN</ListItem>
                         <ListItem>chocolat lumière</ListItem>
                     </List>
                 </div>

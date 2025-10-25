@@ -9,6 +9,9 @@ import PageContainer from "../base/PageContainer";
 import FilterView from "./FilterView";
 import EventItems from "./EventListView";
 import { useState, useEffect, useRef } from "react";
+import { div } from "framer-motion/client";
+import MeichanSection from "./MeichanSection";
+import SectionTitle from "../texts/SectionTitle";
 
 export default function Search() {
     const eventItemsRef = useRef<HTMLDivElement>(null);
@@ -32,7 +35,7 @@ export default function Search() {
     const [searchGenres, setSearchGenres] = useState<string[]>([]);
     const [searchSortType, setSearchSortType] = useState<{ orderColumn: string; ascending: boolean }>({ orderColumn: 'free', ascending: true });
 
-        // URLパラメータまたはlocalStorageから検索条件を復元
+    // URLパラメータまたはlocalStorageから検索条件を復元
     useEffect(() => {
         try {
             // URLパラメータからkeywordを取得
@@ -42,7 +45,7 @@ export default function Search() {
             if (urlKeyword !== null) {
                 // URLにkeywordパラメータが含まれている場合（空文字も含む）、localStorageをリセット
                 localStorage.removeItem(STORAGE_KEY);
-                
+
                 // keywordとtimestampだけを保存（空文字の場合も保存）
                 const conditions = {
                     keyword: urlKeyword,
@@ -195,6 +198,8 @@ export default function Search() {
                 </div>
                 <Button className="mt-10 mb-20" onClick={() => onTapSearchButton()}>検索</Button>
                 <IconList />
+                <MeichanSection />
+                <SectionTitle>企画一覧</SectionTitle>
             </PageContainer>
             <EventItems datas={datas} ref={eventItemsRef} />
             {hasMoreData && (
@@ -202,21 +207,22 @@ export default function Search() {
                     {isLoading || isValidating ? '読み込み中...' : 'もっと見る'}
                 </Button>
             )}
+
         </div>
     )
 }
 
 function IconList() {
     const iconLists = [[
-        { id: 'shoot', label: '撮影禁止'},
-        { id: 'ticket', label: 'チケット制'},
-        { id: 'food', label: '食べ物'},
-        { id: 'drink', label: '飲み物'},
+        { id: 'shoot', label: '撮影禁止' },
+        { id: 'ticket', label: 'チケット制' },
+        { id: 'food', label: '食べ物' },
+        { id: 'drink', label: '飲み物' },
     ], [
-        { id: 'sell', label: '物品販売'},
-        { id: 'experience', label: '参加体験'},
-        { id: 'eco', label: 'エコトレー'},
-        { id: 'cashless', label: 'キャッシュレス'},
+        { id: 'sell', label: '物品販売' },
+        { id: 'experience', label: '参加体験' },
+        { id: 'eco', label: 'エコトレー' },
+        { id: 'cashless', label: 'キャッシュレス' },
     ]]
     return (
         <div className="flex flex-wrap justify-center my-8 w-full gap-y-5">
