@@ -16,8 +16,8 @@ const FightVote = () => {
   const [selectedVote1, setSelectedVote1] = useState<number | null>(null);
   const [selectedVote2, setSelectedVote2] = useState<number | null>(null);
   const [selectedVote3, setSelectedVote3] = useState<number | null>(null);
-  const [showModal, setShowModal] = useState(true);
-  const [modalType, setModalType] = useState<'submitting' | 'success' | 'error'>('error');
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState<'submitting' | 'success' | 'error'>('submitting');
   const [hasVoted, setHasVoted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -28,6 +28,22 @@ const FightVote = () => {
       setHasVoted(true);
     }
   }, []);
+
+  // モーダル表示中はスクロールを無効化
+  React.useEffect(() => {
+    if (showModal) {
+      // モーダル表示時にbodyのスクロールを無効化
+      document.body.style.overflow = 'hidden';
+    } else {
+      // モーダル非表示時にスクロールを有効化
+      document.body.style.overflow = 'unset';
+    }
+
+    // クリーンアップ関数
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showModal]);
 
   //企画一覧
   type FightVoteType = {
@@ -106,6 +122,8 @@ const FightVote = () => {
       // localStorageに投票済みフラグを保存
       localStorage.setItem('fight-vote-submitted', 'true');
       setHasVoted(true);
+      // ページトップまでスクロール
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       setTimeout(() => setShowModal(false), 10000);
     } else {
       setModalType('error');
@@ -132,8 +150,6 @@ const FightVote = () => {
     <div>
       <PageTitle>Meiji United Clash</PageTitle>
       <PageContainer>
-        <SectionTitle>投票フォーム</SectionTitle>
-
         {/* ========== 開発用: 投票状態切り替えボタン (リリース時にコメントアウト) ========== */}
         {/* <div className="mb-8 p-4 bg-yellow-500/20 border-2 border-yellow-500 rounded-lg">
           <p className="text-yellow-300 text-sm mb-2">【開発用】投票状態切り替え</p>
@@ -154,30 +170,29 @@ const FightVote = () => {
         {hasVoted ? (
           <div className="text-center py-12">
             <div className="mb-8">
-              <div className="mx-auto w-[300px] h-[180px] relative">
-                <Image
-                  src="/images/ad/fight-logo.jpg"
-                  alt="Meiji United Clash Logo"
-                  width={200}
-                  height={200}
-                  className="object-contain"
-                />
-              </div>
+              <Image
+                src="/images/ensyutsu/clash-logo.png"
+                alt="Meiji United Clash Logo"
+                width={200}
+                height={200}
+                className="object-contain mx-auto rounded-2xl"
+              />
             </div>
-            <p className="text-2xl text-accent font-bold mb-4">投票ありがとうございました！</p>
-            <p className="text-white">既に投票済みです。</p>
+            <p className="text-xl text-accent font-bold mb-4">投票ありがとうございました！</p>
           </div>
         ) : (
           <div>
             {/* 投票ページ */}
+            <SectionTitle>投票フォーム</SectionTitle>
             <div className="mt-8">
               {fightVoteData.map((data, index) => (
                 <div key={data.label} className="mb-16">
                   <SmallTitle>{data.label}</SmallTitle>
-                  <div className="flex justify-between my-4 text-3xl font-bold">
+                  <div className="flex justify-between mt-4 text-2xl font-bold">
                     <p>QUEEN</p>
                     <p>KING</p>
                   </div>
+                  <p className="text-end mr-[3%] pl-14 leading-4 py-5">{data.king.name}</p>
                   <Photoframe
                     leftName={data.queen.name}
                     leftImagePath={data.queen.imagePath}
@@ -188,10 +203,7 @@ const FightVote = () => {
                     onLeftClick={() => handleLeftClick(index)}
                     onRightClick={() => handleRightClick(index)}
                   />
-                  <div className="flex justify-between m-5 mt-4 text-xl">
-                    <p>{data.queen.name}</p>
-                    <p>{data.king.name}</p>
-                  </div>
+                  <p className="ml-[3%] pr-14 leading-4 py-5">{data.queen.name}</p>
                 </div>
               ))}
             </div>
@@ -214,7 +226,10 @@ const FightVote = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 w-full h-full bg-black/80 flex items-center justify-center z-50"
-            onClick={() => setShowModal(false)}
+            onClick={() => {
+              if (modalType === 'submitting') return
+              setShowModal(false)
+            }}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
@@ -230,23 +245,28 @@ const FightVote = () => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* 閉じるボタン */}
-              <button
-                onClick={() => setShowModal(false)}
-                className="absolute top-2.5 right-5 bg-none border-none text-accent text-2xl cursor-pointer"
-              >
-                ×
-              </button>
+              {modalType !== 'submitting' && (
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="absolute top-5 right-5 bg-none border-none text-accent text-2xl cursor-pointer"
+                >
+                  <Image
+                    src="/images/svg/batsu.svg"
+                    alt="Close"
+                    width={24}
+                    height={24}
+                  />
+                </button>
+              )}
 
               {modalType === 'submitting' && (
                 <div>
                   <motion.div
-                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center"
+                    className="w-20 h-20 mx-auto mb-6 rounded-full bg-secondary-400 flex items-center justify-center"
                     animate={{
                       scale: [1, 1.05, 1],
                       boxShadow: [
-                        '0 0 20px #B5364A',
                         '0 0 40px #3571B8, 0 0 60px #D8CE48',
-                        '0 0 20px #B5364A'
                       ]
                     }}
                     transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -257,7 +277,7 @@ const FightVote = () => {
                       transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                     />
                   </motion.div>
-                  <p className="text-white text-xl">投票を送信中...</p>
+                  <p className="text-white text-xl font-semibold">投票を送信中</p>
                   <div className="mt-4 flex justify-center gap-1">
                     <motion.div
                       className="w-2 h-2 bg-primary rounded-full"
@@ -292,7 +312,12 @@ const FightVote = () => {
                       animate={{ scale: [0, 1.3, 1] }}
                       transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                     >
-                      ✓
+                      <Image
+                        src="/images/svg/check.svg"
+                        alt="Check"
+                        width={32}
+                        height={32}
+                      />
                     </motion.span>
                   </motion.div>
                   <Image
@@ -302,7 +327,7 @@ const FightVote = () => {
                     height={200}
                     className="object-contain rounded-2xl w-48 mx-auto mb-4"
                   />
-                  <p className="text-white text-xl">投票が送信されました</p>
+                  <p className="text-white text-xl font-semibold">投票ありがとうございます！</p>
                 </div>
               )}
 
@@ -311,10 +336,10 @@ const FightVote = () => {
                   <h2 className="text-accent text-2xl font-bold mb-4">
                     ERROR
                   </h2>
-                  <p className="text-white text-xl">
+                  <p className="text-white text-xl font-semibold">
                     {selectedVote1 && selectedVote2 && selectedVote3
                       ? "投票の送信に失敗しました"
-                      : "すべての投票を選択してください！"
+                      : "すべての投票を選択してください"
                     }
                   </p>
                   <p className="text-sm mt-2">もう一度お試しください</p>

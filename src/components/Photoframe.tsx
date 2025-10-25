@@ -24,11 +24,11 @@ const Photoframe = ({
   onRightClick
 }: PhotoframeProps) => {
   return (
-    <div className="flex p-5 w-full max-w-2xl mb-6 relative mx-auto">
+    <div className="flex w-full mx-auto">
       {/* Leftボタン */}
       <button
         type="button"
-        className={`w-full aspect-3/2 max-w-1/2 relative overflow-hidden bg-gray-600 translate-x-[6%] transition-transform duration-200 ${leftSelected ? 'scale-110' : 'scale-100'}`}
+        className={`w-full aspect-3/2 relative overflow-hidden bg-secondary translate-x-[6%] transition-transform duration-200 ${leftSelected ? 'scale-115 border-8 border-secondary shadow-2xl shadow-black' : 'scale-100'}`}
         style={{
           clipPath: 'polygon(0 0, 80% 0, 100% 100%, 0 100%)',
         }}
@@ -59,8 +59,7 @@ const Photoframe = ({
       {/* Rightボタン */}
       <button
         type="button"
-        className={`w-full aspect3/2 max-w-1/2 relative z-10 text-white overflow-hidden -translate-x-[6%] bg-gray-600 transition-transform duration-200 ${rightSelected ? 'scale-110' : 'scale-100'
-          }`}
+        className={`w-full aspect3/2 relative overflow-hidden -translate-x-[6%] bg-secondary transition-transform duration-200 ${rightSelected ? 'scale-115 border-8 border-secondary shadow-2xl shadow-black' : 'scale-100'}`}
         style={{
           clipPath: 'polygon(0 0, 100% 0, 100% 100%, 20% 100%)',
           pointerEvents: 'auto'
