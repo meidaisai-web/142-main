@@ -76,7 +76,8 @@ const page = () => {
         "TBK美容室明大前店",
         "TOP1明大前店",
         "vivo daily stand 明大前店",
-        "Wells"
+        "Wells",
+        "69 Petite Patisserie YUKI"
     ]
     return (
         <div>
