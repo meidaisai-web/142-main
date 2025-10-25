@@ -31,9 +31,9 @@ export default function Page() {
         },
         {
             image: "/images/svg/booth/DonQuixote.svg",
-            name: "ドン・キホーテ",
+            name: "株式会社ドン・キホーテ",
             date: "11月1日(土).2日(日).3日(月・祝)",
-            content: "ドン・キホーテが明大祭に登場！ 外資系ホテル宿泊券などの豪華賞品が入った「巨大カプセルトイ」が無料で回せます。 さらに、majica会員ならプラスもう1回！新規入会もOK！"
+            content: "ドン・キホーテが明大祭に登場！豪華賞品が入った「巨大カプセルトイ」が無料で回せます。 さらに、majica会員ならプラスもう1回！新規入会もOK！"
         },
         {
             image: "/images/svg/booth/Wakasapo.svg",
