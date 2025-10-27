@@ -32,7 +32,7 @@ export const officialProjects: {
     {
         title: "企業ブース",
         description: "あの有名企業が明大祭に！",
-        image: "/images/svg/no-image.svg",
+        image: "/images/svg/official/logo.svg",
         alt: "企業ブース",
         time: "10:00~17:30",
         place: "和泉図書館横",
@@ -42,7 +42,7 @@ export const officialProjects: {
     {
         title: "松原小学校×明大祭",
         description: "小学生と大学生とのコラボ企画！",
-        image: "/images/svg/no-image.svg",
+        image: "/images/svg/official/logo.svg",
         alt: "松原小学校×明大祭",
         time: "10:00~18:00",
         place: "メディア棟M509教室",
@@ -72,7 +72,7 @@ export const officialProjects: {
     {
         title: "明大祭大抽選会",
         description: "参加無料！豪華景品！ハズレなし！",
-        image: "/images/svg/no-image.svg",
+        image: "/images/svg/official/logo.svg",
         alt: "明大祭大抽選会",
         time: "11:00~18:00",
         thirdTime: "11:00~17:20",
@@ -165,6 +165,46 @@ export const officialProjects: {
         time: "10:00~18:00",
         place: "和泉図書館前",
         link: "/goods",
+        date: [1, 2, 3]
+    },
+    {
+        title: "Meijic Moment",
+        description: "”Meijic Moment”で明大祭をもっと特別に！",
+        image: "/images/svg/official/logo.svg",
+        alt: "Meijic Moment",
+        time: "11:00~18:00",
+        place: "センターサークルのフォトブース前",
+        link: "/meijic",
+        date: [1, 2, 3]
+    },
+    {
+        title: "チャリティーバザー",
+        description: "実行委員会によるバザー企画開催！",
+        image: "/images/svg/official/logo.svg",
+        alt: "チャリティーバザー",
+        time: "10:00~18:00",
+        place: "第一校舎正面右側",
+        link: "/bazaar",
+        date: [1, 2, 3]
+    },
+    {
+        title: "明大祭イルミネーション",
+        description: "熱狂を包む、余韻の光",
+        image: "/images/svg/official/logo.svg",
+        alt: "明大祭イルミネーション",
+        time: "16:00～19:00",
+        place: "和泉キャンパス正門付近",
+        link: "/illumination",
+        date: [1, 2, 3]
+    },
+    {
+        title: "駿河台グルメマップラリー",
+        description: "歩いて見つける、まちの味",
+        image: "/images/svg/official/logo.svg",
+        alt: "駿河台グルメマップラリー",
+        time: "11:00~18:00",
+        place: "メディア棟入口付近駿河台グルメマップラリー受付",
+        link: "/gourmet",
         date: [1, 2, 3]
     },
     {
