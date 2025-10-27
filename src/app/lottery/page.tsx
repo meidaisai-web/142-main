@@ -7,6 +7,7 @@ import Emphasis from '@/components/texts/Emphasis'
 import SmallTitle from '@/components/texts/SmallTitle'
 import AccentText from '@/components/texts/AccentText'
 import MapImage from '@/components/MapImage'
+import TransitionLink from '@/components/buttons/TransitionLink'
 
 export default function Page() {
     return (
@@ -57,49 +58,50 @@ export default function Page() {
                     <List>
                         <ListText><AccentText>演出局</AccentText></ListText>
                         <List mark='・'>
-                            <ListItem>I♡Fes!</ListItem>
-                            <ListItem>Luminous Stage</ListItem>
-                            <ListItem>Meiji United Clash</ListItem>
-                            <ListItem>Meidaisai Championship</ListItem>
-                            <ListItem>Opening</ListItem>
-                            <ListItem>UNI ROCK FES</ListItem>
-                            <ListItem>第141回明大祭公式テーマソングMV</ListItem>
-                            <ListItem>中夜祭</ListItem>
+                            <ListItem><TransitionLink href='/idol'>I♡Fes!</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href='/luminous'>Luminous Stage</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href='/clash'>Meiji United Clash</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href='/champ'>Meidaisai Championship</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href='/opening'>Opening</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href='/fes'>UNI ROCK FES</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href='/mv'>第141回明大祭公式テーマソングMV</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href='/midnight'>中夜祭</TransitionLink></ListItem>
                         </List>
                         <ListText><AccentText>開発局</AccentText></ListText>
                         <List mark='・'>
-                            <ListItem>EXPOrts2025 in 明治</ListItem>
-                            <ListItem>Re：Bond～リボンでつながる思い出～</ListItem>
-                            <ListItem>Stand by Memory</ListItem>
-                            <ListItem>跡巡～あとめぐ～</ListItem>
-                            <ListItem>一灯一想</ListItem>
-                            <ListItem>出た目でGO～サイコロが教える君だけの明大祭攻略ルート～</ListItem>
-                            <ListItem>ポンdeクエスト</ListItem>
-                            <ListItem>明治大解剖ツアー</ListItem>
-                            <ListItem>明治に恋する5秒前</ListItem>
-                            <ListItem>明大SAY！</ListItem>
-                            <ListItem>明大祭イルミネーション</ListItem>
+                            <ListItem><TransitionLink href="/sports">EXPOrts2025 in 明治</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href="/ribbon">Re：Bond～リボンでつながる思い出～</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href="/memory">Stand by Memory</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href="/rally">跡巡～あとめぐ～</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href="/wish">一灯一想</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href="/dice">出た目でGO～サイコロが教える君だけの明大祭攻略ルート～</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href="/quest">ポンdeクエスト</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href="/tour">明治大解剖ツアー</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href="/love">明治に恋する5秒前</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href="/say">明大SAY！</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href="/illumination">明大祭イルミネーション</TransitionLink></ListItem>
                             <ListText>(明大祭イルミネーションは1日目・2日目は抽選券、3日目はお礼の品をお渡しします。)</ListText>
                         </List>
                         <ListText><AccentText>広報局</AccentText></ListText>
                         <List mark='・'>
-                            <ListItem>Meijic Moment</ListItem>
+                            <ListItem><TransitionLink href="/meijic">Meijic Moment</TransitionLink></ListItem>
                         </List>
                         <ListText><AccentText>財務局</AccentText></ListText>
                         <List mark='・'>
-                            <ListItem>チャリティーバザー企画</ListItem>
+                            <ListItem><TransitionLink href="/bazaar">チャリティーバザー企画</TransitionLink></ListItem>
                         </List>
                         <ListText><AccentText>渉外局</AccentText></ListText>
                         <List mark='・'>
-                            <ListItem>KEIO×第141回明大祭デジタルスタンプラリー</ListItem>
-                            <ListItem>企業ブース</ListItem>
-                            <ListItem>校友歓迎スペース</ListItem>
-                            <ListItem>松原小学校×明大祭</ListItem>
+                            <ListItem><TransitionLink href="/keio">KEIO×第141回明大祭デジタルスタンプラリー</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href="/booth">企業ブース</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href='/alumni'>校友歓迎スペース</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href='/matsubara'>松原小学校×明大祭</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href='/lottely-shop'>明大前商店街×明大祭〜明大祭で当てるぞ！豪華景品〜</TransitionLink></ListItem>
                         </List>
                         <ListText><AccentText>制作局</AccentText></ListText>
                         <List mark='・'>
-                            <ListItem>明大祭オリジナルステッカー</ListItem>
-                            <ListItem>明大祭公式グッズ</ListItem>
+                            <ListItem><TransitionLink href="/sticker">明大祭オリジナルステッカー</TransitionLink></ListItem>
+                            <ListItem><TransitionLink href="/goods">明大祭公式グッズ</TransitionLink></ListItem>
                         </List>
                     </List>
                 </List>

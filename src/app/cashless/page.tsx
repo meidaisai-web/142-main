@@ -130,11 +130,11 @@ export default function Page() {
             <PageTitle>キャッシュレス決済</PageTitle>
             <PageContainer>
                 <SectionTitle>第141回明大祭にキャッシュレス決済が登場！</SectionTitle>
-                <Text moreTopPadding>今年の明大祭では、来場者の皆さまにより快適に楽しんでいただけるよう、キャッシュレス決済を導入します。</Text>
+                <Text moreTopPadding>今年の明大祭では、来場者のみなさまにより快適に楽しんでいただけるよう、キャッシュレス決済を導入します。</Text>
                 <List mark="※">
                     <ListItem>現金はすべてのブースで使用可能です。</ListItem>
                     <ListItem>一部、キャッシュレス非対応のブースもあります。</ListItem>
-                    <ListItem>初年度導入のため、決済にお時間を要する場合があります。ご了承ください。</ListItem>
+                    <ListItem>導入初年度のため、決済にお時間を要する場合があります。ご了承ください。</ListItem>
                 </List>
                 <SectionTitle>キャッシュレス導入ブース一覧</SectionTitle>
                 <SmallTitle>模擬店企画</SmallTitle>

@@ -50,7 +50,7 @@ export default function Page() {
                 <div className="mt-10">
                     <List mark="・">
                         <ListItem>na-nam</ListItem>
-                        <ListItem>中野ダンスサークルSIGN</ListItem>
+                        <ListItem>中野ダンスサークル SIGN</ListItem>
                         <ListItem>chocolat lumière</ListItem>
                     </List>
                 </div>

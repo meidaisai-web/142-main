@@ -20,16 +20,6 @@ export const officialProjects: {
         date: [1]
     },
     {
-        title: "松原小学校×明大祭",
-        description: "小学生と大学生とのコラボ企画！",
-        image: "/images/project/matsubara.png",
-        alt: "松原小学校×明大祭",
-        time: "10:00~18:00",
-        place: "メディア棟M509教室",
-        link: "/matsubara",
-        date: [1, 2, 3]
-    },
-    {
         title: "校友歓迎スペース",
         description: "懐かしの場所で、学生と温かい一時を。",
         image: "/images/project/alumni.jpg",
@@ -37,6 +27,26 @@ export const officialProjects: {
         time: "10:00~17:00",
         place: "第一校舎316･317教室",
         link: "/alumni",
+        date: [1, 2, 3]
+    },
+    {
+        title: "企業ブース",
+        description: "あの有名企業が明大祭に！",
+        image: "/images/svg/no-image.svg",
+        alt: "企業ブース",
+        time: "10:00~17:30",
+        place: "和泉図書館横",
+        link: "/company",
+        date: [1, 2, 3]
+    },
+    {
+        title: "松原小学校×明大祭",
+        description: "小学生と大学生とのコラボ企画！",
+        image: "/images/svg/no-image.svg",
+        alt: "松原小学校×明大祭",
+        time: "10:00~18:00",
+        place: "メディア棟M509教室",
+        link: "/matsubara",
         date: [1, 2, 3]
     },
     {
@@ -61,12 +71,12 @@ export const officialProjects: {
     },
     {
         title: "明大祭大抽選会",
-        description: "欲しかったものが当たるかも?!",
-        image: "/images/project/lottery.jpg",
+        description: "参加無料！豪華景品！ハズレなし！",
+        image: "/images/svg/no-image.svg",
         alt: "明大祭大抽選会",
         time: "11:00~18:00",
         thirdTime: "11:00~17:20",
-        place: "メディア棟前明大祭大抽選会受付",
+        place: "メディア棟前企画受付",
         link: "/lottery",
         date: [1, 2, 3]
     },
