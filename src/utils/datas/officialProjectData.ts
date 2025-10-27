@@ -12,7 +12,7 @@ export const officialProjects: {
     {
         title: "Opening",
         description: "今鳴り響く開幕の合図",
-        image: "/images/project/opening.png",
+        image: "/images/ensyutsu/opening-logo.png",
         alt: "Opening",
         time: "10:00~10:50",
         place: "メインステージ",
@@ -170,7 +170,7 @@ export const officialProjects: {
     {
         title: "Meiji United Clash",
         description: "共闘の刻ー賭けろ、すべてを。",
-        image: "/images/project/clash.png",
+        image: "/images/ensyutsu/clash-logo.png",
         alt: "Meiji United Clash",
         time: "17:10~18:00",
         place: "メインステージ",
@@ -180,7 +180,7 @@ export const officialProjects: {
     {
         title: "Luminous Stage",
         description: "響鳴せよ、輝く舞台で。",
-        image: "/images/project/luminous.png",
+        image: "/images/ensyutsu/luminous-logo.jpg",
         alt: "Luminous Stage",
         time: "10:30~11:30",
         place: "和泉ラーニングスクエアLS101教室",
@@ -190,7 +190,7 @@ export const officialProjects: {
     {
         title: "UNI ROCK FES",
         description: "響け、叫べ、ひとつになれ。",
-        image: "/images/project/rock.png",
+        image: "/images/ensyutsu/fes-logo.jpg",
         alt: "UNI ROCK FES",
         time: "13:40~14:25",
         place: "メインステージ",
@@ -200,7 +200,7 @@ export const officialProjects: {
     {
         title: "中夜祭",
         description: "Description for Day 2 Project",
-        image: "/images/project/midnight.png",
+        image: "/images/ensyutsu/midnight-logo.png",
         alt: "中夜祭",
         time: "17:10~18:00",
         place: "メインステージ",
@@ -210,7 +210,7 @@ export const officialProjects: {
     {
         title: "I♡Fes!",
         description: "踊って、叫んで、また好きになる。",
-        image: "/images/project/ifes.png",
+        image: "/images/ensyutsu/ifes-logo.png",
         alt: "I♡Fes!",
         time: "13:00~14:00",
         place: "エントランスエリア",
@@ -220,7 +220,7 @@ export const officialProjects: {
     {
         title: "Ending",
         description: "祭、終結",
-        image: "/images/project/ending.png",
+        image: "/images/ensyutsu/ending-logo-black.png",
         alt: "Ending",
         time: "17:25~18:00",
         place: "メインステージ",
