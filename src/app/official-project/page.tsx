@@ -44,7 +44,7 @@ export default function TabsSwipe() {
 
 	return (
 		<div className="w-full">
-			<PageTitle>実行委員企画</PageTitle>
+			<PageTitle>実行委員会企画</PageTitle>
 			<Tab tabs={tabsArray} />
 		</div>
 	);
