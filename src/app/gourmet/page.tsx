@@ -36,12 +36,10 @@ export default function Page() {
                 <Text>
                     11月1日(土).2日(日).3日(月・祝)11：00～18：00
                 </Text>
-                <Text moreTopPadding>
-                <Emphasis>
-                    ※1日先着20名様までとさせていただきます。
-                </Emphasis>
+                <List mark="※">
+                    <ListItem><Emphasis>1日先着20名様までとさせていただきます。</Emphasis></ListItem>
+                </List>
                 <SmallTitle>場所</SmallTitle>
-                </Text>
                 <Text>
                     メディア棟入口付近駿河台グルメマップラリー受付
                 </Text>
