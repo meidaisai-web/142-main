@@ -160,14 +160,14 @@ export const mapData: MapDataType[] = [
         legend: '休憩所',
         location: ['和泉ラーニングスクエア'],
         src: '/images/campusmap/rest_ls_front.jpg',
-        description: '和泉ラーニングスクエア前に設置されている屋外休憩所です。'
+        description: '和泉ラーニングスクエアの前に設置されている屋外休憩所です。'
     },
     {
         name: '和泉のへそ（第四校舎跡地）休憩所',
         legend: '休憩所',
         location: [],
         src: '/images/campusmap/rest_heso.jpg',
-        description: '第四校舎跡地にある「和泉のへそ」付近に設置されている屋外休憩所です。'
+        description: '第一校舎と明大マートの間にある「和泉のへそ」に設置されている屋外休憩所です。'
     },
     {
         name: '第一校舎前 GS',
@@ -282,11 +282,11 @@ export const mapData: MapDataType[] = [
         description: '明大マートの横にアイス販売機がございます。'
     },
     {
-        name: 'リエゾン棟前 喫煙所',
+        name: '体育館ブリッジ横 喫煙所',
         legend: '喫煙所',
-        location: ['第一校舎', '和泉図書館'],
+        location: ['第一校舎'],
         src: '/images/campusmap/smoking.jpg',
-        description: 'リエゾン棟前に設置しております。今年度の明大祭は、指定場所以外での喫煙を禁止しております。必ずこちらの喫煙所を利用するようにお願いします。'
+        description: '体育館ブリッジ横に設置しております。向かって、第一校舎の左側の通路を進んだ先にあります。今年度の明大祭は、指定場所以外での喫煙を禁止しております。必ずこちらの喫煙所を利用するようにお願いします。'
     },
     {
         name: '第一校舎 ATM',
@@ -363,6 +363,6 @@ export const mapData: MapDataType[] = [
         legend: 'ステージ',
         location: ['和泉ラーニングスクエア'],
         src: '/images/campusmap/ls101.jpg',
-        description: '和泉ラーニングスクエア（LS）1階にある屋内ステージです。'
+        description: '明大祭で唯一屋内にあるステージです！照明や音響が映えるステージを見ることができます。'
     }
 ]
