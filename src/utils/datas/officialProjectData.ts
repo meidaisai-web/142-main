@@ -24,7 +24,7 @@ export const officialProjects: {
         description: "懐かしの場所で、学生と温かい一時を。",
         image: "/images/project/alumni.jpg",
         alt: "校友歓迎スペース",
-        time: "10:00~17:00",
+        time: "11:00~17:00",
         place: "第一校舎316･317教室",
         link: "/alumni",
         date: [1, 2, 3]
@@ -131,7 +131,7 @@ export const officialProjects: {
         alt: "EXPOrts2025 in 明治",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
-        place: "和泉ラーニングスクエアLS406･407教室・4階アゴラ",
+        place: "和泉ラーニングスクエアLS406･LS407教室・4階アゴラ",
         link: "/sports",
         date: [1, 2, 3]
     },
@@ -153,7 +153,7 @@ export const officialProjects: {
         alt: "明治に恋する5秒前",
         time: "10:00~18:00",
         thirdTime: "10:00~17:30",
-        place: "メディア棟M402･403教室・4階Aラウンジ",
+        place: "メディア棟4階Aラウンジ、M402･M403教室",
         link: "/love",
         date: [1, 2, 3]
     },
