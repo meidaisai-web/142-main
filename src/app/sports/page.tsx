@@ -25,7 +25,7 @@ export default function Page() {
                 <Text>11月3日(月・祝) 10：00～17：00</Text>
                 <SmallTitle  className="mt-5">場所</SmallTitle>
                 <AccentText>展示・掲示企画</AccentText>
-                <Text>和泉ラーニングスクエアLS406・407教室</Text>
+                <Text>和泉ラーニングスクエアLS406・LS407教室</Text>
                 <AccentText>応援メッセージコーナー</AccentText>
                 <Text>和泉ラーニングスクエア4階アゴラ</Text>
             </PageContainer>
