@@ -47,7 +47,7 @@ export const mapData: MapDataType[] = [
         name: "第一校舎2階診療所 AED",
         legend: "AED",
         location: ["第一校舎"],
-        src: "/images/map/aed_first_2.jpg",
+        src: "/images/campusmap/aed_first_2.jpg",
         description: "診療所内の事務室にございます。中にいる職員の方にお声がけください。明大祭期間の開室時間は9:00〜19:00となっております。"
     },
     {
@@ -97,14 +97,14 @@ export const mapData: MapDataType[] = [
         legend: '休憩所',
         location: ['第一校舎'],
         src: '/images/campusmap/rest_first.jpg',
-        description: '1階ラウンジ、2階エレベーター前、3階エレベーター前、214教室の横、317教室の横、3階リフレッシュルームの6箇所に休憩所がございます。'
+        description: '1階ラウンジ、2階エレベーター前、3階エレベーター前、214教室の横、317教室の横、3階リフレッシュルーム、4階エレベーター前（企画実施日のみ）、4階リフレッシュルーム（企画実施日のみ）の8箇所に休憩所がございます。'
     },
     {
         name: 'メディア棟 休憩所',
         legend: '休憩所',
         location: ['メディア棟'],
         src: '/images/campusmap/rest_media.jpg',
-        description: '1階ラウンジ、4階Aラウンジ、4階Bラウンジの3箇所に休憩所がございます。'
+        description: '1階ラウンジ、4階Bラウンジの2箇所に休憩所がございます。'
     },
     {
         name: '和泉ラーニングスクエア（LS）休憩所',
@@ -156,6 +156,20 @@ export const mapData: MapDataType[] = [
         description: '創造の泉付近にあり、メインステージに近い屋外休憩所です。模擬店にも近いため、ぜひ飲食の際にもご利用ください。',
     },
     {
+        name: '和泉ラーニングスクエア前（屋外）休憩所',
+        legend: '休憩所',
+        location: ['和泉ラーニングスクエア'],
+        src: '/images/campusmap/rest_ls_front.jpg',
+        description: '和泉ラーニングスクエア前に設置されている屋外休憩所です。'
+    },
+    {
+        name: '和泉のへそ（第四校舎跡地）休憩所',
+        legend: '休憩所',
+        location: [],
+        src: '/images/campusmap/rest_heso.jpg',
+        description: '第四校舎跡地にある「和泉のへそ」付近に設置されている屋外休憩所です。'
+    },
+    {
         name: '第一校舎前 GS',
         legend: 'ごみステーション',
         location: ['第一校舎'],
@@ -177,7 +191,7 @@ export const mapData: MapDataType[] = [
         description: '和泉ラーニングスクエア（LS）とメディア棟の間に設置されています。模擬店に近いごみステーションです。飲食後のごみを捨てる際などにご活用ください。',
     },
     {
-        name: '屋外休憩所付近 GS',
+        name: '和泉図書館横屋外休憩所付近 GS',
         legend: 'ごみステーション',
         location: ['和泉図書館'],
         src: '/images/campusmap/gs_library.jpg',
@@ -216,7 +230,7 @@ export const mapData: MapDataType[] = [
         legend: 'バリアフリートイレ',
         location: ['食堂', '第二学生会館'],
         src: '/images/campusmap/toilet_cafe.jpg',
-        description: '1階にございます。入ってそのまま正面にお進みください。'
+        description: '1階にございます。入ってそのまま正面にお進みください。また、男子トイレは1階、女子トイレは2階にございます。'
     },
     {
         name: '和泉図書館 トイレ',
@@ -268,11 +282,11 @@ export const mapData: MapDataType[] = [
         description: '明大マートの横にアイス販売機がございます。'
     },
     {
-        name: '第三校舎跡地前 喫煙所',
+        name: 'リエゾン棟前 喫煙所',
         legend: '喫煙所',
         location: ['第一校舎', '和泉図書館'],
         src: '/images/campusmap/smoking.jpg',
-        description: '第三校舎跡地前に設置しております。今年度の明大祭は、指定場所以外での喫煙を禁止しております。必ずこちらの喫煙所を利用するようにお願いします。'
+        description: 'リエゾン棟前に設置しております。今年度の明大祭は、指定場所以外での喫煙を禁止しております。必ずこちらの喫煙所を利用するようにお願いします。'
     },
     {
         name: '第一校舎 ATM',
