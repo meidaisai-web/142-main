@@ -27,40 +27,29 @@ export default function Page() {
                 <Text>メインステージ</Text>
                 <SectionTitle>コンテンツ</SectionTitle>
                 <SmallTitle>オープニングアクト</SmallTitle>
+                <Image src="/images/ensyutsu/midnight/shodo.jpg" alt="書道研究部" width={600} height={400} className="mx-auto mt-4 aspect-2/1 object-cover" />
+                <p className="text-lg font-medium text-center">書道研究部</p>
+                <SmallTitle>コラボパフォーマンス</SmallTitle>
                 <p className="text-end mt-4 text-lg font-medium">Allround Piano Society</p>
                 <Photoframe leftImagePath="/images/ensyutsu/midnight/amour.jpg" rightImagePath="/images/ensyutsu/midnight/aps.jpg" />
                 <p className="text-lg font-medium">アカペラサークル amour</p>
                 <p className="text-end mt-8 text-lg font-medium">DJ Shibu</p>
                 <Photoframe leftImagePath="/images/ensyutsu/midnight/sign.jpg" rightImagePath="/images/ensyutsu/midnight/djshibu.jpg" />
                 <p className="text-lg font-medium">中野ダンスサークル SIGN</p>
-                <p className="text-end mt-8 text-lg font-medium">男子チアリーディングチーム ANCHORS</p>
-                <Photoframe leftImagePath="/images/ensyutsu/midnight/copia.jpg" rightImagePath="/images/ensyutsu/midnight/anchors.jpg" />
-                <p className="text-lg font-medium">Copia</p>
-                <SmallTitle>フラッシュナイトパフォーマンス</SmallTitle>
-                <Image src="/images/ensyutsu/midnight/dietz.jpg" alt="Juggling Circle Dietz" width={600} height={400} className="mx-auto mt-4 aspect-2/1 object-cover object-top" />
-                <p className="text-lg font-medium">ジャグリングサークル Dietz</p>
-                <SmallTitle>ラブリンクパフォーマンス</SmallTitle>
                 <p className="text-end text-lg font-medium mt-4">チアダンスチーム Blooms</p>
                 <Photoframe leftImagePath="/images/ensyutsu/midnight/jaguars.jpg" rightImagePath="/images/ensyutsu/midnight/blooms.jpg" />
                 <p className="text-lg font-medium">体育同好会連合会チアリーディングチーム・JAGUARS</p>
+                <SmallTitle>フラッシュナイトパフォーマンス</SmallTitle>
+                <Image src="/images/ensyutsu/midnight/dietz.jpg" alt="Juggling Circle Dietz" width={600} height={400} className="mx-auto mt-4 aspect-2/1 object-cover object-top" />
+                <p className="text-lg font-medium text-center">ジャグリングサークル Dietz</p>
+                <SmallTitle>ラブリンクパフォーマンス</SmallTitle>
+                <p className="text-end mt-8 text-lg font-medium">男子チアリーディングチーム ANCHORS</p>
+                <Photoframe leftImagePath="/images/ensyutsu/midnight/copia.jpg" rightImagePath="/images/ensyutsu/midnight/anchors.jpg" />
+                <p className="text-lg font-medium">Copia</p>
                 <SmallTitle>フィナーレ</SmallTitle>
                 <Image src="/images/ensyutsu/midnight/finale.jpg" alt="中夜祭フィナーレ" width={600} height={400} className="mx-auto mt-4 aspect-2/1 object-cover" />
-                <p className="text-lg font-medium">全出演団体</p>
+                <p className="text-lg font-medium text-center">全出演団体</p>
             </PageContainer>
-        </div>
-    )
-}
-
-interface CaptionProps {
-    leftText: string;
-    rightText: string;
-}
-function Caption({ leftText, rightText }: CaptionProps) {
-    return (
-        <div className="flex justify-between">
-            <p className="leading-4 pt-1">{leftText}</p>
-            <p>×</p>
-            <p className="text-end leading-4 pt-1">{rightText}</p>
         </div>
     )
 }
