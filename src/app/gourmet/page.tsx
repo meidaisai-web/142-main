@@ -49,7 +49,7 @@ export default function Page() {
                 <MapImage src='/images/map/keio.jpg' alt='Campus Map'/>
                 <SectionTitle>企画協力店舗</SectionTitle>
                 <List numbered className="mt-8">
-                    <ListItem>SPICE KITCHEN 360°</ListItem>
+                    <ListItem>SPICE KITCHEN 3</ListItem>
                     <ListItem>oliver</ListItem>
                     <ListItem>701 nanamaruichi</ListItem>
                     <ListItem>ラーメン大至</ListItem>
