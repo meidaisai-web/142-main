@@ -21,11 +21,8 @@ export function saveVotedId(id: string, groupId: string, type: string) {
 }
 
 // その日に投票されているかどうか
-export async function hasVotedToday(eventId: string, ip: string): Promise<boolean> {
-    const duplicate = await duplicateMeichamVote(eventId, ip);
-    if (duplicate) {
-        return true;
-    }
+export function hasVotedToday(): boolean {
+
     const today = getJapanDate();
     const votedIds = JSON.parse(localStorage.getItem('votedMeichamIds') || '[]') as MeichamVotedData[];
     for (const vote of votedIds) {
