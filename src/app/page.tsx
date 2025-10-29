@@ -5,12 +5,15 @@ import FireLoading from "@/components/base/Loading";
 import Access from "@/components/index/Access";
 import AnnounceSection from "@/components/index/AnnounceSection";
 import HeroSection from "@/components/index/HeroSection";
+import TopicCoverFlow from "@/components/index/TopicCoverFlow";
 import News from "@/components/index/News";
 import Rainbow from "@/components/index/Rainbow";
 import SearchSection from "@/components/index/SearchSection";
 import { NewsData } from "@/utils/datas/NewsData";
 import Link from "next/link";
 import { ReactNode, useEffect, useState } from "react";
+import Try from "@/components/index/try";
+import TopicCoverFlow2 from "@/components/index/TopicCoverFlow2";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -60,6 +63,8 @@ function Contents() {
           <Link href="/news" className="text-secondary hover:underline">他のお知らせはこちら</Link>
       </Alert>
       <HeroSection />
+      <Rainbow className="mt-10" />
+      <TopicCoverFlow2 />
       <Rainbow className="mt-10" />
       <SearchSection />
       <Rainbow className="mt-20" />
