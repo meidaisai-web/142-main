@@ -14,7 +14,7 @@ export default function MapContent() {
     return (
         <div>
             <PageContainer>
-                <ZoomableImage src="/images/campusmap/map.png" alt="キャンパスマップ" width={800} height={800} className="w-full mt-8 rounded-xl max-w-2xl mx-auto" />
+                <ZoomableImage src="/images/campusmap/map.jpg" alt="キャンパスマップ" width={800} height={800} className="w-full mt-8 rounded-xl max-w-2xl mx-auto" />
             </PageContainer>
             <Tab tabs={tabs} />
         </div>
