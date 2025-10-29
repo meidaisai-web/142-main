@@ -50,6 +50,16 @@ export const officialProjects: {
         date: [1, 2, 3]
     },
     {
+        title: "校友歓迎スペース",
+        description: "おかえりなさい！明大生",
+        image: "/images/project/alumni.png",
+        alt: "校友歓迎スペース",
+        time: "10:00~18:00",
+        place: "第一校舎316･317教室",
+        link: "/alumni",
+        date: [1, 2, 3]
+    },
+    {
         title: "KEIO×第141回明大祭デジタルスタンプラリー",
         description: "京王電鉄株式会社とコラボしたデジタルスタンプラリー！",
         image: "/images/project/keio-stamp.png",
