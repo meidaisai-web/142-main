@@ -15,22 +15,26 @@ export default function Page() {
                 <SectionTitle>ご協賛企業一覧</SectionTitle>
                 <SmallTitle>ご協賛企業名</SmallTitle>
                 <Text>(以下五十音順・敬称略)</Text>
-                <div className="flex flex-wrap gap-5 max-w-6xl">
+                <div className="flex flex-col gap-5">
                     <div>
                         <AccentText>広告協賛</AccentText>
-                        {companyAdList.map((company, index) => (
-                            <Text key={index}>
-                                {company.name}
-                            </Text>
-                        ))}
+                        <div className="flex flex-wrap">
+                            {companyAdList.map((company, index) => (
+                                <Text key={index} className="w-md">
+                                    {company.name}
+                                </Text>
+                            ))}
+                        </div>
                     </div>
-                    <div className="lg:ml-auto">
+                    <div>
                         <AccentText>物品協賛</AccentText>
-                        {companyGoodsList.map((company, index) => (
-                            <Text key={index}>
-                                {company.name}
-                            </Text>
-                        ))}
+                        <div className="flex flex-wrap">
+                            {companyGoodsList.map((company, index) => (
+                                <Text key={index} className="w-md">
+                                    {company.name}
+                                </Text>
+                            ))}
+                        </div>
                     </div>
                 </div>
                 <ContactView department="渉外局（企業部門）" mail="shogai@meidaisai.jp" />

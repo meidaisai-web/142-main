@@ -12,7 +12,7 @@ export const officialProjects: {
     {
         title: "Opening",
         description: "今鳴り響く開幕の合図",
-        image: "/images/project/opening.png",
+        image: "/images/ensyutsu/opening-logo.png",
         alt: "Opening",
         time: "10:00~10:50",
         place: "メインステージ",
@@ -20,9 +20,29 @@ export const officialProjects: {
         date: [1]
     },
     {
+        title: "校友歓迎スペース",
+        description: "懐かしの場所で、学生と温かい一時を。",
+        image: "/images/project/alumni.jpg",
+        alt: "校友歓迎スペース",
+        time: "11:00~17:00",
+        place: "第一校舎316･317教室",
+        link: "/alumni",
+        date: [1, 2, 3]
+    },
+    {
+        title: "企業ブース",
+        description: "あの有名企業が明大祭に！",
+        image: "/images/svg/official/logo.svg",
+        alt: "企業ブース",
+        time: "10:00~17:30",
+        place: "和泉図書館横",
+        link: "/company",
+        date: [1, 2, 3]
+    },
+    {
         title: "松原小学校×明大祭",
         description: "小学生と大学生とのコラボ企画！",
-        image: "/images/project/matsubara.png",
+        image: "/images/svg/official/logo.svg",
         alt: "松原小学校×明大祭",
         time: "10:00~18:00",
         place: "メディア棟M509教室",
@@ -61,19 +81,19 @@ export const officialProjects: {
     },
     {
         title: "明大祭大抽選会",
-        description: "欲しかったものが当たるかも?!",
-        image: "/images/project/lottery.png",
+        description: "参加無料！豪華景品！ハズレなし！",
+        image: "/images/svg/official/logo.svg",
         alt: "明大祭大抽選会",
         time: "11:00~18:00",
         thirdTime: "11:00~17:20",
-        place: "メディア棟前明大祭大抽選会受付",
+        place: "メディア棟前企画受付",
         link: "/lottery",
         date: [1, 2, 3]
     },
     {
         title: "Stand by Memory",
         description: "この一瞬を永遠に。",
-        image: "/images/project/memory.png",
+        image: "/images/kaihatsu/memory.jpg",
         alt: "Stand by Memory",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
@@ -84,7 +104,7 @@ export const officialProjects: {
     {
         title: "ポンdeクエスト",
         description: "スタンプを集めて魔王を倒せ！！",
-        image: "/images/project/quest.png",
+        image: "/images/kaihatsu/quest.jpg",
         alt: "ポンdeクエスト",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
@@ -95,7 +115,7 @@ export const officialProjects: {
     {
         title: "明大SAY！",
         description: "共感と謎解きの世界へようこそ！",
-        image: "/images/project/say.png",
+        image: "/images/kaihatsu/say.jpg",
         alt: "明大SAY！",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
@@ -106,7 +126,7 @@ export const officialProjects: {
     {
         title: "跡巡ーあとめぐー",
         description: "君は解ける？謎解きクイズラリー",
-        image: "/images/project/rally.png",
+        image: "/images/kaihatsu/rally.jpg",
         alt: "跡巡ーあとめぐー",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
@@ -117,18 +137,18 @@ export const officialProjects: {
     {
         title: "EXPOrts2025 in 明治",
         description: "明大スポーツ万博、開幕！",
-        image: "/images/project/exports2025.png",
+        image: "/images/kaihatsu/sports.jpg",
         alt: "EXPOrts2025 in 明治",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
-        place: "和泉ラーニングスクエアLS406･407教室・4階アゴラ",
+        place: "和泉ラーニングスクエアLS406･LS407教室・4階アゴラ",
         link: "/sports",
         date: [1, 2, 3]
     },
     {
         title: "一灯一想",
         description: "扉を開けるとランタンの世界へ！",
-        image: "/images/project/wish.png",
+        image: "/images/kaihatsu/wish.jpg",
         alt: "一灯一想",
         time: "10:00~18:00",
         thirdTime: "10:00~17:00",
@@ -139,18 +159,18 @@ export const officialProjects: {
     {
         title: "明治に恋する5秒前",
         description: "This is Meijism.",
-        image: "/images/project/mk5.png",
+        image: "/images/kaihatsu/love.jpg",
         alt: "明治に恋する5秒前",
         time: "10:00~18:00",
         thirdTime: "10:00~17:30",
-        place: "メディア棟M402･403教室・4階Aラウンジ",
+        place: "メディア棟4階Aラウンジ、M402･M403教室",
         link: "/love",
         date: [1, 2, 3]
     },
     {
         title: "明大祭公式グッズ企画",
         description: "手にすれば、もっと明大祭。",
-        image: "/images/project/goods.png",
+        image: "/images/project/goods.jpg",
         alt: "明大祭公式グッズ企画",
         time: "10:00~18:00",
         place: "和泉図書館前",
@@ -158,9 +178,49 @@ export const officialProjects: {
         date: [1, 2, 3]
     },
     {
+        title: "Meijic Moment",
+        description: "”Meijic Moment”で明大祭をもっと特別に！",
+        image: "/images/svg/official/logo.svg",
+        alt: "Meijic Moment",
+        time: "11:00~18:00",
+        place: "センターサークルのフォトブース前",
+        link: "/meijic",
+        date: [1, 2, 3]
+    },
+    {
+        title: "チャリティーバザー",
+        description: "実行委員会によるバザー企画開催！",
+        image: "/images/svg/official/logo.svg",
+        alt: "チャリティーバザー",
+        time: "10:00~18:00",
+        place: "第一校舎正面右側",
+        link: "/bazaar",
+        date: [1, 2, 3]
+    },
+    {
+        title: "明大祭イルミネーション",
+        description: "熱狂を包む、余韻の光",
+        image: "/images/svg/official/logo.svg",
+        alt: "明大祭イルミネーション",
+        time: "16:00～19:00",
+        place: "和泉キャンパス正門付近",
+        link: "/illumination",
+        date: [1, 2, 3]
+    },
+    {
+        title: "駿河台グルメマップラリー",
+        description: "歩いて見つける、まちの味",
+        image: "/images/svg/official/logo.svg",
+        alt: "駿河台グルメマップラリー",
+        time: "11:00~18:00",
+        place: "メディア棟入口付近駿河台グルメマップラリー受付",
+        link: "/gourmet",
+        date: [1, 2, 3]
+    },
+    {
         title: "Meiji United Clash",
         description: "共闘の刻ー賭けろ、すべてを。",
-        image: "/images/project/clash.png",
+        image: "/images/ensyutsu/clash-logo.png",
         alt: "Meiji United Clash",
         time: "17:10~18:00",
         place: "メインステージ",
@@ -170,7 +230,7 @@ export const officialProjects: {
     {
         title: "Luminous Stage",
         description: "響鳴せよ、輝く舞台で。",
-        image: "/images/project/luminous.png",
+        image: "/images/ensyutsu/luminous-logo.jpg",
         alt: "Luminous Stage",
         time: "10:30~11:30",
         place: "和泉ラーニングスクエアLS101教室",
@@ -180,7 +240,7 @@ export const officialProjects: {
     {
         title: "UNI ROCK FES",
         description: "響け、叫べ、ひとつになれ。",
-        image: "/images/project/rock.png",
+        image: "/images/ensyutsu/fes-logo.jpg",
         alt: "UNI ROCK FES",
         time: "13:40~14:25",
         place: "メインステージ",
@@ -190,7 +250,7 @@ export const officialProjects: {
     {
         title: "中夜祭",
         description: "Description for Day 2 Project",
-        image: "/images/project/midnight.png",
+        image: "/images/ensyutsu/midnight-logo.png",
         alt: "中夜祭",
         time: "17:10~18:00",
         place: "メインステージ",
@@ -200,7 +260,7 @@ export const officialProjects: {
     {
         title: "I♡Fes!",
         description: "踊って、叫んで、また好きになる。",
-        image: "/images/project/ifes.png",
+        image: "/images/ensyutsu/ifes-logo.png",
         alt: "I♡Fes!",
         time: "13:00~14:00",
         place: "エントランスエリア",
@@ -210,7 +270,7 @@ export const officialProjects: {
     {
         title: "Ending",
         description: "祭、終結",
-        image: "/images/project/ending.png",
+        image: "/images/ensyutsu/ending-logo-black.png",
         alt: "Ending",
         time: "17:25~18:00",
         place: "メインステージ",

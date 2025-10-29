@@ -36,7 +36,7 @@ export default function Page() {
                 <Text>※画像はイメージです。</Text>
                 <SectionTitle>販売詳細</SectionTitle>
                 <SmallTitle>販売日時</SmallTitle>
-                <Text>11月1日(土).2日(日).3日(月・祝)10：00～18：00</Text>
+                <Text>11月1日(土).2日(日).3日(月・祝) 10：00～18：00</Text>
                 <SmallTitle>販売場所</SmallTitle>
                 <Text>明治大学和泉キャンパス明大祭公式グッズ販売ブース（和泉図書館前）</Text>
                 <MapImage src="/images/map/goods.jpg" alt="明大祭公式グッズ販売ブースの場所" />

@@ -30,4 +30,5 @@ const TabButton = forwardRef<HTMLButtonElement, TabButtonProps>(
   }
 );
 
+TabButton.displayName = 'TabButton';
 export default TabButton;
