@@ -12,8 +12,6 @@ import SearchSection from "@/components/index/SearchSection";
 import { NewsData } from "@/utils/datas/NewsData";
 import Link from "next/link";
 import { ReactNode, useEffect, useState } from "react";
-import Try from "@/components/index/try";
-import TopicCoverFlow2 from "@/components/index/TopicCoverFlow2";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -64,7 +62,7 @@ function Contents() {
       </Alert>
       <HeroSection />
       <Rainbow className="mt-10" />
-      <TopicCoverFlow2 />
+      <TopicCoverFlow slides={[0,1,2,3,4,5]}/>
       <Rainbow className="mt-10" />
       <SearchSection />
       <Rainbow className="mt-20" />
