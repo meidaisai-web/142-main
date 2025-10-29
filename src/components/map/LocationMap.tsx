@@ -79,11 +79,11 @@ export default function LocationMap() {
     }
 
     return (
-        <div className="flex flex-col border-b-2 border-white w-full max-w-4xl mx-auto ">
+        <div className="flex flex-col border-b-2 border-white w-full max-w-4xl mx-auto">
             {locationList.map((location, index) => (
                 <div key={index} ref={(el) => { accordionRefs.current[index] = el }}>
                     <MapAccordion isOpen={isOpenId === index} onClick={() => handleAccordionClick(index)} title={location.name}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-5">
                         {searchLocation(location.name).map((legendSection, idx) => (
                             <div key={idx}>
                                 <Image src={legendSection.src} alt={`${legendSection.legend}の画像`} width={600} height={300} className="object-fit w-60 mt-4" />
