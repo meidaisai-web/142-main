@@ -126,7 +126,7 @@ export default function TopicCoverFlow() {
               return (
                 <SwiperSlide
                   key={topic.id}
-                  className="!h-auto"
+                  className="!h-auto w-full"
                 >
                   <Link
                     href={topic.href}

@@ -82,13 +82,13 @@ export default function TopicCoverFlow() {
 
         <div className="mt-16">
           <Swiper
-            className="topic-coverflow"
+            className="topic-coverflow !px-8"
             modules={[EffectCoverflow, Pagination, Mousewheel, Keyboard, Autoplay]}
             effect="coverflow"
             coverflowEffect={{
               rotate: 20,
               depth: 200,
-              stretch: 200,
+              stretch: 20,
               modifier: 1,
               slideShadows: false,
             }}
@@ -96,19 +96,17 @@ export default function TopicCoverFlow() {
             loop
             // autoplay={{ delay: 4200, disableOnInteraction: false }}
             pagination={{ clickable: true }}
-            mousewheel={{ forceToAxis: true, releaseOnEdges: true, sensitivity: 0.5 }}
+            mousewheel={{ forceToAxis: false, releaseOnEdges: true, sensitivity: 0.5 }}
             keyboard={{ enabled: true, onlyInViewport: true }}
             slidesPerGroup={1}
-            breakpoints={{
-              320: { slidesPerView: 1, spaceBetween: 16 },
-              640: { slidesPerView: 2, spaceBetween: 18 },
-              1024: { slidesPerView: 5, spaceBetween: 24 },
-              1280: { slidesPerView: 7, spaceBetween: 40 },
-            }}
+            slidesPerView={3}
+            spaceBetween={24}
             onSlideChange={(swiper) => {
               setActiveIndex(swiper.realIndex);
             }}
             onSwiper={(swiper) => setActiveIndex(swiper.realIndex)}
+            simulateTouch={true}
+            grabCursor={true}
           >
             {topics.map((topic, index) => {
               const isActive = index === activeIndex;
@@ -116,11 +114,11 @@ export default function TopicCoverFlow() {
               return (
                 <SwiperSlide
                   key={topic.id}
-                  className="!h-auto w-full"
+                  className="!h-auto"
                 >
                   <Link
                     href={topic.href}
-                    className={`group flex h-[28rem] w-64 flex-col overflow-hidden rounded-[1.75rem] bg-secondary ring-1 ring-white/10 transition-transform duration-500 ${
+                    className={`group flex h-[28rem] !w-64 mx-auto flex-col overflow-hidden rounded-[1.75rem] bg-secondary ring-1 ring-white/10 transition-transform duration-500 ${
                       isActive ? "scale-100" : "scale-95 hover:scale-100"
                     }`}
                     aria-label={`${topic.title}へ移動`}
@@ -161,8 +159,8 @@ export default function TopicCoverFlow() {
       <style jsx global>{`
         .topic-coverflow {
           padding-bottom: 3.75rem;
+          overflow: hidden !important;
         }
-
         .topic-coverflow .swiper-pagination {
           bottom: 0;
         }
