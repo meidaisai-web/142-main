@@ -55,7 +55,7 @@ export default function Page() {
                 <Text>④ラーメン大至</Text>
                 <Text>⑤欧風カレーガヴィアル神保町本店</Text>
                 <Text>⑥ハンバーグ大地</Text>
-                <OnlyImage src="/images/gourmet/gourmet.jpg" alt='グルメマップラリー企画ポスター' className="mt-20" />
+                <OnlyImage src="/images/gourmet/gourmet.jpg" alt='グルメマップラリー企画ポスター' className="mt-20"/>
             </PageContainer>
         </>
     )
