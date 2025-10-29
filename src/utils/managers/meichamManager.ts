@@ -1,5 +1,6 @@
 import { MeichamVotedData } from "../models/MeichamVotedData";
 import { getJapanDateString, getJapanISOString, isSameDate, getOnlyDate, getJapanDate } from "../dateUtils";
+import { duplicateMeichamVote } from "../supabase/meichamAction";
 
 // 同じ日に同じIDで投票しているか確認する
 export function isAlreadyVoted(id: string): boolean {
@@ -20,7 +21,11 @@ export function saveVotedId(id: string, groupId: string, type: string) {
 }
 
 // その日に投票されているかどうか
-export function hasVotedToday(): boolean {
+export async function hasVotedToday(eventId: string, ip: string): Promise<boolean> {
+    const duplicate = await duplicateMeichamVote(eventId, ip);
+    if (duplicate) {
+        return true;
+    }
     const today = getJapanDate();
     const votedIds = JSON.parse(localStorage.getItem('votedMeichamIds') || '[]') as MeichamVotedData[];
     for (const vote of votedIds) {

@@ -31,12 +31,12 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
             //     return;
             // }
             const incognito = await detectIncognito();
-            if (incognito.isPrivate) {
-                setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
-                setButtonText("投票できません");
-                setIsEnable(false);
-                return;
-            }
+            // if (incognito.isPrivate) {
+            //     setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
+            //     setButtonText("投票できません");
+            //     setIsEnable(false);
+            //     return;
+            // }
             if (isAlreadyVoted(id)) {
                 setIsEnable(false);
                 setButtonText("投票済み");
@@ -44,6 +44,15 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         }
         initialize();
     }, [])
+
+    async function getIP(): Promise<string> {
+        const res = await fetch('/api/ip')
+        console.log(res)
+        const data = await res.json()
+        console.log(data)
+        console.log(data.ip)
+        return data.ip
+    }
 
     function onTapVote() {
         setHiddenAlert(false);
@@ -63,13 +72,13 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
 
         // プライベートモードの場合はエラー（localStorageにうまく保存できないため）
         // おそらくsafariのみでChrome系は大丈夫だと思われるが一応プライベートモードの場合はすべて投票不可にする
-        const incognito = await detectIncognito();
-        if (incognito.isPrivate) {
-            setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
-            setButtonText("投票できません");
-            setIsEnable(false);
-            return;
-        }
+        // const incognito = await detectIncognito();
+        // if (incognito.isPrivate) {
+        //     setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
+        //     setButtonText("投票できません");
+        //     setIsEnable(false);
+        //     return;
+        // }
         // すでにその日に、その企画に投票しているか確認
         if (isAlreadyVoted(id)) {
             setError("本日すでにこの企画に投票しています。");
@@ -78,7 +87,9 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
             return;
         }
         // 投票していなければ、投票を実行
-        const success = await voteMeicham(id, groupId, type);
+        const ip = await getIP();
+        console.log(ip)
+        const success = await voteMeicham(id, groupId, type, ip);
         if (!success) {
             setError("投票に失敗しました。もう一度お試しください。");
             setIsEnable(true);
