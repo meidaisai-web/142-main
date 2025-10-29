@@ -6,7 +6,8 @@ export function searchLocation(location: Location): ShowLocationType[] {
     return groupByLegend(data);
 }
 
-export function searchLegend(legend: Legend): MapDataType[] {
+export function searchLegend(legend: Legend | null): MapDataType[] {
+    if (!legend) return [];
     return mapData.filter((data) => data.legend === legend);
 }
 
