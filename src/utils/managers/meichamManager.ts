@@ -1,6 +1,5 @@
 import { MeichamVotedData } from "../models/MeichamVotedData";
 import { getJapanDateString, getJapanISOString, isSameDate, getOnlyDate, getJapanDate } from "../dateUtils";
-import { duplicateMeichamVote } from "../supabase/meichamAction";
 
 // 同じ日に同じIDで投票しているか確認する
 export function isAlreadyVoted(id: string): boolean {
