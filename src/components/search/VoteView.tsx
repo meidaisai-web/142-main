@@ -25,18 +25,18 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
 
     useEffect(() => {
         async function initialize() {
-            // if (!isVoteTime(eventDate)) {
-            //     setButtonText("投票可能時間外です")
-            //     setIsEnable(false);
-            //     return;
-            // }
+            if (!isVoteTime(eventDate)) {
+                setButtonText("投票可能時間外です")
+                setIsEnable(false);
+                return;
+            }
             const incognito = await detectIncognito();
-            // if (incognito.isPrivate) {
-            //     setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
-            //     setButtonText("投票できません");
-            //     setIsEnable(false);
-            //     return;
-            // }
+            if (incognito.isPrivate) {
+                setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
+                setButtonText("投票できません");
+                setIsEnable(false);
+                return;
+            }
             if (isAlreadyVoted(id)) {
                 setIsEnable(false);
                 setButtonText("投票済み");
@@ -63,22 +63,22 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         setIsEnable(false);
         setError(null);
         setButtonText("投票中...");
-        // if (!isVoteTime(eventDate)) {
-        //     setError("投票可能な時間ではありません。");
-        //     setButtonText("投票可能時間外です");
-        //     setIsEnable(false);
-        //     return;
-        // }
+        if (!isVoteTime(eventDate)) {
+            setError("投票可能な時間ではありません。");
+            setButtonText("投票可能時間外です");
+            setIsEnable(false);
+            return;
+        }
 
         // プライベートモードの場合はエラー（localStorageにうまく保存できないため）
         // おそらくsafariのみでChrome系は大丈夫だと思われるが一応プライベートモードの場合はすべて投票不可にする
-        // const incognito = await detectIncognito();
-        // if (incognito.isPrivate) {
-        //     setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
-        //     setButtonText("投票できません");
-        //     setIsEnable(false);
-        //     return;
-        // }
+        const incognito = await detectIncognito();
+        if (incognito.isPrivate) {
+            setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
+            setButtonText("投票できません");
+            setIsEnable(false);
+            return;
+        }
         // すでにその日に、その企画に投票しているか確認
         if (isAlreadyVoted(id)) {
             setError("本日すでにこの企画に投票しています。");
