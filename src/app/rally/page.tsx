@@ -7,11 +7,13 @@ import Emphasis from '@/components/texts/Emphasis'
 import PageContainer from '@/components/base/PageContainer'
 import TransitionLink from '@/components/buttons/TransitionLink'
 import OnlyImage from '@/components/OnlyImage'
+import LogoImage from '@/components/LogoImage'
 export default function Page() {
     return (
         <div>
             <PageTitle>跡巡～あとめぐ～</PageTitle>
             <PageContainer>
+                <LogoImage src="/images/kaihatsu/rally.jpg" alt="跡巡～あとめぐ～ ロゴ" className="mt-10" />
                 <SectionTitle>企画概要</SectionTitle>
                 <Text className='mt-6'>
                     <Emphasis>キャンパス内に隠された謎。解いてまわって、事件の真相を暴け！</Emphasis>

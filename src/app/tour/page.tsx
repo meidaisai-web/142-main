@@ -9,7 +9,6 @@ import { List, ListItem } from "@/components/texts/List";
 import { ScheduleTable } from "@/components/ScheduleTable";
 import MapImage from "@/components/MapImage";
 
-
 const days = ['11月2日(土)', '11月3日(日)', '11月4日(月・祝)'];
 
 const times = [
@@ -72,10 +71,7 @@ export default function Tour() {
                 <Sectiontitle>企画実施日時・場所</Sectiontitle>
                 <SmallTitle>日時</SmallTitle>
                 <Text>
-                    11月1日(土).2日(日).3日(月・祝)
-                </Text>
-                <Text>
-                    10：00～16：00
+                    11月1日(土).2日(日).3日(月・祝) 10：00～16：00
                 </Text>
                 <ScheduleTable days={days} times={times} />
                 <List mark="※">

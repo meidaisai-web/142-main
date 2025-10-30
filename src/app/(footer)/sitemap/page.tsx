@@ -23,9 +23,22 @@ export default function SitemapPage() {
 				<SmallTitle>特集</SmallTitle>
 				<div className="flex flex-wrap gap-4">
 					<TransitionLink href="/search">企画検索</TransitionLink>
+					<TransitionLink href="/official-project">実行委員会企画</TransitionLink>
 					<TransitionLink href="/crowdfunding">クラウドファンディング</TransitionLink>
 					<TransitionLink href="/champ">Meidaisai Championship</TransitionLink>
 					<TransitionLink href="/lottery">明大祭大抽選会</TransitionLink>
+					<TransitionLink href="/meijic">Meijic Moment</TransitionLink>
+					<TransitionLink href="/bazaar">明大祭チャリティ-バザー</TransitionLink>
+					<TransitionLink href="/booth">企業ブース</TransitionLink>
+					<TransitionLink href="/cashless">キャッシュレス決済</TransitionLink>
+					<TransitionLink href="/sticker">明大祭オリジナルステッカー</TransitionLink>
+					<TransitionLink href="/goods">明大祭公式グッズ</TransitionLink>
+					<TransitionLink href="/theme">第141回明大祭テーマ</TransitionLink>
+					<TransitionLink href="/mv">第141回明大祭公式テーマソング</TransitionLink>
+					<TransitionLink href="/voucher">大抽選会抽選券引換券</TransitionLink>
+				</div>
+				<SmallTitle>開発局企画</SmallTitle>
+				<div className="flex flex-wrap gap-4">
 					<TransitionLink href="/illumination">明大祭イルミネーション</TransitionLink>
 					<TransitionLink href="/ribbon">Re:Bond～リボンでつながる思い出～</TransitionLink>
 					<TransitionLink href="/say">明大SAY！</TransitionLink>
@@ -36,7 +49,17 @@ export default function SitemapPage() {
 					<TransitionLink href="/quest">ポンdeクエスト</TransitionLink>
 					<TransitionLink href="/love">明治に恋する5秒前</TransitionLink>
 					<TransitionLink href="/memory">Stand by Memory</TransitionLink>
-					{/* <TransitionLink href="/booth">企業ブース</TransitionLink> */}
+					<TransitionLink href="/dice">出た目でGO～サイコロが教える君だけの明大祭攻略ルート～</TransitionLink>
+				</div>
+				<SmallTitle>演出局企画</SmallTitle>
+				<div className="flex flex-wrap gap-4">
+					<TransitionLink href="/opening">Opening</TransitionLink>
+					<TransitionLink href="/midnight">中夜祭</TransitionLink>
+					<TransitionLink href="/ending">Ending</TransitionLink>
+					<TransitionLink href="/fes">UNI ROCK FES</TransitionLink>
+					<TransitionLink href="/luminous">Luminous Stage</TransitionLink>
+					<TransitionLink href="/clash">Meiji United Clash</TransitionLink>
+					<TransitionLink href="/idol">I♡Fes!</TransitionLink>
 				</div>
 				<SmallTitle>コラボ企画</SmallTitle>
 				<div className="flex flex-wrap gap-4">

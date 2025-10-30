@@ -10,10 +10,10 @@ export default function Page() {
         <div>
             <PageTitle>明大祭イルミネーション</PageTitle>
             <PageContainer>
-                <SectionTitle>熱狂を包む、余韻の光</SectionTitle>
+                <SectionTitle>企画概要</SectionTitle>
+                <SmallTitle>熱狂を包む、余韻の光</SmallTitle>
                 <Text moreTopPadding>明大祭の夜を、色鮮やかなイルミネーションが照らします。</Text>
-                <Text>光の中で、熱狂の余韻に存分に浸ってみませんか？</Text>
-                <Text>忘れられないひとときを、あなたにお届けします。</Text>
+                <Text>光の中で、熱狂の余韻に存分に浸ってみませんか？忘れられないひとときを、あなたにお届けします。</Text>
                 <SectionTitle>企画実施日時</SectionTitle>
                 <SmallTitle>日時</SmallTitle>
                 <Text>11月1日(土).2日(日).3日(月・祝) 16：00〜19：00</Text>

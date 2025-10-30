@@ -3,11 +3,13 @@ import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import Text from "@/components/texts/Text";
+import LogoImage from "@/components/LogoImage";
 
 export default function Page() {
     return(
         <div>
             <PageTitle>一灯一想</PageTitle>
+            <LogoImage src="/images/kaihatsu/wish.jpg" alt="一灯一想 ロゴ" className="mt-10" />
             <PageContainer>
                 <SectionTitle>企画概要</SectionTitle>
                 <Text moreTopPadding>こんにちは！私たちは小さなお子様でも気軽に参加できる体験企画を実施しています。</Text>
@@ -16,8 +18,8 @@ export default function Page() {
                 <Text>ご参加、お待ちしています！</Text>
                 <SectionTitle>企画実施日時</SectionTitle>
                 <SmallTitle>日時</SmallTitle>
-                <Text>11月1日(土).2日(日)10：00~18：00</Text>
-                <Text>11月3日(月・祝)10：00〜17：30</Text>
+                <Text>11月1日(土).2日(日) 10：00~18：00</Text>
+                <Text>11月3日(月・祝) 10：00〜17：30</Text>
                 <SmallTitle>場所</SmallTitle>
                 <Text>第一校舎403・405教室</Text>
                 <Text>第一校舎405教室で受付とランタン製作、第一校舎403教室ではそのランタンを飾り付けていただきます！</Text>
