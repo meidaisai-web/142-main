@@ -8,6 +8,7 @@ import Emphasis from "@/components/texts/Emphasis"
 import OnlyImage from "@/components/OnlyImage"
 import SmallTitle from "@/components/texts/SmallTitle"
 import MapImage from "@/components/MapImage"
+import TransitionLink from "@/components/buttons/TransitionLink"
 
 export default function Page() {
     const goodsList = [
@@ -52,6 +53,8 @@ export default function Page() {
                     <ListItem>不良品以外返品・交換はできません。</ListItem>
                     <ListItem>購入後、アンケートに回答していただいた方には、第141回明大祭実行委員会主催の抽選企画の抽選券をお渡しいたします。</ListItem>
                 </List>
+                <SectionTitle>明大祭公式ステッカー</SectionTitle>
+                <Text moreTopPadding>今年の明大祭では、オリジナルステッカーを配布しております。詳細は<TransitionLink href="/sticker">こちら</TransitionLink>をご覧ください。</Text>
                 <ContactView department="制作局　明大祭公式グッズチーム" mail="141st-goodsteam@meidaisai.jp" showPhone showAddress />
             </PageContainer>
         </>

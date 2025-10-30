@@ -57,17 +57,14 @@ const hamburgerContents: HamburgerSectionProps[] = [
         title: "特集",
         content: [
             { href: "/search", label: "企画検索" },
+            { href: "/official-project", label: "実行委員会企画" },
+            { href: '/voucher', label: '明大祭大抽選会抽選券引換' },
+            { href: "/theme", label: "第141回明大祭テーマ" },
             { href: "/crowdfunding", label: "クラウドファンディング" },
             { href: "/champ", label: "Meidaisai Championship" },
             { href: "/lottery", label: "明大祭大抽選会" },
+            { href: '/goods', label: '明大祭公式グッズ' },
             { href: "/illumination", label: "明大祭イルミネーション" },
-            // { href: "/ribbon", label: "Re:Bond～リボンでつながる思い出～" },
-            // { href: "/say", label: "明大SAY！"},
-            // { href: "/sports", label: "EXPOrts2025 in 明治"},
-            // { href: "/rally", label: "跡巡〜あとめぐ〜"},
-            // { href: "/tour", label: "明治大解剖ツアー"},
-            // { href: "/wish", label: "一灯一想"},
-            // { href: "/booth", label: "企業ブース" },
         ]
     },
     {
