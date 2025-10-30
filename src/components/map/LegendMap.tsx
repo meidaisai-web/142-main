@@ -116,7 +116,7 @@ function LegendButton({ name, src, onClick }: LegendButtonProps) {
     return (
         <button onClick={onClick} className="w-75 h-12 font-bold p-2 m-2 border-2 rounded-lg bg-white text-black mt-2 relative text-left">
             <div className="font-bold text-md -mt-1.5 ml-6">{name}</div>
-            <div className="text-sm text-black leading-tight -mt-1.5 ml-6">
+            <div className="text-sm text-black leading-tight -mt-2 ml-6">
                 {/* 英語表記（ここに書く！） */}
                 {getEnglishName(name)}
             </div>
