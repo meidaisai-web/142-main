@@ -1,5 +1,4 @@
 import PageTitle from "@/components/texts/PageTitle";
-import Text from "@/components/texts/Text";
 
 export default function Page() {
     return (

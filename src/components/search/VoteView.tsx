@@ -46,12 +46,13 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
     }, [])
 
     async function getIP(): Promise<string> {
-        const res = await fetch('/api/ip')
-        console.log(res)
-        const data = await res.json()
-        console.log(data)
-        console.log(data.ip)
-        return data.ip
+        // const res = await fetch('/api/ip')
+        // console.log(res)
+        // const data = await res.json()
+        // console.log(data)
+        // console.log(data.ip)
+        // return data.ip
+        return '';
     }
 
     function onTapVote() {
