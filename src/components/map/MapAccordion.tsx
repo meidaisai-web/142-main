@@ -1,4 +1,3 @@
-import { MapDataType } from "@/utils/models/MapDataType";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useId } from "react";
@@ -27,7 +26,7 @@ export function MapAccordion({
                     aria-controls={contentId}
                     aria-expanded={isOpen}
                     onClick={onClick}
-                    className="w-full flex justify-between items-center gap-3 text-left border-b-2 border-white py-4 px-2"
+                    className="w-full flex justify-between items-center gap-3 text-left border-t-2 border-white py-4 px-2"
                 >
                     <h3 className="font-semibold text-xl">{title}</h3>
                     <motion.div
