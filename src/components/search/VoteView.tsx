@@ -25,14 +25,20 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
 
     useEffect(() => {
         async function initialize() {
-            if (!isVoteTime(eventDate)) {
-                setButtonText("投票可能時間外です")
-                setIsEnable(false);
-                return;
-            }
+            // if (!isVoteTime(eventDate)) {
+            //     setButtonText("投票可能時間外です")
+            //     setIsEnable(false);
+            //     return;
+            // }
             const incognito = await detectIncognito();
             if (incognito.isPrivate) {
                 setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
+                setButtonText("投票できません");
+                setIsEnable(false);
+                return;
+            }
+            if (incognito.browserName === 'Safari' || incognito.browserName === 'Chrome') {
+                setError("SafariまたはChrome以外のブラウザでは投票できません。");
                 setButtonText("投票できません");
                 setIsEnable(false);
                 return;
@@ -45,16 +51,6 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         initialize();
     }, [])
 
-    async function getIP(): Promise<string> {
-        // const res = await fetch('/api/ip')
-        // console.log(res)
-        // const data = await res.json()
-        // console.log(data)
-        // console.log(data.ip)
-        // return data.ip
-        return '';
-    }
-
     function onTapVote() {
         setHiddenAlert(false);
     }
@@ -64,18 +60,25 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         setIsEnable(false);
         setError(null);
         setButtonText("投票中...");
-        if (!isVoteTime(eventDate)) {
-            setError("投票可能な時間ではありません。");
-            setButtonText("投票可能時間外です");
-            setIsEnable(false);
-            return;
-        }
+        // if (!isVoteTime(eventDate)) {
+        //     setError("投票可能な時間ではありません。");
+        //     setButtonText("投票可能時間外です");
+        //     setIsEnable(false);
+        //     return;
+        // }
 
         // プライベートモードの場合はエラー（localStorageにうまく保存できないため）
         // おそらくsafariのみでChrome系は大丈夫だと思われるが一応プライベートモードの場合はすべて投票不可にする
         const incognito = await detectIncognito();
         if (incognito.isPrivate) {
             setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
+            setButtonText("投票できません");
+            setIsEnable(false);
+            return;
+        }
+        // SafariまたはChrome以外のブラウザの場合もエラー
+        if (incognito.browserName === 'Safari' || incognito.browserName === 'Chrome') {
+            setError("SafariまたはChrome以外のブラウザでは投票できません。");
             setButtonText("投票できません");
             setIsEnable(false);
             return;
@@ -88,9 +91,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
             return;
         }
         // 投票していなければ、投票を実行
-        const ip = await getIP();
-        console.log(ip)
-        const success = await voteMeicham(id, groupId, type, ip);
+        const success = await voteMeicham(id, groupId, type);
         if (!success) {
             setError("投票に失敗しました。もう一度お試しください。");
             setIsEnable(true);
