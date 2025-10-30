@@ -1,6 +1,6 @@
 'use client';
 
-import { exchange, isAlreadyExchange } from "@/utils/managers/voucherManager"
+import { exchange, isAlreadyExchange, isInTime } from "@/utils/managers/voucherManager"
 import { useEffect, useState } from "react"
 import Button from "./buttons/Button";
 import { hasVotedToday } from "@/utils/managers/meichamManager";
@@ -14,13 +14,13 @@ export default function Voucher() {
     const [buttonText, setButtonText] = useState("引き換え不可");
     const [hiddenAlert, setHiddenAlert] = useState(true);
 
-    async function isEnableExchange(): Promise<boolean> {
-        // if (!isInTime()) {
-        //     setError('引換可能期間外です。')
-        //     setButtonText("引換不可")
-        //     setDisabled(true);
-        //     return false;
-        // }
+    function isEnableExchange(): boolean {
+        if (!isInTime()) {
+            setError('引換可能期間外です。')
+            setButtonText("引換不可")
+            setDisabled(true);
+            return false;
+        }
         if (!hasVotedToday()) {
             setError('本日投票していないため、まだ引き換えできません。')
             setButtonText("引き換え不可")
