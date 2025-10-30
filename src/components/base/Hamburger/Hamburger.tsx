@@ -73,6 +73,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/matsubara", label: "松原小学校×明大祭" },
             { href: "/keio", label: "KEIO×第141回明大祭デジタルスタンプラリー" },
             { href: "/lottely-shop", label: "明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～" },
+            { href: "/gourmet", label: "駿河台グルメマップラリー" },
         ]
     },
 ]

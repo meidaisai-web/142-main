@@ -66,6 +66,7 @@ export default function SitemapPage() {
 					<TransitionLink href="/matsubara">松原小学校×明大祭</TransitionLink>
 					<TransitionLink href="/keio">KEIO×第141回明大祭デジタルスタンプラリー</TransitionLink>
 					<TransitionLink href="/lottely-shop">明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～</TransitionLink>
+					<TransitionLink href="/gourmet">駿河台グルメマップラリー</TransitionLink>
 				</div>
 
 				<SmallTitle>明大祭に関わってくださるみなさまへ</SmallTitle>
