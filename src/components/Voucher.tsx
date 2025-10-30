@@ -14,7 +14,7 @@ export default function Voucher() {
     const [buttonText, setButtonText] = useState("引き換え不可");
     const [hiddenAlert, setHiddenAlert] = useState(true);
 
-    function isEnableExchange(): boolean {
+    async function isEnableExchange(): Promise<boolean> {
         if (!isInTime()) {
             setError('引換可能期間外です。')
             setButtonText("引換不可")
