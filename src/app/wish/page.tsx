@@ -3,11 +3,13 @@ import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import Text from "@/components/texts/Text";
+import LogoImage from "@/components/LogoImage";
 
 export default function Page() {
     return(
         <div>
             <PageTitle>一灯一想</PageTitle>
+            <LogoImage src="/images/kaihatsu/wish.jpg" alt="一灯一想 ロゴ" className="mt-10" />
             <PageContainer>
                 <SectionTitle>企画概要</SectionTitle>
                 <Text moreTopPadding>こんにちは！私たちは小さなお子様でも気軽に参加できる体験企画を実施しています。</Text>
