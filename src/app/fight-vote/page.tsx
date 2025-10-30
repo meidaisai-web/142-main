@@ -12,7 +12,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Photoframe from "@/components/Photoframe";
 import Button from "@/components/buttons/Button";
 import detectIncognito from "detectincognitojs";
-import { error } from "console";
 
 const FightVote = () => {
   const [selectedVote1, setSelectedVote1] = useState<number | null>(null);
