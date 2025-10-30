@@ -22,6 +22,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
     const [hiddenAlert, setHiddenAlert] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [buttonText, setButtonText] = useState("投票する");
+    const acceptBrowser = ['Safari', 'Chrome'];
 
     useEffect(() => {
         async function initialize() {
@@ -33,6 +34,13 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
             const incognito = await detectIncognito();
             if (incognito.isPrivate) {
                 setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
+                setButtonText("投票できません");
+                setIsEnable(false);
+                return;
+            }
+            console.log(incognito.browserName)
+            if (!acceptBrowser.includes(incognito.browserName)) {
+                setError("SafariまたはChrome以外のブラウザでは投票できません。");
                 setButtonText("投票できません");
                 setIsEnable(false);
                 return;
@@ -66,6 +74,13 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         const incognito = await detectIncognito();
         if (incognito.isPrivate) {
             setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
+            setButtonText("投票できません");
+            setIsEnable(false);
+            return;
+        }
+        // SafariまたはChrome以外のブラウザの場合もエラー
+        if (!acceptBrowser.includes(incognito.browserName)) {
+            setError("SafariまたはChrome以外のブラウザでは投票できません。");
             setButtonText("投票できません");
             setIsEnable(false);
             return;

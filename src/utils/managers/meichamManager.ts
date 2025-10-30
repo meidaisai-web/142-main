@@ -21,6 +21,7 @@ export function saveVotedId(id: string, groupId: string, type: string) {
 
 // その日に投票されているかどうか
 export function hasVotedToday(): boolean {
+
     const today = getJapanDate();
     const votedIds = JSON.parse(localStorage.getItem('votedMeichamIds') || '[]') as MeichamVotedData[];
     for (const vote of votedIds) {

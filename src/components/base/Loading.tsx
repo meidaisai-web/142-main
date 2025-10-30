@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
@@ -11,6 +11,48 @@ export default function FireLoading({ setLoading }: FireLoadingProps) {
     const [show, setShow] = useState(false);
     const [fadeout, setFadeout] = useState(false);
     const [animationPhase, setAnimationPhase] = useState<"bounce" | "shockwave" | "complete">("bounce");
+
+ //アニメーション中のスクロール無効化・ズーム無効化 (強化版)
+    useEffect(() => {
+
+        // 2本指以上でのタッチを無効化するハンドラ (touchstart, touchmove 兼用)
+        const touchHandler = (event: TouchEvent) => {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        };
+        const wheelHandler = (event: WheelEvent) => {
+            if (event.ctrlKey) {
+                event.preventDefault();
+            }
+        };
+
+        if (show) {
+            // --- スクロール無効化 ---
+            document.body.style.overflow = 'hidden'; // <-- これは機能している
+
+            // --- ズーム無効化 (リスナー登録) ---
+            document.addEventListener('touchstart', touchHandler, { passive: false });
+            document.addEventListener('touchmove', touchHandler, { passive: false });
+            document.addEventListener('wheel', wheelHandler, {passive: false });
+        } else {
+            // --- スクロール無効化解除 ---
+            document.body.style.overflow = 'unset';
+
+            // --- ズーム無効化解除 (リスナー解除) ---
+            document.removeEventListener('touchstart', touchHandler);
+            document.removeEventListener('touchmove', touchHandler);
+            document.removeEventListener('wheel', wheelHandler);
+        }
+
+        // クリーンアップ関数
+        return () => {
+            document.body.style.overflow = 'unset';
+            document.removeEventListener('touchstart', touchHandler);
+            document.removeEventListener('touchmove', touchHandler);
+            document.removeEventListener('wheel', wheelHandler);
+        };
+    }, [show]); // [show] の状態が変わるたびに実行
 
     // 初回表示・フェードアウト制御
     useEffect(() => {

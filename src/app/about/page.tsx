@@ -12,7 +12,7 @@ export default function About() {
       <PageTitle>明大祭とは</PageTitle>
       <PageContainer>
         <SectionTitle>明大祭について</SectionTitle>
-        <Text>
+        <Text moreTopPadding>
           明大祭とは、例年150以上の団体が参加し、約40,000人の来場者数を誇る明治大学の学園祭です。第141回明大祭は2025年11月1日(土).2日(日).3日(月・祝)に和泉キャンパスにて開催されます。ステージでのパフォーマンスや教室での展示・発表、そして模擬店の出店などを通して明大生が自由に自己を表現し、輝く場となっています！明大生、来場者など明大祭に関わるすべての人々に感動を与える場所であり、明治大学と社会を結ぶ役割も果たしています。今年も、学生たちが自らの手で明大祭を創り上げます。
         </Text>
 
@@ -44,7 +44,7 @@ export default function About() {
         <div className="mx-10">
           <SectionTitle>昨年の明大祭の様子</SectionTitle>
         </div>
-        <Text className="mt-10 !text-center">昨年度行われた第140回明大祭のEndingステージにて放映されたスライドショーです。</Text>
+        <Text moreTopPadding className="!text-center">昨年度行われた第140回明大祭のEndingステージにて放映されたスライドショーです。</Text>
         <Movie href="https://www.youtube.com/embed/yZS7Xf1UkoU?si=OaNyIaVhTOGUFQun"/>
       </PageContainer>
 

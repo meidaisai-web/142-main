@@ -4,6 +4,8 @@ import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
 import { List, ListItem } from "@/components/texts/List"
 import SmallTitle from "@/components/texts/SmallTitle"
+import TransitionLink from "@/components/buttons/TransitionLink"
+import { ReactNode } from "react"
 
 const page = () => {
     //「ご来場のみなさまへのお願い」に書く内容を以下に記述してください。
@@ -12,14 +14,14 @@ const page = () => {
             title: "飲酒、酒類の持ち込みおよび販売・配布",
             content: "明治大学では、飲酒、酒類の持ち込みおよび販売・配布が禁止となっております（ノンアルコール飲料も含む）。また、飲酒者の大学構内への入場も禁止しております。飲酒者を大学構内で発見した場合、退構誘導をさせていただきます。"
         },
-        // {
-        //     title: "喫煙について",
-        //     content: "今年度の明大祭は、指定場所以外での喫煙を禁止しております。第三校舎跡地前に設置されております喫煙所をご利用ください。詳しい場所は、こちらのページにてキャンパスマップをご確認ください。また、キャンパス周辺の路上や公園などにおける喫煙もご遠慮ください。"
-        // },
-        // {
-        //     title: "立ち入り禁止エリアについて",
-        //     content: "キャンパス内には安全面を考慮して立ち入りを禁止しているエリアがございます。このエリアへは立ち入らないようお願いいたします。"
-        // },
+        {
+            title: "喫煙について",
+            content: <>今年度の明大祭は、指定場所以外での喫煙を禁止しております。体育館ブリッジ横に設置されております喫煙所をご利用ください。詳しい場所は、<TransitionLink href='/map'>こちらのページ</TransitionLink>にてキャンパスマップをご確認ください。また、キャンパス周辺の路上や公園などにおける喫煙もご遠慮ください。</>
+        },
+        {
+            title: "立ち入り禁止エリアについて",
+            content: <>キャンパス内には安全面を考慮して立ち入りを禁止しているエリアがございます。このエリアへは立ち入らないようお願いいたします。<TransitionLink href='/map'>こちらのページ</TransitionLink>でも公開されています。</>
+        },
         {
             title: "ペットについて",
             content: "ペットを連れてのご入場はお断りしております。ただし、補助犬を連れてのご入場は可能となっております。"
@@ -84,8 +86,9 @@ const page = () => {
                     <RuleItem
                         key={index}
                         title={rule.title}
-                        content={rule.content}
-                    />
+                    >
+                        {rule.content}
+                    </RuleItem>
                 ))}
                 <List mark="※">
                     <ListItem>上記の他、公序良俗に反する行為、他のご来場のみなさまのご迷惑になる行為はご遠慮ください。</ListItem>
@@ -97,8 +100,9 @@ const page = () => {
                     <RuleItem
                         key={index}
                         title={item.title}
-                        content={item.content}
-                    />
+                    >
+                        {item.content}
+                    </RuleItem>
                 ))}
                 <List mark="※">
                     <ListItem>
@@ -112,17 +116,17 @@ const page = () => {
 
 interface RuleItemProps {
     title: string
-    content: string
+    children: ReactNode
 }
 
-const RuleItem = ({ title, content }: RuleItemProps) => {
+const RuleItem = ({ title, children }: RuleItemProps) => {
     return (
         <div>
             <SmallTitle>
                 {title}
             </SmallTitle>
             <Text>
-                {content}
+                {children}
             </Text>
         </div>
     )

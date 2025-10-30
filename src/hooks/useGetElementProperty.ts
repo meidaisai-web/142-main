@@ -1,5 +1,6 @@
-import { RefObject, useCallback } from 'react';
+import { RefObject, useCallback } from "react";
 
+// 引数のtargetProperty をDOMRectのもつPropertyに限定する
 type DOMRectProperty = keyof Omit<DOMRect, 'toJSON'>;
 
 // RefObjectの型は div, span, p, input などのさまざまなHTML要素に対応できるようにextendsで制限をかけつつ抽象化

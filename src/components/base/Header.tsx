@@ -32,6 +32,8 @@ export default function Header() {
     };
   }, [isOpenHamburger]);
 
+  if (pathname === "/fight-vote") return null;
+
   return (
     <header className="w-full bg-primary-trans flex justify-between items-center px-5 fixed opacity-100 h-18 z-50">
       <Link href="/" className="absolute left-5 z-50">
