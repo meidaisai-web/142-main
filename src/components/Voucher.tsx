@@ -2,10 +2,10 @@
 
 import { exchange, isAlreadyExchange } from "@/utils/managers/voucherManager"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import Button from "./buttons/Button";
 import { hasVotedToday } from "@/utils/managers/meichamManager";
 import Alert from "./Alert";
-import Image from "next/image";
 
 
 export default function Voucher() {
@@ -13,8 +13,7 @@ export default function Voucher() {
     const [disabled, setDisabled] = useState(true);
     const [buttonText, setButtonText] = useState("引き換え不可");
     const [hiddenAlert, setHiddenAlert] = useState(true);
-    const [showCompletionPopup, setShowCompletionPopup] = useState(false);
-    const [showImage, setShowImage] = useState(false);
+    const [showCompletionMessage, setShowCompletionMessage] = useState(false);
 
     function isEnableExchange(): boolean {
         // if (!isInTime()) {
@@ -51,6 +50,25 @@ export default function Voucher() {
         setHiddenAlert(false);
     }
 
+    function handleAlertYes() {
+        setHiddenAlert(true);
+
+        // 完了メッセージを即座に表示
+        if (!isEnableExchange()) {
+            return;
+        }
+        exchange();
+        setShowCompletionMessage(true);
+        setError("引き換えが完了しました。")
+        setButtonText("引き換え済み")
+        setDisabled(true);
+
+        // 完了メッセージを自動で閉じる
+        setTimeout(() => {
+            setShowCompletionMessage(false);
+        }, 5000);
+    }
+
     function handleExchange() {
         if (!isEnableExchange()) {
             return;
@@ -59,99 +77,38 @@ export default function Voucher() {
         setError("引き換えが完了しました。")
         setButtonText("引き換え済み")
         setDisabled(true);
-        setHiddenAlert(true);
-        setShowCompletionPopup(true);
-        setShowImage(false);
     }
 
     return (
         <>
-            {/* アニメーション第一案（コメントアウト中）
             <style>{`
-                @keyframes scaleUpWithRotate {
+                @keyframes stamp-bounce {
                     0% {
-                        transform: scale(0) rotate(0deg);
-                        opacity: 0;
-                    }
-                    25% {
                         transform: scale(0.3) rotate(-15deg);
+                        opacity: 0;
                     }
                     50% {
-                        transform: scale(0.6) rotate(15deg);
-                    }
-                    75% {
-                        transform: scale(0.85) rotate(-10deg);
+                        transform: scale(1.1) rotate(5deg);
                     }
                     100% {
                         transform: scale(1) rotate(0deg);
                         opacity: 1;
                     }
                 }
-                @keyframes pulse {
-                    0%, 100% {
-                        transform: scale(1);
-                    }
-                    50% {
-                        transform: scale(1.1);
-                    }
+                .stamp-animation {
+                    animation: stamp-bounce 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
                 }
-                @keyframes showAndPulse {
-                    0% {
-                        opacity: 0;
-                        transform: scale(1);
-                    }
-                    100% {
-                        opacity: 1;
-                        transform: scale(1);
-                    }
-                }
-                .animate-scale-up {
-                    animation: scaleUpWithRotate 2s ease-out, pulse 0.6s ease-in-out 2s;
-                }
-                .animate-text-pulse {
-                    animation: showAndPulse 0s ease-out 2s forwards, pulse 0.6s ease-in-out 2s;
+                .completion-text {
+                    animation: fadeIn 0.5s ease-in 0.5s forwards;
                     opacity: 0;
                 }
-                @keyframes starFadeIn {
-                    0% {
+                @keyframes fadeIn {
+                    from {
                         opacity: 0;
                     }
-                    100% {
+                    to {
                         opacity: 1;
                     }
-                }
-            `}</style>
-            */}
-            <style>{`
-                /* アニメーション第二案：スタンプ押下効果 */
-                @keyframes stampPress {
-                    0% {
-                        transform: scale(0) rotate(-25deg);
-                        opacity: 0;
-                    }
-                    70% {
-                        transform: scale(1.15) rotate(5deg);
-                        opacity: 1;
-                    }
-                    100% {
-                        transform: scale(1) rotate(0deg);
-                        opacity: 1;
-                    }
-                }
-                .animate-stamp {
-                    animation: stampPress 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-                }
-                @keyframes textFadeIn {
-                    0% {
-                        opacity: 0;
-                    }
-                    100% {
-                        opacity: 1;
-                    }
-                }
-                .animate-text-fade {
-                    animation: textFadeIn 0.4s ease-out 0.4s forwards;
-                    opacity: 0;
                 }
             `}</style>
             <div className="relative mx-auto w-lg max-w-full my-16">
@@ -172,34 +129,36 @@ export default function Voucher() {
                     }
                 </div>
                 {!hiddenAlert &&
-                    <Alert title="本当に引き換えますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: "引き換える", action: handleExchange }}>総合インフォメーションブースで引き換える時のみ引き換えてください。</Alert>
+                    <Alert title="本当に引き換えますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: "引き換える", action: handleAlertYes }}>総合インフォメーションブースで引き換える時のみ引き換えてください。</Alert>
                 }
-                {showCompletionPopup &&
-                    <div className="fixed top-0 left-0 z-50 w-full h-full flex justify-center items-center px-10 bg-gray-cover">
+                {showCompletionMessage && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-cover px-10">
                         <div className="relative w-full h-full flex justify-center items-center">
-                            <button className="bg-white border-4 border-accent rounded-4xl text-primary h-full max-h-[50%] w-full shadow-lg" onClick={() => {
-                                setShowImage(true);
-                                setTimeout(() => setShowCompletionPopup(false), 3000);
-                            }}>
-                                {/* 文字が表示される */}
-                                {!showImage && <div className="text-lg font-semibold mx-auto my-auto">ここをタップ！</div>}
-                                {/* 画像が表示される */}
-                                {showImage && (
-                                    <div className="flex flex-col items-center justify-center">
-                                        <Image
-                                            src="/images/svg/official/logo.svg"
-                                            alt="完了画像"
-                                            width={200}
-                                            height={200}
-                                            className="mx-auto mt-10 animate-stamp"
-                                        />
-                                        <p className="text-lg font-semibold text-primary mt-10 animate-text-fade">引き換えが完了しました</p>
-                                    </div>
-                                )}
-                            </button>
+                            <div className="absolute flex flex-col items-center border-4 border-secondary -z-10 rotate-3 rounded-4xl pt-10 px-10 pb-5 w-full sm:w-2xl shadow-lg">
+                                <div className="opacity-0">
+                                    <Image
+                                        src="/images/svg/official/logo.svg"
+                                        alt="logo"
+                                        width={120}
+                                        height={120}
+                                        className="stamp-animation mx-auto"
+                                    />
+                                    <p className="text-2xl font-bold text-primary completion-text mt-8">引き換えが完了しました。</p>
+                                </div>
+                            </div>
+                            <div className="flex flex-col items-center bg-white border-4 border-accent rounded-4xl text-black pt-10 px-10 pb-5 w-full sm:w-2xl shadow-lg" onClick={(e) => e.stopPropagation()}>
+                                <Image
+                                    src="/images/svg/official/logo.svg"
+                                    alt="logo"
+                                    width={120}
+                                    height={120}
+                                    className="stamp-animation mx-auto"
+                                />
+                                <p className="text-2xl font-bold text-primary completion-text mt-8">引き換えが完了しました。</p>
+                            </div>
                         </div>
                     </div>
-                }
+                )}
             </div>
         </>
     )
