@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import Button from "./buttons/Button";
 import { hasVotedToday } from "@/utils/managers/meichamManager";
 import Alert from "./Alert";
+import detectIncognito from "detectincognitojs";
 
 
 export default function Voucher() {
@@ -13,7 +14,7 @@ export default function Voucher() {
     const [buttonText, setButtonText] = useState("引き換え不可");
     const [hiddenAlert, setHiddenAlert] = useState(true);
 
-    function isEnableExchange(): boolean {
+    async function isEnableExchange(): Promise<boolean> {
         // if (!isInTime()) {
         //     setError('引換可能期間外です。')
         //     setButtonText("引換不可")
@@ -29,6 +30,13 @@ export default function Voucher() {
         if (isAlreadyExchange()) {
             setError(null)
             setButtonText("引き換え済み")
+            setDisabled(true);
+            return false;
+        }
+        const incognito = await detectIncognito();
+        if (incognito.isPrivate) {
+            setError("プライベートモードでは引き換えできません。通常モードでアクセスしてください。");
+            setButtonText("引き換え不可");
             setDisabled(true);
             return false;
         }
