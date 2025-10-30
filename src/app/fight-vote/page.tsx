@@ -11,6 +11,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Photoframe from "@/components/Photoframe";
 import Button from "@/components/buttons/Button";
+import detectIncognito from "detectincognitojs";
+import { error } from "console";
 
 const FightVote = () => {
   const [selectedVote1, setSelectedVote1] = useState<number | null>(null);
@@ -20,6 +22,7 @@ const FightVote = () => {
   const [modalType, setModalType] = useState<'submitting' | 'success' | 'error'>('submitting');
   const [hasVoted, setHasVoted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   // ページ読み込み時に投票済みかチェック
   React.useEffect(() => {
@@ -97,9 +100,20 @@ const FightVote = () => {
     console.log("handleSubmit called");
     console.log("Votes:", selectedVote1, selectedVote2, selectedVote3);
 
+    const incognito = await detectIncognito();
+    if (incognito.isPrivate) {
+      setModalType('error');
+      setErrorMessage("プライベートモードでは投票できません。SafariまたはChromeの通常モードでアクセスしてください。");
+      setShowModal(true);
+      // 10秒後に自動で閉じる
+      setTimeout(() => setShowModal(false), 10000);
+      return;
+    }
+
     if (selectedVote1 === null || selectedVote2 === null || selectedVote3 === null) {
       console.log("Some votes are null, showing error modal");
       setModalType('error');
+      setErrorMessage("すべての投票を選択してください。");
       setShowModal(true);
       // 10秒後に自動で閉じる
       setTimeout(() => setShowModal(false), 10000);
@@ -127,6 +141,7 @@ const FightVote = () => {
       setTimeout(() => setShowModal(false), 10000);
     } else {
       setModalType('error');
+      setErrorMessage("投票の送信に失敗しました。もう一度お試しください。");
       setTimeout(() => setShowModal(false), 10000);
     }
     setIsSubmitting(false);
@@ -337,10 +352,7 @@ const FightVote = () => {
                     ERROR
                   </h2>
                   <p className="text-white text-xl font-semibold">
-                    {selectedVote1 && selectedVote2 && selectedVote3
-                      ? "投票の送信に失敗しました"
-                      : "すべての投票を選択してください"
-                    }
+                    {errorMessage}
                   </p>
                   <p className="text-sm mt-2">もう一度お試しください</p>
                 </div>
