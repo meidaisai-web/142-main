@@ -51,6 +51,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/access", label: "アクセス" },
             { href: "/news", label: "お知らせ" },
             { href: "/faq", label: "よくある質問" },
+            { href: "/pamphlet", label: "電子パンフレット" }
         ]
     },
     {

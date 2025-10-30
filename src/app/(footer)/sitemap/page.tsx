@@ -17,6 +17,7 @@ export default function SitemapPage() {
 					<TransitionLink href="/access">アクセス</TransitionLink>
 					<TransitionLink href="/faq">よくある質問</TransitionLink>
 					<TransitionLink href="/news">お知らせ</TransitionLink>
+					<TransitionLink href="/pamphlet">電子パンフレット</TransitionLink>
 				</div>
 
 
