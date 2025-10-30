@@ -47,7 +47,7 @@ export default function Page() {
                     <ListItem>明治大学体同連チアリーディングチーム JAGUARS</ListItem>
                 </List>
                 </div>
-                <SctionTitle>Ending雰囲気紹介動画</SctionTitle>
+                <SectionTitle>Ending雰囲気紹介動画</SectionTitle>
                 <Movie href="https://www.youtube.com/embed/JqJ2OwZIg3w?si=AGkHQPoAIA8c5pwd"/>
                 <ContactView department="演出局煌彩部門" mail="kosai-141@meidaisai.jp"/>
             </PageContainer>

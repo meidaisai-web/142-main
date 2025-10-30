@@ -40,7 +40,7 @@ export default function Page() {
                     <ListItem>ミュージカル研究会</ListItem>
                     <ListItem>ジャグリングサークルDietz</ListItem>
                 </List>
-                <SctionTitle>Opening紹介動画</SctionTitle>
+                <SectionTitle>Opening紹介動画</SectionTitle>
                 <Movie href="https://www.youtube.com/embed/1sYnmfS4s6I?si=av92CwP46mZq9Bzs"/>
                 <ContactView department="演出局煌彩部門" mail="kosai-141@meidaisai.jp"/>
             </PageContainer>
