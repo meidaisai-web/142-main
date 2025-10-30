@@ -25,10 +25,19 @@ const FightVote = () => {
 
   // ページ読み込み時に投票済みかチェック
   React.useEffect(() => {
-    const voted = localStorage.getItem('fight-vote-submitted');
-    if (voted === 'true') {
-      setHasVoted(true);
+    async function checkVote() {
+      const voted = localStorage.getItem('fight-vote-submitted');
+      if (voted === 'true') {
+        setHasVoted(true);
+      }
+      const incognito = await detectIncognito();
+      if (incognito.isPrivate) {
+        setModalType('error');
+        setErrorMessage("プライベートモードでは投票できません。SafariまたはChromeの通常モードでアクセスしてください。");
+        setShowModal(true);
+      }
     }
+    checkVote();
   }, []);
 
   // モーダル表示中はスクロールを無効化
@@ -353,7 +362,6 @@ const FightVote = () => {
                   <p className="text-white text-xl font-semibold">
                     {errorMessage}
                   </p>
-                  <p className="text-sm mt-2">もう一度お試しください</p>
                 </div>
               )}
             </motion.div>
