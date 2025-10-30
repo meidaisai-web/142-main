@@ -8,6 +8,9 @@ import ContactView from "@/components/texts/ContactView"
 import OnlyImage from "@/components/OnlyImage"
 import { List, ListItem } from '@/components/texts/List'
 import LogoImage from "@/components/LogoImage"
+import Movie from "@/components/movie"
+import SctionTitle from "@/components/texts/SectionTitle"
+
 export default function Page() {
     return (
         <>
@@ -44,6 +47,8 @@ export default function Page() {
                     <ListItem>明治大学体同連チアリーディングチーム JAGUARS</ListItem>
                 </List>
                 </div>
+                <SctionTitle>Ending雰囲気紹介動画</SctionTitle>
+                <Movie href="https://www.youtube.com/embed/JqJ2OwZIg3w?si=AGkHQPoAIA8c5pwd"/>
                 <ContactView department="演出局煌彩部門" mail="kosai-141@meidaisai.jp"/>
             </PageContainer>
         </>

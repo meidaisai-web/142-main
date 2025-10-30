@@ -6,6 +6,8 @@ import SmallTitle from "@/components/texts/SmallTitle"
 import OnlyImage from "@/components/OnlyImage"
 import LogoImage from "@/components/LogoImage"
 import Emphasis from "@/components/texts/Emphasis"
+import Movie from "@/components/movie"
+import ContactView from "@/components/texts/ContactView"
 
 export default function Page() {
     return (
@@ -41,6 +43,9 @@ export default function Page() {
                 <Text>SHINE：中野ダンスサークル SIGNからの刺客</Text>
                 <Text>アカペラサークル amour：音で挑み、声で勝つ。</Text>
                 <Text>K-POPカバーダンスサークル Mercie：打倒・王者。悲願達成へ。</Text>
+                <SectionTitle>雰囲気紹介動画</SectionTitle>
+                <Movie href="https://www.youtube.com/embed/I9Qs1fQaO3E?si=uhbWIPXc6CU84iH1"/>
+                <ContactView department="演出局祭繋部門" mail="saikei-141@meidaisai.jp"/>
             </PageContainer>
         </div>
     )
