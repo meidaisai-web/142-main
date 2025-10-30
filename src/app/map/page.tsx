@@ -5,7 +5,7 @@ export default function Page() {
     return (
         <div>
             <PageTitle>キャンパスマップ</PageTitle>
-            <Text>キャンパスマップの詳細は後日公開予定です。</Text>
+            <p className="text-center pt-8">キャンパスマップの詳細は後日公開予定です。</p>
             {/* <MapContent /> */}
         </div>
     )
