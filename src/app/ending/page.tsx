@@ -9,7 +9,6 @@ import OnlyImage from "@/components/OnlyImage"
 import { List, ListItem } from '@/components/texts/List'
 import LogoImage from "@/components/LogoImage"
 import Movie from "@/components/movie"
-import SctionTitle from "@/components/texts/SectionTitle"
 
 export default function Page() {
     return (

@@ -1,7 +1,6 @@
 import PageContainer from "@/components/base/PageContainer";
 import LogoImage from "@/components/LogoImage";
 import OnlyImage from "@/components/OnlyImage";
-import SctionTitle from "@/components/texts/SectionTitle";
 import Emphasis from "@/components/texts/Emphasis";
 import { List, ListItem } from "@/components/texts/List";
 import PageTitle from "@/components/texts/PageTitle";
