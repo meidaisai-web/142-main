@@ -8,6 +8,7 @@ import {
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import Link from 'next/link'
+import IndexTitle from '../texts/IndexTitle'
 const TWEEN_FACTOR_BASE = 0.52
 const numberWithinRange = (number: number, min: number, max: number): number =>
   Math.min(Math.max(number, min), max)
@@ -139,7 +140,8 @@ function EmblaCarousel() {
   }, [emblaApi, setTweenNodes, setTweenFactor, tweenScale])
   return (
     <div className="w-full max-w-full mx-auto">
-      <div className="overflow-hidden" ref={emblaRef}>
+      <IndexTitle>特集</IndexTitle>
+      <div className="overflow-hidden mt-8" ref={emblaRef}>
         <div className="flex touch-pan-y -ml-4 cursor-grab active:cursor-grabbing">
           {slides.map((slide, index) => (
             <div

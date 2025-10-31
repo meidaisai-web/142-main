@@ -56,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="text-[14px] md:text-[16px] leading-7">
+    <html lang="ja" className="text-[14px] md:text-[16px] leading-7" style={{ scrollBehavior: 'auto' }}>
       <Head>
         <meta name="referrer" content="origin" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -64,6 +64,7 @@ export default function RootLayout({
       </Head>
       <body
         className={`antialiased bg-primary text-white ${murecho.className} font-normal`}
+        style={{ overflowAnchor: 'none' }}
       >
         <Base>
           {children}
