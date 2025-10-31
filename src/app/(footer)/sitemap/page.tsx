@@ -10,7 +10,7 @@ export default function SitemapPage() {
 			<PageTitle>サイトマップ</PageTitle>
 			<PageContainer>
 				<SmallTitle>ご来場のみなさまへ</SmallTitle>
-				<div className="flex gap-4">
+				<div className="flex flex-wrap gap-4">
 					<TransitionLink href="/announce">ご来場のみなさまへのお願い</TransitionLink>
 					<TransitionLink href="/timetable">タイムテーブル</TransitionLink>
           			<TransitionLink href="/map">キャンパスマップ</TransitionLink>
@@ -20,8 +20,6 @@ export default function SitemapPage() {
 					<TransitionLink href="/pamphlet">電子パンフレット</TransitionLink>
 					<TransitionLink href="/fix-pamphlet">公式パンフレット修正</TransitionLink>
 				</div>
-
-
 				<SmallTitle>特集</SmallTitle>
 				<div className="flex flex-wrap gap-4">
 					<TransitionLink href="/search">企画検索</TransitionLink>
