@@ -1,13 +1,14 @@
 import PageContainer from "@/components/base/PageContainer";
 import LogoImage from "@/components/LogoImage";
 import OnlyImage from "@/components/OnlyImage";
-import AccentText from "@/components/texts/AccentText";
 import Emphasis from "@/components/texts/Emphasis";
 import { List, ListItem } from "@/components/texts/List";
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import Text from "@/components/texts/Text";
+import Movie from "@/components/movie";
+import ContactView from "@/components/texts/ContactView";
 
 export default function Page() {
     return (
@@ -38,6 +39,9 @@ export default function Page() {
                     <ListItem>ミュージカル研究会</ListItem>
                     <ListItem>ジャグリングサークルDietz</ListItem>
                 </List>
+                <SectionTitle>Opening紹介動画</SectionTitle>
+                <Movie href="https://www.youtube.com/embed/1sYnmfS4s6I?si=av92CwP46mZq9Bzs"/>
+                <ContactView department="演出局煌彩部門" mail="kosai-141@meidaisai.jp"/>
             </PageContainer>
         </div>
     )
