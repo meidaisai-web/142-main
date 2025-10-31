@@ -9,8 +9,7 @@ import PageContainer from "../base/PageContainer";
 import FilterView from "./FilterView";
 import EventItems from "./EventListView";
 import { useState, useEffect, useRef } from "react";
-import { div } from "framer-motion/client";
-import MeichanSection from "./MeichanSection";
+import MeichamSection from "./MeichamSection";
 import SectionTitle from "../texts/SectionTitle";
 
 export default function Search() {
@@ -198,7 +197,7 @@ export default function Search() {
                 </div>
                 <Button className="mt-10 mb-20" onClick={() => onTapSearchButton()}>検索</Button>
                 <IconList />
-                <MeichanSection />
+                <MeichamSection />
                 <SectionTitle>企画一覧</SectionTitle>
             </PageContainer>
             <EventItems datas={datas} ref={eventItemsRef} />

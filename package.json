@@ -21,11 +21,14 @@
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.56.1",
     "detectincognitojs": "^1.6.2",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.12",
     "next": "15.3.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "swiper": "^12.0.2",
+    "swiper": "^12.0.3",
     "swr": "^2.3.6"
   },
   "devDependencies": {
