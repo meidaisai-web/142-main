@@ -26,7 +26,11 @@
     "next": "15.3.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+<<<<<<< HEAD
     "swiper": "^12.0.3",
+=======
+    "swiper": "^12.0.2",
+>>>>>>> develop
     "swr": "^2.3.6"
   },
   "devDependencies": {

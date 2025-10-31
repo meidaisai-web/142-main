@@ -5,6 +5,9 @@ import { murecho } from "@/utils/fonts";
 import Base from "@/components/base/Base";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { googleTagManagerId, googleAnalyticsId } from "@/utils/managers/analyticsManager";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/virtual";
 
 export const metadata: Metadata = {
   title: {

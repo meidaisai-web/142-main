@@ -26,7 +26,7 @@ export default function Page() {
                     駿河台グルメマップラリー企画協力店舗で、500円以上のお食事をしていただくと1店舗につき1つのスタンプが獲得できます。
                 </Text>
                 <Text>
-                   スタンプを3個以上埋めていただいき、グルメマップ台紙を明大祭当日にお持ちいただいた各日先着20名様に景品をお渡しいたします。
+                   スタンプを3個以上埋めていただき、グルメマップ台紙を明大祭当日にお持ちいただいた各日先着20名様に景品をお渡しいたします。 
                 </Text>
                 <Text>
                     明治大学和泉キャンパスメディア棟入口付近の企画受付までお越しください。
@@ -36,12 +36,10 @@ export default function Page() {
                 <Text>
                     11月1日(土).2日(日).3日(月・祝)11：00～18：00
                 </Text>
-                <Text moreTopPadding>
-                <Emphasis>
-                    ※1日先着20名様までとさせていただきます。
-                </Emphasis>
+                <List mark="※">
+                    <ListItem><Emphasis>1日先着20名様までとさせていただきます。</Emphasis></ListItem>
+                </List>
                 <SmallTitle>場所</SmallTitle>
-                </Text>
                 <Text>
                     メディア棟入口付近駿河台グルメマップラリー受付
                 </Text>
@@ -51,7 +49,7 @@ export default function Page() {
                 <MapImage src='/images/map/keio.jpg' alt='Campus Map'/>
                 <SectionTitle>企画協力店舗</SectionTitle>
                 <List numbered className="mt-8">
-                    <ListItem>SPICE KITCHEN 360°</ListItem>
+                    <ListItem>SPICE KITCHEN 3</ListItem>
                     <ListItem>oliver</ListItem>
                     <ListItem>701 nanamaruichi</ListItem>
                     <ListItem>ラーメン大至</ListItem>

@@ -5,7 +5,7 @@ import Banner from "./Banner";
 import { shuffleArray } from "@/utils/arrayManager";
 import { useEffect, useState, useRef, useCallback, RefObject } from "react";
 import StickyBanner from "./StickyBanner";
-import { useGetElementProperty } from "@/utils/useGetElementProperty";
+import { useGetElementProperty } from "@/hooks/useGetElementProperty";
 
 export default function BannerContainer() {
 

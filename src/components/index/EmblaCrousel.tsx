@@ -14,34 +14,44 @@ const numberWithinRange = (number: number, min: number, max: number): number =>
 
 const slides = [
   {
-    name: '企画名',
-    src: '/images',
-    href: '/'
+    name: '実行委員企画',
+    src: '/images/ensyutsu/opening.png',
+    href: '/official-project'
   },
   {
-    name: '企画名',
-    src: '/images',
-    href: '/'
+    name: '明大祭テーマ',
+    src: '/images/theme-logo.jpg',
+    href: '/theme'
   },
   {
-    name: '企画名',
-    src: '/images',
-    href: '/'
+    name: 'クラウドファンディング',
+    src: '/images/topic/crowdfunding.png',
+    href: '/crowdfunding'
   },
   {
-    name: '企画名',
-    src: '/images',
-    href: '/'
+    name: 'Meidaisai Championship',
+    src: '/images/topic/meichan.png',
+    href: '/champ'
   },
   {
-    name: '企画名',
-    src: '/images',
-    href: '/'
+    name: '明大祭公式グッズ',
+    src: '/images/goods/acrylic.jpg',
+    href: '/goods',
   },
   {
-    name: '企画名',
-    src: '/images',
-    href: '/'
+    name: '明大祭イルミネーション',
+    src: '/images/topic/illumination.png',
+    href: '/illumination',
+  },
+  {
+    name: 'Opening',
+    src: '/images/ensyutsu/opening-logo.png',
+    href: '/opening',
+  },
+  {
+    name: 'Meiji United Clash',
+    src: '/images/ensyutsu/clash-logo.png',
+    href: '/clash',
   }
 ]
 
@@ -156,11 +166,22 @@ interface ItemProps {
 function Item({ name, src, href }: ItemProps) {
   return (
     <Link href={href}>
-      <div className=''>
-        <div className="bg-secondary size-50 rounded-2xl overflow-hidden border-4 border-black">
-        <div className='bg-white size-35 '>
-        <h1 className="font-bold text-xs h-10">京王スタンプラリー</h1>
+      <div className='relative mb-20'>
+        <div className='absolute -z-10 top-3 left-3 sm:top-4 sm:left-4 w-[47vw] md:w-[30vw] lg:w-[23vw] rounded-4xl sm:rounded-[3.0rem] overflow-hidden border-4 border-black'>
+          <div className='bg-secondary-700 w-full aspect-square'>
+            
+          </div>
+          <div className="bg-secondary-700 py-6 md:py-4">
+          <h1 className="font-bold text-sm md:text-md lg:text-xl text-center text-secondary-700">{name}</h1>
+          </div>
         </div>
+        <div className='w-[47vw] md:w-[30vw] lg:w-[23vw] rounded-[1.6rem] sm:rounded-[2.5rem] overflow-hidden border-4 border-black'>
+          <div className='bg-white w-full aspect-square'>
+            <img src={src} alt={name} className="w-full h-full object-cover"/>
+          </div>
+          <div className="bg-secondary py-6 md:py-4">
+            <h1 className="font-bold text-sm md:text-md lg:text-xl text-center">{name}</h1>
+          </div>
         </div>
       </div>
 
