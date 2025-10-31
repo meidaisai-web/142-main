@@ -7,15 +7,49 @@ import {
 } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
+import Link from 'next/link'
 const TWEEN_FACTOR_BASE = 0.52
 const numberWithinRange = (number: number, min: number, max: number): number =>
   Math.min(Math.max(number, min), max)
+
+const slides = [
+  {
+    name: '企画名',
+    src: '/images',
+    href: '/'
+  },
+  {
+    name: '企画名',
+    src: '/images',
+    href: '/'
+  },
+  {
+    name: '企画名',
+    src: '/images',
+    href: '/'
+  },
+  {
+    name: '企画名',
+    src: '/images',
+    href: '/'
+  },
+  {
+    name: '企画名',
+    src: '/images',
+    href: '/'
+  },
+  {
+    name: '企画名',
+    src: '/images',
+    href: '/'
+  }
+]
+
 type PropType = {
-  slides: number[]
   options?: EmblaOptionsType
 }
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props
+  const { options } = props
   const autoplayRef = useRef(
     Autoplay({
       delay: 2000,
@@ -96,13 +130,13 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     <div className="w-full max-w-full mx-auto">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex touch-pan-y -ml-4 cursor-grab active:cursor-grabbing">
-          {slides.map((index) => (
+          {slides.map((slide, index) => (
             <div
               key={index}
               className="flex-[0_0_50%] min-w-0 pl-4 lg:flex-[0_0_25%] md:flex-[0_0_33.33%] sm:flex-[0_0_50%]"
             >
-              <div className="embla__slide__number aspect-[3/4] rounded-2xl text-6xl font-semibold flex items-center justify-center select-none bg-gradient-to-br from-purple-500 to-indigo-600 text-white shadow-xl transition-transform duration-200 ease-out">
-                {index + 1}
+              <div className="embla__slide__number aspect-[3/4] rounded-2xl text-6xl font-semibold flex items-center justify-center select-none text-white transition-transform duration-200 ease-out">
+                <Item key={index} name={slide.name} src={slide.src} href={slide.href} />
               </div>
             </div>
           ))}
@@ -112,3 +146,24 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   )
 }
 export default EmblaCarousel
+
+interface ItemProps {
+  name: string
+  src: string
+  href: string
+}
+
+function Item({ name, src, href }: ItemProps) {
+  return (
+    <Link href={href}>
+      <div className=''>
+        <div className="bg-secondary size-50 rounded-2xl overflow-hidden border-4 border-black">
+        <div className='bg-white size-35 '>
+        <h1 className="font-bold text-xs h-10">京王スタンプラリー</h1>
+        </div>
+        </div>
+      </div>
+
+    </Link>
+  )
+}
