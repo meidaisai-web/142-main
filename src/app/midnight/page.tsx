@@ -2,12 +2,14 @@ import PageContainer from "@/components/base/PageContainer";
 import LogoImage from "@/components/LogoImage";
 import OnlyImage from "@/components/OnlyImage";
 import Photoframe from "@/components/Photoframe";
+import ContactView from "@/components/texts/ContactView";
 import Emphasis from "@/components/texts/Emphasis";
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import Text from "@/components/texts/Text";
 import Image from "next/image";
+
 
 export default function Page() {
     return (
@@ -49,6 +51,7 @@ export default function Page() {
                 <SmallTitle>フィナーレ</SmallTitle>
                 <Image src="/images/ensyutsu/midnight/finale.jpg" alt="中夜祭フィナーレ" width={600} height={400} className="mx-auto mt-4 aspect-2/1 object-cover" />
                 <p className="text-lg font-medium text-center">全出演団体</p>
+                <ContactView department="演出局祭繋部門" mail="saikei-141@meidaisai.jp"/>
             </PageContainer>
         </div>
     )
