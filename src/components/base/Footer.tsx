@@ -151,10 +151,31 @@ function FooterLinks() {
 	)
 }
 
+const names = [
+	'Ito Taiga',
+	'Hagiya Rikuto',
+	'Onagi Daichi',
+	'Sakai Ena',
+	'Tajima Shiori',
+	'Horiguchi Sara',
+	'Maruyama Seiichiro',
+	'Yonamine Kaio'
+]
+
 function Copyright() {
 	return (
-		<div className="justify-center text-white text-sm font-bold pt-9">
-			<p>©第141回明大祭実行委員会</p>
+		<div className="flex flex-col items-center mt-8">
+			<div className="flex justify-center flex-wrap gap-2 px-8">
+				<p className="text-start text-sm font-bold">Created by:</p>
+				{names.map((name, index) => (
+					<p key={index} className="text-sm font-bold">
+						{name}
+					</p>
+				))}
+			</div>
+			<div className="justify-center text-white text-sm font-bold mt-4">
+				<p>©第141回明大祭実行委員会</p>
+			</div>
 		</div>
 	)
 }
