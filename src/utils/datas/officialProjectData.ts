@@ -157,6 +157,27 @@ export const officialProjects: {
         link: "/love",
         date: [1, 2, 3]
     },
+     {
+        title: "Re:Bond～リボンでつながる思い出～",
+        description: "リボンでつながる思い出",
+        image: "/images/kaihatsu/ribbon.jpg",
+        alt: "Re:Bond～リボンでつながる思い出～",
+        time: "10:00~18:00",
+        thirdTime: "10:00~17:00",
+        place: "第一校舎前正面左側",
+        link: "/ribbon",
+        date: [1, 2, 3]
+    },
+      {
+        title: "出た目でGO～サイコロが教える君だけの明大祭攻略ルート～",
+        description: "参加する企画に迷っているあなたへ",
+        image: "/images/kaihatsu/dice.jpg",
+        alt: "出た目でGO～サイコロが教える君だけの明大祭攻略ルート～",
+        time: "10:00~17:00",
+        place: "和泉図書館付近のブース",
+        link: "/dice",
+        date: [1, 2, 3]
+    },
     {
         title: "明大祭公式グッズ企画",
         description: "手にすれば、もっと明大祭。",
