@@ -7,6 +7,7 @@ import Button from "./buttons/Button";
 import { hasVotedToday } from "@/utils/managers/meichamManager";
 import Alert from "./Alert";
 import detectIncognito from "detectincognitojs";
+import { Slider } from "@heroui/slider";
 
 
 export default function Voucher() {
@@ -15,6 +16,8 @@ export default function Voucher() {
     const [buttonText, setButtonText] = useState("引き換え不可");
     const [hiddenAlert, setHiddenAlert] = useState(true);
     const [showCompletionMessage, setShowCompletionMessage] = useState(false);
+    const [sliderValue, setSliderValue] = useState(0);
+    const [isCompleted, setIsCompleted] = useState(false);
 
     async function isEnableExchange(): Promise<boolean> {
         // if (!isInTime()) {
@@ -67,14 +70,28 @@ export default function Voucher() {
         }
         exchange();
         setShowCompletionMessage(true);
+        setSliderValue(0);
+        setIsCompleted(false);
         setError("引き換えが完了しました。")
         setButtonText("引き換え済み")
         setDisabled(true);
+    }
 
-        // 完了メッセージを自動で閉じる
-        setTimeout(() => {
-            setShowCompletionMessage(false);
-        }, 5000);
+    function handleSliderChange(value: number | number[]) {
+        const val = Array.isArray(value) ? value[0] : value;
+        setSliderValue(val);
+
+        // スライダーが最大値に到達したら完了
+        if (val >= 99) {
+            setIsCompleted(true);
+
+            // 3秒後に画面を自動で閉じる
+            setTimeout(() => {
+                setShowCompletionMessage(false);
+                setSliderValue(0);
+                setIsCompleted(false);
+            }, 3000);
+        }
     }
 
     function handleExchange() {
@@ -154,15 +171,47 @@ export default function Voucher() {
                                     <p className="text-2xl font-bold text-primary completion-text mt-8">引き換えが完了しました。</p>
                                 </div>
                             </div>
-                            <div className="flex flex-col items-center bg-white border-4 border-accent rounded-4xl text-black pt-10 px-10 pb-5 w-full sm:w-2xl shadow-lg" onClick={(e) => e.stopPropagation()}>
-                                <Image
-                                    src="/images/svg/official/logo.svg"
-                                    alt="logo"
-                                    width={120}
-                                    height={120}
-                                    className="stamp-animation mx-auto"
-                                />
-                                <p className="text-2xl font-bold text-primary completion-text mt-8">引き換えが完了しました。</p>
+                            <div className="flex flex-col items-center bg-white border-4 border-accent rounded-4xl text-black pt-8 px-8 pb-6 w-full sm:w-2xl shadow-lg relative min-h-[320px]" onClick={(e) => e.stopPropagation()}>
+                                {!isCompleted && (
+                                    <button
+                                        onClick={() => setShowCompletionMessage(false)}
+                                        className="absolute top-3 right-3 text-2xl text-primary hover:opacity-70"
+                                    >
+                                        ✕
+                                    </button>
+                                )}
+                                <div className="min-h-[140px] flex items-center justify-center">
+                                    {sliderValue > 0 && (
+                                        <Image
+                                            src="/images/svg/official/logo.svg"
+                                            alt="logo"
+                                            width={140}
+                                            height={140}
+                                            className="stamp-animation"
+                                            style={{
+                                                opacity: sliderValue / 100,
+                                            }}
+                                        />
+                                    )}
+                                </div>
+                                {isCompleted && (
+                                    <p className="text-xl font-bold text-primary completion-text mt-5">引き換えが完了しました。</p>
+                                )}
+                                <div className="w-full mt-6 flex justify-center">
+                                    {!isCompleted && (
+                                        <Slider
+                                            className="w-full max-w-xs text-primary font-bold"
+                                            label="スライドしてください！"
+                                            value={sliderValue}
+                                            onChange={handleSliderChange}
+                                            minValue={0}
+                                            maxValue={100}
+                                            classNames={{
+                                                label: "mb-4",
+                                            }}
+                                        />
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
