@@ -7,22 +7,22 @@ export default function Page() {
         <>
             <PageTitle>タイムテーブル</PageTitle>
             <PageContainer>
-                <SectionTitle className="mt-15 mb-10">11月1日(土)</SectionTitle>
+                <SectionTitle className="mt-5 mb-10">11月1日(土)</SectionTitle>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-10">
-                    <a rel="noopener noreferrer" target="_blank" className="transition-transform transform hover:scale-105 hover:shadow-lg" href="https://asset.meidaisai.jp/141-tt/tt_1-ls.pdf">
-                        <Image src='/images/timetable/TT_1-ls.jpg' alt='タイムテーブル1-1' width={500} height={300} />
-                    </a>
                     <a rel="noopener noreferrer" target="_blank" className="transition-transform transform hover:scale-105 hover:shadow-lg" href="https://asset.meidaisai.jp/141-tt/tt_1-main.pdf">
                         <Image src='/images/timetable/TT_1-main.jpg' alt='タイムテーブル1-2' width={500} height={300} />
+                    </a>
+                    <a rel="noopener noreferrer" target="_blank" className="transition-transform transform hover:scale-105 hover:shadow-lg" href="https://asset.meidaisai.jp/141-tt/tt_1-ls.pdf">
+                        <Image src='/images/timetable/TT_1-ls.jpg' alt='タイムテーブル1-1' width={500} height={300} />
                     </a>
                 </div>
                 <SectionTitle className="mt-10 mb-10">11月2日(日)</SectionTitle>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-10">
-                    <a rel="noopener noreferrer" target="_blank" className="transition-transform transform hover:scale-105 hover:shadow-lg" href="https://asset.meidaisai.jp/141-tt/tt_2-ls.pdf">
-                        <Image src='/images/timetable/TT_2-ls.jpg' alt='タイムテーブル2-1' width={500} height={300} />
-                    </a>
                     <a rel="noopener noreferrer" target="_blank" className="transition-transform transform hover:scale-105 hover:shadow-lg" href="https://asset.meidaisai.jp/141-tt/tt_2-main.pdf">
                         <Image src='/images/timetable/TT_2-main.jpg' alt='タイムテーブル2-2' width={500} height={300} />
+                    </a>
+                    <a rel="noopener noreferrer" target="_blank" className="transition-transform transform hover:scale-105 hover:shadow-lg" href="https://asset.meidaisai.jp/141-tt/tt_2-ls.pdf">
+                        <Image src='/images/timetable/TT_2-ls.jpg' alt='タイムテーブル2-1' width={500} height={300} />
                     </a>
                 </div>
                 <SectionTitle className="mt-10 mb-10">11月3日(月・祝)</SectionTitle>
