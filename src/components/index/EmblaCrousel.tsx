@@ -175,7 +175,7 @@ function Item({ name, src, href }: ItemProps) {
           <h1 className="font-bold text-sm md:text-md lg:text-xl text-center text-secondary-700">{name}</h1>
           </div>
         </div>
-        <div className='w-[47vw] md:w-[30vw] lg:w-[23vw] rounded-[1.6rem] sm:rounded-[2.5rem] overflow-hidden border-4 border-black'>
+        <div className='active:translate-1 w-[47vw] md:w-[30vw] lg:w-[23vw] rounded-[1.6rem] sm:rounded-[2.5rem] overflow-hidden border-4 border-black'>
           <div className='bg-white w-full aspect-square'>
             <img src={src} alt={name} className="w-full h-full object-cover"/>
           </div>

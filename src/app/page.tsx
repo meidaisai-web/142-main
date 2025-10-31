@@ -4,6 +4,7 @@ import Alert from "@/components/Alert";
 import FireLoading from "@/components/base/Loading";
 import Access from "@/components/index/Access";
 import AnnounceSection from "@/components/index/AnnounceSection";
+import Campusmap from "@/components/index/Campusmap";
 import HeroSection from "@/components/index/HeroSection";
 import TopicCoverFlow from "@/components/index/EmblaCrousel";
 import News from "@/components/index/News";
@@ -77,6 +78,8 @@ function Contents() {
       <AnnounceSection />
       <Rainbow />
       <News />
+      <Rainbow className="mt-10" />
+      <Campusmap />
       <Rainbow className="mt-10" />
       <Access />
     </div>

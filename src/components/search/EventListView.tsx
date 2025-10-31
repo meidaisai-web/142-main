@@ -59,8 +59,8 @@ interface ItemHeaderProps {
 function ItemHeader({ title, groupName }: ItemHeaderProps) {
     return (
         <div className="bg-secondary pt-2 px-3 pb-1 transition-colors duration-300 group-hover:bg-secondary-400 group-active:bg-secondary-700">
-            <h2 className="font-bold h-6">{title}</h2>
-            <p className="font-medium text-sm">{groupName}</p>
+            <h2 className="font-bold h-6 truncate">{title}</h2>
+            <p className="font-medium text-sm truncate">{groupName}</p>
         </div>
     )
 }

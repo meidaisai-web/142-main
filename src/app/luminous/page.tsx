@@ -6,6 +6,7 @@ import SmallTitle from "@/components/texts/SmallTitle";
 import Text from "@/components/texts/Text";
 import LogoImage from "@/components/LogoImage";
 import OnlyImage from "@/components/OnlyImage";
+import Movie from "@/components/movie";
 import { List, ListItem } from "@/components/texts/List";
 
 export default function LuminousPage() {
@@ -42,7 +43,8 @@ export default function LuminousPage() {
                     <ListItem>K-POPカバーダンスサークル Mercie</ListItem>
                 </List>
                 <Text>※コンテンツの都合上、入場規制をさせていただく時間があります。</Text>
-                {/*　動画を入れる　*/}
+                <SectionTitle>Luminous Stage紹介動画</SectionTitle>
+                <Movie href="https://www.youtube.com/embed/e2r0Akx2OSw?si=k_Yy4lWMYen92KnG"/>
             </PageContainer>
         </>
     );

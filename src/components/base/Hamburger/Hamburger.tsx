@@ -48,10 +48,13 @@ const hamburgerContents: HamburgerSectionProps[] = [
         title: "ご来場のみなさまへ",
         content: [
             { href: "/announce", label: "ご来場のみなさまへのお願い" },
+            { href: "/timetable", label: "タイムテーブル" },
+            { href: "/map", label: "キャンパスマップ" },
             { href: "/access", label: "アクセス" },
             { href: "/news", label: "お知らせ" },
             { href: "/faq", label: "よくある質問" },
-            { href: "/pamphlet", label: "電子パンフレット" }
+            { href: "/pamphlet", label: "電子パンフレット" },
+            { href: "/fix-pamphlet", label: "公式パンフレット修正" },
         ]
     },
     {

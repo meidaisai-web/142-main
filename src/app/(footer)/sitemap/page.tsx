@@ -12,12 +12,13 @@ export default function SitemapPage() {
 				<SmallTitle>ご来場のみなさまへ</SmallTitle>
 				<div className="flex gap-4">
 					<TransitionLink href="/announce">ご来場のみなさまへのお願い</TransitionLink>
-					{/* <TransitionLink href="/timetable">タイムテーブル</TransitionLink>
-          <TransitionLink href="/map">キャンパスマップ</TransitionLink> */}
+					<TransitionLink href="/timetable">タイムテーブル</TransitionLink>
+          			<TransitionLink href="/map">キャンパスマップ</TransitionLink>
 					<TransitionLink href="/access">アクセス</TransitionLink>
 					<TransitionLink href="/faq">よくある質問</TransitionLink>
 					<TransitionLink href="/news">お知らせ</TransitionLink>
 					<TransitionLink href="/pamphlet">電子パンフレット</TransitionLink>
+					<TransitionLink href="/fix-pamphlet">公式パンフレット修正</TransitionLink>
 				</div>
 
 
