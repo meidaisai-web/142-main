@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-const MeichanSection = () => {
+const MeichamSection = () => {
     return (
         <div className="mt-10 relative">
             <div className="absolute border-secondary border-4 rotate-3 rounded-3xl max-w-4xl w-full left-1/2 -translate-x-1/2 inset-y-0"></div>
@@ -17,4 +17,4 @@ const MeichanSection = () => {
     )
 }
 
-export default MeichanSection
+export default MeichamSection

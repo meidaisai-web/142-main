@@ -55,11 +55,12 @@ const slides = [
   }
 ]
 
-type PropType = {
-  options?: EmblaOptionsType
-}
-const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { options } = props
+function EmblaCarousel() {
+  const options: EmblaOptionsType = {
+    loop: true,
+    align: 'center',
+    containScroll: 'trimSnaps',
+  }
   const autoplayRef = useRef(
     Autoplay({
       delay: 2000,

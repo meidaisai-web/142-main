@@ -6,7 +6,6 @@ import Access from "@/components/index/Access";
 import AnnounceSection from "@/components/index/AnnounceSection";
 import Campusmap from "@/components/index/Campusmap";
 import HeroSection from "@/components/index/HeroSection";
-import TopicCoverFlow from "@/components/index/EmblaCrousel";
 import News from "@/components/index/News";
 import Rainbow from "@/components/index/Rainbow";
 import SearchSection from "@/components/index/SearchSection";
@@ -14,7 +13,6 @@ import { NewsData } from "@/utils/datas/NewsData";
 import Link from "next/link";
 import { ReactNode, useEffect, useState } from "react";
 import EmblaCarousel from "@/components/index/EmblaCrousel";
-import { EmblaOptionsType } from "embla-carousel";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,12 +41,6 @@ function Contents() {
   const importantNews = NewsData.filter((news) => news.type === '重要');
   const latestShowedNews = Number(localStorage.getItem("latestShowedNews") || "0");
   const showNewsData = importantNews.findLast((news) => latestShowedNews < news.id);
-  const OPTIONS: EmblaOptionsType = {
-    loop: true,
-    align: 'center',
-    containScroll: 'trimSnaps',
-  }
-  const SLIDES = Array.from({length: 6}, (_, i) => i)
 
   useEffect(() => {
     if (showNewsData) {
@@ -71,7 +63,7 @@ function Contents() {
       </Alert>
       <HeroSection />
       <Rainbow className="mt-10" />
-      <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+      <EmblaCarousel />
       <Rainbow className="mt-10" />
       <SearchSection />
       <Rainbow className="mt-20" />
