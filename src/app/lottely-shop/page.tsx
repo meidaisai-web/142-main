@@ -77,7 +77,7 @@ const page = () => {
         "TOP1明大前店",
         "vivo daily stand 明大前店",
         "Wells",
-        "69 Petite Patisserie YUKI"
+        "Petite Patisserie YUKI"
     ]
     return (
         <div>

@@ -22,7 +22,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
     const [hiddenAlert, setHiddenAlert] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [buttonText, setButtonText] = useState("投票する");
-    const acceptBrowser = ['Safari', 'Chrome'];
+    const acceptBrowser = ['Safari', 'Chrome', 'Edge'];
 
     useEffect(() => {
         async function initialize() {
