@@ -4,6 +4,7 @@ import NewsTag from "./NewsTag";
 import NewsTitle from "./NewsTitle";
 import NewsDate from "./NewsDate";
 import { type NewsItem } from "@/utils/datas/NewsData";
+import Link from "next/link";
 
 type NewsItemProps = {
   item: NewsItem;
@@ -12,7 +13,7 @@ type NewsItemProps = {
 
 const NewsItem = ({ item, isLast = false }: NewsItemProps) => {
   return (
-    <div>
+    <Link href='/news'>
       <div className="py-6 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
         <div className="flex items-center gap-3">
           <NewsDate>{item.date}</NewsDate>
@@ -21,7 +22,7 @@ const NewsItem = ({ item, isLast = false }: NewsItemProps) => {
         <NewsTitle link={item.link}>{item.title}</NewsTitle>
       </div>
       {!isLast && <div className="bg-gray-300 h-[1px]" />}
-    </div>
+    </Link>
   );
 };
 
