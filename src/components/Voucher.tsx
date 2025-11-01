@@ -170,7 +170,7 @@ export default function Voucher() {
             <div className="relative mx-auto w-lg max-w-full my-16">
                 <div className="absolute rotate-3 -z-10 mx-auto py-10 rounded-2xl border-accent border-4 w-full text-primary px-10">
                     <p className="font-bold text-xl text-center">抽選券への引き換えはこちら！</p>
-                    <p className="text-primary font-semibold mt-3">必ず総合インフォメーションで、抽選券引き換え時にタップしてください。</p>
+                    <p className="text-primary font-semibold mt-3">必ず和泉図書館前アンケート回収受付で、抽選券引き換え時にタップしてください。</p>
                     <Button onClick={handleExchange} disabled={disabled} className="mt-3">{buttonText}</Button>
                     {error &&
                         <p className="text-center font-bold text-primary mt-5">※{error}</p>
@@ -178,14 +178,14 @@ export default function Voucher() {
                 </div>
                 <div className="mx-auto bg-white py-10 rounded-2xl border-secondary border-4 w-full text-black px-10">
                     <p className="font-bold text-xl text-center">抽選券への引き換えはこちら！</p>
-                    <p className="text-primary font-semibold mt-3">必ず総合インフォメーションで、抽選券引き換え時にタップしてください。</p>
+                    <p className="text-primary font-semibold mt-3">必ず和泉図書館前アンケート回収受付で、抽選券引き換え時にタップしてください。</p>
                     <Button onClick={onTapExchange} disabled={disabled} className="mt-3">{buttonText}</Button>
                     {error &&
                         <p className="text-center font-bold text-primary mt-5">※{error}</p>
                     }
                 </div>
                 {!hiddenAlert &&
-                    <Alert title="本当に引き換えますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: "引き換える", action: handleAlertYes }}>総合インフォメーションブースで引き換える時のみ引き換えてください。</Alert>
+                    <Alert title="本当に引き換えますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: "引き換える", action: handleAlertYes }}>和泉図書館前アンケート回収受付引き換える時のみ引き換えてください。</Alert>
                 }
                 {showCompletionMessage && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-cover px-10">
