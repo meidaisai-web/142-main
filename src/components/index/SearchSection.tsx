@@ -8,8 +8,8 @@ import Link from "next/link";
 export default function SearchSection() {
     const [searchText, setSearchText] = useState("");
     const detailList = [
-        { src: "/images/svg/index/glass.svg", label: "詳しく絞り込む" },
-        { src: "/images/svg/index/timetable.svg", label: "タイムテーブル" }
+        { src: "/images/svg/index/glass.svg", href: '/search', label: "詳しく絞り込む" },
+        { src: "/images/svg/index/timetable.svg", href: '/timetable', label: "タイムテーブル" }
     ]
     function transSearch() {
         window.location.href = `/search?keyword=${searchText}`;
@@ -21,16 +21,16 @@ export default function SearchSection() {
             <Button href={`/search?keyword=${searchText}`}>検索</Button>
             <div className="flex justify-center gap-16 mt-10">
                 {detailList.map((item, index) => (
-                    <DetailButton key={index} src={item.src} label={item.label} />
+                    <DetailButton key={index} src={item.src} href={item.href} label={item.label} />
                 ))}
             </div>
         </div>
     )
 }
 
-function DetailButton({ src, label }: { src: string; label: string }) {
+function DetailButton({ src, href, label }: { src: string; href: string; label: string }) {
     return (
-        <Link href="/search">
+        <Link href={href}>
             <div className="w-32 h-40 flex flex-col items-center justify-center gap-4">
                 <div className="absolute border-5 border-accent rounded-3xl w-32 h-40 rotate-8 translate-y-1" />
                 <div className="absolute border-5 border-secondary rounded-3xl w-32 h-40 -rotate-8" />
