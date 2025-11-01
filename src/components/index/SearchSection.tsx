@@ -9,7 +9,7 @@ export default function SearchSection() {
     const [searchText, setSearchText] = useState("");
     const detailList = [
         { src: "/images/svg/index/glass.svg", label: "詳しく絞り込む" },
-        // { src: "/images/svg/index/timetable.svg", label: "タイムテーブル" }
+        { src: "/images/svg/index/timetable.svg", label: "タイムテーブル" }
     ]
     function transSearch() {
         window.location.href = `/search?keyword=${searchText}`;
