@@ -7,6 +7,22 @@ import Link from "next/link";
 import Alert from "../Alert";
 import { detectIncognito } from "detectincognitojs";
 
+// UUIDを取得または生成する関数
+function getUserUUID(): string {
+    const STORAGE_KEY = 'meicham_user_uuid';
+    
+    // 既存のUUIDを取得
+    let uuid = localStorage.getItem(STORAGE_KEY);
+    
+    // なければ新規生成
+    if (!uuid) {
+        uuid = crypto.randomUUID();
+        localStorage.setItem(STORAGE_KEY, uuid);
+    }
+    
+    return uuid;
+}
+
 interface VoteViewProps {
     id: string;
     groupId: string;
@@ -78,8 +94,11 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
             setIsEnable(false);
             return;
         }
+        // ユーザーのUUIDを取得または生成
+        const userUUID = getUserUUID();
+        
         // 投票していなければ、投票を実行
-        const success = await voteMeicham(id, groupId, type);
+        const success = await voteMeicham(id, groupId, type, userUUID);
         if (!success) {
             setError("投票に失敗しました。もう一度お試しください。");
             setIsEnable(true);
