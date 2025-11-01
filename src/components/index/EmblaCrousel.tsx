@@ -45,14 +45,19 @@ const slides = [
     href: '/illumination',
   },
   {
-    name: 'Opening',
-    src: '/images/ensyutsu/opening-logo.png',
-    href: '/opening',
+    name: 'Luminous Stage',
+    src: '/images/ensyutsu/luminous-logo.jpg',
+    href: '/luminous',
   },
   {
-    name: 'Meiji United Clash',
-    src: '/images/ensyutsu/clash-logo.png',
-    href: '/clash',
+    name: 'Uni Rock Fes',
+    src: '/images/ensyutsu/fes-logo.jpg',
+    href: '/fes',
+  },
+  {
+    name: '中夜祭',
+    src: '/images/ensyutsu/midnight-logo.png',
+    href: '/midnight',
   }
 ]
 
