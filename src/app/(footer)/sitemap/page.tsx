@@ -18,7 +18,7 @@ export default function SitemapPage() {
 					<TransitionLink href="/faq">よくある質問</TransitionLink>
 					<TransitionLink href="/news">お知らせ</TransitionLink>
 					<TransitionLink href="/pamphlet">電子パンフレット</TransitionLink>
-					<TransitionLink href="/fix-pamphlet">公式パンフレット修正</TransitionLink>
+					<TransitionLink href="/fix-pamphlet">公式パンフレット訂正</TransitionLink>
 				</div>
 				<SmallTitle>特集</SmallTitle>
 				<div className="flex flex-wrap gap-4">
