@@ -20,12 +20,12 @@ export default function Voucher() {
     const [isCompleted, setIsCompleted] = useState(false);
 
     async function isEnableExchange(): Promise<boolean> {
-        setError('本日の抽選券への引き換えは終了しました。')
-        setDisabled(true);
-        return false;
+        // setError('本日の抽選券への引き換えは終了しました。')
+        // setDisabled(true);
+        // return false;
         if (!isInTime()) {
             setError('引換可能期間外です。')
-            setButtonText("引換不可")
+            setButtonText("引き換え不可")
             setDisabled(true);
             return false;
         }
