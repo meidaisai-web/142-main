@@ -45,19 +45,14 @@ const slides = [
     href: '/illumination',
   },
   {
-    name: 'Luminous Stage',
-    src: '/images/ensyutsu/luminous-logo.jpg',
-    href: '/luminous',
+    name: 'I♡Fes!',
+    src: '/images/ensyutsu/ifes-logo.png',
+    href: '/idol',
   },
   {
-    name: 'Uni Rock Fes',
-    src: '/images/ensyutsu/fes-logo.jpg',
-    href: '/fes',
-  },
-  {
-    name: '中夜祭',
-    src: '/images/ensyutsu/midnight-logo.png',
-    href: '/midnight',
+    name: 'Ending',
+    src: '/images/ensyutsu/ending-logo.jpg',
+    href: '/ending',
   }
 ]
 
