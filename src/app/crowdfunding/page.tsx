@@ -37,6 +37,35 @@ const nameList = [
     "古川敬久",
     "名工大小島",
     "おにちゃん",
+    "渡邊建三",
+    "K's株式会社",
+    "小野純子",
+    "小川　和子",
+    "尾崎公平",
+    "長谷川智史",
+    "石川幸代",
+    "成瀬　吉彦",
+    "河野金物（有）",
+    "佐藤幸枝",
+    "しもーん",
+    "冨岡隆幸",
+    "成瀬祐子",
+    "明大祭応援隊",
+    "田丸和子",
+    "明大祭応援隊家族2号",
+    "大導寺優光",
+    "横瀬",
+    "KPOPカバーダンスサークルMercie",
+    "内田",
+    "谷内　友樹",
+    "工藤　美鈴",
+    "冨田 大資",
+    "金山宥成(平成17年文学部卒業)",
+    "明大祭実行委員会応援隊1号",
+    "安達光瑠",
+    "大金華代",
+    "小笠原良明",
+    "中村　浩明"
 ]
 
 const page = () => {
@@ -66,11 +95,11 @@ const page = () => {
                 </List>
                 <SectionTitle>ご支援いただいた方のご芳名一覧</SectionTitle>
                 <List mark="※" className="mt-8">
-                    <ListItem>10月14日現在の情報</ListItem>
+                    <ListItem>11月2日現在の情報、敬称略</ListItem>
                 </List>
                 <List mark="・">
                     {nameList.map((name) => (
-                        <ListItem key={name}>{name}さん</ListItem>
+                        <ListItem key={name}>{name}</ListItem>
                     ))}
                 </List>
                 <SmallTitle>注意点</SmallTitle>
