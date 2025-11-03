@@ -38,7 +38,7 @@ export default function Page() {
         },
         {
             question: "会場でキャッシュレス決済は可能ですか。",
-            answer: <>一部模擬店・教室企画でキャッシュレス決済が利用できます。{/*キャッシュレス対応店舗・ブランドについては<TransitionLink href="/cashless">こちらのページ</TransitionLink>をご覧ください。*/}</>
+            answer: <>一部模擬店・教室企画でキャッシュレス決済が利用できます。キャッシュレス対応店舗・ブランドについては<TransitionLink href="/cashless">こちらのページ</TransitionLink>をご覧ください。</>
         },
         {
             question: "キャンパス内で飲食は可能ですか。",
