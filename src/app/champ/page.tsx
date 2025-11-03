@@ -17,6 +17,27 @@ export default function ChampPage() {
             <PageTitle>Meidaisai Championship</PageTitle>
             <PageContainer>
                 <LogoImage src="/images/ensyutsu/meichamp-logo.jpg" alt="Meidaisai Championship ロゴ" className="mt-10" />
+                <SectionTitle>Champion</SectionTitle>
+                <p className="text-center my-8 text-xl font-bold">法学部堀田秀吾ゼミナール</p>
+                <SmallTitle>総投票数: 15,155票</SmallTitle>
+                <SmallTitle>屋外ステージ部門</SmallTitle>
+                <List numbered>
+                    <ListItem>K-POP カバーダンスサークル Mercie</ListItem>
+                    <ListItem>体育同好会連合会チアリーディングチーム・JAGUARS</ListItem>
+                    <ListItem>中野ダンスサークル SIGN</ListItem>
+                </List>
+                <SmallTitle>教室部門</SmallTitle>
+                <List numbered>
+                    <ListItem>法学部堀田秀吾ゼミナール</ListItem>
+                    <ListItem>中国留学生会</ListItem>
+                    <ListItem>SHERLOCK</ListItem>
+                </List>
+                <SmallTitle>模擬店部門</SmallTitle>
+                <List numbered>
+                    <ListItem>Cielo</ListItem>
+                    <ListItem>Viento</ListItem>
+                    <ListItem>国際日本学部廣森友人ゼミナール</ListItem>
+                </List>
                 <SectionTitle>明大祭の頂点、今ここに！</SectionTitle>
                 <ImageText className="mt-8" src="/images/ensyutsu/championship.jpg" alt="Championship Image"><Text>みなさまの投票によって明大祭No.1企画を決定します。</Text>
                     <Text>「屋外ステージ部門」「教室部門」「模擬店部門」の3つにわけ、各部門の1位を決めます。そして、最も多くの票を獲得した団体がChampionとなります。<Emphasis>結果は11月3日(月・祝)に行われるEndingにて発表します。</Emphasis></Text>
