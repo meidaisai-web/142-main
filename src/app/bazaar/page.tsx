@@ -13,6 +13,13 @@ export default function Page(){
         <div>
             <PageTitle>チャリティーバザー企画</PageTitle>
             <PageContainer>
+                <SectionTitle>最終募金金額</SectionTitle>
+                <SmallTitle>売り上げ額</SmallTitle>
+                <Text>54,000円</Text>
+                <SmallTitle>募金額</SmallTitle>
+                <Text>11,201円</Text>
+                <SmallTitle>最終募金金額</SmallTitle>
+                <Text>65,201円</Text>
                 <SectionTitle>実行委員会によるバザー企画開催！</SectionTitle>
                 <Text moreTopPadding>学生が持ち寄った本や服など、様々なアイテムが勢ぞろい！この機会にあなただけの特別な一品を見つけに来ませんか？</Text>
                 <Text>バザーの収益金は、災害に見舞われた方に対する救援活動や復興支援のために、<Emphasis>日本赤十字社に寄付</Emphasis>されます。</Text>
