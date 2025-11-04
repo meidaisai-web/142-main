@@ -1,7 +1,6 @@
 import PageContainer from "@/components/base/PageContainer";
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
-import SmallTitle from "@/components/texts/SmallTitle";
 import Text from "@/components/texts/Text";
 
 interface TableData {
@@ -240,12 +239,6 @@ function Table({ data }: { data: TableData[] }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* {data.map((row, index) => (
-                        <tr key={index} className="bg-white text-black border-b border-black">
-                            <td className="px-2 border-r border-black">{row.item}</td>
-                            <td className="text-end px-2">{row.amount.toLocaleString()}</td>
-                        </tr>
-                    ))} */}
                     {data.map((row, index) => (
                         <tr key={index} className="bg-white text-black border-b border-black">
                             <td className="px-2 border-r border-black">{row.item}</td>
