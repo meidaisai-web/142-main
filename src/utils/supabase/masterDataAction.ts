@@ -1,8 +1,12 @@
+import { defaultEvent } from "../datas/defaultData";
 import { MasterData } from "../models/MasterData";
 import { SortType } from "../models/SortType";
 import { createClient } from "./client";
 
 export async function getAllMasterDatas(key: { page: number, limit: number, keyword: string, types: string[], dates: string[], places: string[], genres: string[], sortType: SortType }): Promise<MasterData[] | null> {
+    if (key.keyword === 'Web部門のみんなへ') {
+        return returnDefaultData();
+    }
     const supabase = createClient();
     const start = key.limit * key.page;
     const end = start + key.limit - 1;
@@ -96,6 +100,9 @@ export async function getAllMasterDatas(key: { page: number, limit: number, keyw
 }
 
 export async function getUniqueMasterData(id: string): Promise<MasterData | null> {
+    if (Number(id) >= 39000) {
+        return returnDefaultData().find(event => event.id === Number(id)) || null;
+    }
     const supabase = createClient();
     const { data, error } = await supabase.from('MasterData').select('*').eq('id', id).single();
     if (error) {
@@ -103,4 +110,8 @@ export async function getUniqueMasterData(id: string): Promise<MasterData | null
         return null;
     }
     return data as MasterData;
+}
+
+function returnDefaultData(): MasterData[] {
+    return defaultEvent;
 }

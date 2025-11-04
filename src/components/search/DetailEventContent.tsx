@@ -66,7 +66,7 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                         <ZoomableImage src="/images/map/tent.jpg" alt="テントマップ" width={600} height={300} className="bg-white p-1 rounded-xl object-contain w-full h-fit max-w-xl mt-16" />
                     )}
                     <Menu menus={data.menuItems || []} />
-                    {!data.groupName.includes("明大祭実行委員会") &&
+                    {(!data.groupName.includes("明大祭実行委員会") && data.groupName !== '伊藤 汰海') &&
                         <VoteView id={id} groupId={data.groupId} type={data.type} eventName={data.eventName} groupName={data.groupName} eventDate={data.eventDate} />
                     }
                 </div>
