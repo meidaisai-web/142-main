@@ -73,7 +73,138 @@ const incomeData: TableData[] = [
 ]
 
 const expenseData: TableData[] = [
-
+    {
+        item: '交通費',
+        amount: 97_516,
+    },
+    {
+        item: '通信費',
+        amount: 268_833
+    },
+    {
+        item: '備品費',
+        amount: 457_868
+    },
+    {
+        item: '郵便費',
+        amount: 191_617
+    },
+    {
+        item: '印刷費',
+        amount: 1_481_872
+    },
+    {
+        item: '消耗品費',
+        amount: 889_373
+    },
+    {
+        item: '渉外費',
+        amount: 16_136
+    },
+    {
+        item: '会議運営費',
+        amount: 19_220
+    },
+    {
+        item: 'ユニフォーム購入費',
+        amount: 668_580
+    },
+    {
+        item: '演出局企画運営費',
+        amount: 748_605
+    },
+    {
+        item: '開発局企画運営費',
+        amount: 224_424,
+    },
+    {
+        item: '財務局企画運営費',
+        amount: 2_450
+    },
+    {
+        item: '渉外局企画運営費',
+        amount: 98_719
+    },
+    {
+        item: '総務局企画運営費',
+        amount: 25_919
+    },
+    {
+        item: '局外企画運営費',
+        amount: 1_291_021
+    },
+    {
+        item: 'ステージ費',
+        amount: 7_055_169
+    },
+    {
+        item: '学生部めいじろう賞',
+        amount: 107_417
+    },
+    {
+        item: '装飾制作費',
+        amount: 765_442
+    },
+    {
+        item: '広報局広報活動費',
+        amount: 241_467
+    },
+    {
+        item: '局外広報活動費',
+        amount: 1_098_690
+    },
+    {
+        item: 'パンフレット印刷費',
+        amount: 3_025_660
+    },
+    {
+        item: '備品レンタル費',
+        amount: 1_071_303
+    },
+    {
+        item: 'ガス器具レンタル費',
+        amount: 1_030_260
+    },
+    {
+        item: '容器・一斗缶費',
+        amount: 630_170
+    },
+    {
+        item: '保険契約費',
+        amount: 745_200
+    },
+    {
+        item: '第140回明大祭公式グッズ仕入れ費',
+        amount: 849_569
+    },
+    {
+        item: '雑費',
+        amount: 74_580
+    },
+    {
+        item: '大学助成金（学生部めいじろう賞）返金',
+        amount: 43_000
+    },
+    {
+        item: 'ガス器具レンタル代預り金返金',
+        amount: 38_500
+    },
+    {
+        item: '参加団体分担金返金',
+        amount: 61_500
+    },
+    {
+        item: '協賛賛助金返金',
+        amount: 50_000
+    },
+    {
+        item: '備品レンタル代預り金返金',
+        amount: 12_000
+    },
+    {
+        item: '次年度繰越金',
+        amount: 5_939_308
+    }
 ]
 
 export default function Page() {
