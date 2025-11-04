@@ -201,7 +201,7 @@ export default function Search() {
                 <SectionTitle>企画一覧</SectionTitle>
             </PageContainer>
             <EventItems datas={datas} ref={eventItemsRef} />
-            {hasMoreData && (
+            {(hasMoreData && searchKeyword !== 'Web部門のみんなへ') && (
                 <Button onClick={() => setSize(size + 1)} disabled={isLoading || isValidating}>
                     {isLoading || isValidating ? '読み込み中...' : 'もっと見る'}
                 </Button>
