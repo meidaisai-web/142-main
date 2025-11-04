@@ -14,20 +14,22 @@ export default function Page(){
             <PageTitle>チャリティーバザー企画</PageTitle>
             <PageContainer>
                 <SectionTitle>最終募金金額</SectionTitle>
-                <div className="w-72 my-8 mx-auto overflow-x-auto">
-                    <table className="w-full table-auto border-collapse border-2 border-black shadow-md">
+                <p className="text-center text-xl font-bold mt-8">65,201円</p>
+                <p className="text-center mt-8 text-lg font-semibold mb-2">内訳</p>
+                <div className="w-72 mb-8 mx-auto overflow-x-auto rounded-2xl border-black border-2">
+                    <table className="w-full table-auto border-collapse text-lg">
                         <tbody>
                             <tr className="bg-white text-black border-b border-black">
-                                <td className="px-2 border-r border-black">売り上げ</td>
-                                <td className="text-end px-2">54,000円</td>
+                                <td className="py-2 px-4 border-r border-black">売り上げ</td>
+                                <td className="text-end py-2 px-4">54,000円</td>
                             </tr>
                             <tr className="bg-white text-black border-b border-black">
-                                <td className="px-2 border-r border-black">募金</td>
-                                <td className="text-end px-2">11,201円</td>
+                                <td className="py-2 px-4 border-r border-black">募金</td>
+                                <td className="text-end py-2 px-4">11,201円</td>
                             </tr>
-                            <tr className="bg-secondary border-b font-medium border-black">
-                                <td className="px-2 border-r border-black">最終募金金額</td>
-                                <td className="text-end px-2">65,201円</td>
+                            <tr className="bg-secondary font-medium">
+                                <td className="py-2 px-4 border-r border-black">最終募金金額</td>
+                                <td className="text-end py-2 px-4">65,201円</td>
                             </tr>
                         </tbody>
                     </table>
