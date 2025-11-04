@@ -13,6 +13,25 @@ export default function Page(){
         <div>
             <PageTitle>チャリティーバザー企画</PageTitle>
             <PageContainer>
+                <SectionTitle>最終募金金額</SectionTitle>
+                <div className="w-72 my-8 mx-auto overflow-x-auto">
+                    <table className="w-full table-auto border-collapse border-2 border-black shadow-md">
+                        <tbody>
+                            <tr className="bg-white text-black border-b border-black">
+                                <td className="px-2 border-r border-black">売り上げ</td>
+                                <td className="text-end px-2">54,000円</td>
+                            </tr>
+                            <tr className="bg-white text-black border-b border-black">
+                                <td className="px-2 border-r border-black">募金</td>
+                                <td className="text-end px-2">11,201円</td>
+                            </tr>
+                            <tr className="bg-secondary border-b font-medium border-black">
+                                <td className="px-2 border-r border-black">最終募金金額</td>
+                                <td className="text-end px-2">65,201円</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <SectionTitle>実行委員会によるバザー企画開催！</SectionTitle>
                 <Text moreTopPadding>学生が持ち寄った本や服など、様々なアイテムが勢ぞろい！この機会にあなただけの特別な一品を見つけに来ませんか？</Text>
                 <Text>バザーの収益金は、災害に見舞われた方に対する救援活動や復興支援のために、<Emphasis>日本赤十字社に寄付</Emphasis>されます。</Text>
