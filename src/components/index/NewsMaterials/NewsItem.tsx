@@ -13,7 +13,7 @@ type NewsItemProps = {
 
 const NewsItem = ({ item, isLast = false }: NewsItemProps) => {
   return (
-    <Link href='/news'>
+    <Link href={item.link ?? '/news'}>
       <div className="py-6 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
         <div className="flex items-center gap-3">
           <NewsDate>{item.date}</NewsDate>

@@ -786,6 +786,9 @@ export const companyGoodsList = [
         "name": "寺岡有機醸造株式会社"
     },
     {
+        "name": "デカトロンディストリビューションジャポン株式会社"
+    },
+    {
         "name": "東海汽船株式会社"
     },
     {
