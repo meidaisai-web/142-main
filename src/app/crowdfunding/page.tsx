@@ -65,7 +65,14 @@ const nameList = [
     "安達光瑠",
     "大金華代",
     "小笠原良明",
-    "中村　浩明"
+    "中村　浩明",
+    "藤野恵",
+    "藤本菜々",
+    "小西由枝",
+    "141ありがとう",
+    "ざきり",
+    "熊木貴子",
+    "許田佳右"
 ]
 
 const page = () => {
@@ -93,6 +100,16 @@ const page = () => {
                         <span style={{ wordBreak: 'keep-all' }}>より詳しい情報は、<Link href="https://camp-fire.jp/projects/878082/view?utm_campaign=cp_po_share_c_msg_mypage_projects_show" className="text-accent border-b border-accent hover:text-secondary hover:border-secondary" target="_blank">こちら</Link>または「明大祭 クラウドファンディング」で検索してご確認ください。</span>
                     </ListItem>
                 </List>
+                <SectionTitle>最終支援金額のご報告</SectionTitle>
+                <Text moreTopPadding>11月9日(日)を持ちまして、支援の募集が終了いたしました。</Text>
+                <div className="text-center my-8">
+                    <p className="text-lg">最終支援金額</p>
+                    <p className="text-2xl font-bold">¥1,080,000</p>
+                    <p className="text-lg mt-5">最終支援者数</p>
+                    <p className="text-2xl font-bold">80人</p>
+                </div>
+                <Text>目標金額である100万円を無事達成することができました。ご支援くださったみなさま、そして温かい応援のメッセージをお寄せくださったみなさまに、心より感謝申し上げます。</Text>
+                <Text>みなさまからのご支援・応援メッセージのひとつひとつが、私たち明大祭実行委員会の大きな力となりました。来年以降もみなさまの期待に応えられる明大祭を作っていけるよう実行委員一同頑張りますので、これからも温かく明大祭を見守っていただけますと幸いです。</Text>
                 <SectionTitle>ご支援いただいた方のご芳名一覧</SectionTitle>
                 <List mark="※" className="mt-8">
                     <ListItem>11月2日現在の情報、敬称略</ListItem>

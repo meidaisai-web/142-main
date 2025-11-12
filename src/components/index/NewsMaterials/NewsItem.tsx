@@ -19,7 +19,7 @@ const NewsItem = ({ item, isLast = false }: NewsItemProps) => {
           <NewsDate>{item.date}</NewsDate>
           <NewsTag type={item.type} />
         </div>
-        <NewsTitle link={item.link}>{item.title}</NewsTitle>
+        <NewsTitle>{item.title}</NewsTitle>
       </div>
       {!isLast && <div className="bg-gray-300 h-[1px]" />}
     </Link>
