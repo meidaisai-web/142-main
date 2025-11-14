@@ -104,7 +104,7 @@ const page = () => {
                 <Text moreTopPadding>11月9日(日)を持ちまして、支援の募集が終了いたしました。</Text>
                 <div className="text-center my-8">
                     <p className="text-lg">最終支援金額</p>
-                    <p className="text-2xl font-bold">¥1,080,000</p>
+                    <p className="text-2xl font-bold">¥1,020,000</p>
                     <p className="text-lg mt-5">最終支援者数</p>
                     <p className="text-2xl font-bold">80人</p>
                 </div>
@@ -112,7 +112,7 @@ const page = () => {
                 <Text>みなさまからのご支援・応援メッセージのひとつひとつが、私たち明大祭実行委員会の大きな力となりました。来年以降もみなさまの期待に応えられる明大祭を作っていけるよう実行委員一同頑張りますので、これからも温かく明大祭を見守っていただけますと幸いです。</Text>
                 <SectionTitle>ご支援いただいた方のご芳名一覧</SectionTitle>
                 <List mark="※" className="mt-8">
-                    <ListItem>11月2日現在の情報、敬称略</ListItem>
+                    <ListItem>11月9日現在の情報、敬称略</ListItem>
                 </List>
                 <List mark="・">
                     {nameList.map((name) => (
