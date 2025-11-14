@@ -202,7 +202,7 @@ const expenseData: TableData[] = [
     },
     {
         item: '次年度繰越金',
-        amount: 5_939_308
+        amount: 5_939_307
     }
 ]
 
