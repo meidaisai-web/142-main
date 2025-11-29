@@ -214,7 +214,6 @@ export default function Page() {
                 <SectionTitle>第140回明大祭 最終決算報告</SectionTitle>
                 <Text moreTopPadding>2024年に行われた第140回明大祭開催のため、第140回明大祭実行委員会が行った活動における収支報告になります。</Text>
                 <Text moreTopPadding>第140回明大祭にあたり、ご支援してくださった方々をはじめ、明大祭に関わってくださったすべての方々に感謝を申し上げるとともに、第140回明大祭実行委員会は会計の透明性を確保し、活動にご理解いただけるよう努めてまいります。</Text>
-                <Text moreTopPadding>詳細は以下をご覧いただくとともに、添付してあるpdfデータもご確認ください。</Text>
             </PageContainer>
             <SectionTitle>収入</SectionTitle>
             <Table data={incomeData} />

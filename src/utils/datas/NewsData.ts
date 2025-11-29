@@ -11,6 +11,13 @@ export type NewsItem = {
 //typeを変更するとtagの色も変わります。typeがタグの名前になります。tagにつけられる名前は重要、更新、お知らせの3つです。
 export const NewsData: NewsItem[] = [
   {
+    id: 8,
+    date: "2025.11.29",
+    type: "更新",
+    title: "第140回明大祭の最終決算報告を掲載しました。",
+    link: "/accounting",
+  },
+  {
     id: 7,
     date: "2025.11.4",
     type: "お知らせ",
