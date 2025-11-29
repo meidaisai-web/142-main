@@ -13,7 +13,7 @@ export default function Page(){
         <div>
             <PageTitle>チャリティーバザー企画</PageTitle>
             <PageContainer>
-                {/* <SectionTitle>最終募金金額</SectionTitle>
+                <SectionTitle>最終募金金額</SectionTitle>
                 <p className="text-center text-xl font-bold mt-8">65,201円</p>
                 <p className="text-center mt-8 text-lg font-semibold mb-2">内訳</p>
                 <div className="w-72 mb-8 mx-auto overflow-x-auto rounded-2xl border-black border-2">
@@ -33,7 +33,7 @@ export default function Page(){
                             </tr>
                         </tbody>
                     </table>
-                </div> */}
+                </div>
                 <SectionTitle>実行委員会によるバザー企画開催！</SectionTitle>
                 <Text moreTopPadding>学生が持ち寄った本や服など、様々なアイテムが勢ぞろい！この機会にあなただけの特別な一品を見つけに来ませんか？</Text>
                 <Text>バザーの収益金は、災害に見舞われた方に対する救援活動や復興支援のために、<Emphasis>日本赤十字社に寄付</Emphasis>されます。</Text>
