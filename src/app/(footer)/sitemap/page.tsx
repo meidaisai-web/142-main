@@ -75,6 +75,7 @@ export default function SitemapPage() {
 					<TransitionLink href="/area">界隈地域のみなさまへ</TransitionLink>
 					<TransitionLink href="/alumni">校友のみなさまへ</TransitionLink>
 					<TransitionLink href="/media">メディアのみなさまへ</TransitionLink>
+					<TransitionLink href="/accounting">最終決算報告</TransitionLink>
 				</div>
 
 				<SmallTitle>明大祭とは</SmallTitle>

@@ -17,6 +17,13 @@ export const NewsData: NewsItem[] = [
   //   title: "第141回明大祭の来場者数は43,268人でした。",
   // },
   {
+    id: 8,
+    date: "2025.11.29",
+    type: "更新",
+    title: "第140回明大祭の最終決算報告を掲載しました。",
+    link: "/accounting",
+  },
+  {
     id: 7,
     date: "2025.11.6",
     type: "更新",

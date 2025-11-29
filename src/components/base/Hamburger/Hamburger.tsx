@@ -90,6 +90,7 @@ const forOutside = [
             { href: "/area", label: "界隈地域のみなさまへ" },
             { href: "/alumni", label: "校友のみなさまへ" },
             { href: "/media", label: "メディアのみなさまへ" },
+            { href: "/accounting", label: "最終決算報告" },
         ]
     },
     {
