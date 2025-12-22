@@ -10,25 +10,26 @@ export type NewsItem = {
 //お知らせの内容は以下に書いてください。
 //typeを変更するとtagの色も変わります。typeがタグの名前になります。tagにつけられる名前は重要、更新、お知らせの3つです。
 export const NewsData: NewsItem[] = [
-  // {
-  //   id: 7,
-  //   date: "2025.11.4",
-  //   type: "お知らせ",
-  //   title: "第141回明大祭の来場者数は43,268人でした。",
-  // },
+
   {
-    id: 8,
+    id: 9,
     date: "2025.11.29",
     type: "更新",
     title: "第140回明大祭の最終決算報告を掲載しました。",
     link: "/accounting",
   },
   {
-    id: 7,
+    id: 8,
     date: "2025.11.6",
     type: "更新",
     title: "Meidaisai Championshipの投票結果を公表しました。",
     link: "/champ"
+  },
+  {
+    id: 7,
+    date: "2025.11.4",
+    type: "お知らせ",
+    title: "第141回明大祭の来場者数は43,268人でした。",
   },
   {
     id: 6,
