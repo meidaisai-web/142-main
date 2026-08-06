@@ -17,7 +17,7 @@ const page = () => {
             <PageTitle>アクセス</PageTitle>
             <PageContainer>
                 <Text moreTopPadding>
-                    第141回明大祭が開催される明治大学和泉キャンパスまでのアクセス方法です。
+                    第142回明大祭が開催される明治大学和泉キャンパスまでのアクセス方法です。
                 </Text>
                 <Text moreTopPadding>
                     ご来場の際は公共交通機関のご利用をお願いいたします。

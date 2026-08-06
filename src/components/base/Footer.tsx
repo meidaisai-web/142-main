@@ -12,14 +12,7 @@ export default function Footer() {
 
 	return (
 		<footer className="w-full mt-20">
-			<FooterTop />
-			<div className="w-full bg-secondary pt-15 pb-10 flex flex-col items-center">
-				<Catch />
-				<BannerContainer />
-				<FooterIconLinks />
-				<FooterLinks />
-				<Copyright />
-			</div>
+	
 		</footer>
 	);
 }

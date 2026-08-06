@@ -1,5 +1,5 @@
 import PageContainer from "@/components/base/PageContainer";
-import AccentText from "@/components/texts/AccentText";
+import AccentText from "@/components/texts/AccentTitle";
 import ContactView from "@/components/texts/ContactView";
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";

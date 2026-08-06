@@ -1,0 +1,121 @@
+name: Slack Notification from Cloudflare Bot Comment
+
+on:
+  issue_comment:
+    types: [created, edited]
+
+jobs:
+  extract-and-notify:
+    runs-on: ubuntu-latest
+    if: >
+      github.event.issue.pull_request &&
+      contains(github.event.comment.user.login, 'cloudflare-workers-and-pages') &&
+      contains(github.event.comment.body, 'Deploying with') &&
+      contains(github.event.comment.body, 'Cloudflare Workers')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get PR branch name
+        id: pr_info
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          BRANCH=$(gh pr view $PR_NUMBER --json headRefName -q .headRefName)
+          echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+
+      - name: Determine deployment status
+        id: status
+        env:
+          BODY: ${{ github.event.comment.body }}
+        run: |
+          if echo "$BODY" | grep -q "Deployment failed"; then
+            echo "status=failure" >> $GITHUB_OUTPUT
+          elif echo "$BODY" | grep -q "Branch Preview URL"; then
+            echo "status=success" >> $GITHUB_OUTPUT
+          else
+            echo "status=in_progress" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Extract Branch Preview URL
+        if: steps.status.outputs.status == 'success'
+        id: extract
+        env:
+          BODY: ${{ github.event.comment.body }}
+        run: |
+          # Try Markdown format first: [Branch Preview URL](URL)
+          DEPLOY_URL=$(echo "$BODY" | sed -n 's/.*\[Branch Preview URL\](\([^)]*\)).*/\1/p')
+
+          # If not found, try HTML format with double quotes: <a href="...">Branch Preview URL</a>
+          if [ -z "$DEPLOY_URL" ]; then
+            DEPLOY_URL=$(echo "$BODY" | sed -n 's/.*<a href="\([^"]*\)">Branch Preview URL<\/a>.*/\1/p')
+          fi
+
+          # If not found, try HTML format with single quotes: <a href='...'>Branch Preview URL</a>
+          if [ -z "$DEPLOY_URL" ]; then
+            DEPLOY_URL=$(echo "$BODY" | sed -n "s/.*<a href='\([^']*\)'>Branch Preview URL<\/a>.*/\1/p")
+          fi
+
+          echo "url=$DEPLOY_URL" >> $GITHUB_OUTPUT
+
+      - name: Extract log URL
+        if: steps.status.outputs.status == 'failure'
+        id: extract_logs
+        env:
+          BODY: ${{ github.event.comment.body }}
+        run: |
+          # Try Markdown format first: [View logs](URL)
+          LOG_URL=$(echo "$BODY" | sed -n 's/.*\[View logs\](\([^)]*\)).*/\1/p')
+
+          # If not found, try HTML format with double quotes: <a href="...">View logs</a>
+          if [ -z "$LOG_URL" ]; then
+            LOG_URL=$(echo "$BODY" | sed -n 's/.*<a href="\([^"]*\)">View logs<\/a>.*/\1/p')
+          fi
+
+          # If not found, try HTML format with single quotes: <a href='...'>View logs</a>
+          if [ -z "$LOG_URL" ]; then
+            LOG_URL=$(echo "$BODY" | sed -n "s/.*<a href='\([^']*\)'>View logs<\/a>.*/\1/p")
+          fi
+
+          echo "url=$LOG_URL" >> $GITHUB_OUTPUT
+
+      - name: Send Slack Notification (success)
+        if: steps.status.outputs.status == 'success' && steps.extract.outputs.url != ''
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          BRANCH: ${{ steps.pr_info.outputs.branch }}
+          PR_TITLE: ${{ github.event.issue.title }}
+          PR_URL: ${{ github.event.issue.html_url }}
+          PR_AUTHOR: ${{ github.event.issue.user.login }}
+          DEPLOY_URL: ${{ steps.extract.outputs.url }}
+        run: |
+          curl -sf -X POST -H 'Content-type: application/json' \
+          --data "$(jq -n \
+            --arg branch "$BRANCH" \
+            --arg title "$PR_TITLE" \
+            --arg pr_url "$PR_URL" \
+            --arg author "$PR_AUTHOR" \
+            --arg url "$DEPLOY_URL" \
+            '{text: ":rocket: *Cloudflare Workers デプロイ完了*\n*タイトル*: <\($pr_url)|\($title)>\n*ブランチ*: \($branch)\n*作成者*: \($author)\n*チェック用URL*: \($url)"}')" \
+          $SLACK_WEBHOOK
+
+      - name: Send Slack Notification (failure)
+        if: steps.status.outputs.status == 'failure' && steps.extract_logs.outputs.url != ''
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          BRANCH: ${{ steps.pr_info.outputs.branch }}
+          PR_TITLE: ${{ github.event.issue.title }}
+          PR_URL: ${{ github.event.issue.html_url }}
+          PR_AUTHOR: ${{ github.event.issue.user.login }}
+          LOG_URL: ${{ steps.extract_logs.outputs.url }}
+        run: |
+          curl -sf -X POST -H 'Content-type: application/json' \
+          --data "$(jq -n \
+            --arg branch "$BRANCH" \
+            --arg title "$PR_TITLE" \
+            --arg pr_url "$PR_URL" \
+            --arg author "$PR_AUTHOR" \
+            --arg log_url "$LOG_URL" \
+            '{text: ":x: *Cloudflare Workers デプロイ失敗*\n*タイトル*: <\($pr_url)|\($title)>\n*ブランチ*: \($branch)\n*作成者*: \($author)\n*ログ*: \($log_url)"}')" \
+          $SLACK_WEBHOOK

@@ -45,46 +45,15 @@ export default function Header() {
           className="h-11"
         />
       </Link>
-      <CenterItems />
+
       <HamburgerIcon isOpen={isOpenHamburger} setOpen={setOpenHamburger} />
       <Hamburger isOpen={isOpenHamburger} />
     </header>
   );
 }
 
-function CenterItems() {
-  const items = [
-    // { href: "/announce", src: "/images/svg/header/people.png", label: "ご来場者のみなさまへ" },
-    // { href: "/feature", src: "/images/svg/header/point.png", label: "特集" },
-    { href: "/search", src: "/images/svg/header/glass-white.svg", label: "企画を探す" },
-  ]
-  return (
-    <div className="w-full flex justify-center gap-8 my-5">
-      {items.map(item => (
-        <CenterItem key={item.href} href={item.href} src={item.src} label={item.label} />
-      ))}
-    </div>
-  )
-}
-interface CenterItemProps {
-  href: string;
-  src: string;
-  label: string;
-}
-function CenterItem({ href, src, label }: CenterItemProps) {
-  return (
-    <Link href={href} className="flex gap-2">
-      <Image
-        src={src}
-        alt={label}
-        width={25}
-        height={20}
-        className="w-5"
-      />
-      <p className="font-bold text-center">{label}</p>
-    </Link>
-  )
-}
+
+
 
 interface HamburgerIconProps {
   isOpen: boolean;
@@ -109,7 +78,7 @@ function HamburgerIcon({ isOpen, setOpen }: HamburgerIconProps) {
         <motion.path
           fill="transparent"
           strokeWidth="3"
-          stroke="#FFFFFF"
+          stroke="#605D66"
           strokeLinecap="round"
           variants={{
             closed: { d: "M 2 2.5 L 20 2.5" },
@@ -119,7 +88,7 @@ function HamburgerIcon({ isOpen, setOpen }: HamburgerIconProps) {
         <motion.path
           fill="transparent"
           strokeWidth="3"
-          stroke="#FFFFFF"
+          stroke="#605D66"
           strokeLinecap="round"
           d="M 2 9.423 L 20 9.423"
           variants={{
@@ -131,7 +100,7 @@ function HamburgerIcon({ isOpen, setOpen }: HamburgerIconProps) {
         <motion.path
           fill="transparent"
           strokeWidth="3"
-          stroke="#FFFFFF"
+          stroke="#605D66"
           strokeLinecap="round"
           variants={{
             closed: { d: "M 2 16.346 L 20 16.346" },

@@ -48,36 +48,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
         title: "ご来場のみなさまへ",
         content: [
             { href: "/announce", label: "ご来場のみなさまへのお願い" },
-            { href: "/timetable", label: "タイムテーブル" },
-            { href: "/map", label: "キャンパスマップ" },
-            { href: "/access", label: "アクセス" },
-            { href: "/news", label: "お知らせ" },
-            { href: "/faq", label: "よくある質問" },
-            { href: "/pamphlet", label: "電子パンフレット" },
-            { href: "/fix-pamphlet", label: "公式パンフレット訂正とお詫び" },
-        ]
-    },
-    {
-        title: "特集",
-        content: [
-            { href: "/search", label: "企画検索" },
-            { href: "/official-project", label: "実行委員会企画" },
-            { href: '/voucher', label: '明大祭大抽選会抽選券引換' },
-            { href: "/theme", label: "第141回明大祭テーマ" },
-            { href: "/crowdfunding", label: "クラウドファンディング" },
-            { href: "/champ", label: "Meidaisai Championship" },
-            { href: "/lottery", label: "明大祭大抽選会" },
-            { href: '/goods', label: '明大祭公式グッズ' },
-            { href: "/illumination", label: "明大祭イルミネーション" },
-        ]
-    },
-    {
-        title: "コラボ企画",
-        content: [
-            { href: "/matsubara", label: "松原小学校×明大祭" },
-            { href: "/keio", label: "KEIO×第141回明大祭デジタルスタンプラリー" },
-            { href: "/lottely-shop", label: "明大前商店街×明大祭～明大祭で当てるぞ！豪華景品～" },
-            { href: "/gourmet", label: "駿河台グルメマップラリー" },
+            { href: "/access", label: "アクセス" }
         ]
     },
 ]
@@ -90,17 +61,9 @@ const forOutside = [
             { href: "/area", label: "界隈地域のみなさまへ" },
             { href: "/alumni", label: "校友のみなさまへ" },
             { href: "/media", label: "メディアのみなさまへ" },
-            { href: "/accounting", label: "最終決算報告" },
+
         ]
-    },
-    {
-        title: "ご協賛一覧",
-        content: [
-            { href: "/company-list", label: "ご協賛企業一覧" },
-            { href: "/area-list", label: "ご協賛店舗一覧" },
-            { href: "/alumni-list", label: "ご賛助ご芳名" },
-        ]
-    },
+    }
 ]
 
 function HamburgerSP() {
@@ -134,7 +97,6 @@ function HamburgerSP() {
                     ))}
                 </div>
             </div>
-            <SecondaryButton href="/about" className="mb-10">明大祭とは</SecondaryButton>
         </div>
     )
 }
@@ -153,7 +115,6 @@ function HamburgerPC() {
                     ))}
                 </div>
             </div>
-            <SecondaryButton href="/about" className="mt-5">明大祭とは</SecondaryButton>
         </div>
     )
 }

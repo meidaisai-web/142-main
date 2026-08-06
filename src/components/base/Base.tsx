@@ -1,18 +1,14 @@
-import { Suspense } from "react";
-import ToTop from "../buttons/ToTop";
-import Footer from "./Footer";
-import Header from "./Header";
+import { Suspense } from "react"; 
+import Header from "../base/Header";
 
 export default function Base({ children }: { children: React.ReactNode }) {
     return (
-        <Suspense>
+        <Suspense> {/* データ読み込み中だけ fallback の中身が表示される */}
             <div className="min-h-screen">
                 <Header />
                 <main>
                     {children}
                 </main>
-                <ToTop />
-                <Footer />
             </div>
         </Suspense>
     )

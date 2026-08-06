@@ -8,24 +8,8 @@ type SectionTitleProps = {
 
 export default function SectionTitle({ children, className }: SectionTitleProps) {
     return (
-        <div className={`w-full flex items-center justify-center pt-20 pb-2 ${className}`}>
-            <div className="relative w-fit flex items-center justify-center">
-                <Image
-                    src="/images/svg/title/SectionTitleL.svg"
-                    alt=""
-                    width={80}
-                    height={80}
-                    className="absolute w-14 h-14 -left-6 -z-10"
-                />
-                <h2 className="text-center font-bold text-2xl">{children}</h2>
-                <Image
-                    src="/images/svg/title/SectionTitleR.svg"
-                    alt=""
-                    width={60}
-                    height={60}
-                    className="absolute w-14 h-14 -right-6 -z-10"
-                />
-            </div>
-        </div>
+        <h1 className="">
+            {children}
+        </h1>
     );
 }
