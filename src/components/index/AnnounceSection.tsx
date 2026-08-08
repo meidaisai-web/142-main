@@ -25,7 +25,6 @@ export default function AnnounceSection() {
           ))}
         </div>
       </div>
-      <Button href="/announce" className="mt-8">詳しく見る</Button>
     </div>
   );
 }
@@ -38,7 +37,7 @@ function Item({ children, src, alt }: ItemProps) {
       <div className="w-full max-w-36 sm:w-36 sm:h-36">
         <Image src={src} alt={alt} width={200} height={200} className="w-full h-full object-contain p-2" />
       </div>
-      <p className="text-white whitespace-pre-line text-center font-bold text-xs sm:text-base mt-1 sm:max-w-sm">
+      <p className="text-black whitespace-pre-line text-center font-bold text-xs sm:text-base mt-1 sm:max-w-sm">
         {children}
       </p>
     </div>
