@@ -17,7 +17,6 @@ const page = () => {
         <div>
             <PageTitle>アクセス</PageTitle>
             <PageContainer>
-                <ShadowText>こんにちは</ShadowText>
                 <Text moreTopPadding>
                     第142回明大祭が開催される明治大学和泉キャンパスまでのアクセス方法です。
                 </Text>
