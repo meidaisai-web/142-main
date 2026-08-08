@@ -15,7 +15,7 @@ export default function Footer() {
 		// フッター全体。中身が空だったので、下で定義済みの各パーツを組み立てて表示するようにした
 		<footer className={`w-full ${notoSerifJP.className}`}>
 			<FooterCloud /> {/* 上部の雲形の装飾。SVGの下半分は overflow-hidden で隠している */}
-			<div className="w-full bg-[#FFFBFB] pt-15 pb-10 flex flex-col items-center">
+			<div className="w-full bg-[#FFFBFB] pt-4 pb-10 flex flex-col items-center">
 				<Catch /> {/* 明大祭ロゴ（キャッチコピー） */}
 				<BannerContainer /> {/* 協賛企業の広告バナー */}
 				<FooterLinks /> {/* (footer)配下の各ページ（お問い合わせ・サイトマップ・プライバシーポリシー）へのリンク */}
@@ -42,9 +42,12 @@ function FooterCloud() {
 }
 
 function Catch() {
+	// 本来のロゴ画像がまだ無いため、暫定で142logo.svgとTitleCatchcopy-white.svgを並べて使っている(高さはバナーと同じくらいに縮小)
 	return (
-		<div className="flex justify-center">
-			<Image src="/images/svg/official/logo-title-concept-white.svg" alt="Logo" width={240} height={55} className="w-72 sm:w-96 h-auto" />
+		<div className="flex items-center justify-center gap-3">
+			<Image src="/images/svg/142logo.svg" alt="Logo" width={183} height={160} className="h-[50px] sm:h-[74px] w-auto" />
+			{/* 元のファイルは白色のままなので、CSSのfilterで見た目だけ黒く表示している */}
+			<Image src="/images/svg/TitleCatchcopy-white.svg" alt="明大祭" width={488} height={117} className="h-[37px] sm:h-[55px] w-auto" style={{ filter: "brightness(0)" }} />
 		</div>
 	)
 }
