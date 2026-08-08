@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { delaGothic } from "@/utils/fonts";
+import { notoSerifJP } from "@/utils/fonts";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function HeroSection() {
@@ -130,7 +130,7 @@ function AboutButton() {
             />
           </div>
         </div>
-        <div className={`flex items-center font-bold rounded-l-full hover:bg-accent-700 duration-100 bg-accent text-primary text-4xl py-3 pl-16 pr-24 relative z-10 ${delaGothic.className}`}>
+        <div className={`flex items-center font-bold rounded-l-full hover:bg-accent-700 duration-100 bg-accent text-primary text-4xl py-3 pl-16 pr-24 relative z-10 ${notoSerifJP.className}`}>
           明大祭とは
           <AnimatePresence>
             <motion.div
