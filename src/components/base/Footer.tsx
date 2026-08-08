@@ -30,7 +30,7 @@ function FooterCloud() {
 	return (
 		<div className="w-full bg-primary overflow-hidden" style={{ aspectRatio: "1684 / 200" }}>
 			<Image
-				src="/images/svg/official/footer-cloud.svg"
+				src="/images/svg/footer/footer_cloud.svg"
 				alt=""
 				width={1684}
 				height={414}
