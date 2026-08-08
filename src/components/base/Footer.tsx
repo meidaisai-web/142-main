@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BannerContainer from "./BannerContainer";
 import { usePathname } from "next/navigation";
+import { notoSerifJP } from "@/utils/fonts";
 
 export default function Footer() {
 	const pathname = usePathname();
@@ -11,24 +12,31 @@ export default function Footer() {
 	if (pathname === "/fight-vote") return null;
 
 	return (
-		<footer className="w-full mt-20">
-	
+		// フッター全体。中身が空だったので、下で定義済みの各パーツを組み立てて表示するようにした
+		<footer className={`w-full ${notoSerifJP.className}`}>
+			<FooterCloud /> {/* 上部の雲形の装飾。SVGの下半分は overflow-hidden で隠している */}
+			<div className="w-full bg-[#FFFBFB] pt-15 pb-10 flex flex-col items-center">
+				<Catch /> {/* 明大祭ロゴ（キャッチコピー） */}
+				<BannerContainer /> {/* 協賛企業の広告バナー */}
+				<FooterLinks /> {/* (footer)配下の各ページ（お問い合わせ・サイトマップ・プライバシーポリシー）へのリンク */}
+				<FooterIconLinks /> {/* SNS（X/Instagram/TikTok/YouTube）へのアイコンリンク */}
+				<Copyright /> {/* 制作者名とコピーライト表記 */}
+			</div>
 		</footer>
 	);
 }
 
-function FooterTop() {
+function FooterCloud() {
 	return (
-		<div className="w-full overflow-hidden">
-			<div className="flex">
-				{Array.from({ length: 60 }).map((_, i) => (
-					<div key={i} className="flex">
-						<div className="bg-secondary w-3 h-3" />
-						<div className="bg-accent w-3 h-3" />
-						<div className="bg-primary w-3 h-3" />
-					</div>
-				))}
-			</div>
+		<div className="w-full bg-primary overflow-hidden" style={{ aspectRatio: "1684 / 200" }}>
+			<Image
+				src="/images/svg/official/footer-cloud.svg"
+				alt=""
+				width={1684}
+				height={414}
+				className="w-full h-auto block"
+				style={{ transform: "scale(1.1)", transformOrigin: "top center" }}
+			/>
 		</div>
 	)
 }
@@ -67,28 +75,28 @@ function FooterIconLink({ href, src, alt }: FooterIconLinkProps) {
 function FooterIconLinks() {
 	const iconLinks: FooterIconLinkProps[] = [
 		{
-			href: "https://www.instagram.com/meidaisai",
-			src: "/images/svg/sns/Instagram_White.svg",
-			alt: "Instagram",
-		},
-		{
 			href: "https://x.com/meidaisai",
 			src: "/images/svg/sns/X-white.svg",
 			alt: "x",
 		},
 		{
-			href: "https://youtube.com/@meidaisainetpr",
-			src: "/images/svg/sns/youtube-white.svg",
-			alt: "youtube",
+			href: "https://www.instagram.com/meidaisai",
+			src: "/images/svg/sns/Instagram_White.svg",
+			alt: "Instagram",
 		},
 		{
 			href: "https://www.tiktok.com/@meidaisai_",
 			src: "/images/svg/sns/TikTok.svg",
 			alt: "TikTok",
 		},
+		{
+			href: "https://youtube.com/@meidaisainetpr",
+			src: "/images/svg/sns/youtube-white.svg",
+			alt: "youtube",
+		},
 	];
 	return (
-		<div className="flex my-11 px-15 max-w-96 gap-10 sm:gap-15 justify-center">
+		<div className="flex mt-10 mb-4 px-15 max-w-96 gap-5 sm:gap-8 justify-center">
 			{iconLinks.map((item) => (
 				<FooterIconLink
 					key={item.href}
@@ -108,7 +116,7 @@ interface FooterLinkProps {
 
 function FooterLink({ href, children }: FooterLinkProps) {
 	return (
-		<Link href={href} className="text-xs sm:text-sm border-b-[1.5px] border-b-transparent hover:border-b-white duration-250">
+		<Link href={href} className={`text-xs sm:text-sm font-normal border-b-[1.5px] border-b-transparent hover:border-b-text duration-250 ${notoSerifJP.className}`}>
 			{children}
 		</Link>
 	);
@@ -121,10 +129,6 @@ function FooterLinks() {
 			children: "お問い合わせ",
 		},
 		{
-			href: "/link",
-			children: "リンク",
-		},
-		{
 			href: "/sitemap",
 			children: "サイトマップ",
 		},
@@ -134,7 +138,7 @@ function FooterLinks() {
 		},
 	];
 	return (
-		<div className="w-full max-w-96 sm:max-w-md flex justify-between px-3 list-none">
+		<div className="w-full max-w-96 sm:max-w-md flex justify-between px-3 list-none mt-12">
 			{links.map((item) => (
 				<FooterLink key={item.href} href={item.href}>
 					{item.children}
@@ -144,30 +148,12 @@ function FooterLinks() {
 	)
 }
 
-const names = [
-	'Ito Taiga',
-	'Hagiya Rikuto',
-	'Onagi Daichi',
-	'Sakai Ena',
-	'Tajima Shiori',
-	'Horiguchi Sara',
-	'Maruyama Seiichiro',
-	'Yonamine Kaio'
-]
-
 function Copyright() {
 	return (
-		<div className="flex flex-col items-center mt-8">
-			<div className="flex justify-center flex-wrap gap-2 px-8">
-				<p className="text-start text-sm font-bold">Created by:</p>
-				{names.map((name, index) => (
-					<p key={index} className="text-sm font-bold">
-						{name}
-					</p>
-				))}
-			</div>
-			<div className="justify-center text-white text-sm font-bold mt-4">
-				<p>©第141回明大祭実行委員会</p>
+		<div className="flex flex-col items-center mt-4">
+			<p className={`text-sm font-normal px-8 text-center ${notoSerifJP.className}`}>Created by:第142回明大祭実行委員会制作局web部門</p>
+			<div className="justify-center text-sm font-normal mt-3">
+				<p className={notoSerifJP.className}>©第142回明大祭実行委員会</p>
 			</div>
 		</div>
 	)
