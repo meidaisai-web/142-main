@@ -1,6 +1,7 @@
 import Button from "../buttons/Button";
 import OnlyImage from "../OnlyImage";
 import IndexTitle from "../texts/IndexTitle"
+import ShadowText from "../texts/ShadowText"
 
 const Access = () => {
     return (
