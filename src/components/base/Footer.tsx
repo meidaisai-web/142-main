@@ -45,7 +45,7 @@ function Catch() {
 	// 本来のロゴ画像がまだ無いため、暫定で142logo.svgとTitleCatchcopy-white.svgを並べて使っている(高さはバナーと同じくらいに縮小)
 	return (
 		<div className="flex items-center justify-center gap-3">
-			<Image src="/images/svg/142logo.svg" alt="Logo" width={183} height={160} className="h-[50px] sm:h-[74px] w-auto" />
+			<Image src="/images/svg/142logo .svg" alt="Logo" width={183} height={160} className="h-[50px] sm:h-[74px] w-auto" />
 			{/* 元のファイルは白色のままなので、CSSのfilterで見た目だけ黒く表示している */}
 			<Image src="/images/svg/TitleCatchcopy-white.svg" alt="明大祭" width={488} height={117} className="h-[37px] sm:h-[55px] w-auto" style={{ filter: "brightness(0)" }} />
 		</div>
