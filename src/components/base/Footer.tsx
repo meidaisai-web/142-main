@@ -6,6 +6,7 @@ import BannerContainer from "./BannerContainer";
 import { usePathname } from "next/navigation";
 import { notoSerifJP } from "@/utils/fonts";
 
+// フッター全体を表示するコンポーネント
 export default function Footer() {
 	const pathname = usePathname();
 
@@ -18,17 +19,18 @@ export default function Footer() {
 			<div className="w-full bg-[#FFFBFB] pt-4 pb-10 flex flex-col items-center">
 				<Catch /> {/* 明大祭ロゴ（キャッチコピー） */}
 				<BannerContainer /> {/* 協賛企業の広告バナー */}
-				<FooterLinks /> {/* (footer)配下の各ページ（お問い合わせ・サイトマップ・プライバシーポリシー）へのリンク */}
 				<FooterIconLinks /> {/* SNS（X/Instagram/TikTok/YouTube）へのアイコンリンク */}
+				<FooterLinks /> {/* (footer)配下の各ページ（お問い合わせ・サイトマップ・プライバシーポリシー）へのリンク */}
 				<Copyright /> {/* 制作者名とコピーライト表記 */}
 			</div>
 		</footer>
 	);
 }
 
+// 上部の雲形の装飾を表示するコンポーネント
 function FooterCloud() {
 	return (
-		<div className="w-full bg-primary overflow-hidden" style={{ aspectRatio: "1684 / 200" }}>
+		<div className="w-full overflow-hidden" style={{ aspectRatio: "1684 / 200" }}>
 			<Image
 				src="/images/svg/footer/footer_cloud.svg"
 				alt=""
@@ -41,14 +43,11 @@ function FooterCloud() {
 	)
 }
 
+// 明大祭ロゴ（キャッチコピー）を表示するコンポーネント
 function Catch() {
-	// 本来のロゴ画像がまだ無いため、暫定で142logo.svgとTitleCatchcopy-white.svgを並べて使っている(高さはバナーと同じくらいに縮小)
 	return (
-		<div className="flex items-center justify-center gap-3">
-			{/* AIが勝手に142logo .svgのファイル名の空白を消したものを複製し、それを使っていたので元の142logo .svgに戻した。ただ最終的には142logo.svgにして欲しいです。 */}
-			<Image src="/images/svg/142logo .svg" alt="Logo" width={183} height={160} className="h-[50px] sm:h-[74px] w-auto" />
-			{/* 元のファイルは白色のままなので、CSSのfilterで見た目だけ黒く表示している */}
-			<Image src="/images/svg/TitleCatchcopy-white.svg" alt="明大祭" width={488} height={117} className="h-[37px] sm:h-[55px] w-auto" style={{ filter: "brightness(0)" }} />
+		<div className="flex items-center justify-center">
+			<Image src="/images/svg/catchcopy-primary.svg" alt="明大祭" width={488} height={117} className="h-[40px] sm:h-[70px] w-auto" />
 		</div>
 	)
 }
@@ -58,13 +57,14 @@ interface FooterIconLinkProps {
 	alt: string;
 }
 
+// SNS（X/Instagram/TikTok/YouTube）へのアイコンリンクを表示するコンポーネント
 function FooterIconLink({ href, src, alt }: FooterIconLinkProps) {
 	return (
 		<Link
 			href={href}
 			rel="noopener noreferrer"
 		>
-			<div className="relative w-8 h-8 sm:w-14 sm:h-14 md:w-11 md:h-11">
+			<div className="relative w-13 h-13 sm:w-14 sm:h-14 md:w-11 md:h-11">
 				<Image
 					src={src}
 					alt={alt}
@@ -75,6 +75,7 @@ function FooterIconLink({ href, src, alt }: FooterIconLinkProps) {
 		</Link>
 	);
 }
+
 
 function FooterIconLinks() {
 	const iconLinks: FooterIconLinkProps[] = [
@@ -100,7 +101,7 @@ function FooterIconLinks() {
 		},
 	];
 	return (
-		<div className="flex mt-10 mb-4 px-15 max-w-96 gap-5 sm:gap-8 justify-center">
+		<div className="flex mt-10 mb-4 px-15 max-w-96 gap-10 sm:gap-15 justify-center">
 			{iconLinks.map((item) => (
 				<FooterIconLink
 					key={item.href}
@@ -118,6 +119,7 @@ interface FooterLinkProps {
 	children: React.ReactNode;
 }
 
+// (footer)配下の各ページ（お問い合わせ・サイトマップ・プライバシーポリシー）へのリンクを表示するコンポーネント
 function FooterLink({ href, children }: FooterLinkProps) {
 	return (
 		<Link href={href} className={`text-xs sm:text-sm font-normal border-b-[1.5px] border-b-transparent hover:border-b-text duration-250 ${notoSerifJP.className}`}>
@@ -152,11 +154,12 @@ function FooterLinks() {
 	)
 }
 
+// 制作者名とコピーライト表記を表示するコンポーネント
 function Copyright() {
 	return (
 		<div className="flex flex-col items-center mt-4">
-			<p className={`text-sm font-normal px-8 text-center ${notoSerifJP.className}`}>Created by:第142回明大祭実行委員会制作局web部門</p>
-			<div className="justify-center text-sm font-normal mt-3">
+			<p className={`text-sm font-bold px-8 text-center ${notoSerifJP.className}`}>Created by:第142回明大祭実行委員会制作局web部門</p>
+			<div className="justify-center text-sm font-bold mt-3">
 				<p className={notoSerifJP.className}>©第142回明大祭実行委員会</p>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 import { Ad } from "../models/AdType";
 
 // 本来のバナー画像がまだ揃っていないため、仮でもらったプレースホルダー画像を全枠に使っている
-const PLACEHOLDER_SRC = "/images/svg/ad/placeholder.png";
+const PLACEHOLDER_SRC = "/images/svg/ad/footerADtemp.svg";
 
 export const adData: Ad[] = [
     { url: "https://www.adachi-driving-school.com/", src: PLACEHOLDER_SRC, id: "adachi" },//足立自動車学校
