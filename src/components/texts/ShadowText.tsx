@@ -12,9 +12,9 @@ const ShadowText = ({
   className = ''
 }: ShadowTextProps) => {
   return (
-    <span className={`${sizeClass} [text-shadow:0px_4px_2px_rgba(0,0,0,0.20)] tracking-widest w-full px-18 sm:px-20 md:px-25 lg:px-40 py-10 text-text ${className}`.trim()}>
+    <div className={`${sizeClass} [text-shadow:0px_4px_2px_rgba(0,0,0,0.20)] tracking-widest w-full px-10 py-10 text-center text-text ${className}`.trim()}>
       {children}
-    </span>
+    </div>
   );
 };
 
