@@ -19,14 +19,14 @@ export default function PageTitle({ children, className = "" }: PageTitleProps) 
           {rest}
           <span className="whitespace-nowrap">
             {last}
-            <span className="relative inline-block align-bottom shrink-0 w-14 h-14 sm:w-16 sm:h-16 md:w-[68px] md:h-[68px] -mb-5 sm:-mb-6">
+            <span className="relative inline-block align-bottom shrink-0 w-14 h-14 sm:w-16 sm:h-16 md:w-[50px] md:h-[68px] -mb-5 sm:-mb-6">
               <span className="absolute inset-y-0 right-0 bg-background w-8" />
               <Image
                 src="/images/svg/airplane.svg"
                 alt=""
                 width={60}
                 height={60}
-                className="relative block w-full h-full transform translate-x-8"
+                className="relative block w-full h-full transform translate-x-3"
               />
             </span>
           </span>
