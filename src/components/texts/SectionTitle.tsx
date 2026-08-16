@@ -22,7 +22,7 @@ export default function SectionTitle({
             />
 
             {/* タイトル */}
-            <h1 className={`relative z-10 text-center text-2xl ${className ?? ""}`}>
+            <h1 className={`relative z-10 text-center text-2xl font-bold ${className ?? ""}`}>
                 {children}
             </h1>
 
