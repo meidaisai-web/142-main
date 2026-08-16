@@ -14,7 +14,7 @@ export default function AnnounceSection() {
 
   return (
     <div className="pt-10 pb-10">
-      <div className="px-30">
+      <div className="px-22">
         <div className="mx-auto w-full max-w-96 sm:max-w-3xl grid grid-cols-2 sm:grid-cols-3 gap-y-6 gap-x-3 sm:gap-y-8 mt-8 justify-around">
           {announces.map((item, index) => (
             <Item key={index} src={item.src} alt={item.alt}>
