@@ -57,7 +57,7 @@ const ToTop: React.FC = () => {
             <button
                 onClick={scrollToTop}
                 style={style}
-                className={`fixed flex flex-col items-center right-8 md:right-12 ${bottomClass} w-20 z-30`}>
+                className={`fixed flex flex-col items-center right-8 md:right-12 ${bottomClass} w-12 z-30`}>
                 <Image
                     className="w-3/4 object-contain"
                     src="/images/svg/totop.svg"
