@@ -1,5 +1,4 @@
 'use client';
-import ToTop from '@/components/buttons/ToTop';
 
 
 export default function Home() {
