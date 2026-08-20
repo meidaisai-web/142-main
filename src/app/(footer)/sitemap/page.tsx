@@ -11,6 +11,7 @@ export default function SitemapPage() {
 			<PageContainer>
 				<SmallTitle>ご来場のみなさまへ</SmallTitle>
 				<div className="flex flex-wrap gap-4">
+					<TransitionLink href="/about">明大祭とは</TransitionLink>
 					<TransitionLink href="/announce">ご来場のみなさまへのお願い</TransitionLink>
 					<TransitionLink href="/access">アクセス</TransitionLink>
 				</div>
@@ -19,18 +20,13 @@ export default function SitemapPage() {
 					<TransitionLink href="/matsubara">松原小学校×明大祭</TransitionLink>
 				</div>
 
-				<SmallTitle>明大祭に関わってくださるみなさまへ</SmallTitle>
+				<SmallTitle>関係者のみなさまへ</SmallTitle>
 				<div className="flex flex-wrap gap-4">
 					<TransitionLink href="/company">企業のみなさまへ</TransitionLink>
 					<TransitionLink href="/area">界隈地域のみなさまへ</TransitionLink>
-					<TransitionLink href="/alumni">校友のみなさまへ</TransitionLink>
+					<TransitionLink href="/alumni">校友・父母のみなさまへ</TransitionLink>
 					<TransitionLink href="/media">メディアのみなさまへ</TransitionLink>
-					<TransitionLink href="/accounting">最終決算報告</TransitionLink>
 				</div>
-
-				<SmallTitle>明大祭とは</SmallTitle>
-				<TransitionLink href="/about">明大祭とは</TransitionLink>
-
 			</PageContainer>
 
 		</>
