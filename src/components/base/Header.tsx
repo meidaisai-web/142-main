@@ -32,17 +32,16 @@ export default function Header() {
     };
   }, [isOpenHamburger]);
 
-  if (pathname === "/fight-vote") return null;
-
+  const isHome = pathname === "/";
   return (
-    <header className="w-full bg-primary-trans flex justify-between items-center px-5 fixed opacity-100 h-18 z-50">
-      <Link href="/" className="absolute left-5 z-50">
+    <header className={`w-full ${isHome ? "bg-accent-300" : "bg-header-gradient"} flex justify-between items-center px-5 fixed opacity-100 h-18`}
+>
+      <Link href="/" className="absolute left-5">
         <Image
-          src="/images/svg/official/logo-white.svg"
+          src="/images/svg/logo-white.svg"
           alt="Logo"
-          width={40}
-          height={40}
-          className="h-11"
+          width={60}
+          height={60}
         />
       </Link>
 
@@ -78,17 +77,17 @@ function HamburgerIcon({ isOpen, setOpen }: HamburgerIconProps) {
         <motion.path
           fill="transparent"
           strokeWidth="3"
-          stroke="#605D66"
+          stroke="currentColor"
           strokeLinecap="round"
           variants={{
-            closed: { d: "M 2 2.5 L 20 2.5" },
-            open: { d: "M 3 16.5 L 17 2.5" }
+            closed: { d: "M 2 2.5 L 20 2.5" , stroke: "#ffffff"},
+            open: { d: "M 3 16.5 L 17 2.5" , stroke: "#B19FCA" }
           }}
         />
         <motion.path
           fill="transparent"
           strokeWidth="3"
-          stroke="#605D66"
+          stroke="#ffffff"
           strokeLinecap="round"
           d="M 2 9.423 L 20 9.423"
           variants={{
@@ -100,11 +99,11 @@ function HamburgerIcon({ isOpen, setOpen }: HamburgerIconProps) {
         <motion.path
           fill="transparent"
           strokeWidth="3"
-          stroke="#605D66"
+          stroke="currentColor"
           strokeLinecap="round"
           variants={{
-            closed: { d: "M 2 16.346 L 20 16.346" },
-            open: { d: "M 3 2.5 L 17 16.346" }
+            closed: { d: "M 2 16.346 L 20 16.346" , stroke: "#ffffff" },
+            open: { d: "M 3 2.5 L 17 16.346" , stroke: "#B19FCA" }
           }}
         />
       </motion.svg>

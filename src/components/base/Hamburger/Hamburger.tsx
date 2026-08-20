@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import HamburgerTitle from "./HamburgerTitle";
-import SecondaryButton from "@/components/buttons/SecondaryButton";
 import HamburgerLink from "./HamburgerLink";
 import { HamburgerAccordion } from "./HamburgerAccordion";
 import { useState } from "react";
@@ -13,7 +12,7 @@ interface HamburgerProps {
 export default function Hamburger({ isOpen }: HamburgerProps) {
     return (
         <motion.div
-            className="absolute z-40 whitespace-nowrap m-0 bg-primary pt-18 top-0 right-0 origin-top-right overflow-scroll"
+            className="absolute z-40 whitespace-nowrap m-0 bg-secondary-50 pt-18 top-0 right-0 origin-top-right overflow-scroll"
             initial="closed"
             animate={isOpen ? "open" : "closed"}
             transition={{
@@ -59,12 +58,27 @@ const forOutside = [
         content: [
             { href: "/company", label: "企業のみなさまへ" },
             { href: "/area", label: "界隈地域のみなさまへ" },
-            { href: "/alumni", label: "校友のみなさまへ" },
+            { href: "/alumni", label: "校友・父母のみなさまへ" },
             { href: "/media", label: "メディアのみなさまへ" },
 
         ]
+    },
+
+     {
+        title: "コラボ企画",
+        content: [
+            { href: "/matsubara", label: "松原小学校×明大祭" }
+        ]
+    },
+
+     {
+        title: "実行委員会企画",
+        content: [
+            { href: "/ippan", label: "一般明大生向け本祭前企画" }
+        ]
     }
 ]
+
 
 function HamburgerSP() {
     const [openId, setOpenId] = useState<number | null>(null); // 開いているアコーディオンのIDを管理
@@ -121,7 +135,7 @@ function HamburgerPC() {
 
 function HamburgerTopButton() {
     return (
-        <Link href="/" className="text-4xl font-medium hover:border-b-2 border-white">TOP</Link>
+        <Link href="/" className="text-4xl font-medium hover:border-b-2 border-accent-700">TOP</Link>
     )
 }
 
