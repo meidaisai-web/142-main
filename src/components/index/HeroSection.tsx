@@ -30,7 +30,7 @@ export default function HeroSection() {
           alt="Foreground Image"
           width={500}
           height={500}
-          className="absolute right-10  w-25 h-25 object-fit bottom-60"
+          className="absolute right-17  w-25 h-25 object-fit bottom-57"
         />
          <Image
           src="/images/svg/hero/fireflower.svg"
