@@ -14,9 +14,9 @@ export default function Footer() {
 
 	return (
 		// フッター全体。中身が空だったので、下で定義済みの各パーツを組み立てて表示するようにした
-		<footer className={`w-full ${notoSerifJP.className}`}>
-			<FooterCloud /> {/* 上部の雲形の装飾。SVGの下半分は overflow-hidden で隠している */}
-			<div className="w-full bg-[#FFFBFB] pt-4 pb-10 flex flex-col items-center">
+		<footer className={`w-full relative ${notoSerifJP.className}`}>
+			<FooterCloud /> {/* 上部の雲形の装飾（footer_cloud.svgをインラインSVGで描画） */}
+			<div className="relative z-10 w-full bg-[#FFFBFB] pt-4 pb-10 flex flex-col items-center">
 				<Catch /> {/* 明大祭ロゴ（キャッチコピー） */}
 				<BannerContainer /> {/* 協賛企業の広告バナー */}
 				<FooterIconLinks /> {/* SNS（X/Instagram/TikTok/YouTube）へのアイコンリンク */}
@@ -27,18 +27,37 @@ export default function Footer() {
 	);
 }
 
-// 上部の雲形の装飾を表示するコンポーネント
+// 上部の雲形の装飾を表示するコンポーネント（footer_cloud.svgの中身をそのままインラインSVGにしたもの）
 function FooterCloud() {
 	return (
-		<div className="w-full overflow-hidden" style={{ aspectRatio: "1684 / 200" }}>
-			<Image
-				src="/images/svg/footer/footer_cloud.svg"
-				alt=""
-				width={1684}
-				height={414}
+		<div className="relative z-0 w-full overflow-hidden" style={{ aspectRatio: "1684 / 200" }}>
+			<svg
+				viewBox="0 0 1684 414"
+				fill="none"
 				className="w-full h-auto block"
 				style={{ transform: "scale(1.1)", transformOrigin: "top center" }}
-			/>
+			>
+				<g filter="url(#footer-cloud-shadow)">
+					<ellipse cx="229.5" cy="197" rx="229.5" ry="197" fill="#FFFBFB" />
+					<ellipse cx="574" cy="177" rx="165" ry="118" fill="#FFFBFB" />
+					<ellipse cx="777" cy="150.5" rx="160" ry="141.5" fill="#FFFBFB" />
+					<ellipse cx="1009" cy="170" rx="141" ry="125" fill="#FFFBFB" />
+					<ellipse cx="1244" cy="186" rx="211" ry="175" fill="#FFFBFB" />
+					<ellipse cx="1530" cy="197" rx="124" ry="118" fill="#FFFBFB" />
+				</g>
+				<defs>
+					<filter id="footer-cloud-shadow" x="0" y="0" width="1684" height="414" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+						<feFlood floodOpacity="0" result="BackgroundImageFix" />
+						<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+						<feOffset dx="20" dy="10" />
+						<feGaussianBlur stdDeviation="5" />
+						<feComposite in2="hardAlpha" operator="out" />
+						<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+						<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+						<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+					</filter>
+				</defs>
+			</svg>
 		</div>
 	)
 }
@@ -46,7 +65,8 @@ function FooterCloud() {
 // 明大祭ロゴ（キャッチコピー）を表示するコンポーネント
 function Catch() {
 	return (
-		<div className="flex items-center justify-center">
+		<div className="flex items-center justify-center gap-3">
+			<Image src="/images/svg/142logo .svg" alt="Logo" width={183} height={160} className="h-[50px] sm:h-[74px] w-auto" />
 			<Image src="/images/svg/catchcopy-primary.svg" alt="明大祭" width={488} height={117} className="h-[40px] sm:h-[70px] w-auto" />
 		</div>
 	)
@@ -64,7 +84,7 @@ function FooterIconLink({ href, src, alt }: FooterIconLinkProps) {
 			href={href}
 			rel="noopener noreferrer"
 		>
-			<div className="relative w-13 h-13 sm:w-14 sm:h-14 md:w-11 md:h-11">
+			<div className="relative size-9 sm:size-14 md:size-11">
 				<Image
 					src={src}
 					alt={alt}
@@ -144,7 +164,7 @@ function FooterLinks() {
 		},
 	];
 	return (
-		<div className="w-full max-w-96 sm:max-w-md flex justify-between px-3 list-none mt-12">
+		<div className="w-full max-w-96 sm:max-w-md flex justify-between px-3 list-none my-6">
 			{links.map((item) => (
 				<FooterLink key={item.href} href={item.href}>
 					{item.children}
