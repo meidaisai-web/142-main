@@ -8,7 +8,7 @@ export default function Frame({
   className = "",
 }: FrameProps) {
   return (
-    <div className={`relative rounded-[40px] border-2 border-white sm:rounded-[46px] m-15 p-10 shadow-lg ${className}`}>
+    <div className={`relative rounded-[40px] border-2 border-white sm:rounded-[46px] m-15 p-30 shadow-lg ${className}`}>
       <CornerBolt position="tl" />
       <CornerBolt position="tr" />
       <CornerBolt position="bl" />
