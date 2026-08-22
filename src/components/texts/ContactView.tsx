@@ -117,10 +117,17 @@ function CornerBolt({ position }: { position: "tl" | "tr" | "bl" | "br" }) {
     bl: "bottom-[7%] left-[5%] lg:left-[6%] -translate-x-1/2 translate-y-1/2",
     br: "bottom-[7%] right-[5%] lg:right-[6%] translate-x-1/2 translate-y-1/2",
   };
+  const gradientClasses: Record<typeof position, string> = {
+    tl: "bg-gradient-to-br",
+    tr: "bg-gradient-to-bl",
+    bl: "bg-gradient-to-tr",
+    br: "bg-gradient-to-tl",
+  };
+
   return (
     <span
       aria-hidden
-      className={`pointer-events-none absolute z-10 h-3 w-3 rounded-full bg-gradient-to-b from-primary to-accent-100 shadow-[0_1px_2px_rgba(0,0,0,0.15)] ${positionClasses[position]}`}
+      className={`pointer-events-none absolute z-10 h-3 w-3 rounded-full ${gradientClasses[position]} from-primary to-accent-100 shadow-[0_1px_2px_rgba(0,0,0,0.15)] ${positionClasses[position]}`}
     />
   );
 }
