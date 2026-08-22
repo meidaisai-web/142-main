@@ -8,7 +8,7 @@ export default function Frame({
   className = "",
 }: FrameProps) {
   return (
-    <div className={`relative rounded-[40px] border-2 border-white sm:rounded-[46px] m-15 p-30 shadow-lg ${className}`}>
+    <div className={`relative rounded-[40px] border-2 border-white sm:rounded-[46px] m-40 p-30 shadow-lg ${className}`}>
       <CornerBolt position="tl" />
       <CornerBolt position="tr" />
       <CornerBolt position="bl" />
@@ -20,7 +20,7 @@ export default function Frame({
   );
 }
 
-// 四隅のボルト1個分のコンポーネント
+// 四隅の丸1個分のコンポーネント
 function CornerBolt({ position }: { position: "tl" | "tr" | "bl" | "br" }) {
   const positionClasses: Record<typeof position, string> = {
     tl: "top-[6%] left-[7%] lg:left-[5%] -translate-x-1/2 -translate-y-1/2",
@@ -28,10 +28,16 @@ function CornerBolt({ position }: { position: "tl" | "tr" | "bl" | "br" }) {
     bl: "bottom-[6%] left-[7%] lg:left-[5%] -translate-x-1/2 translate-y-1/2",
     br: "bottom-[6%] right-[7%] lg:right-[5%] translate-x-1/2 translate-y-1/2",
   };
+  const gradientClasses: Record<typeof position, string> = {
+    tl: "bg-gradient-to-br",
+    tr: "bg-gradient-to-bl",
+    bl: "bg-gradient-to-tr",
+    br: "bg-gradient-to-tl",
+  };
   return (
     <span
       aria-hidden
-      className={`pointer-events-none absolute z-10 h-7 w-7 lg:h-10 lg:w-10 rounded-full border border-white bg-gradient-to-b from-[#9ECBC7] to-white shadow-[0_1px_2px_rgba(0,0,0,0.15)] ${positionClasses[position]}`}
+      className={`pointer-events-none absolute z-10 h-7 w-7 lg:h-10 lg:w-10 rounded-full border border-white ${gradientClasses[position]} from-primary-700 to-white shadow-[0_1px_2px_rgba(0,0,0,0.15)] ${positionClasses[position]}`}
     />
   );
 }
