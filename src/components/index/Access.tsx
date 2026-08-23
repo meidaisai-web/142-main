@@ -1,16 +1,10 @@
-import Button from "../buttons/Button";
-import OnlyImage from "../OnlyImage";
-import IndexTitle from "../texts/IndexTitle"
+import PageContainer from "../base/PageContainer" 
+const Access = () => {  
+return (
+    <PageContainer>
+    <section className="mx-auto max-w-4xl pt-10 pb-10">
 
-const Access = () => {
-    return (
-          <main className="bg-top-gradient p-6 text-slate-800">
-      <section className="mx-auto max-w-5xl">
-        <h1 className="mb-8 text-4xl font-bold tracking-tight">
-          第142回 明大祭 開発するよ
-        </h1>
-
-        <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
 
           {/* 地図 */}
           <div className="w-full aspect-square md:w-1/3 rounded-lg overflow-hidden">
@@ -27,31 +21,31 @@ const Access = () => {
 
             {/* ① キャンパス名 */}
             <div>
-              <p className="text-[20px] mb-5">
+              <text className="text-2xl mb-5">
                 明治大学　和泉キャンパス
-              </p>
+              </text>
             </div>
 
             {/* ② 住所 */}
             <div className="mt-5">
-              <p>
+              <text>
                 〒168-8555 <br />
                 東京都杉並区永福1-9-1
-              </p>
+              </text>
             </div>
 
             {/* ③ アクセス */}
             <div className="mt-5">
-              <p>
+              <text>
                 京王線・京王井の頭線「明大前駅」より徒歩5分
-              </p>
+              </text>
             </div>
 
           </div>
 
         </div>
       </section >
-    </main >
+      </PageContainer> 
     )
 }
 
