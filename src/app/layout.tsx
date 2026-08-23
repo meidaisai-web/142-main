@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Head from "next/head";
-import { shippori } from "@/utils/fonts";
+import { notoSerifJP } from "@/utils/fonts";
 import Base from "@/components/base/Base";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { googleTagManagerId, googleAnalyticsId } from "@/utils/managers/analyticsManager";
@@ -63,7 +63,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <body
-        className={`antialiased bg-background text-text ${shippori.className} font-extrabold font-normal`}
+        className={`antialiased bg-background text-text ${notoSerifJP.className} font-extrabold font-normal`}
         style={{ overflowAnchor: 'none' }}
       >
         <Base>{children}</Base>

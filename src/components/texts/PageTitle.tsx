@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { delaGothic } from "@/utils/fonts";
 
 type PageTitleProps = {
   children: ReactNode;

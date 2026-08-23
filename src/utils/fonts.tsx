@@ -1,6 +1,6 @@
-import {Shippori_Mincho} from "next/font/google";
+import { Noto_Serif_JP } from "next/font/google";
 
-export const shippori = Shippori_Mincho({
-    weight: ["400", "500","600","700"],
+export const notoSerifJP = Noto_Serif_JP({
+    weight: ["400", "500", "600", "700"],
     subsets: ["latin"],
 });
