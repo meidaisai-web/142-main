@@ -59,8 +59,8 @@ export default function BannerContainer() {
                 {isBannerVisible && <div className="w-screen flex justify-center" id='sticky_banner'><StickyBanner adData={shuffledAds[0]} /></div>}
             </div>
             {/* 画面幅によらず常に2列のグリッドにして、バナーサイズは全枠共通にした */}
-            <section className='w-[80vw] mx-auto flex flex-col items-center gap-6'>
-                <div className="w-full max-w-[1000px] grid grid-cols-2 gap-4 sm:gap-6 justify-items-center items-center" ref={ref}>
+            <section className='w-[70vw] mx-auto flex flex-col items-center gap-6'>
+                <div className="w-full max-w-[700px] grid grid-cols-2 gap-4 sm:gap-6 justify-items-center items-center" ref={ref}>
                     <Banner adData={shuffledAds[0]} />
                     <Banner adData={shuffledAds[1]} />
                     <Banner adData={shuffledAds[2]} />
