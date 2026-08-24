@@ -46,9 +46,9 @@ function Address() {
 function Mail({ mail }: { mail: string }) {
     return (
         <Base>
-            <h2 className="w-full text-center pb-3 text-sm">メール</h2>
+            <h2 className="w-full text-center pb-3 text-sm font-bold">メール</h2>
             <Link href={`mailto:${mail}`}>
-                <p className="text-primary hover:text-secondary text-center text-lg font-bold underline">{mail}</p>
+                <p className="text-primary-900 hover:text-secondary text-center text-lg font-bold underline">{mail}</p>
             </Link>
         </Base>
     )
@@ -58,9 +58,9 @@ function Phone() {
     return (
         <Base>
             <div className="flex flex-col items-center gap-5">
-                <h2 className="w-full text-center text-sm">電話</h2>
+                <h2 className="w-full text-center text-sm font-bold">電話</h2>
                 <Link href={`tel:${phoneNumber}`}>
-                    <p className="text-primary hover:text-secondary text-center text-2xl font-bold underline">
+                    <p className="text-primary-900 hover:text-secondary text-center text-2xl font-bold underline">
                         {phoneNumber}
                     </p>
                 </Link>
@@ -74,17 +74,17 @@ function MailPhone({ mail }: { mail: string; }) {
     return (
         <Base>
             <div className="pb-5">
-                <h2 className="w-full text-center pb-1 text-sm">メール</h2>
+                <h2 className="w-full text-center pb-1 text-sm font-bold">メール</h2>
                 <Link href={`mailto:${mail}`}>
-                    <p className="text-primary hover:text-secondary text-center text-lg font-bold underline">
+                    <p className="text-primary-900 hover:text-secondary text-center text-lg font-bold underline">
                         {mail}
                     </p>
                 </Link>
             </div>
             <div className="flex flex-col items-center gap-1">
-                <h2 className="w-full text-center text-sm">お電話</h2>
+                <h2 className="w-full text-center text-sm font-bold">お電話</h2>
                 <Link href={`tel:${phoneNumber}`}>
-                    <p className="text-primary hover:text-secondary text-center text-lg font-bold underline">
+                    <p className="text-primary-900 hover:text-secondary text-center text-lg font-bold underline">
                         {phoneNumber}
                     </p>
                 </Link>
@@ -102,7 +102,7 @@ function Base({ children }: { children: React.ReactNode }) {
                 <CornerBolt position="tr" />
                 <CornerBolt position="bl" />
                 <CornerBolt position="br" />
-                <div className="text-black">
+                <div>
                     {children}
                 </div>
             </div>
