@@ -46,6 +46,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
     {
         title: "ご来場のみなさまへ",
         content: [
+            { href: "/about", label: "明大祭とは" },
             { href: "/announce", label: "ご来場のみなさまへのお願い" },
             { href: "/access", label: "アクセス" }
         ]
