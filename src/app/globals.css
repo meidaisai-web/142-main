@@ -50,3 +50,32 @@
     );
   }
 }
+
+.detail-button__viewport {
+  overflow: hidden;
+  width: 180px;
+}
+
+.detail-button__track {
+  display: flex;
+  width: max-content;
+}
+
+.detail-button__item {
+  flex : 0 0 180px;
+  margin-right: 40px;
+}
+
+.detail-button:hover .detail-button__track {
+  animation: detail-button-marquee 3s linear infinite;
+}
+
+@keyframes detail-button-marquee {
+  from {
+    transform: translateX(-220px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
