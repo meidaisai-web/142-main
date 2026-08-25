@@ -2,12 +2,6 @@
 
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
-import { Zen_Old_Mincho } from "next/font/google";
-
-const zenOldMincho = Zen_Old_Mincho({
-    weight: "500",
-    subsets: ["latin"],
-});
 
 type DetailbuttonProps = {
   href?: string;
@@ -28,7 +22,7 @@ export default function Detailbutton({
     marginTop: "30px",
     marginBottom: "30px",
     textDecoration: "none",
-    color: "#626068",
+    color: "#3E3D3F",
     transform: "translateX(430px)",
   };
 
@@ -39,7 +33,7 @@ export default function Detailbutton({
     fontWeight: 500,
     letterSpacing: "0.04em",
     lineHeight: 1.2,
-    color: "#626068",
+    color: "#3E3D3F",
     textShadow: "0px 4px 3px rgba(80, 80, 80, 0.35)",
     marginBottom: "5px",
   };
@@ -48,7 +42,7 @@ export default function Detailbutton({
     position: "relative",
     width: "100%",
     height: "1px",
-    backgroundColor: "#626068",
+    backgroundColor: "#3E3D3F",
     boxShadow: "0 4px 3px rgba(80, 80, 80, 0.35)",
     margin: "0 auto",
   };
@@ -59,7 +53,7 @@ export default function Detailbutton({
     top: "0px",
     width: "13px",
     height: "1px",
-    backgroundColor: "#626068",
+    backgroundColor: "#3E3D3F",
     transform: "rotate(40deg)",
     transformOrigin: "right center",
     boxShadow: "0 4px 3px rgba(80, 80, 80, 0.35)",
@@ -75,62 +69,26 @@ export default function Detailbutton({
       style={containerStyle}
     >
         <div className="detail-button__viewport">
+            <span
+                style={textStyle}
+              >
+                {children}
+              </span>
 
           <div className="detail-button__track">
 
             <div className="detail-button__item">
-              <span
-                className={zenOldMincho.className}
-                style={textStyle}
-              >
-                {children}
-              </span>
+              
 
               <div style={lineStyle}>
-                <span style={arrowTopStyle} />
+                    <span style={arrowTopStyle} />
               </div>
             </div>
 
-            <div className="detail-button__item">
-              <span
-                className={zenOldMincho.className}
-                style={textStyle}
-              >
-                {children}
-              </span>
-
               <div style={lineStyle}>
-                <span style={arrowTopStyle} />
+                    <span style={arrowTopStyle} />
               </div>
             </div>
-          
-            <div className="detail-button__item">
-              <span
-                className={zenOldMincho.className}
-                style={textStyle}
-              >
-                {children}
-              </span>
-
-              <div style={lineStyle}>
-                <span style={arrowTopStyle} />
-              </div>
-            </div>
-          
-            <div className="detail-button__item">
-              <span
-                className={zenOldMincho.className}
-                style={textStyle}
-              >
-                {children}
-              </span>
-
-              <div style={lineStyle}>
-                <span style={arrowTopStyle} />
-              </div>
-            </div>
-      
-          </div>
 
         </div>
     </Link>
