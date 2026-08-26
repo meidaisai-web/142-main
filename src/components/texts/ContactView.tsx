@@ -31,7 +31,7 @@ export default function ContactView({ department, mail, showPhone, showAddress, 
 
 function Address() {
     return (
-        <Base>
+        <Framebase>
             <h2 className="w-full text-center pb-5 font-bold">住所</h2>
             <p className="leading-6 text-sm">
                 〒168-8555<br />
@@ -39,24 +39,24 @@ function Address() {
                 明治大学 和泉キャンパス食堂3階<br />
                 明大祭実行委員会室
             </p>
-        </Base>
+        </Framebase>
     )
 }
 
 function Mail({ mail }: { mail: string }) {
     return (
-        <Base>
+        <Framebase>
             <h2 className="w-full text-center pb-3 text-sm font-bold">メール</h2>
             <Link href={`mailto:${mail}`}>
                 <p className="text-primary-900 hover:text-secondary text-center text-lg font-bold underline">{mail}</p>
             </Link>
-        </Base>
+        </Framebase>
     )
 }
 
 function Phone() {
     return (
-        <Base>
+        <Framebase>
             <div className="flex flex-col items-center gap-5">
                 <h2 className="w-full text-center text-sm font-bold">電話</h2>
                 <Link href={`tel:${phoneNumber}`}>
@@ -66,13 +66,13 @@ function Phone() {
                 </Link>
                 <p className="text-center text-xs">※開室時間：11：00〜18：00（平日のみ）</p>
             </div>
-        </Base>
+        </Framebase>
     )
 }
 
 function MailPhone({ mail }: { mail: string; }) {
     return (
-        <Base>
+        <Framebase>
             <div className="pb-5">
                 <h2 className="w-full text-center pb-1 text-sm font-bold">メール</h2>
                 <Link href={`mailto:${mail}`}>
@@ -90,21 +90,19 @@ function MailPhone({ mail }: { mail: string; }) {
                 </Link>
                 <p className="text-center text-xs">開室時間　11：00〜18：00（平日のみ）</p>
             </div>
-        </Base>
+        </Framebase>
     )
 }
 
-function Base({ children }: { children: React.ReactNode }) {
+function Framebase({ children }: { children: React.ReactNode }) {
     return (
-        <div className="m-6">
-            <div className="relative bg-background w-80 md:w-72 lg:w-80 pt-5 pb-10 px-10 md:px-6 lg:px-10 rounded-xl outline-3 outline-accent-900 outline-solid">
-                <CornerBolt position="tl" />
-                <CornerBolt position="tr" />
-                <CornerBolt position="bl" />
-                <CornerBolt position="br" />
-                <div>
-                    {children}
-                </div>
+        <div className="m-6 relative bg-background w-80 md:w-72 lg:w-80 pt-5 pb-10 px-10 md:px-6 lg:px-10 rounded-xl outline-3 outline-accent-900 outline-solid">
+            <CornerBolt position="tl" />
+            <CornerBolt position="tr" />
+            <CornerBolt position="bl" />
+            <CornerBolt position="br" />
+            <div>
+                {children}
             </div>
         </div>
     )
@@ -112,10 +110,10 @@ function Base({ children }: { children: React.ReactNode }) {
 
 function CornerBolt({ position }: { position: "tl" | "tr" | "bl" | "br" }) {
   const positionClasses: Record<typeof position, string> = {
-    tl: "top-[7%] left-[5%] lg:left-[6%] -translate-x-1/2 -translate-y-1/2",
-    tr: "top-[7%] right-[5%] lg:right-[6%] translate-x-1/2 -translate-y-1/2",
-    bl: "bottom-[7%] left-[5%] lg:left-[6%] -translate-x-1/2 translate-y-1/2",
-    br: "bottom-[7%] right-[5%] lg:right-[6%] translate-x-1/2 translate-y-1/2",
+    tl: "top-3 left-3 -translate-x-1/2 -translate-y-1/2",
+    tr: "top-3 right-3 translate-x-1/2 -translate-y-1/2",
+    bl: "bottom-3 left-3 -translate-x-1/2 translate-y-1/2",
+    br: "bottom-3 right-3 translate-x-1/2 translate-y-1/2",
   };
   const gradientClasses: Record<typeof position, string> = {
     tl: "bg-gradient-to-br",
