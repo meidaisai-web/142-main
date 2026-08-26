@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const phoneNumber = "03-3327-4363"
+const phoneNumber = "080-2546-5562"
 
 type ContactViewProps = {
     department: string;
