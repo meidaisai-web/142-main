@@ -8,7 +8,7 @@ export default function Frame({
   className = "",
 }: FrameProps) {
   return (
-    <div className={`flex items-center relative rounded-[30px] border-2 border-white sm:rounded-[35px] mx-10 p-20 sm:mx-20 shadow-lg mt-10 ${className}`}>
+    <div className={`flex items-center relative rounded-[30px] border-2 border-white sm:rounded-[35px] mx-5 p-20 sm:mx-10 shadow-lg mt-6 ${className}`}>
       <CornerBolt position="tl" />
       <CornerBolt position="tr" />
       <CornerBolt position="bl" />
@@ -23,10 +23,10 @@ export default function Frame({
 // 四隅の丸1個分のコンポーネント
 function CornerBolt({ position }: { position: "tl" | "tr" | "bl" | "br" }) {
   const positionClasses: Record<typeof position, string> = {
-    tl: "top-[4%] sm:top-[3%] lg:top-[4%] left-[5%] lg:left-[3%] -translate-x-1/2 -translate-y-1/2",
-    tr: "top-[4%] sm:top-[3%] lg:top-[4%] right-[5%] lg:right-[3%] translate-x-1/2 -translate-y-1/2",
-    bl: "bottom-[4%] sm:bottom-[3%] lg:bottom-[4%] left-[5%] lg:left-[3%] -translate-x-1/2 translate-y-1/2",
-    br: "bottom-[4%] sm:bottom-[3%] lg:bottom-[4%] right-[5%] lg:right-[3%] translate-x-1/2 translate-y-1/2",
+    tl: "top-7 left-7 -translate-x-1/2 -translate-y-1/2",
+    tr: "top-7 right-7 translate-x-1/2 -translate-y-1/2",
+    bl: "bottom-7 left-7 -translate-x-1/2 translate-y-1/2",
+    br: "bottom-7 right-7 translate-x-1/2 translate-y-1/2",
   };
   const gradientClasses: Record<typeof position, string> = {
     tl: "bg-gradient-to-br",
