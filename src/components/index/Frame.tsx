@@ -8,13 +8,15 @@ export default function Frame({
   className = "",
 }: FrameProps) {
   return (
-    <div className={`flex items-center relative rounded-[30px] border-2 border-white sm:rounded-[35px] mx-5 p-20 sm:mx-10 shadow-lg mt-6 ${className}`}>
-      <CornerBolt position="tl" />
-      <CornerBolt position="tr" />
-      <CornerBolt position="bl" />
-      <CornerBolt position="br" />
-      <div className={`relative z-0 h-full w-full`}>
-        {children}
+    <div className="flex justify-center">
+      <div className={`relative rounded-3xl border-2 border-white sm:rounded-2xl mx-5 p-13 sm:mx-10 shadow-lg mt-6 max-w-4xl ${className}`}>
+        <CornerBolt position="tl" />
+        <CornerBolt position="tr" />
+        <CornerBolt position="bl" />
+        <CornerBolt position="br" />
+        <div className={`relative z-0 h-full w-full`}>
+          {children}
+        </div>
       </div>
     </div>
   );
