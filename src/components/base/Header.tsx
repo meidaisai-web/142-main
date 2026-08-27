@@ -34,14 +34,14 @@ export default function Header() {
 
   const isHome = pathname === "/";
   return (
-    <header className={`w-full ${isHome ? "bg-accent-300" : "bg-header-gradient"} flex justify-between items-center px-5 fixed opacity-100 h-18`}
+    <header className={`w-full ${isHome ? "bg-accent-300" : "bg-header-gradient"} flex justify-between items-center px-5 fixed opacity-100 h-14`}
 >
       <Link href="/" className="absolute left-5">
         <Image
           src="/images/svg/logo-white.svg"
           alt="Logo"
-          width={50}
-          height={50}
+          width={42}
+          height={42}
         />
       </Link>
 
@@ -62,21 +62,21 @@ interface HamburgerIconProps {
 function HamburgerIcon({ isOpen, setOpen }: HamburgerIconProps) {
   return (
     <motion.button
-      className="absolute cursor-pointer right-6 z-50"
+      className="translate-y-[3px] absolute cursor-pointer right-5 z-50"
       onClick={() => setOpen((v) => !v)}
       initial="closed"
       animate={isOpen ? "open" : "closed"}
     >
       <motion.svg
-        width="23"
-        height="23"
+        width="20"
+        height="20"
         viewBox="0 0 23 23"
         className="w-11 h-10"
       >
         {/* ↓アイコン */}
         <motion.path
           fill="transparent"
-          strokeWidth="3"
+          strokeWidth="2.5"
           stroke="currentColor"
           strokeLinecap="round"
           variants={{
@@ -86,7 +86,7 @@ function HamburgerIcon({ isOpen, setOpen }: HamburgerIconProps) {
         />
         <motion.path
           fill="transparent"
-          strokeWidth="3"
+          strokeWidth="2.5"
           stroke="#ffffff"
           strokeLinecap="round"
           d="M 2 9.423 L 20 9.423"
@@ -98,7 +98,7 @@ function HamburgerIcon({ isOpen, setOpen }: HamburgerIconProps) {
         />
         <motion.path
           fill="transparent"
-          strokeWidth="3"
+          strokeWidth="2.5"
           stroke="currentColor"
           strokeLinecap="round"
           variants={{
