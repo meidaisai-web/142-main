@@ -1,6 +1,7 @@
 import Button from "../buttons/Button";
 import OnlyImage from "../OnlyImage";
 import IndexTitle from "../texts/IndexTitle"
+import HeroSection from "./HeroSection";
 
 const Access = () => {
     return (
@@ -11,6 +12,7 @@ const Access = () => {
             </div>
             <OnlyImage src="/images/map/accessmap.jpg" alt="アクセスマップ" className="mt-8" />
             <Button href="/access" className="mt-8">詳しく見る</Button>
+            <HeroSection />
         </div>
     )
 }
