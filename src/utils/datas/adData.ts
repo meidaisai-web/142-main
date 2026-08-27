@@ -20,6 +20,6 @@ export const smallAdData: Ad[] = [
     { url: "https://i.morecon.jp/jv6s", src: PLACEHOLDER_SRC, id: "riseup" },//株式会社Rise UP
     { url: "https://www.tomas.co.jp/", src: PLACEHOLDER_SRC, id: "riso" },//株式会社リソー教育
     { url: "https://www.senko.co.jp/jp/", src: PLACEHOLDER_SRC, id: "senko" },//センコー
-    { url: "https://www.densetsuko.co.jp/", src: PLACEHOLDER_SRC, id: "denko" },//日本電設工業
-    { url: "https://www2.sundai.ac.jp/", src: PLACEHOLDER_SRC, id: "suruga" },//駿河台学園
+    { url: "https://www.densetsuko.co.jp/", src: "/images/svg/ad/sundai-logo.svg", id: "denko" },//日本電設工業
+    { url: "https://www2.sundai.ac.jp/", src: "/images/svg/ad/sundai-logo.svg", id: "suruga" },//駿河台学園
 ];
