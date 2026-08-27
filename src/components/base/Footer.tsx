@@ -65,9 +65,8 @@ function FooterCloud() {
 // 明大祭ロゴ（キャッチコピー）を表示するコンポーネント
 function Catch() {
 	return (
-		<div className="flex items-center justify-center gap-3">
-			<Image src="/images/svg/142logo .svg" alt="Logo" width={183} height={160} className="h-[50px] sm:h-[74px] w-auto" />
-			<Image src="/images/svg/catchcopy-primary.svg" alt="明大祭" width={488} height={117} className="h-[40px] sm:h-[70px] w-auto" />
+		<div className="flex items-center justify-center">
+			<Image src="/images/svg/catchcopylogo.svg" alt="明大祭" width={689} height={157} className="h-[50px] sm:h-[74px] w-auto" />
 		</div>
 	)
 }
@@ -153,6 +152,10 @@ function FooterLinks() {
 		{
 			href: "/contact",
 			children: "お問い合わせ",
+		},
+		{
+			href: "/link",
+			children: "リンク",
 		},
 		{
 			href: "/sitemap",
