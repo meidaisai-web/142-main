@@ -13,9 +13,9 @@ export default function SmallTitle({ className, children }: SmallTitleProps) {
                 alt=""
                 width="40"
                 height="40"
-                className="absolute transform -translate-x-7 -translate-y-4"
+                className="absolute transform -translate-x-7 -translate-y-5"
             />
-            <h2 className="">
+            <h2 className="text-xl font-bold">
                 {children}
             </h2>
         </div>
