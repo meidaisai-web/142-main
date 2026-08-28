@@ -25,11 +25,11 @@ export default function Countdown({ }: CountdownProps) {
 
     setLeft(result);
   }, []);
-
+  
   return (
     <h1>
-      <div className="relative w-full">
-        <div className="h-[180px] sm:h-[220px] md:h-[350px]">
+      <div className="relative w-full ">
+        <div className="w-full aspect-[1620/500]">
           <CloudDivider />
         </div>
 
@@ -37,17 +37,14 @@ export default function Countdown({ }: CountdownProps) {
           <img
             src="/images/svg/line.svg"
             alt="帯"
-            className="w-full h-[180px] sm:h-[220px] md:h-[350px] object-cover object-center"
+            className="w-full h-full"
           />
         </div>
           
-        {/* 全体のコンテナ */}
         <div className="absolute top-1/2 -translate-y-1/2 md:top-auto md:translate-y-0 md:bottom-[30%] w-full z-10 pointer-events-none">
           
-          {/* 💡 常にPCと同じ絶対配置ベースで、スマホ〜PCまで同じ間隔をキープします！ */}
           <div className="relative w-full h-[120px] sm:h-[150px] md:h-0 pointer-events-none px-4">
             
-            {/* 左側：日時 */}
             <div className="absolute left-[5%] sm:left-[8%] md:left-[10%] top-1/2 -translate-y-1/2 md:top-auto md:translate-y-0 md:bottom-[20%] pointer-events-auto">
               <Image
                 src="/images/svg/DayLocate.svg"
@@ -58,29 +55,28 @@ export default function Countdown({ }: CountdownProps) {
               />
             </div>
             
-            {/* 右側：カウントダウンの箱 */}
-            <div className="absolute right-[5%] sm:right-[8%] md:right-20 lg:right-28 top-1/2 -translate-y-1/2 md:top-auto md:translate-y-0 md:bottom-[10%] w-[clamp(110px,28vw,150px)] md:w-48 lg:w-57 pointer-events-auto">
+            <div className="absolute right-[20%] sm:right-[8%] md:right-20 lg:right-28 top-[110%] -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-[10%] w-[clamp(110px,28vw,150px)] lg:w-48 xl:w-57 pointer-events-auto">
               
               <Image 
                 src="/images/svg/Ellipse 106.svg" 
                 alt="Dayte" 
                 width={250} 
                 height={250} 
-                className="w-full h-full relative top-[5%] md:top-7"
+                className="w-full h-full relative top-[5%] lg:top-7"
               />
 
-              <div className="absolute -top-[5%] left-1/2 transform -translate-x-1/2 w-[90%]">
+              <div className="absolute -top-[5%] left-[105%] sm:left-1/2 transform -translate-x-1/2 w-[90%]">
                 <Image 
                   src="/images/svg/kaisai.svg" 
                   alt="開催まで" 
                   width={160} 
                   height={50} 
-                  className="w-full h-full relative top-0 md:top-5"
+                  className="w-full h-full relative top-0 lg:top-5"
                 />
               </div>
               
               <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-white text-6xl sm:text-7xl md:text-8xl font-bold mt-[8%] md:mt-15">
+                <p className="text-white text-6xl sm:text-7xl lg:text-8xl font-bold mt-[8%] lg:mt-15">
                   {left !== null ? left : ""}
                 </p>
               </div>
@@ -91,7 +87,7 @@ export default function Countdown({ }: CountdownProps) {
                   alt="小円" 
                   width={100} 
                   height={100} 
-                  className="w-full h-full relative top-[5%] left-[5%] md:top-5 md:left-5" 
+                  className="w-full h-full relative top-[5%] left-[5%] lg:top-5 lg:left-5" 
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Image 
@@ -99,7 +95,7 @@ export default function Countdown({ }: CountdownProps) {
                     alt="日" 
                     width={40} 
                     height={40} 
-                    className="w-[45%] h-full relative top-[5%] left-[5%] md:top-5 md:left-5"
+                    className="w-[45%] h-full relative top-[5%] left-[5%] lg:top-5 lg:left-5"
                   />
                 </div>
               </div>
@@ -115,14 +111,14 @@ export default function Countdown({ }: CountdownProps) {
 export function CloudDivider({ className = "" }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 1537 369"
-      preserveAspectRatio="none"
+      viewBox="0 -40 1537 449"
       className={`w-full h-full text-white ${className}`}
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M0 24.3236C0 142.208 1537 -91.8872 1537 53.2632C1537 198.414 1537 255.351 1537 255.351H0C0 255.351 0 -93.561 0 24.3236Z" />
-      <path d="M1537 344.71C1537 226.987 0 460.761 0 315.81C0 170.859 0 114 0 114L1537 114C1537 114 1537 462.432 1537 344.71Z" />
+      <path d="M0 -15.6764C0 102.208 1537 -171.8872 1537 13.2632C1537 158.414 1537 215.351 1537 215.351H0C0 215.351 0 -133.561 0 -15.6764Z" />
+
+      <path d="M1537 384.71C1537 266.987 0 500.761 0 355.81C0 210.859 0 154 0 154L1537 154C1537 154 1537 502.432 1537 384.71Z" />
     </svg>
   );
 }
