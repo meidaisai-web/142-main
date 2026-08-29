@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 
@@ -14,16 +15,19 @@ export default function Detailbutton({
   className = "",
   children = "詳しくはこちら",
 }: DetailbuttonProps) {
+
+  const [isAnimated, setIsAnimated] = useState(false);
+
   const containerStyle: CSSProperties = {
     display: "block",
-    width: "80%",
-    maxWidth: "1200px",
-    margin: "0 auto",
-    marginTop: "30px",
+    width: "150px",
+    maxWidth: "100%",
+    margin: "30px auto",
+    marginTop: "20px",
     marginBottom: "30px",
     textDecoration: "none",
     color: "#3E3D3F",
-    transform: "translateX(430px)",
+    transform: "translateX(220px)",
   };
 
   const textStyle: CSSProperties = {
@@ -35,62 +39,48 @@ export default function Detailbutton({
     lineHeight: 1.2,
     color: "#3E3D3F",
     textShadow: "0px 4px 3px rgba(80, 80, 80, 0.35)",
-    marginBottom: "5px",
+    marginBottom: "1px",
   };
-
-  const lineStyle: CSSProperties = {
-    position: "relative",
-    width: "100%",
-    height: "1px",
-    backgroundColor: "#3E3D3F",
-    boxShadow: "0 4px 3px rgba(80, 80, 80, 0.35)",
-    margin: "0 auto",
-  };
-
-  const arrowTopStyle: CSSProperties = {
-    position: "absolute",
-    right: "0px",
-    top: "0px",
-    width: "13px",
-    height: "1px",
-    backgroundColor: "#3E3D3F",
-    transform: "rotate(40deg)",
-    transformOrigin: "right center",
-    boxShadow: "0 4px 3px rgba(80, 80, 80, 0.35)",
-  };
-
-
-
 
   return (
     <Link
       href={href}
-      className={'${className} detail-button'}
+      className={`${className} detail-button`}
       style={containerStyle}
+      onMouseEnter={() => {
+        // すでにアニメーション中ではない場合のみ実行
+        if (!isAnimated) setIsAnimated(true);
+      }}
     >
-        <div className="detail-button__viewport">
-            <span
-                style={textStyle}
-              >
-                {children}
-              </span>
+      <div className="detail-button__viewport">
+        {/* 文字：最初から最後まで動かない */}
+        <span style={textStyle}>{children}</span>
 
-          <div className="detail-button__track">
+        {/* 「―＼」が動く範囲 */}
+        <div className="detail-button__line-viewport">
+          {/* 1つ目の「―＼」 */}
+          <div
+            className={`detail-button__arrow detail-button__arrow--first ${
+              isAnimated ? "is-animated" : ""
+            }`}
+          >
+            <span className="detail-button__arrow-line" />
+            <span className="detail-button__arrow-slash" />
+          </div>
 
-            <div className="detail-button__item">
-              
-
-              <div style={lineStyle}>
-                    <span style={arrowTopStyle} />
-              </div>
-            </div>
-
-              <div style={lineStyle}>
-                    <span style={arrowTopStyle} />
-              </div>
-            </div>
-
+          {/* 2つ目の「―＼」 */}
+          <div
+            className={`detail-button__arrow detail-button__arrow--second ${
+              isAnimated ? "is-animated" : ""
+            }`}
+            // ★追記：2つ目のアニメーションが終わったらステートをリセットする
+            onAnimationEnd={() => setIsAnimated(false)}
+          >
+            <span className="detail-button__arrow-line" />
+            <span className="detail-button__arrow-slash" />
+          </div>
         </div>
+      </div>
     </Link>
   );
 }
