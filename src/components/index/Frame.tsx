@@ -9,7 +9,7 @@ export default function Frame({
 }: FrameProps) {
   return (
     <div className="flex justify-center">
-      <div className={`relative rounded-3xl border-2 border-white sm:rounded-2xl mx-5 p-13 sm:mx-10 shadow-lg mt-6 max-w-4xl ${className}`}>
+      <div className={`relative rounded-3xl border-2 border-white sm:rounded-2xl mx-5 p-10 sm:mx-10 shadow-lg mt-6 max-w-4xl ${className}`}>
         <CornerBolt position="tl" />
         <CornerBolt position="tr" />
         <CornerBolt position="bl" />
