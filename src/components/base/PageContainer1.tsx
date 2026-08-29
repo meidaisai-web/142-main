@@ -52,7 +52,7 @@ export default function PageContainer({
             color: "purple" as const,
             size: "small" as const,
             top: 100,
-            left: "5%" as const,
+            left: "6%" as const,
             right: undefined,
         },
         {
@@ -80,7 +80,7 @@ export default function PageContainer({
             color: "pink" as const,
             size: "small" as const,
             top: 1100,
-            left: "4%" as const,
+            left: "5%" as const,
             right: undefined,
         },
         {
@@ -95,7 +95,7 @@ export default function PageContainer({
     const desktopClouds = isDesktop
         ? [
             {
-                color: "purple" as const,
+                color: "green" as const,
                 size: "small" as const,
                 top: 180,
                 left: undefined,
@@ -107,6 +107,13 @@ export default function PageContainer({
                 top: 1000,
                 left: undefined,
                 right: "25%",
+            },
+            {
+                color: "pink" as const,
+                size: "small" as const,
+                top: 350,
+                left: "5%",
+                right: undefined,
             },
         ]
         : [];
