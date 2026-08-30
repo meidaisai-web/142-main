@@ -58,7 +58,7 @@ export default function Countdown({ }: CountdownProps) {
             <div className="absolute right-[20%] sm:right-[8%] md:right-20 lg:right-28 top-[110%] -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-[10%] w-[clamp(110px,28vw,150px)] lg:w-48 xl:w-57 pointer-events-auto">
               
               <Image 
-                src="/images/svg/Ellipse 106.svg" 
+                src="/images/svg/circle.svg" 
                 alt="Dayte" 
                 width={250} 
                 height={250} 
@@ -67,7 +67,7 @@ export default function Countdown({ }: CountdownProps) {
 
               <div className="absolute -top-[5%] left-[105%] sm:left-1/2 transform -translate-x-1/2 w-[90%]">
                 <Image 
-                  src="/images/svg/kaisai.svg" 
+                  src="/images/svg/kaisaimade.svg" 
                   alt="開催まで" 
                   width={160} 
                   height={50} 
@@ -81,22 +81,18 @@ export default function Countdown({ }: CountdownProps) {
                 </p>
               </div>
 
-              <div className="absolute -bottom-[5%] -right-[10%] w-[40%]">
+              <div className="absolute -bottom-[2%] -right-[20%] w-[40%]">
                 <Image 
-                  src="/images/svg/Ellipse 106.svg" 
+                  src="/images/svg/smallcircle.svg" 
                   alt="小円" 
                   width={100} 
                   height={100} 
                   className="w-full h-full relative top-[5%] left-[5%] lg:top-5 lg:left-5" 
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Image 
-                    src="/images/svg/nichi.svg" 
-                    alt="日" 
-                    width={40} 
-                    height={40} 
-                    className="w-[45%] h-full relative top-[5%] left-[5%] lg:top-5 lg:left-5"
-                  />
+                  <p className="text-white text-5xl sm:text-5xl lg:text-6xl font-bold relative top-[1%] left-[5%] lg:top-5 lg:left-5">
+                    日
+                  </p>
                 </div>
               </div>
 
