@@ -34,7 +34,7 @@ export default function Header() {
 
   const isHome = pathname === "/";
   return (
-    <header className={`w-full ${isHome ? "bg-accent-300" : "bg-header-gradient"} flex justify-between items-center px-5 fixed opacity-100 h-14`}
+    <header className={`w-full ${isHome ? "bg-accent-300" : "bg-header-gradient"} flex justify-between items-center px-5 fixed opacity-100 h-14 z-50`}
 >
       <Link href="/" className="absolute left-5">
         <Image
