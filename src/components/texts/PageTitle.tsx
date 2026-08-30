@@ -11,7 +11,7 @@ export default function PageTitle({ children, className = "" }: PageTitleProps) 
   const last = text.slice(-1);
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mt-12">
       <h1
         className={`text-3xl md:text-4xl font-bold text-center mt-8 sm:mt-10 md:mt-12 p-3 sm:p-4 md:p-6 pb-2 sm:pb-3 md:pb-4 leading-[1.8] ${className}`}
       >
