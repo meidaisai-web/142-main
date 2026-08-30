@@ -71,7 +71,7 @@ export default function Countdown({ }: CountdownProps) {
                   alt="開催まで" 
                   width={160} 
                   height={50} 
-                  className="w-full h-full relative top-0 lg:top-5"
+                  className="w-full h-full relative -top-3 sm:top-0 lg:top-2 md:right-10 drop-shadow-[0_6px_6px_rgba(0,0,0,0.2)]"
                 />
               </div>
               
