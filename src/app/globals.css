@@ -157,7 +157,7 @@
 */
 
 .detail-button__arrow--first.is-animated {
-  animation: detail-arrow-first 0.8s ease forwards;
+  animation: detail-arrow-first 0.4s ease forwards;
 }
 
 
@@ -181,7 +181,7 @@
 */
 
 .detail-button__arrow--second.is-animated {
-  animation: detail-arrow-second 0.8s ease 0.8s forwards;
+  animation: detail-arrow-second 0.5s ease 0.5s forwards;
 }
 
 
