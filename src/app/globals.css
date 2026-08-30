@@ -51,30 +51,170 @@
   }
 }
 
+/* =========================
+   詳しくはこちら
+   ========================= */
+
+/* --------------------------------
+   文字＋矢印の全体
+   -------------------------------- */
+
 .detail-button__viewport {
+  width: 150px;
+}
+
+
+/* --------------------------------
+   「―＼」が見える範囲
+   -------------------------------- */
+
+.detail-button__line-viewport {
+  position: relative;
+
+  width: 150px;
+  height: 14px;
+
   overflow: hidden;
-  width: 180px;
 }
 
-.detail-button__track {
-  display: flex;
-  width: max-content;
+
+/* --------------------------------
+   「―＼」1個分
+   -------------------------------- */
+
+/*
+  「―」と「＼」を
+  ひとまとまりとして扱う
+*/
+
+.detail-button__arrow {
+  position: absolute;
+
+  left: 0;
+  top: 6px;
+
+  width: 150px;
+  height: 1px;
 }
 
-.detail-button__item {
-  flex : 0 0 180px;
-  margin-right: 40px;
+
+/* --------------------------------
+   「―」部分
+   -------------------------------- */
+
+.detail-button__arrow-line {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 150px;
+  height: 1px;
+
+  background-color: #3E3D3F;
+
+  box-shadow: 0 4px 3px rgba(80, 80, 80, 0.35);
 }
 
-.detail-button:hover .detail-button__track {
-  animation: detail-button-marquee 3s linear infinite;
+
+/* --------------------------------
+   「＼」部分
+   -------------------------------- */
+
+.detail-button__arrow-slash {
+  position: absolute;
+
+  right: 0;
+  top: 0;
+
+  width: 13px;
+  height: 1px;
+
+  background-color: #3E3D3F;
+
+  transform: rotate(40deg);
+  transform-origin: right center;
+
+  box-shadow: 0 4px 3px rgba(80, 80, 80, 0.35);
 }
 
-@keyframes detail-button-marquee {
+
+/* =================================
+   1つ目の「―＼」
+   ================================= */
+
+/*
+  最初は初期位置にいる
+*/
+
+.detail-button__arrow--first {
+  transform: translateX(0);
+}
+
+
+/*
+  ホバーされたら右へ移動
+*/
+
+.detail-button__arrow--first.is-animated {
+  animation: detail-arrow-first 0.8s ease forwards;
+}
+
+
+/* =================================
+   2つ目の「―＼」
+   ================================= */
+
+/*
+  最初は、
+  「―＼」全体が左側に隠れている
+*/
+
+.detail-button__arrow--second {
+  transform: translateX(-150px);
+}
+
+
+/*
+  1つ目が消えたあと、
+  2つ目が右へ移動する
+*/
+
+.detail-button__arrow--second.is-animated {
+  animation: detail-arrow-second 0.8s ease 0.8s forwards;
+}
+
+
+/* =================================
+   1つ目のアニメーション
+   ================================= */
+
+@keyframes detail-arrow-first {
+
+  /* 最初 */
   from {
-    transform: translateX(-220px);
+    transform: translateX(0);
   }
 
+  /* 右へ完全に消える */
+  to {
+    transform: translateX(150px);
+  }
+}
+
+
+/* =================================
+   2つ目のアニメーション
+   ================================= */
+
+@keyframes detail-arrow-second {
+
+  /* 最初：左側に隠れている */
+  from {
+    transform: translateX(-150px);
+  }
+
+  /* 1つ目の初期位置まで移動 */
   to {
     transform: translateX(0);
   }
