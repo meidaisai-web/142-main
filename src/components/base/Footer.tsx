@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import BannerContainer from "./BannerContainer";
 import { usePathname } from "next/navigation";
-import { notoSerifJP } from "@/utils/fonts";
 
 // フッター全体を表示するコンポーネント
 export default function Footer() {
@@ -14,7 +13,7 @@ export default function Footer() {
 
 	return (
 		// フッター全体。中身が空だったので、下で定義済みの各パーツを組み立てて表示するようにした
-		<footer className={`w-full relative ${notoSerifJP.className}`}>
+		<footer className="w-full relative">
 			<FooterCloud /> {/* 上部の雲形の装飾（footer_cloud.svgをインラインSVGで描画） */}
 			<div className="relative z-10 w-full bg-[#FFFBFB] pt-4 pb-10 flex flex-col items-center">
 				<Catch /> {/* 明大祭ロゴ（キャッチコピー） */}
@@ -141,7 +140,7 @@ interface FooterLinkProps {
 // (footer)配下の各ページ（お問い合わせ・サイトマップ・プライバシーポリシー）へのリンクを表示するコンポーネント
 function FooterLink({ href, children }: FooterLinkProps) {
 	return (
-		<Link href={href} className={`text-xs sm:text-sm font-normal border-b-[1.5px] border-b-transparent hover:border-b-text duration-250 ${notoSerifJP.className}`}>
+		<Link href={href} className="text-xs sm:text-sm font-normal border-b-[1.5px] border-b-transparent hover:border-b-text duration-250">
 			{children}
 		</Link>
 	);
@@ -181,9 +180,9 @@ function FooterLinks() {
 function Copyright() {
 	return (
 		<div className="flex flex-col items-center mt-4">
-			<p className={`text-sm font-bold px-8 text-center ${notoSerifJP.className}`}>Created by:第142回明大祭実行委員会制作局web部門</p>
+			<p className="text-sm font-bold px-8 text-center">Created by:第142回明大祭実行委員会制作局web部門</p>
 			<div className="justify-center text-sm font-bold mt-3">
-				<p className={notoSerifJP.className}>©第142回明大祭実行委員会</p>
+				<p>©第142回明大祭実行委員会</p>
 			</div>
 		</div>
 	)
