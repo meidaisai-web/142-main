@@ -2,7 +2,7 @@
 import FloatingCloud from "./FloatingCloud";
 import { useRef, useState, useEffect } from "react";
 
-export default function PageContainer({
+export default function CloudPageContainer({
     children,
 }: {
     children: React.ReactNode;
@@ -149,7 +149,7 @@ export default function PageContainer({
             ))}
 
             {/* コンテンツ */}
-            <div className="relative z-10 px-18 sm:px-20 md:px-25 lg:px-40">
+            <div className="relative z-10 px-18 sm:px-20 md:px-25 lg:px-40 max-w-[1500px] mx-auto">
                 {children}
             </div>
         </div>
