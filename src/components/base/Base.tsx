@@ -1,5 +1,6 @@
-import { Suspense } from "react"; 
+import { Suspense } from "react";
 import Header from "../base/Header";
+import Footer from "../base/Footer";
 
 export default function Base({ children }: { children: React.ReactNode }) {
     return (
@@ -9,6 +10,7 @@ export default function Base({ children }: { children: React.ReactNode }) {
                 <main>
                     {children}
                 </main>
+                <Footer />
             </div>
         </Suspense>
     )
