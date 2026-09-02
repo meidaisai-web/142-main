@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 import IndexTitle from "@/components/texts/IndexTitle";
+import Button from "../buttons/Button";
+import Frame from "@/components/index/Frame";
 
 export default function AnnounceSection() {
   const announces = [
@@ -13,8 +15,10 @@ export default function AnnounceSection() {
   ];
 
   return (
-    <div className="pt-10 pb-10">
-      <div className="px-30">
+    <div className="mb-20">
+      <IndexTitle>来場者のみなさまへ</IndexTitle>
+      <Frame>
+      <div className="px-4">
         <div className="mx-auto w-full max-w-96 sm:max-w-3xl grid grid-cols-2 sm:grid-cols-3 gap-y-6 gap-x-3 sm:gap-y-8 mt-8 justify-around">
           {announces.map((item, index) => (
             <Item key={index} src={item.src} alt={item.alt}>
@@ -23,6 +27,8 @@ export default function AnnounceSection() {
           ))}
         </div>
       </div>
+      <Button href="/announce" className="mt-8">詳しく見る</Button>
+      </Frame>
     </div>
   );
 }
