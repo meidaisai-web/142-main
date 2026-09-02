@@ -50,23 +50,21 @@ const ToTop: React.FC = () => {
     }
 
     const style = isVisible ? activeStyle : normalStyle
-    const bottomClass = pathname === '/' ? 'bottom-8' : 'bottom-28 md:bottom-20';
+    const bottomClass = pathname === '/' ? 'bottom-14' : 'bottom-28 md:bottom-20';
 
     return (
         <div className="w-12 absolute cursor-pointer">
             <button
                 onClick={scrollToTop}
                 style={style}
-                className={`fixed flex flex-col items-center right-8 md:right-12 ${bottomClass} w-18 z-30`}>
+                className={`fixed flex flex-col items-center right-8 md:right-12 ${bottomClass} w-12 z-30`}>
                 <Image
                     className="w-3/4 object-contain"
-                    src="/images/svg/ToTop.svg"
+                    src="/images/svg/totop.svg"
                     alt="Topへ戻る"
                     width={50}
                     height={50}
                 />
-                {/* <p className={'w-full text-center font-bold text-xl leading-3'} style={textStrokeStyle}>TOP</p> */}
-                <p className={'w-full text-center font-bold text-xl leading-3'} style={{ textShadow: '1px 1px 0 #3571B8'}}>TOP</p>
             </button>
         </div>
     );
