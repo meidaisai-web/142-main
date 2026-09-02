@@ -6,7 +6,6 @@ import { List, ListItem } from '@/components/texts/List';
 import SmallTitle from '@/components/texts/SmallTitle';
 import Image from 'next/image'
 import PageTitle from '@/components/texts/PageTitle';
-
 export const metadata: Metadata = {
     title: "アクセス",
 };
