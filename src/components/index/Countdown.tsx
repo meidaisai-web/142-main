@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -51,7 +52,7 @@ export default function Countdown({ }: CountdownProps) {
                 alt="DayLocate"
                 width={500}
                 height={300}
-                className="w-[clamp(200px,45vw,340px)] md:w-[clamp(260px,55vw,700px)] h-auto"
+                className="w-[clamp(200px,45vw,340px)] md:w-[clamp(260px,55vw,700px)] max-w-[600px] h-auto"
               />
             </div>
             
@@ -76,12 +77,12 @@ export default function Countdown({ }: CountdownProps) {
               </div>
               
               <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-white text-6xl sm:text-7xl lg:text-8xl font-bold mt-[8%] lg:mt-15">
+                <p className="text-white text-8xl font-bold mt-[8%] lg:mt-15">
                   {left !== null ? left : ""}
                 </p>
               </div>
 
-              <div className="absolute -bottom-[2%] -right-[20%] w-[40%]">
+              <div className="absolute -bottom-[2%] -right-[20%] w-20">
                 <Image 
                   src="/images/svg/smallcircle.svg" 
                   alt="小円" 
