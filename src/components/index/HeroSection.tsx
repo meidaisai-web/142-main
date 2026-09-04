@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-
+import Link from "next/link";
+import { notoSerifJP } from "@/utils/fonts";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
@@ -10,19 +12,20 @@ export default function HeroSection() {
       <div className="absolute -z-10 w-screen h-screen overflow-hidden">
         {/* 微妙にはみ出て白い線になってしまうことがあったため、ヒーローセクションの高さより少し小さくした白背景を追加 */}
         <img
-          src="/images/svg/hero/newbackground.svg"
+          src="/images/svg/hero/background.jpg"
           alt="Background Image"
           width={500}
           height={500}
-          className="absolute hidden sm:block  w-full h-full object-fill"
+          className="hidden sm:block absolute !w-screen !h-auto object-fill"
         />
-        <Image
+         <img
           src="/images/svg/hero/background2.svg"
-          alt="Smartphone's background Image"
+          alt="Background Image"
           width={500}
           height={500}
-          className="absolute block sm:hidden w-full h-full object-fill"
+          className="block sm:hidden absolute !w-screen !h-auto object-fill"
         />
+        
 
         <Image
           src="/images/svg/hero/shadow.svg"
