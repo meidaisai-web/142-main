@@ -149,7 +149,7 @@ export default function CloudPageContainer({
             ))}
 
             {/* コンテンツ */}
-            <div className="relative z-10 px-10 sm:px-20 md:px-25 lg:px-40 max-w-320 mx-auto">
+            <div className="relative z-10 px-12 sm:px-20 md:px-25 lg:px-40 max-w-320 mx-auto">
                 {children}
             </div>
         </div>
