@@ -6,6 +6,7 @@ import { List, ListItem } from '@/components/texts/List';
 import SmallTitle from '@/components/texts/SmallTitle';
 import Image from 'next/image'
 import PageTitle from '@/components/texts/PageTitle';
+import Emphasis from '@/components/texts/Emphasis'
 
 export const metadata: Metadata = {
     title: "アクセス",
@@ -17,7 +18,7 @@ const page = () => {
             <PageTitle>アクセス</PageTitle>
             <PageContainer>
                 <Text moreTopPadding>
-                    第142回明大祭が開催される明治大学和泉キャンパスまでのアクセス方法です。
+                    第142回明大祭が開催される<Emphasis>明治大学和泉キャンパス</Emphasis>までのアクセス方法です。
                 </Text>
                 <Text moreTopPadding>
                     ご来場の際は公共交通機関のご利用をお願いいたします。
