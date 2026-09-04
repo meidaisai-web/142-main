@@ -12,13 +12,32 @@ const DRIFT_EASE = [0.25, 0.3, 0.5, 0.9] as const;
 const DRIFT_DURATION = 5.5;
 const DRIFT_DURATION_LG = 11.5;
 
+// シーケンス:
+//   1. ハート(loadinglogo)フェードイン ＋ その下にタイトル(TitleCatchcopy)を配置
+//   2. 心電図ライン(loadingline)を左→右に描画
+//   3. ハート＋ラインだけフェードアウト
+//   4. 下にあったタイトルが拡大しながら画面中央へ移動 → 少しキープ → フェードアウト
+//   5. 雲アニメ開始
 const LOGO_IN_DELAY = 0.3;
-const LINE_DELAY = 0.7;
+const TITLE_IN_DELAY = 0.55;
+const TITLE_IN_DURATION = 0.6;
+const LINE_DELAY = LOGO_IN_DELAY + 0.3; // 0.6
 const LINE_DURATION = 2.0;
-const LOGO_OUT_DELAY = 3.1; // ライン描画完了(≒3.0s)後にロゴ+ライン群をフェードアウト
-const CLOUD_START = 3.4; // ロゴのフェードアウトと重ねて開始（真っ白な間を作らない）
-const TOTAL_DURATION = 10000; // CLOUD_START + DRIFT_DURATION + overlay フェード + 余白
-const TOTAL_DURATION_LG = 16000; // lg は DRIFT_DURATION_LG が長いぶん延長
+
+const LOGO_OUT_DELAY = LINE_DELAY + LINE_DURATION + 0.4; // 3.0 描画完了後にハート＋ラインをフェードアウト
+const LOGO_OUT_DURATION = 0.7;
+
+const TITLE_MOVE_DELAY = LOGO_OUT_DELAY + 0.15; // 3.15 ハートのフェードアウトに重ねてタイトルが動き出す
+const TITLE_MOVE_DURATION = 1.15;
+const TITLE_END_SCALE = 1.5; // 中央へ動きながらこの倍率まで拡大（初期は等倍）
+const TITLE_HOLD = 0.7;
+const TITLE_OUT_DELAY = TITLE_MOVE_DELAY + TITLE_MOVE_DURATION + TITLE_HOLD; // 5.0
+const TITLE_OUT_DURATION = 0.6;
+const TITLE_ANIM_TOTAL = TITLE_OUT_DELAY + TITLE_OUT_DURATION; // 5.6（タイトルの opacity/y/scale 用の総尺）
+
+const CLOUD_START = TITLE_OUT_DELAY + 0.15; // タイトルのフェードアウトに重ねて雲を開始
+const TOTAL_DURATION = 12000; // CLOUD_START + DRIFT_DURATION + overlay フェード + 余白
+const TOTAL_DURATION_LG = 18000; // lg は DRIFT_DURATION_LG が長いぶん延長
 
 const SM_QUERY = "(min-width: 640px)";
 const LG_QUERY = "(min-width: 1024px)";
@@ -92,6 +111,12 @@ export default function Loading({ setLoading }: LoadingProps) {
     // スタート時の scale を大きめにして4枚で画面を確実に覆う。
     const startScale = tier === "lg" ? 1.6 : 2.2;
 
+    // ハートとタイトルの初期位置（画面中央からの px オフセット）。
+    // ハートを上に、タイトルを下に置いて「ロゴ＋キャッチコピー」の並びにする。
+    // タイトルは後で y:0（画面中央）へ移動する。
+    const heartStartY = tier === "lg" ? -96 : tier === "sm" ? -94 : -56;
+    const titleStartY = tier === "lg" ? 126 : tier === "sm" ? 120 : 74;
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setShow(false);
@@ -100,6 +125,19 @@ export default function Loading({ setLoading }: LoadingProps) {
 
         return () => clearTimeout(timer);
     }, [totalDuration, setLoading]);
+
+    // ローディング表示中はトップページをスクロールできないようにする
+    useEffect(() => {
+        if (!show) return;
+        const prevOverflow = document.body.style.overflow;
+        const prevOverscroll = document.body.style.overscrollBehavior;
+        document.body.style.overflow = "hidden";
+        document.body.style.overscrollBehavior = "none";
+        return () => {
+            document.body.style.overflow = prevOverflow;
+            document.body.style.overscrollBehavior = prevOverscroll;
+        };
+    }, [show]);
 
     if (!show) return null;
 
@@ -129,7 +167,7 @@ export default function Loading({ setLoading }: LoadingProps) {
                     key={cloud.src}
                     className={`absolute z-30  h-[75vmax] w-[120vmax] lg:h-[72vw] lg:w-[110vw] blur-[1px] ${cloud.position}`}
                     initial={{ ...start, opacity: 1, scale: startScale }}
-                    animate={{ ...cloud.animate, opacity: [1, 0.6, 0.12, 0], scale: [startScale, startScale * 0.56, 0.35, 0.2] }}
+                    animate={{ ...cloud.animate, opacity: [1, 0.7, 0.12, 0], scale: [startScale, startScale * 0.56, 0.35, 0.2] }}
                     transition={{
                         duration: driftDuration,
                         delay: CLOUD_START + cloud.delay,
@@ -157,56 +195,115 @@ export default function Loading({ setLoading }: LoadingProps) {
                 );
             })}
 
-            {/* ロゴ全体: 先に表示 → 心電図描画 → まとめてフェードアウト */}
+            {/* ハート＋心電図: 中央より少し上に配置。心電図描画後にこのグループだけフェードアウト */}
             <motion.div
-                className="relative z-40 flex h-[200px] w-[200px] sm:h-[350px] sm:w-[350px] lg:h-[300px] lg:w-[300px] items-center justify-center"
-                initial={{ opacity: 1 }}
-                animate={{ opacity: 0 }}
-                transition={{ duration: 0.6, delay: LOGO_OUT_DELAY }}
+                className="absolute inset-0 z-40 flex items-center justify-center"
+                initial={{ opacity: 1, y: heartStartY }}
+                animate={{ opacity: 0, y: heartStartY }}
+                transition={{ duration: LOGO_OUT_DURATION, delay: LOGO_OUT_DELAY }}
             >
+                <div className="relative flex h-[215px] w-[215px] sm:h-[370px] sm:w-[370px] lg:h-[315px] lg:w-[315px] items-center justify-center">
+                    {/* ハート本体 */}
+                    <motion.div
+                        className="absolute inset-0 z-10"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{
+                            duration: 0.7,
+                            delay: LOGO_IN_DELAY,
+                            ease: "easeOut",
+                        }}
+                    >
+                        <Image src="/images/svg/loadinglogo.svg" alt="Logo" fill />
+                    </motion.div>
 
-                {/* ロゴ本体 */}
-                <motion.div
-                    className="absolute inset-0 z-10"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                        duration: 0.7,
-                        delay: LOGO_IN_DELAY,
-                        ease: "easeOut",
-                    }}
-                >
-                    <Image
-                        src="/images/svg/loadinglogo.svg"
-                        alt="Logo"
-                        fill
-                    />
-                </motion.div>
+                    {/* 心電図の線: 左から右へワイプ表示。
+                        overflow-hidden なラッパーの width をアニメーションさせる
+                        （clipPath だと新規タブ読み込み時に一気に表示されることがあるため） */}
+                    <motion.div
+                        className="absolute left-0 top-0 z-20 h-full overflow-hidden"
+                        initial={{ width: "0%" }}
+                        animate={{ width: "100%" }}
+                        transition={{
+                            duration: LINE_DURATION,
+                            delay: LINE_DELAY,
+                            ease: "easeInOut",
+                        }}
+                    >
+                        {/* 内側はグループ幅で固定し、ラッパーが狭くても縮まないようにする */}
+                        <div className="absolute left-0 top-0 h-full w-[215px] sm:w-[370px] lg:w-[315px]">
+                            <Image src="/images/svg/loadingline.svg" alt="" fill />
+                        </div>
+                    </motion.div>
+                </div>
+            </motion.div>
 
-
-                {/* 心電図の線: 左から右へワイプ表示。
-                    overflow-hidden なラッパーの width をアニメーションさせる
-                    （clipPath だと新規タブ読み込み時に一気に表示されることがあるため） */}
-                <motion.div
-                    className="absolute left-0 top-0 z-20 h-full overflow-hidden"
-                    initial={{ width: "0%" }}
-                    animate={{ width: "100%" }}
-                    transition={{
-                        duration: LINE_DURATION,
-                        delay: LINE_DELAY,
+            {/* タイトル(キャッチコピー): 最初はハートの下(titleStartY)に等倍で配置。
+                ハートのフェードアウト後に拡大しながら画面中央(y:0)へ移動 → 少しキープ → フェードアウト。 */}
+            <motion.div
+                className="absolute inset-0 z-40 flex items-center justify-center"
+                initial={{ opacity: 0, y: titleStartY, scale: 1 }}
+                animate={{
+                    opacity: [0, 0, 1, 1, 0],
+                    y: [titleStartY, titleStartY, 0, 0],
+                    scale: [1, 1, TITLE_END_SCALE, TITLE_END_SCALE],
+                }}
+                transition={{
+                    opacity: {
+                        duration: TITLE_ANIM_TOTAL,
+                        times: [
+                            0,
+                            TITLE_IN_DELAY / TITLE_ANIM_TOTAL,
+                            (TITLE_IN_DELAY + TITLE_IN_DURATION) / TITLE_ANIM_TOTAL,
+                            TITLE_OUT_DELAY / TITLE_ANIM_TOTAL,
+                            1,
+                        ],
+                        ease: "linear",
+                    },
+                    y: {
+                        duration: TITLE_ANIM_TOTAL,
+                        times: [
+                            0,
+                            TITLE_MOVE_DELAY / TITLE_ANIM_TOTAL,
+                            (TITLE_MOVE_DELAY + TITLE_MOVE_DURATION) / TITLE_ANIM_TOTAL,
+                            1,
+                        ],
                         ease: "easeInOut",
-                    }}
-                >
-                    {/* 内側はグループ幅で固定し、ラッパーが狭くても縮まないようにする */}
-                    <div className="absolute left-0 top-0 h-full w-[200px] sm:w-[350px] lg:w-[300px]">
-                        <Image
-                            src="/images/svg/loadingline.svg"
-                            alt=""
-                            fill
-                        />
-                    </div>
-                </motion.div>
+                    },
+                    scale: {
+                        duration: TITLE_ANIM_TOTAL,
+                        times: [
+                            0,
+                            TITLE_MOVE_DELAY / TITLE_ANIM_TOTAL,
+                            (TITLE_MOVE_DELAY + TITLE_MOVE_DURATION) / TITLE_ANIM_TOTAL,
+                            1,
+                        ],
+                        ease: "easeInOut",
+                    },
+                }}
+            >
+                <Image
+                    src="/images/svg/TitleCatchcopy-primary.svg"
+                    alt=""
+                    width={4883}
+                    height={1167}
+                    priority
+                    className="h-auto w-[210px] sm:w-[340px] lg:w-[300px]"
+                />
+            </motion.div>
 
+            {/* 飛行機: 画面左外から右外へ横断 */}
+            <motion.div
+                className="absolute left-0 top-1/2 z-50"
+                initial={{ x: "-100px" }}
+                animate={{ x: "calc(100vw + 100px)" }}
+                transition={{
+                    duration: 2,
+                    delay: 3.5,
+                    ease: "linear",
+                }}
+            >
+                <Image src="/images/svg/airplane.svg" alt="" width={80} height={80} />
             </motion.div>
         </motion.div>
     );
