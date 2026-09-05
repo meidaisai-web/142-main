@@ -5,16 +5,19 @@ type ButtonProps = {
     children: ReactNode;
     href?: string;
     className?: string;
+    target?: string; 
 };
 
 export default function Button({
     children,
     href = "/",
+    target,
     className = "",
 }: ButtonProps) {
     return (
         <Link
             href={href}
+            target={target}
             className={`
                 flex items-center justify-center
                 gap-3

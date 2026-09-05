@@ -16,15 +16,15 @@ export default function TopIppan() {
       </div>
       <Text className="text-2xl mt-5 mb-10 sm:px-15">お題に沿った写真を募集中！</Text>
 
-    <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-10">
 
         <div className="sm:mr-5 flex flex-col items-center justify-center text-center">
           <Image src="/images/svg/form.svg" width={100} height={100} alt="フォーム" />
           <Text className="!text-center my-3">Googleフォームは</Text>
-          <Button href="/">こちら</Button>
+          <Button href="https://docs.google.com/forms/d/e/1FAIpQLSem4wZZRlwB0u4jZBZ6Pe-s73-R9t7Uxk-qRYOJqEoN15o97A/viewform" target="_blank">こちら</Button>
       </div>
 
-      <div className="w-full sm:w-0 h-0 sm:h-50 border-b-2 sm:border-b-0 sm:border-l-2 border-dashed border-white" />
+      <div className="w-full sm:w-0 h-0 sm:h-50 border-b-4 sm:border-b-0 sm:border-l-4 border-dashed border-white" />
 
       <div className="sm:ml-5 flex flex-col items-center justify-center text-center">
         <Image src="/images/svg/mushimegane.svg" width={100} height={100} alt="虫眼鏡" />
