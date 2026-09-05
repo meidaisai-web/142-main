@@ -5,7 +5,9 @@ type ButtonProps = {
     children: ReactNode;
     href?: string;
     className?: string;
-    target?: string; 
+    target?: string;
+    onClick?: () => void;
+    disabled?: boolean;
 };
 
 export default function Button({
@@ -13,11 +15,20 @@ export default function Button({
     href = "/",
     target,
     className = "",
+    onClick,
+    disabled = false,
 }: ButtonProps) {
     return (
         <Link
             href={href}
             target={target}
+            onClick={(e) => {
+                if (disabled) {
+                    e.preventDefault();
+                    return;
+                }
+                onClick?.();
+            }}
             className={`
                 flex items-center justify-center
                 gap-3
@@ -30,6 +41,7 @@ export default function Button({
                 font-light
                 transition-colors duration-100
                 hover:bg-accent
+                ${disabled ? "opacity-50 pointer-events-none" : ""}
                 ${className}
             `}
         >
