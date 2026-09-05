@@ -21,12 +21,12 @@ export default function Button({
                 w-[120px]
                 h-[40px]
                 rounded-full
-                bg-secondary
+                bg-accent
                 text-white
                 text-[24px]
                 font-light
                 transition-colors duration-100
-                hover:bg-accent
+                hover:bg-secondary
                 ${className}
             `}
         >
