@@ -21,14 +21,14 @@ export default function Page() {
                 </Text>
                 <Text>「写真を送るのはハードルが高い…」という人も大丈夫！お題の答えとなる場所の名前や説明文だけの応募もできます！こちらは該当のキャンパスに設置された投票ボックスからも投票が可能です！</Text>
                 <SmallTitle className="mt-15">お題</SmallTitle>
-                <Text>お題は3つご用意しています！</Text>
+                <Text className="my-3">お題は3つご用意しています！</Text>
                 <List mark="・">
                     <ListItem>Meiji-1グランプリ</ListItem>
-                    <Text>校内で撮影した写真に面白い一言を添えて応募していただきます！皆さんの面白い回答で明治大学を沸かせませんか？</Text>
+                    <Text  className="mb-5">校内で撮影した写真に面白い一言を添えて応募していただきます！皆さんの面白い回答で明治大学を沸かせませんか？</Text>
                     <ListItem>Be.Meiji</ListItem>
-                    <Text>明大生の日常を集めます！お昼休みの様子、サークルの様子などなんでも大歓迎です！</Text>
+                    <Text className="mb-5">明大生の日常を集めます！お昼休みの様子、サークルの様子などなんでも大歓迎です！</Text>
                     <ListItem>明治コレクション2026</ListItem>
-                    <Text>こちらでは明大生のリアルな服装を集めます！今日のあなたのコーデを教えてください！</Text>
+                    <Text className="mb-5">こちらでは明大生のリアルな服装を集めます！今日のあなたのコーデを教えてください！</Text>
                 </List>
                 <Text>あなたの日常は誰かにとって新しい発見かも。みなさんも明大祭をつくる一員になりませんか？</Text>
                 <Text>ぜひご応募・投票お待ちしています！</Text>
@@ -53,6 +53,7 @@ export default function Page() {
                     <ListItem>飲酒・喫煙など、明大祭での展示にふさわしくない内容を含むもの</ListItem>
                     <ListItem>その他、運営側が展示に適さないと判断したもの</ListItem>
                 </List>
+                <div className="h-40" />
             </CloudPageContainer>
         </div>
     )
