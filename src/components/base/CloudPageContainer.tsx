@@ -106,7 +106,7 @@ export default function CloudPageContainer({
                 size: "small" as const,
                 top: 1000,
                 left: undefined,
-                right: "25%",
+                right: "6%",
             },
             {
                 color: "pink" as const,
