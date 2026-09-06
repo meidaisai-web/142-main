@@ -16,11 +16,11 @@ export default function Page() {
                 <ContactView department="参加団体局" mail="142nd-sankadantai@meidaisai.jp" noPadding />
 
                 <SectionTitle className="mt-15">企業のみなさまのお問い合わせ</SectionTitle>
-                <ContactView department="渉外局" mail="kigyo@meidaisai.jp" noPadding />
+                <ContactView department="渉外局企業部門" mail="kigyo@meidaisai.jp" noPadding />
                 <SectionTitle>校友・父母のみなさまのお問い合わせ</SectionTitle>
-                <ContactView department="渉外局" mail="kouyu@meidaisai.jp" noPadding />
+                <ContactView department="渉外局校友部門" mail="kouyu@meidaisai.jp" noPadding />
                 <SectionTitle>界隈地域のみなさまのお問い合わせ</SectionTitle>
-                <ContactView department="渉外局" mail="kaiwai@meidaisai.jp" noPadding />
+                <ContactView department="渉外局界隈部門" mail="kaiwai@meidaisai.jp" noPadding />
 
                 <SectionTitle className="mt-15">メディアのみなさまのお問い合わせ</SectionTitle>
                 <ContactView department="広報局" mail="142nd-kouhou@meidaisai.jp" noPadding />

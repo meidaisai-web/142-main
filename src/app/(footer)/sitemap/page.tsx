@@ -1,4 +1,4 @@
-import PageContainer from "@/components/base/PageContainer";
+import CloudPageContainer from "@/components/base/CloudPageContainer";
 import TransitionLink from "@/components/buttons/TransitionLink";
 import PageTitle from "@/components/texts/PageTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
@@ -7,8 +7,8 @@ import SmallTitle from "@/components/texts/SmallTitle";
 export default function SitemapPage() {
 	return (
 		<>
+		<CloudPageContainer>
 			<PageTitle>サイトマップ</PageTitle>
-			<PageContainer>
 				<SmallTitle className="mt-15">ご来場のみなさまへ</SmallTitle>
 				<div className="flex flex-wrap gap-4 mt-5 mb-15">
 					<TransitionLink href="/about">明大祭とは</TransitionLink>
@@ -31,10 +31,19 @@ export default function SitemapPage() {
 
 				<SmallTitle>実行委員企画</SmallTitle>
 				<div className="flex flex-wrap gap-4 mt-5 mb-15">
-					<TransitionLink href="/ippan">一般明大生向け本祭前企画</TransitionLink>
+					<TransitionLink href="/ippan">明大生のリアルを大募集！「NO iMeiji, NO LIFE？」</TransitionLink>
 				</div>
 
-			</PageContainer>
+				<SmallTitle>明大祭に関わってくださるみなさまへ</SmallTitle>
+				<div className="flex flex-wrap gap-4">
+					<TransitionLink href="/stakeholders/company">企業のみなさまへ</TransitionLink>
+					<TransitionLink href="/stakeholders/area">界隈地域のみなさまへ</TransitionLink>
+					<TransitionLink href="/stakeholders/alumni">校友のみなさまへ</TransitionLink>
+					<TransitionLink href="/stakeholders/media">メディアのみなさまへ</TransitionLink>
+					<TransitionLink href="/stakeholders/accounting">最終決算報告</TransitionLink>
+				</div>
+				<div className="h-20" />
+			</CloudPageContainer>
 
 		</>
 	);
