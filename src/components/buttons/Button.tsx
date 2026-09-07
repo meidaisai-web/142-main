@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 type ButtonProps = {
     children: ReactNode;
@@ -31,27 +32,23 @@ export default function Button({
             }}
             className={`
                 flex items-center justify-center
-                gap-3
-                w-[90px]
-                h-[30px]
+                gap-1
+                px-5
+                py-1
                 rounded-full
                 bg-secondary
                 text-white
-                text-[20px]
-                font-light
                 transition-colors duration-100
                 hover:bg-accent
                 ${disabled ? "opacity-50 pointer-events-none" : ""}
                 ${className}
             `}
         >
-            <span className="whitespace-nowrap text-[16px]">
+            <span className="whitespace-nowrap text-sm font-bold">
                 {children}
             </span>
 
-            <span className="shrink-0 text-[16px] font-thin leading-none">
-                ＞
-            </span>
+            <Image src="/images/svg/arrow-white.svg" width={20} height={20} alt="矢印" className="w-3 h-3" />
         </Link>
     );
 }
