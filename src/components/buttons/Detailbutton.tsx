@@ -2,82 +2,149 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 
-type DetailbuttonProps = {
+type DetailButtonProps = {
   href?: string;
   className?: string;
   children?: ReactNode;
 };
 
-export default function Detailbutton({
-  href = "/detail",
+export default function DetailButton({
+  href,
   className = "",
-  children = "詳しくはこちら",
-}: DetailbuttonProps) {
-
+  children,
+}: DetailButtonProps) {
   const [isAnimated, setIsAnimated] = useState(false);
-
-  const containerStyle: CSSProperties = {
-    display: "block",
-    width: "150px",
-    maxWidth: "100%",
-    margin: "30px auto",
-    marginTop: "20px",
-    marginBottom: "30px",
-    textDecoration: "none",
-    color: "#3E3D3F",
-    transform: "translateX(220px)",
-  };
-
-  const textStyle: CSSProperties = {
-    display: "block",
-    textAlign: "center",
-    fontSize: "15px",
-    fontWeight: 500,
-    letterSpacing: "0.04em",
-    lineHeight: 1.2,
-    color: "#3E3D3F",
-    textShadow: "0px 4px 3px rgba(80, 80, 80, 0.35)",
-    marginBottom: "1px",
-  };
+  const [animationKey, setAnimationKey] = useState(0);
 
   return (
     <Link
-      href={href}
-      className={`${className} detail-button`}
-      style={containerStyle}
-      onMouseEnter={() => {
-        // すでにアニメーション中ではない場合のみ実行
-        if (!isAnimated) setIsAnimated(true);
-      }}
+      href={href ?? "#"}
+      className={`${className} inline-block`}
     >
-      <div className="detail-button__viewport">
-        {/* 文字：最初から最後まで動かない */}
-        <span style={textStyle}>{children}</span>
+      <div 
+        className="w-[150px]"
+        onMouseEnter={() => {
+          setIsAnimated(false);
+        
+          setAnimationKey((prev) => prev + 1);
 
-        {/* 「―＼」が動く範囲 */}
-        <div className="detail-button__line-viewport">
-          {/* 1つ目の「―＼」 */}
+          requestAnimationFrame(() => {
+            setIsAnimated(true);
+          });
+        }}
+      >
+        
+        <span 
+            className="
+                block
+                text-center
+                text-[15px]
+                font-medium
+                tracking-[0.04em]
+                leading-[1.2]
+                text-text
+                [text-shadow:0px_4px_3px_rgba(80,80,80,0.35)]
+                mb-[1px]
+            "
+        >
+            {children}
+        </span>
+
+        <div 
+          key={animationKey}
+          className="relative w-[150px] h-[14px] overflow-hidden"
+        >
+
           <div
-            className={`detail-button__arrow detail-button__arrow--first ${
-              isAnimated ? "is-animated" : ""
-            }`}
-          >
-            <span className="detail-button__arrow-line" />
-            <span className="detail-button__arrow-slash" />
+              className={`
+                absolute
+                left-0
+                top-[6px]
+                w-[150px]
+                h-[1px]
+                transition-transform
+                duration-[800ms]
+                ease-in-out
+                ${
+                  isAnimated
+                    ? "translate-x-[150px]"
+                    : "translate-x-0"
+                }
+              `}
+            >
+              <span 
+                className="
+                  absolute
+                  left-0
+                  top-0
+                  w-[150px]
+                  h-[1px]
+                  bg-text
+                  shadow-[0px_4px_3px_rgba(80,80,80,0.35)]
+                "
+            />
+
+            <span 
+              className="
+                absolute
+                right-0
+                top-0
+                w-[13px]
+                h-[1px]
+                bg-text
+                rotate-[40deg]
+                origin-right
+                shadow-[0px_4px_3px_rgba(80,80,80,0.35)]
+              "
+            />
           </div>
 
-          {/* 2つ目の「―＼」 */}
           <div
-            className={`detail-button__arrow detail-button__arrow--second ${
-              isAnimated ? "is-animated" : ""
-            }`}
-            // ★追記：2つ目のアニメーションが終わったらステートをリセットする
-            onAnimationEnd={() => setIsAnimated(false)}
+            className={`
+              absolute 
+              left-0
+              top-[6px]
+              w-[150px] 
+              h-[1px]
+              transition-transform
+              duration-[800ms]
+              delay-[800ms]
+              ease-in-out
+              ${
+                isAnimated
+                  ? "translate-x-0"
+                  : "translate-x-[-150px]"
+              }
+            `}
+          
           >
-            <span className="detail-button__arrow-line" />
-            <span className="detail-button__arrow-slash" />
+            <span 
+              className="
+                absolute
+                left-0
+                top-0
+                w-[150px]
+                h-[1px]
+                bg-text
+                shadow-[0px_4px_3px_rgba(80,80,80,0.35)]
+              "
+            />
+
+            <span 
+              className="
+                absolute
+                right-0
+                top-0
+                w-[13px]
+                h-[1px]
+                bg-text
+                rotate-[40deg]
+                origin-right
+                shadow-[0px_4px_3px_rgba(80,80,80,0.35)]
+              "
+            />
           </div>
         </div>
       </div>
