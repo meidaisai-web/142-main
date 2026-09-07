@@ -21,11 +21,11 @@ export default function SitemapPage() {
 
 				<SmallTitle>明大祭に関わってくださるみなさまへ</SmallTitle>
 				<div className="flex flex-wrap gap-4">
-					<TransitionLink href="/company">企業のみなさまへ</TransitionLink>
-					<TransitionLink href="/area">界隈地域のみなさまへ</TransitionLink>
-					<TransitionLink href="/alumni">校友のみなさまへ</TransitionLink>
-					<TransitionLink href="/media">メディアのみなさまへ</TransitionLink>
-					<TransitionLink href="/accounting">最終決算報告</TransitionLink>
+					<TransitionLink href="/stakeholders/company">企業のみなさまへ</TransitionLink>
+					<TransitionLink href="/stakeholders/area">界隈地域のみなさまへ</TransitionLink>
+					<TransitionLink href="/stakeholders/alumni">校友のみなさまへ</TransitionLink>
+					<TransitionLink href="/stakeholders/media">メディアのみなさまへ</TransitionLink>
+					<TransitionLink href="/stakeholders/accounting">最終決算報告</TransitionLink>
 				</div>
 
 				<SmallTitle>明大祭とは</SmallTitle>

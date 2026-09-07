@@ -11,9 +11,9 @@ export default function PageTitle({ children, className = "" }: PageTitleProps) 
   const last = text.slice(-1);
 
   return (
-    <div className="flex justify-center mt-12">
+    <div className="flex justify-center mt-28">
       <h1
-        className={`text-3xl md:text-4xl font-bold text-center mt-8 sm:mt-10 md:mt-12 p-3 sm:p-4 md:p-6 pb-2 sm:pb-3 md:pb-4 leading-[1.8] ${className}`}
+        className={`text-3xl md:text-4xl font-bold text-center p-3 sm:p-4 md:p-6 pb-2 sm:pb-3 md:pb-4 leading-[1.8] ${className}`}
       >
         <span className="box-decoration-clone bg-repeat-x bg-bottom bg-[length:16px_2px] sm:bg-[length:20px_2px] md:bg-[length:24px_3px] bg-[linear-gradient(to_right,var(--color-secondary-700)_10px,transparent_0)] pb-1 pl-4 sm:pl-5 md:pl-7">
           {rest}

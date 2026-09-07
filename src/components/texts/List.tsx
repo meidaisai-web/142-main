@@ -31,7 +31,7 @@ interface ListItemProps {
     children: ReactNode;
 }
 export function ListItem({ children, className }: ListItemProps) {
-    return <div className={className}>{children}</div>;
+    return <div className={`font-semibold ${className}`}>{children}</div>;
 };
 
 interface ListTextProps {
@@ -40,7 +40,7 @@ interface ListTextProps {
 }
 
 export function ListText({ children, className }: ListTextProps) {
-    return <div className={className}>{children}</div>;
+    return <div className={`font-semibold ${className}`}>{children}</div>;
 }
 
 // List コンポーネント
