@@ -41,7 +41,7 @@ function page() {
         <Text>来年度は変更となる可能性がございます。予めご了承ください。</Text>
         <Text>来年度のご協賛をご検討いただける場合は、参考までに本年度使用した資料を送付いたします。</Text>
         <Text>また、上記以外の形態でのご協賛につきましても検討いたしますので、お気軽に下記のお問い合わせ先までご連絡ください。</Text>
-        <ContactView department="第142回明大祭実行委員会 渉外局 企業部門" showAddress showPhone mail="kigyo@meidaisai.jp" />
+        <ContactView department="渉外局 企業部門" showAddress showPhone mail="kigyo@meidaisai.jp" />
       </CloudPageContainer>
     </div>
   )
