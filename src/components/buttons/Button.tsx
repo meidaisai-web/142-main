@@ -32,12 +32,12 @@ export default function Button({
             className={`
                 flex items-center justify-center
                 gap-3
-                w-[120px]
-                h-[40px]
+                w-[90px]
+                h-[30px]
                 rounded-full
                 bg-secondary
                 text-white
-                text-[24px]
+                text-[20px]
                 font-light
                 transition-colors duration-100
                 hover:bg-accent
@@ -45,11 +45,11 @@ export default function Button({
                 ${className}
             `}
         >
-            <span className="whitespace-nowrap text-[20px]">
+            <span className="whitespace-nowrap text-[16px]">
                 {children}
             </span>
 
-            <span className="shrink-0 text-[20px] font-thin leading-none">
+            <span className="shrink-0 text-[16px] font-thin leading-none">
                 ＞
             </span>
         </Link>
