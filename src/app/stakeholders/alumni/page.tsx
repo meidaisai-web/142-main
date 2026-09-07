@@ -3,6 +3,7 @@ import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
 import Emphasis from "@/components/texts/Emphasis"
+import ContactView from "@/components/texts/ContactView"
 
 function page() {
     return (
@@ -22,6 +23,7 @@ function page() {
                 <Text>昨年度は、ミニゲームや塗り絵、カルタを通して校友のみなさまと明大生が交流を深めることができました。今年度は、校友のみなさまに加えて父母のみなさまにも楽しんでいただけるよう、昨年度以上に充実した企画をご用意しております。</Text>
                 <Text>会場は<Emphasis>第一校舎316・317教室</Emphasis>を予定しております。お時間に余裕がございましたら、ぜひお気軽にお越しください。</Text>
                 <Text>明大祭実行委員会一同、心よりお待ちしております。</Text>
+                <ContactView department="第142回明大祭実行委員会 渉外局 企業部門" showAddress showPhone mail="kigyo@meidaisai.jp"/>
             </CloudPageContainer>
         </div>
     )
