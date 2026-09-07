@@ -14,7 +14,7 @@ export default function SectionTitle({
         <div className={`relative items-center justify-center w-fit mx-auto mt-10 mb-8 px-8 py-5 ${className ?? ""}`}>
           {/* 左上の飾り */}
           <Image
-            src="/images/svg/section-blue.svg"
+            src="/images/svg/Section-blue.svg"
             alt="SectionTitle-blue"
             width={55}
             height={55}
@@ -28,7 +28,7 @@ export default function SectionTitle({
 
             {/* 右下の飾り */}
             <Image
-                src="/images/svg/section-pink.svg"
+                src="/images/svg/Section-pink.svg"
                 alt="SectionTitle-pink"
                 width={55}
                 height={55}
