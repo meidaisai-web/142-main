@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { animate, motion, useMotionTemplate, useMotionValue, useMotionValueEvent } from "framer-motion";
 import Image from "next/image";
 
 interface LoadingProps {
@@ -21,7 +21,7 @@ const DRIFT_DURATION_LG = 11.5;
 const LOGO_IN_DELAY = 0.3;
 const TITLE_IN_DELAY = 0.55;
 const TITLE_IN_DURATION = 0.6;
-const LINE_DELAY = LOGO_IN_DELAY + 0.3; // 0.6
+const LINE_DELAY = LOGO_IN_DELAY + 0.2; // 0.5
 const LINE_DURATION = 2.0;
 
 const LOGO_OUT_DELAY = LINE_DELAY + LINE_DURATION + 0.4; // 3.0 描画完了後にハート＋ラインをフェードアウト
@@ -38,6 +38,20 @@ const TITLE_ANIM_TOTAL = TITLE_OUT_DELAY + TITLE_OUT_DURATION; // 5.6（タイ�
 const CLOUD_START = TITLE_OUT_DELAY + 0.15; // タイトルのフェードアウトに重ねて雲を開始
 const TOTAL_DURATION = 12000; // CLOUD_START + DRIFT_DURATION + overlay フェード + 余白
 const TOTAL_DURATION_LG = 18000; // lg は DRIFT_DURATION_LG が長いぶん延長
+
+// 飛行機: 画面左外から右外へ横断。タイトルが画面中央付近に来ているタイミングで通過する。
+const AIRPLANE_DELAY = 3.5;
+// 画面幅によらず一定速度（px/秒）で飛ぶ。横断時間 = 移動距離 / この速度。
+const AIRPLANE_SPEED = 480;
+const AIRPLANE_DURATION_MIN = 2.4; // 狭い画面（スマホ）で速すぎないように下限
+const AIRPLANE_DURATION_MAX = 5; // 極端に広い画面で遅すぎ・全体尺オーバーしないように上限
+const AIRPLANE_SIZE = 140;
+const AIRPLANE_OFFSCREEN = 160; // 画面外に置くマージン（開始 -160px / 終了 100vw+160px）
+// 飛行機ボックス左端から見た「先端」の x 位置。ノーズが画像右寄りにある前提。
+// 文字が消えるラインをこの先端に合わせる。ズレる場合はここを調整。
+const AIRPLANE_TIP_OFFSET = AIRPLANE_SIZE * 0.9;
+// 文字が消える切り口のぼかし幅(px)。大きいほどふんわり溶けるように消える。
+const TITLE_WIPE_FEATHER = 24;
 
 const SM_QUERY = "(min-width: 640px)";
 const LG_QUERY = "(min-width: 1024px)";
@@ -114,8 +128,8 @@ export default function Loading({ setLoading }: LoadingProps) {
     // ハートとタイトルの初期位置（画面中央からの px オフセット）。
     // ハートを上に、タイトルを下に置いて「ロゴ＋キャッチコピー」の並びにする。
     // タイトルは後で y:0（画面中央）へ移動する。
-    const heartStartY = tier === "lg" ? -96 : tier === "sm" ? -94 : -56;
-    const titleStartY = tier === "lg" ? 126 : tier === "sm" ? 120 : 74;
+    const heartStartY = tier === "lg" ? -96 : tier === "sm" ? -106 : -56;
+    const titleStartY = tier === "lg" ? 126 : tier === "sm" ? 138 : 74;
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -138,6 +152,45 @@ export default function Loading({ setLoading }: LoadingProps) {
             document.body.style.overscrollBehavior = prevOverscroll;
         };
     }, [show]);
+
+    // 飛行機の進行度(0→1)。飛行機の x とタイトルのワイプを同じ値から駆動して、
+    // 「文字が消えるライン＝飛行機の先端」を常に一致させる。
+    const titleRef = useRef<HTMLDivElement>(null);
+    const planeProgress = useMotionValue(0); // 0: 画面左外 / 1: 画面右外
+    const titleClipLeft = useMotionValue(0); // 飛行機先端のタイトル幅に対する位置(%)
+    // 先端より後ろ(左)を feather 幅かけて transparent へフェード。先端の手前(右)は crisp なまま。
+    const titleMask = useMotionTemplate`linear-gradient(90deg, transparent, transparent calc(${titleClipLeft}% - ${TITLE_WIPE_FEATHER}px), #000 ${titleClipLeft}%, #000 100%)`;
+    // 飛行機ボックス左端の x（clip 計算の planeBoxLeft と同じ式）を CSS calc で表現
+    const planeX = useMotionTemplate`calc(${planeProgress} * (100vw + ${AIRPLANE_OFFSCREEN * 2}px) - ${AIRPLANE_OFFSCREEN}px)`;
+
+    useEffect(() => {
+        // 移動距離（画面幅＋左右マージン）に比例した時間にして、速度を画面幅によらず一定にする
+        const distance = window.innerWidth + AIRPLANE_OFFSCREEN * 2;
+        const duration = Math.min(
+            AIRPLANE_DURATION_MAX,
+            Math.max(AIRPLANE_DURATION_MIN, distance / AIRPLANE_SPEED),
+        );
+        const controls = animate(planeProgress, 1, {
+            duration,
+            delay: AIRPLANE_DELAY,
+            ease: "linear",
+        });
+        return () => controls.stop();
+    }, [planeProgress]);
+
+    useMotionValueEvent(planeProgress, "change", (p) => {
+        const el = titleRef.current;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.width === 0) return;
+        // 飛行機ボックス左端の画面 x（motion 側の initial:-OFFSCREEN → animate:100vw+OFFSCREEN と同じ式）
+        const travel = window.innerWidth + AIRPLANE_OFFSCREEN * 2;
+        const planeBoxLeft = -AIRPLANE_OFFSCREEN + p * travel;
+        const tipX = planeBoxLeft + AIRPLANE_TIP_OFFSET;
+        const pct = ((tipX - rect.left) / rect.width) * 100;
+        // 110 まで許容して feather 分も画面から抜けきるようにする
+        titleClipLeft.set(Math.min(110, Math.max(0, pct)));
+    });
 
     if (!show) return null;
 
@@ -282,28 +335,28 @@ export default function Loading({ setLoading }: LoadingProps) {
                     },
                 }}
             >
-                <Image
-                    src="/images/svg/TitleCatchcopy-primary.svg"
-                    alt=""
-                    width={4883}
-                    height={1167}
-                    priority
-                    className="h-auto w-[210px] sm:w-[340px] lg:w-[300px]"
-                />
+                {/* 飛行機の先端が通過した位置から左へ、feather 幅かけて溶けるように消える（planeProgress 駆動） */}
+                <motion.div
+                    ref={titleRef}
+                    style={{ maskImage: titleMask, WebkitMaskImage: titleMask }}
+                >
+                    <Image
+                        src="/images/svg/TitleCatchcopy-primary.svg"
+                        alt=""
+                        width={4883}
+                        height={1167}
+                        priority
+                        className="h-auto w-[210px] sm:w-[340px] lg:w-[300px]"
+                    />
+                </motion.div>
             </motion.div>
 
-            {/* 飛行機: 画面左外から右外へ横断 */}
+            {/* 飛行機: 画面左外から右外へ横断（x はタイトルのワイプと同じ planeProgress 駆動） */}
             <motion.div
                 className="absolute left-0 top-1/2 z-50"
-                initial={{ x: "-100px" }}
-                animate={{ x: "calc(100vw + 100px)" }}
-                transition={{
-                    duration: 2,
-                    delay: 3.5,
-                    ease: "linear",
-                }}
+                style={{ x: planeX, y: "-50%" }}
             >
-                <Image src="/images/svg/airplane.svg" alt="" width={80} height={80} />
+                <Image src="/images/svg/airplane.svg" alt="" width={AIRPLANE_SIZE} height={AIRPLANE_SIZE} />
             </motion.div>
         </motion.div>
     );
