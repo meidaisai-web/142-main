@@ -1,4 +1,5 @@
 import CloudPageContainer from "@/components/base/CloudPageContainer"
+import ContactView from "@/components/texts/ContactView"
 import { List, ListItem } from "@/components/texts/List"
 import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
@@ -25,21 +26,22 @@ function page() {
         <Text>いただいたご協賛金は、パンフレット制作費やステージ運営費など、明大祭の更なる充実のために活用させていただいております。</Text>
         <Text>我々明大祭実行委員会一同、明大祭の成功と更なる発展を目指してまいりますので、ご理解ご協力を賜りますよう、よろしくお願い申し上げます。</Text>
         <SectionTitle>ご協賛方法</SectionTitle>
-        <Text>第141回明大祭では、以下の６つのご協賛方法を設けておりました。</Text>
+        <Text>第142回明大祭では、以下の６つのご協賛方法を設けておりました。</Text>
         <List numbered className="mt-5">
-            <ListItem>第141回明大祭公式パンフレットへの広告の掲載</ListItem>
-            <ListItem>第141回明大祭公式サイトへの広告バナーの掲載</ListItem>
+            <ListItem>第142回明大祭公式パンフレットへの広告の掲載</ListItem>
+            <ListItem>第142回明大祭公式サイトへの広告バナーの掲載</ListItem>
             <ListItem>当日配布される手提げ袋の制作および広告の掲載</ListItem>
             <ListItem>明大祭当日のブースの設置</ListItem>
             <ListItem>メインステージに設置される大型ビジョンでの広告の放映</ListItem>
             <ListItem>明大祭当日の企画における来場者への物品提供</ListItem>
         </List>
         <List mark="※">
-            <ListItem>以上の協賛方法は第141回明大祭でご案内させていただいたものです。</ListItem>
+            <ListItem>以上の協賛方法は第142回明大祭でご案内させていただいたものです。</ListItem>
         </List>
         <Text>来年度は変更となる可能性がございます。予めご了承ください。</Text>
         <Text>来年度のご協賛をご検討いただける場合は、参考までに本年度使用した資料を送付いたします。</Text>
         <Text>また、上記以外の形態でのご協賛につきましても検討いたしますので、お気軽に下記のお問い合わせ先までご連絡ください。</Text>
+        <ContactView department="第142回明大祭実行委員会 渉外局 企業部門" showAddress showPhone mail="kigyo@meidaisai.jp" />
       </CloudPageContainer>
     </div>
   )
