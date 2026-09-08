@@ -7,7 +7,7 @@ type SmallTitleProps = {
 
 export default function SmallTitle({ className, children }: SmallTitleProps) {
     return (
-        <div className={`flex flex-row ${className ?? ""}`}>
+        <div className={`flex flex-row mt-12 ${className ?? ""}`}>
             <Image
                 src="/images/svg/titles/smallTitle.svg"
                 alt=""
