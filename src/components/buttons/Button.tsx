@@ -33,8 +33,8 @@ export default function Button({
             className={`
                 flex items-center justify-center
                 gap-1
-                px-5
-                py-1
+                px-6
+                py-2
                 rounded-full
                 bg-secondary
                 text-white
@@ -48,7 +48,7 @@ export default function Button({
                 {children}
             </span>
 
-            <Image src="/images/svg/arrow-white.svg" width={20} height={20} alt="矢印" className="w-3 h-3" />
+            <Image src="/images/svg/arrow-white.svg" width={20} height={20} alt="矢印" className="w-3 h-3 select-none" />
         </Link>
     );
 }
