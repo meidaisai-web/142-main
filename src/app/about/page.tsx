@@ -2,6 +2,7 @@ import CloudPageContainer from '@/components/base/CloudPageContainer';
 import SectionTitle from '@/components/texts/SectionTitle';
 import Text from '@/components/texts/Text';
 import ImageText from '@/components/texts/ImageText';
+import Movie from '@/components/movie';
 
 export default function about() {
     return (
@@ -23,9 +24,11 @@ export default function about() {
              <br />そして、明大祭は学生だけでは完成しません。会場に響く拍手や歓声、交わされる笑顔、その一つひとつが学生の力となり、祭をより豊かなものへと育てていきます。来場者のみなさまもまた、第142回明大祭をともに創り上げる大切な存在です。この3日間を学生と共に楽しみ、忘れられない時間を共有していただければ嬉しく思います。
              <br />この舞台を実現できたのは、地域のみなさま、応援してくださる企業・校友のみなさま、大学関係者のみなさま、そして日頃より温かく支えてくださる保護者のみなさまをはじめとした、多くの方々のお力添えがあったからこそです。明大生ならびに第142回明大祭実行委員会を代表し、心より御礼申し上げます。
              <br />この明大祭が、学生たちの情熱や可能性を感じていただける3日間となれば幸いです。どうぞ第142回明大祭を存分にお楽しみください。
-            </ImageText>
-            
+            </ImageText>          
             <Text className="text-right">第142回明大祭実行委員会<br />委員長  小野 のどか</Text>
+
+            <SectionTitle>昨年の明大祭の様子</SectionTitle>
+            <Movie href="https://www.youtube.com/embed/S8lkX1BaTd8?si=pHB5c2wYhpuyZGbR" />
          </CloudPageContainer>
          <div className="h-20" />
         </div>
