@@ -40,7 +40,6 @@ export default function SitemapPage() {
 					<TransitionLink href="/stakeholders/area">界隈地域のみなさまへ</TransitionLink>
 					<TransitionLink href="/stakeholders/alumni">校友のみなさまへ</TransitionLink>
 					<TransitionLink href="/stakeholders/media">メディアのみなさまへ</TransitionLink>
-					<TransitionLink href="/stakeholders/accounting">最終決算報告</TransitionLink>
 				</div>
 				<div className="h-20" />
 			</CloudPageContainer>
