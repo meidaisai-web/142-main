@@ -13,6 +13,9 @@ export default function DottedLine() {
     const [verticalDotCount, setVerticalDotCount] = useState(0);
     const [upperHandedOff, setUpperHandedOff] = useState(false);
 
+    const horizontalFinishedRef = useRef(false);
+    const verticalFinishedRef = useRef(false);
+
     useEffect(() => {
         const updateDotCount = () => {
             const dotWidth = DOT_SIZE;
@@ -68,61 +71,109 @@ export default function DottedLine() {
         return () => observer.disconnect();
     }, []);
 
-    // 点線の先頭（飛行機雲の先端）に飛行機が来るよう、線の伸長と同じ時間で追従させる
     const horizontalLineLength =
         horizontalDotCount > 0
-            ? horizontalDotCount * DOT_SIZE + (horizontalDotCount - 1) * GAP
+            ? horizontalDotCount * DOT_SIZE +
+              (horizontalDotCount - 1) * GAP
             : 0;
+
     const verticalLineLength =
         verticalDotCount > 0
-            ? verticalDotCount * DOT_SIZE + (verticalDotCount - 1) * GAP
+            ? verticalDotCount * DOT_SIZE +
+              (verticalDotCount - 1) * GAP
             : 0;
 
     const horizontalDuration =
-        horizontalDotCount > 0 ? (horizontalDotCount - 1) * 100 + 200 : 0;
+        horizontalDotCount > 0
+            ? horizontalDotCount * 100
+            : 0;
+
     const verticalDuration =
-        verticalDotCount > 0 ? (verticalDotCount - 1) * 100 + 200 : 0;
+        verticalDotCount > 0
+            ? (verticalDotCount - 1) * 100 + 200
+            : 0;
+
     const verticalDelay = horizontalDotCount * 100;
 
     type Checkpoint = { t: number; x: number };
 
-    const buildCheckpoints = (dotCount: number): Checkpoint[] => {
+    const buildHorizontalCheckpoints = (
+        dotCount: number,
+        lineLength: number
+    ): Checkpoint[] => {
         const checkpoints: Checkpoint[] = [{ t: 0, x: 0 }];
-        for (let i = 0; i < dotCount; i++) {
+
+        for (let i = 1; i < dotCount; i++) {
             checkpoints.push({
-                t: i * 100 + 200,
-                x: i * (DOT_SIZE + GAP) + DOT_SIZE,
+                t: i * 100,
+                x: i * (DOT_SIZE + GAP),
             });
         }
+
+        checkpoints.push({
+            t: dotCount * 100,
+            x: lineLength,
+        });
+
         return checkpoints;
     };
 
-    const getPositionAt = (checkpoints: Checkpoint[], elapsed: number) => {
+    const getPositionAt = (
+        checkpoints: Checkpoint[],
+        elapsed: number
+    ) => {
         const last = checkpoints[checkpoints.length - 1];
         const clamped = Math.min(Math.max(elapsed, 0), last.t);
 
         for (let k = 0; k < checkpoints.length - 1; k++) {
             const a = checkpoints[k];
             const b = checkpoints[k + 1];
+
             if (clamped <= b.t) {
-                const frac = b.t === a.t ? 1 : (clamped - a.t) / (b.t - a.t);
+                const frac =
+                    b.t === a.t
+                        ? 1
+                        : (clamped - a.t) / (b.t - a.t);
+
                 return a.x + (b.x - a.x) * frac;
             }
         }
+
         return last.x;
     };
 
     const horizontalPlaneRef = useRef<HTMLDivElement>(null);
     const verticalPlaneRef = useRef<HTMLImageElement>(null);
 
-    const horizontalConfigRef = useRef({ horizontalDotCount, horizontalLineLength, horizontalDuration });
-    horizontalConfigRef.current = { horizontalDotCount, horizontalLineLength, horizontalDuration };
+    const horizontalConfigRef = useRef({
+        horizontalDotCount,
+        horizontalLineLength,
+        horizontalDuration,
+    });
 
-    const verticalConfigRef = useRef({ verticalDotCount, verticalLineLength, verticalDuration, verticalDelay });
-    verticalConfigRef.current = { verticalDotCount, verticalLineLength, verticalDuration, verticalDelay };
+    horizontalConfigRef.current = {
+        horizontalDotCount,
+        horizontalLineLength,
+        horizontalDuration,
+    };
+
+    const verticalConfigRef = useRef({
+        verticalDotCount,
+        verticalLineLength,
+        verticalDuration,
+        verticalDelay,
+    });
+
+    verticalConfigRef.current = {
+        verticalDotCount,
+        verticalLineLength,
+        verticalDuration,
+        verticalDelay,
+    };
 
     useEffect(() => {
         if (isVisible) return;
+
         if (horizontalPlaneRef.current) {
             horizontalPlaneRef.current.style.transform =
                 `translateY(-50%) translateX(${-horizontalLineLength}px)`;
@@ -131,66 +182,81 @@ export default function DottedLine() {
 
     useEffect(() => {
         if (isVisible) return;
+
         if (verticalPlaneRef.current) {
             verticalPlaneRef.current.style.transform =
                 `translateY(${-verticalLineLength}px) rotate(-70deg)`;
         }
     }, [isVisible, verticalLineLength]);
 
-    const getExactTip = (elapsed: number, dotCount: number) => {
-        const i = Math.min(Math.floor(Math.max(elapsed, 0) / 100), dotCount - 1);
-        const frac = Math.min(Math.max((elapsed - i * 100) / 200, 0), 1);
-        return (DOT_SIZE + GAP) * i + DOT_SIZE * frac;
-    };
-
     useEffect(() => {
         if (!isVisible) return;
-        const { horizontalDotCount: N, horizontalLineLength: L, horizontalDuration: D } =
-            horizontalConfigRef.current;
+
+        const {
+            horizontalDotCount: N,
+            horizontalLineLength: L,
+            horizontalDuration: D,
+        } = horizontalConfigRef.current;
+
         if (N <= 0) return;
 
-        const SMOOTHING_MS = 30;
+        horizontalFinishedRef.current = false;
+
+        const checkpoints = buildHorizontalCheckpoints(N, L);
+
         let rafId: number;
-        let lastTime = performance.now();
-        const start = lastTime;
-        let display = 0;
+        const start = performance.now();
 
         const tick = (now: number) => {
-            const dt = now - lastTime;
-            lastTime = now;
-            const elapsed = now - start;
-            const lookahead = elapsed + SMOOTHING_MS;
-            const target = lookahead >= D ? L : getExactTip(lookahead, N);
-            const alpha = 1 - Math.exp(-dt / SMOOTHING_MS);
-            display += (target - display) * alpha;
+            const elapsed = Math.min(now - start, D);
+
+            const tipX = getPositionAt(checkpoints, elapsed);
 
             if (horizontalPlaneRef.current) {
                 horizontalPlaneRef.current.style.transform =
-                    `translateY(-50%) translateX(${display - L}px)`;
+                    `translateY(-50%) translateX(${tipX - L}px)`;
             }
 
-            if (elapsed < D || Math.abs(target - display) > 0.3) {
+            if (elapsed < D) {
                 rafId = requestAnimationFrame(tick);
             } else if (horizontalPlaneRef.current) {
                 horizontalPlaneRef.current.style.transform =
                     "translateY(-50%) translateX(0px)";
+
+                horizontalFinishedRef.current = true;
             }
         };
 
         rafId = requestAnimationFrame(tick);
+
         return () => cancelAnimationFrame(rafId);
-
     }, [isVisible]);
-
 
     useEffect(() => {
         if (!isVisible) return;
-        const { verticalDotCount: M, verticalLineLength: L, verticalDuration: D, verticalDelay: delay } =
-            verticalConfigRef.current;
+
+        const {
+            verticalDotCount: M,
+            verticalLineLength: L,
+            verticalDuration: D,
+            verticalDelay: delay,
+        } = verticalConfigRef.current;
+
         if (M <= 0) return;
 
-        const checkpoints = buildCheckpoints(M);
+        verticalFinishedRef.current = false;
+
+        const checkpoints: Checkpoint[] = [{ t: 0, x: 0 }];
+
+        for (let i = 0; i < M; i++) {
+            checkpoints.push({
+                t: i * 100 + 200,
+                x: i * (DOT_SIZE + GAP),
+            });
+        }
+
         let rafId: number;
+
         const timerId = setTimeout(() => {
             const start = performance.now();
 
@@ -205,6 +271,8 @@ export default function DottedLine() {
 
                 if (elapsed < D) {
                     rafId = requestAnimationFrame(tick);
+                } else {
+                    verticalFinishedRef.current = true;
                 }
             };
 
@@ -215,17 +283,53 @@ export default function DottedLine() {
             clearTimeout(timerId);
             cancelAnimationFrame(rafId);
         };
-
     }, [isVisible]);
 
+    useEffect(() => {
+        if (!isVisible) return;
+
+        if (
+            verticalDotCount > 0 &&
+            (horizontalFinishedRef.current ||
+                verticalFinishedRef.current) &&
+            verticalPlaneRef.current
+        ) {
+            verticalPlaneRef.current.style.transform =
+                "translateY(-14px) rotate(-70deg)";
+        }
+
+        if (
+            verticalDotCount === 0 &&
+            horizontalFinishedRef.current &&
+            horizontalPlaneRef.current
+        ) {
+            horizontalPlaneRef.current.style.transform =
+                "translateY(-50%) translateX(0px)";
+        }
+    }, [
+        isVisible,
+        verticalDotCount,
+        horizontalDotCount,
+        verticalLineLength,
+    ]);
 
     useEffect(() => {
+        if (!isVisible) return;
+
         if (verticalDotCount === 0) {
             setUpperHandedOff(false);
             return;
         }
 
-        if (!isVisible) return;
+        if (
+            horizontalFinishedRef.current ||
+            verticalFinishedRef.current
+        ) {
+            setUpperHandedOff(true);
+            return;
+        }
+
+        setUpperHandedOff(false);
 
         const timer = setTimeout(() => {
             setUpperHandedOff(true);
@@ -234,7 +338,12 @@ export default function DottedLine() {
         return () => clearTimeout(timer);
     }, [isVisible, verticalDotCount, verticalDelay]);
 
-    const upperOpacity = !isVisible ? 0 : upperHandedOff ? 0 : 1;
+    const upperOpacity =
+        !isVisible
+            ? 0
+            : upperHandedOff
+            ? 0
+            : 1;
 
     return (
         <div
@@ -266,7 +375,7 @@ export default function DottedLine() {
                 ))}
             </div>
 
-            {/* 上の斜め線（横点線）の先頭（飛行機雲の先端）に飛行機。md以下では下の斜め線に引き継ぐ */}
+            {/* 上の斜め線の飛行機 */}
             <div
                 ref={horizontalPlaneRef}
                 className="block absolute right-[5px] top-1/2"
@@ -302,23 +411,23 @@ export default function DottedLine() {
                                  h-[14px]
                                  w-[5px]
                                  shrink-0
-                                bg-white
-                                transition-[clip-path]
-                                duration-200
-                                ease-linear
-                            "
+                                 bg-white
+                                 transition-[clip-path]
+                                 duration-200
+                                 ease-linear
+                                "
                                 style={{
                                     clipPath: isVisible
                                         ? "inset(0 0 0 0)"
                                         : "inset(0 0 100% 0)",
-                                    transitionDelay: `${(
-                                        horizontalDotCount + index
-                                    ) * 100}ms`,
+                                    transitionDelay: `${
+                                        (horizontalDotCount + index) * 100
+                                    }ms`,
                                 }}
                             />
                         ))}
 
-                        {/* 飛行機（点線の先頭＝飛行機雲の先端に追従） */}
+                        {/* 飛行機 */}
                         <img
                             ref={verticalPlaneRef}
                             src="/images/svg/airplane-white-mirror.svg"
