@@ -93,7 +93,7 @@ const page = () => {
                 <List mark="※">
                     <ListItem>上記の他、公序良俗に反する行為、他のご来場のみなさまのご迷惑になる行為はご遠慮ください。</ListItem>
                 </List>
-                <SectionTitle>
+                {/* <SectionTitle>
                     お困りの際は
                 </SectionTitle>
                 {/* {helpItems.map((item, index) => (
@@ -103,12 +103,12 @@ const page = () => {
                     >
                         {item.content}
                     </RuleItem>
-                ))} */}
-                <List mark="※">
+                ))} */} 
+                {/* <List mark="※">
                     <ListItem>
                         お困りの際は、お近くのインフォメーションブース、または明大祭実行委員までお気軽にお声掛けください。
                     </ListItem>
-                </List>
+                </List> */}
             </CloudPageContainer>
         </div>
     )
