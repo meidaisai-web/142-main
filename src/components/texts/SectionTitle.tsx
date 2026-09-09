@@ -11,7 +11,7 @@ export default function SectionTitle({
     className,
 }: SectionTitleProps) {
     return (
-        <div className={`relative items-center justify-center w-fit mx-auto mt-10 mb-8 px-8 py-5 ${className ?? ""}`}>
+        <div className={`relative items-center justify-center w-fit mx-auto mt-15 mb-4 px-8 py-5 ${className ?? ""}`}>
           {/* 左上の飾り */}
           <Image
             src="/images/svg/Section-blue.svg"

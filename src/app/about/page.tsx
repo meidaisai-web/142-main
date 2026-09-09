@@ -30,7 +30,6 @@ export default function about() {
             <SectionTitle>昨年の明大祭の様子</SectionTitle>
             <Movie href="https://www.youtube.com/embed/S8lkX1BaTd8?si=pHB5c2wYhpuyZGbR" />
          </CloudPageContainer>
-         <div className="h-20" />
         </div>
     );
 }
