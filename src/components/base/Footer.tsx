@@ -37,7 +37,7 @@ function FooterCloud({ isSubPage }: { isSubPage: boolean }) {
 
 	return (
 		<div
-			className="relative z-0 w-full overflow-hidden"
+			className="absolute z-10 w-full overflow-hidden -translate-y-5/6"
 			style={{ aspectRatio: "1684 / 200" }}
 		>
 			<svg
