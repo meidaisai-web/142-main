@@ -31,7 +31,7 @@ interface ListItemProps {
     children: ReactNode;
 }
 export function ListItem({ children, className }: ListItemProps) {
-    return <div className={className}>{children}</div>;
+    return <div className={`font-semibold ${className}`}>{children}</div>;
 };
 
 interface ListTextProps {
@@ -40,7 +40,7 @@ interface ListTextProps {
 }
 
 export function ListText({ children, className }: ListTextProps) {
-    return <div className={className}>{children}</div>;
+    return <div className={`font-semibold ${className}`}>{children}</div>;
 }
 
 // List コンポーネント
@@ -50,10 +50,11 @@ interface ListProps {
     numbered?: boolean;
     alphabetic?: boolean;
     gap?: number;
+    bottomMargin?: boolean;
     className?: string;
 }
 
-export function List({ children, mark, numbered, alphabetic, gap, className }: ListProps) {
+export function List({ children, mark, numbered, alphabetic, gap, bottomMargin, className }: ListProps) {
     let listCount = 0;
     // 行頭文字の決定
     function listMark(index: number) {
@@ -71,7 +72,7 @@ export function List({ children, mark, numbered, alphabetic, gap, className }: L
     const gapClass = gap ? `mb-${gap}` : 'mb-1';
 
     return (
-        <ul className={`mb-6 ${className}`}>
+        <ul className={`${bottomMargin ? 'mb-4' : ''} ${className}`}>
             {Children.map(children, (child) => {
 
                 if (isValidElement(child) && child.type === ListItem) {
@@ -88,7 +89,7 @@ export function List({ children, mark, numbered, alphabetic, gap, className }: L
                 if (isValidElement(child) && child.type === List) {
                     // Listコンポーネントが入れ子になっている場合、インデントを加える
                     return (
-                        <div className={`${numbered || alphabetic ? 'ml-5' : 'ml-4'} mb-4`}>
+                        <div className={`${numbered || alphabetic ? 'ml-5' : 'ml-4'}`}>
                             {child}
                         </div>
                     )
@@ -97,7 +98,7 @@ export function List({ children, mark, numbered, alphabetic, gap, className }: L
                 // ListTextコンポーネントが使用された場合、文字に揃うようにインデント調整
                 if (isValidElement(child) && child.type === ListText) {
                     return (
-                        <div className={`${numbered || alphabetic ? 'ml-5' : 'ml-4'} mb-4`}>
+                        <div className={`${numbered || alphabetic ? 'ml-5' : 'ml-4'}`}>
                             {child}
                         </div>
                     );
