@@ -28,142 +28,59 @@ export default function Countdown({ }: CountdownProps) {
   }, []);
 
   return (
-    <h1>
-
-      <div className="relative w-full ">
-
-        <div className="w-full aspect-[1620/500]">
-
-          <CloudDivider />
-
-        </div>
-
-
-
-        <div className="absolute top-1/2 left-0 transform -translate-y-1/2 w-full z-0 pointer-events-none">
-
+    <div>
+      <div className="relative w-full flex items-center justify-center">
+        <div className="absolute w-full z-0 pointer-events-none">
           <img
-
-            src="/images/svg/line.svg"
-
+            src="/images/countdown/belt.png"
             alt="帯"
-
-            className="w-full h-full"
-
+            className="w-full h-40 sm:h-62 md:h-70 object-fill"
           />
-
         </div>
-
-
-
-        <div className="absolute top-1/2 -translate-y-1/2 md:top-auto md:translate-y-0 md:bottom-[30%] w-full z-10 pointer-events-none">
-
-
-
-          <div className="relative w-full h-[120px] sm:h-[150px] md:h-0 pointer-events-none px-4">
-
-
-
-            <div className="absolute left-[5%] sm:left-[8%] md:left-[10%] top-1/2 -translate-y-1/2 md:top-auto md:translate-y-0 md:bottom-[20%] pointer-events-auto">
-
-              <Image
-
-                src="/images/svg/DayLocate.svg"
-
-                alt="DayLocate"
-
-                width={500}
-
-                height={300}
-
-                className="w-[clamp(200px,45vw,340px)] md:w-[clamp(260px,55vw,700px)] max-w-[600px] h-auto"
-
-              />
-
-            </div>
-
-
-
-            <div className="absolute right-[20%] sm:right-[8%] md:right-20 lg:right-28 top-[110%] -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-[10%] w-[clamp(110px,28vw,150px)] lg:w-48 xl:w-57 pointer-events-auto">
-
-
-
-              <Image
-
-                src="/images/svg/circle.svg"
-
-                alt="Dayte"
-
-                width={250}
-
-                height={250}
-
-                className="w-full h-full relative top-[5%] lg:top-7"
-
-              />
-
-
-
-              <div className="absolute -top-[5%] left-[105%] sm:left-1/2 transform -translate-x-1/2 w-[90%]">
-
+        <div className="sm:flex w-full justify-between items-center gap-16 px-4 sm:px-10 lg:px-20">
+          <div className="relative w-2/3 min-w-58 sm:w-full max-w-140">
+            <Image
+              src="/images/countdown/DayLocate.svg"
+              alt="DayLocate"
+              width={500}
+              height={300}
+              className="w-full h-auto"
+            />
+          </div>
+          <div className="absolute sm:relative w-fit right-6 sm:right-auto flex flex-col items-end sm:items-start justify-start mt-2 sm:mt-0">
+            <p className="absolute font-black text-primary-700 text-shadow-[4px_4px_4px_rgba(0,0,0,0.25)] text-nowrap z-10 -mt-6">
+              <span className="text-4xl sm:text-5xl">開催</span><span className="text-2xl sm:text-3xl">まで</span>
+            </p>
+            <div className="relative flex items-end justify-end">
+              <div className="flex items-center justify-center w-28 sm:w-40 aspect-square">
                 <Image
-
-                  src="/images/svg/kaisaimade.svg"
-
-                  alt="開催まで"
-
-                  width={160}
-
-                  height={50}
-
-                  className="w-full h-full relative -top-3 sm:top-0 lg:top-2 md:right-10 drop-shadow-[0_6px_6px_rgba(0,0,0,0.2)]"
-
+                  src="/images/countdown/circle.svg"
+                  alt="Date"
+                  width={250}
+                  height={250}
+                  className="w-full h-full absolute"
                 />
-
-              </div>
-
-
-
-              <div className="absolute inset-0 flex items-center justify-center">
-
-                <p className="text-white text-7xl sm:text-7xl md:text-7xl lg:text-8xl font-bold mt-[8%] lg:mt-15">
-
+                <p className="z-10 relative text-white text-shadow-[0_4px_4px_rgba(0,0,0,0.25)] text-5xl sm:text-7xl font-bold">
                   {left !== null ? left : ""}
-
                 </p>
-
               </div>
-
-
-
-              <div className="absolute w-16 sm:w-20 -bottom-[5px] -right-[35px] sm:-bottom-[10px] sm:-right-[40px] md:-bottom-[15px] md:-right-[40px] lg:-bottom-[2%] lg:-right-[20%]">
-
+              <div className="relative w-16 sm:w-20 aspect-square flex items-center justify-center -translate-x-6">
                 <Image
-                  src="/images/svg/smallcircle.svg"
+                  src="/images/countdown/smallcircle.svg"
                   alt="小円"
                   width={100}
                   height={100}
-                  className="w-full h-full relative top-[2px] left-[2px] md:top-[4px] md:left-[4px] lg:top-5 lg:left-5"
+                  className="w-full h-full absolute"
                 />
-
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold relative top-[1px] left-[2px] md:top-[2px] md:left-[4px] lg:top-5 lg:left-5">
-                    日
-                  </p>
-                </div>
-
+                <p className="z-10 relative text-white text-shadow-[0_4px_4px_rgba(0,0,0,0.25)] text-4xl sm:text-5xl font-bold">
+                  日
+                </p>
               </div>
-
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
-    </h1>
+    </div>
   );
 }
 
