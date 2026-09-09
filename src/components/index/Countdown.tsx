@@ -1,40 +1,27 @@
-'use client';
-import { useEffect, useState } from "react";
 import Image from "next/image";
 
-type CountdownProps = {
-  className?: string;
-};
-
-export default function Countdown({ }: CountdownProps) {
-  const [left, setLeft] = useState<number | null>(null);
-
-  useEffect(() => {
-    const now = new Date();
-    const month = now.getMonth() + 1;
-    const day = now.getDate();
-
-    let result = null;
-
-    if (month === 8) {
-      result = 91 - day;
-    } else if (month === 9) {
-      result = 60 - day;
-    } else if (month === 10) {
-      result = 30 - day;
-    }
-
-    setLeft(result);
-  }, []);
+export default function Countdown() {
+  // 実行環境のタイムゾーンに依存しないよう、必ず日本時間(Asia/Tokyo)で日付を取得する
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  }).formatToParts(new Date());
+  const month = Number(parts.find((p) => p.type === "month")?.value);
+  const day = Number(parts.find((p) => p.type === "day")?.value);
+  const left = month === 8 ? 91 - day : month === 9 ? 60 - day : month === 10 ? 30 - day : null;
 
   return (
     <div>
       <div className="relative w-full flex items-center justify-center">
         <div className="absolute w-full z-0 pointer-events-none">
-          <img
+          <Image
             src="/images/countdown/belt.png"
             alt="帯"
-            className="w-full h-40 sm:h-62 md:h-70 object-fill"
+            width={1537}
+            height={449}
+            className="w-full h-40 sm:h-62 md:h-70 object-fill select-none"
           />
         </div>
         <div className="sm:flex w-full justify-between items-center gap-16 px-4 sm:px-10 lg:px-20">
@@ -44,7 +31,7 @@ export default function Countdown({ }: CountdownProps) {
               alt="DayLocate"
               width={500}
               height={300}
-              className="w-full h-auto"
+              className="w-full h-auto select-none"
             />
           </div>
           <div className="absolute sm:relative w-fit right-6 sm:right-auto flex flex-col items-end sm:items-start justify-start mt-2 sm:mt-0">
@@ -58,7 +45,7 @@ export default function Countdown({ }: CountdownProps) {
                   alt="Date"
                   width={250}
                   height={250}
-                  className="w-full h-full absolute"
+                  className="w-full h-full absolute select-none"
                 />
                 <p className="z-10 relative text-white text-shadow-[0_4px_4px_rgba(0,0,0,0.25)] text-5xl sm:text-7xl font-bold">
                   {left !== null ? left : ""}
@@ -70,7 +57,7 @@ export default function Countdown({ }: CountdownProps) {
                   alt="小円"
                   width={100}
                   height={100}
-                  className="w-full h-full absolute"
+                  className="w-full h-full absolute select-none"
                 />
                 <p className="z-10 relative text-white text-shadow-[0_4px_4px_rgba(0,0,0,0.25)] text-4xl sm:text-5xl font-bold">
                   日
