@@ -48,11 +48,11 @@ export function HamburgerAccordion({
                         className="flex-shrink-0"
                     >
                         <Image
-                            src="/images/svg/triangle-white.svg"
+                            src="/images/svg/triangle-accent.svg"
                             alt={isOpen ? "折りたたむ" : "展開する"}
-                            width={13}
-                            height={13}
-                            className="h-3 w-3"
+                            width={30}
+                            height={30}
+                            className="h-4 w-4"
                         />
                     </motion.div>
                 </button>
