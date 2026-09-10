@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import Head from "next/head";
 import { notoSerifJP } from "@/utils/fonts";
 import Base from "@/components/base/Base";
