@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { notoSerifJP } from "@/utils/fonts";
-import { AnimatePresence, motion } from "framer-motion";
+
 
 export default function HeroSection() {
   return (
@@ -16,16 +14,15 @@ export default function HeroSection() {
           alt="Background Image"
           width={500}
           height={500}
-          className="hidden sm:block absolute !w-screen !h-auto object-fill"
+          className="hidden sm:block absolute  w-screen h-screen object-fill"
         />
          <img
-          src="/images/svg/hero/background2.svg"
+          src="/images/svg/hero/newbackground2.jpg"
           alt="Background Image"
           width={500}
           height={500}
-          className="block sm:hidden absolute !w-screen !h-auto object-fill"
+          className="block sm:hidden absolute  w-screen h-screen object-fill"
         />
-        
 
         <Image
           src="/images/svg/hero/shadow.svg"
