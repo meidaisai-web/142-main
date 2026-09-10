@@ -27,7 +27,7 @@ function page() {
         <Text>我々明大祭実行委員会一同、明大祭の成功と更なる発展を目指してまいりますので、ご理解ご協力を賜りますよう、よろしくお願い申し上げます。</Text>
         <SectionTitle>ご協賛方法</SectionTitle>
         <Text>第142回明大祭では、以下の６つのご協賛方法を設けておりました。</Text>
-        <List numbered className="mt-5">
+        <List numbered>
             <ListItem>第142回明大祭公式パンフレットへの広告の掲載</ListItem>
             <ListItem>第142回明大祭公式サイトへの広告バナーの掲載</ListItem>
             <ListItem>当日配布される手提げ袋の制作および広告の掲載</ListItem>
@@ -35,7 +35,7 @@ function page() {
             <ListItem>メインステージに設置される大型ビジョンでの広告の放映</ListItem>
             <ListItem>明大祭当日の企画における来場者への物品提供</ListItem>
         </List>
-        <List mark="※">
+        <List mark="※" bottomMargin>
             <ListItem>以上の協賛方法は第142回明大祭でご案内させていただいたものです。</ListItem>
         </List>
         <Text>来年度は変更となる可能性がございます。予めご了承ください。</Text>
