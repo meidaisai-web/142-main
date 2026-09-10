@@ -12,10 +12,10 @@ interface LoadingProps {
 const DRIFT_EASE = [0.55, 0, 0.85, 0.35] as const;
 // lg: 透明度調整前の前寄りイージング（lg は従来のはけ方に戻す）
 const DRIFT_EASE_LG = [0.25, 0.3, 0.5, 0.9] as const;
-const DRIFT_DURATION = 3.1; // base
-const DRIFT_DURATION_SM = 3.1;
-const DRIFT_DURATION_MD = 3;
-const DRIFT_DURATION_LG = 9.5;
+const DRIFT_DURATION = 2.7; // base
+const DRIFT_DURATION_SM = 2.7;
+const DRIFT_DURATION_MD = 2.6;
+const DRIFT_DURATION_LG = 8.2;
 
 // 雲の透明度カーブ: base は透け控えめ、sm は「止まって透ける」演出、md は少し透け強め、lg は従来
 const CLOUD_OPACITY = [1, 0.95, 0.32, 0] as const; // sm
@@ -27,44 +27,29 @@ const CLOUD_OPACITY_TIMES_MD = [0, 0.29, 0.62, 1] as const;
 const CLOUD_OPACITY_LG = [1, 0.22, 0.02, 0] as const;
 const CLOUD_OPACITY_TIMES_LG = [0, 0.28, 0.55, 1] as const;
 
-// シーケンス:
-//   1. ハート(loadinglogo)フェードイン ＋ その下にタイトル(TitleCatchcopy)を配置
-//   2. 心電図ライン(loadingline)を左→右に描画
-//   3. ハート＋ラインだけフェードアウト
-//   4. 下にあったタイトルが拡大しながら画面中央へ移動 → 少しキープ → フェードアウト
-//   5. 飛行機が横断（後ろに点線トレイル）→ 画面外へ抜けてトレイルがフェードアウト
-//   6. 雲アニメ開始（飛行機の横断時間ぶん後ろ倒し = cloudStart）
-const LOGO_IN_DELAY = 0.3;
+const LOGO_IN_DELAY = 0.0;
 const TITLE_IN_DELAY = LOGO_IN_DELAY; // ハートと同時にフェードイン
 const TITLE_IN_DURATION = 0.7;
-const LINE_DELAY = LOGO_IN_DELAY + 0.2; // 0.5
+const LINE_DELAY = 0; // ロゴのフェードインと同時スタート
 const LINE_DURATION = 1.9;
 
-// ロゴ群（ハート＋ライン＋ロゴ文字）は最初の配置のまま置いておき、飛行機の通過でワイプして消す。
-// 雲開始の下限。実際の cloudStart は飛行機の横断時間で決まる（この値は飛行機がごく短時間で
-// 終わる場合の保険）。心電図描画完了（LINE_DELAY + LINE_DURATION）の少し後。
-const CLOUD_START = LINE_DELAY + LINE_DURATION + 0.5;
+const CLOUD_START = LINE_DELAY + LINE_DURATION - 0.6; // ≒1.3（雲は z-30 でロゴの裏。ease-in で序盤は動かないので早出しOK）
 
-const AIRPLANE_DELAY = 2.5; 
-const AIRPLANE_DELAY_MD = 2.7; 
-const AIRPLANE_DELAY_SM = 2.6;
-const AIRPLANE_DELAY_SP = 2.3; 
+const AIRPLANE_DELAY = 0.8; // lg
+const AIRPLANE_DELAY_MD = 0.8;
+const AIRPLANE_DELAY_SM = 0.8;
+const AIRPLANE_DELAY_SP = 0.8; // base
 const AIRPLANE_SPEED = 480;
-const AIRPLANE_SPEED_LG = 450; 
+
+const AIRPLANE_SPEED_LG = 530;
 const AIRPLANE_DURATION_MIN = 2.4; 
 const AIRPLANE_DURATION_MAX = 5; 
-const AIRPLANE_SIZE = 98; 
-const AIRPLANE_SIZE_SP = 64; 
+const AIRPLANE_SIZE = 112; // sm / md
+const AIRPLANE_SIZE_LG = 130; // lg
+const AIRPLANE_SIZE_SP = 76; // base
 const AIRPLANE_OFFSCREEN = 160; 
 const AIRPLANE_TIP_RATIO = 0.9;
-const TITLE_WIPE_FEATHER = 42;
-
-const TRAIL_COLOR = "var(--color-secondary)"; // globals.css: #F6BDC6
-const TRAIL_DASH = 14; 
-const TRAIL_GAP = 16; 
-const TRAIL_THICK = 5; 
-const TRAIL_TAIL_RATIO = 0.14; 
-const TRAIL_FADE_DISTANCE = 140; 
+const TITLE_WIPE_FEATHER = 56;
 
 const SM_QUERY = "(min-width: 640px)";
 const MD_QUERY = "(min-width: 768px)";
@@ -177,7 +162,8 @@ export default function Loading({ setLoading }: LoadingProps) {
                 ? DRIFT_DURATION_SM
                 : DRIFT_DURATION;
 
-    const cloudLead = tier === "lg" ? 0.9 : tier === "md" ? 1.6 : 1.0;
+    // 点線トレイルを廃止したぶん、どの幅でも飛行機が退場しきる前に早めに雲を開始する
+    const cloudLead = tier === "lg" ? 2 : tier === "md" ? 2.2 : 1.9;
     const cloudStart = Math.max(CLOUD_START, planeDelay + planeDuration - cloudLead);
     const totalDuration = Math.round((cloudStart + driftDuration + 1.5) * 1000);
 
@@ -189,9 +175,9 @@ export default function Loading({ setLoading }: LoadingProps) {
         tier === "lg" ? 74 : tier === "md" ? 94 : tier === "sm" ? 84 : 53;
 
 
-    const airplaneSize = tier === "base" ? AIRPLANE_SIZE_SP : AIRPLANE_SIZE;
+    const airplaneSize =
+        tier === "base" ? AIRPLANE_SIZE_SP : tier === "lg" ? AIRPLANE_SIZE_LG : AIRPLANE_SIZE;
     const airplaneTipOffset = airplaneSize * AIRPLANE_TIP_RATIO;
-    const trailTailOffset = airplaneSize * TRAIL_TAIL_RATIO;
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -221,10 +207,6 @@ export default function Loading({ setLoading }: LoadingProps) {
     const logoWipeMask = useMotionTemplate`linear-gradient(90deg, transparent, transparent calc(${logoWipePct}% - ${TITLE_WIPE_FEATHER}px), #000 ${logoWipePct}%, #000 100%)`;
     // 飛行機ボックス左端の x（clip 計算の planeBoxLeft と同じ式）を CSS calc で表現
     const planeX = useMotionTemplate`calc(${planeProgress} * (100vw + ${AIRPLANE_OFFSCREEN * 2}px) - ${AIRPLANE_OFFSCREEN}px)`;
-    // 点線トレイル
-    const trailHideRight = useMotionValue(100);
-    const trailClip = useMotionTemplate`inset(0 ${trailHideRight}% 0 0)`;
-    const trailOpacity = useMotionValue(1);
 
     useEffect(() => {
         const distance = window.innerWidth + AIRPLANE_OFFSCREEN * 2;
@@ -254,14 +236,6 @@ export default function Loading({ setLoading }: LoadingProps) {
         const vw = window.innerWidth;
         const travel = vw + AIRPLANE_OFFSCREEN * 2;
         const planeBoxLeft = -AIRPLANE_OFFSCREEN + p * travel;
-
-        const tailX = planeBoxLeft + trailTailOffset;
-        trailHideRight.set(Math.min(100, Math.max(0, 100 - (tailX / vw) * 100)));
-
-        const planeRight = planeBoxLeft + airplaneSize;
-        const overshoot = planeRight - vw;
-        trailOpacity.set(1 - Math.min(1, Math.max(0, overshoot / TRAIL_FADE_DISTANCE)));
-
         const tipX = planeBoxLeft + airplaneTipOffset;
         // 110 まで許容して feather 分も画面から抜けきるようにする
         logoWipePct.set(Math.min(110, Math.max(0, (tipX / vw) * 100)));
@@ -422,18 +396,6 @@ export default function Loading({ setLoading }: LoadingProps) {
                     />
                 </motion.div>
             </motion.div>
-
-            <motion.div
-                className="pointer-events-none absolute inset-x-0 top-1/2 z-[45] bg-left bg-repeat-x"
-                style={{
-                    y: "-50%",
-                    height: TRAIL_THICK,
-                    clipPath: trailClip,
-                    opacity: trailOpacity,
-                    backgroundImage: `linear-gradient(to right, ${TRAIL_COLOR} 0 ${TRAIL_DASH}px, transparent ${TRAIL_DASH}px)`,
-                    backgroundSize: `${TRAIL_DASH + TRAIL_GAP}px ${TRAIL_THICK}px`,
-                }}
-            />
 
             <motion.div
                 className="absolute left-0 top-1/2 z-50"
