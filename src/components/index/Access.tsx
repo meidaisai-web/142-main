@@ -1,11 +1,13 @@
 import Frame from "./Frame"
 import Text from "../texts/Text"
+import ShadowText from "../texts/ShadowText"
 const Access = () => {
   return (
+    <div>
+      <ShadowText>アクセス</ShadowText>
         <Frame>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-10 ">
-
-            {/* 地図 */}
+         <div className="py-7">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-10">
             <div className="w-full aspect-square md:w-2/3 rounded-lg overflow-hidden">
               <iframe
                 className="w-full h-full"
@@ -15,24 +17,18 @@ const Access = () => {
               ></iframe>
             </div>
 
-            {/* 文章 */}
             <div className="w-full md:w-2/3 flex flex-col gap-2 md:gap-5">
-
-              {/* ① キャンパス名 */}
               <div>
                 <Text className="text-lg whitespace-nowrap">
                   明治大学　和泉キャンパス
                 </Text>
               </div>
-              {/* ② 住所 */}
               <div className="text-sm">
                 <Text>
                   〒168-8555 <br />
                   東京都杉並区永福1-9-1
                 </Text>
               </div>
-
-              {/* ③ アクセス */}
               <div className="whitespace-nowrap text-sm">
                 <Text>
                   京王線・京王井の頭線
@@ -40,11 +36,12 @@ const Access = () => {
                   「明大前駅」より徒歩5分
                 </Text>
               </div>
-
             </div>
 
           </div>
+          </div>
         </Frame>
+    </div>
   )
 }
 
