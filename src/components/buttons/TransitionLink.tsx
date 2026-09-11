@@ -18,7 +18,7 @@ export default function TransitionLink({
     <span className={className}>
       <Link
         href={href}
-        className={`text-accent border-b border-accent hover:text-secondary hover:border-secondary`}
+        className={`text-accent-900 border-b border-accent-900 hover:text-secondary-700 hover:border-secondary-700 font-bold`}
         target={targetBlank ? "_blank" : "_self"}
       >
         {children}
