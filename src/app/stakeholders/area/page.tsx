@@ -23,6 +23,8 @@ export default function Page() {
                 <SmallTitle>和泉キャンパス周辺地域での取り組み</SmallTitle>
                 <AccentText>明大前音楽祭</AccentText>
                 <ImageText src="/images/stakeholders/area/ongakusai.jpg" alt="明大前音楽祭">明大前駅前明大通りにおいて5月23日(土)、24日(日)に開催された明大前音楽祭にお手伝いとして参加させていただきました。明大前商店街振興組合の方々のご指導のもと、模擬店や警備に関しまして微力ながら尽力いたしました。</ImageText>
+                <AccentText>明大前サマーフェスタ＆盆踊り</AccentText>
+                <ImageText src="/images/stakeholders/area/summer.jpg" alt="明大前サマーフェスタ＆盆踊">明大前駅前広場において8月29日(土)、30日(日)に2年ぶりに開催された明大前サマーフェスタ＆盆踊りにお手伝いとして参加させていただきました。明大前商店街振興組合の方々のご指導のもと、模擬店、ステージの運営、警備に関しまして微力ながら尽力いたしました。</ImageText>
                 <AccentText>明大前クリーンウォーク活動</AccentText>
                 <ImageText src="/images/stakeholders/area/cleenwalk.jpg" alt="明大前クリーンウォーク活動">明大祭実行委員会では、和泉キャンパス周辺地域のみなさまの明大祭開催へのご理解・ご協力に対して感謝の気持ちを示し、よりよい関係を築くことができるように「明大前クリーンウォーク活動」という清掃活動を例年行っております。</ImageText>
                 <SmallTitle className="mt-10">駿河台キャンパス周辺での取り組み</SmallTitle>
