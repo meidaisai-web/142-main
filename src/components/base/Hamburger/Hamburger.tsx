@@ -12,7 +12,7 @@ interface HamburgerProps {
 export default function Hamburger({ isOpen }: HamburgerProps) {
     return (
         <motion.div
-            className="absolute z-40 whitespace-nowrap m-0 bg-secondary-50 pt-18 top-0 right-0 origin-top-right overflow-scroll"
+            className="absolute z-40 whitespace-nowrap m-0 bg-secondary-50 pt-18 top-0 right-0 w-screen h-screen overflow-scroll"
             initial="closed"
             animate={isOpen ? "open" : "closed"}
             transition={{
@@ -21,18 +21,12 @@ export default function Hamburger({ isOpen }: HamburgerProps) {
             }}
             variants={{
                 open: {
-                    width: "100vw",
-                    height: "100vh",
-                    borderRadius: 0,
-                    scale: 1,
-                    opacity: 1,
+                    clipPath: "circle(150vmax at 100% 0%)",
+                    pointerEvents: "auto",
                 },
                 closed: {
-                    width: 0,
-                    height: 0,
-                    borderRadius: "50%",
-                    scale: 0,
-                    opacity: 0,
+                    clipPath: "circle(0 at 100% 0%)",
+                    pointerEvents: "none",
                 }
             }}
         >
