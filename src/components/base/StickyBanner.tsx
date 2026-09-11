@@ -1,7 +1,5 @@
 'use client'
 
-import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Ad } from '@/utils/models/AdType';
@@ -11,23 +9,10 @@ type StickyBannerProps = {
 }
 
 export default function StickyBanner({ adData }: StickyBannerProps) {
-    const [isVisible, setIsVisible] = useState(true);
-    const pathname = usePathname();
-
-    useEffect(() => {
-        if (pathname === '/') {
-            setIsVisible(false);
-        } else {
-            setIsVisible(true);
-        }
-    }, [pathname]);
-
-    if (!isVisible) return null;
-
     return (
-        <div className="fixed bottom-0 md:hidden w-screen max-w-[375px] z-40 object-contain flex justify-center">
+        <div className="md:hidden fixed bottom-0 left-1/2 -translate-x-1/2 w-[340px] z-40 flex justify-center">
             <Link id='sticky_banner' href={adData.url} target='_blank'>
-                <Image id={adData.id} src={adData.src} alt="logo" width={375} height={83} className='object-contain' />
+                <Image id={adData.id} src={adData.src} alt="logo" width={340} height={60} className='object-contain' />
             </Link>
         </div>
     );
