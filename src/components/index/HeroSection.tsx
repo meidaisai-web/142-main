@@ -1,14 +1,11 @@
 "use client";
-
 import Image from "next/image";
-
 
 export default function HeroSection() {
   return (
     <div className="relative flex justify-center">
       <div className="w-full h-18 " />
       <div className="absolute -z-10 w-screen h-screen overflow-hidden">
-        {/* 微妙にはみ出て白い線になってしまうことがあったため、ヒーローセクションの高さより少し小さくした白背景を追加 */}
         <img
           src="/images/svg/hero/background.jpg"
           alt="Background Image"
@@ -36,7 +33,7 @@ export default function HeroSection() {
           alt="Foreground Image"
           width={500}
           height={500}
-          className="absolute left-10  w-25 h-25 object-fit top-30"
+          className="absolute left-10  w-25 h-25 object-fit top-50"
         />
       </div>
       <div className="absolute w-4/5 h-screen flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-25 top-0">
@@ -74,7 +71,7 @@ export default function HeroSection() {
             alt="Foreground Image"
             width={500}
             height={500}
-            className="absolute w-25 h-25 object-fit -translate-y-20 -right-20 sm:translate-0 sm:-bottom-10"
+            className="absolute w-25 h-25 object-fit -translate-y-20 -right-20 sm:translate-0 sm:-bottom-10 pr-5"
           />
         </div>
       </div>
