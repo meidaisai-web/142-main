@@ -33,7 +33,7 @@ export default function HeroSection() {
           alt="Foreground Image"
           width={500}
           height={500}
-          className="absolute left-10  w-25 h-25 object-fit top-50"
+          className="absolute left-10 w-25 h-25 object-fit top-50"
         />
       </div>
       <div className="absolute w-4/5 h-screen flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-25 top-0">
@@ -46,7 +46,6 @@ export default function HeroSection() {
             height={250}
             className="absolute z-10 m-auto top-10 left-0 right-0 bottom-0 w-4/5"
           />
-          
         </div>
 
         <div className="relative flex flex-col items-center gap-4 w-4/5 sm:w-1/2">
