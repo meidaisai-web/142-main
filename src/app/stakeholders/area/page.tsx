@@ -22,18 +22,18 @@ export default function Page() {
                 <SectionTitle className="mt-15 my-5">地域への取り組み</SectionTitle>
                 <SmallTitle>和泉キャンパス周辺地域での取り組み</SmallTitle>
                 <AccentText>明大前音楽祭</AccentText>
-                <ImageText src="/images/svg/stakeholders/area/ongakusai.jpg" alt="明大前音楽祭" className="w-full mt-5 mb-5 rounded-lg">明大前駅前明大通りにおいて5月23日(土)、24日(日)に開催された明大前音楽祭にお手伝いとして参加させていただきました。明大前商店街振興組合の方々のご指導のもと、模擬店や警備に関しまして微力ながら尽力いたしました。</ImageText>
+                <ImageText src="/images/stakeholders/area/ongakusai.jpg" alt="明大前音楽祭">明大前駅前明大通りにおいて5月23日(土)、24日(日)に開催された明大前音楽祭にお手伝いとして参加させていただきました。明大前商店街振興組合の方々のご指導のもと、模擬店や警備に関しまして微力ながら尽力いたしました。</ImageText>
                 <AccentText>明大前クリーンウォーク活動</AccentText>
-                <ImageText src="/images/svg/stakeholders/area/cleenwalk.jpg" alt="明大前クリーンウォーク活動" className="w-full mt-5 mb-5 rounded-lg">明大祭実行委員会では、和泉キャンパス周辺地域のみなさまの明大祭開催へのご理解・ご協力に対して感謝の気持ちを示し、よりよい関係を築くことができるように「明大前クリーンウォーク活動」という清掃活動を例年行っております。</ImageText>
+                <ImageText src="/images/stakeholders/area/cleenwalk.jpg" alt="明大前クリーンウォーク活動">明大祭実行委員会では、和泉キャンパス周辺地域のみなさまの明大祭開催へのご理解・ご協力に対して感謝の気持ちを示し、よりよい関係を築くことができるように「明大前クリーンウォーク活動」という清掃活動を例年行っております。</ImageText>
                 <SmallTitle className="mt-10">駿河台キャンパス周辺での取り組み</SmallTitle>
                 <AccentText>神田すずらんまつり</AccentText>
-                <ImageText src="/images/svg/stakeholders/area/suzuran.jpg" alt="神田すずらんまつり" className="w-full mt-5 mb-5 rounded-lg">駿河台キャンパス周辺地域において、5月23日(土)に開催された神田すずらんまつりに参加させていただきました。地域と密接したイベントの盛況に、ボランティアとして微力ながら尽力いたしました。</ImageText>
+                <ImageText src="/images/stakeholders/area/suzuran.jpg" alt="神田すずらんまつり">駿河台キャンパス周辺地域において、5月23日(土)に開催された神田すずらんまつりに参加させていただきました。地域と密接したイベントの盛況に、ボランティアとして微力ながら尽力いたしました。</ImageText>
                 <SmallTitle className="mt-10">中野キャンパス周辺地域での取り組み</SmallTitle>
                 <AccentText>関東沖縄エイサーまつり</AccentText>
-                <Text>中野キャンパス竣工以来、中野チャンプルーフェスタにお手伝いとして参加させていただいております。今年度は、中野チャンプルーフェスタからエイサー部門が独立した、「関東沖縄エイサーまつり」に7月18日(土)、19日(日)に参加させていただきました。動線管理など、イベントの盛況に微力ながら尽力いたしました。</Text>
+                <ImageText src="/images/stakeholders/area/eisa.jpg" alt="関東沖縄エイサーまつり">中野キャンパス竣工以来、中野チャンプルーフェスタにお手伝いとして参加させていただいております。今年度は、中野チャンプルーフェスタからエイサー部門が独立した、「関東沖縄エイサーまつり」に7月18日(土)、19日(日)に参加させていただきました。動線管理など、イベントの盛況に微力ながら尽力いたしました。</ImageText>
                 <SmallTitle className="mt-10">下北沢地域での取り組み</SmallTitle>
                 <AccentText>下北沢盆踊り</AccentText>
-                <Text>昨年度から新たな挑戦として、下北沢地域のみなさまとの交流を開始し、7月25日(土)、26日(日)に開催された「下北沢盆踊り2026」に参加させていただきました。また、昨年度は「ムーンアートナイト下北沢2025」、「シモキタロボフェス2025」にも参加し、ボランティアとして微力ながら尽力いたしました。今後も良好な関係を築いていけるよう、盤石な協力体制を構築してまいります。</Text>
+                <ImageText src="/images/stakeholders/area/shimokita.jpg" alt="下北沢盆踊り">昨年度から新たな挑戦として、下北沢地域のみなさまとの交流を開始し、7月25日(土)、26日(日)に開催された「下北沢盆踊り2026」に参加させていただきました。また、昨年度は「ムーンアートナイト下北沢2025」、「シモキタロボフェス2025」にも参加し、ボランティアとして微力ながら尽力いたしました。今後も良好な関係を築いていけるよう、盤石な協力体制を構築してまいります。</ImageText>
                 <ContactView department="渉外局界隈部門" mail="kaiwai@meidasai.jp" showAddress showPhone />
             </CloudPageContainer>
         </div>
