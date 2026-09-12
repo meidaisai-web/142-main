@@ -45,6 +45,13 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/access", label: "アクセス" }
         ]
     },
+
+    {
+        title: "コラボ企画",
+        content: [
+            { href: "/matsubara", label: "松原小学校×明大祭" }
+        ]
+    }
 ]
 
 const forOutside = [
@@ -59,16 +66,16 @@ const forOutside = [
     },
 
      {
-        title: "コラボ企画",
-        content: [
-            { href: "/matsubara", label: "松原小学校×明大祭" }
-        ]
-    },
-
-     {
         title: "実行委員会企画",
         content: [
             { href: "/ippan", label: "一般明大生向け本祭前企画" }
+        ]
+    },
+    
+    {
+        title: "ご協賛一覧",
+        content: [
+            { href: "/company-list", label: "ご協賛企業一覧" }
         ]
     }
 ]
