@@ -4,10 +4,15 @@ import { adData, smallAdData } from "@/utils/datas/adData";
 import Banner from "./Banner";
 import { shuffleArray } from "@/utils/arrayManager";
 import { useEffect, useState, useRef, useCallback, RefObject } from "react";
+import { usePathname } from "next/navigation";
 import StickyBanner from "./StickyBanner";
 import { useGetElementProperty } from "@/hooks/useGetElementProperty";
 
 export default function BannerContainer() {
+
+    const pathname = usePathname();
+    // ホームページはpage.tsx側で常時表示のStickyBannerを持つため、ここでは重複表示させない
+    const isHome = pathname === '/';
 
     const ref = useRef<HTMLDivElement>(null);
     const { getElementProperty } = useGetElementProperty<HTMLDivElement>(ref as RefObject<HTMLDivElement>);
@@ -56,9 +61,9 @@ export default function BannerContainer() {
     return (
         <div className="my-10">
             <div className="flex justify-center items-center">
-                {isBannerVisible && <div className="w-screen flex justify-center" id='sticky_banner'><StickyBanner adData={shuffledAds[0]} /></div>}
+                {!isHome && isBannerVisible && <div className="w-screen flex justify-center" id='sticky_banner'><StickyBanner adData={shuffledAds[0]} /></div>}
             </div>
-            <section className='w-[80vw] mx-auto flex flex-col items-center gap-6'>
+            <section className='w-full mx-auto flex flex-col items-center gap-6'>
                 <div className="flex flex-col gap-6 items-center  lg:flex-row lg:flex-wrap lg:justify-center max-w-[1000px]" ref={ref}>
                     <Banner type="long" adData={shuffledAds[0]} />
                     <Banner type="long" adData={shuffledAds[1]} />
