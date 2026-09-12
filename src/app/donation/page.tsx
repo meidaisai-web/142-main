@@ -6,6 +6,7 @@ import ImageText from "@/components/texts/ImageText"
 import Text from "@/components/texts/Text"
 import Emphasis from "@/components/texts/Emphasis"
 import { List, ListItem } from "@/components/texts/List"
+import ContactView from "@/components/texts/ContactView"
 
 
 const page = () => {
@@ -32,6 +33,7 @@ const page = () => {
                 <List mark="※">
                     <ListItem>詳しい情報は、上記URLまたは「明治大学　明大祭プロジェクト」で検索してご確認ください。</ListItem>
                 </List>
+                <ContactView department="第142回明大祭実行委員会 財務局　明大祭募金企画チーム" showPhone mail="142nd-bokin@meidaisai.jp" showAddress/>
             </CloudPageContainer>
         </div>
     )
