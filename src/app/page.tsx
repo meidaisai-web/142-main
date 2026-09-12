@@ -1,3 +1,4 @@
+
 import HeroSection from "@/components/index/HeroSection";
 
 export default function Home() {
