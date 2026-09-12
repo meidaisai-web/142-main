@@ -4,7 +4,7 @@ import { getUniqueMasterData } from "@/utils/supabase/masterDataAction";
 import { useEffect, useState } from "react";
 import { MasterData } from "@/utils/models/MasterData";
 import VoteView from "./VoteView";
-import AccentText from "../texts/AccentTitle";
+import AccentText from "../texts/AccentText";
 import Text from "../texts/Text";
 import Image from "next/image";
 import Link from "next/link";
