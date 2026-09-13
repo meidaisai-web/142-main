@@ -14,7 +14,7 @@ export default function Countdown() {
 
   return (
     <div>
-      <div className="relative w-full flex items-center justify-center">
+      <div className="relative w-screen flex items-center justify-center">
         <div className="absolute w-full z-0 pointer-events-none">
           <Image
             src="/images/countdown/belt.png"
