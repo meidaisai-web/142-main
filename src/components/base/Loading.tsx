@@ -10,6 +10,7 @@ interface LoadingProps {
 
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 const LOADING_SEEN_KEY = "meijitsu-loading-seen";
+const DEBUG_ALWAYS_SHOW = false;
 
 // 非lg: 前半ゆっくり（雲がほぼ止まって透けていく）→ 後半で一気にはける ease-in
 const DRIFT_EASE = [0.55, 0, 0.85, 0.35] as const;
@@ -143,7 +144,7 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
         } catch {
             // プライベートモード等で sessionStorage が使えない場合は毎回表示
         }
-        if (seen) {
+        if (seen && !DEBUG_ALWAYS_SHOW) {
             setShow(false);
             setLoading(false);
         }
@@ -272,10 +273,10 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
         >
 
             <motion.div
-                className="absolute inset-0 z-20 bg-white"
+                className="absolute inset-0 z-[35] bg-white"
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 0 }}
-                transition={{ duration: 0.6, delay: cloudStart - 0.4 }}
+                transition={{ duration: 0.6, delay: cloudStart + 0.9 }}
             />
 
             {clouds.map((cloud) => {
@@ -338,7 +339,7 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
                 return (
                 <motion.div
                     key={cloud.src}
-                    className={`absolute z-30  h-[75vmax] w-[120vmax] lg:h-[72vw] lg:w-[110vw] blur-[1px] ${cloud.position}`}
+                    className={`absolute z-30  h-[75vmax] w-[120vmax] lg:h-[72vw] lg:w-[110vw] blur-[1px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.18)] ${cloud.position}`}
                     initial={{ ...start, opacity: 1, scale: cloudStartScale }}
                     animate={{ ...cloudAnimate, opacity: [...cloudOpacity], scale: cloudScale }}
                     transition={{
