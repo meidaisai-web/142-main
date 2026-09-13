@@ -1,5 +1,6 @@
 
 import HeroSection from "@/components/index/HeroSection";
+import Loading from "@/components/base/Loading";
 
 export default function Home() {
   return (
