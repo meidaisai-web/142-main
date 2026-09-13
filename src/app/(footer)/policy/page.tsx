@@ -1,4 +1,4 @@
-import PageContainer from "@/components/base/PageContainer";
+import CloudPageContainer from "@/components/base/CloudPageContainer";
 import { List, ListItem, ListText } from "@/components/texts/List";
 import PageTitle from "@/components/texts/PageTitle";
 import Text from "@/components/texts/Text";
@@ -6,8 +6,8 @@ import Text from "@/components/texts/Text";
 export default function Page() {
     return (
         <div>
+            <CloudPageContainer>
             <PageTitle>プライバシーポリシー</PageTitle>
-            <PageContainer>
                 <Text className="mt-5">第142回明大祭実行委員会（以下、当団体とする）は、第142回明大祭を実施・運営するうえで、個人情報に関する法令を遵守し、個人情報の適切な取り扱いに努めます。</Text>
                 <List numbered className="mt-10">
                     <ListItem>個人情報の取り扱い</ListItem>
@@ -28,7 +28,8 @@ export default function Page() {
                     <ListItem>IPアドレスの利用</ListItem>
                     <ListText>当団体では、サーバーで発生した問題の突き止め、解決、およびサイト管理のために、ログに記録されたサイト利用者のIPアドレスを利用させていただくことがあります。</ListText>
                 </List>
-            </PageContainer>
+                <div className="h-20" />
+            </CloudPageContainer>
         </div>
     )
 }
