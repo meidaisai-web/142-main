@@ -35,11 +35,11 @@ function page() {
             <ListItem>メインステージに設置される大型ビジョンでの広告の放映</ListItem>
             <ListItem>明大祭当日の企画における来場者への物品提供</ListItem>
         </List>
-        <List mark="※" bottomMargin>
+        <List mark="※">
             <ListItem>以上の協賛方法は第142回明大祭でご案内させていただいたものです。</ListItem>
         </List>
-        <Text>来年度は変更となる可能性がございます。予めご了承ください。</Text>
-        <Text>来年度のご協賛をご検討いただける場合は、参考までに本年度使用した資料を送付いたします。</Text>
+        <Text className="-mt-2">来年度は変更となる可能性がございます。予めご了承ください。</Text>
+        <Text moreTopPadding>来年度のご協賛をご検討いただける場合は、参考までに本年度使用した資料を送付いたします。</Text>
         <Text>また、上記以外の形態でのご協賛につきましても検討いたしますので、お気軽に下記のお問い合わせ先までご連絡ください。</Text>
         <ContactView department="渉外局 企業部門" showAddress showPhone mail="kigyo@meidaisai.jp" />
       </CloudPageContainer>
