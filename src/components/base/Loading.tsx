@@ -276,7 +276,7 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
                 className="absolute inset-0 z-[35] bg-white"
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 0 }}
-                transition={{ duration: 0.6, delay: cloudStart + 0.9 }}
+                transition={{ duration: 0.6, delay: cloudStart + 0.8 }}
             />
 
             {clouds.map((cloud) => {
@@ -339,7 +339,7 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
                 return (
                 <motion.div
                     key={cloud.src}
-                    className={`absolute z-30  h-[75vmax] w-[120vmax] lg:h-[72vw] lg:w-[110vw] blur-[1px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.18)] ${cloud.position}`}
+                    className={`absolute z-30  h-[75vmax] w-[120vmax] lg:h-[72vw] lg:w-[110vw] blur-[1px] ${cloud.position}`}
                     initial={{ ...start, opacity: 1, scale: cloudStartScale }}
                     animate={{ ...cloudAnimate, opacity: [...cloudOpacity], scale: cloudScale }}
                     transition={{
