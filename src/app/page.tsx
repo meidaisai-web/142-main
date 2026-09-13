@@ -1,14 +1,12 @@
-'use client';
+import HeroSection from "@/components/index/HeroSection";
 
 import Loading from "@/components/base/Loading";
 
 export default function Home() {
   return (
-    <>
-      <main className="bg-top-gradient">
-        <h1 className="h-2000">第142回 明大祭 開発するよ</h1>
-      </main>
-      <Loading setLoading={() => {}} />
-    </>
+    <main className="bg-top-gradient pb-60">
+      <HeroSection />
+      <Loading />
+    </main>
   );
 }
