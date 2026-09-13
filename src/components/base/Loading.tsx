@@ -5,12 +5,10 @@ import { animate, motion, useMotionTemplate, useMotionValue, useMotionValueEvent
 import Image from "next/image";
 
 interface LoadingProps {
-    setLoading: (finished: boolean) => void;
+    setLoading?: (finished: boolean) => void;
 }
 
-// SSR では useLayoutEffect が使えないので useEffect にフォールバック
 const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
-// このタブ（セッション）で一度ローディングを見たか。リロードでは再表示しない。
 const LOADING_SEEN_KEY = "meijitsu-loading-seen";
 
 // 非lg: 前半ゆっくり（雲がほぼ止まって透けていく）→ 後半で一気にはける ease-in
@@ -133,12 +131,10 @@ const clouds = [
 
 type Tier = "base" | "sm" | "md" | "lg";
 
-export default function Loading({ setLoading }: LoadingProps) {
+export default function Loading({ setLoading = () => {} }: LoadingProps) {
     const [show, setShow] = useState(true);
     const [tier, setTier] = useState<Tier>("base");
 
-    // 初回表示のみ。リロード（同じタブ）では sessionStorage を見てスキップ。
-    // useLayoutEffect でペイント前に判定するのでチラつかない。
     useIsomorphicLayoutEffect(() => {
         let seen = false;
         try {
@@ -153,6 +149,7 @@ export default function Loading({ setLoading }: LoadingProps) {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
     const [planeDuration, setPlaneDuration] = useState(AIRPLANE_DURATION_MIN);
     const [planeDelay, setPlaneDelay] = useState(AIRPLANE_DELAY);
 
