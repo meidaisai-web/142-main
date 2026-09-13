@@ -27,7 +27,7 @@ export default function DottedLine() {
             ) - (window.innerWidth <= 370 ? 1 : 0);
 
             const mobileHorizontalCount =
-                Math.floor((window.innerWidth * 0.9) / (dotWidth + gap)) + 2;
+                Math.floor((window.innerWidth * 0.9) / (dotWidth + gap)) + 3;
 
             const mobileVerticalCount = Math.floor(
                 (window.innerWidth * 0.8) / (dotWidth + gap)
@@ -74,13 +74,13 @@ export default function DottedLine() {
     const horizontalLineLength =
         horizontalDotCount > 0
             ? horizontalDotCount * DOT_SIZE +
-              (horizontalDotCount - 1) * GAP
+            (horizontalDotCount - 1) * GAP
             : 0;
 
     const verticalLineLength =
         verticalDotCount > 0
             ? verticalDotCount * DOT_SIZE +
-              (verticalDotCount - 1) * GAP
+            (verticalDotCount - 1) * GAP
             : 0;
 
     const horizontalDuration =
@@ -351,14 +351,14 @@ export default function DottedLine() {
             className="relative w-full rotate-[12deg] md:rotate-[10deg]"
         >
             {/* 横方向の点線 */}
-            <div className="flex gap-[16px] overflow-hidden">
+            <div className="flex gap-[12px] sm:gap-[16px] overflow-hidden">
                 {Array.from({ length: horizontalDotCount }).map((_, index) => (
                     <span
                         key={`horizontal-${index}`}
                         className="
                         block
-                        h-[5px]
-                        w-[14px]
+                        h-[4px] sm:h-[5px]
+                        w-[10px] sm:w-[14px]
                         shrink-0
                         bg-white
                         transition-[clip-path]
@@ -390,7 +390,7 @@ export default function DottedLine() {
                     alt=""
                     className="
                         block
-                        w-[50px]
+                        w-[40px] sm:w-[50px]
                         h-auto
                         object-contain
                         -rotate-[3deg]
@@ -408,8 +408,8 @@ export default function DottedLine() {
                                 key={`vertical-${index}`}
                                 className="
                                  block
-                                 h-[14px]
-                                 w-[5px]
+                                 h-[10px] sm:h-[14px]
+                                 w-[4px] sm:w-[5px]
                                  shrink-0
                                  bg-white
                                  transition-[clip-path]
@@ -434,7 +434,7 @@ export default function DottedLine() {
                             alt=""
                             className="
                                 block
-                                w-[50px]
+                                w-[40px] sm:w-[50px]
                                 h-auto
                                 object-contain
                             "
@@ -450,3 +450,4 @@ export default function DottedLine() {
         </div>
     );
 }
+
