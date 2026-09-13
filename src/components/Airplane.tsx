@@ -93,7 +93,7 @@ export default function DottedLine() {
             ? (verticalDotCount - 1) * 100 + 200
             : 0;
 
-    const verticalDelay = horizontalDotCount * 100;
+    const verticalDelay = horizontalDotCount * 100 - 250;
 
     type Checkpoint = { t: number; x: number };
 
@@ -250,7 +250,7 @@ export default function DottedLine() {
 
         for (let i = 0; i < M; i++) {
             checkpoints.push({
-                t: i * 100 + 200,
+                t: i * 100,
                 x: i * (DOT_SIZE + GAP),
             });
         }
@@ -262,7 +262,7 @@ export default function DottedLine() {
 
             const tick = (now: number) => {
                 const elapsed = Math.min(now - start, D);
-                const tipY = getPositionAt(checkpoints, elapsed);
+                const tipY = getPositionAt(checkpoints, elapsed - 250);
 
                 if (verticalPlaneRef.current) {
                     verticalPlaneRef.current.style.transform =
