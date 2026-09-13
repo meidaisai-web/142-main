@@ -144,13 +144,31 @@ export default function DottedLine() {
     const maskId = useId();
     const revealAnimRef = useRef<SVGAnimateElement>(null);
     const revealTurnAnimRef = useRef<SVGAnimateElement>(null);
+    // 一度でも再生が始まったか（リサイズ時にリプレイせず完成形へスナップするための目印）
+    const hasStartedRef = useRef(false);
+    const turnTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const [isVisible, setIsVisible] = useState(false);
     const [hasTurned, setHasTurned] = useState(false);
+    // 再生開始後にリサイズが起きたら、アニメーションの途中/前後を問わず
+    // 常に完成形（線は全て表示・飛行機は終点）へスナップする
+    const [snapToEnd, setSnapToEnd] = useState(false);
     const [metrics, setMetrics] = useState<Metrics>(EMPTY_METRICS);
 
     useEffect(() => {
-        const updateMetrics = () => setMetrics(computeMetrics());
+        const updateMetrics = () => {
+            const next = computeMetrics();
+            setMetrics(next);
+
+            if (hasStartedRef.current) {
+                if (turnTimerRef.current) {
+                    clearTimeout(turnTimerRef.current);
+                    turnTimerRef.current = null;
+                }
+                setSnapToEnd(true);
+                setHasTurned(next.hasTurn);
+            }
+        };
         updateMetrics();
         window.addEventListener("resize", updateMetrics);
         return () => window.removeEventListener("resize", updateMetrics);
@@ -176,19 +194,26 @@ export default function DottedLine() {
 
     useEffect(() => {
         if (!isVisible) return;
+        hasStartedRef.current = true;
         revealAnimRef.current?.beginElement();
     }, [isVisible]);
 
     useEffect(() => {
-        if (!isVisible || !metrics.hasTurn) return;
+        if (!isVisible || !metrics.hasTurn || snapToEnd) return;
 
-        const timer = setTimeout(() => {
+        turnTimerRef.current = setTimeout(() => {
             setHasTurned(true);
             revealTurnAnimRef.current?.beginElement();
+            turnTimerRef.current = null;
         }, metrics.turnTimeMs);
 
-        return () => clearTimeout(timer);
-    }, [isVisible, metrics.hasTurn, metrics.turnTimeMs]);
+        return () => {
+            if (turnTimerRef.current) {
+                clearTimeout(turnTimerRef.current);
+                turnTimerRef.current = null;
+            }
+        };
+    }, [isVisible, metrics.hasTurn, metrics.turnTimeMs, snapToEnd]);
 
     const {
         pathD,
@@ -210,10 +235,18 @@ export default function DottedLine() {
     const legOutDurationMs = totalDurationMs - turnTimeMs;
     const planeOffsetDistance = !isVisible
         ? "0px"
+        : snapToEnd
+        ? `${totalLength}px`
         : hasTurn
         ? `${hasTurned ? totalLength : horizontalLength}px`
         : `${totalLength}px`;
     const planeOffsetDurationMs = hasTurned ? legOutDurationMs : turnTimeMs;
+    const planeTransition = snapToEnd
+        ? "none"
+        : `offset-distance ${planeOffsetDurationMs}ms ${EASE_IN_OUT}, opacity 150ms linear`;
+    const planeIconTransition = snapToEnd
+        ? "none"
+        : `transform ${TURN_ANIM_MS}ms ease-in-out`;
 
     return (
         <div
@@ -228,57 +261,61 @@ export default function DottedLine() {
                     viewBox={`0 0 ${width} ${height}`}
                     style={{ overflow: "visible", display: "block" }}
                 >
-                    <defs>
-                        <mask
-                            id={maskId}
-                            maskUnits="userSpaceOnUse"
-                            x={0}
-                            y={0}
-                            width={width}
-                            height={height}
-                        >
-                            <path
-                                d={pathD}
-                                fill="none"
-                                stroke="#fff"
-                                strokeWidth={strokeWidth + 4}
-                                strokeLinecap="butt"
-                                strokeDasharray={`${totalLength} ${totalLength}`}
-                                strokeDashoffset={totalLength}
+                    {!snapToEnd && (
+                        <defs>
+                            <mask
+                                id={maskId}
+                                maskUnits="userSpaceOnUse"
+                                x={0}
+                                y={0}
+                                width={width}
+                                height={height}
                             >
-                                <animate
-                                    ref={revealAnimRef}
-                                    attributeName="stroke-dashoffset"
-                                    from={totalLength}
-                                    to={
-                                        hasTurn
-                                            ? totalLength - horizontalLength
-                                            : 0
-                                    }
-                                    dur={`${turnTimeMs}ms`}
-                                    begin="indefinite"
-                                    fill="freeze"
-                                    calcMode="spline"
-                                    keyTimes="0;1"
-                                    keySplines={EASE_IN_OUT_KEY_SPLINE}
-                                />
-                                {hasTurn && (
+                                <path
+                                    d={pathD}
+                                    fill="none"
+                                    stroke="#fff"
+                                    strokeWidth={strokeWidth + 4}
+                                    strokeLinecap="butt"
+                                    strokeDasharray={`${totalLength} ${totalLength}`}
+                                    strokeDashoffset={totalLength}
+                                >
                                     <animate
-                                        ref={revealTurnAnimRef}
+                                        ref={revealAnimRef}
                                         attributeName="stroke-dashoffset"
-                                        from={totalLength - horizontalLength}
-                                        to={0}
-                                        dur={`${legOutDurationMs}ms`}
+                                        from={totalLength}
+                                        to={
+                                            hasTurn
+                                                ? totalLength - horizontalLength
+                                                : 0
+                                        }
+                                        dur={`${turnTimeMs}ms`}
                                         begin="indefinite"
                                         fill="freeze"
                                         calcMode="spline"
                                         keyTimes="0;1"
                                         keySplines={EASE_IN_OUT_KEY_SPLINE}
                                     />
-                                )}
-                            </path>
-                        </mask>
-                    </defs>
+                                    {hasTurn && (
+                                        <animate
+                                            ref={revealTurnAnimRef}
+                                            attributeName="stroke-dashoffset"
+                                            from={
+                                                totalLength - horizontalLength
+                                            }
+                                            to={0}
+                                            dur={`${legOutDurationMs}ms`}
+                                            begin="indefinite"
+                                            fill="freeze"
+                                            calcMode="spline"
+                                            keyTimes="0;1"
+                                            keySplines={EASE_IN_OUT_KEY_SPLINE}
+                                        />
+                                    )}
+                                </path>
+                            </mask>
+                        </defs>
+                    )}
 
                     <path
                         d={pathD}
@@ -287,7 +324,7 @@ export default function DottedLine() {
                         strokeWidth={strokeWidth}
                         strokeLinecap="butt"
                         strokeDasharray={`${dotSize} ${gap}`}
-                        mask={`url(#${maskId})`}
+                        mask={snapToEnd ? undefined : `url(#${maskId})`}
                     />
                 </svg>
 
@@ -302,7 +339,7 @@ export default function DottedLine() {
                             offsetDistance: planeOffsetDistance,
                             offsetRotate: "0deg",
                             offsetAnchor: "center",
-                            transition: `offset-distance ${planeOffsetDurationMs}ms ${EASE_IN_OUT}, opacity 150ms linear`,
+                            transition: planeTransition,
                             opacity: isVisible ? 1 : 0,
                         } as CSSProperties
                     }
@@ -315,7 +352,7 @@ export default function DottedLine() {
                             transform: hasTurned
                                 ? `scaleX(-1) rotate(${TURN_ROTATE_DEG}deg)`
                                 : `scaleX(1) rotate(${NOSE_TWEAK_DEG}deg)`,
-                            transition: `transform ${TURN_ANIM_MS}ms ease-in-out`,
+                            transition: planeIconTransition,
                             transformOrigin: "50% 50%",
                         }}
                     />
