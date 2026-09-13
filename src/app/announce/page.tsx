@@ -44,7 +44,6 @@ const page = () => {
         }
     ]
 
-    // //「お困りの際は」に書く内容を以下に記述してください。
     // const helpItems = [
     //     // {
     //     //     title: "休憩所",
@@ -77,9 +76,9 @@ const page = () => {
             <CloudPageContainer>
             <PageTitle>ご来場のみなさまへ</PageTitle>
                 <SectionTitle>
-                    ご来場のみなさまへのお願い
+                  ご来場のみなさまへのお願い
                 </SectionTitle>
-                <Text moreTopPadding>
+                <Text>
                     第142回明大祭では、ご来場のみなさまに快適に楽しんでいただけるよう下記のルールを設けております。場合によっては明大祭実行委員からお声掛けさせていただくことがございます。また、状況に応じて退構を求める場合もございますので、あらかじめご了承ください。
                 </Text>
                 {visitorsRules.map((rule, index) => (
