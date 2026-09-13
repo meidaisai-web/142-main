@@ -2,9 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const DOT_SIZE = 14;
-const GAP = 16;
-
 export default function DottedLine() {
     const ref = useRef<HTMLDivElement>(null);
 
@@ -16,10 +13,17 @@ export default function DottedLine() {
     const horizontalFinishedRef = useRef(false);
     const verticalFinishedRef = useRef(false);
 
+    function DOT_SIZE() {
+        return window.innerWidth < 640 ? 10 : 14;
+    }
+    function GAP() {
+        return window.innerWidth < 640 ? 12 : 16;
+    }
+
     useEffect(() => {
         const updateDotCount = () => {
-            const dotWidth = DOT_SIZE;
-            const gap = GAP;
+            const dotWidth = DOT_SIZE();
+            const gap = GAP();
             const airplaneWidth = 25;
 
             const horizontalCount = Math.floor(
@@ -73,14 +77,14 @@ export default function DottedLine() {
 
     const horizontalLineLength =
         horizontalDotCount > 0
-            ? horizontalDotCount * DOT_SIZE +
-            (horizontalDotCount - 1) * GAP
+            ? horizontalDotCount * DOT_SIZE() +
+            (horizontalDotCount - 1) * GAP()
             : 0;
 
     const verticalLineLength =
         verticalDotCount > 0
-            ? verticalDotCount * DOT_SIZE +
-            (verticalDotCount - 1) * GAP
+            ? verticalDotCount * DOT_SIZE() +
+            (verticalDotCount - 1) * GAP()
             : 0;
 
     const horizontalDuration =
@@ -106,7 +110,7 @@ export default function DottedLine() {
         for (let i = 1; i < dotCount; i++) {
             checkpoints.push({
                 t: i * 100,
-                x: i * (DOT_SIZE + GAP),
+                x: i * (DOT_SIZE() + GAP()),
             });
         }
 
@@ -251,7 +255,7 @@ export default function DottedLine() {
         for (let i = 0; i < M; i++) {
             checkpoints.push({
                 t: i * 100,
-                x: i * (DOT_SIZE + GAP),
+                x: i * (DOT_SIZE() + GAP()),
             });
         }
 
