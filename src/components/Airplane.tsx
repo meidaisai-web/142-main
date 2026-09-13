@@ -19,6 +19,9 @@ const TURN_PLANE_HEADING_DEG = TURN_LOCAL_ANGLE_DEG - TURN_NOSE_DOWN_TILT_DEG;
 const TURN_ROTATE_DEG = TURN_PLANE_HEADING_DEG - 180;
 // 旋回(バンク)アニメーションの長さ
 const TURN_ANIM_MS = 380;
+// CSSのease-in-outと同じ制御点（SMILのkeySplinesと挙動を揃えるため）
+const EASE_IN_OUT_KEY_SPLINE = "0.42 0 0.58 1";
+const EASE_IN_OUT = "cubic-bezier(0.42, 0, 0.58, 1)";
 
 type Point = { x: number; y: number };
 
@@ -28,6 +31,7 @@ type Metrics = {
     strokeWidth: number;
     planeSize: number;
     hasTurn: boolean;
+    horizontalLength: number;
     totalLength: number;
     totalDurationMs: number;
     turnTimeMs: number;
@@ -42,6 +46,7 @@ const EMPTY_METRICS: Metrics = {
     strokeWidth: 0,
     planeSize: 0,
     hasTurn: false,
+    horizontalLength: 0,
     totalLength: 0,
     totalDurationMs: 0,
     turnTimeMs: 0,
@@ -124,6 +129,7 @@ function computeMetrics(): Metrics {
         strokeWidth,
         planeSize,
         hasTurn,
+        horizontalLength,
         totalLength,
         totalDurationMs,
         turnTimeMs,
@@ -137,6 +143,7 @@ export default function DottedLine() {
     const ref = useRef<HTMLDivElement>(null);
     const maskId = useId();
     const revealAnimRef = useRef<SVGAnimateElement>(null);
+    const revealTurnAnimRef = useRef<SVGAnimateElement>(null);
 
     const [isVisible, setIsVisible] = useState(false);
     const [hasTurned, setHasTurned] = useState(false);
@@ -177,6 +184,7 @@ export default function DottedLine() {
 
         const timer = setTimeout(() => {
             setHasTurned(true);
+            revealTurnAnimRef.current?.beginElement();
         }, metrics.turnTimeMs);
 
         return () => clearTimeout(timer);
@@ -184,8 +192,11 @@ export default function DottedLine() {
 
     const {
         pathD,
+        hasTurn,
+        horizontalLength,
         totalLength,
         totalDurationMs,
+        turnTimeMs,
         strokeWidth,
         dotSize,
         gap,
@@ -193,6 +204,16 @@ export default function DottedLine() {
         width,
         height,
     } = metrics;
+
+    // 折り返しがある場合は、折り返し前(leg1)と後(leg2)それぞれに
+    // 個別のease-in-outを効かせる。折り返しがない場合は1本のまま。
+    const legOutDurationMs = totalDurationMs - turnTimeMs;
+    const planeOffsetDistance = !isVisible
+        ? "0px"
+        : hasTurn
+        ? `${hasTurned ? totalLength : horizontalLength}px`
+        : `${totalLength}px`;
+    const planeOffsetDurationMs = hasTurned ? legOutDurationMs : turnTimeMs;
 
     return (
         <div
@@ -229,12 +250,32 @@ export default function DottedLine() {
                                     ref={revealAnimRef}
                                     attributeName="stroke-dashoffset"
                                     from={totalLength}
-                                    to={0}
-                                    dur={`${totalDurationMs}ms`}
+                                    to={
+                                        hasTurn
+                                            ? totalLength - horizontalLength
+                                            : 0
+                                    }
+                                    dur={`${turnTimeMs}ms`}
                                     begin="indefinite"
                                     fill="freeze"
-                                    calcMode="linear"
+                                    calcMode="spline"
+                                    keyTimes="0;1"
+                                    keySplines={EASE_IN_OUT_KEY_SPLINE}
                                 />
+                                {hasTurn && (
+                                    <animate
+                                        ref={revealTurnAnimRef}
+                                        attributeName="stroke-dashoffset"
+                                        from={totalLength - horizontalLength}
+                                        to={0}
+                                        dur={`${legOutDurationMs}ms`}
+                                        begin="indefinite"
+                                        fill="freeze"
+                                        calcMode="spline"
+                                        keyTimes="0;1"
+                                        keySplines={EASE_IN_OUT_KEY_SPLINE}
+                                    />
+                                )}
                             </path>
                         </mask>
                     </defs>
@@ -258,12 +299,10 @@ export default function DottedLine() {
                             width: planeSize,
                             height: planeSize,
                             offsetPath: `path("${pathD}")`,
-                            offsetDistance: isVisible
-                                ? `${totalLength}px`
-                                : "0px",
+                            offsetDistance: planeOffsetDistance,
                             offsetRotate: "0deg",
                             offsetAnchor: "center",
-                            transition: `offset-distance ${totalDurationMs}ms linear, opacity 150ms linear`,
+                            transition: `offset-distance ${planeOffsetDurationMs}ms ${EASE_IN_OUT}, opacity 150ms linear`,
                             opacity: isVisible ? 1 : 0,
                         } as CSSProperties
                     }
