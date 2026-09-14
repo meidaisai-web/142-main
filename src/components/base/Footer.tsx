@@ -18,7 +18,7 @@ export default function Footer() {
 			<FooterCloud isSubPage={isSubPage} />
 
 			<div
-				className={`relative z-10 w-full ${
+				className={`relative z-10 -mt-2 w-full ${
 					isSubPage ? "bg-[#FDF0F2]" : "bg-[#FFFBFB]"
 				} pt-4 pb-10 flex flex-col items-center`}
 			>
