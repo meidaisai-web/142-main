@@ -31,6 +31,24 @@ const CLOUD_OPACITY_TIMES_MD = [0, 0.29, 0.62, 1] as const;
 const CLOUD_OPACITY_LG = [1, 0.22, 0.02, 0] as const;
 const CLOUD_OPACITY_TIMES_LG = [0, 0.28, 0.55, 1] as const;
 
+// opacity カーブ（times は ease:"linear" で結ばれる）上で、不透明度が threshold 以下に
+// 下がる時刻を 0〜1 の割合で返す。totalDuration を「雲が見た目上ほぼ消える時刻」基準にするために使う
+// （driftDuration の満期まで律儀に待つと、特に lg で見た目が消えてから何秒も余計に待つことになるため）。
+function opacityFadeFraction(
+    values: readonly number[],
+    times: readonly number[],
+    threshold: number,
+): number {
+    for (let i = 0; i < values.length - 1; i++) {
+        if (values[i] > threshold && values[i + 1] <= threshold) {
+            const span = values[i] - values[i + 1];
+            const t = span === 0 ? 0 : (values[i] - threshold) / span;
+            return times[i] + (times[i + 1] - times[i]) * t;
+        }
+    }
+    return 1; // 閾値を下回らない場合は最後まで
+}
+
 const LOGO_IN_DELAY = 0.0;
 const TITLE_IN_DELAY = LOGO_IN_DELAY; // ハートと同時にフェードイン
 const TITLE_IN_DURATION = 0.7;
@@ -185,7 +203,36 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
     // 点線トレイルを廃止したぶん、どの幅でも飛行機が退場しきる前に早めに雲を開始する
     const cloudLead = tier === "lg" ? 2 : tier === "md" ? 2.2 : 1.9;
     const cloudStart = Math.max(CLOUD_START, planeDelay + planeDuration - cloudLead);
-    const totalDuration = Math.round((cloudStart + driftDuration + 1.5) * 1000);
+
+    // 雲が見た目上ほぼ消える（不透明度5%以下になる）時刻を基準に、
+    // Loading の表示終了（＝スクロールロック解除・アンマウント）タイミングを決める。
+    // driftDuration の満期まで待つと、特に lg（55%地点で既に不透明度0.02）で
+    // 「見た目は消えてるのに何秒もスクロールできない」状態になってしまうため。
+    const isLgTier = tier === "lg";
+    const cloudOpacityForTotal = isLgTier
+        ? CLOUD_OPACITY_LG
+        : tier === "md"
+          ? CLOUD_OPACITY_MD
+          : tier === "base"
+            ? CLOUD_OPACITY_SP
+            : CLOUD_OPACITY;
+    const cloudOpacityTimesForTotal = isLgTier
+        ? CLOUD_OPACITY_TIMES_LG
+        : tier === "md"
+          ? CLOUD_OPACITY_TIMES_MD
+          : tier === "base"
+            ? CLOUD_OPACITY_TIMES_SP
+            : CLOUD_OPACITY_TIMES;
+    // lg だけ雲ごとに最大0.5秒ずらして透明度アニメが始まる（非lgは実質ずれなし、clouds[0].delay≒0.05）
+    const cloudOpacityStagger = isLgTier ? 0.5 : clouds[0].delay;
+    const cloudsVisuallyGoneAt =
+        cloudStart +
+        cloudOpacityStagger +
+        driftDuration * opacityFadeFraction(cloudOpacityForTotal, cloudOpacityTimesForTotal, 0.4);
+    // 白背景のフェードアウト終了時刻（白背景側の delay/duration と合わせる）
+    const whiteBgGoneAt = cloudStart + 0.8 + 0.6;
+
+    const totalDuration = Math.round((Math.max(cloudsVisuallyGoneAt, whiteBgGoneAt) + 0.15) * 1000);
 
     const startScale = tier === "lg" ? 1.6 : tier === "md" ? 2.7 : 2.2;
 
