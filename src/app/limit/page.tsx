@@ -10,8 +10,8 @@ export default function Page() {
             <PageTitle>LIMIT∞BREAK</PageTitle>
             <CloudPageContainer>
                 <SectionTitle className="mb-8">企画概要</SectionTitle>
-                <Text><Emphasis>超えろ、キミの本気。挑め、世界の記録。</Emphasis></Text>
-                <Text><Emphasis>限界のその先へ —— LIMIT ∞ BREAK</Emphasis></Text>
+                <Text><Emphasis bold>超えろ、キミの本気。挑め、世界の記録。</Emphasis></Text>
+                <Text><Emphasis bold>限界のその先へ —— LIMIT ∞ BREAK</Emphasis></Text>
                 <Text>ここでは、来場者のみんなが競い合いながら、ギネス記録に挑戦し歴史が塗り替わる瞬間を、自らの手で生み出してもらう！</Text>
                 <Text>たくさんのチャレンジャーを待っているぞ！豪華景品やお菓子も用意しているから、ぜひ挑戦してくれ！</Text>
                 <SmallTitle>場所</SmallTitle>
