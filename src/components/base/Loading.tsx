@@ -386,7 +386,7 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
                 return (
                 <motion.div
                     key={cloud.src}
-                    className={`absolute z-30  h-[75vmax] w-[120vmax] lg:h-[72vw] lg:w-[110vw] blur-[1px] ${cloud.position}`}
+                    className={`absolute z-30  h-[75vmax] w-[120vmax] lg:h-[72vw] lg:w-[110vw] ${cloud.position}`}
                     initial={{ ...start, opacity: 1, scale: cloudStartScale }}
                     animate={{ ...cloudAnimate, opacity: [...cloudOpacity], scale: cloudScale }}
                     transition={{
