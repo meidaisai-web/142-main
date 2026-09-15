@@ -23,19 +23,19 @@ export default function Page() {
                         近隣の飲食店・商業施設の駐車場、駐輪場のご利用もご遠慮ください。
                     </ListItem>
                 </List>
-                <SmallTitle>
+                <SmallTitle className="mt-15">
                     和泉キャンパス所在地
                 </SmallTitle>
                 <Text>
                     〒168-855<br />東京都杉並区永福1-9-1<br />明治大学和泉キャンパス
                 </Text>
-                <SmallTitle>
+                <SmallTitle className="mt-15">
                     明大前駅までのアクセス
                 </SmallTitle>
                 <div className="mt-5 sm:w-3/4 lg:w-5/12 mx-auto rounded-lg overflow-hidden">
                     <Image src="/images/map/access-map.jpg" alt="アクセスマップ" width={400} height={400} className="w-full" />
                 </div>
-                <SmallTitle>
+                <SmallTitle className="mt-15">
                     明大前駅から和泉キャンパスまでのアクセス
                 </SmallTitle>
                 <Text>
