@@ -1,4 +1,5 @@
 import CloudPageContainer from '@/components/base/CloudPageContainer';
+import PageTitle from '@/components/texts/PageTitle';
 import SectionTitle from '@/components/texts/SectionTitle';
 import Text from '@/components/texts/Text';
 import ImageText from '@/components/texts/ImageText';
@@ -6,8 +7,8 @@ import Movie from '@/components/movie';
 
 export default function about() {
     return (
-        <div className="w-full h-full flex flex-col justify-center items-center text-center py-20">
          <CloudPageContainer>
+            <PageTitle>明大祭とは</PageTitle>
             <SectionTitle>明大祭について</SectionTitle>
             <Text>
             明大祭とは、例年200以上の団体が参加し、約43,000人の来場者数を誇る明治大学の学園祭です。
@@ -30,6 +31,5 @@ export default function about() {
             <SectionTitle>昨年の明大祭の様子</SectionTitle>
             <Movie href="https://www.youtube.com/embed/S8lkX1BaTd8?si=pHB5c2wYhpuyZGbR" />
          </CloudPageContainer>
-        </div>
     );
 }
