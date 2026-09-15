@@ -249,113 +249,117 @@ export default function DottedLine() {
         : `transform ${TURN_ANIM_MS}ms ease-in-out`;
 
     return (
-        <div
-            ref={ref}
-            className="relative w-full rotate-[12deg] md:rotate-[10deg]"
-        >
-            <div className="absolute left-0 top-0" style={{ width, height }}>
-                {/* 軌跡（点線） */}
-                <svg
-                    width={width}
-                    height={height}
-                    viewBox={`0 0 ${width} ${height}`}
-                    style={{ overflow: "visible", display: "block" }}
-                >
-                    {!snapToEnd && (
-                        <defs>
-                            <mask
-                                id={maskId}
-                                maskUnits="userSpaceOnUse"
-                                x={0}
-                                y={0}
-                                width={width}
-                                height={height}
-                            >
-                                <path
-                                    d={pathD}
-                                    fill="none"
-                                    stroke="#fff"
-                                    strokeWidth={strokeWidth + 4}
-                                    strokeLinecap="butt"
-                                    strokeDasharray={`${totalLength} ${totalLength}`}
-                                    strokeDashoffset={totalLength}
+        // 折り返しの軌跡は viewport 幅を超えて描かれるため、
+        // モバイルでページが横スクロールしないようここで幅をクリップする
+        <div className="w-full overflow-hidden">
+            <div
+                ref={ref}
+                className="relative w-full rotate-[12deg] md:rotate-[10deg]"
+            >
+                <div className="absolute left-0 top-0" style={{ width, height }}>
+                    {/* 軌跡（点線） */}
+                    <svg
+                        width={width}
+                        height={height}
+                        viewBox={`0 0 ${width} ${height}`}
+                        style={{ overflow: "visible", display: "block" }}
+                    >
+                        {!snapToEnd && (
+                            <defs>
+                                <mask
+                                    id={maskId}
+                                    maskUnits="userSpaceOnUse"
+                                    x={0}
+                                    y={0}
+                                    width={width}
+                                    height={height}
                                 >
-                                    <animate
-                                        ref={revealAnimRef}
-                                        attributeName="stroke-dashoffset"
-                                        from={totalLength}
-                                        to={
-                                            hasTurn
-                                                ? totalLength - horizontalLength
-                                                : 0
-                                        }
-                                        dur={`${turnTimeMs}ms`}
-                                        begin="indefinite"
-                                        fill="freeze"
-                                        calcMode="spline"
-                                        keyTimes="0;1"
-                                        keySplines={EASE_IN_OUT_KEY_SPLINE}
-                                    />
-                                    {hasTurn && (
+                                    <path
+                                        d={pathD}
+                                        fill="none"
+                                        stroke="#fff"
+                                        strokeWidth={strokeWidth + 4}
+                                        strokeLinecap="butt"
+                                        strokeDasharray={`${totalLength} ${totalLength}`}
+                                        strokeDashoffset={totalLength}
+                                    >
                                         <animate
-                                            ref={revealTurnAnimRef}
+                                            ref={revealAnimRef}
                                             attributeName="stroke-dashoffset"
-                                            from={
-                                                totalLength - horizontalLength
+                                            from={totalLength}
+                                            to={
+                                                hasTurn
+                                                    ? totalLength - horizontalLength
+                                                    : 0
                                             }
-                                            to={0}
-                                            dur={`${legOutDurationMs}ms`}
+                                            dur={`${turnTimeMs}ms`}
                                             begin="indefinite"
                                             fill="freeze"
                                             calcMode="spline"
                                             keyTimes="0;1"
                                             keySplines={EASE_IN_OUT_KEY_SPLINE}
                                         />
-                                    )}
-                                </path>
-                            </mask>
-                        </defs>
-                    )}
+                                        {hasTurn && (
+                                            <animate
+                                                ref={revealTurnAnimRef}
+                                                attributeName="stroke-dashoffset"
+                                                from={
+                                                    totalLength - horizontalLength
+                                                }
+                                                to={0}
+                                                dur={`${legOutDurationMs}ms`}
+                                                begin="indefinite"
+                                                fill="freeze"
+                                                calcMode="spline"
+                                                keyTimes="0;1"
+                                                keySplines={EASE_IN_OUT_KEY_SPLINE}
+                                            />
+                                        )}
+                                    </path>
+                                </mask>
+                            </defs>
+                        )}
 
-                    <path
-                        d={pathD}
-                        fill="none"
-                        stroke="#fff"
-                        strokeWidth={strokeWidth}
-                        strokeLinecap="butt"
-                        strokeDasharray={`${dotSize} ${gap}`}
-                        mask={snapToEnd ? undefined : `url(#${maskId})`}
-                    />
-                </svg>
+                        <path
+                            d={pathD}
+                            fill="none"
+                            stroke="#fff"
+                            strokeWidth={strokeWidth}
+                            strokeLinecap="butt"
+                            strokeDasharray={`${dotSize} ${gap}`}
+                            mask={snapToEnd ? undefined : `url(#${maskId})`}
+                        />
+                    </svg>
 
-                {/* 飛行機（1機のみ。パスに沿って移動し、折り返しで旋回する） */}
-                <div
-                    className="absolute left-0 top-0"
-                    style={
-                        {
-                            width: planeSize,
-                            height: planeSize,
-                            offsetPath: `path("${pathD}")`,
-                            offsetDistance: planeOffsetDistance,
-                            offsetRotate: "0deg",
-                            offsetAnchor: "center",
-                            transition: planeTransition,
-                            opacity: isVisible ? 1 : 0,
-                        } as CSSProperties
-                    }
-                >
-                    <img
-                        src="/images/svg/airplane-white.svg"
-                        alt=""
-                        className="block w-full h-auto object-contain"
-                        style={{
-                            transform: hasTurned
-                                ? `scaleX(-1) rotate(${TURN_ROTATE_DEG}deg)`
-                                : `scaleX(1) rotate(${NOSE_TWEAK_DEG}deg)`,
-                            transition: planeIconTransition,
-                            transformOrigin: "50% 50%",
-                        }}
-                    />
+                    {/* 飛行機（1機のみ。パスに沿って移動し、折り返しで旋回する） */}
+                    <div
+                        className="absolute left-0 top-0"
+                        style={
+                            {
+                                width: planeSize,
+                                height: planeSize,
+                                offsetPath: `path("${pathD}")`,
+                                offsetDistance: planeOffsetDistance,
+                                offsetRotate: "0deg",
+                                offsetAnchor: "center",
+                                transition: planeTransition,
+                                opacity: isVisible ? 1 : 0,
+                            } as CSSProperties
+                        }
+                    >
+                        <img
+                            src="/images/svg/airplane-white.svg"
+                            alt=""
+                            className="block w-full h-auto object-contain"
+                            style={{
+                                transform: hasTurned
+                                    ? `scaleX(-1) rotate(${TURN_ROTATE_DEG}deg)`
+                                    : `scaleX(1) rotate(${NOSE_TWEAK_DEG}deg)`,
+                                transition: planeIconTransition,
+                                transformOrigin: "50% 50%",
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
         </div>
