@@ -58,10 +58,10 @@ const forOutside = [
     {
         title: "関係者のみなさまへ",
         content: [
-            { href: "stakeholders/company", label: "企業のみなさまへ" },
-            { href: "stakeholders/area", label: "界隈地域のみなさまへ" },
-            { href: "stakeholders/alumni", label: "校友・父母のみなさまへ" },
-            { href: "stakeholders/media", label: "メディアのみなさまへ" },
+            { href: "/stakeholders/company", label: "企業のみなさまへ" },
+            { href: "/stakeholders/area", label: "界隈地域のみなさまへ" },
+            { href: "/stakeholders/alumni", label: "校友・父母のみなさまへ" },
+            { href: "/stakeholders/media", label: "メディアのみなさまへ" },
         ]
     },
 
