@@ -147,6 +147,9 @@ export default function DottedLine() {
     // 一度でも再生が始まったか（リサイズ時にリプレイせず完成形へスナップするための目印）
     const hasStartedRef = useRef(false);
     const turnTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    // 直近の横幅（モバイルのアドレスバー開閉等、横幅が変わらないresizeでは
+    // スナップさせないようにするための記録）
+    const lastWidthRef = useRef<number | null>(null);
 
     const [isVisible, setIsVisible] = useState(false);
     const [hasTurned, setHasTurned] = useState(false);
@@ -157,10 +160,18 @@ export default function DottedLine() {
 
     useEffect(() => {
         const updateMetrics = () => {
+            const width = window.innerWidth;
+            // モバイルはスクロールでアドレスバーが開閉すると高さだけ変わって
+            // resizeイベントが発火するため、横幅が実際に変わった時だけを
+            // 「レイアウトが変わったのでスナップすべきリサイズ」とみなす
+            const widthChanged =
+                lastWidthRef.current !== null && lastWidthRef.current !== width;
+            lastWidthRef.current = width;
+
             const next = computeMetrics();
             setMetrics(next);
 
-            if (hasStartedRef.current) {
+            if (hasStartedRef.current && widthChanged) {
                 if (turnTimerRef.current) {
                     clearTimeout(turnTimerRef.current);
                     turnTimerRef.current = null;
