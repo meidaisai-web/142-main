@@ -20,12 +20,14 @@ interface FilterViewProps {
     setSelectedPlaces: React.Dispatch<React.SetStateAction<string[]>>;
     selectedGenres: string[];
     setSelectedGenres: React.Dispatch<React.SetStateAction<string[]>>;
+    selectedMeicham: string[];
+    setSelectedMeicham: React.Dispatch<React.SetStateAction<string[]>>;
     sortType: SortType;
     setSortType: React.Dispatch<React.SetStateAction<SortType>>;
     onEnter?: () => void;
 }
 
-export default function FilterView({ keyword, setKeyword, selectedTypes, setSelectedTypes, selectedDates, setSelectedDates, selectedPlaces, setSelectedPlaces, selectedGenres, setSelectedGenres, sortType, setSortType, onEnter }: FilterViewProps) {
+export default function FilterView({ keyword, setKeyword, selectedTypes, setSelectedTypes, selectedDates, setSelectedDates, selectedPlaces, setSelectedPlaces, selectedGenres, setSelectedGenres, selectedMeicham, setSelectedMeicham, sortType, setSortType, onEnter }: FilterViewProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     // チェックされているフィルターの軸の数を計算
@@ -33,7 +35,8 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
         selectedTypes.length > 0 ? 1 : 0,
         selectedDates.length > 0 ? 1 : 0,
         selectedPlaces.length > 0 ? 1 : 0,
-        selectedGenres.length > 0 ? 1 : 0
+        selectedGenres.length > 0 ? 1 : 0,
+        selectedMeicham.length > 0 ? 1 : 0
     ].reduce((sum, count) => sum + count, 0);
 
     return (
@@ -81,6 +84,8 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
                             setSelectedPlaces={setSelectedPlaces}
                             selectedGenres={selectedGenres}
                             setSelectedGenres={setSelectedGenres}
+                            selectedMeicham={selectedMeicham}
+                            setSelectedMeicham={setSelectedMeicham}
                         />
                         <SectionTitle>並び替え</SectionTitle>
                         <SortView sortType={sortType} setSortType={setSortType} />
@@ -100,9 +105,11 @@ interface DetailFilterViewProps {
     setSelectedPlaces: React.Dispatch<React.SetStateAction<string[]>>;
     selectedGenres: string[];
     setSelectedGenres: React.Dispatch<React.SetStateAction<string[]>>;
+    selectedMeicham: string[];
+    setSelectedMeicham: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-function DetailFilterView({ selectedTypes, setSelectedTypes, selectedDates, setSelectedDates, selectedPlaces, setSelectedPlaces, selectedGenres, setSelectedGenres }: DetailFilterViewProps) {
+function DetailFilterView({ selectedTypes, setSelectedTypes, selectedDates, setSelectedDates, selectedPlaces, setSelectedPlaces, selectedGenres, setSelectedGenres, selectedMeicham, setSelectedMeicham }: DetailFilterViewProps) {
 
     const checkboxList = [
         {
@@ -110,8 +117,8 @@ function DetailFilterView({ selectedTypes, setSelectedTypes, selectedDates, setS
             selectedArray: selectedTypes,
             setSelectedArray: setSelectedTypes,
             options: [
-                { option: "屋外ステージ企画" },
                 { option: "教室企画" },
+                { option: "総合ステージ企画" },
                 { option: "模擬店企画" },
                 { option: "実行委員会企画" }
             ]
@@ -121,9 +128,9 @@ function DetailFilterView({ selectedTypes, setSelectedTypes, selectedDates, setS
             selectedArray: selectedDates,
             setSelectedArray: setSelectedDates,
             options: [
-                { option: "11月1日(土)" },
-                { option: "11月2日(日)" },
-                { option: "11月3日(月・祝)" }
+                { option: "10月30日(金)" },
+                { option: "10月31日(土)" },
+                { option: "11月1日(日)" }
             ]
         },
         {
@@ -134,6 +141,7 @@ function DetailFilterView({ selectedTypes, setSelectedTypes, selectedDates, setS
                 { option: 'メインステージ' },
                 { option: 'パフォーマンスエリア' },
                 { option: 'エントランスエリア' },
+                { option: '屋内ステージ' },
                 { option: "第一校舎" },
                 { option: "メディア棟" },
                 { option: '和泉ラーニングスクエア' },
@@ -154,6 +162,16 @@ function DetailFilterView({ selectedTypes, setSelectedTypes, selectedDates, setS
                 { option: '参加体験' },
                 { option: 'パフォーマンス' }
 
+            ]
+        },
+        {
+            label: 'Meidaisai Championship 部門',
+            selectedArray: selectedMeicham,
+            setSelectedArray: setSelectedMeicham,
+            options: [
+                { option: '飲食部門' },
+                { option: 'エンタメ部門' },
+                { option: 'パフォ―マンス部門' }
             ]
         }
     ]

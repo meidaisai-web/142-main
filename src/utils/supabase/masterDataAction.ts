@@ -3,13 +3,11 @@ import { MasterData } from "../models/MasterData";
 import { SortType } from "../models/SortType";
 import { createClient } from "./client";
 
-export async function getAllMasterDatas(key: { page: number, limit: number, keyword: string, types: string[], dates: string[], places: string[], genres: string[], sortType: SortType }): Promise<MasterData[] | null> {
-    if (key.keyword === 'Web部門のみんなへ') {
-        return returnDefaultData();
-    }
+export async function getAllMasterDatas(key: { page: number, limit: number, keyword: string, types: string[], dates: string[], places: string[], genres: string[], meichams: string[], sortType: SortType }): Promise<MasterData[] | null> {
     const supabase = createClient();
     const start = key.limit * key.page;
     const end = start + key.limit - 1;
+    let fixedGenre: string[] = key.genres;
 
     function order() {
         if (key.sortType.orderColumn === 'free') {
@@ -22,7 +20,20 @@ export async function getAllMasterDatas(key: { page: number, limit: number, keyw
         }
     }
 
-    let query = supabase.from('MasterData').select('*');
+    let query = supabase.from('MasterData142').select('*');
+
+    if (key.meichams && key.meichams.length > 0) {
+        if (key.meichams.includes('飲食部門')) {
+            fixedGenre.push(...['模擬店', '喫茶']);
+        }
+        if (key.meichams.includes('パフォ―マンス部門')) {
+            fixedGenre.push(...['音楽', 'パフォ―マンス','ダンス']);
+        }
+        if (key.meichams.includes('エンタメ部門')) {
+            fixedGenre.push(...['参加体験', 'ゲスト','展示']);
+        }
+        fixedGenre = [...new Set(fixedGenre)]; // 重複を削除
+    }
 
     // キーワードフィルター（スペース区切りでAND検索、各キーワードはOR検索）
     if (key.keyword && key.keyword.trim()) {
@@ -83,8 +94,8 @@ export async function getAllMasterDatas(key: { page: number, limit: number, keyw
     }
 
     // ジャンルフィルター（OR検索、完全一致）
-    if (key.genres && key.genres.length > 0) {
-        const genreConditions = key.genres.map(genre => `genre.eq.${genre}`);
+    if (fixedGenre && fixedGenre.length > 0) {
+        const genreConditions = fixedGenre.map(genre => `genre.eq.${genre}`);
         query = query.or(genreConditions.join(','));
     }
 
@@ -104,7 +115,7 @@ export async function getUniqueMasterData(id: string): Promise<MasterData | null
         return returnDefaultData().find(event => event.id === Number(id)) || null;
     }
     const supabase = createClient();
-    const { data, error } = await supabase.from('MasterData').select('*').eq('id', id).single();
+    const { data, error } = await supabase.from('MasterData142').select('*').eq('id', id).single();
     if (error) {
         console.log(`Error fetching unique master data: ${error.message}`);
         return null;

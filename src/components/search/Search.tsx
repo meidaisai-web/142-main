@@ -24,6 +24,7 @@ export default function Search() {
     const [selectedDates, setSelectedDates] = useState<string[]>([]);
     const [selectedPlaces, setSelectedPlaces] = useState<string[]>([]);
     const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+    const [selectedMeicham, setSelectedMeicham] = useState<string[]>([]);
     const [sortType, setSortType] = useState<{ orderColumn: string; ascending: boolean }>({ orderColumn: 'free', ascending: true });
 
     // 実際の検索条件（検索ボタン押下時に更新される）
@@ -32,6 +33,7 @@ export default function Search() {
     const [searchDates, setSearchDates] = useState<string[]>([]);
     const [searchPlaces, setSearchPlaces] = useState<string[]>([]);
     const [searchGenres, setSearchGenres] = useState<string[]>([]);
+    const [searchMeicham, setSearchMeicham] = useState<string[]>([]);
     const [searchSortType, setSearchSortType] = useState<{ orderColumn: string; ascending: boolean }>({ orderColumn: 'free', ascending: true });
 
     // URLパラメータまたはlocalStorageから検索条件を復元
@@ -52,6 +54,7 @@ export default function Search() {
                     selectedDates: [],
                     selectedPlaces: [],
                     selectedGenres: [],
+                    selectedMeicham: [],
                     sortType: { orderColumn: 'free', ascending: true },
                     timestamp: Date.now()
                 };
@@ -63,6 +66,7 @@ export default function Search() {
                 setSelectedDates([]);
                 setSelectedPlaces([]);
                 setSelectedGenres([]);
+                setSelectedMeicham([]);
                 setSortType({ orderColumn: 'free', ascending: true });
                 // 検索条件も同時に設定(すぐに検索結果を表示)
                 setSearchKeyword(urlKeyword);
@@ -70,6 +74,7 @@ export default function Search() {
                 setSearchDates([]);
                 setSearchPlaces([]);
                 setSearchGenres([]);
+                setSearchMeicham([]);
                 setSearchSortType({ orderColumn: 'free', ascending: true });
 
                 // EventItemsまでスクロール（少し上に調整）
@@ -101,6 +106,7 @@ export default function Search() {
                     setSelectedDates(conditions.selectedDates || []);
                     setSelectedPlaces(conditions.selectedPlaces || []);
                     setSelectedGenres(conditions.selectedGenres || []);
+                    setSelectedMeicham(conditions.selectedMeicham || []);
                     setSortType(conditions.sortType || { orderColumn: 'free', ascending: true });
                     // 検索条件も同時に設定(前回の検索結果を表示)
                     setSearchKeyword(conditions.keyword || '');
@@ -108,6 +114,7 @@ export default function Search() {
                     setSearchDates(conditions.selectedDates || []);
                     setSearchPlaces(conditions.selectedPlaces || []);
                     setSearchGenres(conditions.selectedGenres || []);
+                    setSearchMeicham(conditions.selectedMeicham || []);
                     setSearchSortType(conditions.sortType || { orderColumn: 'free', ascending: true });
                 }
             }
@@ -125,6 +132,7 @@ export default function Search() {
                 selectedDates,
                 selectedPlaces,
                 selectedGenres,
+                selectedMeicham,
                 sortType,
                 timestamp: Date.now() // 現在時刻をタイムスタンプとして保存
             };
@@ -137,7 +145,7 @@ export default function Search() {
     const limit = 10;
     const getKey = (pageIndex: number, previousPageData: MasterData[]) => {
         if (previousPageData && !previousPageData.length) return null; // 最後に到達した
-        return { page: pageIndex, limit: limit, keyword: searchKeyword, types: searchTypes, dates: searchDates, places: searchPlaces, genres: searchGenres, sortType: searchSortType }; // SWR キー
+        return { page: pageIndex, limit: limit, keyword: searchKeyword, types: searchTypes, dates: searchDates, places: searchPlaces, genres: searchGenres, meichams: searchMeicham, sortType: searchSortType }; // SWR キー
     };
     const { data: datas, size, setSize, isLoading, isValidating } = useSWRInfinite(getKey, getAllMasterDatas)
 
@@ -154,6 +162,7 @@ export default function Search() {
         setSearchDates(selectedDates);
         setSearchPlaces(selectedPlaces);
         setSearchGenres(selectedGenres);
+        setSearchMeicham(selectedMeicham);
         setSearchSortType(sortType);
         // 検索実行
         setSize(1);
@@ -181,6 +190,8 @@ export default function Search() {
                     setSelectedPlaces={setSelectedPlaces}
                     selectedGenres={selectedGenres}
                     setSelectedGenres={setSelectedGenres}
+                    selectedMeicham={selectedMeicham}
+                    setSelectedMeicham={setSelectedMeicham}
                     sortType={sortType}
                     setSortType={setSortType}
                     onEnter={onTapSearchButton}
@@ -195,7 +206,7 @@ export default function Search() {
                         setSortType({ orderColumn: 'free', ascending: true });
                     }}>検索条件をクリア</button>
                 </div>
-                <Button className="mt-10 mb-20" onClick={() => onTapSearchButton()}>検索</Button>
+                <button className="mt-10 mb-20" onClick={() => onTapSearchButton()}>検索</button>
                 <IconList />
                 <MeichamSection />
                 <SectionTitle>企画一覧</SectionTitle>
