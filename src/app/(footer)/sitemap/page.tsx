@@ -16,14 +16,6 @@ export default function SitemapPage() {
 					<TransitionLink href="/access">アクセス</TransitionLink>
 				</div>
 
-				<SmallTitle>明大祭に関わってくださるみなさまへ</SmallTitle>
-				<div className="flex flex-wrap gap-4 mt-5 mb-15">
-					<TransitionLink href="/company">企業のみなさまへ</TransitionLink>
-					<TransitionLink href="/area">界隈地域のみなさまへ</TransitionLink>
-					<TransitionLink href="/alumni">校友・父母のみなさまへ</TransitionLink>
-					<TransitionLink href="/media">メディアのみなさまへ</TransitionLink>
-				</div>
-
 				<SmallTitle>コラボ企画</SmallTitle>
 				<div className="flex flex-wrap gap-4 mt-5 mb-15">
 					<TransitionLink href="/matsubara">松原小学校×明大祭</TransitionLink>
