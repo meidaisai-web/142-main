@@ -3,9 +3,6 @@ compatibility_date = "2026-05-07"
 compatibility_flags = ["nodejs_compat"]
 
 name = "142-main"
-[[kv_namespaces]]
-binding = "NEXT_INC_CACHE_KV"
-id = "c57a24bf6af94e87993ee4173aaf1418"
 
 [assets]
 directory = ".open-next/assets"
@@ -13,6 +10,3 @@ binding = "ASSETS"
 
 [env.production]
 name = "meidaisai"
-[[env.production.kv_namespaces]]
-binding = "NEXT_INC_CACHE_KV"
-id = "a1fddefaeb534134a24d2c0ec84567c4"
