@@ -1,6 +1,7 @@
 import Frame from "./Frame"
 import Text from "../texts/Text"
 import ShadowText from "../texts/ShadowText"
+import DetailButton from "../buttons/DetailButton"
 const Access = () => {
   return (
     <div>
@@ -36,6 +37,7 @@ const Access = () => {
                   「明大前駅」より徒歩5分
                 </Text>
               </div>
+              <DetailButton href="/access" className="mt-5" />
             </div>
 
           </div>
