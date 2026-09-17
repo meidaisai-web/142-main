@@ -42,7 +42,7 @@ export default function Page() {
                 <Link href="https://icu-fes.com/" target="_blank" rel="noopener noreferrer">
                     <Image src="/images/icu/icu-hp.png" className="mx-auto" alt="ICU祭HP" width={400} height={300} />
                 </Link>
-                <Text className="text-center">画像をタップ</Text>
+                <Text className="!text-center">画像をタップ</Text>
             </CloudPageContainer>
         </div>
     )
