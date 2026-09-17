@@ -24,7 +24,7 @@ export default function Page() {
                 <SmallTitle>お題</SmallTitle>
                 <Text className="mb-5">お題は3つご用意しています！</Text>
                 <AccentText>Meiji-1グランプリ</AccentText>
-                <Text className="mb-5">校内で撮影した写真に面白い一言を添えて応募していただきます！皆さんの面白い回答で明治大学を沸かせませんか？</Text>
+                <Text className="mb-5">校内で撮影した写真に面白い一言を添えて応募していただきます！みなさんの面白い回答で明治大学を沸かせませんか？</Text>
                 <AccentText>Be.Meiji</AccentText>
                 <Text className="mb-5">明大生の日常を集めます！お昼休みの様子、サークルの様子などなんでも大歓迎です！</Text>
                 <AccentText>明治コレクション2026</AccentText>
@@ -52,7 +52,7 @@ export default function Page() {
                     <ListItem>飲酒・喫煙など、明大祭での展示にふさわしくない内容を含むもの</ListItem>
                     <ListItem>その他、運営側が展示に適さないと判断したもの</ListItem>
                 </List>
-                <div/>
+                <div />
             </CloudPageContainer>
         </div>
     )
