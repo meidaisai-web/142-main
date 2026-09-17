@@ -5,6 +5,8 @@ import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
 import SmallTitle from "@/components/texts/SmallTitle"
 import TransitionLink from "@/components/buttons/TransitionLink"
+import Link from "next/link"
+import Emphasis from "@/components/texts/Emphasis"
 export default function Page() {
     return (
         <div>
@@ -20,25 +22,27 @@ export default function Page() {
                 <Text>ICU祭をきっかけに明大祭を知った方も、明大祭をきっかけにICU祭を知った方も、ぜひそれぞれの学園祭に足を運んでみてください！</Text>
                 <SectionTitle>コラボ動画はこちら！</SectionTitle>
                 <div className="flex items-center justify-center gap-8">
-                    <a href="https://www.instagram.com/reel/Dc0xhcFJs9H/?stkn=MWV0Nzh0eG9pZnk4Mg%3D%3D" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://www.instagram.com/reel/Dc0xhcFJs9H/?stkn=MWV0Nzh0eG9pZnk4Mg%3D%3D" target="_blank" rel="noopener noreferrer">
                         <Image src="/images/icu/meidaisai-video.png" alt="コラボ動画" width={300} height={200} />
-                    </a>
-                    <a href="https://www.instagram.com/reel/Dc02EfNST18/?stkn=cTVxZG8yNndweHVr" target="_blank" rel="noopener noreferrer">
+                    </Link>
+                    <Link href="https://www.instagram.com/reel/Dc02EfNST18/?stkn=cTVxZG8yNndweHVr" target="_blank" rel="noopener noreferrer">
                         <Image src="/images/icu/icu-video.png" alt="コラボ動画2" width={300} height={200} />
-                    </a>
+                    </Link>
                 </div>
                 <SmallTitle>各種SNSもぜひご覧ください！</SmallTitle>
-                <Text>ICU祭の公式TikTokアカウントは<TransitionLink href="https://www.tiktok.com/@isolated_crazy_utopia?is_from_webapp=1&sender_device=pc">こちら</TransitionLink></Text>
-                <Text>Instagramアカウントは<TransitionLink href="https://www.instagram.com/icu_fes?stkn=eHMzNm5uN3g0OXVv">こちら</TransitionLink></Text>
-                <Text moreTopPadding>明大祭の公式TikTokアカウントは<TransitionLink href="https://www.tiktok.com/@meidaisai_?is_from_webapp=1&sender_device=pc">こちら</TransitionLink></Text>
-                <Text>Instagramアカウントは<TransitionLink href="https://www.instagram.com/meidaisai/?utm_source=ig_web_button_share_sheet">こちら</TransitionLink></Text>
+                <Text>ICU祭の公式TikTokアカウントは<TransitionLink targetBlank href="https://www.tiktok.com/@isolated_crazy_utopia?is_from_webapp=1&sender_device=pc">こちら</TransitionLink></Text>
+                <Text>Instagramアカウントは<TransitionLink targetBlank href="https://www.instagram.com/icu_fes?stkn=eHMzNm5uN3g0OXVv">こちら</TransitionLink></Text>
+                <Text moreTopPadding>明大祭の公式TikTokアカウントは<TransitionLink targetBlank href="https://www.tiktok.com/@meidaisai_?is_from_webapp=1&sender_device=pc">こちら</TransitionLink></Text>
+                <Text>Instagramアカウントは<TransitionLink targetBlank href="https://www.instagram.com/meidaisai/?utm_source=ig_web_button_share_sheet">こちら</TransitionLink></Text>
                 <SmallTitle>ICU祭の開催日</SmallTitle>
                 <Text>10月11日(日).12日(月・祝)</Text>
                 <SmallTitle>ICU祭の開催場所</SmallTitle>
                 <Text>国際基督教大学</Text>
-                <SmallTitle>ICU祭HPのURL</SmallTitle>
-                <TransitionLink targetBlank href="https://icu-fes.com/">https://icu-fes.com/</TransitionLink>
-                <Image src="/images/icu/icu-hp.png" className="mx-auto" alt="ICU祭HP" width={400} height={300} />
+                <SmallTitle>ICU祭のホームページはこちら</SmallTitle>
+                <Link href="https://icu-fes.com/" target="_blank" rel="noopener noreferrer">
+                    <Image src="/images/icu/icu-hp.png" className="mx-auto" alt="ICU祭HP" width={400} height={300} />
+                </Link>
+                <Text className="text-center">画像をタップ</Text>
             </CloudPageContainer>
         </div>
     )
