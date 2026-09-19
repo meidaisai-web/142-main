@@ -12,12 +12,11 @@ export default function Emphasis({
     children,
     bold = false,
     secondary = false,
-    center = false,
     className = ""
 }: EmphasisProps) {
-    const emphasis = (
+    return (
         <span
-            className={`${bold ? 'text-xl font-bold' : 'font-semibold'}`}
+            className={`${bold ? 'text-xl font-bold' : 'font-semibold'} ${className}`}
             style={{
                 backgroundImage: `${secondary
                     ? 'linear-gradient(transparent 60%, var(--color-secondary) 60%)'
@@ -27,20 +26,6 @@ export default function Emphasis({
                 backgroundPosition: '0 0'
             }}
         >
-            {children}
-        </span>
-    );
-
-    if (center) {
-        return (
-            <div className={`text-center ${className}`}>
-                {emphasis}
-            </div>
-        );
-    }
-
-    return (
-        <span className={className}>
             {children}
         </span>
     );
