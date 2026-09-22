@@ -10,7 +10,7 @@ export default function Page() {
             <PageTitle>めいじっけん</PageTitle>
             <CloudPageContainer>
                 <SectionTitle className="mb-8">企画概要</SectionTitle>
-                <Emphasis bold>「つくって！ためして！君も大博士に！」</Emphasis>
+                <Emphasis bold>つくって！ためして！君も大博士に！</Emphasis>
                 <Text>みなさんにスライムやバスボム作り、自分の指紋を用いた指紋タイプ診断をしてもらいます！そして作ったものは、無料でお持ち帰りいただけます！もちろん、親子連れの方も大歓迎！みなさまのご参加をお待ちしております！</Text>
                 <SmallTitle>実施場所</SmallTitle>
                 <Text>第一校舎306教室</Text>
