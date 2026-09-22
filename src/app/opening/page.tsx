@@ -22,7 +22,7 @@ export default function Page() {
                 </Emphasis>
             </Text>
             <SectionTitle>企画概要</SectionTitle>
-            <Text className="!text-center">
+            <Text className="!text-center text-xl">
                 幕開けの合図が響く。<br/>
                 積み重ねた想いが、今、輝き始める。<br/>
                 最高の舞台の目撃者となれ。
@@ -48,7 +48,7 @@ export default function Page() {
                 <ListItem>K-POPカバーダンスサークルMercie</ListItem>
                 <ListItem>中野ダンスサークルSIGN</ListItem>
             </List>
-            <SectionTitle>Opening紹介動画</SectionTitle>
+            {/* <SectionTitle>Opening紹介動画</SectionTitle> */}
             <ContactView department="演出局 結祭部門" mail="142nd-yusai@meidaisai.jp" />
         </CloudPageContainer>
     )
