@@ -29,7 +29,7 @@ export default function Page() {
             </Text>    
             <SectionTitle>実施日時・場所</SectionTitle>
             <SmallTitle>日時</SmallTitle>
-            <Text>10月30日(金)11：00〜11：50</Text>
+            <Text>10月30日(金)11:00～11:50</Text>
             <SmallTitle>場所</SmallTitle>
             <Text>メインステージ</Text>
             <SectionTitle>コンテンツ</SectionTitle>
