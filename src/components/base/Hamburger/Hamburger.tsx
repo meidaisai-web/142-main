@@ -69,7 +69,7 @@ const forOutside = [
      {
         title: "実行委員会企画",
         content: [
-            { href: "/ippan", label: " 明大生のリアルを大募集！「NO iMeiji, NO LIFE？」" },
+            { href: "/ippan", label: "NO iMeiji, NO LIFE？" },
             { href: "/limit", label: "LIMIT∞BREAK" }
 
         ]
