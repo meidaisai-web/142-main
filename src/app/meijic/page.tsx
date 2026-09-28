@@ -6,12 +6,14 @@ import PageTitle from '@/components/texts/PageTitle';
 import OnlyImage from '@/components/OnlyImage';
 import SectionTitle from '@/components/texts/SectionTitle';
 import Emphasis from '@/components/texts/Emphasis';
+import ContactView from '@/components/texts/ContactView';
+
 
 export default function Page() {
     return (
         <CloudPageContainer>
             <PageTitle>Meijic Station</PageTitle>
-            <OnlyImage src="/images/meijicstation/meijic01.jpg" alt="Meijic Station 1"/> 
+            <OnlyImage src="/images/meijicstation/meijic01.jpg" alt="Meijic Station 1" className="mb-5" /> 
             <OnlyImage src="/images/meijicstation/meijic02.jpg" alt="Meijic Station 2"/>
             <SectionTitle>音楽に溺れる。</SectionTitle>
             <Text className="!text-center">
@@ -42,7 +44,8 @@ export default function Page() {
                 <ListItem>中野ダンスサークル SIGN</ListItem>
             </List>
             <Text>※コンテンツの都合上、入場規制をさせていただく時間があります。</Text>
-            <SectionTitle>Meijic Station紹介動画</SectionTitle>
+            {/* <SectionTitle>Meijic Station紹介動画</SectionTitle> */}
+            <ContactView department="演出局 結祭部門" mail="142nd-yusai@meidaisai.jp" />
         </CloudPageContainer>
     )
 }
