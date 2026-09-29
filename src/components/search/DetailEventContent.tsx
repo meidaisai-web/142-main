@@ -10,6 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Label from "../texts/Label";
 import ZoomableImage from "../ZoomableImage";
+import { getMeichamCategory } from "@/utils/managers/meichamManager";
 
 interface DetailContentProps {
     id: string;
@@ -19,6 +20,7 @@ export default function DetailEventContent({ id }: DetailContentProps) {
     const [data, setData] = useState<MasterData | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const category = data ? getMeichamCategory(data.genre) : null;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -66,8 +68,8 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                         <ZoomableImage src="/images/map/tent.jpg" alt="テントマップ" width={600} height={300} className="bg-white p-1 rounded-xl object-contain w-full h-fit max-w-xl mt-16" />
                     )}
                     <Menu menus={data.menuItems || []} />
-                    {(!data.groupName.includes("明大祭実行委員会") && data.groupName !== '伊藤 汰海') &&
-                        <VoteView id={id} groupId={data.groupId} type={data.type} eventName={data.eventName} groupName={data.groupName} eventDate={data.eventDate} />
+                    {(category && !data.groupName.includes("明大祭実行委員会") && data.groupName !== '伊藤 汰海') &&
+                        <VoteView id={id} groupId={data.groupId} type={data.type} eventName={data.eventName} groupName={data.groupName} eventDate={data.eventDate} category={category} />
                     }
                 </div>
             )}

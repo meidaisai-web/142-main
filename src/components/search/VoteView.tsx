@@ -6,6 +6,7 @@ import { List, ListItem } from "../texts/List";
 import Link from "next/link";
 import Alert from "../Alert";
 import { detectIncognito } from "detectincognitojs";
+import { MeichamCategory } from "@/utils/models/MeichamGenre";
 
 // UUIDを取得または生成する関数
 function getUserUUID(): string {
@@ -30,9 +31,10 @@ interface VoteViewProps {
     eventName: string;
     groupName: string;
     eventDate: string;
+    category: MeichamCategory;
 }
 
-export default function VoteView({ id, groupId, type, eventName, groupName, eventDate }: VoteViewProps) {
+export default function VoteView({ id, groupId, type, eventName, groupName, eventDate, category }: VoteViewProps) {
 
     const [isEnable, setIsEnable] = useState(true);
     const [hiddenAlert, setHiddenAlert] = useState(true);
@@ -54,7 +56,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                 return;
             }
             console.log(incognito.browserName)
-            if (isAlreadyVoted(id)) {
+            if (isAlreadyVoted(id, category)) {
                 setIsEnable(false);
                 setButtonText("投票済み");
             }
@@ -88,8 +90,8 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
             return;
         }
         // すでにその日に、その企画に投票しているか確認
-        if (isAlreadyVoted(id)) {
-            setError("本日すでにこの企画に投票しています。");
+        if (isAlreadyVoted(id, category)) {
+            setError(category === 'パフォーマンス' ? "本日すでにこの企画に投票しています。" : "すでにこの企画に投票しています。");
             setButtonText("投票済み");
             setIsEnable(false);
             return;
@@ -98,7 +100,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         const userUUID = getUserUUID();
         
         // 投票していなければ、投票を実行
-        const success = await voteMeicham(id, groupId, type, userUUID);
+        const success = await voteMeicham(id, groupId, type, category, userUUID);
         if (!success) {
             setError("投票に失敗しました。もう一度お試しください。");
             setIsEnable(true);
@@ -109,7 +111,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         setError(null);
         setButtonText("投票済み");
         // localStorageに投票済みの企画IDを保存
-        saveVotedId(id, groupId, type);
+        saveVotedId(id, groupId, type, category);
     }
 
     return (
