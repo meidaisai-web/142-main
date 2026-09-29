@@ -20,7 +20,7 @@ export default function DetailEventContent({ id }: DetailContentProps) {
     const [data, setData] = useState<MasterData | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-    const category = data ? getMeichamCategory(data.genre) : null;
+    const category = data?.championshipJoin ? getMeichamCategory(data.genre) : null;
 
     useEffect(() => {
         const fetchData = async () => {

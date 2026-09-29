@@ -44,7 +44,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
     useEffect(() => {
         async function initialize() {
             if (!isVoteTime(eventDate)) {
-                setButtonText("投票可能時間外です")
+                setButtonText("投票可能時間外です。投票は明大祭の開催期間中にお願いします。")
                 setIsEnable(false);
                 return;
             }
