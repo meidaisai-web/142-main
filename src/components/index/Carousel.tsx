@@ -1,6 +1,7 @@
 'use client'
 import useEmblaCarousel from 'embla-carousel-react';
 import { useEffect, useState } from 'react';
+import Autoplay from 'embla-carousel-autoplay';
 import ShadowText from '@/components/texts/ShadowText';
 import CarouselCard from '@/components/index/CarouselCard';
 
@@ -15,7 +16,7 @@ const slides = [
 ]
 
 export default function Carousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' },[Autoplay({ delay: 3000, stopOnInteraction: false })]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
