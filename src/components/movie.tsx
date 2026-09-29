@@ -11,24 +11,11 @@ export default function Movie({
     className,
     youtube
 }: MovieProps) {
-    if (youtube) {
-        return (
-            <div className="flex justify-center">
-                <div className="relative w-full max-w-2xl mt-5 aspect-video">
-                    <iframe
-                        src={src}
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    className="absolute top-0 left-0 w-full h-full"
-                >
-                </iframe>
-            </div>
-        </div>
-        )
-    } else {
-        const videoRef = useRef<HTMLVideoElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
 
-        useEffect(() => {
+    useEffect(() => {
+        if (youtube) return;
+
             const videoElement = videoRef.current;
             if (!videoElement) return;
 
@@ -53,23 +40,37 @@ export default function Movie({
                 observer.unobserve(videoElement);
                 observer.disconnect();
             };
-        }, []);
+    }, [youtube]);
 
+    if (youtube) {
         return (
-            <div className={`w-full max-w-2xl mx-auto ${className}`}>
-                <video
-                    ref={videoRef}
-                    controls
-                    preload="metadata"
-                    muted
-                    playsInline
-                    controlsList="nodownload"
-                    onContextMenu={(e) => e.preventDefault()}
-                    className="w-full h-auto rounded-lg shadow-md bg-black"
-                >
-                    <source src={src} type="video/mp4" />
-                </video>
+            <div className="flex justify-center">
+                <div className="relative w-full max-w-2xl mt-5 aspect-video">
+                    <iframe
+                        src={src}
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        className="absolute top-0 left-0 w-full h-full"
+                    />
+                </div>
             </div>
         );
     }
+
+    return (
+        <div className={`w-full max-w-2xl mx-auto ${className}`}>
+            <video
+                ref={videoRef}
+                controls
+                preload="metadata"
+                muted
+                playsInline
+                controlsList="nodownload"
+                onContextMenu={(e) => e.preventDefault()}
+                className="w-full h-auto rounded-lg shadow-md bg-black"
+            >
+                <source src={src} type="video/mp4" />
+            </video>
+        </div>
+    );
 }
