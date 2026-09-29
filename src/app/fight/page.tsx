@@ -3,7 +3,6 @@ import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import Text from "@/components/texts/Text"; 
 import Emphasis from "@/components/texts/Emphasis";
-import SmallTitele from "@/components/texts/SmallTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
 
@@ -13,14 +12,14 @@ export default function Page() {
         <CloudPageContainer>
             <PageTitle>Fight on the Stage</PageTitle>
             <SectionTitle>覚悟が交錯する夜―さあ、”推し”の勇姿を見届けろ。</SectionTitle>
-            <Text text-center>
+            <Text center>
                 <Emphasis bold>
                     交錯する熱量、ぶつかる誇り。<br />
                     3つのテーマが織りなす真剣勝負。<br />
                     情熱の先に輝くのは誰か― <br/>
                 </Emphasis> 
             </Text>    
-            <Text text-center className="mt-5">
+            <Text center className="mt-5">
                 伝説の幕が上がる <br />
                 挑み続けた者達の血と涙の結晶<br />
                 全ては、この舞台のために。
