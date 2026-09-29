@@ -17,7 +17,7 @@ export default function Page() {
                 alt="Ending"
             />
             <SectionTitle>この夢を、もう少し</SectionTitle>
-            <Text className="!text-center">
+            <Text center>
                 <Emphasis>
                     星に届け僕らの鼓動。<br />
                     夜が祭を結び、永久に煌めく想いを鳴らす。<br />
@@ -26,7 +26,7 @@ export default function Page() {
             </Text>
             <SectionTitle>企画実施日時・場所</SectionTitle>
             <SmallTitele>日時</SmallTitele>
-            <Text>11月1日(日) 17:25～18:00</Text>
+            <Text>11月1日(日) 17：25～18：00</Text>
 
             <SmallTitle>場所 </SmallTitle>
             <Text>メインステージ</Text>
