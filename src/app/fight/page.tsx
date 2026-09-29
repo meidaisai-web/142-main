@@ -5,21 +5,24 @@ import Text from "@/components/texts/Text";
 import Emphasis from "@/components/texts/Emphasis";
 import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
+import OnlyImage from "@/components/OnlyImage";
 
 
 export default function Page() {
     return (
         <CloudPageContainer>
             <PageTitle>Fight on the Stage</PageTitle>
+            <OnlyImage src="/images/fight/fight-logo.webp" alt='fight ロゴ' className="max-w-40 mx-auto mb-5" />
+            <OnlyImage src="/images/fight/fight-image.jpg" alt='fight-image' />
             <SectionTitle>覚悟が交錯する夜―さあ、”推し”の勇姿を見届けろ。</SectionTitle>
-            <Text center>
+            <Text text-center>
                 <Emphasis bold>
                     交錯する熱量、ぶつかる誇り。<br />
                     3つのテーマが織りなす真剣勝負。<br />
                     情熱の先に輝くのは誰か― <br/>
                 </Emphasis> 
             </Text>    
-            <Text center className="mt-5">
+            <Text text-center className="mt-5">
                 伝説の幕が上がる <br />
                 挑み続けた者達の血と涙の結晶<br />
                 全ては、この舞台のために。
@@ -49,6 +52,7 @@ export default function Page() {
             <Text>アカペラサークルSound Arts、Copia</Text>
             <AccentText>Star dream</AccentText>
             <Text>K-POPカバーダンスサークルMercie、中野ダンスサークルSIGN</Text>
+            {/* <SectionTitle>Fight on the Stage紹介動画</SectionTitle> */}
         </CloudPageContainer>
     )
 }
