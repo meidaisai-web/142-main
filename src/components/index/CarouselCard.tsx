@@ -9,9 +9,9 @@ type Props = {
 
 export default function CarouselCard({ title, src, href }: Props) {
   return (
-    <Link href={href} className="block">
+    <Link href={href} className="group block">
       {/* 外枠 */}
-      <div className="rounded-3xl border-4 border-white p-2 md:p-4">
+      <div className="rounded-3xl border-4 border-white p-2 md:p-4 transition duration-200 group-hover:-translate-y-3 group-hover:shadow-2xl">
         {/* 中のカード（画像とタイトルを縦に並べる） */}
         <div className="flex flex-col gap-2">
           {/* 画像の箱 */}

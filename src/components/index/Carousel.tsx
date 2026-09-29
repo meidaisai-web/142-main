@@ -6,13 +6,13 @@ import ShadowText from '@/components/texts/ShadowText';
 import CarouselCard from '@/components/index/CarouselCard';
 
 const slides = [
-  { title: 'カード1', src: '/images/〇〇.png', href: '/xxx' },
-  { title: 'カード2', src: '/images/〇〇.png', href: '/xxx' },
-  { title: 'カード3', src: '/images/〇〇.png', href: '/xxx' },
-  { title: 'カード4', src: '/images/〇〇.png', href: '/xxx' },
-  { title: 'カード5', src: '/images/〇〇.png', href: '/xxx' },
-  { title: 'カード6', src: '/images/〇〇.png', href: '/xxx' },
-  { title: 'カード7', src: '/images/〇〇.png', href: '/xxx' },
+  { title: 'カード1', src: '', href: '/xxx' },
+  { title: 'カード2', src: '', href: '/xxx' },
+  { title: 'カード3', src: '', href: '/xxx' },
+  { title: 'カード4', src: '', href: '/xxx' },
+  { title: 'カード5', src: '', href: '/xxx' },
+  { title: 'カード6', src: '', href: '/xxx' },
+  { title: 'カード7', src: '', href: '/xxx' },
 ]
 
 export default function Carousel() {
@@ -36,7 +36,7 @@ export default function Carousel() {
   return (
     <div>
       <ShadowText>特集</ShadowText>
-      <div className="overflow-hidden py-16" ref={emblaRef}>
+      <div className="overflow-hidden py-30" ref={emblaRef}>
         <div className="flex">
           {slides.map((slide, index) => (
             <div key={slide.title} className="w-1/2 md:w-1/4 shrink-0 px-8 md:px-12">
