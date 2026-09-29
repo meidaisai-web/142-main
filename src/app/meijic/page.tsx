@@ -16,7 +16,7 @@ export default function Page() {
             <OnlyImage src="/images/meijicstation/meijic01.jpg" alt="Meijic Station 1" className="mb-5" /> 
             <OnlyImage src="/images/meijicstation/meijic02.jpg" alt="Meijic Station 2"/>
             <SectionTitle>音楽に溺れる。</SectionTitle>
-            <Text className="!text-center">
+            <Text center>
                 <Emphasis bold>
                     ここは音と光が交差するプラットフォーム。<br/>
                     忘れられない青春を響かせて。<br/>
