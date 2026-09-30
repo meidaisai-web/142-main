@@ -47,7 +47,7 @@ export default function Notice({
                         </div>
                     </div>
 
-                    <Text className="text-right">
+                    <Text className="text-right text-sm text-gray-600">
                         更新日時　{time}
                     </Text>
                 </div>
