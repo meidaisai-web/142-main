@@ -43,20 +43,12 @@ export default function Movie({
     }, [youtube]);
 
     if (youtube) {
-        let finalSrc = src;
-        try {
-            const url = new URL(src);
-            url.searchParams.set('mute', '1');
-            url.searchParams.set('autoplay', '1');
-            finalSrc = url.toString();
-        } catch (e) {
-            finalSrc = src.includes('?') ? `${src}&mute=1&autoplay=1` : `${src}?mute=1&autoplay=1`;
-        }
+        const mutedSrc = src.includes('?') ? `${src}&mute=1` : `${src}?mute=1`;
         return (
             <div className="flex justify-center">
                 <div className="relative w-full max-w-2xl mt-5 aspect-video">
                     <iframe
-                        src={finalSrc}
+                        src={mutedSrc}
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         className="absolute top-0 left-0 w-full h-full"
