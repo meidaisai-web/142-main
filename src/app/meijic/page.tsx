@@ -43,7 +43,9 @@ export default function Page() {
                 <ListItem>Allround Piano Society</ListItem>
                 <ListItem>中野ダンスサークル SIGN</ListItem>
             </List>
-            <Text>※コンテンツの都合上、入場規制をさせていただく時間があります。</Text>
+            <List mark="※">
+                <ListItem>コンテンツの都合上、入場規制をさせていただく時間があります。</ListItem>
+            </List>
             {/* <SectionTitle>Meijic Station紹介動画</SectionTitle> */}
             <ContactView department="演出局 結祭部門" mail="142nd-yusai@meidaisai.jp" />
         </CloudPageContainer>
