@@ -16,38 +16,47 @@ export default function Movie({
     useEffect(() => {
         if (youtube) return;
 
-            const videoElement = videoRef.current;
-            if (!videoElement) return;
+        const videoElement = videoRef.current;
+        if (!videoElement) return;
 
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            videoElement.play().catch((error) => {
-                                console.log('自動再生がブラウザによってブロックされました:', error);
-                            });
-                        } else {
-                            videoElement.pause();
-                        }
-                    });
-                },
-                { threshold: 0.5 }
-            );
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        videoElement.play().catch((error) => {
+                            console.log('自動再生がブラウザによってブロックされました:', error);
+                        });
+                    } else {
+                        videoElement.pause();
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
 
-            observer.observe(videoElement);
+        observer.observe(videoElement);
 
-            return () => {
-                observer.unobserve(videoElement);
-                observer.disconnect();
-            };
+        return () => {
+            observer.unobserve(videoElement);
+            observer.disconnect();
+        };
     }, [youtube]);
 
     if (youtube) {
+        let finalSrc = src;
+        try {
+            const url = new URL(src);
+            url.searchParams.set('mute', '1');
+            url.searchParams.set('autoplay', '1');
+            finalSrc = url.toString();
+        } catch (e) {
+            finalSrc = src.includes('?') ? `${src}&mute=1&autoplay=1` : `${src}?mute=1&autoplay=1`;
+        }
         return (
             <div className="flex justify-center">
                 <div className="relative w-full max-w-2xl mt-5 aspect-video">
                     <iframe
-                        src={src}
+                        src={finalSrc}
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         className="absolute top-0 left-0 w-full h-full"
