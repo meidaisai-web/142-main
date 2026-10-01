@@ -11,16 +11,16 @@ import { MeichamCategory } from "@/utils/models/MeichamGenre";
 // UUIDを取得または生成する関数
 function getUserUUID(): string {
     const STORAGE_KEY = 'meicham_user_uuid';
-    
+
     // 既存のUUIDを取得
     let uuid = localStorage.getItem(STORAGE_KEY);
-    
+
     // なければ新規生成
     if (!uuid) {
         uuid = crypto.randomUUID();
         localStorage.setItem(STORAGE_KEY, uuid);
     }
-    
+
     return uuid;
 }
 
@@ -98,7 +98,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         }
         // ユーザーのUUIDを取得または生成
         const userUUID = getUserUUID();
-        
+
         // 投票していなければ、投票を実行
         const success = await voteMeicham(id, groupId, type, category, userUUID);
         if (!success) {
@@ -117,28 +117,27 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
     return (
         <div className="relative mt-16 max-w-5xl mx-auto">
             {/* 背景の四角分 */}
-            <div className="absolute border-4 border-secondary rounded-3xl rotate-3 -z-10 w-full">
-                <div className="opacity-0 flex flex-col items-center font-medium p-7 text-sm sm:text-base">
-                    <Image src="/images/meichamp-logo.jpg" alt="Meidaisai Championship ロゴ" width={200} height={200} />
-                    <div className="flex flex-wrap justify-center font-bold text-lg">
-                        <p>明大祭のチャンピオンに</p>
-                        <p>輝くのは誰だ！</p>
-                    </div>
-                    <div className="flex flex-wrap justify-center pt-3">
-                        <p>みなさまの投票によって</p>
-                        <p>明大祭No.1企画が決定します！</p>
-                    </div>
-                    <List mark="※" className="pt-3">
-                        <ListItem>企画へのお問い合わせは、和泉図書館前アンケート回収受付までお越しください。</ListItem>
-                    </List>
-                    <VoteButton onClick={handleVote} disabled={!isEnable}>
-                        {buttonText}
-                    </VoteButton>
-                    <p className="text-center">{error}</p>
-                    <div className="flex flex-col gap-5 w-full mt-5 items-center">
-                        <p>Meidaisai Championsipとは</p>
-                        <p>抽選券引き換え画面</p>
-                    </div>
+
+            <div className="opacity-0 flex flex-col items-center font-medium p-7 text-sm sm:text-base">
+                <Image src="/images/meichamp-logo.jpg" alt="Meidaisai Championship ロゴ" width={200} height={200} />
+                <div className="flex flex-wrap justify-center font-bold text-lg">
+                    <p>明大祭のチャンピオンに</p>
+                    <p>輝くのは誰だ！</p>
+                </div>
+                <div className="flex flex-wrap justify-center pt-3">
+                    <p>みなさまの投票によって</p>
+                    <p>明大祭No.1企画が決定します！</p>
+                </div>
+                <List mark="※" className="pt-3">
+                    <ListItem>企画へのお問い合わせは、和泉図書館前アンケート回収受付までお越しください。</ListItem>
+                </List>
+                <VoteButton onClick={handleVote} disabled={!isEnable}>
+                    {buttonText}
+                </VoteButton>
+                <p className="text-center">{error}</p>
+                <div className="flex flex-col gap-5 w-full mt-5 items-center">
+                    <p>Meidaisai Championsipとは</p>
+                    <p>抽選券引き換え画面</p>
                 </div>
             </div>
             {/* 本体 */}
@@ -164,13 +163,13 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                     <Link href='/voucher' className="text-secondary hover:underline">抽選券引き換え画面</Link>
                 </div>
             </div>
-            <Alert title="この企画に投票しますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: '投票する', action: () => handleVote() }}>
+            <Alert title="本当にこの企画に投票しますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: '投票する', action: () => handleVote() }}>
                 <div className="text-sm sm:text-base">
                     <div className="flex mb-2">
                         <p className="min-w-14 mr-2">企画名:</p>
                         <p>{eventName}</p>
                     </div>
-                    <div className="flex">
+                    <div className="flex mb-2">
                         <p className="min-w-14 mr-2">団体名:</p>
                         {id === "80" ? (
                             <div>
@@ -180,6 +179,10 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                         ) : (
                             <p>{groupName}</p>
                         )}
+                    </div>
+                    <div className="flex">
+                        <p className="min-w-14 mr-2">部門名:</p>
+                        <p>{category}部門</p>
                     </div>
                 </div>
             </Alert>
