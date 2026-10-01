@@ -48,7 +48,7 @@ function Mail({ mail }: { mail: string }) {
         <Framebase>
             <h2 className="w-full text-center pb-3 text-sm font-bold">メール</h2>
             <Link href={`mailto:${mail}`}>
-                <p className="text-primary-900 hover:text-secondary text-center text-lg font-bold underline">{mail}</p>
+                <p className="text-primary-900 hover:text-secondary text-center text-base font-bold underline break-words">{mail}</p>
             </Link>
         </Framebase>
     )
@@ -76,7 +76,7 @@ function MailPhone({ mail }: { mail: string; }) {
             <div className="pb-5">
                 <h2 className="w-full text-center pb-1 text-sm font-bold">メール</h2>
                 <Link href={`mailto:${mail}`}>
-                    <p className="text-primary-900 hover:text-secondary text-center text-lg font-bold underline">
+                    <p className="text-primary-900 hover:text-secondary text-center text-base font-bold underline break-words">
                         {mail}
                     </p>
                 </Link>
@@ -96,7 +96,7 @@ function MailPhone({ mail }: { mail: string; }) {
 
 function Framebase({ children }: { children: React.ReactNode }) {
     return (
-        <div className="m-6 relative bg-background w-80 md:w-72 lg:w-80 pt-5 pb-10 px-10 md:px-6 lg:px-10 rounded-xl outline-3 outline-accent-900 outline-solid">
+        <div className="m-6 relative bg-background w-80 md:w-72 lg:w-80 pt-5 pb-10 px-6 md:px-4 lg:px-6 rounded-xl outline-3 outline-accent-900 outline-solid">
             <CornerBolt position="tl" />
             <CornerBolt position="tr" />
             <CornerBolt position="bl" />
