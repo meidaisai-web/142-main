@@ -48,7 +48,7 @@ function Mail({ mail }: { mail: string }) {
         <Framebase>
             <h2 className="w-full text-center pb-3 text-sm font-bold">メール</h2>
             <Link href={`mailto:${mail}`}>
-                <p className="text-primary-900 hover:text-secondary text-center text-base font-bold underline break-words">{mail}</p>
+                <p className="text-primary-900 hover:text-secondary text-center text-lg font-bold underline break-words">{mail}</p>
             </Link>
         </Framebase>
     )
