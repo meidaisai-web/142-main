@@ -57,7 +57,7 @@ export default function Page() {
                 このツアーでしか知ることのできない情報をたくさんご紹介します！
             </Text>
             <Text>なんとツアー参加者には<Emphasis>オリジナル特典</Emphasis>もご用意！</Text>
-            <Text>ツアーに参加してあなたの知らない"明治"を見つけに行こう！</Text>
+            <Text>ツアーに参加してあなたの知らない”明治”を見つけに行こう！</Text>
             <SectionTitle>企画実施日時・場所</SectionTitle>
             <SmallTitle>日時</SmallTitle>
             <Text>10月30日(金).31日(土).11月1日(日) 11:00〜16:00</Text>
