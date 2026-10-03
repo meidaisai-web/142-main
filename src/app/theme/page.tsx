@@ -4,8 +4,6 @@ import SectionTitle from '@/components/texts/SectionTitle';
 import Text from '@/components/texts/Text';
 import SmallTitle from '@/components/texts/SmallTitle';
 import Image from 'next/image';
-import TransitionLink from '@/components/buttons/TransitionLink';
-import Movie from '@/components/Movie';
 
 export default function about() {
     return (
@@ -23,7 +21,7 @@ export default function about() {
             <Text center>明大祭を鮮やかに染め上げる。</Text>
             <Text center moreTopPadding>響く音、弾む声、溢れる想い。</Text>
             <Text center>そのすべてがひとつになり、真っ白な五線譜に、希望の旋律を刻んでいく。</Text>
-            <Text center moreTopPadding>さあ、私たちの"青春"を響かせよう！</Text>
+            <Text center moreTopPadding>さあ、私たちの“青春”を響かせよう！</Text>
 
             <SectionTitle>第142回明大祭ロゴ</SectionTitle>
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-10">
