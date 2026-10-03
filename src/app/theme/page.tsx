@@ -5,7 +5,7 @@ import Text from '@/components/texts/Text';
 import SmallTitle from '@/components/texts/SmallTitle';
 import Image from 'next/image';
 import TransitionLink from '@/components/buttons/TransitionLink';
-import Movie from '@/components/movie';
+import Movie from '@/components/Movie';
 
 export default function about() {
     return (
