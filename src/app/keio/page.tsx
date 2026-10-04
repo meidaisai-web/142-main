@@ -9,7 +9,7 @@ import { List, ListItem } from "@/components/texts/List"
 import Link from "next/link"
 import TransitionLink from "@/components/buttons/TransitionLink"
 import ContactView from "@/components/texts/ContactView"
-import OnlyImage from "@/components/OnlyImage"
+import Image from "next/image"
 export default function Page() {
     return (
         <div>
@@ -27,11 +27,19 @@ export default function Page() {
                     クロスワードパズルを解きながら小説の世界観や明大祭にまつわる問題を楽しむことができ、見事正解のワードを導けた方は<Emphasis>岩井先生のサイン本や京王電鉄の公式グッズなどが当たる抽選会に参加することができます。</Emphasis><br />
                     過去作を知らない方でも楽しめる企画となっていますので、ぜひ小説を読んで、クロスワードパズルにも挑戦してみてください！<br />
                 </Text>
-                <Text moreTopPadding>
-                    ※景品の数には限りがあるため抽選会に参加できない場合がございます。予めご了承ください。<br />
-                </Text>
 
-                <OnlyImage src="/images/keio/keio.jpg" alt="KEIO×第142回明大祭　～いつも駅からだった　明大前編～" className="w-1/4 mx-auto mt-10" />
+                <List mark="※" className="mt-6">
+                    <ListItem>景品の数には限りがあるため抽選会に参加できない場合がございます。予めご了承ください。</ListItem>
+                </List>
+                <div>
+                    <Image
+                        src="/images/keio/keio.jpg"
+                        alt="KEIO×第142回明大祭　～いつも駅からだった　明大前編～"
+                        width={250}
+                        height={400}
+                        className="mx-auto mt-10"
+                    />
+                </div>
 
                 <SectionTitle className="mb-8">小説冊子・クロスワードパズル用紙配布期間・場所</SectionTitle>
                 <SmallTitle>配布期間</SmallTitle>
@@ -53,17 +61,18 @@ export default function Page() {
                     明大前商店街振興組合一部加盟店舗
                 </Text>
                 <TransitionLink href="https://www.keio.co.jp/news/2026/20261019_01.html">明大前商店街　～ちょっと帰りに寄れる街～</TransitionLink>
-                <Text>
-                    <Emphasis>※各店舗によって営業時間が異なります。</Emphasis><br />
-                    <Emphasis>※詳しい小説設置店舗につきましては、こちらをご確認ください。</Emphasis>
-                </Text>
+                <List mark="※">
+                    <ListItem><Emphasis>各店舗によって営業時間が異なります。</Emphasis></ListItem>
+                    <ListItem><Emphasis>詳しい小説設置店舗につきましては、こちらをご確認ください。</Emphasis></ListItem>
+                </List>
+
                 {/* <Link href=""</Link> */}
 
                 <SectionTitle className="mb-8">抽選会について</SectionTitle>
                 <SmallTitle>期間</SmallTitle>
                 <Text>
                     2026年10月30日(金).31日(土).11月1日(日)<br />
-                    11：00～18：00
+                    11:00～18:00
                 </Text>
                 <SmallTitle>景品受け渡し場所</SmallTitle>
                 <Text>明治大学和泉キャンパスメディア棟入口付近</Text>
