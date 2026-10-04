@@ -57,7 +57,7 @@ export default function Page() {
                 </List>
                 <AccentText>小説冊子のみ</AccentText>
                 <Text>
-                    紀伊国屋書店一部店舗<br />
+                    紀伊國屋書店一部店舗<br />
                     明大前商店街振興組合一部加盟店舗
                 </Text>
                 <TransitionLink href="https://www.keio.co.jp/news/2026/20261019_01.html">明大前商店街　～ちょっと帰りに寄れる街～</TransitionLink>
@@ -78,7 +78,7 @@ export default function Page() {
                 <Text>明治大学和泉キャンパスメディア棟入口付近</Text>
                 <SmallTitle>景品の内容</SmallTitle>
                 <Text>
-                    A賞　岩井先生サイン入り小冊子（各日1名様）<br />
+                    A賞　岩井先生サイン入り小説冊子（各日1名様）<br />
                     B賞　京王ギフトカード1,000円分（各日2名様）<br />
                     C賞　ロルバーン　ポケット付メモL（各日5名様）<br />
                     D賞　京王オリジナルステッカー（各日50名様）<br />
