@@ -13,7 +13,7 @@ const page = () => {
   return (
     <CloudPageContainer>
         <PageTitle>受験生コレクション～わくわく明大生活</PageTitle>
-        <OnlyImage src="/images/wakuwaku/wakuwaku.jpg" alt="ロゴ"/>
+        <OnlyImage src="/images/wakuwaku/wakuwaku.png" alt="ロゴ"/>
         <SectionTitle>企画概要</SectionTitle>
         <Text>明治大学に興味がある方や保護者の方、受験を戦うみなさまにおすすめしたいのが、<Emphasis>毎年大好評の受験生企画</Emphasis>です！受験生や保護者の方の悩みを解決するために展示や相談会を実施します！</Text>
         <Text>さらに、相談会の参加者には明大生による明治大学のリアルや受験に関する情報が 載った冊子もプレゼント！みなさまのご参加をお待ちしております！</Text>
