@@ -61,7 +61,7 @@ export default function Page() {
                     明大前商店街振興組合一部加盟店舗
                 </Text>
                 <TransitionLink href="https://www.keio.co.jp/news/2026/20261019_01.html">明大前商店街　～ちょっと帰りに寄れる街～</TransitionLink>
-                <List mark="※">
+                <List mark="※" className="mt-3">
                     <ListItem><Emphasis>各店舗によって営業時間が異なります。</Emphasis></ListItem>
                     <ListItem><Emphasis>詳しい小説設置店舗につきましては、こちらをご確認ください。</Emphasis></ListItem>
                 </List>
