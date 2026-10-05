@@ -63,7 +63,7 @@ export default function Page() {
                 <TransitionLink href="https://meidaimae.jp/">明大前商店街　～ちょっと帰りに寄れる街～</TransitionLink>
                 <List mark="※" className="mt-3">
                     <ListItem><Emphasis>各店舗によって営業時間が異なります。</Emphasis></ListItem>
-                    <ListItem><Emphasis>詳しい小説設置店舗につきましては、こちらをご確認ください。</Emphasis></ListItem>
+                    <ListItem><Emphasis>詳しい小説設置店舗につきましては、<TransitionLink href="https://www.keio.co.jp/news/update/news_release/news_release2026/pdf/nr20261005_itsuekimeidaimae.pdf">こちら</TransitionLink>をご確認ください。</Emphasis></ListItem>
                 </List>
 
                 {/* <Link href=""</Link> */}
