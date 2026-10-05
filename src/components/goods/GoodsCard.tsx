@@ -17,7 +17,7 @@ export default function GoodsCard({
 }: GoodsCardProps) {
   return (
     <div
-      className={`relative h-[280px] rounded-[36px] border-[9px] border-[#c5b7d8] ${wide ? "md:col-span-2 md:w-[70%] md:justify-self-center" : ""
+      className={`relative h-[280px] rounded-[36px] border-[9px] bg-white border-[#c5b7d8] ${wide ? "md:col-span-2 md:w-[70%] md:justify-self-center" : ""
         }`}
     >
       {/* グッズ画像 */}
