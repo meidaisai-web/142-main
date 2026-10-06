@@ -55,7 +55,7 @@ export default function Page() {
                 <AccentText>小説冊子のみ</AccentText>
                 <Text>
                     紀伊國屋書店一部店舗<br />
-                    明大前商店一部店舗
+                    明大前商店街一部店舗
                 </Text>
                 <TransitionLink href="https://meidaimae.jp/">明大前商店街　～ちょっと帰りに寄れる街～</TransitionLink>
                 <List mark="※" className="mt-3">
