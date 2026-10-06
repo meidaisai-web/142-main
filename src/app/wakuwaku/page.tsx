@@ -35,6 +35,7 @@ const page = () => {
         <Text>相談会は予約制となっており、事前予約と当日予約が可能です。明大祭当日は和泉図書館前企画受付、展示教室である和泉ラーニングスクエアLS304教室にて当日予約を承っております。</Text>
         {/* 予約フォーム追加 */}
         {/* <Text>事前予約を行いたい方は<Link src="">こちら</Link>から！</Text> */}
+        <Text>事前予約のためのリンクは後日掲載します。</Text>
         <ContactView department="開発局黎幸部門" showAddress showPhone mail="142ndreikobumon@gmail.com"/>
     </CloudPageContainer>
   )
