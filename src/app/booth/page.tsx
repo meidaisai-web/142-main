@@ -21,8 +21,6 @@ export default function Page() {
 
             <AccentText>実施場所</AccentText>
             <Text>和泉図書館横</Text>
-
-            <SectionTitle>企業ブースマップ</SectionTitle>
             <MapImage src="/images/booth/boothmap.jpg" alt="企業ブースマップ" />
 
             <SectionTitle>出展企業一覧</SectionTitle>
@@ -32,30 +30,30 @@ export default function Page() {
                 楽しく学べるエネルギークイズに挑戦！セルフフォト体験で思い出を残そう♪
             </ImageText>
 
-            <SmallTitle>富士フイルム株式会社</SmallTitle>
-            <ImageText src="/images/booth/fuji.jpg" alt="富士フイルム株式会社_ロゴ" className="w-4/5 sm:w-1/3">
+            <SmallTitle className="mt-20">富士フイルム株式会社</SmallTitle>
+            <ImageText src="/images/booth/fuji.jpg" alt="富士フイルム株式会社_ロゴ" className="w-1/2 sm:w-1/3">
             <AccentText>企画内容</AccentText>
                 “チェキ”instax mini 13™をお試しレンタル！
             </ImageText>
 
-            <SmallTitle>NECパーソナルコンピュータ株式会社</SmallTitle>
-            <ImageText src="/images/booth/NEC.png" alt="NECパーソナルコンピュータ株式会社_ロゴ" className="w-4/5 sm:w-1/3">
+            <SmallTitle className="mt-20">NECパーソナルコンピュータ株式会社</SmallTitle>
+            <ImageText src="/images/booth/NEC.png" alt="NECパーソナルコンピュータ株式会社_ロゴ" className="w-3/5 sm:w-1/3">
             <AccentText>企画内容</AccentText>
                 豪華景品が当たる、感動のタブレット体験
             </ImageText>
 
-            <SmallTitle>Qoo10</SmallTitle>
-            <ImageText src="/images/booth/Qoo10.png" alt="Qoo10_ロゴ" className="w-4/5 sm:w-1/3">
+            <SmallTitle className="mt-20">Qoo10</SmallTitle>
+            <ImageText src="/images/booth/Qoo10.png" alt="Qoo10_ロゴ" className="w-1/2 sm:w-1/3">
             <AccentText>企画内容</AccentText>
                 最新のビューティートレンドに触れられる特別ブースへお立ち寄りください！
             </ImageText>
 
-            <SmallTitle>Yostar</SmallTitle>
-            <ImageText src="/images/booth/Yostar.png" alt="Yostar_ロゴ" className="w-4/5 sm:w-1/3">
+            <SmallTitle className="mt-20">Yostar</SmallTitle>
+            <ImageText src="/images/booth/Yostar.png" alt="Yostar_ロゴ" className="w-3/5 sm:w-1/3">
             <AccentText>企画内容</AccentText>
                 人気麻雀アプリ『雀魂』が遊べる体験ブースを出展いたします！
             </ImageText>
-            <ContactView department="第142回明大祭実行委員会 渉外局　企業部門" showPhone mail="kigyo@meidaisai.jp" showAddress />
+            <ContactView department="渉外局　企業部門" showPhone mail="kigyo@meidaisai.jp" showAddress />
         </CloudPageContainer>
     )
 }
