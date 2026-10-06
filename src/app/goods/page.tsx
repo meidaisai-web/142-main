@@ -20,7 +20,7 @@ const goods = [
     {
         image: "/images/goods/ballpen.png",
         name: "タトゥーシール",
-        price: "250円(税込)",
+        price: "100円(税込)",
     },
     {
         image: "/images/goods/rubberband.png",
@@ -31,7 +31,7 @@ const goods = [
     {
         image: "/images/goods/acrylic.jpg",
         name: "アクリルキーホルダー",
-        price: "250円(税込)",
+        price: "350円(税込)",
     },
     {
         image: [
@@ -39,14 +39,14 @@ const goods = [
             "/images/goods/folder2.jpg",
             "/images/goods/folder3.jpg",
         ], name: "クリアファイル",
-        price: "250円(税込)",
+        price: "200円(税込)",
         type: "全3種",
         wide: true,
     },
     {
         image: "/images/goods/clearfile.png",
         name: "缶バッジ",
-        price: "250円(税込)",
+        price: "350円(税込)",
         type: "全3種",
         wide: true,
     },
