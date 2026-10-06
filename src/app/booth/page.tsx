@@ -6,6 +6,7 @@ import AccentText from "@/components/texts/AccentText"
 import ImageText from "@/components/texts/ImageText"
 import Text from "@/components/texts/Text"
 import MapImage from "@/components/MapImage"
+import ContactView from "@/components/texts/ContactView"
 
 export default function Page() {
     return (
@@ -54,6 +55,7 @@ export default function Page() {
             <AccentText>企画内容</AccentText>
                 人気麻雀アプリ『雀魂』が遊べる体験ブースを出展いたします！
             </ImageText>
+            <ContactView department="第142回明大祭実行委員会 渉外局　企業部門" showPhone mail="kigyo@meidaisai.jp" showAddress />
         </CloudPageContainer>
     )
 }
