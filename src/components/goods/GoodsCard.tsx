@@ -17,7 +17,7 @@ export default function GoodsCard({
 }: GoodsCardProps) {
   return (
     <div
-      className={`relative h-[280px] rounded-[36px] border-[9px] bg-white border-[#c5b7d8] ${wide ? "md:col-span-2 md:w-[70%] md:justify-self-center" : ""
+      className={`relative h-[280px] rounded-[36px] border-[9px] bg-white border-accent ${wide ? "md:col-span-2 md:w-[70%] md:justify-self-center" : ""
         }`}
     >
       {/* グッズ画像 */}
@@ -33,8 +33,18 @@ export default function GoodsCard({
 
       {/* 種類タグ */}
       {type && (
-        <div className="absolute right-2 top-2 rounded-full bg-[#d9d3e1] px-3 py-1 text-xs">
-          {type}
+        <div className="absolute right-[20px] top-[20px] z-20">
+          <div className="relative">
+            <Image
+              src="/images/svg/goodstypecloud.svg"
+              alt=""
+              width={80}
+              height={50}
+            />
+            <p className="absolute inset-0 flex items-center justify-center text-[15px]">
+              {type}
+            </p>
+          </div>
         </div>
       )}
 
