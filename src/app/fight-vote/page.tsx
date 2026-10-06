@@ -18,16 +18,16 @@ type Votes = [Vote, Vote, Vote];
 type Modal = { type: "submitting" | "success" | "error"; message: string };
 const battles = [
   { title: "Amazing dream", frame: "Amazing", vs: "VS Amazing.svg", groups: [
-    { name: "アカペラサークル amour", photo: "amour六角形.svg", value: 1 },
-    { name: "ミュージカル研究会", photo: "ミュージカル研究会六角形.svg", value: 0 },
+    { name: "アカペラサークル amour", photo: "amour六角形_軽量版.svg", value: 1 },
+    { name: "ミュージカル研究会", photo: "ミュージカル研究会六角形_軽量版.svg", value: 0 },
   ] },
   { title: "Sweet dream", frame: "Sweet", vs: "VS Sweet.svg", groups: [
-    { name: "アカペラサークル Sound Arts", photo: "Sound Arts六角形.svg", value: 1 },
-    { name: "Copia", photo: "Copia六角形.svg", value: 0 },
+    { name: "アカペラサークル Sound Arts", photo: "Sound Arts六角形_軽量版.svg", value: 1 },
+    { name: "Copia", photo: "Copia六角形_軽量版.svg", value: 0 },
   ] },
   { title: "Star dream", frame: "Star", vs: "VS dream.svg", groups: [
-    { name: "K-POPカバーダンスサークル Mercie", photo: "Mercie六角形.svg", value: 1 },
-    { name: "中野ダンスサークル SIGN", photo: "SIGN六角形.svg", value: 0 },
+    { name: "K-POPカバーダンスサークル Mercie", photo: "Mercie六角形_軽量版.svg", value: 1 },
+    { name: "中野ダンスサークル SIGN", photo: "SIGN六角形_軽量版.svg", value: 0 },
   ] },
 ] as const;
 

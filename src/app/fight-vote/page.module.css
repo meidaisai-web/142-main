@@ -145,7 +145,7 @@
 .submit img { width: 100%; height: auto; display: block; }
 .submit:disabled { opacity: .5; cursor: default; }
 .photo:focus-visible, .submit:focus-visible, .intro a:focus-visible { outline: 2px solid #469b9c; outline-offset: 4px; }
-.status { margin: 15px 12px 0; text-align: center; font-size: 11px; line-height: 1.7; color: #666; }
+.status { margin: 15px 12px 0; text-align: center; font-size: 11px; line-height: 1.7; color: #666; font-weight: 700; }
 .thankYou { padding: 8cqw 20px; text-align: center; }
 .thankYou img { width: 35%; height: auto; margin: 0 auto 24px; }
 .thankYou p { font-size: max(16px, 2.3cqw); line-height: 1.7; }
