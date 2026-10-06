@@ -164,7 +164,9 @@ export default function FightVote() {
       </div>
       {hasVoted ? (
         <div className={styles.thankYou}>
-          <Image src={asset("ロゴ.svg")} alt="Fight on the Stage" width={1260} height={1225} />
+          <div className={`${styles.logoFrame} ${styles.thankYouLogo}`}>
+            <Image className={styles.logo} src={asset("ロゴ.svg")} alt="Fight on the Stage" width={1260} height={1225} priority />
+          </div>
           <p>投票ありがとうございました！</p>
         </div>
       ) : (
