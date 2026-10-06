@@ -3,14 +3,11 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BIZ_UDPMincho } from "next/font/google";
 import detectIncognito from "detectincognitojs";
 import PageTitle from "@/components/texts/PageTitle";
-import SmallTitle from "@/components/texts/SmallTitle";
 import { addVoteData } from "@/utils/supabase/fightVoteAction";
 import styles from "./page.module.css";
 
-const font = BIZ_UDPMincho({ subsets: ["latin"], weight: ["400", "700"], display: "swap" });
 const STORAGE_KEY = "142-fight-vote-submitted";
 const PRIVATE_MESSAGE = "プライベートモードでは投票できません。SafariまたはChromeの通常モードでアクセスしてください。";
 const asset = (name: string) => `/images/fight-vote/${encodeURIComponent(name)}`;
@@ -33,6 +30,29 @@ const battles = [
     { name: "中野ダンスサークル SIGN", photo: "SIGN六角形.svg", value: 0 },
   ] },
 ] as const;
+
+type BattleTitleProps = {
+  id: string;
+  children: string;
+};
+
+function BattleTitle({ id, children }: BattleTitleProps) {
+  return (
+    <div className={styles.battleHeading}>
+      <h2 id={id} className={styles.battleTitle}>
+        <Image
+          src="/images/svg/titles/smallTitle.svg"
+          alt=""
+          width={177}
+          height={162}
+          className={styles.battleTitleDecoration}
+          aria-hidden="true"
+        />
+        {children}
+      </h2>
+    </div>
+  );
+}
 
 export default function FightVote() {
   const [votes, setVotes] = useState<Votes>([null, null, null]);
@@ -138,7 +158,7 @@ export default function FightVote() {
   }
 
   return (
-    <div className={`${styles.page} ${font.className}`}>
+    <div className={styles.page}>
       <div className={styles.pageHeading}>
         <PageTitle>Fight on the Stage投票フォーム</PageTitle>
       </div>
@@ -150,15 +170,17 @@ export default function FightVote() {
       ) : (
         <>
           <div className={styles.intro}>
-            <Image className={styles.logo} src={asset("ロゴ.svg")} alt="Fight on the Stage" width={1260} height={1225} priority />
-            <div>
+            <div className={styles.logoFrame}>
+              <Image className={styles.logo} src={asset("ロゴ.svg")} alt="Fight on the Stage" width={1260} height={1225} priority />
+            </div>
+            <div className={styles.introText}>
               <p>Amazing dream、Sweet dream、Star dreamの各々で<br />よりテーマを表現していると感じた方の団体を選んで投票<br />してください。</p>
               <p>Fight on the stageの企画については<Link href="/fight" target="_blank" rel="noopener noreferrer">こちら</Link>からご覧いただけます。</p>
             </div>
           </div>
           {battles.map((battle, index) => (
             <section className={styles.battle} key={battle.frame} aria-labelledby={`battle-${index}`}>
-              <SmallTitle className={`${styles.battleHeading} [&>img]:origin-bottom-right [&>img]:scale-[1.4]`}><span id={`battle-${index}`}>{battle.title}</span></SmallTitle>
+              <BattleTitle id={`battle-${index}`}>{battle.title}</BattleTitle>
               {battle.groups.map((group, sideIndex) => {
                 const side = sideIndex === 0 ? styles.left : styles.right;
                 const selected = votes[index] === group.value;
