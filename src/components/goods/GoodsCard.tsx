@@ -5,6 +5,7 @@ type GoodsCardProps = {
   name: string;
   price: string;
   type?: string;
+  typeImage?: string;
   wide?: boolean;
 };
 
@@ -13,6 +14,7 @@ export default function GoodsCard({
   name,
   price,
   type,
+  typeImage,
   wide = false,
 }: GoodsCardProps) {
   return (
@@ -23,29 +25,31 @@ export default function GoodsCard({
         }`}
     >
       {/* グッズ画像 */}
-      <div className="flex h-full items-center justify-center pb-10">
-        {Array.isArray(image) ? (
-          <div className="flex w-full flex-col items-center gap-4 md:flex-row md:justify-center">
-            {image.map((src, index) => (
-              <Image
-                key={src}
-                src={src}
-                alt={`${name}${index + 1}`}
-                width={200}
-                height={200}
-                className="w-[80%] max-w-[200px] object-contain md:w-[28%]"
-              />
-            ))}
-          </div>
-        ) : (
-          <Image
-            src={image}
-            alt={name}
-            width={200}
-            height={200}
-            className="object-contain"
-          />
-        )}
+      <div
+        className={`flex h-full items-center justify-center pb-10 ${type || typeImage ? "translate-y-7" : ""
+          }`}
+      >        {Array.isArray(image) ? (
+        <div className="flex w-full flex-col items-center gap-4 md:flex-row md:justify-center">
+          {image.map((src, index) => (
+            <Image
+              key={src}
+              src={src}
+              alt={`${name}${index + 1}`}
+              width={200}
+              height={200}
+              className={`w-[90%] max-w-[200px] object-contain md:w-[28%] ${name === "クリアファイル" ? "-translate-y-1" : ""
+                }`} />
+          ))}
+        </div>
+      ) : (
+        <Image
+          src={image}
+          alt={name}
+          width={200}
+          height={200}
+          className="object-contain"
+        />
+      )}
       </div>
 
       {/* 種類タグ */}
@@ -64,9 +68,18 @@ export default function GoodsCard({
           </div>
         </div>
       )}
+      {typeImage && (
+        <Image
+          src={typeImage}
+          alt=""
+          width={100}
+          height={100}
+          className="..."
+        />
+      )}
 
       {/* 商品名・価格 */}
-      <div className="absolute bottom-[-42px] left-1/2 -translate-x-1/2">
+      <div className="absolute bottom-[-56px] left-1/2 -translate-x-1/2">
         <div className="relative w-[220px]">
           {/* 雲 */}
           <Image

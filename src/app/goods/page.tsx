@@ -14,6 +14,8 @@ const goods = [
         image: "/images/goods/ballpen.png",
         name: "ボールペン",
         price: "250円(税込)",
+        type: "全2種",
+
     },
     {
         image: "/images/goods/ballpen.png",
