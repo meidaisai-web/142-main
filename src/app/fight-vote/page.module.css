@@ -52,7 +52,7 @@
   left: -61.538462%;
   top: -59.713168%;
 }
-.introText { min-width: 0; font-size: max(10px, 2.3cqw); line-height: 1.364; letter-spacing: .042cqw; }
+.introText { min-width: 0; max-width: 36ch; font-size: max(10px, 2.3cqw); line-height: 1.364; letter-spacing: .042cqw; }
 .intro p { margin: 0; }
 .intro p + p { margin-top: 2.2cqw; font-size: max(9px, 1.88cqw); line-height: 1.5; }
 .intro a { color: #b8a3ca; text-decoration: none; }

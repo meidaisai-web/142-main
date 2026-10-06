@@ -174,7 +174,7 @@ export default function FightVote() {
               <Image className={styles.logo} src={asset("ロゴ.svg")} alt="Fight on the Stage" width={1260} height={1225} priority />
             </div>
             <div className={styles.introText}>
-              <p>Amazing dream、Sweet dream、Star dreamの各々で<br />よりテーマを表現していると感じた方の団体を選んで投票<br />してください。</p>
+              <p>Amazing dream、Sweet dream、Star dreamの各々でよりテーマを表現していると感じた方の団体を選んで投票してください。</p>
               <p>Fight on the stageの企画については<Link href="/fight" target="_blank" rel="noopener noreferrer">こちら</Link>からご覧いただけます。</p>
             </div>
           </div>
