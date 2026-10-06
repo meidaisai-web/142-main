@@ -12,7 +12,7 @@ export default function Page() {
     return (
         <CloudPageContainer>
             <PageTitle>明大王</PageTitle>
-            <OnlyImage src="/images/king/kinglogo.jpg" alt="明大王" />
+            <OnlyImage src="/images/king/king.png" alt="明大王" />
 
             <SectionTitle>明大愛、暴走中。</SectionTitle>
             <Text center>
