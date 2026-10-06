@@ -22,35 +22,35 @@ export default function Page() {
             <Text>和泉図書館横</Text>
 
             <SectionTitle>企業ブースマップ</SectionTitle>
-            <MapImage src="/images/booth/" alt="企業ブースマップ" />
+            <MapImage src="/images/booth/boothmap.jpg" alt="企業ブースマップ" />
 
             <SectionTitle>出展企業一覧</SectionTitle>
             <SmallTitle>経済産業省 資源エネルギー庁</SmallTitle>
-            <ImageText src="/images/booth/energy.jpg" alt="経済産業省 資源エネルギー庁_ロゴ">
+            <ImageText src="/images/booth/energy.jpg" alt="経済産業省 資源エネルギー庁_ロゴ" className="w-1/3">
             <AccentText>企画内容</AccentText>
                 楽しく学べるエネルギークイズに挑戦！セルフフォト体験で思い出を残そう♪
             </ImageText>
 
             <SmallTitle>富士フイルム株式会社</SmallTitle>
-            <ImageText src="/images/booth/fuji.jpg" alt="富士フイルム株式会社_ロゴ" >
+            <ImageText src="/images/booth/fuji.jpg" alt="富士フイルム株式会社_ロゴ" className="w-1/3">
             <AccentText>企画内容</AccentText>
                 “チェキ”instax mini 13™をお試しレンタル！
             </ImageText>
 
             <SmallTitle>NECパーソナルコンピュータ株式会社</SmallTitle>
-            <ImageText src="/images/booth/NEC.png" alt="NECパーソナルコンピュータ株式会社_ロゴ" >
+            <ImageText src="/images/booth/NEC.png" alt="NECパーソナルコンピュータ株式会社_ロゴ" className="w-1/3">
             <AccentText>企画内容</AccentText>
                 豪華景品が当たる、感動のタブレット体験
             </ImageText>
 
             <SmallTitle>Qoo10</SmallTitle>
-            <ImageText src="/images/booth/Qoo10.png" alt="Qoo10_ロゴ" >
+            <ImageText src="/images/booth/Qoo10.png" alt="Qoo10_ロゴ" className="w-1/3">
             <AccentText>企画内容</AccentText>
                 Qoo10公式ブース登場！人気コスメサンプルをプレゼント
             </ImageText>
 
             <SmallTitle>Yostar</SmallTitle>
-            <ImageText src="/images/booth/Yostar.png" alt="Yostar_ロゴ">
+            <ImageText src="/images/booth/Yostar.png" alt="Yostar_ロゴ" className="w-1/3">
             <AccentText>企画内容</AccentText>
                 人気麻雀アプリ『雀魂』が遊べる体験ブースを出展いたします！
             </ImageText>
