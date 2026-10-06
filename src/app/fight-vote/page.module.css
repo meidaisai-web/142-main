@@ -50,7 +50,6 @@
 }
 .battleHeading { position: absolute; top: 0; left: 50%; transform: translateX(-50%); margin: 0; white-space: nowrap; }
 .battleHeading h2 { margin: 0; font-size: max(16px, 4cqw); font-weight: 400; line-height: normal; }
-.battleHeading img { width: 7cqw; height: 7cqw; left: -7.5cqw; top: -3.7cqw; transform: none; pointer-events: none; }
 .name {
   position: absolute;
   display: flex;

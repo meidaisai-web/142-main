@@ -158,7 +158,7 @@ export default function FightVote() {
           </div>
           {battles.map((battle, index) => (
             <section className={styles.battle} key={battle.frame} aria-labelledby={`battle-${index}`}>
-              <SmallTitle className={styles.battleHeading}><span id={`battle-${index}`}>{battle.title}</span></SmallTitle>
+              <SmallTitle className={`${styles.battleHeading} [&>img]:origin-bottom-right [&>img]:scale-[1.4]`}><span id={`battle-${index}`}>{battle.title}</span></SmallTitle>
               {battle.groups.map((group, sideIndex) => {
                 const side = sideIndex === 0 ? styles.left : styles.right;
                 const selected = votes[index] === group.value;
