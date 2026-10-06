@@ -19,7 +19,7 @@ export default function Page() {
                     本年度も京王電鉄株式会社と明大祭実行委員会がコラボした企画を実施いたします。<br />
                     今回の企画では、京王沿線を舞台に、人々の日常や出会いを描く短編小説シリーズ「いつも駅からだった」と明大祭がコラボしています。<br />
                     <Emphasis>同シリーズの特別編として岩井圭也先生が執筆した「いつも駅からだった　明大前編」</Emphasis>
-                    では、明大祭実行委員を主人公として明大祭の成功に向けて奮闘する物語を描いております。<br />
+                    では、明大祭実行委員を主人公として明大祭の成功に向けて奮闘する物語が描かれております。<br />
                 </Text>
                 <Text moreTopPadding>
                     さらに、本祭期間中には、<Emphasis>小説の内容と明大祭にちなんだクロスワードパズル企画を実施いたします。</Emphasis><br />
@@ -43,7 +43,7 @@ export default function Page() {
                 <SectionTitle className="mb-8">小説冊子・クロスワードパズル用紙配布期間・場所</SectionTitle>
                 <SmallTitle>配布期間</SmallTitle>
                 <AccentText>小説冊子</AccentText>
-                <Text>2026年10月19日(金)～2027年1月8日(金)</Text>
+                <Text>2026年10月19日(月)～2027年1月8日(金)</Text>
                 <AccentText>クロスワードパズル用紙</AccentText>
                 <Text>2026年10月30日(金).31日(土).11月1日(日)</Text>
                 <SmallTitle>配布場所</SmallTitle>
@@ -51,13 +51,11 @@ export default function Page() {
                 <List mark="・">
                     <ListItem>京王線・井の頭線明大前駅</ListItem>
                     <ListItem>KEIO×第142回明大祭～いつも駅からだった　明大前編～企画ブース（明治大学和泉キャンパスメディア棟入口付近）</ListItem>
-                    <ListItem>松原小学校×明大祭企画ブース（明治大学和泉キャンパスメディア棟M506教室）</ListItem>
-                    <ListItem>明大前商店街×明大祭～明大祭で当てよう！豪華景品～企画ブース（明治大学和泉キャンパスメディア棟入口付近）</ListItem>
-                </List>
+                    <ListItem>松原小学校×明大祭企画ブース（明治大学和泉キャンパスメディア棟M506教室）</ListItem>                </List>
                 <AccentText>小説冊子のみ</AccentText>
                 <Text>
                     紀伊國屋書店一部店舗<br />
-                    明大前商店街振興組合一部加盟店舗
+                    明大前商店一部店舗
                 </Text>
                 <TransitionLink href="https://meidaimae.jp/">明大前商店街　～ちょっと帰りに寄れる街～</TransitionLink>
                 <List mark="※" className="mt-3">
