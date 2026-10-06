@@ -26,7 +26,7 @@ export default function Page() {
             </Text>
 
             <SectionTitle>企画概要</SectionTitle>
-            <Text>明大愛を懸けた、笑いあり、真剣勝負ありの新企画<Emphasis>「明大王」！。</Emphasis><br />
+            <Text>明大愛を懸けた、笑いあり、真剣勝負ありの新企画<Emphasis>「明大王」！</Emphasis><br />
                   個性あふれる3つの試練に総勢4チームが挑戦し、明大愛No.1を決定！
             </Text>
             <Text>第一の試練：<Emphasis>明大愛クイズ</Emphasis><br />
