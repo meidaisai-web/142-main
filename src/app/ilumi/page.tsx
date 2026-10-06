@@ -24,7 +24,7 @@ export default function Page() {
                 <SmallTitle>場所</SmallTitle>
                 <Text>和泉キャンパス正門付近</Text>
 
-                <ContactView department="第142回明大祭実行委員会 開発局" mail="142nd-kaihatsu@meidaisai.jp" />
+                <ContactView department="開発局" mail="142nd-kaihatsu@meidaisai.jp" />
             </CloudPageContainer>
     )
 }
