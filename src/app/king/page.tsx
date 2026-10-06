@@ -22,7 +22,7 @@ export default function Page() {
                     集え、野生の明大生！ <br />
                 </Emphasis>
                 明治大学を愛する者達のバカ真面目な頂上決戦<br />
-                "明大王"の称号を手にするのは誰だ！
+                “明大王”の称号を手にするのは誰だ！
             </Text>
 
             <SectionTitle>企画概要</SectionTitle>
