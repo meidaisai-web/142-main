@@ -27,13 +27,16 @@ const goods = [
         type: "全3種",
     },
     {
-        image: "/images/goods/acrylic.png",
+        image: "/images/goods/acrylic.jpg",
         name: "アクリルキーホルダー",
         price: "250円(税込)",
     },
     {
-        image: "/images/goods/clearfile.png",
-        name: "クリアファイル",
+        image: [
+            "/images/goods/folder1.jpg",
+            "/images/goods/folder2.jpg",
+            "/images/goods/folder3.jpg",
+        ], name: "クリアファイル",
         price: "250円(税込)",
         type: "全3種",
         wide: true,
@@ -54,7 +57,7 @@ export default function Page() {
             <main className="flow-root bg-top-gradient pb-60">
                 <PageContainer>
                     <PageTitle>公式グッズ</PageTitle>
-                    <SectionTitle>商品</SectionTitle>
+                    <SectionTitle>商品一覧</SectionTitle>
                     <div className="mx-auto mt-20 grid max-w-[1000px] grid-cols-1 gap-y-20 md:grid-cols-2 md:gap-x-24">                        {goods.map((item) => (
                         <GoodsCard
                             key={item.name}
@@ -67,7 +70,7 @@ export default function Page() {
                     ))}
                     </div>
 
-                    <SectionTitle>明大祭公式ステッカー</SectionTitle>
+                    <SectionTitle className="mt-32">明大祭公式ステッカー</SectionTitle>
                     <Text>今年の明大祭では、オリジナルステッカーを配布しております。詳細はこちらをご覧ください。</Text>
 
                     <SectionTitle>販売詳細</SectionTitle>

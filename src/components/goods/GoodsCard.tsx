@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 type GoodsCardProps = {
-  image: string;
+  image: string | string[];
   name: string;
   price: string;
   type?: string;
@@ -17,18 +17,35 @@ export default function GoodsCard({
 }: GoodsCardProps) {
   return (
     <div
-      className={`relative h-[280px] rounded-[36px] border-[9px] bg-white border-accent ${wide ? "md:col-span-2 md:w-[70%] md:justify-self-center" : ""
+      className={`relative rounded-[36px] border-[7px] border-accent bg-white ${wide
+        ? "h-[600px] md:col-span-2 md:h-[280px] md:w-[85%] md:justify-self-center"
+        : "h-[280px]"
         }`}
     >
       {/* グッズ画像 */}
-      <div className="flex h-full items-center justify-center">
-        <Image
-          src={image}
-          alt={name}
-          width={200}
-          height={200}
-          className="object-contain"
-        />
+      <div className="flex h-full items-center justify-center pb-10">
+        {Array.isArray(image) ? (
+          <div className="flex w-full flex-col items-center gap-4 md:flex-row md:justify-center">
+            {image.map((src, index) => (
+              <Image
+                key={src}
+                src={src}
+                alt={`${name}${index + 1}`}
+                width={200}
+                height={200}
+                className="w-[80%] max-w-[200px] object-contain md:w-[28%]"
+              />
+            ))}
+          </div>
+        ) : (
+          <Image
+            src={image}
+            alt={name}
+            width={200}
+            height={200}
+            className="object-contain"
+          />
+        )}
       </div>
 
       {/* 種類タグ */}
@@ -36,7 +53,7 @@ export default function GoodsCard({
         <div className="absolute right-[20px] top-[20px] z-20">
           <div className="relative">
             <Image
-              src="/images/svg/goodstypecloud.svg"
+              src="/images/goods/goodstypecloud.svg"
               alt=""
               width={80}
               height={50}
@@ -53,7 +70,7 @@ export default function GoodsCard({
         <div className="relative w-[220px]">
           {/* 雲 */}
           <Image
-            src="/images/svg/goodscloud.svg"
+            src="/images/goods/goodscloud.svg"
             alt=""
             width={220}
             height={86}
