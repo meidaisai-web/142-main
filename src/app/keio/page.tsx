@@ -6,14 +6,13 @@ import Emphasis from "@/components/texts/Emphasis"
 import SectionTitle from "@/components/texts/SectionTitle"
 import AccentText from "@/components/texts/AccentText"
 import { List, ListItem } from "@/components/texts/List"
-import Link from "next/link"
 import TransitionLink from "@/components/buttons/TransitionLink"
 import ContactView from "@/components/texts/ContactView"
 import Image from "next/image"
 export default function Page() {
     return (
         <div>
-            <PageTitle>KEIO×第142回明大祭　～いつも駅からだった　明大前編～</PageTitle>
+            <PageTitle>KEIO×第142回明大祭～いつも駅からだった　明大前編～</PageTitle>
             <CloudPageContainer>
                 <SectionTitle className="mb-8">企画概要</SectionTitle>
                 <Text>
@@ -34,7 +33,7 @@ export default function Page() {
                 <div>
                     <Image
                         src="/images/keio/keio.jpg"
-                        alt="KEIO×第142回明大祭　～いつも駅からだった　明大前編～"
+                        alt="KEIO×第142回明大祭～いつも駅からだった　明大前編～"
                         width={250}
                         height={400}
                         className="mx-auto mt-10"
