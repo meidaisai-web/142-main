@@ -15,9 +15,11 @@ export default function Page() {
         <CloudPageContainer>
             <PageTitle>Ending</PageTitle>
             <OnlyImage
+                src="/images/ending/endinglogo.svg"
+                alt="EndingLogo"/>
+            <OnlyImage
                 src="/images/ending/ending-image.jpg"
-                alt="Ending"
-            />
+                alt="Ending"/>
             <SectionTitle>この夢を、もう少し</SectionTitle>
             <Text center>
                 <Emphasis bold>
