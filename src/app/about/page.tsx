@@ -3,7 +3,7 @@ import PageTitle from '@/components/texts/PageTitle';
 import SectionTitle from '@/components/texts/SectionTitle';
 import Text from '@/components/texts/Text';
 import ImageText from '@/components/texts/ImageText';
-import Movie from '@/components/movie';
+import Movie from '@/components/Movie';
 
 export default function about() {
     return (
