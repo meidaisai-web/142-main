@@ -5,18 +5,11 @@ import Text from "@/components/texts/Text";
 import Emphasis from "@/components/texts/Emphasis";
 import SmallTitele from "@/components/texts/SmallTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
-import ImageLogo from "@/components/texts/ImageLogo";
 
 export default function Page() {
     return (
         <CloudPageContainer>
             <PageTitle>Fight on the Stage</PageTitle>
-            <ImageLogo
-                src="images/donation/donation.png"
-                logoSrc="images/ImageLogo/openinglogo.svg"
-                alt="企画の写真"
-                logoAlt="企画ロゴ"
-            />
             <SectionTitle>覚悟が交錯する夜―さあ、”推し”の勇姿を見届けろ。</SectionTitle>
             <Text>
                 <Emphasis>
