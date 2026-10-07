@@ -7,6 +7,7 @@ import SmallTitle from "@/components/texts/SmallTitle";
 import { List, ListItem } from "@/components/texts/List" 
 import ContactView from "@/components/texts/ContactView";
 import OnlyImage from "@/components/OnlyImage";
+import Movie from "@/components/Movie";
 
 export default function Page() {
     return (
@@ -55,7 +56,8 @@ export default function Page() {
                 <ListItem>学⭐︎プロジェクツ</ListItem>
             </List>
 
-            {/* <SectionTitle>明大王紹介動画</SectionTitle> */}
+            <SectionTitle>明大王紹介動画</SectionTitle>
+            <Movie src="https://movie.meidaisai.jp/king.mp4" />
 
             <ContactView department="演出局永燦部門" mail="142nd-eisan@meidaisai.jp" />
         </CloudPageContainer>
