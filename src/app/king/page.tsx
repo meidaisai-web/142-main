@@ -36,7 +36,7 @@ export default function Page() {
                   息を合わせて食べまくれ！制限時間内にどれだけ食べられるかが勝負！
             </Text>
             <Text>第三の試練：<Emphasis>めいじろうパズル</Emphasis><br />
-                  チームワーク全開！仲間と協力して、誰よりも早く完成させよう！
+                  チームワーク全開！仲間と協力して、めいじろうを完成させよう！
             </Text>
             <Text moreTopPadding><Emphasis>最後に明治の神が微笑むのは、、、</Emphasis></Text>
 
