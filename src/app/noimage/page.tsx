@@ -40,7 +40,7 @@ export default function Page() {
                 <SmallTitle>場所</SmallTitle>
                  <AccentText>「Be.Meiji」・「明治コレクション2026」</AccentText>
                  <Text>会場：和泉ラーニングスクエア2階GB2-1・GB2-2</Text>
-                 <AccentText>「紫紺杯　～個を強くするカードバトル～」」</AccentText>
+                 <AccentText>「紫紺杯　～個を強くするカードバトル～」</AccentText>
                 <Text>会場：和泉ラーニングスクエアLS206教室</Text>
                 <ContactView department="開発局凌閃部門" mail="142ndryousenbumon@gmail.com" />
 
