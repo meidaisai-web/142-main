@@ -4,7 +4,6 @@ import { List, ListItem } from '@/components/texts/List';
 import SectionTitle from '@/components/texts/SectionTitle';
 import SmallTitle from '@/components/texts/SmallTitle';
 import PageTitle from '@/components/texts/PageTitle';
-import OnlyImage from '@/components/OnlyImage';
 import Emphasis from '@/components/texts/Emphasis';
 import ContactView from '@/components/texts/ContactView';
 import Movie from '@/components/Movie';
