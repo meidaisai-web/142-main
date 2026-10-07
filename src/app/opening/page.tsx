@@ -13,6 +13,7 @@ export default function Page() {
     return (
         <CloudPageContainer>
             <PageTitle>Opening</PageTitle>
+            <OnlyImage src="/images/opening/openinglogo.svg" alt="OpeningLogo" />
             <OnlyImage src="/images/opening/opening02.jpg" alt="Opening" />
             <SectionTitle>解き放て、青春のファンファーレを。</SectionTitle>
             <Text center>
