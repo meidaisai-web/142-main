@@ -8,13 +8,17 @@ import OnlyImage from '@/components/OnlyImage';
 import Emphasis from '@/components/texts/Emphasis';
 import ContactView from '@/components/texts/ContactView';
 import Movie from '@/components/Movie';
+import ImageLogo from '@/components/texts/ImageLogo';
 
 export default function Page() {
     return (
         <CloudPageContainer>
             <PageTitle>Opening</PageTitle>
-            <OnlyImage src="/images/opening/openinglogo.svg" alt="OpeningLogo" />
-            <OnlyImage src="/images/opening/opening02.jpg" alt="Opening" />
+            <ImageLogo
+                src="/images/opening/opening02.jpg"
+                logoSrc="/images/opening/openinglogo.svg"
+                alt="企画の写真"
+                logoAlt="企画ロゴ" />
             <SectionTitle>解き放て、青春のファンファーレを。</SectionTitle>
             <Text center>
                 <Emphasis bold>
