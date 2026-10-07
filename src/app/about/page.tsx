@@ -7,7 +7,7 @@ import Movie from '@/components/Movie';
 
 export default function about() {
     return (
-         <CloudPageContainer>
+        <CloudPageContainer>
             <PageTitle>明大祭とは</PageTitle>
             <SectionTitle>明大祭について</SectionTitle>
             <Text>
@@ -29,7 +29,7 @@ export default function about() {
             <Text className="text-right">第142回明大祭実行委員会<br />委員長  小野 のどか</Text>
 
             <SectionTitle>昨年の明大祭の様子</SectionTitle>
-            <Movie href="https://www.youtube.com/embed/S8lkX1BaTd8?si=pHB5c2wYhpuyZGbR" />
-         </CloudPageContainer>
+            <Movie src="https://www.youtube.com/embed/S8lkX1BaTd8?si=pHB5c2wYhpuyZGbR" youtube/>
+        </CloudPageContainer>
     );
 }
