@@ -72,7 +72,6 @@ const forOutside = [
             { href: "/ippan", label: "NO iMeiji, NO LIFE？" },
             { href: "/limit", label: "LIMIT∞BREAK" },
             { href: "/experiment", label: "めいじっけん" },
-            { href: "/limit", label: "LIMIT∞BREAK" },
             { href: "/donation", label: "明大祭・募金企画" },
 
         ]
