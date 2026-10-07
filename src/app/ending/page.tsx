@@ -7,6 +7,7 @@ import Emphasis from "@/components/texts/Emphasis"
 import SmallTitele from "@/components/texts/SmallTitle"
 import SmallTitle from "@/components/texts/SmallTitle"
 import { List, ListItem } from "@/components/texts/List"
+import Movie from "@/components/Movie"
 
 export default function Page() {
     return (
@@ -18,7 +19,7 @@ export default function Page() {
             />
             <SectionTitle>この夢を、もう少し</SectionTitle>
             <Text center>
-                <Emphasis>
+                <Emphasis bold>
                     星に届け僕らの鼓動。<br />
                     夜が祭を結び、永久に煌めく想いを鳴らす。<br />
                     今、エンドロールが輝き出す。
@@ -50,6 +51,8 @@ export default function Page() {
                 <ListItem>中野ダンスサークルSIGN</ListItem>
                 <ListItem>男子チアリーディングサークルANCHORS</ListItem>
             </List>
+            <SectionTitle>Ending紹介動画</SectionTitle>
+            <Movie src="https://movie.meidaisai.jp/ending.mp4"/>
         </CloudPageContainer>
     )
 }
