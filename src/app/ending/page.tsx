@@ -1,5 +1,4 @@
 import CloudPageContainer from "@/components/base/CloudPageContainer"
-import OnlyImage from "@/components/OnlyImage"
 import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
@@ -9,17 +8,17 @@ import SmallTitle from "@/components/texts/SmallTitle"
 import { List, ListItem } from "@/components/texts/List"
 import Movie from "@/components/Movie"
 import ContactView from "@/components/texts/ContactView"
+import ImageLogo from "@/components/texts/ImageLogo"
 
 export default function Page() {
     return (
         <CloudPageContainer>
             <PageTitle>Ending</PageTitle>
-            <OnlyImage
-                src="/images/ending/endinglogo.svg"
-                alt="EndingLogo"/>
-            <OnlyImage
+            <ImageLogo
                 src="/images/ending/ending-image.jpg"
-                alt="Ending"/>
+                logoSrc="/images/ending/endinglogo.svg"
+                alt="企画の写真"
+                logoAlt="企画ロゴ" />
             <SectionTitle>この夢を、もう少し</SectionTitle>
             <Text center>
                 <Emphasis bold>
