@@ -23,7 +23,7 @@ export const alumniList = [
         "name": "和田輝男",
         "year": "昭和44年",
         "division": "政治経済",
-        "position": "明治大学校友会東京都西部支部　相談役",
+        "position": "明治大学校友会相談役",
         "message": "明大\n前へ…！"
     },
 
