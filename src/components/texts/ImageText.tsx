@@ -20,9 +20,11 @@ export default function ImageText({
         alt={alt}
         width={500}
         height={500}
-        className={`rounded-lg ${className ?? "w-4/5 max-w-lg sm:w-1/2"}`}
+        className={`rounded-lg ${className || "w-4/5 max-w-lg sm:w-1/2"}`}
       />
-      <div className="w-full text-justify font-semibold">{children}</div>
+      <div className="w-full text-justify font-semibold">
+        {children}
+      </div>
     </div>
   );
 }
