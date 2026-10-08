@@ -7,14 +7,18 @@ import OnlyImage from '@/components/OnlyImage';
 import SectionTitle from '@/components/texts/SectionTitle';
 import Emphasis from '@/components/texts/Emphasis';
 import ContactView from '@/components/texts/ContactView';
+import ImageLogo from '@/components/texts/ImageLogo';
 
 
 export default function Page() {
     return (
         <CloudPageContainer>
             <PageTitle>Meijic Station</PageTitle>
-            <OnlyImage src="/images/meijicstation/meijic01.jpg" alt="Meijic Station 1" className="mb-5" /> 
-            <OnlyImage src="/images/meijicstation/meijic02.jpg" alt="Meijic Station 2"/>
+            <ImageLogo
+                src="/images/meijicstation/meijic01.jpg"
+                logoSrc="/images/meijicstation/meijiclogo.svg"
+                alt="企画の写真"
+                logoAlt="企画ロゴ" />
             <SectionTitle>音楽に溺れる。</SectionTitle>
             <Text center>
                 <Emphasis bold>
