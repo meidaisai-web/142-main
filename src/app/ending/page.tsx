@@ -1,4 +1,5 @@
 import CloudPageContainer from "@/components/base/CloudPageContainer"
+import OnlyImage from "@/components/OnlyImage"
 import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
@@ -6,22 +7,18 @@ import Emphasis from "@/components/texts/Emphasis"
 import SmallTitele from "@/components/texts/SmallTitle"
 import SmallTitle from "@/components/texts/SmallTitle"
 import { List, ListItem } from "@/components/texts/List"
-import Movie from "@/components/Movie"
-import ContactView from "@/components/texts/ContactView"
-import ImageLogo from "@/components/texts/ImageLogo"
 
 export default function Page() {
     return (
         <CloudPageContainer>
             <PageTitle>Ending</PageTitle>
-            <ImageLogo
+            <OnlyImage
                 src="/images/ending/ending-image.jpg"
-                logoSrc="/images/ending/endinglogo.svg"
-                alt="企画の写真"
-                logoAlt="企画ロゴ" />
+                alt="Ending"
+            />
             <SectionTitle>この夢を、もう少し</SectionTitle>
-            <Text center>
-                <Emphasis bold>
+            <Text className="!text-center">
+                <Emphasis>
                     星に届け僕らの鼓動。<br />
                     夜が祭を結び、永久に煌めく想いを鳴らす。<br />
                     今、エンドロールが輝き出す。
@@ -29,7 +26,7 @@ export default function Page() {
             </Text>
             <SectionTitle>企画実施日時・場所</SectionTitle>
             <SmallTitele>日時</SmallTitele>
-            <Text>11月1日(日) 17：25～18：00</Text>
+            <Text>11月1日(日) 17:25～18:00</Text>
 
             <SmallTitle>場所 </SmallTitle>
             <Text>メインステージ</Text>
@@ -53,9 +50,6 @@ export default function Page() {
                 <ListItem>中野ダンスサークルSIGN</ListItem>
                 <ListItem>男子チアリーディングサークルANCHORS</ListItem>
             </List>
-            <SectionTitle>Ending紹介動画</SectionTitle>
-            <Movie src="https://movie.meidaisai.jp/ending.mp4"/>
-            <ContactView department="演出局結祭部門" mail="142nd-yusai@meidaisai.jp" />
         </CloudPageContainer>
     )
 }
