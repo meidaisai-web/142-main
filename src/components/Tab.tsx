@@ -1,7 +1,10 @@
+'use client';
+
 import { Fragment, ReactNode, useEffect, useRef, useState } from "react";
 import TabButton from "./buttons/TabButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";
+import 'swiper/css';
 
 interface TabProps {
     tabs: {

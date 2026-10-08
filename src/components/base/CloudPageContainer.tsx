@@ -4,8 +4,10 @@ import { useRef, useState, useEffect } from "react";
 
 export default function CloudPageContainer({
     children,
+    noPadding = false
 }: {
     children: React.ReactNode;
+    noPadding?: boolean;
 }) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [containerHeight, setContainerHeight] = useState(0);
@@ -149,7 +151,7 @@ export default function CloudPageContainer({
             ))}
 
             {/* コンテンツ */}
-            <div className="relative z-10 px-12 sm:px-20 md:px-25 lg:px-40 max-w-320 mx-auto pb-60">
+            <div className={`relative z-10 ${noPadding ? 'px-0' : 'px-12 sm:px-20 md:px-25 lg:px-40'} max-w-320 mx-auto pb-60`}>
                 {children}
             </div>
         </div>
