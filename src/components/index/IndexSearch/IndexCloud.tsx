@@ -1,12 +1,11 @@
 const cloudColor = "#FFFFFF";
 
 const ellipses = [
-	{ cx: 229.5, cy: 197, rx: 229.5, ry: 197 },
-	{ cx: 574, cy: 177, rx: 165, ry: 118 },
-	{ cx: 777, cy: 150.5, rx: 160, ry: 141.5 },
-	{ cx: 1009, cy: 170, rx: 141, ry: 125 },
-	{ cx: 1244, cy: 186, rx: 211, ry: 175 },
-	{ cx: 1530, cy: 197, rx: 124, ry: 118 },
+{ cx: 190, cy: 197, rx: 200, ry: 130 },
+{ cx: 556,   cy: 177, rx: 210, ry: 170 },
+{ cx: 900,   cy: 140, rx: 195, ry: 155 },
+{ cx: 1210,  cy: 200, rx: 210, ry: 170 },
+{ cx: 1530,  cy: 170, rx: 190, ry: 130 },
 ];
 
 function CloudShadowFilter({ id }: { id: string }) {
@@ -50,19 +49,15 @@ function CloudRow({ translateY = 0, filterId }: { translateY?: number; filterId:
 	);
 }
 
-// 親要素(section)全体を覆う背景。上縁の雲・中央の白地・下縁の雲を縦に並べ、
-// 中央の白地だけがコンテンツの高さに合わせて伸びる。
-export default function IndexCloud() {
+// 上縁の雲・中央の白地・下縁の雲を縦に並べる通常フローの背景。
+// children は中央の白地に入るので、雲の大きさ(幅比例)に関係なく高さが自動で決まる。
+export default function IndexCloud({ children }: { children?: React.ReactNode }) {
 	return (
-		<div
-			aria-hidden
-			className="absolute inset-0 z-0 flex flex-col overflow-x-clip pointer-events-none"
-		>
+		<div className="relative flex flex-col overflow-x-clip">
 			{/* 上の雲 */}
 			<svg
 				viewBox="0 0 1684 400"
 				fill="none"
-				preserveAspectRatio="xMidYMin slice"
 				className="w-full h-auto block shrink-0 overflow-visible"
 			>
 				<defs>
@@ -73,7 +68,7 @@ export default function IndexCloud() {
 			</svg>
 
 			{/* 中央の白地 */}
-			<div className="grow -my-px bg-white" />
+			<div className="min-h-[100px] bg-white relative z-10">{children}</div>
 
 			{/* 下の雲 */}
 			<svg
