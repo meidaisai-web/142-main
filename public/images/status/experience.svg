@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="#c0b4d1">
   <defs>
     <style>
       .cls-1 {
-        fill: #fff;
+        fill: #ffffff;
       }
     </style>
   </defs>
   <g id="_白抜き" data-name="白抜き">
     <g>
-      <rect width="100" height="100"/>
+      <rect width="100" height="100" />
       <g>
         <g>
-          <circle class="cls-1" cx="50" cy="30.98" r="8.48"/>
+          <circle class="cls-1" cx="50" cy="30.98" r="8.48" />
           <path class="cls-1" d="M72.26,63.31c.03,1.61-10.2,1.59-22.49,1.59s-21.99.02-22.03-1.59c-.23-11.13,9.97-20.67,22.26-20.67s22.03,9.54,22.26,20.67Z"/>
         </g>
         <g>

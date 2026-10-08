@@ -19,7 +19,7 @@
     "@next/third-parties": "^15.5.3",
     "@opennextjs/cloudflare": "1.20.6",
     "@supabase/ssr": "^0.7.0",
-    "@supabase/supabase-js": "^2.56.1",
+    "@supabase/supabase-js": "^2.117.2",
     "detectincognitojs": "^1.6.2",
     "embla-carousel": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
