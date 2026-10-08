@@ -1,31 +1,34 @@
 import CloudPageContainer from "@/components/base/CloudPageContainer"
-import OnlyImage from "@/components/OnlyImage"
 import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
 import Emphasis from "@/components/texts/Emphasis"
-import SmallTitele from "@/components/texts/SmallTitle"
 import SmallTitle from "@/components/texts/SmallTitle"
 import { List, ListItem } from "@/components/texts/List"
+import ImageLogo from "@/components/texts/ImageLogo"
+import Movie from "@/components/Movie"
+import ContactView from "@/components/texts/ContactView"
+
 
 export default function Page() {
     return (
         <CloudPageContainer>
             <PageTitle>Ending</PageTitle>
-            <OnlyImage
+            <ImageLogo
                 src="/images/ending/ending-image.jpg"
+                logoSrc="/images/ending/endinglogo.svg"
                 alt="Ending"
-            />
+                logoAlt="Ending Logo" />
             <SectionTitle>この夢を、もう少し</SectionTitle>
-            <Text className="!text-center">
-                <Emphasis>
+            <Text center>
+                <Emphasis bold>
                     星に届け僕らの鼓動。<br />
                     夜が祭を結び、永久に煌めく想いを鳴らす。<br />
                     今、エンドロールが輝き出す。
                 </Emphasis>
             </Text>
             <SectionTitle>企画実施日時・場所</SectionTitle>
-            <SmallTitele>日時</SmallTitele>
+            <SmallTitle>日時</SmallTitle>
             <Text>11月1日(日) 17:25～18:00</Text>
 
             <SmallTitle>場所 </SmallTitle>
@@ -50,6 +53,9 @@ export default function Page() {
                 <ListItem>中野ダンスサークルSIGN</ListItem>
                 <ListItem>男子チアリーディングサークルANCHORS</ListItem>
             </List>
+             <SectionTitle>Ending紹介動画</SectionTitle>
+            <Movie src="https://movie.meidaisai.jp/ending.mp4"/>
+            <ContactView department="演出局 結祭部門" mail="142nd-yusai@meidaisai.jp" />
         </CloudPageContainer>
     )
 }
