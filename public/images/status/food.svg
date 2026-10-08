@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="_白抜き" data-name="白抜き">
+    <g>
+      <rect width="100" height="100"/>
+      <g>
+        <g>
+          <rect class="cls-1" x="66" y="49" width="6" height="34"/>
+          <path class="cls-1" d="M72,54h-16v-22c0-8.71,5-15,16-15v37Z"/>
+        </g>
+        <g>
+          <rect class="cls-1" x="34" y="49.5" width="6" height="34"/>
+          <path class="cls-1" d="M48,41.83c0,4.92-4.4,10.67-11,10.67s-11-5.75-11-10.67v-25h22v25Z"/>
+          <rect x="39" y="16.5" width="4" height="22"/>
+          <rect x="31" y="16.5" width="4" height="22"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

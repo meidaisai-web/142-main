@@ -15,7 +15,7 @@ export default function Page() {
         <CloudPageContainer>
             <PageTitle>Meijic Station</PageTitle>
             <ImageLogo
-                src="/images/meijicstation/meijic01.jpg"
+                src="/images/meijicstation/meijic02.jpg"
                 logoSrc="/images/meijicstation/meijiclogo.svg"
                 alt="企画の写真"
                 logoAlt="企画ロゴ" />
@@ -29,6 +29,7 @@ export default function Page() {
                 観客席で出演者と共にこの熱狂を体感せよ。    
             </Text>
             <SectionTitle>企画概要</SectionTitle>
+            <OnlyImage src="/images/meijicstation/meijic01.jpg" alt="Meijic Station 1" className="mb-5" />
             <Text>
                 明大祭に、新たな音楽のステージが登場！<br/>
                 さまざまな音楽の魅力を一度に楽しめる、ここでしか見られないパフォーマンスをお届けします。<br/>
@@ -36,7 +37,7 @@ export default function Page() {
             </Text>
             <SectionTitle>実施日時・場所</SectionTitle>
             <SmallTitle>日時</SmallTitle>
-            <Text>10月31日(土)14：00～15：00</Text>
+            <Text>10月31日(土)14:00～15:00</Text>
             <SmallTitle>場所</SmallTitle>
             <Text>屋内ステージ（和泉ラーニングスクエアLS101教室）</Text>
             <SectionTitle>出演団体</SectionTitle>
