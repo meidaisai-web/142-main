@@ -21,7 +21,7 @@ const page = () => {
         <AccentText>展示</AccentText>
         <Text><Emphasis>和泉ラーニングスクエアLS304・LS305教室</Emphasis></Text>
         <AccentText>相談会</AccentText>
-        <Text><Emphasis>和泉ラーニングスクエアLS3階和泉ラーニングサポートベース</Emphasis></Text>
+        <Text><Emphasis>和泉ラーニングスクエア3階和泉ラーニングサポートベース</Emphasis></Text>
         <SmallTitle>日時</SmallTitle>
         <Text>2026年10月30日(金).31日(土).11月1日(日)</Text>
         <Text>【展示】</Text>
