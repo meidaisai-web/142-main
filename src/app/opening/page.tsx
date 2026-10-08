@@ -15,7 +15,7 @@ export default function Page() {
             <PageTitle>Opening</PageTitle>
             <ImageLogo
                 src="/images/opening/opening02.jpg"
-                logoSrc="/images/opening/openinglogo.svg"
+                logoSrc="/images/opening/openingLogo.svg"
                 alt="企画の写真"
                 logoAlt="企画ロゴ" />
             <SectionTitle>解き放て、青春のファンファーレを。</SectionTitle>
