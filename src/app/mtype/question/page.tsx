@@ -52,7 +52,7 @@ export default function Page() {
 
     // 全問答え終わったら、回答（左="a"・右="b"を順に並べた文字列）を付けて結果ページへ
     useEffect(() => {
-        if (finished) router.replace(`/mtype/answer?r=${answers.join("")}`);
+        if (finished) router.replace(`/mtype/result?r=${answers.join("")}`);
     }, [finished, answers, router]);
 
     return (

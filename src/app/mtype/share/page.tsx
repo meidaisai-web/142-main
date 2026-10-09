@@ -3,9 +3,9 @@ import Image from "next/image";
 import CloudPageContainer from "@/components/base/CloudPageContainer";
 import PageTitle from "@/components/texts/PageTitle";
 import Text from "@/components/texts/Text";
-import { parseTypeParam, type ShareSearchParams } from "../answer/result";
-import { typeColors, typeDescriptions, typeImages, typeNames } from "../answer/types";
-import Recommendations from "../answer/Recommendations";
+import { parseTypeParam, type ShareSearchParams } from "../result/result";
+import { typeColors, typeDescriptions, typeImages, typeNames } from "../result/types";
+import Recommendations from "../result/Recommendations";
 import StartButton from "../StartButton";
 
 // シェアされたリンクの行き先。結果画面に近い見た目で、アンケートはなく、診断を始めるボタンを置く
