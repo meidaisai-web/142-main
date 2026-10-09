@@ -24,5 +24,5 @@ export default function Page() {
             <Text>和泉図書館前開発局企画受付、和泉ラーニングスクエア入口付近</Text>
             <ContactView department="開発局" mail="142nd-kaihatsu@meidaisai.jp" showPhone showAddress />
         </CloudPageContainer>
-            )
-        }
+    )
+}
