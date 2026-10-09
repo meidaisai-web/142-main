@@ -6,7 +6,6 @@ import Access from "@/components/index/Access";
 import Airplane from "@/components/Airplane";
 import Line1 from "@/components/animation/Line1";
 import Line2 from "@/components/animation/Line2";
-import Alert from "@/components/Alert";
 
 export default function Home() {
   return (
