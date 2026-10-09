@@ -73,7 +73,7 @@ export default function Page() {
             </div>
 
             <SectionTitle className="mb-8">中夜祭紹介動画</SectionTitle>
-
+            {/* ここの動画はまだ未完成 */}
             </CloudPageContainer>
         </div>
     )
