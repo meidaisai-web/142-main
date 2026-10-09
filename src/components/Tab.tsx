@@ -126,7 +126,7 @@ export default function Tab({ tabs }: TabProps) {
                                 }}
                             />
                             {index < tabs.length - 1 && (
-                                <div className="w-1 bg-white/70 my-2" />
+                                <div className="w-0.5 bg-gray-500 my-2" />
                             )}
                         </Fragment>
                     ))}
@@ -134,7 +134,7 @@ export default function Tab({ tabs }: TabProps) {
                 <div
                     ref={indicatorRef}
                     aria-hidden
-                    className={`pointer-events-none absolute bottom-0 h-[3px] bg-white`}
+                    className={`pointer-events-none absolute bottom-0 h-0.5 bg-accent-900`}
                     style={{
                         transform: `translateX(${indicator.left}px)`,
                         width: `${indicator.width}px`,
@@ -169,10 +169,10 @@ export default function Tab({ tabs }: TabProps) {
                 onTouchEnd={() => {
                     enableIndicatorTransition();
                 }}
-                className="mt-10"
+                className="mt-8"
             >
                 {tabs.map((tab) => (
-                    <SwiperSlide key={tab.key} className="px-5">
+                    <SwiperSlide key={tab.key} className="px-5 pt-2">
                         {tab.content}
                     </SwiperSlide>
                 ))}
