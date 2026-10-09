@@ -14,7 +14,7 @@ export default function Page() {
             <SectionTitle>企画概要</SectionTitle>
             <Text><Emphasis>お菓子をもらうか、いたずらされるか。今夜はハロウィンパーティー！</Emphasis></Text>
             <Text>ハロウィン当日に明大祭に来てくれたあなたへ！</Text>
-            <Text>夕方以降（16:00〜）、キャンパス内でハロウィン風の怪しい人を探せ！「<Emphasis>「トリック・オア・トリート！」</Emphasis>と伝えると、お菓子がもらえるかも…？</Text>
+            <Text>夕方以降（16:00〜）、キャンパス内でハロウィン風の怪しい人を探せ！<Emphasis>「トリック・オア・トリート！」</Emphasis>と伝えると、お菓子がもらえるかも…？</Text>
             <Text>また、<TransitionLink href="/midnight">中夜祭</TransitionLink>では17:30頃にハロウィンステージも開催！みんなでサイリウムを振って楽しもう！</Text>
             <Text>さらに、和泉キャンパスにはハロウィン仕様の光る装飾も登場します✨キャンパスを巡りながら装飾を探して、いつもとはひと味違うハロウィンの夜を楽しんでください！</Text>
             <SectionTitle>企画実施日時・場所</SectionTitle>
