@@ -11,14 +11,14 @@ import { List, ListItem } from "@/components/texts/List"
 
 const goods = [
     {
-        image: "/images/goods/ballpen.png",
+        image: "/images/goods/ballpen.jpg",
         name: "ボールペン",
         price: "250円(税込)",
         type: "全2種",
 
     },
     {
-        image: "/images/goods/ballpen.png",
+        // image: "/images/goods/ballpen.jpg",
         name: "タトゥーシール",
         price: "100円(税込)",
     },
@@ -47,7 +47,7 @@ const goods = [
         image: "/images/goods/clearfile.png",
         name: "缶バッジ",
         price: "350円(税込)",
-        type: "全3種",
+        type: "全6種",
         wide: true,
     },
 ];
