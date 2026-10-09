@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Text from '@/components/texts/Text'
 
 type Props = {
   title: string
@@ -20,7 +21,7 @@ export default function CarouselCard({ title, src, href }: Props) {
           </div>
           {/* タイトルの箱 */}
           <div className="bg-white rounded-b-2xl py-4">
-            <p className="text-center text-gray-600">{title}</p>
+            <Text center noTopPadding className="text-gray-600">{title}</Text>
           </div>
         </div>
       </div>

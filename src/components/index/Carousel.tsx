@@ -39,7 +39,7 @@ export default function Carousel() {
       <div className="overflow-hidden py-30" ref={emblaRef}>
         <div className="flex">
           {slides.map((slide, index) => (
-            <div key={slide.title} className="w-1/2 md:w-1/4 shrink-0 px-8 md:px-12">
+            <div key={slide.title} className="w-60 md:w-100 shrink-0 px-8 md:px-12">
               <div className={`transition-transform duration-300 ${index === selectedIndex ? 'scale-125' : 'scale-100'}`}>
                 <CarouselCard title={slide.title} src={slide.src} href={slide.href} />
               </div>
