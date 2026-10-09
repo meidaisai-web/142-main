@@ -82,7 +82,9 @@ export default function Page() {
                     参加賞　ノベルティーシール（各日1,000名様）<br />
                 </Text>
                 <SectionTitle>お問い合わせ</SectionTitle>
-                <Text>ご不明点等ございましたら、下記のお問い合わせ先までご連絡ください。京王電鉄株式会社や各店舗への直接のお問い合わせはご遠慮ください。</Text>
+                <Text>ご不明点等ございましたら、下記のお問い合わせ先までご連絡ください。<br />
+                    京王電鉄株式会社や各店舗への直接のお問い合わせはご遠慮ください。
+                </Text>
 
                 <ContactView department="渉外局界隈部門" mail="kaiwai@meidaisai.jp" showPhone showAddress />
             </CloudPageContainer>
