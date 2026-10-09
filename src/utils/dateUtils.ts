@@ -3,7 +3,9 @@
  * @returns 日本時間のDateオブジェクト
  */
 export function getJapanDate(): Date {
-    const now = new Date();
+    // テスト用: .env.local に NEXT_PUBLIC_TEST_NOW="2026-10-30T12:00:00+09:00" を書くと現在時刻を差し替えられる
+    const testNow = process.env.NEXT_PUBLIC_TEST_NOW;
+    const now = testNow ? new Date(testNow) : new Date();
     // 日本時間は UTC+9
     const japanTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
     return japanTime;

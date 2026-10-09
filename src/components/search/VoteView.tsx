@@ -1,10 +1,10 @@
-import { isAlreadyVoted, isVoteTime, saveVotedId } from "@/utils/managers/meichamManager";
+import { isAlreadyVoted, isVoteTime, isVoucherAvailableToday, saveVotedId } from "@/utils/managers/meichamManager";
 import { voteMeicham } from "@/utils/supabase/meichamAction";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { List, ListItem } from "../texts/List";
 import Link from "next/link";
-import Alert from "../Alert";
+import MeichamVoteModal, { MeichamVoteModalStep } from "./MeichamVoteModal";
 import { detectIncognito } from "detectincognitojs";
 import { MeichamCategory } from "@/utils/models/MeichamGenre";
 
@@ -40,11 +40,14 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
     const [hiddenAlert, setHiddenAlert] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [buttonText, setButtonText] = useState("投票する");
+    const [modalStep, setModalStep] = useState<MeichamVoteModalStep>('confirm');
+    const [isVoting, setIsVoting] = useState(false);
 
     useEffect(() => {
         async function initialize() {
             if (!isVoteTime(eventDate)) {
-                setButtonText("投票可能時間外です。投票は明大祭の開催期間中にお願いします。")
+                setButtonText("投票時間外です");
+                setError("現在は投票時間外です。投票は明大祭の開催時間中にお願いいたします。");
                 setIsEnable(false);
                 return;
             }
@@ -56,7 +59,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                 return;
             }
             console.log(incognito.browserName)
-            if (isAlreadyVoted(id, category)) {
+            if (isAlreadyVoted(id)) {
                 setIsEnable(false);
                 setButtonText("投票済み");
             }
@@ -65,18 +68,27 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
     }, [])
 
     function onTapVote() {
+        setModalStep('confirm');
         setHiddenAlert(false);
     }
 
+    // 投票できなかったときは、モーダルを閉じてボタン下にエラーを表示する
+    function failVote(message: string, text: string, enable: boolean) {
+        setError(message);
+        setButtonText(text);
+        setIsEnable(enable);
+        setIsVoting(false);
+        setHiddenAlert(true);
+    }
+
     async function handleVote() {
-        if (!isEnable) return; // 連打防止
+        if (!isEnable || isVoting) return; // 連打防止
+        setIsVoting(true);
         setIsEnable(false);
         setError(null);
         setButtonText("投票中...");
         if (!isVoteTime(eventDate)) {
-            setError("投票可能な時間ではありません。");
-            setButtonText("投票可能時間外です");
-            setIsEnable(false);
+            failVote("現在は投票時間外です。投票は明大祭の開催時間中にお願いいたします。", "投票時間外です", false);
             return;
         }
 
@@ -84,16 +96,12 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         // おそらくsafariのみでChrome系は大丈夫だと思われるが一応プライベートモードの場合はすべて投票不可にする
         const incognito = await detectIncognito();
         if (incognito.isPrivate) {
-            setError("プライベートモードでは投票できません。通常モードでアクセスしてください。");
-            setButtonText("投票できません");
-            setIsEnable(false);
+            failVote("プライベートモードでは投票できません。通常モードでアクセスしてください。", "投票できません", false);
             return;
         }
-        // すでにその日に、その企画に投票しているか確認
-        if (isAlreadyVoted(id, category)) {
-            setError(category === 'パフォーマンス' ? "本日すでにこの企画に投票しています。" : "すでにこの企画に投票しています。");
-            setButtonText("投票済み");
-            setIsEnable(false);
+        // すでにその企画に投票しているか確認
+        if (isAlreadyVoted(id)) {
+            failVote("すでにこの企画に投票しています。", "投票済み", false);
             return;
         }
         // ユーザーのUUIDを取得または生成
@@ -102,9 +110,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         // 投票していなければ、投票を実行
         const success = await voteMeicham(id, groupId, type, category, userUUID);
         if (!success) {
-            setError("投票に失敗しました。もう一度お試しください。");
-            setIsEnable(true);
-            setButtonText("投票する");
+            failVote("投票に失敗しました。もう一度お試しください。", "投票する", true);
             return;
         }
         setIsEnable(false);
@@ -112,14 +118,16 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
         setButtonText("投票済み");
         // localStorageに投票済みの企画IDを保存
         saveVotedId(id, groupId, type, category);
+        // モーダルを閉じずに完了画面へ切り替える（保存後なので未投票部門の表示に今回の投票が反映される）
+        setIsVoting(false);
+        setModalStep('done');
     }
 
     return (
         <div className="relative mt-16 max-w-5xl mx-auto">
             {/* 背景の四角分 */}
-
             <div className="opacity-0 flex flex-col items-center font-medium p-7 text-sm sm:text-base">
-                <Image src="/images/meichamp-logo.jpg" alt="Meidaisai Championship ロゴ" width={200} height={200} />
+                <Image src="/images/meicham/meicham.jpg" alt="Meidaisai Championship ロゴ" width={200} height={200} />
                 <div className="flex flex-wrap justify-center font-bold text-lg">
                     <p>明大祭のチャンピオンに</p>
                     <p>輝くのは誰だ！</p>
@@ -142,7 +150,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
             </div>
             {/* 本体 */}
             <div className="flex flex-col items-center bg-white border-4 rounded-3xl border-accent text-black font-medium p-7 text-sm sm:text-base">
-                <Image src="/images/meichamp-logo.jpg" alt="Meidaisai Championship ロゴ" width={200} height={200} className="max-w-full w-64" />
+                <Image src="/images/meicham/meicham.jpg" alt="Meidaisai Championship ロゴ" width={200} height={200} className="max-w-full w-64" />
                 <div className="flex flex-wrap justify-center font-bold text-lg">
                     <p>明大祭のチャンピオンに</p>
                     <p>輝くのは誰だ！</p>
@@ -163,29 +171,17 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                     <Link href='/voucher' className="text-secondary hover:underline">抽選券引き換え画面</Link>
                 </div>
             </div>
-            <Alert title="本当にこの企画に投票しますか？" hidden={hiddenAlert} setHidden={setHiddenAlert} addAction={{ title: '投票する', action: () => handleVote() }}>
-                <div className="text-sm sm:text-base">
-                    <div className="flex mb-2">
-                        <p className="min-w-14 mr-2">企画名:</p>
-                        <p>{eventName}</p>
-                    </div>
-                    <div className="flex mb-2">
-                        <p className="min-w-14 mr-2">団体名:</p>
-                        {id === "80" ? (
-                            <div>
-                                <p className="mb-1">体育同好会連合会チアリーディングチーム・JAGUARS</p>
-                                <p>男子チアリーディングチーム ANCHORS</p>
-                            </div>
-                        ) : (
-                            <p>{groupName}</p>
-                        )}
-                    </div>
-                    <div className="flex">
-                        <p className="min-w-14 mr-2">部門名:</p>
-                        <p>{category}部門</p>
-                    </div>
-                </div>
-            </Alert>
+            <MeichamVoteModal
+                step={modalStep}
+                hidden={hiddenAlert}
+                onClose={() => { if (!isVoting) setHiddenAlert(true); }}
+                onVote={handleVote}
+                eventName={eventName}
+                groupName={groupName}
+                category={category}
+                isVoting={isVoting}
+                isVoucherAvailable={isVoucherAvailableToday()}
+            />
         </div>
     )
 }
