@@ -125,8 +125,8 @@ export const officialProjects: {
             date: [1, 2, 3]
         },
         {
-            title: 'KEIO×第142回明大祭～いつも駅からだった 明大前編～',
-            description: '京王電鉄株式会社×小説×明大祭のコラボ企画！',
+            title: 'KEIO×第142回明大祭',
+            description: '～いつも駅からだった 明大前編～',
             image: '/images/official-projects/keio-book.jpg',
             time: '11:00〜18:00',
             place: 'メディア棟入口付近',
@@ -264,8 +264,8 @@ export const officialProjects: {
             date: [1, 2, 3]
         },
         {
-            title: '受験生コレクション～わくわく明大生活〜',
-            description: '受験生や保護者の方の悩みを解決するために展示や相談会を実施！',
+            title: '受験生コレクション',
+            description: '～わくわく明大生活〜',
             image: '/images/official-projects/wakuwaku-logo.png',
             time: '詳細ページ内を参照',
             place: '和泉ラーニングスクエア3階和泉ラーニングサポートベース、LS304･LS305教室',
