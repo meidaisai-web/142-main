@@ -61,7 +61,7 @@ export default function Page() {
             {isSmartPhone === null || !current ? null : isSmartPhone ? (
                 <SmartPhone key={current.id} q={current} index={index} total={total} onAnswer={answer} />
             ) : (
-                <PC q={current} onAnswer={answer} />
+                <PC key={current.id} q={current} index={index} total={total} onAnswer={answer} />
             )}
         </CloudPageContainer>
     )
@@ -191,14 +191,66 @@ function SmartPhone({ q, index, total, onAnswer }: QuestionProps & { index: numb
     )
 }
 
-function PC({ q, onAnswer }: QuestionProps) {
+function PC({ q, index, total, onAnswer }: QuestionProps & { index: number; total: number }) {
     const label = labelsOf(q);
+    // 選択肢にマウスを乗せると、スマホでスワイプしたときと同じようにカードの色が変わる
+    const [hovered, setHovered] = useState<Answer | null>(null);
+    const cardColor =
+        hovered === "a"
+            ? { backgroundColor: PRIMARY, borderColor: PRIMARY_BORDER }
+            : hovered === "b"
+              ? { backgroundColor: SECONDARY, borderColor: SECONDARY_BORDER }
+              : { backgroundColor: "#ffffff", borderColor: DEFAULT_BORDER };
+
+    const optionClassName = "flex flex-1 cursor-pointer flex-col items-center gap-3 rounded-xl bg-white/80 p-4 text-center shadow-sm transition-transform duration-150 hover:-translate-y-1 hover:bg-white hover:shadow-md active:translate-y-0";
+
     return (
-        <div>
-            <p>{q.question}</p>
-            <div className="flex">
-                <button onClick={() => onAnswer("a")}>{label.a}：{q.a}</button>
-                <button onClick={() => onAnswer("b")}>{label.b}：{q.b}</button>
+        <div className="flex flex-col items-center gap-4 pb-8">
+            <p className="text-sm">{index + 1} / {total}</p>
+            <div
+                className="relative flex h-96 w-full max-w-xl flex-col justify-center overflow-hidden rounded-2xl border-2 p-8 shadow-xl transition-colors duration-300 select-none"
+                style={cardColor}
+            >
+                {/* 背景の装飾 */}
+                <div className="pointer-events-none absolute -left-10 -top-10 h-32 w-32 rounded-full bg-secondary/30" />
+                <div className="pointer-events-none absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-primary/40" />
+                <div className="relative flex flex-col items-center gap-5">
+                    <span className="rounded-full bg-accent px-4 py-1 text-sm font-bold tracking-widest text-white">
+                        Q{index + 1}
+                    </span>
+                    <p className="text-center text-xl font-bold">{q.question}</p>
+                    <div className="flex w-full items-center gap-2 text-xs text-gray-400">
+                        <span className="h-px flex-1 bg-gray-300" />
+                        <span>どっち？</span>
+                        <span className="h-px flex-1 bg-gray-300" />
+                    </div>
+                    <div className="flex w-full gap-4">
+                        <button
+                            type="button"
+                            className={optionClassName}
+                            onClick={() => onAnswer("a")}
+                            onMouseEnter={() => setHovered("a")}
+                            onMouseLeave={() => setHovered(null)}
+                            onFocus={() => setHovered("a")}
+                            onBlur={() => setHovered(null)}
+                        >
+                            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary font-bold text-white">{label.a}</span>
+                            <span>{q.a}</span>
+                        </button>
+                        <button
+                            type="button"
+                            className={optionClassName}
+                            onClick={() => onAnswer("b")}
+                            onMouseEnter={() => setHovered("b")}
+                            onMouseLeave={() => setHovered(null)}
+                            onFocus={() => setHovered("b")}
+                            onBlur={() => setHovered(null)}
+                        >
+                            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary-900 font-bold text-white">{label.b}</span>
+                            <span>{q.b}</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     )
