@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment, ReactNode, useEffect, useRef, useState } from "react";
+import { Fragment, ReactNode, useRef, useState } from "react";
 import TabButton from "./buttons/TabButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";
@@ -101,15 +101,10 @@ export default function Tab({ tabs }: TabProps) {
         if (!el) return;
         el.style.transition = 'none';
     };
-
-
-    useEffect(() => {
-        snapIndicatorToIndex(active);
-        const onResize = () => snapIndicatorToIndex(active);
-        window.addEventListener('resize', onResize);
-        return () => window.removeEventListener('resize', onResize);
-
-    }, []);
+    snapIndicatorToIndex(active);
+    const onResize = () => snapIndicatorToIndex(active);
+    window.addEventListener('resize', onResize);
+    window.removeEventListener('resize', onResize);
 
     return (
         <div className="w-full">
