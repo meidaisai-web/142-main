@@ -18,7 +18,7 @@ export default function Page() {
                       また、和泉ラーニングスクエアLS206教室では明大生から募集した写真を使用したオリジナルカードゲームで遊べるブースをご用意しています！</Text>
 
                 <SmallTitle>「Be.Meiji」・「明治コレクション2026」</SmallTitle>
-                <Text>和泉ラーニングスクエアのグループボックスの展示では、明大生の<Emphasis>リアルなファッション</Emphasis>から<Emphasis>リアルな一日のスケジュール</Emphasis>まで覗けちゃいます！<br />
+                <Text>和泉ラーニングスクエアのグループボックスの展示では、明大生の<Emphasis>リアルなファッション</Emphasis>から<Emphasis>リアルな1日のスケジュール</Emphasis>まで覗けちゃいます！<br />
                      「大学生ってどんな服着てるの？」「大学生ってどんな1日を過ごしているの？」などなど、そのような疑問がグループボックスに来れば解消できちゃいます！</Text>
 
                 <SmallTitle>紫紺杯　～個を強くするカードバトル～</SmallTitle>
