@@ -46,7 +46,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
             <List mark="※" className="mt-5">
                 <ListItem>抽選券の枚数には限りがあります。</ListItem>
             </List>
-            <Link href="https://forms.gle/..." target="_blank" rel="noopener noreferrer" className="block mt-10">
+            <Link href="https://forms.gle/vZvX2yNa9K6nepmZA" target="_blank" rel="noopener noreferrer" className="block mt-10">
                 <div className="bg-primary border-2 border-primary-900 rounded-full px-6 py-2 w-fit hover:bg-primary-700 active:bg-primary-900 transition-colors duration-150 ease-out mx-auto">アンケートはこちら</div>
             </Link>
         </CloudPageContainer>
