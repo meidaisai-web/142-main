@@ -69,7 +69,7 @@ export const companyAdList = [
     { "name": "LINEMO" },
     { "name": "NECパーソナルコンピュータ株式会社" },
     { "name": "Qoo10" },
-    { "name": "Rebear合同会社" },
+    { "name": "ReBear合同会社" },
     { "name": "Yostar" },
 ];
 
@@ -313,7 +313,6 @@ export const companyGoodsList = [
     { "name": "ランドポート株式会社" },
     { "name": "リンレイテープ株式会社" },
     { "name": "ルートインホテルズ" },
-    { "name": "ログズ株式会社" },
     { "name": "六甲バター株式会社" },
     { "name": "和平フレイズ株式会社" },
     { "name": "Bungy Japan株式会社" },
@@ -323,6 +322,7 @@ export const companyGoodsList = [
     { "name": "KONCIWA株式会社" },
     { "name": "LaBella株式会社" },
     { "name": "L&Lライブリーライフ株式会社" },
+    { "name": "newhattan japan" },
     { "name": "OMCC（有限会社サーチディストリビューション）" },
     { "name": "SMALL WORLDS" },
 ];
