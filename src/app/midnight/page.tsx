@@ -6,6 +6,7 @@ import Text from "@/components/texts/Text"
 import Emphasis from "@/components/texts/Emphasis"
 import CloudPhoto from "@/components/CloudPhoto"
 import ImageLogo from "@/components/texts/ImageLogo"
+import ContactView from "@/components/texts/ContactView"
 
 export default function Page() {
     return (
@@ -79,6 +80,7 @@ export default function Page() {
                 </div>
             </div>
             {/* <SectionTitle>中夜祭紹介動画</SectionTitle> */}
+            <ContactView department="演出局永燦部門" mail="142nd-eisan@meidaisai.jp" showPhone showAddress />
             </CloudPageContainer>
         </div>
     )

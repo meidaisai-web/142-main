@@ -23,8 +23,8 @@ export default function Page() {
                 <AccentText>場所</AccentText>
                 <Text>メディア棟M506教室</Text>
                 <AccentText>注意事項</AccentText>
-                <Text>作品の写真撮影および作品に触れることはご遠慮ください。</Text>
-                <ContactView department="渉外局界隈部門" mail="kaiwai@meidaisai.jp" showPhone showAddress />
+                <Text>作品の写真撮影およ<ContactView department="渉外局界隈部門" mail="kaiwai@meidaisai.jp" showPhone showAddress />び作品に触れることはご遠慮ください。</Text>
+                
             </CloudPageContainer>
         </>
     )
