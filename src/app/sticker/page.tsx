@@ -27,7 +27,7 @@ export default function Page() {
                         <Image src="/images/sticker/sticker4.svg" alt="ステッカー" width={200} height={200} className="w-3/4 col-span-2" />
                         <Image src="/images/sticker/sticker5.svg" alt="ステッカー" width={200} height={200} className="w-3/4 col-span-2" />
                 </div>
-                <Text className="text-right mt-10">Creaed by 第142回明大祭実行委員会制作局グラフィックデザイン部門</Text>
+                <Text className="text-right mt-10">Created by 第142回明大祭実行委員会制作局グラフィックデザイン部門</Text>
             </CloudPageContainer>
         </div>
     )
