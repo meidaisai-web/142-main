@@ -41,15 +41,15 @@ export default function about() {
                 <Image src="/images/theme/primary.svg" width={500} height={500} alt="メインカラー 爽律" className="w-32 h-auto shrink-0" />
                 <Text>メインカラーは爽律（そうりつ）です。<br />新しいことに挑戦するフレッシュなエネルギーや純粋さ、明大祭を作り、一瞬一瞬を楽しむ私たちの爽やかさを表現しています。</Text>
             </div>
-            <SmallTitle>華暁（かぎょう）</SmallTitle>
+            <SmallTitle>華鳴（かめい）</SmallTitle>
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
-                <Image src="/images/theme/secondary.svg" width={500} height={500} alt="サブカラー 華暁" className="w-32 h-auto shrink-0" />
-                <Text>サブカラーは華暁（かぎょう）です。<br />一人ひとりの才能や努力が華やかに開花し、その喜びが鳴り響く様子、明大祭による気持ちの高鳴りを表現しています。</Text>
+                <Image src="/images/theme/secondary.svg" width={500} height={500} alt="サブカラー 華鳴" className="w-32 h-auto shrink-0" />
+                <Text>サブカラーは華鳴（かめい）です。<br />一人ひとりの才能や努力が華やかに開花し、その喜びが鳴り響く様子、明大祭による気持ちの高鳴りを表現しています。</Text>
             </div>
-            <SmallTitle>此耀（しょうよう）</SmallTitle>
+            <SmallTitle>茈耀（しよう）</SmallTitle>
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
                 <Image src="/images/theme/accent.svg" width={500} height={500} alt="アクセントカラー 此耀" className="w-32 h-auto shrink-0" />
-                <Text>アクセントカラーは此耀（しょうよう）です。<br />心に灯る、温かく優しい希望や道標、仲間との絆、明大生が最高の舞台で輝く瞬間を表現しています。</Text>
+                <Text>アクセントカラーは茈耀（しよう）です。<br />心に灯る、温かく優しい希望や道標、仲間との絆、明大生が最高の舞台で輝く瞬間を表現しています。</Text>
             </div>
 
             {/* <SectionTitle>第142回明大祭テーマソング</SectionTitle>
