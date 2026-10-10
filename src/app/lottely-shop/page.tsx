@@ -95,7 +95,7 @@ export default function Page() {
                 </Text>
 
                 <SmallTitle>抽選券見本</SmallTitle>
-                <Image src="/images/lottely-shop/lottely-ticket.svg" width={500} height={500} alt="抽選券" />
+                <Image src="/images/lottely/lottely-ticket.svg" width={500} height={500} alt="抽選券" />
 
                 <SectionTitle>企画実施日・企画実施場所</SectionTitle>
                 <SmallTitle>抽選券配付期間</SmallTitle>
