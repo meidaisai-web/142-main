@@ -6,6 +6,80 @@ import SmallTitle from "@/components/texts/SmallTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import { List, ListItem } from "@/components/texts/List";
 import Image from "next/image"
+import ContactView from "@/components/texts/ContactView"
+
+const storeList = [
+    "あほうどり",
+    "イタリアン ダイニング バー LAGO（ラーゴ）",
+    "植田整骨院",
+    "魚津",
+    "魚売街",
+    "おむすび　四季",
+    "株式会社ティップネス明大前",
+    "がブリチキン明大前店",
+    "カラオケBanBan明大前駅前店",
+    "カラオケBanBan明大前店",
+    "辛麺屋　桝元",
+    "串カツ田中　明大前店",
+    "クローバー薬局松原店",
+    "クローバー薬局明大前店",
+    "小暮洋服店",
+    "ココカラファイン明大前店",
+    "斉藤時計店",
+    "サーティワンアイスクリームTogo明大前店",
+    "焼酎 bar 5×8 GOHACHI",
+    "庄や　京王明大前店",
+    "書塾おもいやり繪",
+    "すにゃっくバロン",
+    "炭火焼肉酒房　あぶり",
+    "立呑み　我海",
+    "ダーツバーKUNI",
+    "タトル明大前洋菓子店",
+    "伝説のすた丼屋　明大前店",
+    "豊岡整骨院",
+    "とり鉄明大前駅前店",
+    "肉汁餃子のダンダダン　明大前店",
+    "花見煎餅吾妻屋",
+    "飛騨高山　酒兎",
+    "ファミリーマート世田谷松原一丁目店",
+    "フクウロ明大前店",
+    "ポニークリーニング　明大前店",
+    "マクドナルド明大前店",
+    "祭り茶屋　ゆうやけこやけ",
+    "麻婆STAND明大前",
+    "マーメイドコーヒーロースターズ明大前",
+    "丸や",
+    "ミネドラッグ明大前店",
+    "明大前　のすけ",
+    "明大前はり灸院",
+    "明大前バル",
+    "明大前モモノイ",
+    "やきとり家すみれ明大前店",
+    "焼肉ユーミン",
+    "やまわ薬局",
+    "有限会社田中靴店",
+    "有限会社千草園",
+    "有限会社武道鈴木",
+    "ユニオン電器",
+    "らーめん盛華",
+    "リフレッシュ整体　元気堂",
+    "和洋惣菜タイム",
+    "BAR HICOTTO",
+    "BARBER TRIBE",
+    "Café  Bar LIVRE　",
+    "Hook",
+    "ima （イマ)",
+    "laitue（レチュ)",
+    "ma'am Zee",
+    "Mikyô",
+    "NIKSEN",
+    "Petite Patisserie YUKI（プティ　パティスリー　ユキ）",
+    "Shima",
+    "TBK美容室明大前店",
+    "TOP1明大前店",
+    "vivo daily stand　明大前店",
+    "Wells"
+];
 
 export default function Page() {
     return (
@@ -43,9 +117,15 @@ export default function Page() {
                     <ListItem>別の抽選会が隣接しておりますのでご注意ください。</ListItem>
                 </List>
 
-                {/* <SectionTitle>企画協力店舗様一覧</SectionTitle>
-                <Text>（以下五十音順・敬称略）</Text> */}
-
+                <SectionTitle>企画協力店舗様一覧</SectionTitle>
+                <Text>（以下五十音順・敬称略）</Text>
+                <List mark="・">
+                    {storeList.map((store) => (
+                        <ListItem key={store}>{store}</ListItem>
+                    ))}
+                </List>
+                <ContactView department="渉外局界隈部門" mail="kaiwai@meidaisai.jp" showPhone showAddress />
+                
             </CloudPageContainer>
         </div>
     )
