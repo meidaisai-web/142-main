@@ -38,6 +38,7 @@ export default function Page() {
             <List mark="・">
                 <ListItem>オープニング動画</ListItem>
                 <ListItem>オープニングアウト</ListItem>
+                <ListItem>Meidaisai Championship表彰式</ListItem>
                 <ListItem>団体パフォーマンス</ListItem>
                 <ListItem>スライドショー</ListItem>
                 <ListItem>委員長挨拶</ListItem>
