@@ -1,9 +1,7 @@
 import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
-import AccentText from "@/components/texts/AccentText"
 import ContactView from "@/components/texts/ContactView"
-import Emphasis from "@/components/texts/Emphasis"
 import SmallTitle from "@/components/texts/SmallTitle"
 import GoodsCard from "@/components/goods/GoodsCard";
 import PageContainer from "@/components/base/PageContainer"
@@ -67,7 +65,7 @@ export default function Page() {
         <>
             <main className="flow-root bg-top-gradient pb-60">
                 <PageContainer>
-                    <PageTitle>公式グッズ</PageTitle>
+                    <PageTitle>明大祭公式グッズ</PageTitle>
                     <SectionTitle>商品一覧</SectionTitle>
                     <div className="mx-auto mt-20 grid max-w-[1000px] grid-cols-1 gap-y-20 md:gap-y-28 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">                        {goods.map((item) => (
                         <GoodsCard
