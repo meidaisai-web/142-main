@@ -39,7 +39,7 @@ const questions = [
     {
         question: "入試案内はどこにありますか。",
         answer:
-            <>大学ガイドブック・学部ガイドブックは第142回明大祭で行われている和泉ラーニングスクエアLS304・LS305教室、3階和泉ラーニングサポートベースに置かれています。企画の詳細は<TransitionLink href="/wakuwaku">こちらのページ</TransitionLink>をご覧ください。また、大学公式サイトで電子版が公開されているので、そちらもご覧ください。</>
+        <>大学ガイドブック・学部ガイドブックは第142回明大祭で行われている受験生応援企画（和泉ラーニングスクエアLS304・LS305教室、3階和泉ラーニングサポートベース）に置かれています。企画の詳細は<TransitionLink href="/wakuwaku">こちらのページ</TransitionLink>をご覧ください。また、<TransitionLink href= "https://www.meiji.ac.jp/koho/guidebook/index.html" targetBlank>大学公式サイトで電子版</TransitionLink>が公開されているので、そちらもご覧ください。</>
     },
     {
         question: "会場でキャッシュレス決済は可能ですか。",
