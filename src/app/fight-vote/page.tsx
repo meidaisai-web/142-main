@@ -2,7 +2,7 @@
 
 import { Fragment, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import TransitionLink from "@/components/buttons/TransitionLink";
 import detectIncognito from "detectincognitojs";
 import PageTitle from "@/components/texts/PageTitle";
 import { addVoteData } from "@/utils/supabase/fightVoteAction";
@@ -10,7 +10,7 @@ import styles from "./page.module.css";
 
 // このブラウザに142回の投票済み状態を保存するキー。別端末や保存情報の削除をまたぐ制限ではない。
 const STORAGE_KEY = "142-fight-vote-submitted";
-const PRIVATE_MESSAGE = "プライベートモードでは投票できません。SafariまたはChromeの通常モードでアクセスしてください。";
+const PRIVATE_MESSAGE = "プライベートモード（シークレットモード）では投票できません。お使いのブラウザの通常モードで開き直してください。";
 // 日本語や空白を含むファイル名をURL用に変換し、public/images/fight-vote内の画像を参照する。
 const asset = (name: string) => `/images/fight-vote/${encodeURIComponent(name)}`;
 
@@ -201,7 +201,7 @@ export default function FightVote() {
             </div>
             <div className={styles.introText}>
               <p>Amazing dream、Sweet dream、Star dreamの各々でよりテーマを表現していると感じた方の団体を選んで投票してください。</p>
-              <p>Fight on the stageの企画については<Link href="/fight" target="_blank" rel="noopener noreferrer">こちら</Link>からご覧いただけます。</p>
+              <p>Fight on the stageの企画については<TransitionLink href="/fight" targetBlank>こちら</TransitionLink>からご覧いただけます。</p>
             </div>
           </div>
           {/* 3部門を同じ構成で描画する。見た目のサイズ・位置・拡縮はpage.module.cssで管理。 */}
@@ -217,7 +217,7 @@ export default function FightVote() {
                   <Fragment key={group.name}>
                     <div className={`${styles.name} ${side} ${selected ? styles.chosen : ""} ${dimmed ? styles.unselected : ""}`}>
                       <Image src={asset(`${battle.frame}frame-left.svg`)} alt="" width={242} height={409} />
-                      {group.name}
+                      <span className={group.name === "K-POPカバーダンスサークル Mercie" ? styles.mercieName : undefined}>{group.name}</span>
                       <Image src={asset(`${battle.frame}frame-right.svg`)} alt="" width={242} height={409} />
                     </div>
                     <button type="button" className={`${styles.photo} ${side} ${selected ? styles.selected : ""} ${dimmed ? styles.dimmed : ""}`}
@@ -225,10 +225,11 @@ export default function FightVote() {
                       disabled={!ready || isPrivate || isSubmitting}
                       onClick={() => selectVote(index, group.value)}>
                       <Image src={asset(group.photo)} alt="" width={1700} height={1700} />
-                      {selected && <span className={styles.selectedLabel} aria-hidden="true">
-                        <Image src={asset(`${battle.frame}selected.svg`)} alt="" width={160} height={50} />
+                      {/* 初めからSVGを読み込み、選択時は待たずにラベルを表示する。 */}
+                      <span className={`${styles.selectedLabel} ${selected ? styles.labelVisible : ""}`} aria-hidden="true">
+                        <Image src={asset(`${battle.frame}selected.svg`)} alt="" width={160} height={50} loading="eager" />
                         選択中
-                      </span>}
+                      </span>
                     </button>
                   </Fragment>
                 );
@@ -236,15 +237,15 @@ export default function FightVote() {
               <Image className={styles.vs} src={asset(battle.vs)} alt="VS" width={315} height={705} />
             </section>
           ))}
+          <p className={styles.status} role="status">
+            {!ready ? "投票状態を確認しています。" : isPrivate ? PRIVATE_MESSAGE : `${votes.filter((vote) => vote !== null).length}/3部門を選択済み`}
+          </p>
           {/* 全部門を選択し、ブラウザ確認が済んだときだけ送信可能にする。 */}
           <button type="button" className={styles.submit} onClick={handleSubmit}
             disabled={!ready || !allSelected || isPrivate || isSubmitting}
             aria-label={isSubmitting ? "投票を送信中" : "投票を送信する"} aria-busy={isSubmitting}>
             <Image src={asset("投票ボタン.svg")} alt="" width={2400} height={400} />
           </button>
-          <p className={styles.status} role="status">
-            {!ready ? "投票状態を確認しています。" : isPrivate ? PRIVATE_MESSAGE : `${votes.filter((vote) => vote !== null).length}/3部門を選択済み`}
-          </p>
         </>
       )}
       {/* 送信中・成功・エラーの共通ダイアログ。送信中は閉じる操作を無効にする。 */}
