@@ -51,7 +51,7 @@ export default function Page() {
                 <ListItem>MDD</ListItem>
                 <ListItem>Copia</ListItem>
                 <ListItem>中野ダンスサークルSIGN</ListItem>
-                <ListItem>男子チアリーディングサークルANCHORS</ListItem>
+                <ListItem>男子チアリーディングチームANCHORS</ListItem>
             </List>
              <SectionTitle>Ending紹介動画</SectionTitle>
             <Movie src="https://movie.meidaisai.jp/ending.mp4"/>
