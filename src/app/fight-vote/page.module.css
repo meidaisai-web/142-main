@@ -1,0 +1,170 @@
+.page {
+  width: 100%;
+  max-width: 880px;
+  margin: 56px auto 0;
+  padding: clamp(22px, 4vw, 48px) 0 max(80px, 16vw);
+  container-type: inline-size;
+  background: #fff;
+  color: #191919;
+  font-weight: 400;
+}
+
+/* 共通見出しの装飾を再利用し、確定したプレビューの比率に合わせる。 */
+.pageHeading > div { display: block; margin: 0; padding: 0; }
+.pageHeading h1 {
+  position: relative;
+  margin: 0 14% 14px;
+  padding: 0 0 2px;
+  border-bottom: 2px dashed #efc3cf;
+  font-size: max(14px, 4.2cqw);
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: center;
+  white-space: normal;
+}
+.pageHeading h1 > span { background: none; padding: 0; }
+.pageHeading h1 > span > span { white-space: normal; }
+.pageHeading h1 > span > span > span {
+  position: absolute;
+  right: -5cqw;
+  bottom: -3cqw;
+  width: 6cqw;
+  height: 6cqw;
+  margin: 0;
+}
+.pageHeading img { width: 100%; height: 100%; transform: none; }
+.intro {
+  display: grid;
+  grid-template-columns: clamp(72px, 22cqw, 140px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(12px, 3cqw, 24px);
+  padding: 0 6%;
+  margin: 8px 0 max(44px, 9cqw);
+}
+.intro > .logoFrame { width: 100%; }
+/* 元SVGの透明余白を表示枠で隠し、ロゴ本体を説明文の中央に揃える。 */
+.logoFrame { position: relative; width: 100%; aspect-ratio: 780 / 767; overflow: hidden; }
+.logo {
+  position: absolute;
+  width: 161.538462%;
+  max-width: none;
+  height: auto;
+  left: -61.538462%;
+  top: -59.713168%;
+}
+.introText { width: 100%; min-width: 0; font-size: max(12px, 3.4cqw); line-height: 1.5; }
+.intro p { margin: 0; }
+
+.battle {
+  --photo-size: 35.54cqw;
+  --name-height: 8.5cqw;
+  /* 名前の最小文字サイズで相手側まで幅が伸びる分、狭い画面では上下に逃がす。 */
+  --name-clearance: clamp(0px, calc((480px - 100cqw) * .1), 1.5cqw);
+  --caption-gap: calc(2.1cqw + var(--name-clearance));
+  --left-photo-top: calc(27.6cqw + var(--name-clearance));
+  --right-photo-top: calc(21.6cqw + var(--name-clearance));
+  position: relative;
+  height: calc(77cqw + 2 * var(--name-clearance));
+}
+.battleHeading { position: absolute; top: 0; left: 50%; transform: translateX(-50%); margin: 0; white-space: nowrap; }
+.battleTitle { position: relative; margin: 0; font-size: max(16px, 4cqw); font-weight: 400; line-height: normal; }
+/* 飾りは文字サイズに連動させ、画面幅が変わっても左上の位置関係を保つ。 */
+.battleTitleDecoration {
+  position: absolute;
+  width: 2em;
+  height: auto;
+  max-width: none;
+  left: -1.4em;
+  top: -1em;
+  pointer-events: none;
+}
+.name {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  max-width: 91%;
+  height: 8.5cqw;
+  gap: 0;
+  font-size: max(11px, 2.3cqw);
+  white-space: nowrap;
+  line-height: 1.5;
+  transition: transform .2s ease, opacity .2s ease;
+  transform-origin: center;
+}
+/* 長いMercieの団体名のみ、文字を15%小さくする。 */
+.mercieName { font-size: .85em; }
+.name img { height: 8.5cqw; width: auto; flex-shrink: 0; pointer-events: none; }
+.name img:first-child { margin-right: -2.35cqw; }
+.name img:last-child { margin-left: -2.35cqw; }
+.name.left { left: 6%; top: calc(var(--left-photo-top) - var(--name-height) - var(--caption-gap)); }
+.name.right { right: 6%; top: calc(var(--right-photo-top) + var(--photo-size) + var(--caption-gap)); }
+.name.chosen { font-weight: 700; }
+.name.unselected { opacity: .55; }
+/* 写真と名前の拡縮後も、両側の余白を同じに保つ。 */
+.name.left.unselected { transform: translateY(2.202cqw) scale(.9); }
+.name.right.unselected { transform: translateY(-2.202cqw) scale(.9); }
+.name.left.chosen { transform: translateY(-3.2682cqw) scale(1.1); }
+.name.right.chosen { transform: translateY(3.2682cqw) scale(1.1); }
+.photo {
+  position: absolute;
+  width: 35.54%;
+  aspect-ratio: 1;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform .2s ease, filter .2s ease;
+  transform-origin: center;
+  font-family: inherit;
+}
+.photo > img { display: block; width: 100%; height: auto; }
+/* 中心からの水平距離は左右同じ。上下の段差はデザインどおり残す。 */
+.photo.left { left: 11.29%; top: var(--left-photo-top); }
+.photo.right { right: 11.29%; top: var(--right-photo-top); }
+.photo.selected { transform: scale(1.16); z-index: 2; }
+.photo.dimmed { filter: brightness(.48); transform: scale(.9); }
+.photo:disabled { cursor: default; }
+.selectedLabel {
+  visibility: hidden;
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  isolation: isolate;
+  min-width: 15cqw;
+  padding: 1.15cqw 3.4cqw;
+  color: #191919;
+  font-family: inherit;
+  font-size: max(11px, 2.1cqw);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: .16em;
+  text-indent: .16em;
+  pointer-events: none;
+}
+.labelVisible { visibility: visible; }
+.selectedLabel img { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+.vs { position: absolute; left: 50%; transform: translateX(-50%); top: calc(34.6cqw + var(--name-clearance)); width: 6.59%; height: auto; }
+.submit { display: block; width: 60%; margin: 12px auto 0; padding: 0; border: 0; background: none; cursor: pointer; min-height: 44px; }
+.submit:enabled:active { transform: scale(.96); opacity: .75; }
+.submit img { width: 100%; height: auto; display: block; }
+.submit:disabled { opacity: .5; cursor: default; }
+.photo:focus-visible, .submit:focus-visible, .intro a:focus-visible { outline: 2px solid #469b9c; outline-offset: 4px; }
+.status { margin: 16px 6% 0; text-align: center; font-size: 16px; line-height: 1.7; color: #666; font-weight: 700; }
+.thankYou {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(12px, 2cqw, 18px);
+  padding: clamp(16px, 3cqw, 24px) 20px 24px;
+  text-align: center;
+}
+.thankYouLogo { width: clamp(140px, 28cqw, 220px); max-width: 100%; }
+.thankYou p { margin: 0; font-size: max(16px, 2.3cqw); line-height: 1.7; }
+.dialog { max-width: calc(100% - 40px); width: 340px; margin: auto; border: 1px solid #9ad2c9; padding: 28px; text-align: center; background: #fff; color: #191919; font-family: inherit; }
+.dialog::backdrop { background: #0007; }
+.dialog p { font-size: 14px; line-height: 1.7; }
+.dialog button { margin-top: 20px; min-height: 44px; font: inherit; padding: 10px 24px; border: 1px solid #9ad2c9; background: #fff; color: #191919; cursor: pointer; }
+@media (prefers-reduced-motion: reduce) { .photo, .name { transition: none; } }
+
