@@ -14,7 +14,7 @@ function CloudButtonBg() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
-            className="absolute w-full h-full"
+            className="absolute w-full h-full overflow-visible"
         >
             <mask id={maskId} maskUnits="userSpaceOnUse" x="-0.982422" y="0" width="214" height="83" fill="black">
                 <rect fill="white" x="-0.982422" width="214" height="83" />
