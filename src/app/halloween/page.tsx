@@ -2,6 +2,7 @@ import CloudPageContainer from "@/components/base/CloudPageContainer";
 import TransitionLink from "@/components/buttons/TransitionLink";
 import ContactView from "@/components/texts/ContactView";
 import Emphasis from "@/components/texts/Emphasis";
+import { List, ListItem } from "@/components/texts/List";
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
@@ -17,11 +18,14 @@ export default function Page() {
             <Text>夕方以降（16:00〜）、キャンパス内でハロウィン風の怪しい人を探せ！<Emphasis>「トリック・オア・トリート！」</Emphasis>と伝えると、お菓子がもらえるかも…？</Text>
             <Text>また、<TransitionLink href="/midnight">中夜祭</TransitionLink>では17:30頃にハロウィンステージも開催！みんなでサイリウムを振って楽しもう！</Text>
             <Text>さらに、和泉キャンパスにはハロウィン仕様の光る装飾も登場します✨キャンパスを巡りながら装飾を探して、いつもとはひと味違うハロウィンの夜を楽しんでください！</Text>
+            <List mark="※">
+                <ListItem>お菓子の配布は数に限りがあります。なくなり次第終了となりますので、ご了承ください。</ListItem>
+            </List>
             <SectionTitle>企画実施日時・場所</SectionTitle>
             <SmallTitle>日時</SmallTitle>
             <Text>10月31日(土) 16:00〜18:00</Text>
             <SmallTitle>場所</SmallTitle>
-            <Text>和泉図書館前開発局企画受付、和泉ラーニングスクエア入口付近</Text>
+            <Text>和泉図書館前開発局企画受付、和泉ラーニングスクエア休憩所付近</Text>
             <ContactView department="開発局" mail="142nd-kaihatsu@meidaisai.jp" showPhone showAddress />
         </CloudPageContainer>
     )
