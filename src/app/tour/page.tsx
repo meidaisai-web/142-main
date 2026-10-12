@@ -70,7 +70,7 @@ export default function Page() {
             <SectionTitle>注意事項</SectionTitle>
             <List mark="・">
                 <ListItem>予約は<Emphasis>先着順</Emphasis>となっております。</ListItem>
-                <ListItem>時刻表の紫色になっている<Emphasis>11:30（10月30日を除く）、13:00、15:00</Emphasis>の便は明治大学連合父母会の方を優先とさせていただきます。</ListItem>
+                <ListItem>時刻表の紫色になっている<Emphasis>11:30（10月30日(金)を除く）、13:00、15:00</Emphasis>の便は明治大学連合父母会の方を優先とさせていただきます。</ListItem>
                 <ListItem>1便あたり15名を定員としてご案内させていただきます。参加者が少ない場合は該当の便を欠航し、次便にご参加いただくようご案内することがございます。あらかじめご了承ください。</ListItem>
             </List>
             <ContactView department="開発局" mail="142nd-kaihatsu@meidaisai.jp" showPhone showAddress />
