@@ -3,7 +3,7 @@ import { voteMeicham } from "@/utils/supabase/meichamAction";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { List, ListItem } from "../texts/List";
-import Link from "next/link";
+import TransitionLink from "../buttons/TransitionLink";
 import MeichamVoteModal, { MeichamVoteModalStep } from "./MeichamVoteModal";
 import { detectIncognito } from "detectincognitojs";
 import { MeichamCategory } from "@/utils/models/MeichamGenre";
@@ -167,8 +167,8 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                 </VoteButton>
                 <p className="text-primary text-center">{error}</p>
                 <div className="flex flex-col gap-5 w-full mt-5 items-center">
-                    <Link href='/champ' className="text-secondary hover:underline">Meidaisai Championshipとは</Link>
-                    <Link href='/voucher' className="text-secondary hover:underline">抽選券引き換え画面</Link>
+                    <TransitionLink href='/champ'>Meidaisai Championshipとは</TransitionLink>
+                    <TransitionLink href='/voucher'>抽選券引き換え画面</TransitionLink>
                 </div>
             </div>
             <MeichamVoteModal
@@ -194,13 +194,14 @@ interface VoteButtonProps {
 
 function VoteButton({ onClick, disabled, children }: VoteButtonProps) {
     return (
-        <button onClick={onClick} disabled={disabled} className="relative whitespace-nowrap cursor-pointer z-0 py-5">
-            <div className={`-rotate-3 rounded-full border-4 border-accent py-3 w-52 text-center absolute -z-10`}>
-                <p className='opacity-0'>{children}</p>
-            </div>
-            <div className={`font-bold rounded-full hover:bg-primary-700 transition duration-100 py-3 w-52 ${disabled ? 'bg-primary-700 text-gray-300 cursor-not-allowed' : 'bg-primary text-white'}`}>
-                {children}
-            </div>
+        <button
+            type="button"
+            onClick={onClick}
+            disabled={disabled}
+            className={`flex items-center justify-center gap-1.5 px-8 py-2.5 my-5 min-w-48 rounded-full bg-secondary text-white transition-colors duration-100 ${disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-accent cursor-pointer'}`}
+        >
+            <span className="whitespace-nowrap text-base font-bold">{children}</span>
+            <Image src="/images/svg/arrow-white.svg" width={20} height={20} alt="" className="w-3.5 h-3.5 select-none" />
         </button>
     )
 }

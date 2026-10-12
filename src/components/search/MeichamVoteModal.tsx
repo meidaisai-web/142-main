@@ -54,7 +54,7 @@ export default function MeichamVoteModal({ step, hidden, onClose, onVote, eventN
                 {step === 'confirm' ? (
                     <div className="flex flex-col items-center">
                         <h3 className="text-lg sm:text-xl font-medium border-b border-text pb-1 px-2">本当にこの企画に投票しますか？</h3>
-                        <p className="text-primary-text font-bold text-xs sm:text-sm mt-4 text-center">※参加団体が投票を誘導・強制することはできません。</p>
+                        <p className="font-sans text-red-600 font-bold text-xs sm:text-sm mt-4 text-center">※参加団体が投票を誘導・強制することはできません。</p>
                         <div className="grid grid-cols-[auto_1fr] items-start gap-x-4 gap-y-4 mt-8 w-full max-w-xs text-sm sm:text-base">
                             <InfoRow label="企画名">{eventName}</InfoRow>
                             <InfoRow label="団体名">{groupName}</InfoRow>
