@@ -108,7 +108,7 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
         .replace(/\([^\)]*\)/g, '')
 
     return (
-        <div className="bg-white text-black  pt-12 px-3 py-4 pb-7 text-xs font-medium">
+        <div className="bg-white text-black  pt-12 px-3 py-4 pb-7 text-xs ">
             <div className="flex gap-3">
                 <div>
                     <Image

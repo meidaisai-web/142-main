@@ -17,9 +17,9 @@ export default function SearchBar({ text, setText, onEnter }: SearchBarProps) {
 
     return (
         <div className="relative flex justify-center py-12">
-            <div className="absolute w-3/5 min-w-72 h-10 md:h-14 rounded-full border-secondary border-4 rotate-3 -z-10" />
+            <div className="absolute top-[60%] left-[51%] transform -translate-x-1/2 -translate-y-1/2 w-3/5 min-w-72 h-10 md:h-14  rounded-full border-20 border-primary -z-10" />
             <div
-                className="bg-white rounded-full h-12 md:h-14 w-3/5 min-w-80 flex justify-center items-center cursor-text py-4 px-5"
+                className="border-2 border-primary bg-white rounded-full h-12 md:h-14 w-3/5 min-w-80 flex justify-center items-center cursor-text py-4 px-5"
                 onClick={handleDivClick}
             >
                 <Image src="/images/svg/glass.svg" alt="" width={20} height={20} className='h-full mr-1 md:mr-2 flex-shrink-0' />

@@ -42,12 +42,13 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
             <SearchBar text={keyword} setText={setKeyword} onEnter={onEnter} />
             <div className="flex justify-center">
                 <button onClick={() => setIsOpen(!isOpen)} className="relative h-14 w-52 sm:w-64 group">
-                    <div className={`-rotate-3 rounded-full border-4 border-accent w-full h-full text-center absolute`}>
+                    <div className={`-rotate-3   w-full h-full text-center absolute`}>
+                        <Image src="/images/EventlistView/pcloud.svg" alt="" width={24} height={24}  />
                         <div className='opacity-0'>
                             <p>詳細検索</p>
                         </div>
                     </div>
-                    <div className={`font-bold rounded-full group-hover:bg-secondary transition duration-100 border-secondary border-4 w-full h-full`}>
+                    <div className={`font-bold  `}>
                         <div className="h-full w-full flex justify-center items-center">
                             <p className="w-28 text-center">{isOpen ? "閉じる" : "詳細検索"}</p>
                             <Image src="/images/svg/arrow.svg" alt="" width={24} height={24} className={`w-5 ml-4 transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`} />
@@ -110,7 +111,7 @@ function DetailFilterView({ selectedTypes, setSelectedTypes, selectedDates, setS
             selectedArray: selectedTypes,
             setSelectedArray: setSelectedTypes,
             options: [
-                { option: "屋外ステージ企画" },
+                { option: "総合ステージ企画" },
                 { option: "教室企画" },
                 { option: "模擬店企画" },
                 { option: "実行委員会企画" }
@@ -121,9 +122,9 @@ function DetailFilterView({ selectedTypes, setSelectedTypes, selectedDates, setS
             selectedArray: selectedDates,
             setSelectedArray: setSelectedDates,
             options: [
-                { option: "11月1日(土)" },
-                { option: "11月2日(日)" },
-                { option: "11月3日(月・祝)" }
+                { option: "10月30日(金)" },
+                { option: "10月31日(土)" },
+                { option: "11月1日(日)" }
             ]
         },
         {
@@ -134,6 +135,7 @@ function DetailFilterView({ selectedTypes, setSelectedTypes, selectedDates, setS
                 { option: 'メインステージ' },
                 { option: 'パフォーマンスエリア' },
                 { option: 'エントランスエリア' },
+                { option: "屋内ステージ" },
                 { option: "第一校舎" },
                 { option: "メディア棟" },
                 { option: '和泉ラーニングスクエア' },
@@ -222,7 +224,7 @@ function SortView({ sortType, setSortType }: SortViewProps) {
         <div className="flex justify-center">
             <div className="flex flex-wrap mt-8 gap-4">
                 {sortList.map((sort) => (
-                    <button key={sort.id} onClick={() => handleSortClick(sort.id)} className={`flex justify-center items-center text-sm text-center w-24 py-1 border-2 border-accent rounded-full hover:bg-secondary-400 transition ${sort.id === sortType.orderColumn && 'bg-secondary'}`}>
+                    <button key={sort.id} onClick={() => handleSortClick(sort.id)} className={`flex justify-center items-center text-sm text-center w-24 py-1 border-2 border-secondary bg-secondary-100 rounded-full hover:bg-secondary-400 transition ${sort.id === sortType.orderColumn && 'bg-secondary'}`}>
                         <p>{sort.label}</p>
                         { (sort.id === sortType.orderColumn && sort.id !== 'free') && ( sortType.ascending ? <Image src="/images/svg/triangle-down.svg" alt="" width={10} height={10} className="ml-2" /> : <Image src="/images/svg/triangle-up.svg" alt="" width={10} height={10} className="ml-2" />) }
                     </button>

@@ -229,7 +229,7 @@ function IconList() {
                 <div key={icons[0].id} className="flex justify-center">
                     {icons.map((icon) => (
                         <div key={icon.id} className="flex flex-col items-center gap-1 w-20 overflow-visible">
-                            <Image src={`/images/svg/status/${icon.id}.svg`} alt={icon.label} width={100} height={100} className="w-14 h-14 rounded-xl" />
+                            <Image src={`/images/status/${icon.id}.svg`} alt={icon.label} width={100} height={100} className="w-14 h-14 rounded-xl" />
                             <label className='text-xs font-medium text-nowrap'>{icon.label}</label>
                         </div>
                     ))}
