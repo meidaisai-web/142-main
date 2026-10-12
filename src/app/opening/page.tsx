@@ -47,7 +47,7 @@ export default function Page() {
             </List>
             <SectionTitle>出演団体</SectionTitle>
             <List mark="・">
-	            <ListItem>津軽三味線 響</ListItem>
+	            <ListItem>津軽三味線響</ListItem>
                 <ListItem>Copia</ListItem>
                 <ListItem>アカペラサークル Sound arts</ListItem>
                 <ListItem>K-POPカバーダンスサークルMercie</ListItem>
