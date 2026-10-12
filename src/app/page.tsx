@@ -6,7 +6,6 @@ import Access from "@/components/index/Access";
 import Airplane from "@/components/Airplane";
 import Line1 from "@/components/animation/Line1";
 import Line2 from "@/components/animation/Line2";
-import IndexSearch from "@/components/index/IndexSearch/IndexSearch";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <Airplane />
       <div className="h-80 md:h-60"/>
       <TopIppan />
-      <IndexSearch />
       <div className="h-20"/>
       <Line1 />
       <AnnounceSection />
