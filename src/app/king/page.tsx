@@ -56,8 +56,8 @@ export default function Page() {
                 <ListItem>学⭐︎プロジェクツ</ListItem>
             </List>
 
-            <SectionTitle>明大王紹介動画</SectionTitle>
-            <Movie src="https://movie.meidaisai.jp/king.mp4" />
+            {/* <SectionTitle>明大王紹介動画</SectionTitle>
+            <Movie src="https://movie.meidaisai.jp/king.mp4" /> */}
 
             <ContactView department="演出局永燦部門" mail="142nd-eisan@meidaisai.jp" />
         </CloudPageContainer>
