@@ -10,7 +10,7 @@ import Line2 from "@/components/animation/Line2";
 export default function Home() {
   return (
     <main className="bg-top-gradient pb-60">
-         <Loading />
+      <Loading />
       <HeroSection />
       <div className="h-20 md:h-40"/>
       <Airplane />
