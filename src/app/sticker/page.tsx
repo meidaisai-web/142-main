@@ -27,9 +27,9 @@ export default function Page() {
                         <Image src="/images/sticker/sticker4.svg" alt="ステッカー" width={200} height={200} className="w-3/4 col-span-2" />
                         <Image src="/images/sticker/sticker5.svg" alt="ステッカー" width={200} height={200} className="w-3/4 col-span-2" />
                 </div>
-                <div className="flex flex-wrap mt-10">
-                    <Text className="text-right">Created by 第142回明大祭実行委員会制作局</Text>
-                    <Text className="text-right">グラフィックデザイン部門</Text>
+                <div className="flex flex-wrap justify-end mt-10 font-semibold gap-2">
+                    <p className="w-fit">Created by 第142回明大祭実行委員会</p>
+                    <p className="w-fit">制作局グラフィックデザイン部門</p>
                 </div>
             </CloudPageContainer>
         </div>
