@@ -52,7 +52,7 @@ const goods = [
             "/images/goods/badge6.svg",
         ],
         name: "ガチャガチャ缶バッジ",
-        price: "350円（税込）",
+        price: "100円（税込）",
         typeImage: "/images/goods/capsule.svg",
         type: "全6種",
         wide: true,
