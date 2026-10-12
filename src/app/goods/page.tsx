@@ -12,25 +12,25 @@ const goods = [
     {
         image: "/images/goods/ballpen.jpg",
         name: "明大祭ボールペン",
-        price: "250円(税込)",
+        price: "250円（税込）",
         type: "全2種",
 
     },
     {
         image: "/images/goods/tattoo.png",
         name: "タトゥーシール",
-        price: "100円(税込)",
+        price: "100円（税込）",
     },
     {
         image: "/images/goods/rubberband.png",
         name: "ラバーバンド",
-        price: "200円(税込)",
+        price: "200円（税込）",
         type: "全3種",
     },
     {
         image: "/images/goods/acrylic.svg",
         name: "アクリルキーホルダー",
-        price: "350円(税込)",
+        price: "350円（税込）",
     },
     {
         image: [
@@ -38,7 +38,7 @@ const goods = [
             "/images/goods/folder2.jpg",
             "/images/goods/folder3.jpg",
         ], name: "クリアファイル",
-        price: "200円(税込)",
+        price: "200円（税込）",
         type: "全3種",
         wide: true,
     },
@@ -52,7 +52,7 @@ const goods = [
             "/images/goods/badge6.svg",
         ],
         name: "ガチャガチャ缶バッジ",
-        price: "350円(税込)",
+        price: "350円（税込）",
         typeImage: "/images/goods/capsule.svg",
         type: "全6種",
         wide: true,

@@ -20,31 +20,30 @@ export default function GoodsCard({
   return (
     <div
       className={`relative rounded-[30px] md:rounded-[36px] border-[6px] border-accent bg-white md:border-[7px] ${wide
-        ? `${name === "ガチャガチャ缶バッジ" ? "h-[280px]" : "h-[600px]"} md:col-span-2 md:h-[280px] md:w-[85%] md:justify-self-center`
+        ? `${name === "ガチャガチャ缶バッジ" ? "h-[485px] w-full" : "h-[600px]"} md:col-span-2 md:h-[280px] md:w-[85%] md:justify-self-center`
         : "h-[280px]"
         }`}
     >
       {typeImage ? (
-        <div className="absolute overflow-hidden right-4 top-4 z-20 w-[65px] md:w-[100px]">
-          <div className="relative">
-            <Image
-              src={typeImage}
-              alt=""
-              width={100}
-              height={100}
-              className="h-auto w-full"
-            />
+        <div className="absolute overflow-hidden right-4 top-5 z-20 w-[65px] md:right-4 md:top-4 md:w-[100px]">          <div className="relative">
+          <Image
+            src={typeImage}
+            alt=""
+            width={100}
+            height={100}
+            className="h-auto w-full"
+          />
 
-            {/* 上の文字 */}
-            <p className="absolute top-[37%] w-full -translate-y-1/2 text-center text-[10px] md:text-[13px] leading-tight ">
-              シークレット<br />1種入り！
-            </p>
+          {/* 上の文字 */}
+          <p className="absolute top-[37%] w-full -translate-y-1/2 text-center text-[10px] md:text-[13px] leading-tight ">
+            シークレット<br />1種入り！
+          </p>
 
-            {/* 下の文字 */}
-            <p className="absolute top-[76%] w-full -translate-y-1/2 text-center text-[12px] md:text-[15px]">
-              {type}
-            </p>
-          </div>
+          {/* 下の文字 */}
+          <p className="absolute top-[76%] w-full -translate-y-1/2 text-center text-[12px] md:text-[15px]">
+            {type}
+          </p>
+        </div>
         </div>
       ) : (
         type && (
@@ -70,33 +69,50 @@ export default function GoodsCard({
       >
         {Array.isArray(image) ? (
           name === "ガチャガチャ缶バッジ" ? (
-            <div className="flex overflow-hidden w-full flex-col items-center gap-y-3 pb-16 md:pb-15 md:gap-y-0 pt-24 md:pt-10">
-              <div className="flex justify-center gap-x-3 md:-translate-x-1/10 md:gap-x-6">
-                {image.slice(0, 3).map((src, index) => (
+            <>
+              <div className="grid w-full grid-cols-2 justify-items-center gap-y-3 gap-x-0 pt-18 px-5 pb-16 sm:hidden">
+                {image.map((src, index) => (
                   <Image
                     key={src}
                     src={src}
                     alt={`${name}${index + 1}`}
-                    width={200}
-                    height={200}
-                    className="h-auto w-[67px] object-contain md:w-[102px]"
+                    width={100}
+                    height={100}
+                    className="h-auto w-[clamp(67px,24vw,110px)] object-contain"
                   />
                 ))}
               </div>
 
-              <div className="flex justify-center gap-x-3 md:translate-x-1/9 md:gap-x-6">
-                {image.slice(3, 6).map((src, index) => (
-                  <Image
-                    key={src}
-                    src={src}
-                    alt={`${name}${index + 4}`}
-                    width={200}
-                    height={200}
-                    className="h-auto w-[67px] object-contain md:w-[102px]"
-                  />
-                ))}
+              {/* PC：上下2段を左右にずらす */}
+              <div className="hidden w-full flex-col items-center gap-y-0 pt-10 pb-18 sm:flex">
+                <div className="flex justify-center gap-x-6 sm:-translate-x-1/10">
+                  {image.slice(0, 3).map((src, index) => (
+                    <Image
+                      key={src}
+                      src={src}
+                      alt={`${name}${index + 1}`}
+                      width={200}
+                      height={200}
+                      className="h-auto w-[102px] object-contain"
+                    />
+                  ))}
+                </div>
+
+                <div className="flex justify-center gap-x-6 sm:translate-x-1/9">
+                  {image.slice(3, 6).map((src, index) => (
+                    <Image
+                      key={src}
+                      src={src}
+                      alt={`${name}${index + 4}`}
+                      width={200}
+                      height={200}
+                      className="h-auto w-[102px] object-contain"
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
+            </>
+
           ) : (
             <div className="grid w-full grid-cols-1 justify-items-center gap-y-4 md:grid-cols-3">
               {image.map((src, index) => (
@@ -118,14 +134,13 @@ export default function GoodsCard({
             alt={name}
             width={260}
             height={200}
-            className={`h-auto object-contain ${
-              name === "明大祭ボールペン"
-                ? "w-[280px] translate-y-5"
-                : name === "アクリルキーホルダー"
-                  ? "w-[180px] md:w-[210px]"
-                  : name === "タトゥーシール"
-                    ? "w-[200px] md:w-[260px] border border-black"
-                    : "w-[200px] md:w-[260px]"
+            className={`h-auto object-contain ${name === "明大祭ボールペン"
+              ? "w-[280px] translate-y-5"
+              : name === "アクリルキーホルダー"
+                ? "w-[180px] md:w-[210px] translate-y-4"
+                : name === "タトゥーシール"
+                  ? "w-[200px] md:w-[260px] border border-black"
+                  : "w-[200px] md:w-[260px]"
               }`}
           />
         )}
@@ -149,8 +164,8 @@ export default function GoodsCard({
 
       </div>
 
-      <div className="absolute bottom-[-50px] md:bottom-[-75px] left-1/2 z-10 -translate-x-1/2">
-        <div className="relative w-[190px] md:w-[220px]">
+      <div className="absolute bottom-[-50px] md:bottom-[-68px] left-1/2 z-10 -translate-x-1/2">
+        <div className="relative w-[200px] md:w-[220px]">
           <Image
             src="/images/goods/goodscloud.svg"
             alt=""
@@ -163,7 +178,7 @@ export default function GoodsCard({
             {name}
           </p>
 
-          <p className="absolute top-[59px] w-full translate-x-35 md:translate-x-37 text-[12px] md:top-[70px] md:text-[12px]">
+          <p className="absolute top-[61px] w-full translate-x-35 md:translate-x-35 text-[12px] md:top-[67px] md:text-[12px]">
             {price}
           </p>
         </div>
