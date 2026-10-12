@@ -6,7 +6,6 @@ import Access from "@/components/index/Access";
 import Airplane from "@/components/Airplane";
 import Line1 from "@/components/animation/Line1";
 import Line2 from "@/components/animation/Line2";
-import Carousel from "@/components/index/Carousel";
 
 export default function Home() {
   return (
@@ -24,7 +23,6 @@ export default function Home() {
       <Access />
       <div className="h-20 block md:hidden"/>
       <Line2 />
-      <Carousel />
     </main>
   );
 }
