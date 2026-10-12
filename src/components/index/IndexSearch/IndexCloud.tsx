@@ -3,7 +3,7 @@ const cloudColor = "#FFFFFF";
 const ellipses = [
 { cx: 190, cy: 197, rx: 200, ry: 130 },
 { cx: 556,   cy: 177, rx: 210, ry: 170 },
-{ cx: 900,   cy: 140, rx: 195, ry: 155 },
+{ cx: 900,   cy: 160, rx: 195, ry: 155 },
 { cx: 1210,  cy: 200, rx: 210, ry: 170 },
 { cx: 1530,  cy: 170, rx: 190, ry: 130 },
 ];
@@ -58,7 +58,7 @@ export default function IndexCloud({ children }: { children?: React.ReactNode })
 			<svg
 				viewBox="0 0 1684 400"
 				fill="none"
-				className="w-full h-auto block shrink-0 overflow-visible"
+				className="w-full h-auto block shrink-0 overflow-visible sm:-mb-[5%] lg:-mb-[9%]"
 			>
 				<defs>
 					<CloudShadowFilter id="index-cloud-shadow-top" />
@@ -68,13 +68,13 @@ export default function IndexCloud({ children }: { children?: React.ReactNode })
 			</svg>
 
 			{/* 中央の白地 */}
-			<div className="min-h-[100px] bg-white relative z-10">{children}</div>
+			<div className="min-h-[80px] sm:min-h-[60px] bg-white relative z-10">{children}</div>
 
 			{/* 下の雲 */}
 			<svg
 				viewBox="0 400 1684 400"
 				fill="none"
-				className="w-full h-auto block shrink-0 overflow-visible"
+				className="w-full h-auto block shrink-0 overflow-visible sm:-mt-[7%] lg:-mt-[13%]"
 			>
 				<defs>
 					<CloudShadowFilter id="index-cloud-shadow-bottom" />

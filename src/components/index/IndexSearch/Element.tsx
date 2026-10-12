@@ -51,7 +51,7 @@ export default function Element() {
         { href: "/meichan", label: "Meidaisaicampionshipとは", icon: "/images/Indexsearch/meicham.svg"  }
     ];
     return (
-        <div className="grid grid-cols-3 gap-x-[7%] px-[4%] w-full max-w-2xl mx-auto">
+        <div className="grid grid-cols-3 gap-x-[7%] px-[10%] w-full max-w-2xl mx-auto">
             {images.map((image, index) => (
                 <div key={index} className="relative aspect-square w-full group">
                     <Link href={image.href} className="relative block w-full h-full">

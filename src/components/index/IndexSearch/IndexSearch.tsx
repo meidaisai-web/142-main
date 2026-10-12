@@ -13,7 +13,7 @@ export default function IndexSearch() {
 	const search = () => router.push(`/search?keyword=${encodeURIComponent(text)}`);
 
 	return (
-		<section className="relative">
+		<div className="relative my-20">
 			<IndexCloud>
 				<ShadowText>企画を探す</ShadowText>
 				<SearchBar text={text} setText={setText} onEnter={search} />
@@ -21,6 +21,6 @@ export default function IndexSearch() {
 				<div className="h-20" />
 				<Element />
 			</IndexCloud>
-		</section>
+		</div>
 	);
 }

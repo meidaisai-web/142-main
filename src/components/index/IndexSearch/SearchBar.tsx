@@ -22,11 +22,11 @@ export default function SearchBar({ text, setText, onEnter }: SearchBarProps) {
             <div className="relative w-3/5 min-w-80">
 
                 {/* 背景 */}
-                <div className="absolute inset-0 rounded-full bg-primary border-4 border-primary-700 translate-x-3  translate-y-3 sm:translate-y-5" />
+                <div className="absolute inset-0 rounded-full bg-primary border-2 border-primary-700 translate-x-2 sm:translate-x-3  translate-y-2 sm:translate-y-3" />
 
                 {/* 本体 */}
                 <div
-                    className="relative z-10 bg-white border-4 border-primary-700 rounded-full h-16 flex justify-center items-center cursor-text py-4 px-5"
+                    className="relative z-10 bg-white border-2 border-primary-700 rounded-full h-16 flex justify-center items-center cursor-text py-4 px-10"
                     onClick={handleDivClick}
                 >
                     <Image
@@ -34,7 +34,7 @@ export default function SearchBar({ text, setText, onEnter }: SearchBarProps) {
                         alt=""
                         width={80}
                         height={80}
-                        className="w-10 h-10 mr-1 md:mr-2 flex-shrink-0"
+                        className="w-10 h-10 mr-2 flex-shrink-0"
                     />
 
                     <input
