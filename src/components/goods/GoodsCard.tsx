@@ -139,7 +139,7 @@ export default function GoodsCard({
               : name === "アクリルキーホルダー"
                 ? "w-[180px] md:w-[210px] translate-y-4"
                 : name === "タトゥーシール"
-                  ? "w-[200px] md:w-[260px] border border-black"
+                  ? "w-[200px] md:w-[260px] border border-black translate-y-3"
                   : "w-[200px] md:w-[260px]"
               }`}
           />
