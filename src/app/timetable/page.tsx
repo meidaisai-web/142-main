@@ -6,9 +6,9 @@ export default function Page() {
         <main className="h-3000">
                 <div className="mt-50"/>
             <Ticket
-                title={"ああああああああああああああああああああ"}
+                title={"マーケティング研究会　エステー社長対談会"}
                 time={"10:00\n〜\n10:50"}
-                subtitle="ああああああああああああああああああああ"
+                subtitle="体育同好会連合会男子チアリーディング　ANCHORS"
                 imageSrc="/images/tt/ace.svg"
                 imageAlt="ダンスサークルACEのステージ"
             />

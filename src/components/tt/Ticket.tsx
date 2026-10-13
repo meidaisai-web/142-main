@@ -23,7 +23,7 @@ export default function Ticket({
         <div className="@container relative w-full aspect-[820/347] min-w-0 max-w-[500px] mx-auto">
             {/* チケット本体 */}
             <Image
-                src="/images/tt/ticket.svg"
+                src="/images/tt/ticket2.svg"
                 alt=""
                 fill
                 priority
@@ -33,19 +33,27 @@ export default function Ticket({
             {/* チケットの中身 */}
             <div className="absolute inset-[8%_4%] flex items-center">
                 {/* 左：時間 */}
-                <div className="flex h-full w-[15%] shrink-0 items-center justify-center border-r border-dashed border-[#777] pr-[2%]">
-                    <p className="whitespace-pre-line text-center font-serif text-[max(13px,3.1cqw)] leading-[2.3] text-[#66616A]">
-                        {time}
-                    </p>
+                <div className="flex h-full w-[18%] shrink-0 flex-col items-center border-r border-dashed border-[#777] pr-[2%]">
+                    {/* 写真:点線までいっぱい(列の幅) */}
+                    <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-[8%]">
+                        <Image src={imageSrc} alt={imageAlt} fill sizes="80px" className="object-cover" />
+                    </div>
+                    {/* 時間:写真の下の残りの高さの中央に置く */}
+                    <div className="flex min-h-0 flex-1 items-center">
+                        <p className="whitespace-pre-line text-center font-serif text-[max(13px,3.6cqw)] leading-[1.7] text-[#66616A]">
+                            {time}
+                        </p>
+                    </div>
                 </div>
 
                 {/* 中央：企画名・団体名 */}
-                <div className="flex h-full min-w-0 flex-1 flex-col items-center justify-end px-[2%] pb-[2cqw] pt-2">
+                <div className="flex h-full min-w-0 flex-1 justify-center">
+                <div className="flex h-full w-[64%] flex-col items-center justify-end pb-[2cqw] pt-2">
                     {/* 企画名と装飾 */}
                     {/* 高さは枠画像の縦横比(1613:521)が最低ライン。3行になると文字の高さに合わせて枠が伸びる */}
                     {/* 余白は縮められるスペーサー。中身が高さに収まらない時だけ0まで詰めて、下線がチケットから出ないようにする */}
                     <div className="h-[4.4cqw] shrink" />
-                    <div className="relative flex min-h-[15.1cqw] w-full shrink-0 items-center justify-center">
+                    <div className="relative flex min-h-[16.1cqw] w-full shrink-0 items-center justify-center">
                         <Image
                             src="/images/tt/waku2.svg"
                             alt=""
@@ -61,24 +69,13 @@ export default function Ticket({
 
                     {/* 団体名 */}
                     <div className="h-[5.9cqw] shrink" />
-                    {/* 下線はチケット下の切り欠き(半円)の右端より内側から引く */}
                     {/* 余白(pb)をline-clampと同じ要素に付けると3行目が余白部分に見えてしまうので、下線と余白は外側の要素に分ける */}
-                    <div className="w-[calc(100%-17.4cqw)] shrink-0 border-b border-[#F6BDC6] pb-[2%]">
+                    <div className="w-full shrink-0 border-b border-[#F6BDC6] pb-[2%]">
                         <p className="line-clamp-2 break-words text-center font-serif text-[max(13px,2.2cqw)] leading-[1.2]">
                             {subtitle}
                         </p>
                     </div>
                 </div>
-
-                {/* 右：写真 */}
-                <div className="relative aspect-square w-[30%] shrink-0 self-end overflow-hidden rounded-[8%] mb-[2cqw]">
-                    <Image
-                        src={imageSrc}
-                        alt={imageAlt}
-                        fill
-                        sizes="280px"
-                        className="object-cover"
-                    />
                 </div>
             </div>
         </div>
