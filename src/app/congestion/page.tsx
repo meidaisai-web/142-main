@@ -2,7 +2,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
 import CloudPageContainer from "@/components/base/CloudPageContainer"
 import PageTitle from "@/components/texts/PageTitle"
 import Text from "@/components/texts/Text"
