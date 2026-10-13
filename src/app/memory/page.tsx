@@ -5,6 +5,7 @@ import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
 import Text from "@/components/texts/Text";
 import Emphasis from "@/components/texts/Emphasis";
+import { List, ListItem, ListText } from "@/components/texts/List"
 import OnlyImage from "@/components/OnlyImage";
 import TransitionLink from "@/components/buttons/TransitionLink"
 import ContactView from "@/components/texts/ContactView";
@@ -18,8 +19,10 @@ export default function Page() {
             <Text>
                 <Emphasis>毎年大人気!!</Emphasis>キャンパス巡るなら、<Emphasis>まずは&quot;コレ&quot;ミッションラリー!!</Emphasis><br />
                 謎解きやミッションをクリアしながらキャンパス全体を巡れます！ゴールした先には素敵な景品が！みなさまの挑戦をお待ちしております！<br />
-                &#8251;景品には限りがございます。ご了承ください。
             </Text>
+            <List mark="&#8251;">
+                <ListItem>景品には限りがございます。ご了承ください。</ListItem>
+            </List>
             <SmallTitle>ストーリー</SmallTitle>
             <Text>
                 未来から届いた一通の手紙<br />
@@ -28,7 +31,7 @@ export default function Page() {
             </Text>
             <SectionTitle>企画実施日時</SectionTitle>
             <Text>
-                10月30日(金)．31日(土)11:00～18:00<br />
+                10月30日(金).31日(土)11:00～18:00<br />
                 11月1日(日)11:00～17:00
             </Text>
             <SmallTitle>参加方法</SmallTitle>
@@ -42,7 +45,7 @@ export default function Page() {
             <AccentText>例題</AccentText>
             <OnlyImage src="/images/memory/memory-example.png" alt="謎解きの例題画像" />
             <Text>答えは・・・企画に参加して確かめてみよう!!もっと難しい問題にもチャレンジできるよ！</Text>
-            <AccentText>お問い合わせ情報</AccentText>
+            <AccentText className="mt-20">お問い合わせ</AccentText>
             <Text>
                 本祭期間外におけるお問い合わせは、下記のお問い合わせ先までご連絡をお願いいたします。<br />
                 <Emphasis>本祭期間中は和泉図書館前開発局企画受付までお越しください。</Emphasis>
