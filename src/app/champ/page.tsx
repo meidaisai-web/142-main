@@ -7,6 +7,7 @@ import SmallTitle from "@/components/texts/SmallTitle"
 import AccentText from "@/components/texts/AccentText"
 import Image from "next/image"
 import OnlyImage from "@/components/OnlyImage"
+import ContactView from "@/components/texts//ContactView"
 
 export default function Page() {
     return (
@@ -70,6 +71,7 @@ export default function Page() {
                     企画に関するお問い合わせは、和泉図書館前総合インフォメーションブースMeidaisai Championship受付までお越しください。<br />
                     ※1日に配付する抽選券の枚数には限りがあります。予定枚数に達し次第、Web上の引き換え画面は表示されなくなりますので、あらかじめご了承ください。<br />
                     抽選券に関して詳しく知りたい方は、明大祭大抽選会詳細ページをご覧ください。</Text>
+                <ContactView department="第142回明大祭実行委員会 演出局" mail="142nd-enshutsu@meidaisai.jp" />
             </CloudPageContainer>
         </div>
     )
