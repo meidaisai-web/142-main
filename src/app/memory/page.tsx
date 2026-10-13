@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function MemoryPage() {
   return (
-    <main className="container mx-auto px-4 py-8 max-w-4xl">
+    <main className="container mx-auto px-4 py-8 max-w-4xl pb-32">
       {/* (ページタイトル) & (企画のロゴ) */}
       <section className="text-center my-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-6">おもいで工房</h1>
@@ -60,7 +60,7 @@ export default function MemoryPage() {
       </section>
 
       {/* お問い合わせ情報 */}
-      <section className="border-t pt-8 mt-12 text-sm text-gray-600">
+      <section className="border-t pt-8 mt-20 mb-20 text-sm text-gray-600 relative z-10 bg-white p-6 rounded-lg shadow-sm">
         <h3 className="text-lg font-bold mb-4 text-gray-800">お問い合わせ情報</h3>
         <p className="font-semibold mb-1">
           第142回明大祭実行委員会 開発局凌閃部門
