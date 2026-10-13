@@ -35,9 +35,7 @@ export default function Ticket({
                 {/* 左：時間 */}
                 <div className="flex h-full w-[18%] shrink-0 flex-col items-center border-r border-dashed border-[#777] pr-[2%]">
                     {/* 写真:点線までいっぱい(列の幅) */}
-                    <div className="relative aspect-square w-full shrink-0 overflow-hidden rounded-[8%]">
-                        <Image src={imageSrc} alt={imageAlt} fill sizes="80px" className="object-cover" />
-                    </div>
+                    
                     {/* 時間:写真の下の残りの高さの中央に置く */}
                     <div className="flex min-h-0 flex-1 items-center">
                         <p className="whitespace-pre-line text-center font-serif text-[max(13px,3.6cqw)] leading-[1.7] text-[#66616A]">
@@ -48,21 +46,23 @@ export default function Ticket({
 
                 {/* 中央：企画名・団体名 */}
                 <div className="flex h-full min-w-0 flex-1 justify-center">
-                <div className="flex h-full w-[64%] flex-col items-center justify-end pb-[2cqw] pt-2">
+                <div className="flex h-full w-[90%] flex-col items-center justify-end pb-[2cqw] pt-2">
                     {/* 企画名と装飾 */}
                     {/* 高さは枠画像の縦横比(1613:521)が最低ライン。3行になると文字の高さに合わせて枠が伸びる */}
                     {/* 余白は縮められるスペーサー。中身が高さに収まらない時だけ0まで詰めて、下線がチケットから出ないようにする */}
                     <div className="h-[4.4cqw] shrink" />
-                    <div className="relative flex min-h-[16.1cqw] w-full shrink-0 items-center justify-center">
-                        <Image
-                            src="/images/tt/waku2.svg"
-                            alt=""
-                            fill
-                            className="pointer-events-none object-fill"
-                        />
-
-                        {/* 枠の内側(左右の飾り括弧を除いた幅)に収め、3行を超える分は省略 */}
-                        <h2 className="relative z-10 line-clamp-3 w-[74%] break-words whitespace-pre-line py-[0.7em] text-center font-serif text-[max(13px,2.6cqw)] leading-[1.2]">
+                    {/* 括弧(左右)は高さに合わせて拡縮し、間(文字の部分)は幅いっぱいに広がる。画像を横に引き伸ばさない */}
+                    <div
+                        className="relative flex min-h-[16.1cqw] w-full shrink-0 items-center justify-center"
+                        style={{
+                            backgroundImage: "url(/images/tt/waku2-left.svg), url(/images/tt/waku2-right.svg)",
+                            backgroundPosition: "left center, right center",
+                            backgroundSize: "auto 100%",
+                            backgroundRepeat: "no-repeat",
+                        }}
+                    >
+                        {/* 括弧の内側に収め、3行を超える分は省略 */}
+                        <h2 className="relative z-10 line-clamp-3 w-full break-words px-[7cqw] whitespace-pre-line py-[0.7em] text-center font-serif text-[max(13px,2.6cqw)] leading-[1.2]">
                             {title}
                         </h2>
                     </div>
