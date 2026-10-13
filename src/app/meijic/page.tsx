@@ -8,6 +8,7 @@ import SectionTitle from '@/components/texts/SectionTitle';
 import Emphasis from '@/components/texts/Emphasis';
 import ContactView from '@/components/texts/ContactView';
 import ImageLogo from '@/components/texts/ImageLogo';
+import Movie from '@/components/Movie';
 
 
 export default function Page() {
@@ -51,7 +52,8 @@ export default function Page() {
             <List mark="※">
                 <ListItem>コンテンツの都合上、入場規制をさせていただく時間があります。</ListItem>
             </List>
-            {/* <SectionTitle>Meijic Station紹介動画</SectionTitle> */}
+            <SectionTitle>Meijic Station紹介動画</SectionTitle>
+            <Movie src="https://movie.meidaisai.jp/meijic.mp4"/>
             <ContactView department="演出局 結祭部門" mail="142nd-yusai@meidaisai.jp" />
         </CloudPageContainer>
     )
