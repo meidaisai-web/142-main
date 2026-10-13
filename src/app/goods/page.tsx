@@ -92,7 +92,7 @@ export default function Page() {
 
                     <SectionTitle>注意事項</SectionTitle>
                     <List mark="・">
-                        <ListItem>お支払いは現金、キャッシュレスに対応しております。</ListItem>
+                        <ListItem>お支払いは現金、キャッシュレスに対応しております。（ガチャガチャ缶バッジは現金のみ）</ListItem>
                         <ListItem>商品が無くなり次第終了となります。</ListItem>
                         <ListItem>不良品を除き、返品・交換は行いません。</ListItem>
                         <ListItem>購入後、アンケートに回答していただいた方には、第142回明大祭実行委員会主催の抽選企画の抽選券をお渡しいたします。</ListItem>
