@@ -49,7 +49,7 @@ export default function Page() {
             <List mark="・">
 	            <ListItem>津軽三味線響</ListItem>
                 <ListItem>Copia</ListItem>
-                <ListItem>アカペラサークル Sound arts</ListItem>
+                <ListItem>アカペラサークル Sound Arts</ListItem>
                 <ListItem>K-POPカバーダンスサークルMercie</ListItem>
                 <ListItem>中野ダンスサークルSIGN</ListItem>
             </List>
