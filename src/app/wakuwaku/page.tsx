@@ -1,4 +1,5 @@
 import CloudPageContainer from "@/components/base/CloudPageContainer"
+import TransitionLink from "@/components/buttons/TransitionLink"
 import OnlyImage from "@/components/OnlyImage"
 import AccentText from "@/components/texts/AccentText"
 import ContactView from "@/components/texts/ContactView"
@@ -7,7 +8,6 @@ import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import SmallTitle from "@/components/texts/SmallTitle"
 import Text from "@/components/texts/Text"
-import Link from "next/link"
 
 const page = () => {
   return (
@@ -33,8 +33,7 @@ const page = () => {
         <SectionTitle>参加方法</SectionTitle>
         <Text>展示は常時開放しております。</Text>
         <Text>相談会は予約制となっており、事前予約と当日予約が可能です。明大祭当日は和泉図書館前企画受付、展示教室である和泉ラーニングスクエアLS304教室にて当日予約を承っております。</Text>
-        <Text>事前予約を行いたい方は<Link href="https://docs.google.com/forms/d/e/1FAIpQLScILX4kKn-OUUkH2yhZjboweLJ_AJMlrz4vssJYUKt7-FT2bg/viewform?usp=header" target="_blank">こちら</Link>から！</Text>
-        <Text>事前予約のためのリンクは後日掲載します。</Text>
+        <Text>事前予約を行いたい方は<TransitionLink href="https://docs.google.com/forms/d/e/1FAIpQLScILX4kKn-OUUkH2yhZjboweLJ_AJMlrz4vssJYUKt7-FT2bg/viewform?usp=header">こちら</TransitionLink>から！</Text>
         <ContactView department="開発局黎幸部門" showAddress showPhone mail="142ndreikobumon@gmail.com"/>
     </CloudPageContainer>
   )
