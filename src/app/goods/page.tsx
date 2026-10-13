@@ -85,8 +85,8 @@ export default function Page() {
 
                     <SectionTitle>販売詳細</SectionTitle>
                     <SmallTitle>販売日時</SmallTitle>
-                    <Text>10月30日(金).31日(土).11月1日(日)</Text>
-                    <Text>11:00〜18:00</Text>
+                    <Text>10月30日(金).31日(土)　11:00〜18:00</Text>
+                    <Text>11月1日(日)　11:00〜17:30</Text>
                     <SmallTitle>販売場所</SmallTitle>
                     <Text>明大祭公式グッズ販売ブース（和泉図書館前）</Text>
 
