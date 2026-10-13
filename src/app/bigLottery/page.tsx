@@ -109,20 +109,20 @@ export default function Page() {
                     </List>
                     <ListText>開発局</ListText>
                     <List mark="・">
-                        <ListItem><TransitionLink href="">明治大解剖ツアー</TransitionLink></ListItem>
+                        <ListItem><TransitionLink href="/tour">明治大解剖ツアー</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/jet">JET GACHA STREAM〜カプセルがひらく、次の目的地〜</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/noimage">NO iMeiji, NO LIFE？</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/dream">Dream Canvas－夜空を描こう－</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/ilumi">明大祭イルミネーション</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/mage">Meiji de Mage～見習い魔法使いの修行録～</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/memory">記憶探し～未来からのメッセージ～</TransitionLink></ListItem>
-                        <ListItem><TransitionLink href="">受験生コレクション～わくわく明大生活～</TransitionLink></ListItem>
+                        <ListItem><TransitionLink href="/wakuwaku">受験生コレクション～わくわく明大生活～</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/sports">熱闘!!明治スポーツ</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/omoi">おもいで工房</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/mtype">M-TYPE</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/experiment">めいじっけん</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/limit">LIMIT&infin;BREAK</TransitionLink></ListItem>
-                        <ListItem><TransitionLink href="">超めいだい&#9825;宣伝部</TransitionLink></ListItem>
+                        <ListItem>超めいだい&#9825;宣伝部</ListItem>
                         <ListItem><TransitionLink href="/halloween">ハロウィンナイトin明大祭</TransitionLink></ListItem>
                     </List>
                     <ListText>広報局</ListText>
@@ -132,7 +132,7 @@ export default function Page() {
                     <ListText>渉外局</ListText>
                     <List mark="・">
                         <ListItem><TransitionLink href="/booth">企業ブース</TransitionLink></ListItem>
-                        <ListItem><TransitionLink href="">校友・父母歓迎スペース</TransitionLink></ListItem>
+                        <ListItem>校友・父母歓迎スペース</ListItem>
                         <ListItem><TransitionLink href="/matsubara">松原小学校&times;明大祭</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/lottely-shop">明大前商店街&times;明大祭〜明大祭で当てよう！豪華景品〜</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/keio">KEIO&times;第142回明大祭〜いつも駅からだった　明大前編～</TransitionLink></ListItem>
@@ -140,7 +140,7 @@ export default function Page() {
                     <ListText>制作局</ListText>
                     <List mark="・">
                         <ListItem><TransitionLink href="/goods">明大祭公式グッズ企画</TransitionLink></ListItem>
-                        <ListItem><TransitionLink href="">第142回明大祭公式ステッカー</TransitionLink></ListItem>
+                        <ListItem><TransitionLink href="/sticker">第142回明大祭公式ステッカー</TransitionLink></ListItem>
                     </List>
                 </List>
             </CloudPageContainer>
