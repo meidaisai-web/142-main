@@ -16,7 +16,7 @@ export default function Page() {
             <OnlyImage src="/images/memory/memory-logo.png" alt="企画ロゴ" />
             <SectionTitle>企画概要</SectionTitle>
             <Text>
-                <Emphasis>毎年大人気!!</Emphasis>キャンパス巡るなら、<Emphasis>まずは"コレ"ミッションラリー!!</Emphasis><br />
+                <Emphasis>毎年大人気!!</Emphasis>キャンパス巡るなら、<Emphasis>まずは&quot;コレ&quot;ミッションラリー!!</Emphasis><br />
                 謎解きやミッションをクリアしながらキャンパス全体を巡れます！ゴールした先には素敵な景品が！みなさまの挑戦をお待ちしております！<br />
                 &#8251;景品には限りがございます。ご了承ください。
             </Text>
