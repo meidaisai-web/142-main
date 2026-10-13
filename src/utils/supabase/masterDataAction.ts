@@ -115,3 +115,37 @@ export async function getUniqueMasterData(id: string): Promise<MasterData | null
 function returnDefaultData(): MasterData[] {
     return defaultEvent;
 }
+
+function getStoreDataWithCongestion(): MasterData {
+    const supabase = createClient();
+    const { data, error } = supabase.from('MasterData142').select(`
+        id,
+        groupId,
+        projectId,
+        imageUrl,
+        eventName,
+        groupName,
+        catchphrase,
+        eventContent,
+        genre,
+        icons,
+        location,
+        eventDate,
+        xAccount,
+        instagramAccount,
+        tiktokAccount,
+        youtubeAccount,
+        homepageUrl,
+        searchKeywords,
+        createdAt,
+        updatedAt,
+        type,
+        enableShooting,
+        ticket,
+        foodIcons,
+        otherIcons,
+        menuItems,
+        qrcode,
+        congestion
+    `).order('timestamp', { foreignTable: 'CongestionMap', ascending: true }).single();
+}
