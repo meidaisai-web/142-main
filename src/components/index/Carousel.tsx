@@ -16,22 +16,31 @@ const slides = [
 ]
 
 export default function Carousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' },[Autoplay({ delay: 3000, stopOnInteraction: false })]);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+  { loop: true, align: 'center', skipSnaps: true },
+  [Autoplay({ delay: 3000, stopOnInteraction: true })]
+  );
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-    };
+  if (!emblaApi) return;
+  const onSelect = () => {
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  };
+  const onSettle = () => {
+    emblaApi.plugins().autoplay?.play();
+  };
 
-    onSelect();
-    emblaApi.on('select', onSelect);
+  onSelect();
+  emblaApi.on('select', onSelect);
+  emblaApi.on('settle', onSettle);
 
-    return () => {
-      emblaApi.off('select', onSelect);
-    };
-  }, [emblaApi]);
+  return () => {
+    emblaApi.off('select', onSelect);
+    emblaApi.off('settle', onSettle);
+  };
+}, [emblaApi]);
+
 
   return (
     <div>
