@@ -72,7 +72,7 @@ export default function Marge() {
             本祭期間中は和泉図書館前開発局企画受付までお越しください。
             </Emphasis>
             </Text>
-            <ContactView department="第142回明大祭実行委員会 開発局凌閃部門" mail="142ndryousenbumon@gmail.com" showPhone mail="080-2546-5562"/>
+            <ContactView department="第142回明大祭実行委員会 開発局凌閃部門" mail="142ndryousenbumon@gmail.com" showPhone/>
         </CloudPageContainer>
     );
 }
