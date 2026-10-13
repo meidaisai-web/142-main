@@ -61,7 +61,7 @@ export default function Page() {
                 <SectionTitle>抽選券配付企画</SectionTitle>
                 <SmallTitle>Meidaisai Championship</SmallTitle>
                 <Text>
-                    引き換え場所:和泉図書館前Meidaisai Championship受付<br />
+                    引き換え場所：和泉図書館前Meidaisai Championship受付<br />
                     <TransitionLink href="/search">こちら</TransitionLink>から、飲食部門・エンタメ部門・パフォーマンス部門すべてにご投票いただくと抽選券がもらえます！<br />
                     詳しくは<TransitionLink href="/champ">こちら</TransitionLink>も合わせてご確認ください。
                 </Text>
@@ -70,14 +70,14 @@ export default function Page() {
 
                 <SmallTitle>Ameijing Photo</SmallTitle>
                 <Text>
-                    企画実施場所:センターサークル前<br />
+                    企画実施場所：センターサークル前<br />
                     <TransitionLink href="/ameijing">詳しくはこちら</TransitionLink><br />
                     明大祭公式パンフレットp.26
                 </Text>
 
                 <SmallTitle>当日ニーズ調査</SmallTitle>
                 <Text>
-                    引き換え場所:和泉図書館前アンケート受付<br />
+                    引き換え場所：和泉図書館前アンケート受付<br />
                     明大祭公式パンフレットp.25
                 </Text>
 
@@ -90,8 +90,8 @@ export default function Page() {
 
                 <AccentText>抽選券受取方法</AccentText>
                 <Text>
-                    Web:回答完了画面を提示<br />
-                    用紙:記入済み用紙を提出
+                    Web：回答完了画面を提示<br />
+                    用紙：記入済み用紙を提出
                 </Text>
                 <AccentText>抽選券受取場所</AccentText>
                 <Text>和泉図書館前アンケート受付</Text>
