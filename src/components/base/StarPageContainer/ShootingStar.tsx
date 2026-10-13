@@ -100,6 +100,8 @@ export default function ShootingStar({
         Math.ceil(pageHeight / SET_HEIGHT) + 1
     );
 
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+
     return (
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
             {Array.from({ length: SET_COUNT }).map((_, index) => (
@@ -113,9 +115,10 @@ export default function ShootingStar({
                 >
                     <StarGroup
                         stars={PINK_STARS}
-                        anchorClass="right-0"
+                        anchorClass={isMobile ? "left-0" : "right-0"}
                         endX={0}
-                        enterX={300}
+                        enterX={isMobile ? -100 : 300}
+                        offsetX={isMobile ? -100 : 0}
                     />
 
                     {!isMobile && (
