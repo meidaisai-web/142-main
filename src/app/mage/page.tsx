@@ -4,7 +4,7 @@ import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import Text from "@/components/texts/Text";
 import Emphasis from "@/components/texts/Emphasis";
-import { List, ListItem } from "@/components/texts/List";
+import { List, ListItem, ListText } from "@/components/texts/List";
 import ContactView from "@/components/texts/ContactView"
 import AccentText from "@/components/texts/AccentText"
 import OnlyImage from "@/components/OnlyImage";
@@ -26,7 +26,9 @@ export default function Marge() {
                 <br />
                 屋内の教室企画を回ってスタンプを集めながら、明大祭をもっと楽しめるスタンプラリー！スタンプを集めると素敵な景品をプレゼント！
                 <br />
-                ※ 景品には限りがございます。ご了承ください。
+                <List mark="※">
+	            <ListItem>景品には限りがございます。ご了承ください。</ListItem>
+                </List>
             </Text>
             <SmallTitle>ストーリー</SmallTitle>
             <Text>
@@ -63,7 +65,6 @@ export default function Marge() {
                 <ListItem>ミステリ研究会</ListItem>
                 <ListItem>M.U.A</ListItem>
             </List>
-            <br />
             <AccentText>お問い合わせ</AccentText>
             <Text>
             本祭期間外におけるお問い合わせは、下記のお問い合わせ先までご連絡をお願いいたします。
@@ -72,7 +73,7 @@ export default function Marge() {
             本祭期間中は和泉図書館前開発局企画受付までお越しください。
             </Emphasis>
             </Text>
-            <ContactView department="第142回明大祭実行委員会 開発局凌閃部門" mail="142ndryousenbumon@gmail.com" showPhone/>
+            <ContactView department="開発局凌閃部門" mail="142ndryousenbumon@gmail.com" showPhone/>
         </CloudPageContainer>
     );
 }
