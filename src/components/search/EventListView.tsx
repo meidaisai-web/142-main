@@ -62,7 +62,8 @@ function ItemHeader({ title, groupName }: ItemHeaderProps) {
             <h2 className="font-bold h-6 truncate">{title}</h2>
             <p className="font-medium text-sm truncate">{groupName}</p>
             <div
-                className="absolute top-full left-0 w-full h-[32px] bg-primary transition-colors duration-300 group-hover:bg-secondary-400 group-active:bg-secondary-700"
+                // 【修正点】 左右を2pxずつ広げ、上へ1px重ねて隙間を完全に埋める
+                className="absolute top-[calc(100%-1px)] -left-[2px] w-[calc(100%+4px)] h-[33px] bg-primary transition-colors duration-300 group-hover:bg-secondary-400 group-active:bg-secondary-700"
                 style={{
                     WebkitMaskImage: "radial-gradient(35px 20px at 65% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 35% 0%, black 99%, transparent 100%), radial-gradient(50px 25px at 50% 25%, black 99%, transparent 100%), radial-gradient(35px 20px at 50% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 50% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 0% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 100% 0%, black 99%, transparent 100%) ",
                     maskImage: "radial-gradient(35px 20px at 65% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 35% 0%, black 99%, transparent 100%), radial-gradient(50px 25px at_50% 25%, black_99%, transparent_100_), radial-gradient(35px 20px at_50% 0%, black_99%, transparent_100_), radial-gradient(35px 20px at_50% 0%, black_99%, transparent_100_), radial-gradient(35px_20px_at_0%_0%, black_99%, transparent_100_),radial-gradient(35px_20px_at_100%_0%, black_99%, transparent_100_),",
@@ -79,8 +80,6 @@ function ItemHeader({ title, groupName }: ItemHeaderProps) {
                     filter: "drop-shadow(0px 3px 2px rgba(0,0,0,0.15))"
                 }}
             />
-
-
         </div>
     )
 }
@@ -108,7 +107,7 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
         .replace(/\([^\)]*\)/g, '')
 
     return (
-        <div className="bg-white text-black  pt-12 px-3 py-4 pb-7 text-xs ">
+        <div className="bg-white text-black  pt-12 px-3 py-4 pb-7 text-xs border-10 border-primary ">
             <div className="flex gap-3">
                 <div>
                     <Image
@@ -116,7 +115,7 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
                         alt="企画画像"
                         width={100}
                         height={100}
-                        className="rounded-md object-cover w-[100px] h-[100px] border-2 border-black"
+                        className="rounded-md object-cover w-[100px] h-[100px] border-2 border-[#3E3D3F]"
                         onError={() => setImgSrc('/images/svg/no-image.svg')}
                     />
                     <div className="flex justify-between mt-2">

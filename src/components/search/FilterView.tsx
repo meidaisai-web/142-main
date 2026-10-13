@@ -40,18 +40,18 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
         <div className="mb-6">
             <SectionTitle>キーワード検索</SectionTitle>
             <SearchBar text={keyword} setText={setKeyword} onEnter={onEnter} />
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-4">
                 <button onClick={() => setIsOpen(!isOpen)} className="relative h-14 w-52 sm:w-64 group">
-                    <div className={`-rotate-3   w-full h-full text-center absolute`}>
-                        <Image src="/images/EventlistView/pcloud.svg" alt="" width={24} height={24}  />
-                        <div className='opacity-0'>
+                    <div className={` w-full h-full text-center absolute`}>
+                        <Image src="/images/EventlistView/Group614.svg" alt="" width={500} height={500} className="absolute -top-8 -z-10 " />
+                        <div className='opacity-0 z-10 text-ceter '>
                             <p>詳細検索</p>
                         </div>
                     </div>
                     <div className={`font-bold  `}>
-                        <div className="h-full w-full flex justify-center items-center">
-                            <p className="w-28 text-center">{isOpen ? "閉じる" : "詳細検索"}</p>
-                            <Image src="/images/svg/arrow.svg" alt="" width={24} height={24} className={`w-5 ml-4 transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`} />
+                        <div className="h-full w-full flex justify-center items-center z-10">
+                            <p className="w-28 text-center text-xl mb-5 z-10 sm:text-2xl">{isOpen ? "閉じる" : "詳細検索"}</p>
+                            <Image src="/images/EventlistView/Arrowright.svg" alt="" width={40} height={40}  className={` transition-transform -translate-y-2 ${isOpen ? "rotate-180" : "rotate-0"}`} />
                         </div>
                     </div>
                     {/* フィルター数のバッジ */}
@@ -224,8 +224,8 @@ function SortView({ sortType, setSortType }: SortViewProps) {
         <div className="flex justify-center">
             <div className="flex flex-wrap mt-8 gap-4">
                 {sortList.map((sort) => (
-                    <button key={sort.id} onClick={() => handleSortClick(sort.id)} className={`flex justify-center items-center text-sm text-center w-24 py-1 border-2 border-secondary bg-secondary-100 rounded-full hover:bg-secondary-400 transition ${sort.id === sortType.orderColumn && 'bg-secondary'}`}>
-                        <p>{sort.label}</p>
+                    <button key={sort.id} onClick={() => handleSortClick(sort.id)} className={`flex justify-center items-center text-sm text-center w-24 py-1 border-2 border-secondary bg-secondary-100 rounded-full hover:bg-secondary-400 transition ${sort.id === sortType.orderColumn ? 'bg-secondary-900 text-white': "bg-secondary-100 hover:bg-secondary-300"}`}>
+                        <p >{sort.label}</p>
                         { (sort.id === sortType.orderColumn && sort.id !== 'free') && ( sortType.ascending ? <Image src="/images/svg/triangle-down.svg" alt="" width={10} height={10} className="ml-2" /> : <Image src="/images/svg/triangle-up.svg" alt="" width={10} height={10} className="ml-2" />) }
                     </button>
                 ))}
