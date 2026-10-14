@@ -28,7 +28,7 @@ const page = () => {
                 <ListItem>Diners Club</ListItem>
                 <ListItem>Discover</ListItem>
             </List>
-            <AccentText>国内QRコード</AccentText>
+            <AccentText className="mb-1">国内QRコード</AccentText>
             <List mark="・">
                 <ListItem>au PAY</ListItem>
                 <ListItem>楽天ペイ</ListItem>
@@ -52,7 +52,7 @@ const page = () => {
             <Text>など</Text>
             <SectionTitle>キャッシュレス対応模擬店一覧</SectionTitle>
             <Text>キャッシュレス対応の模擬店は23店！</Text>
-            <AccentText>上記すべての決済方法に対応している6店 </AccentText>
+            <AccentText className="mb-3">上記すべての決済方法に対応している6店 </AccentText>
             <List mark="・">
                 <ListItem><TransitionLink href="/goods">明大祭グッズ</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/68">Next Film</TransitionLink></ListItem>
@@ -61,7 +61,7 @@ const page = () => {
                 <ListItem><TransitionLink href="/search/242">情報コミュニケーション学部 山内勇ゼミナール</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/624">明治大学交響楽団</TransitionLink></ListItem>
             </List>
-            <AccentText>交通系IC以外のキャッシュレスに対応している17店</AccentText>
+            <AccentText className="mb-3">交通系IC以外のキャッシュレスに対応している17店</AccentText>
             <List mark="・">
                 <ListItem><TransitionLink href="/search/181">BREMEN</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/76">DamDam</TransitionLink></ListItem>
@@ -81,7 +81,7 @@ const page = () => {
                 <ListItem><TransitionLink href="/search/216">法学会</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/173">明治大学商学部 大津健登ゼミナール</TransitionLink></ListItem>
             </List>
-            <SmallTitle>会場でキャッシュレス決済が利用可能か確認する方法</SmallTitle>
+            <SmallTitle className="mb-3">会場でキャッシュレス決済が利用可能か確認する方法</SmallTitle>
             <List numbered>
                 <ListItem>キャンパスマップに、各ブースのキャッシュレス決済対応状況を記載しています。</ListItem>
                 <ListItem>キャッシュレス決済が可能なブースでは以下の掲示物が設置されています。</ListItem>
@@ -89,7 +89,7 @@ const page = () => {
                 <ListItem>明大祭公式サイトの企画検索・企画詳細ページおよびパンフレットの企画ページには、こちらのマークが表示されています。</ListItem>
                 {/* ここにキャッシュレス決済対応マークの画像(ImageTextを入れるのかな？) */}
             </List>
-            <SmallTitle>ご利用にあたってのお願い</SmallTitle>
+            <SmallTitle className="mb-3">ご利用にあたってのお願い</SmallTitle>
             <List mark="・">
                 <ListItem><Emphasis>PayPayはご利用いただけません。</Emphasis></ListItem>
                 <ListItem>全ての模擬店にてキャッシュレス決済をご利用いただけない場合もございます。</ListItem>
