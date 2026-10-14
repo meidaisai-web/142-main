@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from 'next/image'
 import Link from 'next/link';
 import { BIZ_UDPMincho } from 'next/font/google';
@@ -20,6 +20,9 @@ const FONT_SIZE = 16;
 const CENTER_ANGLE_DEG = 225;
 
 function getTextWidth(text: string): number {
+    // SSR時はdocumentが無いため文字数ベースの概算を返す
+    if (typeof document === 'undefined') return text.length * FONT_SIZE;
+
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
 
@@ -30,8 +33,8 @@ function getTextWidth(text: string): number {
     return context.measureText(text).width;
 }
 
-function getArcPath(text: string): string {
-    const arcLength = getTextWidth(text);
+function getArcPath(text: string, measure: boolean): string {
+    const arcLength = measure ? getTextWidth(text) : text.length * FONT_SIZE;
     const halfAngleDeg = (arcLength / RADIUS) * (180 / Math.PI) / 2;
     const startDeg = CENTER_ANGLE_DEG - halfAngleDeg;
     const endDeg = CENTER_ANGLE_DEG + halfAngleDeg;
@@ -45,6 +48,16 @@ function getArcPath(text: string): string {
 }
 
 export default function Element() {
+    // サーバーとの差異(hydration mismatch)を避けるため、マウント後に実測値へ切り替える
+    const [measured, setMeasured] = useState(false);
+    useEffect(() => {
+        let cancelled = false;
+        const run = () => { if (!cancelled) setMeasured(true); };
+        if (document.fonts?.ready) document.fonts.ready.then(run);
+        else run();
+        return () => { cancelled = true; };
+    }, []);
+
     const images = [
         { href: "/campusmap", label: "キャンパスマップ", icon: "/images/Indexsearch/map.svg" },
         { href: "/tt", label: "タイムテーブル", icon: "/images/Indexsearch/time.svg" },
@@ -87,7 +100,7 @@ export default function Element() {
 
                             {/* 円の形をARC_PATHで定義(見えない半円を文字に沿わせる) */}
                             <defs>
-                                <path id={`arc-${index}`} d={getArcPath(image.label)} />
+                                <path id={`arc-${index}`} d={getArcPath(image.label, measured)} />
                             </defs>
                             <text style={{ fontFamily: bizUDPMincho.style.fontFamily, fontSize: 14, fill: '#B19FCA' }}>
                                 <textPath href={`#arc-${index}`} startOffset="50%" textAnchor="middle">
