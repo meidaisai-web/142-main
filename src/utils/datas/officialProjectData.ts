@@ -104,7 +104,7 @@ export const officialProjects: {
             secondTime: '12:00～18:00',
             thirdTime: '12:00～17:00',
             place: 'メディア棟前明大祭大抽選会ブース',
-            link: '/lottery',
+            link: '/bigLottery',
             date: [1, 2, 3]
         },
         {

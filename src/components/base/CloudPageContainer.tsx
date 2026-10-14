@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 
 export default function CloudPageContainer({
     children,
-    noPadding = false
+    noPadding = false,
 }: {
     children: React.ReactNode;
     noPadding?: boolean;
