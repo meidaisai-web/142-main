@@ -28,7 +28,7 @@ const goods = [
         type: "全3種",
     },
     {
-        image: "/images/goods/acrylic.svg",
+        image: "/images/goods/acrylic.jpg",
         name: "アクリルキーホルダー",
         price: "350円（税込）",
     },

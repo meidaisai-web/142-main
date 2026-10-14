@@ -20,12 +20,13 @@ export default function GoodsCard({
   return (
     <div
       className={`relative rounded-[30px] md:rounded-[36px] border-[6px] border-accent bg-white md:border-[7px] ${wide
-        ? `${name === "ガチャガチャ缶バッジ" ? "h-[485px] w-full" : "h-[600px]"} md:col-span-2 md:h-[280px] md:w-[85%] md:justify-self-center`
+        ? `${name === "ガチャガチャ缶バッジ" ? "h-[465px] w-full" : "h-[600px]"} md:col-span-2 md:h-[280px] md:w-[85%] md:justify-self-center`
         : "h-[280px]"
         }`}
     >
       {typeImage ? (
-        <div className="absolute overflow-hidden right-4 top-5 z-20 w-[65px] md:right-4 md:top-4 md:w-[100px]">          <div className="relative">
+        <div className="absolute overflow-hidden right-4 top-5 pb-6 z-20 w-[65px] md:right-4 md:top-4 md:w-[100px]">         
+         <div className="relative">
           <Image
             src={typeImage}
             alt=""
@@ -70,16 +71,21 @@ export default function GoodsCard({
         {Array.isArray(image) ? (
           name === "ガチャガチャ缶バッジ" ? (
             <>
-              <div className="grid w-full grid-cols-2 justify-items-center gap-y-3 gap-x-0 pt-18 px-5 pb-16 sm:hidden">
+              <div className="grid w-full grid-cols-2 justify-items-center gap-y-3 gap-x-0 pt-6 pb-14 sm:pb-16 px-8 sm:hidden">
                 {image.map((src, index) => (
-                  <Image
+                  <div
                     key={src}
-                    src={src}
-                    alt={`${name}${index + 1}`}
-                    width={100}
-                    height={100}
-                    className="h-auto w-[clamp(67px,24vw,110px)] object-contain"
-                  />
+                    className={`flex w-full justify-center ${index % 2 === 1 ? "translate-y-6" : "-translate-y-2"
+                      }`}
+                  >
+                    <Image
+                      src={src}
+                      alt={`${name}${index + 1}`}
+                      width={100}
+                      height={100}
+                      className="h-auto w-[clamp(72px,23vw,115px)] object-contain"
+                    />
+                  </div>
                 ))}
               </div>
 
