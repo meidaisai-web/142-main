@@ -41,26 +41,44 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
             <SectionTitle>キーワード検索</SectionTitle>
             <SearchBar text={keyword} setText={setKeyword} onEnter={onEnter} />
             <div className="flex justify-center mt-4">
-                <button onClick={() => setIsOpen(!isOpen)} className="relative h-14 w-52 sm:w-64 group">
-                    <div className={` w-full h-full text-center absolute`}>
-                        <Image src="/images/EventlistView/Group614.svg" alt="" width={500} height={500} className="absolute -top-8 -z-10 " />
-                        <div className='opacity-0 z-10 text-ceter '>
-                            <p>詳細検索</p>
-                        </div>
-                    </div>
-                    <div className={`font-bold  `}>
-                        <div className="h-full w-full flex justify-center items-center z-10">
-                            <p className="w-28 text-center text-xl mb-5 z-10 sm:text-2xl">{isOpen ? "閉じる" : "詳細検索"}</p>
-                            <Image src="/images/EventlistView/Arrowright.svg" alt="" width={40} height={40}  className={` transition-transform -translate-y-2 ${isOpen ? "rotate-180" : "rotate-0"}`} />
-                        </div>
-                    </div>
-                    {/* フィルター数のバッジ */}
-                    {activeFilterCount > 0 && (
-                        <div className="absolute -top-2 -right-2 bg-accent text-black rounded-full w-7 h-7 flex items-center justify-center text-sm font-bold shadow-md">
-                            {activeFilterCount}
-                        </div>
-                    )}
-                </button>
+                <button 
+    onClick={() => setIsOpen(!isOpen)} 
+    className="relative h-12 w-48 sm:h-14 sm:w-64 group mx-auto"
+>
+    {/* 背景画像のコンテナ */}
+    <div className="absolute inset-0 w-full h-full text-center pointer-events-none">
+        {/* 背景SVG: スマホ時はズレ幅(-top)を小さくし、幅を100%に追従させる */}
+        <Image 
+            src="/images/EventlistView/Group614.svg" 
+            alt="" 
+            width={500} 
+            height={500} 
+            className="absolute -top-5 sm:-top-8 -z-10 w-full h-auto object-contain" 
+        />
+        {/* text-ceter のスペルミス修正 */}
+        <div className="opacity-0 z-10 text-center">
+            <p>詳細検索</p>
+        </div>
+    </div>
+    
+    {/* コンテンツのコンテナ */}
+    <div className="font-bold relative z-10 h-full w-full">
+        <div className="h-full w-full flex justify-center items-center">
+            {/* テキスト: スマホでは text-lg と mb-3 に縮小 */}
+            <p className="w-20 sm:w-28 text-center text-lg sm:text-2xl mb-3 sm:mb-5">
+                {isOpen ? "閉じる" : "詳細検索"}
+            </p>
+            {/* アイコン: スマホでは w-7 h-7 に縮小し、Y軸のズレも小さくする */}
+            <Image 
+                src="/images/EventlistView/Arrowright.svg" 
+                alt="" 
+                width={40} 
+                height={40}  
+                className={`w-7 h-7 sm:w-10 sm:h-10 transition-transform -translate-y-1 sm:-translate-y-2 ${isOpen ? "rotate-180" : "rotate-0"}`} 
+            />
+        </div>
+    </div>
+</button>
             </div>
 
             <AnimatePresence>

@@ -34,15 +34,21 @@ interface EventItemProps {
 
 function EventItem({ data }: EventItemProps) {
     return (
-        <Link href={`/search/${data.id}`} className="relative group">
-            <div className="absolute rounded-2xl bg-primary-700 min-w-[300px] w-[90vw] max-w-96 top-3 left-3 -z-10 border-4 border-primary">
-                <div className="opacity-0">
+       <Link href={`/search/${data.id}`} className="relative group block">
+            {/* 影となる背後のカード
+                【修正点】outline等のハックを外し、クリーンな形に戻します。 */}
+            <div className="absolute rounded-2xl bg-primary-700 min-w-[300px] w-[90vw] max-w-110 top-3 left-3 -z-10 border-4 border-primary">
+                <div className="opacity-0 pointer-events-none">
                     <ItemHeader title={data.eventName} groupName={data.groupName} />
                     <ItemBody imageUrl={data.imageUrl} icons={data.icons} genre={data.genre} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} />
                     <ItemFooter />
                 </div>
             </div>
-            <div className="rounded-2xl  overflow-hidden border-4 border-primary min-w-[300px] w-[90vw] max-w-96 transition-all duration-150 group-hover:-translate-y-1 group-hover:-translate-x-1 group-active:translate-y-1 group-active:translate-x-1">
+            
+            {/* 手前のカード（本体）
+                【一番の修正点】コンテナ自体に `bg-primary` を設定します。
+                これにより、内側の bg-white との間にできるサブピクセルの隙間を同色で塗りつぶし、完全に白い線を消します。 */}
+            <div className="rounded-2xl overflow-hidden border-4 border-primary min-w-[300px] w-[90vw] max-w-110 transition-all duration-150 group-hover:-translate-y-1 group-hover:-translate-x-1 group-active:translate-y-1 group-active:translate-x-1 bg-primary">
                 <ItemHeader title={data.eventName} groupName={data.groupName} />
                 <ItemBody imageUrl={data.imageUrl} icons={data.icons} genre={data.genre} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} />
                 <ItemFooter />
@@ -66,7 +72,7 @@ function ItemHeader({ title, groupName }: ItemHeaderProps) {
                 className="absolute top-[calc(100%-1px)] -left-[2px] w-[calc(100%+4px)] h-[33px] bg-primary transition-colors duration-300 group-hover:bg-secondary-400 group-active:bg-secondary-700"
                 style={{
                     WebkitMaskImage: "radial-gradient(35px 20px at 65% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 35% 0%, black 99%, transparent 100%), radial-gradient(50px 25px at 50% 25%, black 99%, transparent 100%), radial-gradient(35px 20px at 50% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 50% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 0% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 100% 0%, black 99%, transparent 100%) ",
-                    maskImage: "radial-gradient(35px 20px at 65% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 35% 0%, black 99%, transparent 100%), radial-gradient(50px 25px at_50% 25%, black_99%, transparent_100_), radial-gradient(35px 20px at_50% 0%, black_99%, transparent_100_), radial-gradient(35px 20px at_50% 0%, black_99%, transparent_100_), radial-gradient(35px_20px_at_0%_0%, black_99%, transparent_100_),radial-gradient(35px_20px_at_100%_0%, black_99%, transparent_100_),",
+                    maskImage: "radial-gradient(35px 20px at 65% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 35% 0%, black 99%, transparent 100%), radial-gradient(50px 25px at 50% 25%, black 99%, transparent 100%), radial-gradient(35px 20px at 50% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 50% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 0% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 100% 0%, black 99%, transparent 100%)",
 
                     WebkitMaskSize: "70px 32px, 70px 32px, 140px 32px, 90px 32px, 90px 32px, 70px 32px, 70px 32px",
                     maskSize: "70px 32px, 70px 32px, 140px 32px, 90px 32px, 90px 32px, 70px 32px, 70px 32px",
@@ -107,7 +113,7 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
         .replace(/\([^\)]*\)/g, '')
 
     return (
-        <div className="bg-white text-black  pt-12 px-3 py-4 pb-7 text-xs border-10 border-primary ">
+        <div className="bg-white text-black pt-12 px-3 py-4 pb-7 text-xs w-full">
             <div className="flex gap-3">
                 <div>
                     <Image
@@ -166,18 +172,17 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
 function ItemFooter() {
     return (
 
-        <div className="absolute -bottom-[5px] -right-3 flex justify-center items-center w-[140px] h-[90px] transition-transform duration-300 group-hover:translate-y-1 group-hover:translate-x-1 ">
+        <div className="absolute  -bottom-[14px] -right-[22px] flex justify-center items-center w-[140px] h-[90px] transition-transform duration-300 group-hover:translate-y-1 group-hover:translate-x-1 ">
 
             <svg
-                className="absolute inset-0 w-full h-full text-primary transition-colors duration-150  group-hover:text-primary-600 group-active:text-primary-800 "
-                viewBox="0 0 200 100"
+                className="absolute inset-0 w-full h-full text-primary transition-colors duration-150  group-hover:text-primary-600 group-active:text-primary-800"
+                viewBox="0 0 200 80" 
                 fill="white" 
                 stroke="currentColor" 
                 strokeWidth="4"
                 strokeLinejoin="round"
-
             >
-                <path d="M 30 100 C 10 80, 0 60, 25 45 C 30 10, 70 10, 80 20 C 110 -15, 170 -10, 175 35 C 175 55, 175 100, 175 100 Z" />
+                <path d="M 27 80 C 10 80, 0 60, 25 45 C 30 10, 70 10, 80 20 C 110 -15, 170 -10, 165 35" />
             </svg>
             <div className="relative z-10 flex items-center mt-4 ml-4">
                 <p className="text-sm text-end font-medium">Read More!</p>
