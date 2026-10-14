@@ -3,6 +3,9 @@ import { MasterData } from "../models/MasterData";
 import { SortType } from "../models/SortType";
 import { createClient } from "./client";
 
+// 第142回明大祭の企画情報テーブル
+const MASTER_DATA_TABLE = 'MasterData142';
+
 export async function getAllMasterDatas(key: { page: number, limit: number, keyword: string, types: string[], dates: string[], places: string[], genres: string[], sortType: SortType }): Promise<MasterData[] | null> {
     if (key.keyword === 'Web部門のみんなへ') {
         return returnDefaultData();
@@ -22,7 +25,7 @@ export async function getAllMasterDatas(key: { page: number, limit: number, keyw
         }
     }
 
-    let query = supabase.from('MasterData').select('*');
+    let query = supabase.from(MASTER_DATA_TABLE).select('*');
 
     // キーワードフィルター（スペース区切りでAND検索、各キーワードはOR検索）
     if (key.keyword && key.keyword.trim()) {
@@ -104,7 +107,7 @@ export async function getUniqueMasterData(id: string): Promise<MasterData | null
         return returnDefaultData().find(event => event.id === Number(id)) || null;
     }
     const supabase = createClient();
-    const { data, error } = await supabase.from('MasterData').select('*').eq('id', id).single();
+    const { data, error } = await supabase.from(MASTER_DATA_TABLE).select('*').eq('id', id).single();
     if (error) {
         console.log(`Error fetching unique master data: ${error.message}`);
         return null;
