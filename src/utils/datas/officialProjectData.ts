@@ -242,7 +242,7 @@ export const officialProjects: {
             time: '11:00〜18:00',
             thirdTime: '11:00〜17:00',
             place: '第一校舎前体育館側',
-            link: '/omoi',
+            link: '/memory',
             date: [1, 2, 3]
         },
         {
