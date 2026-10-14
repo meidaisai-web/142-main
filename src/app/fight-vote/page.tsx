@@ -201,7 +201,7 @@ export default function FightVote() {
             </div>
             <div className={styles.introText}>
               <p>Amazing dream、Sweet dream、Star dreamの各々でよりテーマを表現していると感じた方の団体を選んで投票してください。</p>
-              <p>Fight on the stageの企画については<TransitionLink href="/fight" targetBlank>こちら</TransitionLink>からご覧いただけます。</p>
+              <p>Fight on the Stageの企画については<TransitionLink href="/fight" targetBlank>こちら</TransitionLink>からご覧いただけます。</p>
             </div>
           </div>
           {/* 3部門を同じ構成で描画する。見た目のサイズ・位置・拡縮はpage.module.cssで管理。 */}
