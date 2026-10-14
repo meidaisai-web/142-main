@@ -168,7 +168,7 @@ export const officialProjects: {
             date: [1, 2, 3]
         },
         {
-            title: 'Dream canvas',
+            title: 'Dream Canvas',
             description: 'ー夜空を描こうー',
             image: '/images/official-projects/dream-logo.png',
             time: '11:00〜18:00',
@@ -221,7 +221,7 @@ export const officialProjects: {
             image: '/images/official-projects/memory-logo.png',
             time: '11:00〜18:00',
             thirdTime: '11:00〜17:00',
-            place: '公式LINE(詳細ページを参照)',
+            place: '公式LINE（詳細ページを参照）',
             link: '/memory',
             date: [1, 2, 3]
         },
