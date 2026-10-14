@@ -5,9 +5,9 @@ import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
 import Text from "@/components/texts/Text";
 import Emphasis from "@/components/texts/Emphasis";
-import { List, ListItem, ListText } from "@/components/texts/List"
+import { List, ListItem } from "@/components/texts/List"
 import OnlyImage from "@/components/OnlyImage";
-import TransitionLink from "@/components/buttons/TransitionLink"
+import LinkButton from "@/components/buttons/LinkButton"
 import ContactView from "@/components/texts/ContactView";
 
 export default function Page() {
@@ -36,10 +36,16 @@ export default function Page() {
             </Text>
             <SmallTitle>参加方法</SmallTitle>
             <Text>
-                以下のリンクやQRコードから「記憶探し～未来からのメッセージ～」公式LINEを追加して参加できます！<br />
-                <TransitionLink href="https://lin.ee/q3RLarg">https://lin.ee/q3RLarg </TransitionLink>
+                以下のボタンやQRコードから「記憶探し～未来からのメッセージ～」公式LINEを追加して参加できます！
             </Text>
-            <OnlyImage src="/images/memory/memory-lineqr.png" alt="lineのQRコード画像" />
+            <LinkButton href="https://lin.ee/q3RLarg" className="mx-auto mt-4 w-fit">
+                公式LINEを追加する
+            </LinkButton>
+            <OnlyImage
+                src="/images/memory/memory-lineqr.png"
+                alt="公式LINEを追加するQRコード"
+                className="mx-auto my-6 w-48 max-w-full sm:w-56"
+            />
             <AccentText>謎解き制作協力団体</AccentText>
             <Text>明治大学謎解きサークルSHERLOCK</Text>
             <AccentText>例題</AccentText>
