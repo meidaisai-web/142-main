@@ -20,8 +20,10 @@ export default function CarouselCard({ title, src, href }: Props) {
             <Image src={src} alt={title} fill className="object-contain" />
           </div>
           {/* タイトルの箱 */}
-          <div className="bg-white rounded-b-2xl py-4">
-            <Text center noTopPadding className="text-gray-600">{title}</Text>
+          <div className="bg-accent-100 rounded-b-2xl py-4">
+            <Text center noTopPadding className="text-gray-600 whitespace-pre-line">
+              {title}
+            </Text>
           </div>
         </div>
       </div>

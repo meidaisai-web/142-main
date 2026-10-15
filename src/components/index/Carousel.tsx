@@ -6,13 +6,13 @@ import ShadowText from '@/components/texts/ShadowText';
 import CarouselCard from '@/components/index/CarouselCard';
 
 const slides = [
-  { title: 'カード1', src: '', href: '/xxx' },
-  { title: 'カード2', src: '', href: '/xxx' },
-  { title: 'カード3', src: '', href: '/xxx' },
-  { title: 'カード4', src: '', href: '/xxx' },
-  { title: 'カード5', src: '', href: '/xxx' },
-  { title: 'カード6', src: '', href: '/xxx' },
-  { title: 'カード7', src: '', href: '/xxx' },
+  { title: '明大祭とは', src: '/images/carousel/logo.svg', href: '/about' },
+  { title: '第142回明大祭テーマ', src: '/images/carousel/catch.svg', href: '/theme' },
+  { title: '実行委員会企画まとめ', src: '/images/carousel/boad.svg', href: '/official-projects' },
+  { title: '明大祭・募金企画', src: '/images/donation/donation.png', href: '/donation' },
+  { title: 'Opening', src: '/images/carousel/opening-logo.png', href: '/opening' },
+  { title: '受験生コレクション\n～わくわく明大生活～', src: '/images/carousel/wakuwaku-logo.png', href: '/wakuwaku' },
+  { title: '明大祭公式グッズ', src: '/images/carousel/goods-logo.png', href: '/goods' },
 ]
 
 export default function Carousel() {
