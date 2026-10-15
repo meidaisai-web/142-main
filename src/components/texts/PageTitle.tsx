@@ -1,14 +1,22 @@
 import Image from "next/image";
+import { Children, ReactNode } from "react";
 
 type PageTitleProps = {
-  children: string;
+  children: ReactNode;
   className?: string;
 };
 
 export default function PageTitle({ children, className = "" }: PageTitleProps) {
-  const text = typeof children === "string" ? children : "";
-  const rest = text.slice(0, -1);
-  const last = text.slice(-1);
+  // 末尾の1文字（または末尾の要素）を飛行機アイコンと一緒に折り返さないようにする
+  const nodes = Children.toArray(children);
+  const tail = nodes.pop();
+  let rest: ReactNode[] = nodes;
+  let last: ReactNode = tail;
+  if (typeof tail === "string" || typeof tail === "number") {
+    const text = String(tail);
+    rest = [...nodes, text.slice(0, -1)];
+    last = text.slice(-1);
+  }
 
   return (
     <div className="flex justify-center mt-28 pb-5">
