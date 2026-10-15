@@ -1,4 +1,4 @@
-import CloudPageContainer from '@/components/base/CloudPageContainer';
+import StarPageContainer from "@/components/base/StarPageContainer/StarPageContainer"
 import Text from '@/components/texts/Text';
 import { List, ListItem } from '@/components/texts/List';
 import SectionTitle from '@/components/texts/SectionTitle';
@@ -11,7 +11,7 @@ import ImageLogo from '@/components/texts/ImageLogo';
 
 export default function Page() {
     return (
-        <CloudPageContainer>
+        <StarPageContainer>
             <PageTitle>Opening</PageTitle>
             <ImageLogo
                 src="/images/opening/opening02.jpg"
@@ -56,6 +56,6 @@ export default function Page() {
             <SectionTitle>Opening紹介動画</SectionTitle>
             <Movie src="https://movie.meidaisai.jp/opening.mp4"/>
             <ContactView department="演出局結祭部門" mail="142nd-yusai@meidaisai.jp" />
-        </CloudPageContainer>
+        </StarPageContainer>
     )
 }

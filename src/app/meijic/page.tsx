@@ -1,4 +1,4 @@
-import CloudPageContainer from '@/components/base/CloudPageContainer';
+import StarPageContainer from "@/components/base/StarPageContainer/StarPageContainer"
 import Text from '@/components/texts/Text';
 import { List, ListItem } from '@/components/texts/List';
 import SmallTitle from '@/components/texts/SmallTitle';
@@ -13,7 +13,7 @@ import Movie from '@/components/Movie';
 
 export default function Page() {
     return (
-        <CloudPageContainer>
+        <StarPageContainer>
             <PageTitle>Meijic Station</PageTitle>
             <ImageLogo
                 src="/images/meijicstation/meijic02.jpg"
@@ -55,6 +55,6 @@ export default function Page() {
             <SectionTitle>Meijic Station紹介動画</SectionTitle>
             <Movie src="https://movie.meidaisai.jp/meijic.mp4"/>
             <ContactView department="演出局 結祭部門" mail="142nd-yusai@meidaisai.jp" />
-        </CloudPageContainer>
+        </StarPageContainer>
     )
 }
