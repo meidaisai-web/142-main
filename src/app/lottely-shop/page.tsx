@@ -85,7 +85,7 @@ export default function Page() {
     return (
         <div>
             <CloudPageContainer>
-                <PageTitle>明大前商店街×明大祭〜明大祭で当てよう！豪華景品〜</PageTitle>
+                <PageTitle>明大前商店街×明大祭<br />〜明大祭で当てよう！豪華景品〜</PageTitle>
 
                 <SectionTitle>企画概要</SectionTitle>
                 <Text>今年度も明大前商店街と明大祭実行委員会がコラボした抽選企画を実施します！<br />
