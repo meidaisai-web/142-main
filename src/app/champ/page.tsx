@@ -11,6 +11,7 @@ import ContactView from "@/components/texts//ContactView"
 import Button from "@/components/buttons/Button"
 import { List, ListItem,ListText } from "@/components/texts/List"
 import TransitionLink from "@/components/buttons/TransitionLink"
+import ImageText from "@/components/texts/ImageText"
 
 
 export default function Page() {
@@ -35,23 +36,17 @@ export default function Page() {
                     ②企画詳細ページ内の「投票する」をタップすると投票完了です！</Text>
                 <SmallTitle>投票部門</SmallTitle>
                 <AccentText className="mt-5">飲食部門</AccentText>
-                <Text>企画ジャンルが<Emphasis>模擬店・喫茶</Emphasis>にあたる企画</Text>
-                <Image src="/images/championship/eat.jpg"
-                    alt="eat"
-                    width={800} height={400}
-                    className="mx-auto mb-10" />
+                <ImageText src="/images/championship/eat.jpg" alt="eat">
+                    <Text>企画ジャンルが<Emphasis>模擬店・喫茶</Emphasis>にあたる企画</Text>
+                </ImageText>
                 <AccentText className="mt-5">エンタメ部門</AccentText>
-                <Text>企画ジャンルが<Emphasis>ゲスト・参加体験・展示</Emphasis>にあたる企画</Text>
-                <Image src="/images/championship/entertainment.jpg"
-                    alt="entertainment"
-                    width={800} height={400}
-                    className="mx-auto mb-10" />
+                <ImageText src="/images/championship/entertainment.jpg" alt="entertainment">
+                    <Text>企画ジャンルが<Emphasis>ゲスト・参加体験・展示</Emphasis>にあたる企画</Text>
+                </ImageText>
                 <AccentText className="mt-5">パフォーマンス部門</AccentText>
-                <Text>企画ジャンルが<Emphasis>音楽・ダンス・パフォーマンス</Emphasis>にあたる企画</Text>
-                <Image src="/images/championship/performance.jpg"
-                    alt="performance"
-                    width={800} height={400}
-                    className="mx-auto mb-10" />
+                <ImageText src="/images/championship/performance.jpg" alt="performance">
+                    <Text>企画ジャンルが<Emphasis>音楽・ダンス・パフォーマンス</Emphasis>にあたる企画</Text>
+                </ImageText>
                 <SmallTitle>投票の注意点</SmallTitle>
                 <List mark="・">
 	              <ListItem>よいと思った企画すべてに投票することができます！</ListItem>
@@ -92,7 +87,7 @@ export default function Page() {
                 <Button href="/bigLottery" className="mt-5">
                     こちら
                 </Button>
-                <ContactView department="第142回明大祭実行委員会演出局" mail="142nd-enshutsu@meidaisai.jp" />
+                <ContactView department="演出局" mail="142nd-enshutsu@meidaisai.jp" />
             </CloudPageContainer>
         </div>
     )
