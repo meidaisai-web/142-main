@@ -3,7 +3,7 @@ import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import SmallTitle from "@/components/texts/SmallTitle"
 import AccentText from "@/components/texts/AccentText"
-import ImageText from "@/components/texts/ImageText"
+import OnlyImage from "@/components/OnlyImage"
 import Text from "@/components/texts/Text"
 import Emphasis from "@/components/texts/Emphasis"
 import { List, ListItem } from "@/components/texts/List"
@@ -85,9 +85,9 @@ const page = () => {
             <List numbered>
                 <ListItem>キャンパスマップに、各ブースのキャッシュレス決済対応状況を記載しています。</ListItem>
                 <ListItem>キャッシュレス決済が可能なブースでは以下の掲示物が設置されています。</ListItem>
-                {/* ここにキャッシュレスOKマークの画像(ImageTextを入れるのかな？) */}
+                <OnlyImage src="/images/cashless/okcashless.png" alt="キャッシュレス決済対応マーク" className="w-35" />
                 <ListItem>明大祭公式サイトの企画検索・企画詳細ページおよびパンフレットの企画ページには、こちらのマークが表示されています。</ListItem>
-                {/* ここにキャッシュレス決済対応マークの画像(ImageTextを入れるのかな？) */}
+                <OnlyImage src="/images/cashless/cashless.png" alt="キャッシュレス決済対応マーク" className="w-35" />
             </List>
             <SmallTitle className="mb-3">ご利用にあたってのお願い</SmallTitle>
             <List mark="・">
@@ -95,7 +95,7 @@ const page = () => {
                 <ListItem>全ての模擬店にてキャッシュレス決済をご利用いただけない場合もございます。</ListItem>
                 <ListItem>電波状況により、決済に時間がかかる場合がございます。ご了承ください。</ListItem>
             </List>
-            <ContactView department="財務局　キャッシュレス決済導入チーム" showPhone mail="142nd-cashless@meidaisai.jp" showAddress />
+            <ContactView department="財務局キャッシュレス決済導入チーム" showPhone mail="142nd-cashless@meidaisai.jp" showAddress />
         </CloudPageContainer>
     )
 }
