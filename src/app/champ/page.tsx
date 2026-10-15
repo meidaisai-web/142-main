@@ -54,11 +54,11 @@ export default function Page() {
                   <ListItem>企画実施当日のみ投票可能です。また、明大祭実施時間外の投票は禁止とします。</ListItem>
                 </List>
                 <SmallTitle>抽選会の引換方法</SmallTitle>
-                <ListText>
+                <List>
 	             <ListItem>飲食部門・エンタメ部門・パフォーマンス部門のすべてに投票して抽選券をGETしよう!</ListItem>
                  <ListItem>抽選券を受け取り、明大祭大抽選会に参加するまでの流れをご案内します。</ListItem>
-                 <ListText>抽選券は1日1枚まで引き換え可能です。</ListText>
-                </ListText>
+                 <ListItem>抽選券は1日1枚まで引き換え可能です。</ListItem>
+                </List>
                <AccentText className="mt-5">STEP1</AccentText>
                 <Text>和泉図書館前Meidaisai Championship受付までお越しください。</Text>
                 <Image src="/images/championship/champmap.svg"
@@ -73,14 +73,15 @@ export default function Page() {
                     width={400} height={200}
                     className="mx-auto mb-10" />
                 <AccentText className="mt-5">STEP3</AccentText>
-                <ListText>
+                <List>
 	              <ListItem>受付の実行委員の指示で、「明大祭大抽選会 抽選券引き換え画面」ページ上部の引き換えるボタンを押してください。抽選券に交換いたします。</ListItem>
                   <ListItem><Emphasis>※引き換えボタンは、インフォメーションブースで引き換えるタイミングでタップしてください。事前にタップしてしまうと抽選券と引き換えることができなくなってしまいます。</Emphasis></ListItem>
-                </ListText>
+                </List>
                 <AccentText className="mt-5">STEP4</AccentText>
-                <ListText>
+                <List>
 	              <ListItem>メディア棟前企画受付にある「明大祭大抽選会」まで行くと、抽選に参加できます！</ListItem>
                   <ListItem> 企画に関するお問い合わせは、和泉図書館前総合インフォメーションブースMeidaisai Championship受付までお越しください。</ListItem>
+<<<<<<< HEAD
                   <ListItem> ※1日に配付する抽選券の枚数には限りがあります。予定枚数に達し次第、Web上の引き換え画面は表示されなくなりますので、あらかじめご了承ください。</ListItem>
                     <ListItem> 抽選券に関して詳しく知りたい方は、明大祭大抽選会詳細ページをご覧ください。</ListItem>
                 </ListText>
@@ -88,6 +89,17 @@ export default function Page() {
                     こちら
                 </Button>
                 <ContactView department="演出局" mail="142nd-enshutsu@meidaisai.jp" />
+=======
+                </List>
+                <List mark="※">
+                  <ListItem> 1日に配付する抽選券の枚数には限りがあります。予定枚数に達し次第、Web上の引き換え画面は表示されなくなりますので、あらかじめご了承ください。</ListItem>
+                </List>
+                <List>
+                  <ListItem> 抽選券に関して詳しく知りたい方は、明大祭大抽選会詳細ページをご覧ください。</ListItem>
+                </List>
+                <Button className="w-fit mx-auto mt-2" href="/bigLottery">こちら</Button>
+                <ContactView department="第142回明大祭実行委員会演出局" mail="142nd-enshutsu@meidaisai.jp" />
+>>>>>>> 38ec369d78e8ddd40130f9a55fc6206245cc02f3
             </CloudPageContainer>
         </div>
     )
