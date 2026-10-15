@@ -34,7 +34,7 @@ export default function Page() {
             </Text>    
             <SectionTitle>実施日時・場所</SectionTitle>
             <SmallTitle>日時</SmallTitle>
-            <Text>10月30日(金)11:00～11:50</Text>
+            <Text>10月30日(金) 11:00～11:50</Text>
             <SmallTitle>場所</SmallTitle>
             <Text>メインステージ</Text>
             <SectionTitle>コンテンツ</SectionTitle>
@@ -55,7 +55,7 @@ export default function Page() {
             </List>
             <SectionTitle>Opening紹介動画</SectionTitle>
             <Movie src="https://movie.meidaisai.jp/opening.mp4"/>
-            <ContactView department="演出局 結祭部門" mail="142nd-yusai@meidaisai.jp" />
+            <ContactView department="演出局結祭部門" mail="142nd-yusai@meidaisai.jp" />
         </CloudPageContainer>
     )
 }
