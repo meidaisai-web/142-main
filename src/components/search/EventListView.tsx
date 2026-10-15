@@ -34,21 +34,15 @@ interface EventItemProps {
 
 function EventItem({ data }: EventItemProps) {
     return (
-       <Link href={`/search/${data.id}`} className="relative group block">
-            {/* 影となる背後のカード
-                【修正点】outline等のハックを外し、クリーンな形に戻します。 */}
-            <div className="absolute rounded-2xl bg-primary-700 min-w-[300px] w-[90vw] max-w-110 top-3 left-3 -z-10 border-4 border-primary">
-                <div className="opacity-0 pointer-events-none">
-                    <ItemHeader title={data.eventName} groupName={data.groupName} />
-                    <ItemBody imageUrl={data.imageUrl} icons={data.icons} genre={data.genre} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} />
-                    <ItemFooter />
-                </div>
-            </div>
-            
-            {/* 手前のカード（本体）
-                【一番の修正点】コンテナ自体に `bg-primary` を設定します。
-                これにより、内側の bg-white との間にできるサブピクセルの隙間を同色で塗りつぶし、完全に白い線を消します。 */}
-            <div className="rounded-2xl overflow-hidden border-4 border-primary min-w-[300px] w-[90vw] max-w-110 transition-all duration-150 group-hover:-translate-y-1 group-hover:-translate-x-1 group-active:translate-y-1 group-active:translate-x-1 bg-primary">
+        <Link href={`/search/${data.id}`} className="relative isolate group block">
+            {/* 裏のカードは本体のサイズに追従させる。 */}
+            <div
+                aria-hidden="true"
+                className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl bg-primary-700 border-4 border-primary -z-10"
+            />
+
+            {/* relative により、雲の位置を手前のカード基準にする。 */}
+            <div className="relative rounded-2xl overflow-hidden border-4 border-primary min-w-[300px] w-[90vw] max-w-110 transition-transform duration-150 group-hover:-translate-y-1 group-hover:-translate-x-1 group-active:translate-y-1 group-active:translate-x-1 bg-primary">
                 <ItemHeader title={data.eventName} groupName={data.groupName} />
                 <ItemBody imageUrl={data.imageUrl} icons={data.icons} genre={data.genre} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} />
                 <ItemFooter />
@@ -64,28 +58,30 @@ interface ItemHeaderProps {
 
 function ItemHeader({ title, groupName }: ItemHeaderProps) {
     return (
-        <div className="relative z-10 bg-primary  pt-2 px-3 pb-1 transition-colors duration-300 group-hover:bg-primary group-active:bg-primary text-white border-b-2 border-primary-100">
+        <div className="relative z-10 bg-primary pt-2 px-3 pb-1 text-white">
             <h2 className="font-bold h-6 truncate">{title}</h2>
             <p className="font-medium text-sm truncate">{groupName}</p>
-            <div
-                // 【修正点】 左右を2pxずつ広げ、上へ1px重ねて隙間を完全に埋める
-                className="absolute top-[calc(100%-1px)] -left-[2px] w-[calc(100%+4px)] h-[33px] bg-primary transition-colors duration-300 group-hover:bg-secondary-400 group-active:bg-secondary-700"
-                style={{
-                    WebkitMaskImage: "radial-gradient(35px 20px at 65% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 35% 0%, black 99%, transparent 100%), radial-gradient(50px 25px at 50% 25%, black 99%, transparent 100%), radial-gradient(35px 20px at 50% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 50% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 0% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 100% 0%, black 99%, transparent 100%) ",
-                    maskImage: "radial-gradient(35px 20px at 65% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 35% 0%, black 99%, transparent 100%), radial-gradient(50px 25px at 50% 25%, black 99%, transparent 100%), radial-gradient(35px 20px at 50% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 50% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 0% 0%, black 99%, transparent 100%), radial-gradient(35px 20px at 100% 0%, black 99%, transparent 100%)",
-
-                    WebkitMaskSize: "70px 32px, 70px 32px, 140px 32px, 90px 32px, 90px 32px, 70px 32px, 70px 32px",
-                    maskSize: "70px 32px, 70px 32px, 140px 32px, 90px 32px, 90px 32px, 70px 32px, 70px 32px",
-
-                    WebkitMaskRepeat: "no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat",
-                    maskRepeat: "no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat",
-
-                    WebkitMaskPosition: "25% top, 75% top, center top, 5% top, 95% top,left top, right top",
-                    maskPosition: "25% top, 75% top, center top, 5% top, 95% top, left top, right top",
-
-                    filter: "drop-shadow(0px 3px 2px rgba(0,0,0,0.15))"
-                }}
-            />
+            {/* 1 本の連続したパスで、幅が変わっても波形に隙間を作らない。 */}
+            <svg
+                aria-hidden="true"
+                focusable="false"
+                className="pointer-events-none absolute top-[calc(100%-1px)] -left-px w-[calc(100%+2px)] h-[33px] text-primary"
+                viewBox="0 0 600 40"
+                preserveAspectRatio="none"
+                style={{ filter: "drop-shadow(0 2px 1px rgba(0,0,0,0.12))" }}
+            >
+                <path
+                    fill="currentColor"
+                    d="M 0 0 H 600 V 24
+                       C 575 24 555 15 540 4
+                       C 516 28 474 30 444 8
+                       C 423 28 396 28 366 17
+                       C 333 44 281 45 246 13
+                       C 221 29 178 27 153 5
+                       C 128 29 85 30 53 4
+                       C 39 16 22 24 0 24 Z"
+                />
+            </svg>
         </div>
     )
 }
@@ -171,30 +167,36 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
 
 function ItemFooter() {
     return (
-
-        <div className="absolute  -bottom-[14px] -right-[22px] flex justify-center items-center w-[140px] h-[90px] transition-transform duration-300 group-hover:translate-y-1 group-hover:translate-x-1 ">
-
+        <div className="absolute -bottom-[3px] -right-[3px] z-20 w-[24%] min-w-[100px] aspect-[9/5] text-[#66616b]">
             <svg
-                className="absolute inset-0 w-full h-full text-primary transition-colors duration-150  group-hover:text-primary-600 group-active:text-primary-800"
-                viewBox="0 0 200 80" 
-                fill="white" 
-                stroke="currentColor" 
-                strokeWidth="4"
+                aria-hidden="true"
+                focusable="false"
+                className="pointer-events-none absolute inset-0 block w-full h-full text-primary"
+                viewBox="0 0 180 100"
+                fill="white"
+                stroke="currentColor"
+                strokeWidth="3"
                 strokeLinejoin="round"
             >
-                <path d="M 27 80 C 10 80, 0 60, 25 45 C 30 10, 70 10, 80 20 C 110 -15, 170 -10, 165 35" />
-            </svg>
-            <div className="relative z-10 flex items-center mt-4 ml-4">
-                <p className="text-sm text-end font-medium">Read More!</p>
-                <Image
-                    src='/images/svg/triangle-right.svg'
-                    alt=''
-                    width={10}
-                    height={10}
-                    className="ml-2 transition-transform duration-150 "
+                {/* 右側・底辺まで描いて Z で閉じる。全体を viewBox 内に収める。 */}
+                <path
+                    vectorEffect="non-scaling-stroke"
+                    d="M 28 96
+                       C 14 96 4 90 4 76
+                       C 4 66 12 58 22 55
+                       C 20 37 38 22 60 22
+                       C 68 22 74 23 79 25
+                       C 90 10 106 4 122 4
+                       C 151 4 176 22 176 50
+                       L 176 80
+                       Q 176 96 160 96
+                       H 28 Z"
                 />
+            </svg>
+            <div className="absolute inset-x-0 bottom-[21%] flex items-center justify-center gap-1 whitespace-nowrap pl-2 text-[11px] leading-none font-medium">
+                <span>Read More!</span>
+                <span aria-hidden="true">&gt;</span>
             </div>
-
         </div>
     )
 }

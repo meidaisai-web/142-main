@@ -186,7 +186,7 @@ export default function Search() {
                     onEnter={onTapSearchButton}
                 />
                 <div className="flex justify-center">
-                    <button className="text-accent border-primary hover:border-accent border-b-2 font-medium" onClick={() => {
+                    <button className=" border-primary  hover:border-primary-700 border-b-2 font-medium" onClick={() => {
                         setKeyword('');
                         setSelectedTypes([]);
                         setSelectedDates([]);

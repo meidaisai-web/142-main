@@ -37,11 +37,13 @@ export default function Button({
                 gap-1
                 px-6
                 py-2
+                w-fit
+                mx-auto
                 rounded-full
-                bg-secondary
+                bg-primary
                 text-white
                 transition-colors duration-100
-                hover:bg-accent
+                hover:bg-primary-700
                 ${disabled ? "opacity-50 pointer-events-none" : ""}
                 ${className}
             `}

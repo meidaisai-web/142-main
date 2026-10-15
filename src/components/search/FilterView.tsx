@@ -49,7 +49,7 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
     <div className="absolute inset-0 w-full h-full text-center pointer-events-none">
         {/* 背景SVG: スマホ時はズレ幅(-top)を小さくし、幅を100%に追従させる */}
         <Image 
-            src="/images/EventlistView/Group614.svg" 
+            src="/images/EventListView/Group614.svg" 
             alt="" 
             width={500} 
             height={500} 
@@ -70,7 +70,7 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
             </p>
             {/* アイコン: スマホでは w-7 h-7 に縮小し、Y軸のズレも小さくする */}
             <Image 
-                src="/images/EventlistView/Arrowright.svg" 
+                src="/images/EventListView/Arrowright.svg" 
                 alt="" 
                 width={40} 
                 height={40}  
@@ -193,7 +193,7 @@ function DetailFilterView({ selectedTypes, setSelectedTypes, selectedDates, setS
     };
 
     return (
-        <div className="flex flex-col gap-14 mt-10">
+        <div className="flex flex-col gap-14 md:gap-6 mt-10 object-contain">
             {checkboxList.map((checkbox) => (
                 <div key={checkbox.label} className="flex gap-8">
                     <Label>{checkbox.label}</Label>
@@ -244,7 +244,7 @@ function SortView({ sortType, setSortType }: SortViewProps) {
                 {sortList.map((sort) => (
                     <button key={sort.id} onClick={() => handleSortClick(sort.id)} className={`flex justify-center items-center text-sm text-center w-24 py-1 border-2 border-secondary bg-secondary-100 rounded-full hover:bg-secondary-400 transition ${sort.id === sortType.orderColumn ? 'bg-secondary-900 text-white': "bg-secondary-100 hover:bg-secondary-300"}`}>
                         <p >{sort.label}</p>
-                        { (sort.id === sortType.orderColumn && sort.id !== 'free') && ( sortType.ascending ? <Image src="/images/svg/triangle-down.svg" alt="" width={10} height={10} className="ml-2" /> : <Image src="/images/svg/triangle-up.svg" alt="" width={10} height={10} className="ml-2" />) }
+                        { (sort.id === sortType.orderColumn && sort.id !== 'free') && ( sortType.ascending ? <Image src="/images/EventListView/Polygon80.svg" alt="" width={10} height={10} className="ml-2" /> : <Image src="/images/EventListView/Polygon81.svg" alt="" width={10} height={10} className="ml-2" />) }
                     </button>
                 ))}
             </div>
