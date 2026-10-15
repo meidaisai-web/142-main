@@ -53,7 +53,7 @@ export default function Page() {
             <AccentText>企画内容</AccentText>
                 人気麻雀アプリ『雀魂』が遊べる体験ブースを出展いたします！
             </ImageText>
-            <ContactView department="渉外局　企業部門" showPhone mail="kigyo@meidaisai.jp" showAddress />
+            <ContactView department="渉外局企業部門" showPhone mail="kigyo@meidaisai.jp" showAddress />
         </CloudPageContainer>
     )
 }
