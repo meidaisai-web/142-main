@@ -1,89 +1,108 @@
 'use client';
 
-import { useState } from "react";
+import { useId, useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionTitle from "../texts/SectionTitle";
 import SearchBar from "../texts/SearchBar";
 import Label from "../texts/Label";
 import Checkbox from "../buttons/Checkbox";
 import Image from "next/image";
-import { SortType } from "@/utils/models/SortType";
+import type { SortType } from "@/utils/models/SortType";
 
 interface FilterViewProps {
     keyword: string;
     setKeyword: (keyword: string) => void;
     selectedTypes: string[];
-    setSelectedTypes: React.Dispatch<React.SetStateAction<string[]>>;
+    setSelectedTypes: Dispatch<SetStateAction<string[]>>;
     selectedDates: string[];
-    setSelectedDates: React.Dispatch<React.SetStateAction<string[]>>;
+    setSelectedDates: Dispatch<SetStateAction<string[]>>;
     selectedPlaces: string[];
-    setSelectedPlaces: React.Dispatch<React.SetStateAction<string[]>>;
+    setSelectedPlaces: Dispatch<SetStateAction<string[]>>;
     selectedGenres: string[];
-    setSelectedGenres: React.Dispatch<React.SetStateAction<string[]>>;
+    setSelectedGenres: Dispatch<SetStateAction<string[]>>;
     sortType: SortType;
-    setSortType: React.Dispatch<React.SetStateAction<SortType>>;
+    setSortType: Dispatch<SetStateAction<SortType>>;
     onEnter?: () => void;
 }
 
-export default function FilterView({ keyword, setKeyword, selectedTypes, setSelectedTypes, selectedDates, setSelectedDates, selectedPlaces, setSelectedPlaces, selectedGenres, setSelectedGenres, sortType, setSortType, onEnter }: FilterViewProps) {
+export default function FilterView({
+    keyword,
+    setKeyword,
+    selectedTypes,
+    setSelectedTypes,
+    selectedDates,
+    setSelectedDates,
+    selectedPlaces,
+    setSelectedPlaces,
+    selectedGenres,
+    setSelectedGenres,
+    sortType,
+    setSortType,
+    onEnter,
+}: FilterViewProps) {
     const [isOpen, setIsOpen] = useState(false);
+    const filterId = useId();
+    const panelId = `${filterId}-panel`;
 
-    // チェックされているフィルターの軸の数を計算
-    const activeFilterCount = [
-        selectedTypes.length > 0 ? 1 : 0,
-        selectedDates.length > 0 ? 1 : 0,
-        selectedPlaces.length > 0 ? 1 : 0,
-        selectedGenres.length > 0 ? 1 : 0
-    ].reduce((sum, count) => sum + count, 0);
+    // 選択中のチェック項目数。キーワード・並び替えは含めません。
+    const activeFilterCount =
+        selectedTypes.length +
+        selectedDates.length +
+        selectedPlaces.length +
+        selectedGenres.length;
 
     return (
         <div className="mb-6">
             <SectionTitle>キーワード検索</SectionTitle>
             <SearchBar text={keyword} setText={setKeyword} onEnter={onEnter} />
             <div className="flex justify-center mt-4">
-                <button 
-    onClick={() => setIsOpen(!isOpen)} 
-    className="relative h-12 w-48 sm:h-14 sm:w-64 group mx-auto"
->
-    {/* 背景画像のコンテナ */}
-    <div className="absolute inset-0 w-full h-full text-center pointer-events-none">
-        {/* 背景SVG: スマホ時はズレ幅(-top)を小さくし、幅を100%に追従させる */}
-        <Image 
-            src="/images/EventListView/Group614.svg" 
-            alt="" 
-            width={500} 
-            height={500} 
-            className="absolute -top-5 sm:-top-8 -z-10 w-full h-auto object-contain" 
-        />
-        {/* text-ceter のスペルミス修正 */}
-        <div className="opacity-0 z-10 text-center">
-            <p>詳細検索</p>
-        </div>
-    </div>
-    
-    {/* コンテンツのコンテナ */}
-    <div className="font-bold relative z-10 h-full w-full">
-        <div className="h-full w-full flex justify-center items-center">
-            {/* テキスト: スマホでは text-lg と mb-3 に縮小 */}
-            <p className="w-20 sm:w-28 text-center text-lg sm:text-2xl mb-3 sm:mb-5">
-                {isOpen ? "閉じる" : "詳細検索"}
-            </p>
-            {/* アイコン: スマホでは w-7 h-7 に縮小し、Y軸のズレも小さくする */}
-            <Image 
-                src="/images/EventListView/Arrowright.svg" 
-                alt="" 
-                width={40} 
-                height={40}  
-                className={`w-7 h-7 sm:w-10 sm:h-10 transition-transform -translate-y-1 sm:-translate-y-2 ${isOpen ? "rotate-180" : "rotate-0"}`} 
-            />
-        </div>
-    </div>
-</button>
+                <button
+                    type="button"
+                    onClick={() => setIsOpen((open) => !open)}
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    aria-label={`${isOpen ? "絞り込みを閉じる" : "詳細検索を開く"}${activeFilterCount > 0 ? `（${activeFilterCount}項目を選択中）` : ""}`}
+                    className="relative h-12 w-48 sm:h-14 sm:w-64 group mx-auto focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
+                >
+                    <div className="absolute inset-0 w-full h-full text-center pointer-events-none">
+                        <Image
+                            src="/images/EventListView/Group614.svg"
+                            alt=""
+                            width={500}
+                            height={500}
+                            className="absolute -top-5 sm:-top-8 -z-10 w-full h-auto object-contain"
+                        />
+                    </div>
+                    <div className="font-bold relative z-10 h-full w-full">
+                        <div className="h-full w-full flex justify-center items-center">
+                            <span className="w-20 sm:w-28 text-center text-lg sm:text-2xl mb-3 sm:mb-5">
+                                {isOpen ? "閉じる" : "詳細検索"}
+                            </span>
+                            <Image
+                                src="/images/EventListView/Arrowright.svg"
+                                alt=""
+                                width={40}
+                                height={40}
+                                className={`w-7 h-7 sm:w-10 sm:h-10 transition-transform -translate-y-1 sm:-translate-y-2 ${isOpen ? "rotate-180" : "rotate-0"}`}
+                            />
+                        </div>
+                    </div>
+                    {activeFilterCount > 0 && (
+                        <span
+                            aria-hidden="true"
+                            className="absolute right-[12%] -top-3 z-20 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-lg leading-none text-white"
+                        >
+                            {activeFilterCount}
+                        </span>
+                    )}
+                </button>
             </div>
 
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
+                        id={panelId}
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
@@ -107,133 +126,123 @@ export default function FilterView({ keyword, setKeyword, selectedTypes, setSele
                 )}
             </AnimatePresence>
         </div>
-    )
+    );
 }
 
 interface DetailFilterViewProps {
     selectedTypes: string[];
-    setSelectedTypes: React.Dispatch<React.SetStateAction<string[]>>;
+    setSelectedTypes: Dispatch<SetStateAction<string[]>>;
     selectedDates: string[];
-    setSelectedDates: React.Dispatch<React.SetStateAction<string[]>>;
+    setSelectedDates: Dispatch<SetStateAction<string[]>>;
     selectedPlaces: string[];
-    setSelectedPlaces: React.Dispatch<React.SetStateAction<string[]>>;
+    setSelectedPlaces: Dispatch<SetStateAction<string[]>>;
     selectedGenres: string[];
-    setSelectedGenres: React.Dispatch<React.SetStateAction<string[]>>;
+    setSelectedGenres: Dispatch<SetStateAction<string[]>>;
 }
 
-function DetailFilterView({ selectedTypes, setSelectedTypes, selectedDates, setSelectedDates, selectedPlaces, setSelectedPlaces, selectedGenres, setSelectedGenres }: DetailFilterViewProps) {
-
+function DetailFilterView({
+    selectedTypes,
+    setSelectedTypes,
+    selectedDates,
+    setSelectedDates,
+    selectedPlaces,
+    setSelectedPlaces,
+    selectedGenres,
+    setSelectedGenres,
+}: DetailFilterViewProps) {
     const checkboxList = [
         {
-            label: '企画区分',
+            label: "企画区分",
             selectedArray: selectedTypes,
             setSelectedArray: setSelectedTypes,
-            options: [
-                { option: "総合ステージ企画" },
-                { option: "教室企画" },
-                { option: "模擬店企画" },
-                { option: "実行委員会企画" }
-            ]
+            options: ["総合ステージ企画", "教室企画", "模擬店企画", "実行委員会企画"],
         },
         {
-            label: '日程',
+            label: "日程",
             selectedArray: selectedDates,
             setSelectedArray: setSelectedDates,
-            options: [
-                { option: "10月30日(金)" },
-                { option: "10月31日(土)" },
-                { option: "11月1日(日)" }
-            ]
+            options: ["10月30日(金)", "10月31日(土)", "11月1日(日)"],
         },
         {
-            label: '場所',
+            label: "場所",
             selectedArray: selectedPlaces,
             setSelectedArray: setSelectedPlaces,
             options: [
-                { option: 'メインステージ' },
-                { option: 'パフォーマンスエリア' },
-                { option: 'エントランスエリア' },
-                { option: "屋内ステージ" },
-                { option: "第一校舎" },
-                { option: "メディア棟" },
-                { option: '和泉ラーニングスクエア' },
-                { option: 'その他' }
-            ]
+                "メインステージ",
+                "パフォーマンスエリア",
+                "エントランスエリア",
+                "屋内ステージ",
+                "第一校舎",
+                "メディア棟",
+                "和泉ラーニングスクエア",
+                "その他",
+            ],
         },
         {
-            label: 'ジャンル',
+            label: "ジャンル",
             selectedArray: selectedGenres,
             setSelectedArray: setSelectedGenres,
-            options: [
-                { option: '模擬店' },
-                { option: '音楽' },
-                { option: 'ダンス' },
-                { option: '喫茶' },
-                { option: 'ゲスト' },
-                { option: '展示' },
-                { option: '参加体験' },
-                { option: 'パフォーマンス' }
+            options: ["模擬店", "音楽", "ダンス", "喫茶", "ゲスト", "展示", "参加体験", "パフォーマンス"],
+        },
+    ];
 
-            ]
-        }
-    ]
-
-    // チェックボックスの状態を変更する関数
-    const handleCheckboxChange = (label: string, setSelectedArray: React.Dispatch<React.SetStateAction<string[]>>) => {
-        setSelectedArray(prev => {
-            console.log(selectedDates);
-            if (prev.includes(label)) {
-                // 既に選択されている場合は削除
-                return prev.filter(item => item !== label);
-            } else {
-                // 選択されていない場合は追加
-                return [...prev, label];
-            }
-        });
+    const handleCheckboxChange = (
+        option: string,
+        setSelectedArray: Dispatch<SetStateAction<string[]>>,
+    ) => {
+        setSelectedArray((previous) =>
+            previous.includes(option)
+                ? previous.filter((item) => item !== option)
+                : [...previous, option],
+        );
     };
 
     return (
         <div className="flex flex-col gap-14 md:gap-6 mt-10 object-contain">
             {checkboxList.map((checkbox) => (
-                <div key={checkbox.label} className="flex gap-8">
+                <div
+                    key={checkbox.label}
+                    role="group"
+                    aria-label={checkbox.label}
+                    className="flex gap-8"
+                >
                     <Label>{checkbox.label}</Label>
                     <div className="flex flex-wrap gap-x-8 gap-y-3">
                         {checkbox.options.map((option) => (
                             <Checkbox
-                                key={option.option}
-                                label={option.option}
-                                checked={checkbox.selectedArray.includes(option.option)}
-                                setChecked={() => handleCheckboxChange(option.option, checkbox.setSelectedArray)}
+                                key={option}
+                                label={option}
+                                checked={checkbox.selectedArray.includes(option)}
+                                setChecked={() => handleCheckboxChange(option, checkbox.setSelectedArray)}
                             />
                         ))}
                     </div>
                 </div>
             ))}
         </div>
-    )
+    );
 }
 
 interface SortViewProps {
     sortType: SortType;
-    setSortType: React.Dispatch<React.SetStateAction<SortType>>;
+    setSortType: Dispatch<SetStateAction<SortType>>;
 }
+
 function SortView({ sortType, setSortType }: SortViewProps) {
     const sortList = [
-        { id: 'eventName', label: '企画名' },
-        { id: 'groupName', label: '団体名' },
-        { id: 'eventDate', label: '実施日' },
-        { id: 'location', label: '場所' },
-        { id: 'free', label: 'おまかせ'}
-    ]
+        { id: "eventName", label: "企画名" },
+        { id: "groupName", label: "団体名" },
+        { id: "eventDate", label: "実施日" },
+        { id: "location", label: "場所" },
+        { id: "free", label: "おまかせ" },
+    ];
 
     function handleSortClick(id: string) {
-        if (id === 'free') {
-            setSortType({ orderColumn: 'free', ascending: true });
+        if (id === "free") {
+            setSortType({ orderColumn: "free", ascending: true });
         } else if (sortType.orderColumn === id) {
-            // 同じ列がクリックされた場合、昇順・降順を切り替え
             setSortType({ orderColumn: id, ascending: !sortType.ascending });
         } else {
-            // 別の列がクリックされた場合、その列で昇順に設定
             setSortType({ orderColumn: id, ascending: true });
         }
     }
@@ -242,12 +251,27 @@ function SortView({ sortType, setSortType }: SortViewProps) {
         <div className="flex justify-center">
             <div className="flex flex-wrap mt-8 gap-4">
                 {sortList.map((sort) => (
-                    <button key={sort.id} onClick={() => handleSortClick(sort.id)} className={`flex justify-center items-center text-sm text-center w-24 py-1 border-2 border-secondary bg-secondary-100 rounded-full hover:bg-secondary-400 transition ${sort.id === sortType.orderColumn ? 'bg-secondary-900 text-white': "bg-secondary-100 hover:bg-secondary-300"}`}>
-                        <p >{sort.label}</p>
-                        { (sort.id === sortType.orderColumn && sort.id !== 'free') && ( sortType.ascending ? <Image src="/images/EventListView/Polygon80.svg" alt="" width={10} height={10} className="ml-2" /> : <Image src="/images/EventListView/Polygon81.svg" alt="" width={10} height={10} className="ml-2" />) }
+                    <button
+                        key={sort.id}
+                        type="button"
+                        onClick={() => handleSortClick(sort.id)}
+                        aria-pressed={sort.id === sortType.orderColumn}
+                        aria-label={`${sort.label}${sort.id === sortType.orderColumn && sort.id !== "free" ? `（${sortType.ascending ? "昇順" : "降順"}）` : ""}`}
+                        className={`flex justify-center items-center text-sm text-center w-24 py-1 border-2 border-secondary rounded-full transition ${sort.id === sortType.orderColumn ? "bg-secondary-900 text-white" : "bg-secondary-100 hover:bg-secondary-300"}`}
+                    >
+                        <span>{sort.label}</span>
+                        {sort.id === sortType.orderColumn && sort.id !== "free" && (
+                            <Image
+                                src={sortType.ascending ? "/images/EventListView/Polygon80.svg" : "/images/EventListView/Polygon81.svg"}
+                                alt=""
+                                width={10}
+                                height={10}
+                                className="ml-2"
+                            />
+                        )}
                     </button>
                 ))}
             </div>
         </div>
-    )
+    );
 }

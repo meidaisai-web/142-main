@@ -1,27 +1,23 @@
 'use client';
 
-import { MasterData } from "@/utils/models/MasterData";
+import type { MasterData } from "@/utils/models/MasterData";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import type { RefObject } from "react";
 
 interface EventItemsProps {
     datas: (MasterData[] | null)[] | undefined;
-    ref: React.RefObject<HTMLDivElement | null>;
+    itemsRef?: RefObject<HTMLDivElement | null>;
+    isLoading?: boolean;
 }
 
-export default function EventItems({ datas, ref }: EventItemsProps) {
-
+export default function EventItems({ datas, itemsRef, isLoading = false }: EventItemsProps) {
+    const items = datas?.flatMap((data) => data ?? []) ?? [];
     return (
-        <div className="flex flex-wrap justify-center gap-y-8 gap-x-10 lg:gap-x-20 max-w-5xl mx-5 my-10" ref={ref}>
-            {datas?.map((data) => (
-                (data && data.length > 0) && (
-                    data.map((item) => (
-                        <EventItem key={item.id} data={item} />
-                    ))
-                )
-            ))}
-            {!datas || datas.length === 0 || (datas.length === 1 && (!datas[0] || datas[0].length === 0)) && (
+        <div className="flex flex-wrap justify-center gap-y-8 gap-x-10 lg:gap-x-20 max-w-5xl mx-5 mt-3 mb-6" ref={itemsRef} aria-busy={isLoading}>
+            {items.map((item) => <EventItem key={item.id} data={item} />)}
+            {!isLoading && items.length === 0 && (
                 <p className="text-center py-10">該当する企画が見つかりませんでした。</p>
             )}
         </div>
@@ -109,7 +105,8 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
         .replace(/\([^\)]*\)/g, '')
 
     return (
-        <div className="bg-white text-black pt-12 px-3 py-4 pb-7 text-xs w-full">
+        // カード下の余白を縮め、右下の雲をピンク枠へ重ねる。
+        <div className="bg-white text-black pt-12 px-3 pb-2 text-xs w-full">
             <div className="flex gap-3">
                 <div>
                     <Image
@@ -128,11 +125,11 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
                         ))}
                     </div>
                 </div>
-                <div className="flex flex-col gap-3 flex-1">
+                <div className="flex flex-col gap-3 flex-1 min-w-0">
                     <div className="flex gap-2">
-                        <div className="relative flex items-center justify-center w-4 h-4">
-                            <Image src='/images/EventListView/Ellipse.svg' alt='' width={35} height={35} className="absolute " />
-                            <Image src='/images/EventListView/heart.svg' alt='' width={16} height={16} className="absolute z-10" />
+                        <div className="relative flex shrink-0 items-center justify-center w-4 h-4">
+                            <Image src="/images/EventListView/Ellipse.svg" alt="" width={35} height={35} className="absolute" />
+                            <Image src="/images/EventListView/heart.svg" alt="" width={16} height={16} className="absolute z-10" />
                         </div>
                         <p>{genre}</p>
 
@@ -154,7 +151,8 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
                     </div>
                     <div className="w-full pb-4 mt-1">
                         <div className="bg-secondary-100 border-2 border-secondary-300 text-gray-700 py-3 rounded-xl w-full flex items-center justify-center min-h-[64px]">
-                            <p className="text-sm leading-snug break-words font-medium text-center w-full px-8">
+                            {/* 雲がかかる右下へ文字が入らないよう、右側に余白を確保する。 */}
+                            <p className="text-sm leading-snug break-words font-medium text-center w-full pl-4 pr-[72px]">
                                 {catchphrase}
                             </p>
                         </div>
@@ -167,7 +165,7 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
 
 function ItemFooter() {
     return (
-        <div className="absolute -bottom-[3px] -right-[3px] z-20 w-[24%] min-w-[100px] aspect-[9/5] text-[#66616b]">
+        <div className="absolute -bottom-[3px] -right-[3px] z-20 w-[24%] min-w-[100px] max-w-[106px] aspect-[9/5] text-[#66616b]">
             <svg
                 aria-hidden="true"
                 focusable="false"

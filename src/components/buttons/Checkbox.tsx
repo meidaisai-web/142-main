@@ -9,9 +9,9 @@ interface CheckboxProps {
 export default function Checkbox({ label, checked, setChecked }: CheckboxProps) {
     return (
         <div className="flex items-center gap-x-3 cursor-pointer select-none py-1" onClick={() => setChecked(!checked)}>
-            <div className={`shrink-0 flex justify-center items-center h-6 w-6 rounded-sm border-2 border-accent ${checked ? 'bg-accent' : 'bg-transparent'}`} >
+            <div className={`shrink-0 flex justify-center items-center h-6 w-6 rounded-sm border-2 border-secondary ${checked ? 'bg-secondary' : 'bg-transparent'}`} >
                 {checked &&
-                    <Image src='/images/svg/check-secondary.svg' alt='' width={20} height={20} className="w-5 h-5 object-contain"  />
+                    <Image src='/images/svg/check.svg' alt='' width={20} height={20} className="w-5 h-5 object-contain"  />
                 }
             </div>
             <p className="font-medium">{label}</p>
