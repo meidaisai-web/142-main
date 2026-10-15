@@ -89,9 +89,7 @@ export default function Page() {
                   <ListItem> ※1日に配付する抽選券の枚数には限りがあります。予定枚数に達し次第、Web上の引き換え画面は表示されなくなりますので、あらかじめご了承ください。</ListItem>
                     <ListItem> 抽選券に関して詳しく知りたい方は、明大祭大抽選会詳細ページをご覧ください。</ListItem>
                 </ListText>
-                <Button href="/bigLottery" className="mt-5">
-                    こちら
-                </Button>
+                <Button className="w-fit mx-auto mt-2" href="/bigLottery">こちら</Button>
                 <ContactView department="第142回明大祭実行委員会演出局" mail="142nd-enshutsu@meidaisai.jp" />
             </CloudPageContainer>
         </div>
