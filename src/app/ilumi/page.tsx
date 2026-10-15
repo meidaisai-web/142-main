@@ -1,14 +1,14 @@
 import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
-import CloudPageContainer from "@/components/base/CloudPageContainer"
+import StarPageContainer from "@/components/base/StarPageContainer/StarPageContainer"
 import Emphasis from "@/components/texts/Emphasis"
 import SmallTitle from "@/components/texts/SmallTitle"
 import OnlyImage from "@/components/OnlyImage"
 import ContactView from "@/components/texts/ContactView"
 export default function Page() {
     return (
-          <CloudPageContainer>
+          <StarPageContainer>
             <PageTitle>明大祭イルミネーション</PageTitle>
             <OnlyImage src="/images/ilumi/ilumi.png" alt="明大祭イルミネーション" />
 
@@ -25,6 +25,6 @@ export default function Page() {
                 <Text>和泉キャンパス正門付近</Text>
 
                 <ContactView department="開発局" mail="142nd-kaihatsu@meidaisai.jp" />
-            </CloudPageContainer>
+            </StarPageContainer>
     )
 }

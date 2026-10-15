@@ -1,4 +1,4 @@
-import CloudPageContainer from "@/components/base/CloudPageContainer";
+import StarPageContainer from "@/components/base/StarPageContainer/StarPageContainer"
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import Text from "@/components/texts/Text"; 
@@ -11,7 +11,7 @@ import Movie from "@/components/Movie";
 
 export default function Page() {
     return (
-        <CloudPageContainer>
+        <StarPageContainer>
             <PageTitle>明大王</PageTitle>
             <OnlyImage src="/images/king/king.png" alt="明大王" />
 
@@ -60,7 +60,7 @@ export default function Page() {
             <Movie src="https://movie.meidaisai.jp/king.mp4" /> */}
 
             <ContactView department="演出局永燦部門" mail="142nd-eisan@meidaisai.jp" />
-        </CloudPageContainer>
+        </StarPageContainer>
     )
 }
  

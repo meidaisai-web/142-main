@@ -7,7 +7,6 @@ import AccentText from "@/components/texts/AccentText";
 
 export default function SitemapPage() {
 	return (
-		<>
 		<CloudPageContainer>
 			<PageTitle>サイトマップ</PageTitle>
 				<SmallTitle className="mt-15">ご来場のみなさまへ</SmallTitle>
@@ -31,29 +30,33 @@ export default function SitemapPage() {
 				</div>
 
 				<SmallTitle>実行委員会企画</SmallTitle>
-				<div className="flex flex-wrap gap-4 mt-5 mb-15">
-
                  <AccentText>演出局企画</AccentText>
+				 <div className="flex flex-wrap gap-4 mt-5 mb-15">
 					<TransitionLink href="/opening">Opening</TransitionLink>
 					<TransitionLink href="/meijic">Meijic Station</TransitionLink>
 					<TransitionLink href="/king">明大王</TransitionLink>
 					<TransitionLink href="/ending">Ending</TransitionLink>
+                </div>
 
 				 <AccentText>開発局企画</AccentText>
+				 <div className="flex flex-wrap gap-4 mt-5 mb-15">
 					<TransitionLink href="/experiment">めいじっけん</TransitionLink>
 					<TransitionLink href="/limit">LIMIT∞BREAK</TransitionLink>
 					<TransitionLink href="/wakuwaku">受験生コレクション～わくわく明大生活～</TransitionLink>
 					<TransitionLink href="/tour">ツアー企画</TransitionLink>
 					<TransitionLink href="/ilumi">明大祭イルミネーション</TransitionLink>
 					<TransitionLink href="/halloween">ハロウィンナイトin明大祭</TransitionLink>
+				 </div>
 
-					<AccentText>渉外局局企画</AccentText>
+				<AccentText>渉外局局企画</AccentText>
+				<div className="flex flex-wrap gap-4 mt-5 mb-15">
 					<TransitionLink href="/booth">企業ブース</TransitionLink>
+                </div>
 
-					<AccentText>制作局企画</AccentText>
+				<AccentText>制作局企画</AccentText>
+				<div className="flex flex-wrap gap-4 mt-5 mb-15">
 					<TransitionLink href="/sticker">ステッカー企画</TransitionLink>
 					<TransitionLink href="/goods">明大祭公式グッズ</TransitionLink>
-
 				</div>
 
 				<SmallTitle>明大祭に関わってくださるみなさまへ</SmallTitle>
@@ -71,8 +74,6 @@ export default function SitemapPage() {
 				</div>
 
 				<div className="h-20" />
-			</CloudPageContainer>
-
-		</>
+		</CloudPageContainer>
 	);
 }
