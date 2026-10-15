@@ -12,7 +12,6 @@ export default function about() {
             <Text>今年度の明大祭を象徴する第142回明大祭テーマ。テーマはロゴ・コンセプト・カラーの3つの要素から構成されています。<br />
                   テーマに込められている思いを胸に、第142回明大祭を一緒に盛り上げていきましょう！
             </Text>
-
             <SectionTitle className="mb-10">第142回明大祭コンセプト</SectionTitle>
             <Image src="/images/theme/onlycatchcopy.svg" width={1829} height={1598} alt="キャッチコピー" className="w-150 h-auto mx-auto"/>
             <Text center className="mt-10">胸の鼓動が高鳴る、その一瞬</Text>
