@@ -255,7 +255,8 @@ export default function FightVote() {
   // 下の余白は、フッターの雲が上にはみ出す分（約14vw）に、見える余白を足したもの。
   return (
     <div className="mx-auto mt-[56px] w-full max-w-[880px] bg-white pt-[22px] pb-[calc(14vw+50px)] text-[#191919]">
-      <PageTitle>Fight on the Stage投票フォーム</PageTitle>
+      {/* 改行文字で「Fight on the Stage」と「投票フォーム」を2行に分ける。 */}
+      <PageTitle className="whitespace-pre-line">{"Fight on the Stage\n投票フォーム"}</PageTitle>
       {/* 投票済みなら完了画面、それ以外は説明・3部門の選択肢・送信ボタンを表示する。 */}
       {hasVoted ? (
         <div className="flex flex-col items-center gap-4 px-5 pt-4 pb-6 text-center">
