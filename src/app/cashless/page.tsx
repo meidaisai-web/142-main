@@ -61,6 +61,9 @@ const page = () => {
                 <ListItem><TransitionLink href="/search/242">情報コミュニケーション学部 山内勇ゼミナール</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/624">明治大学交響楽団</TransitionLink></ListItem>
             </List>
+            <List mark="※">
+                <ListItem><Emphasis>明大祭グッズのガチャガチャは、現金のみご利用いただけます。</Emphasis></ListItem>
+            </List>
             <AccentText className="mb-3">交通系IC以外のキャッシュレスに対応している17店</AccentText>
             <List mark="・">
                 <ListItem><TransitionLink href="/search/181">BREMEN</TransitionLink></ListItem>
