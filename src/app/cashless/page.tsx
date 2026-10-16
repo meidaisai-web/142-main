@@ -90,7 +90,7 @@ const page = () => {
                 <ListItem>キャッシュレス決済が可能なブースでは以下の掲示物が設置されています。</ListItem>
                 <OnlyImage src="/images/cashless/okcashless.png" alt="キャッシュレス決済対応マーク" className="w-20 sm:w-35 my-3" />
                 <ListItem >明大祭公式サイトの企画検索・企画詳細ページおよびパンフレットの企画ページには、こちらのマークが表示されています。</ListItem>
-                <OnlyImage src="/images/cashless/cashless.png" alt="キャッシュレス決済対応マーク" className="w-20 sm:w-35 my-3" />
+                <OnlyImage src="/images/cashless/cashless.svg" alt="キャッシュレス決済対応マーク" className="w-20 sm:w-35 my-3" />
             </List>
             <SmallTitle className="mb-3">ご利用にあたってのお願い</SmallTitle>
             <List mark="・">
