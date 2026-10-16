@@ -8,7 +8,7 @@ import Emphasis from "@/components/texts/Emphasis"
 import { List, ListItem } from "@/components/texts/List"
 import ContactView from "@/components/texts/ContactView"
 
-
+git 
 const page = () => {
     return (
         <StarPageContainer>
