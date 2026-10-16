@@ -1,4 +1,4 @@
-import CloudPageContainer from "@/components/base/CloudPageContainer";
+import StarPageContainer from "@/components/base/StarPageContainer/StarPageContainer";
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
 import Text from "@/components/texts/Text"; 
@@ -10,7 +10,7 @@ import ImageLogo from "@/components/texts/ImageLogo";
 
 export default function Page() {
     return (
-        <CloudPageContainer>
+        <StarPageContainer>
             <PageTitle>Fight on the Stage</PageTitle>
             <ImageLogo
                 src="/images/fight/fight-image.jpg"
@@ -56,7 +56,7 @@ export default function Page() {
             <AccentText>Star dream</AccentText>
             <Text>K-POPカバーダンスサークルMercie、中野ダンスサークルSIGN</Text>
             {/* <SectionTitle>Fight on the Stage紹介動画</SectionTitle> */}
-        </CloudPageContainer>
+        </StarPageContainer>
     )
 }
  
