@@ -1,4 +1,4 @@
-import { isAlreadyVoted, isVoteTime, isVoucherAvailableToday, saveVotedId } from "@/utils/managers/meichamManager";
+import { getVoteTimeStatus, isAlreadyVoted, isVoucherAvailableToday, saveVotedId, VoteTimeStatus } from "@/utils/managers/meichamManager";
 import { voteMeicham } from "@/utils/supabase/meichamAction";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -24,6 +24,12 @@ function getUserUUID(): string {
     return uuid;
 }
 
+// 投票できないときのボタンの文字とボタン下の案内文
+const VOTE_TIME_MESSAGES: Record<Exclude<VoteTimeStatus, 'ok'>, { button: string, message: string }> = {
+    outOfHours: { button: "投票時間外です", message: "現在は投票時間外です。投票は明大祭の開催時間中にお願いいたします。" },
+    notEventDay: { button: "企画実施日ではありません", message: "本日はこの企画の実施日ではありません。投票は企画の実施日にお願いいたします。" },
+};
+
 interface VoteViewProps {
     id: string;
     groupId: string;
@@ -31,7 +37,7 @@ interface VoteViewProps {
     eventName: string;
     groupName: string;
     eventDate: string;
-    category: MeichamCategory;
+    category: MeichamCategory | null; // nullは投票対象外の企画
 }
 
 export default function VoteView({ id, groupId, type, eventName, groupName, eventDate, category }: VoteViewProps) {
@@ -45,9 +51,11 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
 
     useEffect(() => {
         async function initialize() {
-            if (!isVoteTime(eventDate)) {
-                setButtonText("投票時間外です");
-                setError("現在は投票時間外です。投票は明大祭の開催時間中にお願いいたします。");
+            if (!category) return; // 投票対象外の企画はボタンを出さない
+            const timeStatus = getVoteTimeStatus(eventDate);
+            if (timeStatus !== 'ok') {
+                setButtonText(VOTE_TIME_MESSAGES[timeStatus].button);
+                setError(VOTE_TIME_MESSAGES[timeStatus].message);
                 setIsEnable(false);
                 return;
             }
@@ -82,13 +90,14 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
     }
 
     async function handleVote() {
-        if (!isEnable || isVoting) return; // 連打防止
+        if (!category || !isEnable || isVoting) return; // 投票対象外・連打防止
         setIsVoting(true);
         setIsEnable(false);
         setError(null);
         setButtonText("投票中...");
-        if (!isVoteTime(eventDate)) {
-            failVote("現在は投票時間外です。投票は明大祭の開催時間中にお願いいたします。", "投票時間外です", false);
+        const timeStatus = getVoteTimeStatus(eventDate);
+        if (timeStatus !== 'ok') {
+            failVote(VOTE_TIME_MESSAGES[timeStatus].message, VOTE_TIME_MESSAGES[timeStatus].button, false);
             return;
         }
 
@@ -125,30 +134,6 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
 
     return (
         <div className="relative mt-16 max-w-5xl mx-auto">
-            {/* 背景の四角分 */}
-            <div className="opacity-0 flex flex-col items-center font-medium p-7 text-sm sm:text-base">
-                <Image src="/images/meicham/meicham.jpg" alt="Meidaisai Championship ロゴ" width={200} height={200} />
-                <div className="flex flex-wrap justify-center font-bold text-lg">
-                    <p>明大祭のチャンピオンに</p>
-                    <p>輝くのは誰だ！</p>
-                </div>
-                <div className="flex flex-wrap justify-center pt-3">
-                    <p>みなさまの投票によって</p>
-                    <p>明大祭No.1企画が決定します！</p>
-                </div>
-                <List mark="※" className="pt-3">
-                    <ListItem>企画へのお問い合わせは、和泉図書館前アンケート回収受付までお越しください。</ListItem>
-                </List>
-                <VoteButton onClick={handleVote} disabled={!isEnable}>
-                    {buttonText}
-                </VoteButton>
-                <p className="text-center">{error}</p>
-                <div className="flex flex-col gap-5 w-full mt-5 items-center">
-                    <p>Meidaisai Championsipとは</p>
-                    <p>抽選券引き換え画面</p>
-                </div>
-            </div>
-            {/* 本体 */}
             <div className="flex flex-col items-center bg-white border-4 rounded-3xl border-accent text-black font-medium p-7 text-sm sm:text-base">
                 <Image src="/images/meicham/meicham.jpg" alt="Meidaisai Championship ロゴ" width={200} height={200} className="max-w-full w-64" />
                 <div className="flex flex-wrap justify-center font-bold text-lg">
@@ -162,26 +147,34 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                 <List mark="※" className="pt-3">
                     <ListItem>企画へのお問い合わせは、和泉図書館前アンケート回収受付までお越しください。</ListItem>
                 </List>
-                <VoteButton onClick={onTapVote} disabled={!isEnable}>
-                    {buttonText}
-                </VoteButton>
-                <p className="text-primary text-center">{error}</p>
+                {category ? (
+                    <>
+                        <VoteButton onClick={onTapVote} disabled={!isEnable}>
+                            {buttonText}
+                        </VoteButton>
+                        <p className="text-primary-900 font-bold text-center">{error}</p>
+                    </>
+                ) : (
+                    <p className="text-primary-900 font-bold text-center my-5">この企画は Meidaisai Championship の投票対象ではありません。</p>
+                )}
                 <div className="flex flex-col gap-5 w-full mt-5 items-center">
                     <TransitionLink href='/champ'>Meidaisai Championshipとは</TransitionLink>
                     <TransitionLink href='/voucher'>抽選券引き換え画面</TransitionLink>
                 </div>
             </div>
-            <MeichamVoteModal
-                step={modalStep}
-                hidden={hiddenAlert}
-                onClose={() => { if (!isVoting) setHiddenAlert(true); }}
-                onVote={handleVote}
-                eventName={eventName}
-                groupName={groupName}
-                category={category}
-                isVoting={isVoting}
-                isVoucherAvailable={isVoucherAvailableToday()}
-            />
+            {category &&
+                <MeichamVoteModal
+                    step={modalStep}
+                    hidden={hiddenAlert}
+                    onClose={() => { if (!isVoting) setHiddenAlert(true); }}
+                    onVote={handleVote}
+                    eventName={eventName}
+                    groupName={groupName}
+                    category={category}
+                    isVoting={isVoting}
+                    isVoucherAvailable={isVoucherAvailableToday()}
+                />
+            }
         </div>
     )
 }

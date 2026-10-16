@@ -67,22 +67,25 @@ const VOTE_HOURS: Record<string, [number, number]> = {
     '2026-11-01': [11, 17]
 };
 
-// 投票可能な時間か確認する
-export function isVoteTime(eventDate: string): boolean {
+// 投票できるかどうかと、できない理由
+// ok: 投票できる / outOfHours: 開催日以外または受付時間外 / notEventDay: 開催日だが企画の実施日ではない
+export type VoteTimeStatus = 'ok' | 'outOfHours' | 'notEventDay';
+
+export function getVoteTimeStatus(eventDate: string): VoteTimeStatus {
     const today = getJapanDateString();
     const hours = VOTE_HOURS[today];
     if (!hours) {
-        return false;
+        return 'outOfHours';
     }
     // "全日"は本祭3日間すべてが実施日
     if (!eventDate.includes('全日')) {
         const eventDays = [...eventDate.matchAll(/(\d{1,2})日/g)].map(match => Number(match[1]));
         if (!eventDays.includes(getOnlyDate(today))) {
-            return false;
+            return 'notEventDay';
         }
     }
     const hour = getJapanDate().getUTCHours();
-    return hours[0] <= hour && hour < hours[1];
+    return hours[0] <= hour && hour < hours[1] ? 'ok' : 'outOfHours';
 }
 
 // 本日まだ投票していない部門
