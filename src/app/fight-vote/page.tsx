@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import TransitionLink from "@/components/buttons/TransitionLink";
+import PageTitle from "@/components/texts/PageTitle";
+import SmallTitle from "@/components/texts/SmallTitle";
 import detectIncognito from "detectincognitojs";
 import { addVoteData } from "@/utils/supabase/fightVoteAction";
 
@@ -42,41 +44,6 @@ const battles = [
     { name: "中野ダンスサークル SIGN", photo: "sign.webp", value: 0 },
   ] },
 ] as const;
-
-// このページ専用のページ見出し。共通PageTitleより小さめで、点線の下線と紙飛行機のデザイン。
-// 文字は16px固定、幅640px以上では24px。
-function FormTitle({ children }: { children: string }) {
-  return (
-    <h1 className="relative mx-[14%] mb-[14px] border-b-2 border-dashed border-[#efc3cf] pb-[2px] text-center text-[16px] leading-[1.6] font-bold sm:text-[24px]">
-      {children}
-      <Image src="/images/svg/airplane.svg" alt="" width={60} height={60}
-        className="absolute -right-[30px] -bottom-[11px] size-[22px]" aria-hidden="true" />
-    </h1>
-  );
-}
-
-type BattleTitleProps = {
-  id: string;
-  children: string;
-};
-
-// このページ専用の部門見出し。共通SmallTitleは使わず、飾りのSVGと文字を組み合わせる。
-// idをsectionのaria-labelledbyと対応させ、読み上げ時にも部門名を伝える。
-function BattleTitle({ id, children }: BattleTitleProps) {
-  return (
-    <h2 id={id} className="relative mx-auto w-fit text-[18px] font-normal">
-      <Image
-        src="/images/svg/titles/smallTitle.svg"
-        alt=""
-        width={177}
-        height={162}
-        className="pointer-events-none absolute -left-[1.4em] -top-[1em] h-auto w-[2em] max-w-none"
-        aria-hidden="true"
-      />
-      {children}
-    </h2>
-  );
-}
 
 // 団体名の左右につける「〈 〉」形の二重線（外側が太線、内側が細線）。デザインの座標をそのまま使う。
 // 色は親のtextクラス（部門色）を使う。文字側に9px重ねて、デザインと同じ間隔にする。
@@ -288,7 +255,7 @@ export default function FightVote() {
   // 下の余白は、フッターの雲が上にはみ出す分（約14vw）に、見える余白を足したもの。
   return (
     <div className="mx-auto mt-[56px] w-full max-w-[880px] bg-white pt-[22px] pb-[calc(14vw+50px)] text-[#191919]">
-      <FormTitle>Fight on the Stage投票フォーム</FormTitle>
+      <PageTitle>Fight on the Stage投票フォーム</PageTitle>
       {/* 投票済みなら完了画面、それ以外は説明・3部門の選択肢・送信ボタンを表示する。 */}
       {hasVoted ? (
         <div className="flex flex-col items-center gap-4 px-5 pt-4 pb-6 text-center">
@@ -314,7 +281,7 @@ export default function FightVote() {
             }));
             return (
               <section className="mb-10" key={battle.title} aria-labelledby={`battle-${index}`}>
-                <BattleTitle id={`battle-${index}`}>{battle.title}</BattleTitle>
+                <SmallTitle id={`battle-${index}`} center>{battle.title}</SmallTitle>
                 <GroupName {...states[0]} side="left" />
                 <div className="relative flex items-start justify-between px-[11.29%]">
                   {states.map((state, sideIndex) => (
