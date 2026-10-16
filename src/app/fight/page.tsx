@@ -55,7 +55,7 @@ export default function Page() {
             <Text>アカペラサークルSound Arts、Copia</Text>
             <AccentText>Star dream</AccentText>
             <Text>K-POPカバーダンスサークルMercie、中野ダンスサークルSIGN</Text>
-            {/* <SectionTitle>Fight on the Stage紹介動画</SectionTitle> */}
+            {/*<SectionTitle>Fight on the Stage紹介動画</SectionTitle>*/}
         </StarPageContainer>
     )
 }
