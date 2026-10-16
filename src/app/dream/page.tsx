@@ -1,5 +1,5 @@
 import PageTitle from "@/components/texts/PageTitle"
-import CloudPageContainer from "@/components/base/CloudPageContainer"
+import StarPageContainer from "@/components/base/StarPageContainer/StarPageContainer"
 import Text from "@/components/texts/Text"
 import SmallTitle from "@/components/texts/SmallTitle"
 import Emphasis from "@/components/texts/Emphasis"
@@ -10,7 +10,7 @@ import ContactView from "@/components/texts/ContactView"
 export default function Page() {
     return (
         <div>
-           <CloudPageContainer>
+           <StarPageContainer>
             <PageTitle>Dream canvas ー夜空を描こうー</PageTitle>
                 <OnlyImage src="/images/dream/dream-logo.png" alt='ドリームロゴ'  />
                 <SectionTitle>企画概要</SectionTitle>
@@ -20,7 +20,7 @@ export default function Page() {
                 <AccentText>日時</AccentText>
                 <text>10月30日(金).31(土)11:00〜18:00<br />11月1日(日)11:00〜17:00</text>
                 <ContactView department="開発局黎幸部門" mail="142ndreikobumon@gmail.com" showPhone showAddress />
-            </CloudPageContainer>
+            </StarPageContainer>
         </div>
     )
 }
