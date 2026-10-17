@@ -6,9 +6,8 @@ import Emphasis from "@/components/texts/Emphasis"
 import SectionTitle from "@/components/texts/SectionTitle"
 export default function Page() {
     return (
-        <div>
+        <CloudPageContainer>
             <PageTitle>LIMIT∞BREAK</PageTitle>
-            <CloudPageContainer>
                 <SectionTitle className="mb-8">企画概要</SectionTitle>
                 <Text><Emphasis bold>超えろ、キミの本気。挑め、世界の記録。</Emphasis></Text>
                 <Text><Emphasis bold>限界のその先へ —— LIMIT ∞ BREAK</Emphasis></Text>
@@ -18,7 +17,6 @@ export default function Page() {
                 <Text>第一校舎305教室</Text>
                 <SmallTitle>日時</SmallTitle>
                 <Text>10月30日(金).31日(土).11月1日(日)</Text>
-            </CloudPageContainer>
-        </div>
+        </CloudPageContainer>
     )
 }

@@ -4,13 +4,12 @@ import { getUniqueMasterData } from "@/utils/supabase/masterDataAction";
 import { useEffect, useState } from "react";
 import { MasterData } from "@/utils/models/MasterData";
 import VoteView from "./VoteView";
-import AccentText from "../texts/AccentText";
 import Text from "../texts/Text";
 import Image from "next/image";
 import Link from "next/link";
-import Label from "../texts/Label";
 import ZoomableImage from "../ZoomableImage";
 import { getMeichamCategory } from "@/utils/managers/meichamManager";
+import SearchCloud from "./SearchCloud";
 
 interface DetailContentProps {
     id: string;
@@ -44,30 +43,30 @@ export default function DetailEventContent({ id }: DetailContentProps) {
     }, [id]);
 
     return (
-        <div>
+        <div className="overflow-x-clip">
             {loading && (
-                <div className="w-full px-12 sm:px-14 md:px-18 lg:px-24">
+                <div className="w-full px-4 sm:px-14 md:px-18 lg:px-24">
                     <EventTitle>読み込み中...</EventTitle>
                 </div>
             )}
 
             {error && (
-                <div className="w-full px-12 sm:px-14 md:px-18 lg:px-24">
+                <div className="w-full px-4 sm:px-14 md:px-18 lg:px-24">
                     <EventTitle>企画が見つかりませんでした</EventTitle>
                 </div>
             )}
 
             {!loading && !error && data && (
-                <div className="w-full px-12 sm:px-14 md:px-18 lg:px-24 flex flex-col items-center">
+                <div className="w-full px-4 sm:px-14 md:px-18 lg:px-24 flex flex-col items-center">
                     <EventTitle>{data.eventName}</EventTitle>
-                    <div className="flex justify-center items-center lg:items-start gap-8 mt-16 flex-col lg:flex-row">
-                        <ImageView type={data.type} imageUrl={data.imageUrl} />
-                        <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} icons={data.icons} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
+                    <div className="w-full bg-white/80 rounded-xl p-4 sm:p-10 lg:p-20 flex justify-center items-center lg:items-start gap-8 mt-16 flex-col lg:flex-row">
+                        <ImageView type={data.type} imageUrl={data.imageUrl} icons={data.icons} />
+                        <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
                     </div>
-                    {data.location.includes("テント配置番号") && (
+                    　 {data.location.includes("テント配置番号") && (
                         <ZoomableImage src="/images/map/tent.jpg" alt="テントマップ" width={600} height={300} className="bg-white p-1 rounded-xl object-contain w-full h-fit max-w-xl mt-16" />
                     )}
-                    <Menu menus={data.menuItems || []} />
+                    {/* <Menu menus={data.menuItems || []} /> */}
                     {/* 不参加の企画もVoteViewを出し、「投票対象ではありません」と表示する（category === null） */}
                     {(!data.groupName.includes("明大祭実行委員会") && data.groupName !== '伊藤 汰海') &&
                         <VoteView id={id} groupId={data.groupId} type={data.type} eventName={data.eventName} groupName={data.groupName} eventDate={data.eventDate} category={category} />
@@ -81,13 +80,13 @@ export default function DetailEventContent({ id }: DetailContentProps) {
 interface ImageViewProps {
     type: string;
     imageUrl: string;
+    icons?: string[];
 }
 
-function ImageView({ type, imageUrl }: ImageViewProps) {
+function ImageView({ type, imageUrl, icons }: ImageViewProps) {
     return (
-        <div>
-            <EventImage imageUrl={imageUrl} />
-            <TypeLabel>{type}企画</TypeLabel>
+        <div className="w-full max-w-75 shrink-0">
+            <EventImage imageUrl={imageUrl} icons={icons} />
         </div>
     )
 }
@@ -98,7 +97,6 @@ interface InfoViewProps {
     location: string;
     catchphrase: string;
     detail: string;
-    icons?: string[];
     instagram?: string;
     x?: string;
     tiktok?: string;
@@ -106,37 +104,21 @@ interface InfoViewProps {
     homepage?: string;
 }
 
-function InfoView({ group, date, location, catchphrase, detail, icons, instagram, x, tiktok, youtube, homepage }: InfoViewProps) {
+function InfoView({ group, date, location, catchphrase, detail, instagram, x, tiktok, youtube, homepage }: InfoViewProps) {
     return (
-        <div className="max-w-xl flex flex-col gap-5">
-            <div className="flex flex-wrap items-center gap-4 text-sm">
-                {icons && icons.map((icon) => (
-                    <div key={icon} className="px-3 py-1 text-center border-accent border-2 rounded-full">
-                        {icon}
-                    </div>
-                ))}
-            </div>
-            <div className="flex items-center gap-4">
-                <Label>団体</Label>
-                <p className="font-bold">{group}</p>
-            </div>
+    <div className="w-full max-w-xl min-w-0">
+        <div className="flex flex-col gap-5">
+            <InfoRow label="団体">{group}</InfoRow>
+            <InfoRow label="日時">{date}</InfoRow>
+            <InfoRow label="場所">{location}</InfoRow>
             <div>
-                <div className="flex items-center gap-4">
-                    <Label>日時</Label>
-                    <p className="font-bold">{date}</p>
-                </div>
+                <AccessoryText lineColor="var(--color-primary)" accessory="/images/searchdetail/description-accessory-green.svg" className="mt-5 font-bold">
+                    {catchphrase}
+                </AccessoryText>
+                <Text className="break-words">{detail}</Text>
             </div>
-            <div>
-                <div className="flex items-center gap-4">
-                    <Label>場所</Label>
-                    <p className="font-bold">{location}</p>
-                </div>
-            </div>
-            <div>
-                <div className="border-b-2 border-accent w-fit gap-4"><AccentText>{catchphrase}</AccentText></div>
-                <Text className="font-medium">{detail}</Text>
-            </div>
-            <div className="flex justify-end items-center gap-6 mt-4">
+
+            <div className="flex flex-wrap justify-end items-center gap-x-6 gap-y-3 mt-4">
                 {instagram && (
                     <Link href={`https://www.instagram.com/${instagram}`} target="_blank">
                         <Image src={'/images/svg/sns/Instagram_White.svg'} alt="instagram" width={35} height={35} className="w-8" />
@@ -165,6 +147,53 @@ function InfoView({ group, date, location, catchphrase, detail, icons, instagram
                 )}
             </div>
         </div>
+    </div>
+    )
+}
+
+interface InfoRowProps {
+    label: string;
+    children: string;
+}
+
+function InfoRow({ label, children }: InfoRowProps) {
+    return (
+        <div className="flex items-center gap-2 sm:gap-4">
+            <SearchCloud>{label}</SearchCloud>
+            <AccessoryText lineColor="var(--color-secondary)" accessory="/images/searchdetail/title-accessory.svg" className="flex-1 min-w-0 pl-2 sm:pl-7">
+                {children}
+            </AccessoryText>
+        </div>
+    )
+}
+
+interface AccessoryTextProps {
+    children: string;
+    lineColor: string;
+    accessory: string;
+    className?: string;
+}
+
+// 折り返した各行に下線を引き、最終行の末尾にアクセサリーを付ける
+function AccessoryText({ children, lineColor, accessory, className }: AccessoryTextProps) {
+    const chars = Array.from(children ?? "");
+    const last = chars.pop() ?? "";
+    const lineStyle = {
+        backgroundImage: `linear-gradient(${lineColor}, ${lineColor})`,
+        backgroundSize: "100% 2px",
+        backgroundPosition: "bottom",
+        backgroundRepeat: "no-repeat",
+    };
+
+    return (
+        <p className={`leading-9 break-words ${className ?? ""}`}>
+            <span className="pb-1" style={lineStyle}>{chars.join("")}</span>
+            <span className="whitespace-nowrap mr-7">
+                <span className="relative pb-1 pr-3" style={lineStyle}>{last}
+                    <Image src={accessory} alt="" width={28} height={40} className="absolute left-full bottom-px translate-y-1/2 h-10 w-auto max-w-none pointer-events-none" />
+                </span>
+            </span>
+        </p>
     )
 }
 
@@ -174,40 +203,9 @@ interface EventTitleProps {
 
 function EventTitle({ children }: EventTitleProps) {
     return (
-        <div className={`w-full flex items-center justify-center pt-32 pb-2`}>
-            <div className="relative w-fit flex items-center justify-center">
-                <Image
-                    src="/images/svg/title/SectionTitleL.svg"
-                    alt=""
-                    width={80}
-                    height={80}
-                    className="absolute w-14 h-14 -left-9 -z-10"
-                />
-                <h2 className="text-center font-bold text-3xl">{children}</h2>
-                <Image
-                    src="/images/svg/title/SectionTitleR.svg"
-                    alt=""
-                    width={60}
-                    height={60}
-                    className="absolute w-14 h-14 -right-9 -z-10"
-                />
-            </div>
-        </div>
-    )
-}
-
-interface TypeLabelProps {
-    children: React.ReactNode;
-}
-
-function TypeLabel({ children }: TypeLabelProps) {
-    return (
-        <div className="pr-2 py-3">
-            <div className={`-rotate-3 rounded-full border-2 border-accent py-1 px-10 text-center absolute w-72 -translate-y-0.5`}>
-                <p className='opacity-0'>{children}</p>
-            </div>
-            <div className={`rounded-full transition duration-100 bg-secondary py-1 px-10 relative w-72 z-10`}>
-                <p className='text-lg font-bold text-center'>{children}</p>
+        <div className={`pt-13 w-full flex items-center justify-center `}>
+            <div className="w-screen shrink-0 aspect-[4784/1270] px-16 bg-center bg-no-repeat bg-contain flex items-center justify-center" style={{ backgroundImage: "url('/images/searchdetail/titlecloud.svg')" }}>
+                <h2 className="text-center font-bold text-2xl sm:text-3xl">{children}</h2>
             </div>
         </div>
     )
@@ -215,60 +213,22 @@ function TypeLabel({ children }: TypeLabelProps) {
 
 interface EventImageProps {
     imageUrl: string;
+    icons?: string[];
 }
 
-function EventImage({ imageUrl }: EventImageProps) {
+function EventImage({ imageUrl, icons }: EventImageProps) {
     const [imgSrc, setImgSrc] = useState(imageUrl);
 
     return (
-        <div className="relative pr-3 mb-3">
-            <Image
-                src={imgSrc}
-                alt="企画画像"
-                width={300}
-                height={300}
-                className="rounded-lg w-72 h-72 object-cover"
-                onError={() => setImgSrc('/images/svg/no-image.svg')}
-            />
-            <div className="w-72 h-72 bg-secondary absolute top-3 left-3 rounded-lg -z-10" />
-        </div>
-    )
-}
-
-interface MenuProps {
-    menus: string[]
-}
-function Menu({ menus }: MenuProps) {
-    if (menus.length === 0) {
-        return null;
-    }
-    return (
-        <div className="relative mt-20">
-            <Image src='/images/svg/pin-menu.svg' alt='' width={40} height={40} className="w-10 h-10 absolute -top-5 left-36" />
-            <div className="absolute rounded-3xl border-black border-4 overflow-hidden w-80 -z-10 top-3 left-3">
-                <div className="bg-secondary-900 border-b-2 border-secondary-900 text-center w-full text-3xl py-3 font-bold">
-                    Menu
-                </div>
-                <div className="bg-secondary-900 text-secondary-900 font-semibold px-10 pt-3 pb-10 text-lg">
-                    {menus.map((menu) => (
-                        <div key={menu} className="border-b-1 border-secondary-900 pt-6 pb-1">
-                            {menu}
-                        </div>
-                    ))}
-                </div>
+        <div className="gap-5 flex flex-col">
+            <div className="flex flex-wrap items-center gap-4 text-sm">
+                {icons && icons.map((icon) => (
+                    <div key={icon} className="px-3 py-1 text-center border-primary border-2 rounded-full">
+                        {icon}
+                    </div>
+                ))}
             </div>
-            <div className="rounded-3xl border-black border-4 overflow-hidden w-80">
-                <div className="bg-secondary border-b-2 border-black text-center w-full text-3xl py-3 font-bold">
-                    Menu
-                </div>
-                <div className="bg-white text-secondary font-semibold px-10 pt-3 pb-10 text-lg">
-                    {menus.map((menu) => (
-                        <div key={menu} className="border-b-1 border-black pt-6 pb-1">
-                            {menu}
-                        </div>
-                    ))}
-                </div>
-            </div>
+            <Image src={imgSrc} alt="企画画像" width={300} height={300} className="rounded-lg w-full max-w-75 aspect-square object-cover" onError={() => setImgSrc('/images/svg/no-image.svg')}/>
         </div>
     )
 }
