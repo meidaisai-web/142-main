@@ -60,7 +60,7 @@ export default function Marge() {
                 <ListItem>キャップ投げクラブ</ListItem>
                 <ListItem>国際日本学部宮本大人ゼミナール</ListItem>
                 <ListItem>商学部福田康典ゼミナール</ListItem>
-                <ListItem>新歓実行委員会和泉</ListItem>
+                <ListItem>新歓実行委員会【和泉】</ListItem>
                 <ListItem>描画俱楽部</ListItem>
                 <ListItem>ミステリ研究会</ListItem>
                 <ListItem>M.U.A</ListItem>
