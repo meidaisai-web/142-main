@@ -129,7 +129,7 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
                     <div className="flex gap-2">
                         <div className="relative flex shrink-0 items-center justify-center w-4 h-4">
                             <Image src="/images/EventListView/Ellipse.svg" alt="" width={35} height={35} className="absolute" />
-                            <Image src="/images/EventListView/heart.svg" alt="" width={16} height={16} className="absolute z-10" />
+                            <Image src="/images/EventListView/Heart.svg" alt="" width={16} height={16} className="absolute z-10" />
                         </div>
                         <p>{genre}</p>
 
@@ -137,7 +137,7 @@ function ItemBody({ imageUrl, icons, genre, date, location, catchphrase }: ItemB
                     <div className="flex gap-2">
                         <div className="relative flex items-center justify-center w-4 h-4">
                             <Image src='/images/EventListView/Ellipse.svg' alt='' width={35} height={35} className="absolute " />
-                            <Image src='/images/EventListView/ccircle.svg' alt='' width={15} height={15} className="absolute  z-10" />
+                            <Image src='/images/EventListView/circle.svg' alt='' width={15} height={15} className="absolute  z-10" />
                             <Image src='/images/EventListView/cline.svg' alt='' width={3} height={3} className="absolute translate-x-1/3 -translate-y-[1px]  z-10" />
                         </div>
                         <p>{showDate}</p>

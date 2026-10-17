@@ -54,9 +54,11 @@ export default function FilterView({
 
     return (
         <div className="mb-6">
-            <SectionTitle>キーワード検索</SectionTitle>
-            <SearchBar text={keyword} setText={setKeyword} onEnter={onEnter} />
-            <div className="flex justify-center mt-4">
+            <SectionTitle className="!mb-2">キーワード検索</SectionTitle>
+            <div className="-mt-8">
+                <SearchBar text={keyword} setText={setKeyword} onEnter={onEnter}/>
+            </div>
+            <div className="flex justify-center mt-8">
                 <button
                     type="button"
                     onClick={() => setIsOpen((open) => !open)}
@@ -84,14 +86,14 @@ export default function FilterView({
                                 alt=""
                                 width={40}
                                 height={40}
-                                className={`w-7 h-7 sm:w-10 sm:h-10 transition-transform -translate-y-1 sm:-translate-y-2 ${isOpen ? "rotate-180" : "rotate-0"}`}
+                                className={`w-7 h-7 sm:w-10 sm:h-10 transition-transform -translate-y-2 sm:-translate-y-3 ${isOpen ? "rotate-180" : "rotate-0"}`}
                             />
                         </div>
                     </div>
                     {activeFilterCount > 0 && (
                         <span
                             aria-hidden="true"
-                            className="absolute right-[12%] -top-3 z-20 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-lg leading-none text-white"
+                            className="absolute right-[15%] -top-7 sm:-top-9 z-20 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-lg leading-none text-white"
                         >
                             {activeFilterCount}
                         </span>
@@ -120,7 +122,7 @@ export default function FilterView({
                             selectedGenres={selectedGenres}
                             setSelectedGenres={setSelectedGenres}
                         />
-                        <SectionTitle>並び替え</SectionTitle>
+                        <SectionTitle className="!-mb-3">並び替え</SectionTitle>
                         <SortView sortType={sortType} setSortType={setSortType} />
                     </motion.div>
                 )}

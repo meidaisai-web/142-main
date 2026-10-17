@@ -13,6 +13,7 @@ import FilterView from "./FilterView";
 import EventItems from "./EventListView";
 import MeichamSection from "./MeichamSection";
 import SectionTitle from "../texts/SectionTitle";
+import LeftButton from "../buttons/LeftButton";
 
 const STORAGE_KEY = "searchConditions";
 const STORAGE_TTL = 5 * 60 * 1000;
@@ -287,9 +288,9 @@ function SearchContent() {
             </PageContainer>
 
             <section className="flex w-full flex-col items-center" aria-label="企画一覧">
-                <SectionTitle className="!mt-4 !mb-0">企画一覧</SectionTitle>
+                <SectionTitle className="!mt-10 !mb-0">企画一覧</SectionTitle>
                 <div ref={eventItemsRef} className="flex w-full flex-col items-center scroll-mt-24">
-                    <p className="mt-2 text-sm text-gray-600" aria-live="polite">
+                    <p className="my-8 text-sm text-gray-600" aria-live="polite">
                         {pageIndex + 1}ページ目{data && data.length > 0 ? ` · ${pageIndex * PAGE_SIZE + 1}〜${pageIndex * PAGE_SIZE + data.length}件目` : ""}
                     </p>
                     {(!ready || isLoading) && <p className="py-10 text-center" role="status">読み込み中...</p>}
@@ -303,11 +304,11 @@ function SearchContent() {
                     )}
                 </div>
 
-                <nav aria-label="企画一覧のページ切り替え" className="mt-2 flex flex-wrap items-center justify-center gap-4 px-5">
-                    {pageIndex > 0 && <Button onClick={() => goToPage(pageIndex - 1)} disabled={isLoading || isValidating}>前のページ</Button>}
+                <nav aria-label="企画一覧のページ切り替え" className="mt-5 mb-10 flex flex-wrap items-center justify-center gap-4 px-5">
+                    {pageIndex > 0 && <LeftButton onClick={() => goToPage(pageIndex - 1)} disabled={isLoading || isValidating}>前のページ</LeftButton>}
                     {(hasNextPage || checkingNextPage) && (
                         <Button onClick={() => goToPage(pageIndex + 1)} disabled={!hasNextPage || isLoading || isValidating}>
-                            {checkingNextPage ? "次のページを確認中..." : "もっと見る"}
+                            {checkingNextPage ? "次のページを確認中..." : "次のページ"}
                         </Button>
                     )}
                     {!isDateSort && nextError && data?.length === PAGE_SIZE && (
