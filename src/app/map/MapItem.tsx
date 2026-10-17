@@ -1,5 +1,5 @@
 import { MapDataType } from "@/utils/models/MapDataType";
-import Emphasis from "../texts/Emphasis";
+import Emphasis from "@/components/texts/Emphasis";
 import Image from "next/image";
 
 export default function MapItem({ name, description, src }: MapDataType) {

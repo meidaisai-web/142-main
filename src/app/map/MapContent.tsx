@@ -1,8 +1,8 @@
 'use client';
 
-import PageContainer from "../base/PageContainer";
-import Tab from "../Tab";
-import ZoomableImage from "../ZoomableImage";
+import PageContainer from "@/components/base/PageContainer";
+import Tab from "@/components/Tab";
+import ZoomableImage from "@/components/ZoomableImage";
 import LegendMap from "./LegendMap";
 import LocationMap from "./LocationMap";
 
