@@ -7,7 +7,7 @@ import Text from "@/components/texts/Text";
 import Emphasis from "@/components/texts/Emphasis";
 import { List, ListItem } from "@/components/texts/List"
 import OnlyImage from "@/components/OnlyImage";
-import LinkButton from "@/components/buttons/LinkButton"
+import Button from "@/components/buttons/Button"
 import ContactView from "@/components/texts/ContactView";
 
 export default function Page() {
@@ -38,9 +38,12 @@ export default function Page() {
             <Text>
                 以下のボタンやQRコードから「記憶探し～未来からのメッセージ～」公式LINEを追加して参加できます！
             </Text>
-            <LinkButton href="https://lin.ee/q3RLarg" className="mx-auto mt-4 w-fit">
+            <Button
+                href="https://lin.ee/q3RLarg"
+                className="mx-auto mt-6 w-full max-w-80 min-h-14 py-4! gap-3! [&>span]:text-base sm:[&>span]:text-lg [&>img]:size-4"
+            >
                 公式LINEを追加する
-            </LinkButton>
+            </Button>
             <OnlyImage
                 src="/images/memory/memory-lineqr.png"
                 alt="公式LINEを追加するQRコード"
