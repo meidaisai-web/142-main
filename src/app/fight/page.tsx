@@ -6,6 +6,7 @@ import Emphasis from "@/components/texts/Emphasis";
 import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
 import ImageLogo from "@/components/texts/ImageLogo";
+import ContactView from "@/components/texts/ContactView";
 
 
 export default function Page() {
@@ -56,6 +57,7 @@ export default function Page() {
             <AccentText>Star dream</AccentText>
             <Text>K-POPカバーダンスサークルMercie、中野ダンスサークルSIGN</Text>
             {/*<SectionTitle>Fight on the Stage紹介動画</SectionTitle>*/}
+            <ContactView department="演出局永燦部門" mail="142nd-eisan@meidaisai.jp" />
         </StarPageContainer>
     )
 }
