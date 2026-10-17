@@ -31,7 +31,7 @@ export default function Page() {
             <Text >今年の対決企画は、6団体が3つの部門に分かれ、頂点を懸けて激突。</Text>
             <Text moreTopPadding>「盛り上げ」を極める Amazing dream</Text>
             <Text moreTopPadding>「かわいい」を極める Sweet dream</Text>
-            <Text moreTopPadding>「かっこいい」を極める Cool dream</Text>
+            <Text moreTopPadding>「かっこいい」を極める Star dream</Text>
             <Text>
                 それぞれの部門で、勝者はたった1団体。<br />
                 魅せ方も、熱量も、すべてが違う3つの激闘。<br />
