@@ -1,8 +1,11 @@
 import { Legend, Location, MapDataType, ShowLocationType } from "../models/MapDataType";
 import { mapData } from "../datas/mapData";
 
+// 「建物から探す」には表示せず、「凡例から探す」でのみ表示する凡例
+const legendOnly: Legend[] = ['インフォメーションブース', 'AED', 'ごみステーション', '自動販売機', 'ATM', '公衆電話'];
+
 export function searchLocation(location: Location): ShowLocationType[] {
-    const data = mapData.filter((data) => data.location.includes(location));
+    const data = mapData.filter((data) => data.location.includes(location) && !legendOnly.includes(data.legend));
     return groupByLegend(data);
 }
 
