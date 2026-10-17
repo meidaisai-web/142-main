@@ -8,6 +8,7 @@ import Text from "../texts/Text";
 import Image from "next/image";
 import Link from "next/link";
 import ZoomableImage from "../ZoomableImage";
+import { getMeichamCategory } from "@/utils/managers/meichamManager";
 import SearchCloud from "./SearchCloud";
 
 interface DetailContentProps {
@@ -18,6 +19,7 @@ export default function DetailEventContent({ id }: DetailContentProps) {
     const [data, setData] = useState<MasterData | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const category = data?.championshipJoin ? getMeichamCategory(data.genre) : null;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -61,10 +63,14 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                         <ImageView type={data.type} imageUrl={data.imageUrl} icons={data.icons} />
                         <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
                     </div>
-                    {/* {data.location.includes("テント配置番号") && (
+                    　 {data.location.includes("テント配置番号") && (
                         <ZoomableImage src="/images/map/tent.jpg" alt="テントマップ" width={600} height={300} className="bg-white p-1 rounded-xl object-contain w-full h-fit max-w-xl mt-16" />
-                    )} */}
-                    {/* <VoteView id={id} groupId={data.groupId} type={data.type} eventName={data.eventName} groupName={data.groupName} eventDate={data.eventDate} /> */}
+                    )}
+                    {/* <Menu menus={data.menuItems || []} /> */}
+                    {/* 不参加の企画もVoteViewを出し、「投票対象ではありません」と表示する（category === null） */}
+                    {(!data.groupName.includes("明大祭実行委員会") && data.groupName !== '伊藤 汰海') &&
+                        <VoteView id={id} groupId={data.groupId} type={data.type} eventName={data.eventName} groupName={data.groupName} eventDate={data.eventDate} category={category} />
+                    }
                 </div>
             )}
         </div>

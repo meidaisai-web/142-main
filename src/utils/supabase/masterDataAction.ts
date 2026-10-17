@@ -22,7 +22,7 @@ export async function getAllMasterDatas(key: { page: number, limit: number, keyw
         }
     }
 
-    let query = supabase.from('MasterData').select('*');
+    let query = supabase.from('MasterData142').select('*');
 
     // キーワードフィルター（スペース区切りでAND検索、各キーワードはOR検索）
     if (key.keyword && key.keyword.trim()) {
@@ -104,7 +104,7 @@ export async function getUniqueMasterData(id: string): Promise<MasterData | null
         return returnDefaultData().find(event => event.id === Number(id)) || null;
     }
     const supabase = createClient();
-    const { data, error } = await supabase.from('MasterData').select('*').eq('id', id).single();
+    const { data, error } = await supabase.from('MasterData142').select('*').eq('id', id).single();
     if (error) {
         console.log(`Error fetching unique master data: ${error.message}`);
         return null;
