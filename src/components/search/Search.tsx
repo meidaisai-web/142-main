@@ -328,7 +328,7 @@ function SearchContent() {
                 </div>
                 <Button size="lg" className="mt-3 mb-3 " onClick={onTapSearchButton} disabled={!ready}>検索</Button>
                 <IconList />
-                <MeichamSection />
+                {/* <MeichamSection /> */}
             </PageContainer>
 
             <section className="flex w-full flex-col items-center" aria-label="企画一覧">
