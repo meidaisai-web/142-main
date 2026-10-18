@@ -116,9 +116,9 @@ function returnDefaultData(): MasterData[] {
     return defaultEvent;
 }
 
-function getStoreDataWithCongestion(): MasterData {
+export async function getStoreDataWithCongestion(): Promise<MasterData[] | null> {
     const supabase = createClient();
-    const { data, error } = supabase.from('MasterData142').select(`
+    const { data, error } = await supabase.from('MasterData142').select(`
         id,
         groupId,
         projectId,
@@ -146,6 +146,28 @@ function getStoreDataWithCongestion(): MasterData {
         otherIcons,
         menuItems,
         qrcode,
-        congestion
-    `).order('timestamp', { foreignTable: 'CongestionMap', ascending: true }).single();
+        CongestionMap (
+            id,
+            time,
+            timestamp
+        )
+    `)
+        .eq('type', '模擬店')
+        // 企画ごとに最新の混雑データ1件のみ取得
+        .order('timestamp', { referencedTable: 'CongestionMap', ascending: false })
+        .limit(1, { referencedTable: 'CongestionMap' });
+
+    if (error) {
+        console.log(`Error fetching store data with congestion: ${error.message}`);
+        return null;
+    }
+
+    // 埋め込みリソースは配列で返るので、先頭(最新)の1件を congestion に詰め替える
+    // DBの文字列順だと「1番, 10番, 11番…」になるので、数字を数値として比較して場所名順に並べる
+    return data
+        .map(({ CongestionMap, ...store }) => ({
+            ...store,
+            congestion: CongestionMap?.[0],
+        }))
+        .sort((a, b) => a.location.localeCompare(b.location, 'ja', { numeric: true })) as MasterData[];
 }
