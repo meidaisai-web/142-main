@@ -137,7 +137,7 @@ export default function FilterView({
                             selectedGenres={selectedGenres}
                             setSelectedGenres={setSelectedGenres}
                         />
-                        <SectionTitle>並び替え</SectionTitle>
+                        <SectionTitle className="!-mb-3">並び替え</SectionTitle>
                         <SortView sortType={sortType} setSortType={setSortType} />
                     </motion.div>
                 )}
