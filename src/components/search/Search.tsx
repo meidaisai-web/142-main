@@ -334,39 +334,19 @@ function SearchContent() {
             <section className="flex w-full flex-col items-center" aria-label="企画一覧">
                 <SectionTitle className="!mt-10 !mb-0">企画一覧</SectionTitle>
                 <div ref={eventItemsRef} className="flex w-full flex-col items-center scroll-mt-24">
-<<<<<<< HEAD
                     <p className="mt-2 text-sm text-gray-600" aria-live="polite">
                         {data && data.length > 0 ? `${data.length}件表示中` : ""}
-=======
-                    <p className="my-8 text-sm text-gray-600" aria-live="polite">
-                        {pageIndex + 1}ページ目{data && data.length > 0 ? ` · ${pageIndex * PAGE_SIZE + 1}〜${pageIndex * PAGE_SIZE + data.length}件目` : ""}
->>>>>>> cdd97587a86ab417e9d56bb6b28ae44a770bfa52
                     </p>
                     {(!ready || (isLoading && data === undefined)) && <p className="py-10 text-center" role="status">読み込み中...</p>}
                     {(data !== undefined || !error) && (
                         <EventItems datas={data === undefined ? undefined : [data]} isLoading={!ready || isLoading || isLoadingMore} />
                     )}
                 </div>
-
-<<<<<<< HEAD
                 <div aria-label="企画の追加読み込み" className="mt-2 flex flex-wrap items-center justify-center gap-4 px-5">
                     {error && (
                         <div className="py-4 text-center" role="alert">
                             <p>{data?.length ? "追加の企画情報を取得できませんでした。" : "企画情報を取得できませんでした。"}</p>
                             <Button className="mt-4" onClick={() => void retryResults().catch(() => {})}>再読み込み</Button>
-=======
-                <nav aria-label="企画一覧のページ切り替え" className="mt-5 mb-10 flex flex-wrap items-center justify-center gap-4 px-5">
-                    {pageIndex > 0 && <LeftButton onClick={() => goToPage(pageIndex - 1)} disabled={isLoading || isValidating}>前のページ</LeftButton>}
-                    {(hasNextPage || checkingNextPage) && (
-                        <Button onClick={() => goToPage(pageIndex + 1)} disabled={!hasNextPage || isLoading || isValidating}>
-                            {checkingNextPage ? "次のページを確認中..." : "次のページ"}
-                        </Button>
-                    )}
-                    {!isDateSort && nextError && data?.length === PAGE_SIZE && (
-                        <div role="alert" className="text-center">
-                            <p className="mb-2 text-sm">次のページを確認できませんでした。</p>
-                            <Button onClick={() => void retryNextPage()}>再試行</Button>
->>>>>>> cdd97587a86ab417e9d56bb6b28ae44a770bfa52
                         </div>
                     )}
                     {!error && (hasNextPage || checkingNextPage || isLoadingMore) && (
