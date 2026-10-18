@@ -7,17 +7,21 @@ import Emphasis from "@/components/texts/Emphasis"
 import CloudPhoto from "@/components/CloudPhoto"
 import ImageLogo from "@/components/texts/ImageLogo"
 import ContactView from "@/components/texts/ContactView"
+import FloatingCross from "@/components/FloatingCross"
 
 export default function Page() {
     return (
-        <CloudPageContainer>
+        <CloudPageContainer noPadding>
+            <div className="w-[min(1250px,calc(100%_-_5rem))] mx-auto">
 
             <PageTitle>中夜祭</PageTitle>
-            <ImageLogo
-                src="/images/midnight/midnighttop.jpg"
-                logoSrc="/images/midnight/midnightlogo.svg"
-                alt="企画の写真"
-                logoAlt="企画ロゴ" />
+            <div className="max-w-[700px] mx-auto">
+                <ImageLogo
+                    src="/images/midnight/midnighttop.jpg"
+                    logoSrc="/images/midnight/midnightlogo.svg"
+                    alt="企画の写真"
+                    logoAlt="企画ロゴ" />
+            </div>
 
             <SectionTitle>万彩よ、交われ。</SectionTitle>
                 <Text center><Emphasis bold>
@@ -38,48 +42,48 @@ export default function Page() {
 
                 <SectionTitle>コンテンツ</SectionTitle>
 
-                <div className="lg:-mx-35">
                     <SmallTitle>オープニングアウト</SmallTitle>
-                    <div className="-mx-8 sm:-mx-16 md:-mx-21 lg:mx-0">
-                        <CloudPhoto src="/images/midnight/shodou.jpg" name="書道研究部" className="max-w-[300px] lg:max-w-[700px] mx-auto mt-6 lg:mt-10" />
+                    <div>
+                        <CloudPhoto src="/images/midnight/shodou.jpg" name="書道研究部" className="max-w-[700px] mx-auto mt-6 lg:mt-10" />
                     </div>
                     <SmallTitle>コラボパフォーマンス</SmallTitle>
-                    <div className="flex items-center justify-center gap-1 mt-12 lg:mt-30 -mx-8 sm:-mx-16 md:-mx-21 lg:mx-auto lg:max-w-[1000px]">
+                    <div className="flex items-center justify-center gap-1 mt-12 lg:mt-30">
                         <CloudPhoto src="/images/midnight/aps.jpg" name="Allround Piano |Society" />
-                    <span className="shrink-0 mb-6 lg:mb-8 text-4xl sm:text-5xl lg:text-8xl font-black text-(アクセント色) drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">×</span>
+                    <FloatingCross delay={2} />
                     <CloudPhoto src="/images/midnight/myuken.jpg" name="ミュージカル研究会" delay={1} />
                 </div>
-                <div className="flex items-center justify-center gap-1 mt-12 lg:mt-30 -mx-8 sm:-mx-16 md:-mx-21 lg:mx-auto lg:max-w-[1000px]">
+                <div className="flex items-center justify-center gap-1 mt-12 lg:mt-30">
                     <CloudPhoto src="/images/midnight/dietz.jpg" name="ジャグリングサークル|Dietz" />
-                    <span className="shrink-0 mb-6 lg:mb-8 text-4xl sm:text-5xl lg:text-8xl font-black text-(アクセント色) drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">×</span>
+                    <FloatingCross delay={2} />
                     <CloudPhoto src="/images/midnight/pelusa.jpg" name="Pelusa" delay={1} />
                 </div>
-                <div className="flex items-center justify-center gap-1 mt-12 lg:mt-30 -mx-8 sm:-mx-16 md:-mx-21 lg:mx-auto lg:max-w-[1000px]">
+                <div className="flex items-center justify-center gap-1 mt-12 lg:mt-30">
                     <CloudPhoto src="/images/midnight/copia.jpg" name="Copia" />
-                    <span className="shrink-0 mb-6 lg:mb-8 text-4xl sm:text-5xl lg:text-8xl font-black text-(アクセント色) drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">×</span>
-                    <CloudPhoto src="/images/midnight/anchors.jpg" name="男子チアリーディングチーム|ANCHORS" delay={1} />
+                    <FloatingCross delay={2} />
+                    <CloudPhoto src="/images/midnight/anchors.jpg" name="男子|チアリーディングチーム|ANCHORS" delay={1} />
                 </div>
 
                 <SmallTitle>ときめきパフォーマンス</SmallTitle>
-                <div className="flex items-center justify-center gap-1 mt-6 lg:mt-10 -mx-8 sm:-mx-16 md:-mx-21 lg:mx-auto lg:max-w-[1000px]">
+                <div className="flex items-center justify-center gap-1 mt-6 lg:mt-10">
                     <CloudPhoto src="/images/midnight/shokora.jpg" name="chocolat lumière" />
-                    <span className="shrink-0 mb-6 lg:mb-8 text-4xl sm:text-5xl lg:text-8xl font-black text-(アクセント色) drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">×</span>
-                    <CloudPhoto src="/images/midnight/mercie.jpg" name="K‑POPカバーダンスサークル|Mercie" delay={1} />
+                    <FloatingCross delay={2} />
+                    <CloudPhoto src="/images/midnight/mercie.jpg" name="K‑POP|カバーダンスサークル|Mercie" delay={1} />
                     {/* K‑POP のハイフンは改行防止のため「改行しないハイフン」(U+2011) を使用。普通の "-" に戻すとスマホで「K-」の後ろで改行される */}
                 </div>
 
                 <SmallTitle>ハロウィンパフォーマンス</SmallTitle>
-                <div className="-mx-8 sm:-mx-16 md:-mx-21 lg:mx-0">
-                    <CloudPhoto src="/images/midnight/sign.jpg" name="中野ダンスサークル|SIGN" className="max-w-[300px] lg:max-w-[700px] mx-auto mt-6 lg:mt-10" />
+                <div>
+                    <CloudPhoto src="/images/midnight/sign.jpg" name="中野ダンスサークル|SIGN" className="max-w-[700px] mx-auto mt-6 lg:mt-10" />
                 </div>
 
                 <SmallTitle>フィナーレ</SmallTitle>
-                <div className="-mx-8 sm:-mx-16 md:-mx-21 lg:mx-0">
-                    <CloudPhoto src="/images/midnight/finale.jpg" name="全出演団体" className="max-w-[300px] lg:max-w-[700px] mx-auto mt-6 lg:mt-10" />
+                <div>
+                    <CloudPhoto src="/images/midnight/finale.jpg" name="全出演団体" className="max-w-[700px] mx-auto mt-6 lg:mt-10" />
                 </div>
-            </div>
+
             {/* <SectionTitle>中夜祭紹介動画</SectionTitle> */}
             <ContactView department="演出局永燦部門" mail="142nd-eisan@meidaisai.jp" showPhone showAddress />
+            </div>
         </CloudPageContainer>
     )
 }

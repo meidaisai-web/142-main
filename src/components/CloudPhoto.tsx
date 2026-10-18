@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useMotionScale } from "@/hooks/useMotionScale";
 import { Fragment } from "react";
 
 type CloudPhotoProps = {
@@ -12,10 +13,11 @@ type CloudPhotoProps = {
 };
 
 export default function CloudPhoto({ src, name, delay = 0, className = "" }: CloudPhotoProps) {
+    const scale = useMotionScale();
     return (
         <motion.div
             className={`w-full min-w-0 ${className}`}
-            animate={{ x: [-8, 4, -8], y: [0, -10, 0] }}
+            animate={{ x: [-8 * scale, 4 * scale, -8 * scale], y: [0, -10 * scale, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay }}
         >
             <div className="relative aspect-[225/141] w-full mask-[url(/images/svg/animation/Pink-Cloud.svg)] mask-contain mask-no-repeat mask-center">
