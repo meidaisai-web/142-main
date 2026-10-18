@@ -326,7 +326,7 @@ function SearchContent() {
                         }}
                     >検索条件をクリア</button>
                 </div>
-                <Button size="lg" className="mt-10 mb-10" onClick={onTapSearchButton} disabled={!ready}>検索</Button>
+                <Button size="lg" className="mt-3 mb-3 " onClick={onTapSearchButton} disabled={!ready}>検索</Button>
                 <IconList />
                 <MeichamSection />
             </PageContainer>
@@ -350,7 +350,7 @@ function SearchContent() {
                         </div>
                     )}
                     {!error && (hasNextPage || checkingNextPage || isLoadingMore) && (
-                        <Button onClick={loadMore} disabled={!hasNextPage || isLoading || isLoadingMore || isValidating}>
+                        <Button onClick={loadMore} disabled={!hasNextPage || isLoading || isLoadingMore || isValidating} down>
                             {isLoadingMore ? "読み込み中..." : checkingNextPage ? "続きの企画を確認中..." : "もっと読み込む"}
                         </Button>
                     )}
