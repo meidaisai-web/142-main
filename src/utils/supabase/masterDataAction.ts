@@ -112,6 +112,17 @@ export async function getUniqueMasterData(id: string): Promise<MasterData | null
     return data as MasterData;
 }
 
+export async function getStageMasterData(): Promise<MasterData[] | null> {
+    const supabase = createClient();
+    const { data, error } = await supabase.from('MasterData142').select('*').eq('type', '総合ステージ');
+    if (error) {
+        console.log(`Error fetching stage master data: ${error.message}`);
+        return null;
+    }
+    console.log('Fetched stage data:', data);
+    return data as MasterData[] ;
+}
+
 function returnDefaultData(): MasterData[] {
     return defaultEvent;
 }
