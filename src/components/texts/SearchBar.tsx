@@ -14,7 +14,7 @@ export default function SearchBar({ text, setText, onEnter }: SearchBarProps) {
     const [isComposing, setIsComposing] = useState(false);
 
     return (
-        <div className="flex justify-center pt-12 pb-14 px-4 w-full">
+        <div className="flex justify-center  pb-14 px-4 w-full">
             <div className="relative isolate w-full max-w-[340px] md:max-w-none md:w-3/5 pe-1.5 pb-1.5 md:pe-2 md:pb-2">
                 <div className="absolute top-1.5 left-1.5 md:top-2 md:left-2 w-[calc(100%-6px)] md:w-[calc(100%-8px)] h-12 md:h-14 rounded-full border-[10px] md:border-20 border-primary -z-10" />
                 <div

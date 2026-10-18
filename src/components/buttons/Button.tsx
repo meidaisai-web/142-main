@@ -12,6 +12,7 @@ type ButtonProps = {
     onClick?: () => void;
     disabled?: boolean;
     type?: "button" | "submit" | "reset";
+    size?: "md" | "lg";
 };
 
 export default function Button({
@@ -22,12 +23,16 @@ export default function Button({
     onClick,
     disabled = false,
     type = "button",
+    size = "md",
 }: ButtonProps) {
-    const classes = `flex items-center justify-center gap-1 px-6 py-2 w-fit mx-auto rounded-full bg-primary text-white transition-colors duration-100 hover:bg-primary-700 ${disabled ? "opacity-50 cursor-not-allowed" : ""} ${className}`;
+    const sizeClasses = size === "lg"
+        ? "w-full max-w-72 sm:max-w-80 min-h-14 sm:min-h-16 gap-3 px-8 py-3 shadow-[0_5px_0_#72b4ad,0_8px_14px_rgba(80,140,132,0.16)] transition-[background-color,box-shadow,transform,translate] duration-200 hover:-translate-y-0.5 hover:shadow-[0_7px_0_#72b4ad,0_10px_18px_rgba(80,140,132,0.18)] active:translate-y-1 active:shadow-[0_1px_0_#72b4ad,0_3px_6px_rgba(80,140,132,0.12)] disabled:translate-y-0 disabled:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-700 motion-reduce:translate-y-0 motion-reduce:transition-none"
+        : "w-fit gap-1 px-6 py-2 transition-colors duration-100";
+    const classes = `flex items-center justify-center mx-auto rounded-full bg-primary text-white hover:bg-primary-700 ${sizeClasses} ${disabled ? "opacity-50 cursor-not-allowed" : size === "lg" ? "cursor-pointer" : ""} ${className}`;
     const content = (
         <>
-            <span className="whitespace-nowrap text-sm font-bold">{children}</span>
-            <Image src="/images/svg/arrow-white.svg" width={20} height={20} alt="" className="w-3 h-3 select-none" />
+            <span className={`whitespace-nowrap font-bold ${size === "lg" ? "text-lg sm:text-xl" : "text-sm"}`}>{children}</span>
+            <Image src="/images/svg/arrow-white.svg" width={20} height={20} alt="" className={`select-none ${size === "lg" ? "h-4 w-4 sm:h-5 sm:w-5" : "w-3 h-3"}`} />
         </>
     );
 

@@ -56,27 +56,44 @@ export default function FilterView({
         <div className="mb-6">
             <SectionTitle>キーワード検索</SectionTitle>
             <SearchBar text={keyword} setText={setKeyword} onEnter={onEnter} />
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center mt-4 ">
                 <button
                     type="button"
                     onClick={() => setIsOpen((open) => !open)}
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     aria-label={`${isOpen ? "絞り込みを閉じる" : "詳細検索を開く"}${activeFilterCount > 0 ? `（${activeFilterCount}項目を選択中）` : ""}`}
-                    className="relative h-12 w-48 sm:h-14 sm:w-64 group mx-auto focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
+                    className="group relative isolate mx-auto h-12 w-48 cursor-pointer select-none transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-1 sm:h-14 sm:w-64 before:absolute before:inset-x-0 before:-top-8 before:-bottom-4 before:content-[''] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-secondary motion-reduce:translate-y-0 motion-reduce:transition-none"
                 >
-                    <div className="absolute inset-0 w-full h-full text-center pointer-events-none">
+                    {/* 矩形ではなく、元の雲画像の輪郭に沿って影を付ける。 */}
+                    <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-x-0 -top-5 z-0 drop-shadow-[0_4px_1px_rgba(91,157,149,0.28)] transition-[filter] duration-200 group-hover:drop-shadow-[0_6px_3px_rgba(91,157,149,0.32)] group-active:drop-shadow-[0_1px_1px_rgba(91,157,149,0.24)] sm:-top-8 motion-reduce:transition-none"
+                    >
                         <Image
                             src="/images/EventListView/Group614.svg"
                             alt=""
                             width={500}
                             height={500}
-                            className="absolute -top-5 sm:-top-8 -z-10 w-full h-auto object-contain"
+                            className="block h-auto w-[80%] mx-auto object-contain"
+                        />
+                        {/* 同じ画像をマスクに使い、雲の外へ色がはみ出さないようにする。 */}
+                        <span
+                            className={`absolute inset-0 bg-[#84c7c2]/15 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 group-active:opacity-100 motion-reduce:transition-none ${isOpen ? "opacity-100" : "opacity-0"}`}
+                            style={{
+                                maskImage: "url('/images/EventListView/Group614.svg')",
+                                maskMode: "alpha",
+                                maskSize: "100% 100%",
+                                maskRepeat: "no-repeat",
+                                WebkitMaskImage: "url('/images/EventListView/Group614.svg')",
+                                WebkitMaskSize: "100% 100%",
+                                WebkitMaskRepeat: "no-repeat",
+                            }}
                         />
                     </div>
                     <div className="font-bold relative z-10 h-full w-full">
                         <div className="h-full w-full flex justify-center items-center">
-                            <span className="w-20 sm:w-28 text-center text-lg sm:text-2xl mb-3 sm:mb-5">
+                            <span className="w-20 sm:w-20  text-center text-md sm:text-xl mb-7 sm:mb-10">
                                 {isOpen ? "閉じる" : "詳細検索"}
                             </span>
                             <Image
@@ -84,14 +101,14 @@ export default function FilterView({
                                 alt=""
                                 width={40}
                                 height={40}
-                                className={`w-7 h-7 sm:w-10 sm:h-10 transition-transform -translate-y-1 sm:-translate-y-2 ${isOpen ? "rotate-180" : "rotate-0"}`}
+                                className={`w-5 h-7 sm:w-8 sm:h-10 mb-5 sm:mb-5 transition-transform -translate-y-1 sm:-translate-y-2  ${isOpen ? "rotate-180" : "rotate-0"}`}
                             />
                         </div>
                     </div>
                     {activeFilterCount > 0 && (
                         <span
                             aria-hidden="true"
-                            className="absolute right-[12%] -top-3 z-20 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-lg leading-none text-white"
+                            className="absolute right-[12%] -top-3 z-20 flex h-7 w-7 items-center justify-center rounded-full bg-[#84c7c2] text-lg leading-none text-white"
                         >
                             {activeFilterCount}
                         </span>

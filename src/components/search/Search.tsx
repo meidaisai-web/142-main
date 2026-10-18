@@ -3,6 +3,7 @@
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import useSWR from "swr";
+import useSWRInfinite from "swr/infinite";
 import Image from "next/image";
 import type { MasterData } from "@/utils/models/MasterData";
 import type { SortType } from "@/utils/models/SortType";
@@ -136,6 +137,8 @@ function SearchContent() {
     const queryString = searchParams?.toString() ?? "";
     const eventItemsRef = useRef<HTMLDivElement>(null);
     const pendingScroll = useRef<string | null>(null);
+    const loadMoreLock = useRef(false);
+    const lastSyncedConditions = useRef<string | null>(null);
     const [ready, setReady] = useState(false);
     const [savedConditions, setSavedConditions] = useState<SearchConditions>(emptyConditions);
     const [keyword, setKeyword] = useState("");
@@ -164,46 +167,85 @@ function SearchContent() {
     }, []);
 
     const params = useMemo(() => new URLSearchParams(queryString), [queryString]);
-    const conditions = useMemo(() => conditionsFromUrl(params) ?? savedConditions, [params, savedConditions]);
+    // 追加読み込みでpageだけ変わったとき、編集中の検索欄を上書きしない。
+    const conditionQueryString = useMemo(() => {
+        const conditionParams = new URLSearchParams(queryString);
+        conditionParams.delete("page");
+        return conditionParams.toString();
+    }, [queryString]);
+    const conditions = useMemo(
+        () => conditionsFromUrl(new URLSearchParams(conditionQueryString)) ?? savedConditions,
+        [conditionQueryString, savedConditions],
+    );
+    // pageは画面の切り替え先ではなく、先頭から読み込む6件単位の数を表す。
     const pageIndex = pageIndexFromUrl(params);
+    const batchCount = pageIndex + 1;
+    const conditionSignature = conditionsToQuery(conditions, 0);
     const requestSignature = conditionsToQuery(conditions, pageIndex);
 
     useEffect(() => {
-        if (!ready) return;
+        if (!ready || lastSyncedConditions.current === conditionSignature) return;
+        lastSyncedConditions.current = conditionSignature;
         setKeyword(conditions.keyword);
         setSelectedTypes(conditions.selectedTypes);
         setSelectedDates(conditions.selectedDates);
         setSelectedPlaces(conditions.selectedPlaces);
         setSelectedGenres(conditions.selectedGenres);
         setSortType(conditions.sortType);
-    }, [conditions, ready]);
+    }, [conditions, conditionSignature, ready]);
 
     const isDateSort = conditions.sortType.orderColumn === "eventDate";
-    const resultQuery: FetchQuery = isDateSort
-        ? { ...makePageQuery(conditions, 0), scope: "all-event-dates" }
-        : makePageQuery(conditions, pageIndex);
-    const { data: resultData, error, isLoading, isValidating, mutate } = useSWR<MasterData[], Error>(
-        ready ? resultQuery : null,
+    const {
+        data: dateData, error: dateError, isLoading: dateLoading,
+        isValidating: dateValidating, mutate: retryDates,
+    } = useSWR<MasterData[], Error>(
+        ready && isDateSort ? { ...makePageQuery(conditions, 0), scope: "all-event-dates" } : null,
         fetchPage,
         { keepPreviousData: false },
     );
-    // 常に現在ページの最大6件だけ描画する。実施日順は全体をソートしてから分割。
-    const data = useMemo(() => {
-        if (resultData === undefined) return undefined;
-        const start = isDateSort ? pageIndex * PAGE_SIZE : 0;
-        return resultData.slice(start, start + PAGE_SIZE);
-    }, [resultData, isDateSort, pageIndex]);
+    const {
+        data: pages, error: pagesError, isLoading: pagesLoading,
+        isValidating: pagesValidating, mutate: retryPages, setSize,
+    } = useSWRInfinite<MasterData[], Error>(
+        (index: number, previousPage: MasterData[] | null) => {
+            if (!ready || isDateSort || index >= batchCount) return null;
+            if (previousPage && previousPage.length < PAGE_SIZE) return null;
+            return makePageQuery(conditions, index);
+        },
+        fetchPage,
+        { initialSize: 1, persistSize: false, revalidateFirstPage: false, keepPreviousData: false },
+    );
 
-    // 同じlimit=6で次ページを確認する。6件ぴったりで終わる場合、次へのボタンを出さない。
+    useEffect(() => {
+        loadMoreLock.current = false;
+        if (ready && !isDateSort) void setSize(batchCount).catch(() => {});
+    }, [ready, isDateSort, batchCount, conditionSignature, setSize]);
+
+    // 通常検索は取得済みの全バッチを連結。実施日順はソート済み全件の先頭から追加する。
+    const data = useMemo(() => {
+        if (isDateSort) return dateData?.slice(0, batchCount * PAGE_SIZE);
+        return pages?.slice(0, batchCount).flatMap((page) => page.slice(0, PAGE_SIZE));
+    }, [dateData, pages, isDateSort, batchCount]);
+    const error = isDateSort ? dateError : pagesError;
+    const isLoading = isDateSort ? dateLoading : pagesLoading;
+    const isValidating = isDateSort ? dateValidating : pagesValidating;
+    const lastPage = pages?.[Math.min(pages.length, batchCount) - 1];
+    const isLoadingMore = !isDateSort && !error && pages !== undefined
+        && pages.length < batchCount && lastPage?.length === PAGE_SIZE;
+    const retryResults = () => isDateSort ? retryDates() : retryPages();
+
+    // 最終バッチが6件ぴったりでも、次が空なら追加ボタンを表示しない。
+    const canCheckNext = ready && !isDateSort && !error && !isLoadingMore
+        && pages !== undefined && pages.length >= batchCount && lastPage?.length === PAGE_SIZE;
     const { data: nextData, error: nextError, mutate: retryNextPage } = useSWR<MasterData[], Error>(
-        ready && !isDateSort && data?.length === PAGE_SIZE ? makePageQuery(conditions, pageIndex + 1) : null,
+        canCheckNext ? makePageQuery(conditions, batchCount) : null,
         fetchPage,
         { keepPreviousData: false },
     );
     const hasNextPage = isDateSort
-        ? Boolean(resultData && resultData.length > (pageIndex + 1) * PAGE_SIZE)
-        : Boolean(nextData?.length);
-    const checkingNextPage = !isDateSort && data?.length === PAGE_SIZE && nextData === undefined && !nextError;
+        ? Boolean(dateData && dateData.length > batchCount * PAGE_SIZE)
+        : canCheckNext && Boolean(nextData?.length);
+    const checkingNextPage = canCheckNext && nextData === undefined && !nextError;
 
     function scrollToResults() {
         const element = eventItemsRef.current;
@@ -234,6 +276,7 @@ function SearchContent() {
     }
 
     function onTapSearchButton() {
+        loadMoreLock.current = false;
         const next = normalizeConditions({ keyword, selectedTypes, selectedDates, selectedPlaces, selectedGenres, sortType });
         const nextQuery = conditionsToQuery(next, 0);
         saveConditions(next);
@@ -246,12 +289,13 @@ function SearchContent() {
         router.replace(`${pathname}?${nextQuery}`, { scroll: false });
     }
 
-    function goToPage(nextPageIndex: number) {
-        if (nextPageIndex < 0) return;
-        const nextQuery = conditionsToQuery(conditions, nextPageIndex);
-        pendingScroll.current = nextQuery;
+    function loadMore() {
+        if (loadMoreLock.current || !hasNextPage || isLoading || isLoadingMore || isValidating || error) return;
+        loadMoreLock.current = true;
+        const nextQuery = conditionsToQuery(conditions, pageIndex + 1);
         saveConditions(conditions);
-        router.push(`${pathname}?${nextQuery}`, { scroll: false });
+        // URLの読み込み数だけ更新し、表示済みカードとスクロール位置を保つ。
+        router.replace(`${pathname}?${nextQuery}`, { scroll: false });
     }
 
     return (
@@ -281,7 +325,7 @@ function SearchContent() {
                         }}
                     >検索条件をクリア</button>
                 </div>
-                <Button className="mt-10 mb-10" onClick={onTapSearchButton} disabled={!ready}>検索</Button>
+                <Button size="lg" className="mt-10 mb-10" onClick={onTapSearchButton} disabled={!ready}>検索</Button>
                 <IconList />
                 <MeichamSection />
             </PageContainer>
@@ -290,33 +334,33 @@ function SearchContent() {
                 <SectionTitle className="!mt-4 !mb-0">企画一覧</SectionTitle>
                 <div ref={eventItemsRef} className="flex w-full flex-col items-center scroll-mt-24">
                     <p className="mt-2 text-sm text-gray-600" aria-live="polite">
-                        {pageIndex + 1}ページ目{data && data.length > 0 ? ` · ${pageIndex * PAGE_SIZE + 1}〜${pageIndex * PAGE_SIZE + data.length}件目` : ""}
+                        {data && data.length > 0 ? `${data.length}件表示中` : ""}
                     </p>
-                    {(!ready || isLoading) && <p className="py-10 text-center" role="status">読み込み中...</p>}
-                    {error ? (
-                        <div className="py-8 text-center" role="alert">
-                            <p>企画情報を取得できませんでした。</p>
-                            <Button className="mt-4" onClick={() => void mutate()}>再読み込み</Button>
-                        </div>
-                    ) : (
-                        <EventItems datas={data === undefined ? undefined : [data]} isLoading={!ready || isLoading} />
+                    {(!ready || (isLoading && data === undefined)) && <p className="py-10 text-center" role="status">読み込み中...</p>}
+                    {(data !== undefined || !error) && (
+                        <EventItems datas={data === undefined ? undefined : [data]} isLoading={!ready || isLoading || isLoadingMore} />
                     )}
                 </div>
 
-                <nav aria-label="企画一覧のページ切り替え" className="mt-2 flex flex-wrap items-center justify-center gap-4 px-5">
-                    {pageIndex > 0 && <Button onClick={() => goToPage(pageIndex - 1)} disabled={isLoading || isValidating}>前のページ</Button>}
-                    {(hasNextPage || checkingNextPage) && (
-                        <Button onClick={() => goToPage(pageIndex + 1)} disabled={!hasNextPage || isLoading || isValidating}>
-                            {checkingNextPage ? "次のページを確認中..." : "もっと見る"}
-                        </Button>
-                    )}
-                    {!isDateSort && nextError && data?.length === PAGE_SIZE && (
-                        <div role="alert" className="text-center">
-                            <p className="mb-2 text-sm">次のページを確認できませんでした。</p>
-                            <Button onClick={() => void retryNextPage()}>再試行</Button>
+                <div aria-label="企画の追加読み込み" className="mt-2 flex flex-wrap items-center justify-center gap-4 px-5">
+                    {error && (
+                        <div className="py-4 text-center" role="alert">
+                            <p>{data?.length ? "追加の企画情報を取得できませんでした。" : "企画情報を取得できませんでした。"}</p>
+                            <Button className="mt-4" onClick={() => void retryResults().catch(() => {})}>再読み込み</Button>
                         </div>
                     )}
-                </nav>
+                    {!error && (hasNextPage || checkingNextPage || isLoadingMore) && (
+                        <Button onClick={loadMore} disabled={!hasNextPage || isLoading || isLoadingMore || isValidating}>
+                            {isLoadingMore ? "読み込み中..." : checkingNextPage ? "続きの企画を確認中..." : "もっと読み込む"}
+                        </Button>
+                    )}
+                    {canCheckNext && nextError && (
+                        <div role="alert" className="text-center">
+                            <p className="mb-2 text-sm">続きの企画を確認できませんでした。</p>
+                            <Button onClick={() => void retryNextPage().catch(() => {})}>再試行</Button>
+                        </div>
+                    )}
+                </div>
             </section>
         </div>
     );
