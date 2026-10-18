@@ -33,7 +33,7 @@ export default function Page() {
                         ))}
                     </div>
                 </div>
-                <ContactView department="渉外局　界隈部門" mail="kaiwai@meidaisai.jp" showAddress showPhone />
+                <ContactView department="渉外局界隈部門" mail="kaiwai@meidaisai.jp" showAddress showPhone />
             </PageContainer>
         </div>
     )
