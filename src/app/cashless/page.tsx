@@ -58,8 +58,8 @@ const page = () => {
                 <ListItem><TransitionLink href="/search/68">Next Film</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/258">ギターサークルストリート「street」</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/257">古都研究会</TransitionLink></ListItem>
-                <ListItem><TransitionLink href="/search/242">情報コミュニケーション学部 山内勇ゼミナール</TransitionLink></ListItem>
-                <ListItem><TransitionLink href="/search/624">明治大学交響楽団</TransitionLink></ListItem>
+                <ListItem><TransitionLink href="/search/242">情報コミュニケーション学部山内勇ゼミナール</TransitionLink></ListItem>
+                <ListItem><TransitionLink href="/search/624">交響楽団</TransitionLink></ListItem>
             </List>
             <List mark="※">
                 <ListItem><Emphasis>明大祭グッズのガチャガチャは、現金のみご利用いただけます。</Emphasis></ListItem>
@@ -72,17 +72,17 @@ const page = () => {
                 <ListItem><TransitionLink href="/search/175">One Color</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/96">WINDMILL</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/151">マーケティング研究会</TransitionLink></ListItem>
-                <ListItem><TransitionLink href="/search/177">塩澤恵理ゼミナール</TransitionLink></ListItem>
+                <ListItem><TransitionLink href="/search/177">商学部塩澤恵理ゼミナール</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/149">奥山雅之ゼミナール</TransitionLink></ListItem>
-                <ListItem><TransitionLink href="/search/144">国際日本学部 宮本大人ゼミナール</TransitionLink></ListItem>
-                <ListItem><TransitionLink href="/search/157">国際日本学部 小野雅琴ゼミナール</TransitionLink></ListItem>
+                <ListItem><TransitionLink href="/search/144">国際日本学部宮本大人ゼミナール</TransitionLink></ListItem>
+                <ListItem><TransitionLink href="/search/157">国際日本学部小野雅琴ゼミナール</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/187">山内解決ゼミナール</TransitionLink></ListItem>
-                <ListItem><TransitionLink href="/search/158">商学部 福田廉典ゼミナール</TransitionLink></ListItem>
-                <ListItem><TransitionLink href="/search/86">情報コミュニケーション学部 坂本祐太ゼミナール</TransitionLink></ListItem>
-                <ListItem><TransitionLink href="/search/179">政治経済学部国際交流学生委員会The Supporters</TransitionLink></ListItem>
-                <ListItem><TransitionLink href="/search/148">体育同好会連合会 和道流空手道部</TransitionLink></ListItem>
+                <ListItem><TransitionLink href="/search/158">商学部福田康典ゼミナール</TransitionLink></ListItem>
+                <ListItem><TransitionLink href="/search/86">情報コミュニケーション学部坂本裕太ゼミナール</TransitionLink></ListItem>
+                <ListItem><TransitionLink href="/search/179">政治経済学部 国際交流学生委員会 The Supporters</TransitionLink></ListItem>
+                <ListItem><TransitionLink href="/search/148">体育同好会連合会和道流空手道部</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/216">法学会</TransitionLink></ListItem>
-                <ListItem><TransitionLink href="/search/173">明治大学商学部 大津健登ゼミナール</TransitionLink></ListItem>
+                <ListItem><TransitionLink href="/search/173">商学部大津健登ゼミナール</TransitionLink></ListItem>
             </List>
             <SmallTitle className="mb-3">会場でキャッシュレス決済が利用可能か確認する方法</SmallTitle>
             <List numbered>
