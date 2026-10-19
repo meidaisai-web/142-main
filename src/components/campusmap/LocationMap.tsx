@@ -46,7 +46,7 @@ export default function LocationMap() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-8">
                                 {searchLocation(location.name).map((legendSection, idx) => (
                                     <div key={idx}>
-                                        <Image src={legendSection.src} alt={`${legendSection.legend}の画像`} width={600} height={300} className="object-fit w-60" />
+                                        <Image src={legendSection.src} alt={`${legendSection.legend}の画像`} width={600} height={300} className="object-fit w-60 max-w-full" />
                                         <div className="flex flex-col gap-6 mt-6">
                                             {legendSection.contents.map((item, id) => (
                                                 <MapItem key={id} {...item} />

@@ -18,10 +18,10 @@ export default function MapItem({ name, description, src }: MapDataType) {
                 aria-hidden
                 width={435}
                 height={328}
-                className="pointer-events-none absolute left-0 top-0 h-3/5 w-auto translate-x-[calc(-20%+0.5rem)] -translate-y-1/8"
+                className="pointer-events-none absolute left-0 top-0 w-1/4 h-auto translate-x-[calc(-20%+0.5rem)] -translate-y-1/8"
             />
-            <div className="flex items-start text-xs">
-                <Image src={src} alt={name} width={200} height={200} className="w-1/3 max-w-40 aspect-square object-cover mr-4 rounded-lg" />
+            <div className="flex items-start h-full text-xs">
+                <Image src={src} alt={name} width={200} height={200} className="relative self-center w-1/3 max-w-40 aspect-square object-cover mr-3 sm:mr-4 rounded-lg" />
                 <div className="flex-1">
                     <h3 className={`text-[10px] font-black text-center [text-wrap:balance] ${isCompact ? "mb-0" : "mb-3"}`}><span
                             className="text-base font-bold"

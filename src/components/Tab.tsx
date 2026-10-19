@@ -119,13 +119,13 @@ export default function Tab({ tabs, showTriangle, closer, buttonStyle, cornerIma
         <div className="w-full">
             {buttonStyle && (
                 <div className="w-full px-5 mt-10">
-                <div className="flex items-end w-full max-w-4xl mx-auto gap-8">
+                <div className="flex items-end w-full max-w-4xl mx-auto gap-4 sm:gap-8">
                     {tabs.map((tab, index) => (
                         <button
                             key={tab.key}
                             type="button"
                             onClick={() => go(index)}
-                            className={`flex-1 min-w-0 relative flex items-center justify-center text-black font-bold ${
+                            className={`flex-1 min-w-0 relative flex items-center justify-center gap-2 text-black font-bold ${
                                 active === index ? 'h-[48px] pb-2 bg-[#F8CAD1] rounded-t-[20px] rounded-b-none' : 'h-[40px] bg-[#AEDBD4] hover:bg-[#9AD2C9] rounded-[40px] mb-2'
                             }`}
                         >
@@ -136,14 +136,14 @@ export default function Tab({ tabs, showTriangle, closer, buttonStyle, cornerIma
                                     aria-hidden
                                     width={275}
                                     height={253}
-                                    className={`pointer-events-none absolute top-0 h-auto w-12 -translate-y-3/5 ${
+                                    className={`pointer-events-none absolute top-0 h-auto w-8 sm:w-12 -translate-y-3/5 ${
                                         index === 0 ? 'left-0 -translate-x-3/5' : 'right-0 translate-x-3/5 -scale-x-100'
                                     }`}
                                 />
                             )}
                             {tab.label}
                             {showTriangle && (
-                                <svg width="24" height="20" viewBox="-1 -1 12 10" fill="white" stroke="white" strokeWidth="1.2" strokeLinejoin="round" aria-hidden className={`absolute right-[32px] top-1/2 -translate-y-1/2 ${active === index ? 'rotate-180 transition-transform duration-300' : 'rotate-0'}`}>
+                                <svg width="24" height="20" viewBox="-1 -1 12 10" fill="white" stroke="white" strokeWidth="1.2" strokeLinejoin="round" aria-hidden className={`shrink-0 h-auto w-4 sm:w-6 sm:absolute sm:right-[32px] sm:top-1/2 sm:-translate-y-1/2 ${active === index ? 'rotate-180 transition-transform duration-300' : 'rotate-0'}`}>
                                     {/* 下向き三角。選択されると時計回りに回転して上向き（180度）になる */}
                                     <path d="M5 8L0 0H10z" />
                                 </svg>
