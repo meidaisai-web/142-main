@@ -5,6 +5,7 @@ import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
 import Text from "@/components/texts/Text";
 import Emphasis from "@/components/texts/Emphasis";
+import OnlyImage from "@/components/OnlyImage"
 import LogoImage from "@/components/LogoImage"
 import ContactView from "@/components/texts/ContactView";
 
@@ -13,7 +14,7 @@ export default function Page() {
         <CloudPageContainer>
             <PageTitle>熱闘!!明治スポーツ</PageTitle>
             <LogoImage src="" alt="" />
-            <LogoImage src="" alt="" />
+            <LogoImage src="/images/sports/mainImage.png" alt="" />
             <SectionTitle>企画概要</SectionTitle>
             <Emphasis>明治大学といえばおなじみのスポーツについて、展示や体験型企画を通してその魅力を発信する企画です！</Emphasis>
             <Text>現役選手に明大生ならではの視点でインタビュー。普段は見られない一面が見られるかも！また、選手の記録に挑戦できる体験型企画も用意しています！</Text>
