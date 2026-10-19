@@ -5,9 +5,7 @@ import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
 import Text from "@/components/texts/Text";
 import Emphasis from "@/components/texts/Emphasis";
-import { List, ListItem } from "@/components/texts/List"
 import LogoImage from "@/components/LogoImage"
-import Button from "@/components/buttons/Button"
 import ContactView from "@/components/texts/ContactView";
 
 export default function Page() {
