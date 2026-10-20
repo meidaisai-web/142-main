@@ -66,8 +66,8 @@ export default function Header() {
 
         {/* マップ */}
         <Link
-          href="/access"
-          aria-label="アクセスマップ"
+          href="/map"
+          aria-label="マップ"
           className="relative flex h-[60px] w-[68px] items-start justify-center sm:mt-4 sm:w-[88px]"
         >
           <Image
