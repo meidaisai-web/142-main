@@ -8,6 +8,8 @@ export interface Project {
     id: string;
     name: string;
     group: string;
+    // 専用ページがある企画はそのパス。なければ /search/[id] に遷移する
+    href?: string;
 }
 
 interface DayAccordionProps {
@@ -65,7 +67,7 @@ export default function DayAccordion({ date, isoDate, projects }: DayAccordionPr
                         {projects.map((project, i) => (
                             <li key={project.id} className={i === 0 ? "mt-3" : ""}>
                                 <Link
-                                    href={`/search/${project.id}`}
+                                    href={project.href ?? `/search/${project.id}`}
                                     className="flex items-center gap-3 rounded-full border-2 border-primary bg-white px-5 py-2 transition-colors active:bg-gray-100 hover:bg-gray-50"
                                 >
                                     <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-white">{i + 1}</span>
