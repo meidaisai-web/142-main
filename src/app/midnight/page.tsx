@@ -23,7 +23,7 @@ export default function Page() {
                     logoAlt="企画ロゴ" />
             </div>
 
-            <SectionTitle>万彩よ、交われ。</SectionTitle>
+            <SectionTitle>万彩よ交われ。</SectionTitle>
                 <Text center><Emphasis bold>
                     覗けばまだ知らない世界。<br />
                     光織りなす月の下で<br />
