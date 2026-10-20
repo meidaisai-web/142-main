@@ -45,6 +45,41 @@ export default function Header() {
         />
       </Link>
 
+    
+      {/* 虫眼鏡・マップアイコン */}
+      <div className="absolute right-[40px]  max-sm:right-[15px]  top-6 max-sm:top-[50px] z-40 flex items-start gap-0 max-sm:-mr-2 sm:right-[30px] sm:gap-4">
+
+        {/* 虫眼鏡 */}
+        <Link
+          href="/search"
+          aria-label="企画を検索"
+          className="relative flex h-[60px] w-[68px] max-sm:-mr-2 items-start justify-center sm:w-[88px]"
+        >
+          <Image
+            src="/images/header/search.svg"
+            alt="検索"
+            width={200}
+            height={160}
+            className="h-[52px] w-[68px] object-contain sm:h-[150px] sm:w-[180px] sm:-translate-y-1"
+          />
+        </Link>
+
+        {/* マップ */}
+        <Link
+          href="/access"
+          aria-label="アクセスマップ"
+          className="relative flex h-[60px] w-[68px] items-start justify-center sm:mt-4 sm:w-[88px]"
+        >
+          <Image
+            src="/images/header/map.svg"
+            alt="マップ"
+            width={200}
+            height={160}
+            className="h-[62px] w-[78px] object-contain sm:h-[130px] sm:w-[160px]"
+          />
+        </Link>
+      </div>
+
       <HamburgerIcon isOpen={isOpenHamburger} setOpen={setOpenHamburger} />
       <Hamburger isOpen={isOpenHamburger} />
     </header>
@@ -110,3 +145,6 @@ function HamburgerIcon({ isOpen, setOpen }: HamburgerIconProps) {
     </motion.button>
   )
 }
+
+
+
