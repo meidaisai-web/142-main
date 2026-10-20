@@ -29,7 +29,7 @@ export default function Page() {
             <Text center className="mt-5">
                 伝説の幕が上がる <br />
                 挑み続けた者達の血と涙の結晶<br />
-                全ては、この舞台のために。
+                すべては、この舞台のために。
             </Text>
             <SectionTitle>企画概要</SectionTitle>
             <Text >今年の対決企画は、6団体が3つの部門に分かれ、頂点を懸けて激突。</Text>
