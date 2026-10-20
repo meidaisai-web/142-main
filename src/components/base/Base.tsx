@@ -6,7 +6,7 @@ import ToTop from "../buttons/ToTop";
 export default function Base({ children }: { children: React.ReactNode }) {
     return (
         <Suspense>
-            <div className="min-h-screen">
+            <div className="min-h-screen overflow-x-hidden">
                 <Header />
                 <main>
                     {children}

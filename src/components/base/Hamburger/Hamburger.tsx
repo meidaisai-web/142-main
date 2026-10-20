@@ -12,7 +12,7 @@ interface HamburgerProps {
 export default function Hamburger({ isOpen }: HamburgerProps) {
     return (
         <motion.div
-            className="absolute z-40 whitespace-nowrap m-0 bg-secondary-50 pt-18 top-0 right-0 origin-top-right overflow-scroll"
+            className="absolute z-40 whitespace-nowrap m-0 bg-secondary-50 pt-18 top-0 right-0 w-screen h-screen overflow-scroll"
             initial="closed"
             animate={isOpen ? "open" : "closed"}
             transition={{
@@ -21,18 +21,12 @@ export default function Hamburger({ isOpen }: HamburgerProps) {
             }}
             variants={{
                 open: {
-                    width: "100vw",
-                    height: "100vh",
-                    borderRadius: 0,
-                    scale: 1,
-                    opacity: 1,
+                    clipPath: "circle(150vmax at 100% 0%)",
+                    pointerEvents: "auto",
                 },
                 closed: {
-                    width: 0,
-                    height: 0,
-                    borderRadius: "50%",
-                    scale: 0,
-                    opacity: 0,
+                    clipPath: "circle(0 at 100% 0%)",
+                    pointerEvents: "none",
                 }
             }}
         >
@@ -47,34 +41,45 @@ const hamburgerContents: HamburgerSectionProps[] = [
         title: "ご来場のみなさまへ",
         content: [
             { href: "/about", label: "明大祭とは" },
+            { href: "/theme", label: "第142回明大祭テーマ" },
             { href: "/announce", label: "ご来場のみなさまへのお願い" },
             { href: "/access", label: "アクセス" }
         ]
     },
+
+    {
+        title: "コラボ企画",
+        content: [
+            { href: "/matsubara", label: "松原小学校×明大祭" },
+            { href: "/icu", label: "ICU祭×明大祭" }
+        ]
+    }
 ]
 
 const forOutside = [
     {
         title: "関係者のみなさまへ",
         content: [
-            { href: "stakeholders/company", label: "企業のみなさまへ" },
-            { href: "stakeholders/area", label: "界隈地域のみなさまへ" },
-            { href: "stakeholders/alumni", label: "校友・父母のみなさまへ" },
-            { href: "stakeholders/media", label: "メディアのみなさまへ" },
+            { href: "/stakeholders/company", label: "企業のみなさまへ" },
+            { href: "/stakeholders/area", label: "界隈地域のみなさまへ" },
+            { href: "/stakeholders/alumni", label: "校友・父母のみなさまへ" },
+            { href: "/stakeholders/media", label: "メディアのみなさまへ" },
         ]
     },
 
      {
-        title: "コラボ企画",
+        title: "特集",
         content: [
-            { href: "/matsubara", label: "松原小学校×明大祭" }
+            { href: "/official-projects", label: "実行委員会企画まとめ" },
+            { href: "/donation", label: "明大祭・募金企画" }
         ]
     },
-
-     {
-        title: "実行委員会企画",
+    
+    {
+        title: "ご協賛一覧",
         content: [
-            { href: "/ippan", label: "一般明大生向け本祭前企画" }
+            { href: "/company-list", label: "ご協賛企業一覧" },
+            { href: "/alumni-list", label: "ご賛助ご芳名" }
         ]
     }
 ]
