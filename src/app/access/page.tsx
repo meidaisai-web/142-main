@@ -27,7 +27,7 @@ export default function Page() {
                     和泉キャンパス所在地
                 </SmallTitle>
                 <Text>
-                    〒168-855<br />東京都杉並区永福1-9-1<br />明治大学和泉キャンパス
+                    〒168-8555<br />東京都杉並区永福1-9-1<br />明治大学和泉キャンパス
                 </Text>
                 <SmallTitle className="mt-15">
                     明大前駅までのアクセス
