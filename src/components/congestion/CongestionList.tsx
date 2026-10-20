@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Text from "@/components/texts/Text";
+import HoverPreview from "@/components/congestion/HoverPreview";
 import { MasterData } from "@/utils/models/MasterData";
 import { getStoreDataWithCongestion } from "@/utils/supabase/masterDataAction";
 
@@ -34,12 +35,10 @@ const timeToStatus: Record<string, CrowdStatus> = {
   "一時停止": "paused",
 };
 
-// 未登録・不明な値は null
 function toCrowdStatus(time: string | undefined): CrowdStatus | null {
   return (time && timeToStatus[time]) || null;
 }
 
-// 「テント配置番号 10番」からマップ上の番号を取り出す
 function toTentNumber(location: string): number | null {
   const match = location.match(/(\d+)番/);
   return match ? Number(match[1]) : null;
@@ -85,7 +84,7 @@ function StatusMark({ status }: { status: CrowdStatus | null }) {
 function StallCard({ number, store, status, pressed }: { number: number; store: MasterData; status: CrowdStatus | null; pressed: boolean }) {
   const isSecondary = number <= 13;
   return (
-    <div className={`flex min-h-[46px] md:min-h-[42px] overflow-hidden border border-[#3E3D3F] bg-white transition-transform duration-200 ${pressed ? "translate-y-[2px]" : ""
+    <div className={`flex min-h-[46px] md:min-h-[42px] overflow-hidden border border-[#3E3D3F] bg-white transition-transform duration-200 group-active:translate-y-[3px] ${pressed ? "translate-y-[2px]" : ""
       }`}>
       <div
         className={`flex w-7 shrink-0 items-center justify-center text-[13px] sm:text-[16px] font-bold text-[#3E3D3F] sm:w-[50px] ${isSecondary ? "bg-secondary-100" : "bg-accent-100"
@@ -96,7 +95,7 @@ function StallCard({ number, store, status, pressed }: { number: number; store: 
 
       {/* 高さは常に2行分（leading-snug 1.375em × 2 + 上下padding）にして、1行の名前は上下中央に揃える */}
       <div className="flex h-[calc(2.75em+1rem)] min-w-0 flex-1 items-center justify-center px-1 py-2 text-xs leading-snug sm:px-2 sm:text-base lg:text-[14px]">
-                <span className={`line-clamp-2 text-center font-bold transition-colors duration-200 ${pressed
+        <span className={`line-clamp-2 text-center font-bold transition-colors duration-200 ${pressed
           ? isSecondary ? "text-secondary" : "text-accent"
           : isSecondary ? "text-[#3E3D3F] group-hover:text-secondary" : "text-[#3E3D3F] group-hover:text-accent"
           }`}>
@@ -111,14 +110,60 @@ function StallCard({ number, store, status, pressed }: { number: number; store: 
   );
 }
 
+function formatUpdatedAt(timestamp: string): string {
+  return new Intl.DateTimeFormat("ja-JP", {
+    timeZone: "Asia/Tokyo",
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(new Date(timestamp));
+}
+
+function StorePreview({ store, status }: { store: MasterData; status: CrowdStatus | null }) {
+  const [imgSrc, setImgSrc] = useState(store.imageUrl || "/images/svg/no-image.svg");
+
+  return (
+    <Link
+      href={`/search/${store.id}`}
+      className="block w-72 overflow-hidden rounded-xl border-2 border-[#3E3D3F] bg-white text-[#3E3D3F] shadow-xl"
+    >
+      <Image
+        src={imgSrc}
+        alt="企画画像"
+        width={288}
+        height={96}
+        className="h-24 w-full border-b-2 border-[#3E3D3F] object-cover"
+        onError={() => setImgSrc("/images/svg/no-image.svg")}
+      />
+      <div className="p-3">
+        <p className="font-bold leading-snug">{store.eventName.trim()}</p>
+        <p className="mt-1 text-xs text-gray-500">{store.groupName}</p>
+        {store.catchphrase && (
+          <p className="mt-2 text-sm leading-snug">{store.catchphrase}</p>
+        )}
+        <div className="mt-3 flex items-center gap-2 border-t border-gray-200 pt-2 text-sm font-bold">
+          <span className="flex h-7 items-center">
+            <StatusMark status={status} />
+          </span>
+          <span>{status ? statusInfo[status].label : "情報なし"}</span>
+          {store.congestion?.timestamp && (
+            <span className="ml-auto text-xs font-medium text-gray-500">
+              {formatUpdatedAt(store.congestion.timestamp)} 更新
+            </span>
+          )}
+        </div>
+      </div>
+    </Link>
+  );
+}
+
 export default function CongestionList() {
   const [filterStatuses, setFilterStatuses] = useState<CrowdStatus[]>([]);
   const [stores, setStores] = useState<MasterData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  // スマホのタップは :active が一瞬で終わるので、押したカードを覚えておく
   const [pressedId, setPressedId] = useState<number | null>(null);
-  // 凡例ボタン列の左端から一番左のボタンまでの距離（説明文の左端を揃えるのに使う）
   const buttonRowRef = useRef<HTMLDivElement>(null);
   const [textOffset, setTextOffset] = useState<number>(0);
 
@@ -134,7 +179,6 @@ export default function CongestionList() {
 
     updateOffset();
 
-    // 画面幅が変わってボタンの折り返しが変わったら測り直す
     const observer = new ResizeObserver(updateOffset);
     observer.observe(row);
 
@@ -166,13 +210,12 @@ export default function CongestionList() {
 
   return (
     <>
-      <div className="mb-8 rounded-lg bg-primary-100 px-4 py-4 text-sm font-bold text-[#3E3D3F]">
+      <div className="mb-4 rounded-lg bg-primary-100 px-4 py-4 text-sm font-bold text-[#3E3D3F]">
         <div style={{ paddingLeft: textOffset }}>
           <Text className="text-[14px] sm:text-[15px]">
             タップした状況の模擬店を薄く表示します。
           </Text>
         </div>
-
         <div ref={buttonRowRef} className="mt-3 flex flex-wrap justify-center gap-x-3 gap-y-3">
           {(
             ["long", "medium", "short", "soldout", "paused"] as const
@@ -198,7 +241,6 @@ export default function CongestionList() {
                   : "border-accent-900 bg-white"
                   }`}
               >
-                {/* アイコンの大きさがステータスごとに違うので、一番大きい売り切れ(h-7)に高さを揃えてボタンの高さを統一する */}
                 <span className="flex h-7 items-center">
                   <StatusMark status={status} />
                 </span>
@@ -208,6 +250,9 @@ export default function CongestionList() {
           })}
         </div>
       </div>
+      <Text className="fontbold">
+        タップで各企画の詳細ページに移動します。
+      </Text>
 
       {loading && <Text>読み込み中...</Text>}
       {error && <Text>{error}</Text>}
@@ -225,9 +270,21 @@ export default function CongestionList() {
                   : "opacity-100"
                   }`}
               >
-                <Link href={`/search/${store.id}`} onClick={() => setPressedId(store.id)} className="group block">
-                  <StallCard number={toTentNumber(store.location) ?? index + 1} store={store} status={status} pressed={pressedId === store.id} />
-                </Link>
+                <HoverPreview preview={<StorePreview store={store} status={status} />}>
+                  {/* 長押しで沈ませている間に、リンクのメニューや文字選択が出ないようにする */}
+                  <Link
+                    href={`/search/${store.id}`}
+                    onClick={() => setPressedId(store.id)}
+                    onContextMenu={(e) => {
+                      if ((e.nativeEvent as PointerEvent).pointerType === "touch") {
+                        e.preventDefault();
+                      }
+                    }}
+                    className="group block select-none [-webkit-touch-callout:none]"
+                  >
+                    <StallCard number={toTentNumber(store.location) ?? index + 1} store={store} status={status} pressed={pressedId === store.id} />
+                  </Link>
+                </HoverPreview>
               </div>
             );
           })}
