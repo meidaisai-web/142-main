@@ -81,15 +81,6 @@ export default function Page() {
                 <List>
 	              <ListItem>メディア棟前企画受付にある「明大祭大抽選会」まで行くと、抽選に参加できます！</ListItem>
                   <ListItem> 企画に関するお問い合わせは、和泉図書館前総合インフォメーションブースMeidaisai Championship受付までお越しください。</ListItem>
-<<<<<<< HEAD
-                  <ListItem> ※1日に配付する抽選券の枚数には限りがあります。予定枚数に達し次第、Web上の引き換え画面は表示されなくなりますので、あらかじめご了承ください。</ListItem>
-                    <ListItem> 抽選券に関して詳しく知りたい方は、明大祭大抽選会詳細ページをご覧ください。</ListItem>
-                </ListText>
-                <Button href="/bigLottery" className="mt-5">
-                    こちら
-                </Button>
-                <ContactView department="演出局" mail="142nd-enshutsu@meidaisai.jp" />
-=======
                 </List>
                 <List mark="※">
                   <ListItem> 1日に配付する抽選券の枚数には限りがあります。予定枚数に達し次第、Web上の引き換え画面は表示されなくなりますので、あらかじめご了承ください。</ListItem>
@@ -98,8 +89,7 @@ export default function Page() {
                   <ListItem> 抽選券に関して詳しく知りたい方は、明大祭大抽選会詳細ページをご覧ください。</ListItem>
                 </List>
                 <Button className="w-fit mx-auto mt-2" href="/bigLottery">こちら</Button>
-                <ContactView department="第142回明大祭実行委員会演出局" mail="142nd-enshutsu@meidaisai.jp" />
->>>>>>> 38ec369d78e8ddd40130f9a55fc6206245cc02f3
+                <ContactView department="演出局" mail="142nd-enshutsu@meidaisai.jp" />
             </CloudPageContainer>
         </div>
     )
