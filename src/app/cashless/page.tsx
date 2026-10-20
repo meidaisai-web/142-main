@@ -95,7 +95,7 @@ const page = () => {
             <SmallTitle className="mb-3">ご利用にあたってのお願い</SmallTitle>
             <List mark="・">
                 <ListItem><Emphasis>PayPayはご利用いただけません。</Emphasis></ListItem>
-                <ListItem>全ての模擬店にてキャッシュレス決済をご利用いただけない場合もございます。</ListItem>
+                <ListItem>一部の模擬店のみでキャッシュレス決済をご利用いただけます。</ListItem>
                 <ListItem>電波状況により、決済に時間がかかる場合がございます。ご了承ください。</ListItem>
             </List>
             <ContactView department="財務局キャッシュレス決済導入チーム" showPhone mail="142nd-cashless@meidaisai.jp" showAddress />
