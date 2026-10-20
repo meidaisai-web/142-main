@@ -30,9 +30,9 @@ export default function Page() {
                     無限の煌めきを、灯せ。</Emphasis></Text>
 
                 <SectionTitle>企画概要</SectionTitle>
-                <Text center>想いが重なり、今宵ひとつに。<br />
-                    会場をも巻き込む熱狂を。<br />
-                    この一瞬を見逃すな。</Text>
+                <Text center>想いが重なり、今宵一つに。<br />
+                    会場をも巻き込む熱狂を<br />
+                    この一瞬を見逃すな！</Text>
 
                 <SmallTitle>場所</SmallTitle>
                 <Text>メインステージ</Text>
@@ -42,7 +42,7 @@ export default function Page() {
 
                 <SectionTitle>コンテンツ</SectionTitle>
 
-                    <SmallTitle>オープニングアウト</SmallTitle>
+                    <SmallTitle>オープニングアクト</SmallTitle>
                     <div>
                         <CloudPhoto src="/images/midnight/shodou.jpg" name="書道研究部" className="max-w-[700px] mx-auto mt-6 lg:mt-10" />
                     </div>
