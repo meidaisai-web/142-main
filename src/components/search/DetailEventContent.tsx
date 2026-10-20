@@ -7,7 +7,6 @@ import VoteView from "./VoteView";
 import Text from "../texts/Text";
 import Image from "next/image";
 import Link from "next/link";
-import ZoomableImage from "../ZoomableImage";
 import { getMeichamCategory } from "@/utils/managers/meichamManager";
 import SearchCloud from "./SearchCloud";
 
@@ -63,10 +62,7 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                         <ImageView type={data.type} imageUrl={data.imageUrl} icons={data.icons} />
                         <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
                     </div>
-                    　 {data.location.includes("テント配置番号") && (
-                        <ZoomableImage src="/images/map/tent.jpg" alt="テントマップ" width={600} height={300} className="bg-white p-1 rounded-xl object-contain w-full h-fit max-w-xl mt-16" />
-                    )}
-                    {/* <Menu menus={data.menuItems || []} /> */}
+                    <Menu menus={data.menuItems || []} />
                     {/* 不参加の企画もVoteViewを出し、「投票対象ではありません」と表示する（category === null） */}
                     {(!data.groupName.includes("明大祭実行委員会") && data.groupName !== '伊藤 汰海') &&
                         <VoteView id={id} groupId={data.groupId} type={data.type} eventName={data.eventName} groupName={data.groupName} eventDate={data.eventDate} category={category} />
@@ -229,6 +225,34 @@ function EventImage({ imageUrl, icons }: EventImageProps) {
                 ))}
             </div>
             <Image src={imgSrc} alt="企画画像" width={300} height={300} className="rounded-lg w-full max-w-75 aspect-square object-cover" onError={() => setImgSrc('/images/svg/no-image.svg')}/>
+        </div>
+    )
+}
+
+
+interface MenuProps {
+    menus: string[]
+}
+function Menu({ menus }: MenuProps) {
+    if (menus.length === 0) {
+        return null;
+    }
+    return (
+        <div className="relative mt-20">
+            <div className="relative rounded-xl border-primary border-2 w-80 bg-white">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 isolate flex items-center justify-center w-40 py-3">
+                    <Image src="/images/searchdetail/menu-cloud.svg" width={500} height={500} className="absolute inset-0 w-full h-full object-contain -z-10" alt="" />
+                    <Text center className="text-2xl font-bold">Menu</Text>
+                </div>
+                <div className="text-text px-10 pt-10 pb-10 text-lg">
+                    {menus.map((menu) => (
+                        <div key={menu} className="pt-6">
+                            <p className="pb-1">{menu}</p>
+                            <Image src="/images/searchdetail/menu-bar.svg" alt="" width={300} height={10} className="w-full h-auto" />
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     )
 }
