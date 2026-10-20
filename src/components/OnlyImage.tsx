@@ -19,7 +19,7 @@ export default function OnlyImage({
                 alt={alt}
                 width={500}
                 height={500}
-                className="rounded-2xl"
+                className="rounded-md"
             />
         </div>
     );
