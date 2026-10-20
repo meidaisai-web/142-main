@@ -30,7 +30,7 @@ export default function Page() {
                     無限の煌めきを、灯せ。</Emphasis></Text>
 
                 <SectionTitle>企画概要</SectionTitle>
-                <Text>想いが重なり、今宵ひとつに。<br />
+                <Text center>想いが重なり、今宵ひとつに。<br />
                     会場をも巻き込む熱狂を。<br />
                     この一瞬を見逃すな。</Text>
 
