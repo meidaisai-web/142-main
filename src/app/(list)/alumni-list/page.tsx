@@ -1,6 +1,7 @@
 import PageContainer from "@/components/base/PageContainer";
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
+import AccentText from "@/components/texts/AccentText";
 import Text from "@/components/texts/Text";
 import { alumniList } from "@/utils/datas/alumniData";
 
@@ -9,7 +10,7 @@ export default function Page() {
         <div>
             <PageTitle>ご賛助ご芳名</PageTitle>
             <PageContainer>
-                <Text moreTopPadding>明大祭の開催にあたりまして、多くの方々に多大なるご支援をいただきました。 この場をお借りしまして、ご支援いただきましたみなさまのご紹介をさせていただきます。（敬称略）</Text>
+                <Text>明大祭の開催にあたりまして、多くの方々に多大なるご支援をいただきました。 この場をお借りしまして、ご支援いただきましたみなさまのご紹介をさせていただきます。（敬称略）</Text>
                 <SectionTitle>ご芳名一覧</SectionTitle>
                 <div className="max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-x-28 gap-y-5">
                     {alumniList.map((alumni) => (
@@ -31,7 +32,7 @@ interface Alumni {
 function AlumniItem({ name, year, division, position, message }: Alumni) {
     return (
         <div>
-            <Text className="font-bold">{name}</Text>
+            <AccentText>{name}</AccentText>
             <Text noTopPadding>{position}</Text>
             {year && division && (
                 <Text noTopPadding>{year}{division}学部卒業</Text>
