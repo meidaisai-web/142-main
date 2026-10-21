@@ -18,7 +18,6 @@ export default function Tab({ tabs }: TabProps) {
     const [active, setActive] = useState(0);
     const contentRef = useRef<SwiperType | null>(null);
     const buttonRefs = useRef<HTMLButtonElement[]>([]);
-    buttonRefs.current = [];
 
     const [indicator, setIndicator] = useState({ left: 0, width: 0 });
     const indicatorRef = useRef<HTMLDivElement | null>(null);
