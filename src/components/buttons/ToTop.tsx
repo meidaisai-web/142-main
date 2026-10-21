@@ -16,26 +16,15 @@ const ToTop: React.FC = () => {
     };
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            window.addEventListener('scroll', scrollWindow)
-            return () => {
-                window.removeEventListener('scroll', scrollWindow)
-            }
+        const scrollWindow = () => {
+            const top = 300  //ボタンを表示させたい位置
+            setIsVisible(top <= window.scrollY)
+        }
+        window.addEventListener('scroll', scrollWindow)
+        return () => {
+            window.removeEventListener('scroll', scrollWindow)
         }
     }, [])
-
-    const scrollWindow = () => {
-        if (typeof window !== 'undefined') {
-            const top = 300  //ボタンを表示させたい位置
-            let scroll = 0
-            scroll = window.scrollY
-            if (top <= scroll) {
-                setIsVisible(true)
-            } else {
-                setIsVisible(false)
-            }
-        }
-    }
 
     const normalStyle: React.CSSProperties = {
         opacity: 0,
