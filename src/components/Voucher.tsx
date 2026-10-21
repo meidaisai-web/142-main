@@ -55,6 +55,8 @@ export default function Voucher() {
     }
 
     useEffect(() => {
+        // 引き換え可否の判定結果を state に反映する
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         if (!isEnableExchange()) {
             return;
         }
