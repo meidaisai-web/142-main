@@ -23,8 +23,8 @@ interface ZoomableImageProps extends Omit<ImageProps, "onClick"> {
  * 通常時は普通のnext/imageとして表示され、クリック/タップで拡大モーダルが開きます
  */
 export default function ZoomableImage({
-  zoomMaxWidth = "90vw",
-  zoomMaxHeight = "90vh",
+  zoomMaxWidth = "4/5",
+  zoomMaxHeight = "4/5",
   disableZoom = false,
   alt,
   className,
@@ -106,10 +106,12 @@ export default function ZoomableImage({
             <Image
               {...imageProps}
               alt={alt}
-              className="max-h-[90vh] max-w-[90vw] h-auto w-auto object-contain"
+              className="object-contain"
               style={{
-                width: "auto",
+                width: zoomMaxWidth,
                 height: "auto",
+                maxWidth: zoomMaxWidth,
+                maxHeight: zoomMaxHeight,
               }}
             />
           </div>
