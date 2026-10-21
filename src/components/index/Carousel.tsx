@@ -8,7 +8,7 @@ import CarouselCard from '@/components/index/CarouselCard';
 const slides = [
   { title: '第142回明大祭テーマ', src: '/images/carousel/catch.svg', href: '/theme', imageClassName: 'object-contain px-4' },
   { title: '明大祭とは', src: '/images/carousel/logo.svg', href: '/about' },
-  { title: '実行委員会企画まとめ', src: '/images/carousel/boad.svg', href: '/official-projects' , imageClassName: 'object-contain px-4' },
+  { title: '実行委員会企画まとめ', src: '/images/carousel/boad.svg', href: '/official-projects' , imageClassName: 'object-contain px-3' },
   { title: '明大祭・募金企画', src: '/images/donation/donation.png', href: '/donation', imageClassName: 'object-cover' },
   { title: 'Opening', src: '/images/carousel/opening-logo.png', href: '/opening' },
   { title: '受験生コレクション\n～わくわく明大生活～', src: '/images/carousel/wakuwaku-logo.png', href: '/wakuwaku' },
