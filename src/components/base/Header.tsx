@@ -53,14 +53,14 @@ export default function Header() {
           <Link
             href="/search"
             aria-label="企画を検索"
-            className="cloud-swing relative flex h-[80px] w-[90px] max-sm:-mr-4 items-start justify-center sm:h-[60px] sm:w-[88px]"
+            className="cloud-swing relative flex h-[136px] w-[153px] max-sm:-mr-4 items-start justify-center sm:h-[60px] sm:w-[88px]"
           >
             <Image
               src="/images/header/search.svg"
               alt="検索"
               width={200}
               height={160}
-              className="h-[75px] w-[90px] object-contain sm:h-[150px] sm:w-[180px] sm:-translate-y-1"
+              className="h-[128px] w-[153px] object-contain sm:h-[150px] sm:w-[180px] sm:-translate-y-1"
             />
           </Link>
 
@@ -68,14 +68,14 @@ export default function Header() {
           <Link
             href="/map"
             aria-label="マップ"
-            className="cloud-swing cloud-swing-delayed relative flex h-[85px] w-[100px] items-start justify-center sm:mt-4 sm:h-[60px] sm:w-[88px]"
+            className="cloud-swing cloud-swing-delayed relative flex h-[145px] w-[170px] items-start justify-center sm:mt-4 sm:h-[60px] sm:w-[88px]"
           >
             <Image
               src="/images/header/map.svg"
               alt="マップ"
               width={200}
               height={160}
-              className="h-[82px] w-[100px] object-contain sm:h-[130px] sm:w-[160px]"
+              className="h-[139px] w-[170px] object-contain sm:h-[130px] sm:w-[160px]"
             />
           </Link>
         </div>
