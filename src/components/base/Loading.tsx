@@ -283,6 +283,8 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
             AIRPLANE_DURATION_MAX,
             Math.max(AIRPLANE_DURATION_MIN, distance / speed),
         );
+        // window サイズ依存の値で SSR 時には求められないため、マウント後に反映する
+        /* eslint-disable react-hooks/set-state-in-effect */
         setPlaneDuration(duration);
         const delay = window.matchMedia(LG_QUERY).matches
             ? AIRPLANE_DELAY
@@ -292,6 +294,7 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
                 ? AIRPLANE_DELAY_SM
                 : AIRPLANE_DELAY_SP;
         setPlaneDelay(delay);
+        /* eslint-enable react-hooks/set-state-in-effect */
         const controls = animate(planeProgress, 1, {
             duration,
             delay,
