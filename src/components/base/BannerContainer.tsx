@@ -30,10 +30,12 @@ export default function BannerContainer() {
     };
 
     useEffect(() => {
-        // 初回シャッフル
+        // 初回シャッフル (乱数は SSR と hydration が食い違うためマウント後に行う)
+        /* eslint-disable react-hooks/set-state-in-effect */
         setShuffledAds(shuffleArray([...adData]));
         setShuffledSmallAds(shuffleArray([...smallAdData]));
         changeAds();
+        /* eslint-enable react-hooks/set-state-in-effect */
         const adsInterval = setInterval(() => {
             changeAds();
             console.log('change ads');
@@ -53,6 +55,8 @@ export default function BannerContainer() {
     }, []);
 
     useEffect(() => {
+        // 初期スクロール位置を反映する
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         handleScroll();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
