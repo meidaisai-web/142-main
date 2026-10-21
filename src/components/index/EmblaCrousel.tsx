@@ -1,5 +1,5 @@
 'use client'
-import React, { useCallback, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import {
   EmblaCarouselType,
   EmblaEventType,
@@ -62,13 +62,13 @@ function EmblaCarousel() {
     align: 'center',
     containScroll: 'trimSnaps',
   }
-  const autoplayRef = useRef(
+  const [autoplay] = useState(() =>
     Autoplay({
       delay: 2000,
       stopOnInteraction: false
     })
   )
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [autoplayRef.current])
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [autoplay])
   const tweenFactor = useRef(0)
   const tweenNodes = useRef<HTMLElement[]>([])
   const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
