@@ -26,4 +26,11 @@ export type MasterData = {
     otherIcons: string[];
     menuItems: string[];
     qrcode: string;
+    congestion?: CongestionData;
+}
+
+export type CongestionData = {
+    id: number;
+    time: string;
+    timestamp: string;
 }
