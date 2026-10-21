@@ -81,6 +81,7 @@ const forOutside = [
         title: "ご協賛一覧",
         content: [
             { href: "/company-list", label: "ご協賛企業一覧" },
+            { href: "/area-list", label: "ご協賛店舗一覧" },
             { href: "/alumni-list", label: "ご賛助ご芳名" }
         ]
     }
