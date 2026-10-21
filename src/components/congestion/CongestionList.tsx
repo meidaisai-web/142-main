@@ -258,7 +258,7 @@ export default function CongestionList() {
       {error && <Text>{error}</Text>}
 
       {!loading && !error && (
-        <div className="grid grid-cols-2 grid-flow-row gap-x-3 gap-y-2 sm:grid-flow-col sm:auto-cols-fr sm:grid-rows-[repeat(26,minmax(0,auto))] sm:gap-x-5 xl:grid-rows-[repeat(17,minmax(0,auto))]">
+        <div className="grid grid-cols-2 grid-flow-row gap-x-3 gap-y-2 sm:grid-flow-col sm:auto-cols-fr sm:grid-rows-[repeat(26,minmax(0,auto))] sm:gap-x-5 lg:grid-rows-[repeat(17,minmax(0,auto))]">
           {stores.map((store, index) => {
             const status = toCrowdStatus(store.congestion?.time);
             const isDimmed = status !== null && filterStatuses.includes(status);
