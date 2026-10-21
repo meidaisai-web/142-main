@@ -43,6 +43,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/about", label: "明大祭とは" },
             { href: "/theme", label: "第142回明大祭テーマ" },
             { href: "/announce", label: "ご来場のみなさまへのお願い" },
+            { href: "/cashless", label: "明大祭・キャッシュレス決済" },
             { href: "/access", label: "アクセス" }
         ]
     },
@@ -51,6 +52,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
         title: "コラボ企画",
         content: [
             { href: "/matsubara", label: "松原小学校×明大祭" },
+            { href: "/lottely-shop", label: "明大前商店街×明大祭～明大祭で当てよう！豪華景品～" },
             { href: "/icu", label: "ICU祭×明大祭" }
         ]
     }
