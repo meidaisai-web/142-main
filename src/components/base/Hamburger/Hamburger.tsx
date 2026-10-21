@@ -41,6 +41,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
         title: "ご来場のみなさまへ",
         content: [
             { href: "/about", label: "明大祭とは" },
+            { href: "/theme", label: "第142回明大祭テーマ" },
             { href: "/announce", label: "ご来場のみなさまへのお願い" },
             { href: "/access", label: "アクセス" }
         ]
@@ -67,13 +68,10 @@ const forOutside = [
     },
 
      {
-        title: "実行委員会企画",
+        title: "特集",
         content: [
-            { href: "/ippan", label: "NO iMeiji, NO LIFE？" },
-            { href: "/limit", label: "LIMIT∞BREAK" },
-            { href: "/experiment", label: "めいじっけん" },
-            { href: "/donation", label: "明大祭・募金企画" },
-
+            { href: "/official-projects", label: "実行委員会企画まとめ" },
+            { href: "/donation", label: "明大祭・募金企画" }
         ]
     },
     

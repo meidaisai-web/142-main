@@ -13,9 +13,11 @@ export default function Header() {
   const pathname = usePathname()
 
   // ページ移動を検知
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(pathname)
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname)
     setOpenHamburger(false)
-  }, [pathname])
+  }
 
   // ハンバーガーメニューが開いてる時は裏のスクロールを無効化
   useEffect(() => {
