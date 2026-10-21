@@ -73,7 +73,7 @@ export const recommendations: Record<MTypeKey, Record<DayKey, Project[]>> = {
             { id: "51", name: "フォークソング同好会ライブ", group: "フォークソング同好会" },
             { id: "58", name: "明大祭寄席", group: "落語研究会" },
             { id: "498", name: "Meiji de Mage〜見習い魔法使いの修行録〜", group: "明大祭実行委員会開発局凌閃部門", href: "/mage" },
-            { id: "503", name: "記憶探し〜未来からのメッセージ〜", group: "明大祭実行委員会開発局凌閃部門", href: "/rally" },
+            { id: "503", name: "記憶探し〜未来からのメッセージ〜", group: "明大祭実行委員会開発局凌閃部門", href: "/memory" },
             { id: "497", name: "めいじっけん", group: "明大祭実行委員会開発局凌閃部門", href: "/experiment" },
         ],
         "2026-10-31": [
@@ -91,7 +91,7 @@ export const recommendations: Record<MTypeKey, Record<DayKey, Project[]>> = {
             { id: "112", name: "平井ゼミのワークショップ体験", group: "国際日本学部平井達也ゼミナール" },
             { id: "58", name: "明大祭寄席", group: "落語研究会" },
             { id: "498", name: "Meiji de Mage〜見習い魔法使いの修行録〜", group: "明大祭実行委員会開発局凌閃部門", href: "/mage" },
-            { id: "503", name: "記憶探し〜未来からのメッセージ〜", group: "明大祭実行委員会開発局凌閃部門", href: "/rally" },
+            { id: "503", name: "記憶探し〜未来からのメッセージ〜", group: "明大祭実行委員会開発局凌閃部門", href: "/memory" },
             { id: "497", name: "めいじっけん", group: "明大祭実行委員会開発局凌閃部門", href: "/experiment" },
         ],
         "2026-11-01": [
@@ -109,7 +109,7 @@ export const recommendations: Record<MTypeKey, Record<DayKey, Project[]>> = {
             { id: "197", name: "明治から社会のトップランナーへ", group: "学生校友会" },
             { id: "58", name: "明大祭寄席", group: "落語研究会" },
             { id: "498", name: "Meiji de Mage〜見習い魔法使いの修行録〜", group: "明大祭実行委員会開発局凌閃部門", href: "/mage" },
-            { id: "503", name: "記憶探し〜未来からのメッセージ〜", group: "明大祭実行委員会開発局凌閃部門", href: "/rally" },
+            { id: "503", name: "記憶探し〜未来からのメッセージ〜", group: "明大祭実行委員会開発局凌閃部門", href: "/memory" },
             { id: "497", name: "めいじっけん", group: "明大祭実行委員会開発局凌閃部門", href: "/experiment" },
         ],
     },
