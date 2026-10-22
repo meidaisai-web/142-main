@@ -12,7 +12,21 @@ import Button from "@/components/buttons/Button"
 import { List, ListItem,ListText } from "@/components/texts/List"
 import TransitionLink from "@/components/buttons/TransitionLink"
 import ImageText from "@/components/texts/ImageText"
+import Link from "next/link"
+import type { ReactNode } from "react"
+import Movie from "@/components/Movie"
 
+function OutlineLink({ href, children }: { href: string, children: ReactNode }) {
+    return (
+        <Link
+            href={href}
+            className="flex justify-between items-center rounded-full border-2 border-primary text-primary-900 px-6 py-1.5 text-sm sm:text-base hover:bg-primary-100 transition-colors duration-100"
+        >
+            <span className="flex-1 text-center">{children}</span>
+            <span>＞</span>
+        </Link>
+    )
+}
 
 export default function Page() {
     return (
@@ -34,6 +48,14 @@ export default function Page() {
                 <SmallTitle>投票方法</SmallTitle>
                 <Text>①第142回明大祭公式サイトにアクセスし、「企画検索」ページから対象の企画を検索します。または、各企画実施場所に設置されているQRコードを読み込みます。<br />
                     ②企画詳細ページ内の「投票する」をタップすると投票完了です！</Text>
+                <div className="flex justify-center">
+                    <div className="flex flex-col gap-3 mt-4 w-full max-w-60">
+                        <OutlineLink href={`/search?genre=${encodeURIComponent("模擬店")}&genre=${encodeURIComponent("喫茶")}`}>飲食部門</OutlineLink>
+                        <OutlineLink href={`/search?genre=${encodeURIComponent("音楽")}&genre=${encodeURIComponent("ダンス")}&genre=${encodeURIComponent("パフォーマンス")}`}>パフォーマンス部門</OutlineLink>
+                        <OutlineLink href={`/search?genre=${encodeURIComponent("ゲスト")}&genre=${encodeURIComponent("展示")}&genre=${encodeURIComponent("参加体験")}`}>エンタメ部門</OutlineLink>
+                    </div>
+                </div>
+
                 <SmallTitle>投票部門</SmallTitle>
                 <AccentText className="mt-5">飲食部門</AccentText>
                 <ImageText src="/images/championship/eat.jpg" alt="eat">
@@ -64,14 +86,14 @@ export default function Page() {
                 <Image src="/images/championship/champmap.svg"
                     alt="step1"
                     width={800} height={400}
-                    className="mx-auto mb-10" />
+                    className="mx-auto w-100 mb-10" />
                 <AccentText className="mt-5">STEP2</AccentText>
                 <Text>投票完了画面の「抽選券をGET!」ボタンをタップしてください。<br />
                     または、<TransitionLink href="/voucher">「明大祭大抽選会 抽選券引き換え画面」ページ</TransitionLink>からもアクセス可能です。</Text>
                 <Image src="/images/championship/okmeicham.svg"
                     alt="step2"
                     width={400} height={200}
-                    className="mx-auto mb-10" />
+                    className="mx-auto mb-10 mt-5" />
                 <AccentText className="mt-5">STEP3</AccentText>
                 <List>
 	              <ListItem>受付の実行委員の指示で、「明大祭大抽選会 抽選券引き換え画面」ページ上部の引き換えるボタンを押してください。抽選券に交換いたします。</ListItem>
@@ -88,7 +110,10 @@ export default function Page() {
                 <List>
                   <ListItem> 抽選券に関して詳しく知りたい方は、明大祭大抽選会詳細ページをご覧ください。</ListItem>
                 </List>
-                <Button className="w-fit mx-auto mt-2" href="/bigLottery">こちら</Button>
+                <Button className="mb-20" href="/bigLottery">こちら</Button>
+
+                <SectionTitle>Meidaisai Championship紹介動画</SectionTitle>
+                <Movie src="https://movie.meidaisai.jp/champ.mp4"/>
                 <ContactView department="演出局" mail="142nd-enshutsu@meidaisai.jp" />
             </CloudPageContainer>
         </div>

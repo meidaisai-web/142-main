@@ -1,15 +1,17 @@
+import Image from 'next/image';
 interface LabelProps {
     children: React.ReactNode;
 }
 
 export default function Label({ children }: LabelProps) {
     return (
-        <div className="pr-1 py-1">
-            <div className={`-rotate-3 rounded-full border-2 border-accent py-1 text-center absolute -translate-y-0.5 w-24`}>
-                <p className='opacity-0 text-sm text-center'>{children}</p>
-            </div>
-            <div className={`rounded-full transition duration-100 bg-secondary py-1 relative z-10 w-24`}>
-                <p className='text-sm font-bold text-center'>{children}</p>
+        <div className="pr-1 py-1 flex justify-center">
+            
+            
+            
+            <div className={` transition duration-100  py-1 relative z-10 w-32 aspect-[5/3] flex items-center justify-center`}>
+                <Image src="/images/EventListView/pcloud.svg" alt="" width={100} height={100} className="absolute top-0 left-0 w-full h-full -z-10" />
+                <p className='text-xl text-center'>{children}</p>
             </div>
         </div>
     )
