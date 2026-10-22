@@ -12,11 +12,11 @@ type TabButtonProps = {
 const TabButton = forwardRef<HTMLButtonElement, TabButtonProps>(
   ({ label, isActive, onClick, showTriangle, inset }, ref) => {
     const baseClasses =
-      'relative flex-1 flex flex-col items-center justify-center pb-[13px] pt-4';
+      'relative flex-1 flex flex-col items-center justify-center h-16 cursor-pointer transition-all duration-250 focus:outline-none';
     // 下線は親のインジケータに任せるので、ここでは色だけでOK
     const stateClasses = isActive
-      ? 'text-secondary-text'
-      : 'text-primary-text';
+      ? 'text-accent-900 text-lg sm:text-xl'
+      : 'text-gray-500 text-base sm:text-lg';
 
     return (
       <button

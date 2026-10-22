@@ -41,7 +41,9 @@ const hamburgerContents: HamburgerSectionProps[] = [
         title: "ご来場のみなさまへ",
         content: [
             { href: "/about", label: "明大祭とは" },
+            { href: "/theme", label: "第142回明大祭テーマ" },
             { href: "/announce", label: "ご来場のみなさまへのお願い" },
+            { href: "/cashless", label: "明大祭・キャッシュレス決済" },
             { href: "/access", label: "アクセス" }
         ]
     },
@@ -50,6 +52,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
         title: "コラボ企画",
         content: [
             { href: "/matsubara", label: "松原小学校×明大祭" },
+            { href: "/lottely-shop", label: "明大前商店街×明大祭～明大祭で当てよう！豪華景品～" },
             { href: "/icu", label: "ICU祭×明大祭" }
         ]
     }
@@ -67,14 +70,10 @@ const forOutside = [
     },
 
      {
-        title: "実行委員会企画",
+        title: "特集",
         content: [
-            { href: "/ippan", label: "NO iMeiji, NO LIFE？" },
-            { href: "/limit", label: "LIMIT∞BREAK" },
-            { href: "/experiment", label: "めいじっけん" },
-            { href: "/limit", label: "LIMIT∞BREAK" },
-            { href: "/donation", label: "明大祭・募金企画" },
-
+            { href: "/official-projects", label: "実行委員会企画まとめ" },
+            { href: "/donation", label: "明大祭・募金企画" }
         ]
     },
     
@@ -82,6 +81,7 @@ const forOutside = [
         title: "ご協賛一覧",
         content: [
             { href: "/company-list", label: "ご協賛企業一覧" },
+            { href: "/area-list", label: "ご協賛店舗一覧" },
             { href: "/alumni-list", label: "ご賛助ご芳名" }
         ]
     }

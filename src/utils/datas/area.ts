@@ -1,42 +1,12 @@
-export const areaSupportList = [
-    {
-        "name": "世田谷区松原まちづくりセンター"
-    },
-    {
-        "name": "世田谷区立松原小学校"
-    },
-    {
-        "name": "明大前商店街振興組合"
-    },
-    {
-        "name": "京王電鉄株式会社"
-    },
-    {
-        "name": "学校法人日本学園"
-    },
-    {
-        "name": "ミカン下北"
-    },
-    {
-        "name": "下北沢商店連合会"
-    },
-    {
-        "name": "しもきた商店街振興組合"
-    },
-    {
-        "name": "下北沢南口商店街振興組合"
-    },
-    {
-        "name": "下北沢東会"
-    }
-]
-
 export const areaAdList = [
     {
-        "name": "アオキ文房具店"
+        "name": "アオキ文具店"
     },
     {
-        "name": "青森割烹 あずましく"
+        "name": "青森割烹あずましく"
+    },
+    {
+        "name": "イタリアン ダイニング バー LAGO（ラーゴ）"
     },
     {
         "name": "魚津"
@@ -45,7 +15,7 @@ export const areaAdList = [
         "name": "大坪医院"
     },
     {
-        "name": "おやき処 れふ亭"
+        "name": "おやき処　れふ亭"
     },
     {
         "name": "カトリック松原教会"
@@ -63,10 +33,10 @@ export const areaAdList = [
         "name": "株式会社ファイヴエーカンパニー"
     },
     {
-        "name": "株式会社ロードスター"
+        "name": "株式会社六一書房"
     },
     {
-        "name": "辛麺屋 桝元"
+        "name": "株式会社ロードスター"
     },
     {
         "name": "カリーライス専門店エチオピア"
@@ -75,10 +45,10 @@ export const areaAdList = [
         "name": "神田すずらん通り商店街振興組合"
     },
     {
-        "name": "キリスト教朝顔教会"
+        "name": "郷土料理 おきなわ軒"
     },
     {
-        "name": "郷土料理おきなわ軒"
+        "name": "キリスト教朝顔協会"
     },
     {
         "name": "串揚げ このは"
@@ -87,7 +57,7 @@ export const areaAdList = [
         "name": "倉本歯科医院"
     },
     {
-        "name": "クローバー薬局 松原店"
+        "name": "クローバー薬局　松原店"
     },
     {
         "name": "小暮洋服店"
@@ -99,43 +69,31 @@ export const areaAdList = [
         "name": "斉藤時計店"
     },
     {
-        "name": "さかなの目玉"
-    },
-    {
-        "name": "さぼうる"
-    },
-    {
         "name": "宗教法人 日本長老会 久我山キリスト教会"
     },
     {
-        "name": "焼酎bar 5×8 GOHACHI"
+        "name": "焼酎 bar 5×8 GOHACHI"
     },
     {
-        "name": "城南コベッツ 明大前駅前教室"
-    },
-    {
-        "name": "すにゃっくバロン"
+        "name": "すにゃっく バロン"
     },
     {
         "name": "世田谷グレースチャーチ"
     },
     {
-        "name": "セマウル食堂 中野店"
+        "name": "ダイニングバーKUU"
     },
     {
-        "name": "立呑み 我海"
-    },
-    {
-        "name": "タトル明大前洋菓子店"
+        "name": "立呑み　我海"
     },
     {
         "name": "ダーツバーKUNI"
     },
     {
-        "name": "中華そば きび"
+        "name": "タトル明大前洋菓子店"
     },
     {
-        "name": "釣宿酒場マヅメ 御茶ノ水店"
+        "name": "中華そば　きび"
     },
     {
         "name": "中野サンモール商店街振興組合"
@@ -147,19 +105,19 @@ export const areaAdList = [
         "name": "ナプリモ中野"
     },
     {
-        "name": "飛騨高山 酒兎"
+        "name": "飛騨高山　酒兎"
     },
     {
-        "name": "日乃屋カレー御茶ノ水"
+        "name": "日乃屋カレー　御茶ノ水"
     },
     {
-        "name": "美容室START DASH"
+        "name": "美容室 START DASH"
     },
     {
         "name": "プロショップ・クラッキ"
     },
     {
-        "name": "誠屋八幡山本店"
+        "name": "誠屋 八幡山本店"
     },
     {
         "name": "麻婆STAND明大前"
@@ -171,7 +129,7 @@ export const areaAdList = [
         "name": "味噌が一番"
     },
     {
-        "name": "武蔵野アブラ学会明大前店"
+        "name": "武蔵野アブラ学会 明大前店"
     },
     {
         "name": "武蔵家 明大前店"
@@ -189,19 +147,10 @@ export const areaAdList = [
         "name": "麺ダイニング ととこ"
     },
     {
-        "name": "焼鳥 河凛"
-    },
-    {
         "name": "ライスカレーまんてん"
     },
     {
-        "name": "リンキーディンク 御茶ノ水 神保町店"
-    },
-    {
         "name": "レモン画翠"
-    },
-    {
-        "name": "DiningBar KUU"
     },
     {
         "name": "F-FORCE"
@@ -210,21 +159,57 @@ export const areaAdList = [
         "name": "MARUNESE"
     },
     {
-        "name": "MR.HIPPO COFFEE"
+        "name": "oliver"
     },
     {
-        "name": "oliver"
+        "name": "Rinky Dink Studio 御茶ノ水　神保町店"
     },
     {
         "name": "Shima"
     },
     {
-        "name": "SPICE KITCHEN 3"
+        "name": "SPICE KITCHEN3"
     },
     {
-        "name": "TBK美容室明大前店"
+        "name": "TBK 美容室明大前店"
     },
     {
         "name": "Tea House TAKANO"
     }
-]
+];
+
+export const areaSupportList = [
+    {
+        "name": "株式会社休日ハック"
+    },
+    {
+        "name": "関東沖縄エイサーまつり実行委員会"
+    },
+    {
+        "name": "京王電鉄株式会社"
+    },
+    {
+        "name": "世田谷区松原まちづくりセンター"
+    },
+    {
+        "name": "世田谷区立松原小学校"
+    },
+    {
+        "name": "下北沢東会"
+    },
+    {
+        "name": "下北沢商店連合会"
+    },
+    {
+        "name": "下北沢南口商店街"
+    },
+    {
+        "name": "しもきた商店街振興組合"
+    },
+    {
+        "name": "明大前商店街振興組合"
+    },
+    {
+        "name": "ミカン下北"
+    }
+];
