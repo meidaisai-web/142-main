@@ -23,47 +23,47 @@ export default function LegendMap() {
     const LegendList: { name: Legend; src: string }[] = [
         {
             name: 'インフォメーションブース',
-            src: "/images/campusmap/icon/info-icon.png"
+            src: "/images/campusmap/icon/info.png"
         },
         {
             name: 'AED',
-            src: "/images/campusmap/icon/aed-icon.png"
+            src: "/images/campusmap/icon/aed.png"
         },
         {
             name: '休憩所',
-            src: "/images/campusmap/icon/rest-icon.png"
+            src: "/images/campusmap/icon/rest.png"
         },
         {
             name: 'ごみステーション',
-            src: "/images/campusmap/icon/gs-icon.png"
+            src: "/images/campusmap/icon/gs.png"
         },
         {
             name: 'バリアフリートイレ',
-            src: "/images/campusmap/icon/toilet-icon.png"
+            src: "/images/campusmap/icon/toilet.png"
         },
         {
             name: '自動販売機',
-            src: "/images/campusmap/icon/vending-icon.png"
+            src: "/images/campusmap/icon/vending.png"
         },
         {
             name: '喫煙所',
-            src: "/images/campusmap/icon/smoking-icon.png"
+            src: "/images/campusmap/icon/smoking.png"
         },
         {
             name: 'ATM',
-            src: "/images/campusmap/icon/atm-icon.png"
+            src: "/images/campusmap/icon/atm.png"
         },
         {
             name: '公衆電話',
-            src: "/images/campusmap/icon/phone-icon.png"
+            src: "/images/campusmap/icon/phone.png"
         },
         {
             name: '診療所',
-            src: "/images/campusmap/icon/infirmary-icon.png"
+            src: "/images/campusmap/icon/infirmary.png"
         },
         {
             name: 'ステージ',
-            src: "/images/campusmap/icon/stage-icon.png"
+            src: "/images/campusmap/icon/stage.png"
         },
     ]
     return (
@@ -96,32 +96,11 @@ interface LegendButtonProps {
     onClick: () => void;
 }
 
-function getEnglishName(name: Legend): string {
-    const translations: Record<string, string> = {
-        'インフォメーションブース': 'Information',
-        'AED': 'AED',
-        '休憩所': 'Rest Area',
-        'ごみステーション': 'Garbage Dump',
-        'バリアフリートイレ': 'Accessible Restroom',
-        '自動販売機': 'Vending Machine',
-        '喫煙所': 'Smoking Area',
-        'ATM': 'Automatic Teller Machine',
-        '公衆電話': 'Telephone',
-        '診療所': 'Infirmary',
-        'ステージ': 'Stage',
-    };
-    return translations[name] || '';
-}
+// 画像にアイコン・和名・英名が含まれているので、画像だけをボタンいっぱいに表示する
 function LegendButton({ name, src, onClick }: LegendButtonProps) {
     return (
-        <button onClick={onClick} className="w-75 h-12 font-bold p-2 m-2 border-2 rounded-lg bg-white text-black mt-2 relative text-left">
-            <div className="font-bold text-md -mt-1.5 ml-6">{name}</div>
-            <div className="text-sm text-black leading-tight -mt-2 ml-6">
-                {/* 英語表記（ここに書く！） */}
-                {getEnglishName(name)}
-            </div>
-            <Image src={src} alt={name} width={32} height={32} className="object-contain absolute top-0.25 md:right-1 md:mt-1 mt-0.75 right-0.75"></Image>
-            <Image src="/images/campusmap/Triangle.png" alt="三角ボタン" width={9} height={9} className="object-contain absolute top-0.25 left-3 mt-5"></Image>
+        <button onClick={onClick} className="w-75 h-12 p-1 m-2 border-2 rounded-lg bg-white mt-2 flex items-center justify-center">
+            <Image src={src} alt={name} width={423} height={76} className="h-full w-auto object-contain"></Image>
         </button>
     )
 }

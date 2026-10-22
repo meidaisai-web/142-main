@@ -23,7 +23,7 @@ export default function LegendMap() {
     const LegendList: { name: Legend; src: string }[] = [
         {
             name: 'インフォメーションブース',
-            src: "/images/campusmap/icon/info-icon.png"
+            src: "/images/campusmap/icon/info.png"
         },
         {
             name: 'AED',
