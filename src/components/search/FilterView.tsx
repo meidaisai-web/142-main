@@ -167,6 +167,21 @@ function DetailFilterView({
     selectedGenres,
     setSelectedGenres,
 }: DetailFilterViewProps) {
+    const genreGroups = [
+        {
+            department: "飲食部門",
+            options: ["模擬店", "喫茶"],
+        },
+        {
+            department: "パフォーマンス部門",
+            options: ["パフォーマンス", "音楽", "ダンス"],
+        },
+        {
+            department: "エンタメ部門",
+            options: ["ゲスト", "展示", "参加体験"],
+        },
+    ];
+
     const checkboxList = [
         {
             label: "企画区分",
@@ -199,7 +214,7 @@ function DetailFilterView({
             label: "ジャンル",
             selectedArray: selectedGenres,
             setSelectedArray: setSelectedGenres,
-            options: ["模擬店", "音楽", "ダンス", "喫茶", "ゲスト", "展示", "参加体験", "パフォーマンス"],
+            options: genreGroups.flatMap((group) => group.options),
         },
     ];
 
@@ -221,19 +236,52 @@ function DetailFilterView({
                     key={checkbox.label}
                     role="group"
                     aria-label={checkbox.label}
-                    className="flex gap-8"
+                    className={checkbox.label === "ジャンル" ? "flex min-w-0 flex-col gap-3" : "flex gap-8"}
                 >
-                    <Label>{checkbox.label}</Label>
-                    <div className="flex flex-wrap gap-x-8 gap-y-3">
-                        {checkbox.options.map((option) => (
-                            <Checkbox
-                                key={option}
-                                label={option}
-                                checked={checkbox.selectedArray.includes(option)}
-                                setChecked={() => handleCheckboxChange(option, checkbox.setSelectedArray)}
-                            />
-                        ))}
-                    </div>
+                    {checkbox.label === "ジャンル" ? (
+                        <div className="self-center -translate-x-10 sm:self-start sm:translate-x-0">
+                            <Label>{checkbox.label}</Label>
+                        </div>
+                    ) : (
+                        <Label>{checkbox.label}</Label>
+                    )}
+
+                    {checkbox.label === "ジャンル" ? (
+                        <div className="grid grid-cols-[max-content_minmax(0,1fr)] items-center gap-x-3 gap-y-8 text-sm sm:gap-x-8 sm:gap-y-4 sm:text-xl">
+                            {genreGroups.map((group) => (
+                                <div key={group.department} className="contents">
+                                    <span className="justify-self-end whitespace-nowrap border-b border-[#B19FCA] pb-0.5 sm:justify-self-start">
+                                        {group.department}
+                                    </span>
+                                    <div
+                                        role="group"
+                                        aria-label={group.department}
+                                        className="flex min-w-0 flex-col gap-2 whitespace-nowrap [&_*]:text-sm sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3 sm:[&_*]:text-xl"
+                                    >
+                                        {group.options.map((option) => (
+                                            <Checkbox
+                                                key={option}
+                                                label={option}
+                                                checked={checkbox.selectedArray.includes(option)}
+                                                setChecked={() => handleCheckboxChange(option, checkbox.setSelectedArray)}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="flex flex-wrap gap-x-8 gap-y-3">
+                            {checkbox.options.map((option) => (
+                                <Checkbox
+                                    key={option}
+                                    label={option}
+                                    checked={checkbox.selectedArray.includes(option)}
+                                    setChecked={() => handleCheckboxChange(option, checkbox.setSelectedArray)}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             ))}
         </div>
