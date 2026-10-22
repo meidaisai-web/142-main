@@ -119,7 +119,7 @@ function InfoView({ group, date, location, catchphrase, detail, instagram, x, ti
             <InfoRow label="日時">{date}</InfoRow>
             <InfoRow label="場所">{location}</InfoRow>
             <div>
-                <AccessoryText lineColor="var(--color-primary)" accessory="/images/searchdetail/description-accessory-green.svg" className="mt-5 font-bold">
+                <AccessoryText lineColor="var(--color-primary)" accessory="/images/searchdetail/description-accessory-green.svg" className="mt-5 mb-3 font-bold">
                     {catchphrase}
                 </AccessoryText>
                 <Text className="break-words">{detail}</Text>
