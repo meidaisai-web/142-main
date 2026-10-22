@@ -1,10 +1,13 @@
 "use client";
 
-import { useId, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
+import "swiper/css";
 import useSWR from "swr";
-import { getTimetableDays } from "@/utils/timetable";
+import { getTimelineRange, getTimetableDays } from "@/utils/timetable";
 import { getStageMasterData } from "@/utils/supabase/masterDataAction";
-import Ticket from "@/components/tt/Ticket";
+import TimetableTimeline from "@/components/tt/TimetableTimeline";
 import SmallTitle from "@/components/texts/SmallTitle";
 
 // ---------- データ・型 ----------
@@ -25,39 +28,96 @@ interface DateTab {
 // between: 日付タブとその日の企画の間に置く内容(絞り込みなど)
 function DateTabs({ tabs, between }: { tabs: DateTab[]; between?: ReactNode }) {
     const [activeId, setActiveId] = useState(tabs[0]?.id);
+    const contentRef = useRef<SwiperType | null>(null);
+    const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+    const tabsWrapRef = useRef<HTMLDivElement | null>(null);
+    const indicatorRef = useRef<HTMLDivElement | null>(null);
+    const tabTouchRef = useRef<{ x: number; y: number } | null>(null);
+    const [indicator, setIndicator] = useState({ left: 0, width: 0 });
+
+    // PR #112 の Tab と同じく、スワイプの進行に合わせて下線を補間する。
+    const moveIndicator = useCallback((position: number) => {
+        const index = Math.floor(position);
+        const fraction = position - index;
+        const wrapLeft = tabsWrapRef.current?.getBoundingClientRect().left ?? 0;
+        const button = buttonRefs.current[index];
+        if (!button) return;
+        const current = button.getBoundingClientRect();
+        const next = buttonRefs.current[index + 1]?.getBoundingClientRect();
+        setIndicator({
+            left: current.left - wrapLeft + (next ? (next.left - current.left) * fraction : 0),
+            width: current.width + (next ? (next.width - current.width) * fraction : 0),
+        });
+    }, []);
+
+    const setIndicatorTransition = (enabled: boolean) => {
+        if (indicatorRef.current) {
+            indicatorRef.current.style.transition = enabled ? "transform 200ms, width 200ms" : "none";
+        }
+    };
+
+    useEffect(() => {
+        const updateIndicator = () => moveIndicator(Math.max(0, tabs.findIndex((tab) => tab.id === activeId)));
+        updateIndicator();
+        window.addEventListener("resize", updateIndicator);
+        return () => window.removeEventListener("resize", updateIndicator);
+    }, [activeId, tabs, moveIndicator]);
+
+    // 絞り込みで企画数が変わったときも、表示中の日付の高さに合わせる。
+    useEffect(() => {
+        contentRef.current?.updateAutoHeight(0);
+    }, [tabs]);
 
     return (
         <>
-            {/* 横線は幅制限の外側(外側のdiv)に引いて、ページの左端から右端まで伸ばす */}
-            <div className="w-full border-b-2 border-accent-700">
+            <div className="relative mx-auto mt-10 max-w-4xl">
             <div
+                ref={tabsWrapRef}
                 role="tablist"
                 aria-label="日程"
-                className="mx-auto flex h-14 max-w-4xl sm:h-20"
+                className="flex h-16"
+                onTouchStart={(event) => { tabTouchRef.current = { x: event.touches[0].clientX, y: event.touches[0].clientY }; }}
+                onTouchEnd={(event) => {
+                    const start = tabTouchRef.current;
+                    tabTouchRef.current = null;
+                    if (!start) return;
+                    const dx = event.changedTouches[0].clientX - start.x;
+                    const dy = event.changedTouches[0].clientY - start.y;
+                    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+                        if (dx < 0) contentRef.current?.slideNext();
+                        else contentRef.current?.slidePrev();
+                    }
+                }}
             >
                 {tabs.map((tab, i) => {
                     const selected = tab.id === activeId;
                     return (
                         <button
                             key={tab.id}
+                            ref={(element) => { buttonRefs.current[i] = element; }}
                             type="button"
                             role="tab"
                             id={`tab-${tab.id}`}
                             aria-selected={selected}
                             aria-controls={`panel-${tab.id}`}
-                            onClick={() => setActiveId(tab.id)}
+                            onClick={() => {
+                                setActiveId(tab.id);
+                                setIndicatorTransition(true);
+                                contentRef.current?.slideTo(i);
+                                moveIndicator(i);
+                            }}
                             // 幅・高さは固定(flex-1 basis-0 / 親のh)なので、文字サイズが変わっても動かない
-                            className={`relative flex min-w-0 flex-1 basis-0 cursor-pointer items-center justify-center whitespace-nowrap px-1 text-center transition-colors ${
+                            className={`relative flex min-w-0 flex-1 basis-0 cursor-pointer items-center justify-center whitespace-nowrap px-1 text-center font-bold transition-all duration-250 ${
                                 selected
-                                    ? "text-accent-700 text-[length:calc(clamp(12px,3.6vw,22px)*1.3)]"
-                                    : "text-[#9a9a9a] text-[length:clamp(12px,3.6vw,22px)]"
+                                    ? "text-accent-900 text-lg sm:text-xl"
+                                    : "text-gray-500 text-base sm:text-lg"
                             }`}
                         >
                             {/* 縦線: タブの高さの中央に置き、上下12pxずつ空けて横線とつなげない */}
                             {i > 0 && (
                                 <span
                                     aria-hidden
-                                    className="pointer-events-none absolute bottom-3 left-0 top-3 w-0.5 bg-accent-700"
+                                    className="pointer-events-none absolute bottom-2 left-0 top-2 w-0.5 bg-gray-500"
                                 />
                             )}
                             {tab.label}
@@ -65,22 +125,54 @@ function DateTabs({ tabs, between }: { tabs: DateTab[]; between?: ReactNode }) {
                     );
                 })}
             </div>
+            <div
+                ref={indicatorRef}
+                aria-hidden="true"
+                className="pointer-events-none absolute bottom-0 h-0.5 bg-accent-900"
+                style={{ transform: `translateX(${indicator.left}px)`, width: `${indicator.width}px` }}
+            />
             </div>
 
             {between}
 
-            {tabs.map((tab) => (
-                <div
-                    key={tab.id}
-                    role="tabpanel"
-                    id={`panel-${tab.id}`}
-                    aria-labelledby={`tab-${tab.id}`}
-                    hidden={tab.id !== activeId}
-                    className="pt-12"
-                >
-                    {tab.content}
-                </div>
-            ))}
+            <Swiper
+                slidesPerView={1}
+                spaceBetween={100}
+                autoHeight
+                watchOverflow
+                onSwiper={(swiper) => {
+                    contentRef.current = swiper;
+                    setIndicatorTransition(true);
+                }}
+                onSlideChange={(swiper) => {
+                    setActiveId(tabs[swiper.activeIndex]?.id);
+                    setIndicatorTransition(true);
+                    moveIndicator(swiper.activeIndex);
+                }}
+                onProgress={(_, progress) => {
+                    setIndicatorTransition(false);
+                    const lastIndex = tabs.length - 1;
+                    moveIndicator(Math.min(Math.max(progress * lastIndex, 0), lastIndex));
+                }}
+                onTouchStart={() => setIndicatorTransition(false)}
+                onTouchEnd={() => setIndicatorTransition(true)}
+                className="w-full"
+            >
+                {tabs.map((tab) => (
+                    <SwiperSlide key={tab.id}>
+                        <div
+                            role="tabpanel"
+                            id={`panel-${tab.id}`}
+                            aria-labelledby={`tab-${tab.id}`}
+                            aria-hidden={tab.id !== activeId}
+                            inert={tab.id !== activeId}
+                            className="pt-12"
+                        >
+                            {tab.content}
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </>
     );
 }
@@ -183,33 +275,15 @@ export default function Timetable() {
     }
 
     const timetableDays = getTimetableDays(data ?? []);
+    const allEvents = timetableDays.flatMap((day) => day.events);
+    const range = getTimelineRange(allEvents);
+    const stageOptions = [...new Set<string>([...PLACES, ...allEvents.map((event) => event.place).filter(Boolean)])];
+    const visibleStages = stageOptions.filter((stage) => places.length === 0 || places.includes(stage));
     const tabs = timetableDays.map((day) => {
-        // 分類内はOR、分類同士はAND。未選択の分類・「すべて」では絞り込まない
-        const events = day.events.filter(
-            (e) =>
-                (places.length === 0 || places.includes(e.place)) &&
-                (genres.length === 0 || genres.includes(ALL_GENRES) || genres.includes(e.genre)),
-        );
         return {
             id: day.id,
             label: day.label,
-            content:
-                events.length === 0 ? (
-                    <p className="px-5 py-10 text-center">条件に一致する企画がありません</p>
-                ) : (
-                    events.map((e, i) => (
-                        <div key={`${e.id}-${e.time}-${i}`} className={i > 0 ? "mt-10" : ""}>
-                            <Ticket
-                                title={e.title}
-                                time={e.time}
-                                subtitle={e.subtitle}
-                                imageSrc={e.imageSrc}
-                                imageAlt={`${e.title}の企画画像`}
-                                variant="pink"
-                            />
-                        </div>
-                    ))
-                ),
+            content: <TimetableTimeline events={day.events} stages={visibleStages} genres={genres} month={day.month} date={day.date} range={range} />,
         };
     });
 
@@ -218,7 +292,7 @@ export default function Timetable() {
             tabs={tabs}
             between={
                 <div className="mx-auto grid max-w-4xl grid-cols-1 items-start gap-8 px-5 pt-10 md:grid-cols-2 md:gap-10">
-                    <FilterAccordion title="場所で探す" options={PLACES} selected={places} onToggle={togglePlace} />
+                    <FilterAccordion title="場所で探す" options={stageOptions} selected={places} onToggle={togglePlace} />
                     <FilterAccordion title="ジャンルで探す" options={GENRES} selected={genres} onToggle={toggleGenre} />
                 </div>
             }

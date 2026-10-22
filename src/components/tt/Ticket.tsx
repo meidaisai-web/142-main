@@ -2,6 +2,7 @@
 "use client";
 
 import Image from "next/image";
+import styles from "./Ticket.module.css";
 
 interface TicketProps {
     title: string;
@@ -10,6 +11,7 @@ interface TicketProps {
     imageSrc?: string;
     imageAlt?: string;
     variant?: "pink" | "green";
+    layout?: "default" | "timeline";
 }
 
 export default function Ticket({
@@ -19,8 +21,28 @@ export default function Ticket({
     imageSrc,
     imageAlt = "",
     variant = "pink",
+    layout = "default",
 }: TicketProps) {
     const isGreen = variant === "green";
+    if (layout === "timeline") {
+        return (
+            <div className={`${styles.timeline} font-serif`}>
+                <Image src="/images/tt/ticket-timeline.svg" alt="" fill sizes="340px" className="pointer-events-none select-none" />
+                <div className={styles.contents}>
+                    <p className={styles.time}>{time.replace(/\s*\n\s*/g, " ")}</p>
+                    <div className={styles.body}>
+                        <div className={styles.text}>
+                            <div className={styles.frame}>
+                                <h3 className={styles.title}>{title}</h3>
+                            </div>
+                            <p className={styles.subtitle}>{subtitle}</p>
+                        </div>
+                        {imageSrc && <div className={styles.photo}><Image src={imageSrc} alt={imageAlt} fill sizes="44px" className="pointer-events-none object-contain" /></div>}
+                    </div>
+                </div>
+            </div>
+        );
+    }
     return (
         <div className="px-5 sm:px-8">
         <div className="@container relative w-full aspect-[820/347] min-w-0 max-w-[820px] mx-auto">
