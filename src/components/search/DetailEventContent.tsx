@@ -59,12 +59,13 @@ export default function DetailEventContent({ id }: DetailContentProps) {
             {!loading && !error && data && (
                 <div className="w-full px-4 sm:px-14 md:px-18 lg:px-24 flex flex-col items-center">
                     <EventTitle>{data.eventName}</EventTitle>
-                    <div className="w-full bg-white/80 rounded-xl p-4 sm:p-10 lg:p-20 flex justify-center items-center lg:items-start gap-8 mt-16 flex-col lg:flex-row">
+                    <div className="relative w-full bg-white/80 rounded-xl p-8 sm:p-10 lg:p-20 flex justify-center items-center lg:items-start gap-8 mt-25 flex-col lg:flex-row">
+                    <Image  src="/images/searchdetail/search-conges.svg" alt="混雑マップ" width={300} height={600} className="absolute -top-17 -right-2 sm:-right-5 w-37 sm:w-50" />
                         <ImageView type={data.type} imageUrl={data.imageUrl} icons={data.icons} />
                         <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
                     </div>
 
-                    <div className="w-full flex flex-col sm:flex-row items-center sm:self-center justify-center gap-20 sm:gap-50 mt-20">
+                    <div className="w-full flex flex-col sm:flex-row items-center sm:self-center justify-center gap-10 sm:gap-10 md:gap-20 mt-20">
                         <Menu menus={data.menuItems || []} />
                         {data.location.includes("テント配置番号") && (
                             <div className="w-full sm:w-auto  min-w-0 max-w-3xl sm:pt-6">

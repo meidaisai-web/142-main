@@ -53,16 +53,18 @@ export default function ZoomableImage({
   return (
     <>
       {/* 通常表示の画像 */}
-      <div className="w-fit mx-auto">
-        <Image
-          {...imageProps}
-          alt={alt}
-          className={`${className || ""} ${!disableZoom ? "cursor-zoom-in" : ""}`}
-          style={style}
-          onClick={handleImageClick}
-        />
-        <p>タップして拡大</p>
-      </div>
+ <div className="flex flex-col items-center">
+  <Image
+    {...imageProps}
+    alt={alt}
+    className={`${className || ""} !w-[400px] sm:!w-[250px] md:!w-[350px] !max-w-full sm:!max-w-none ${
+      !disableZoom ? "cursor-zoom-in" : ""
+    }`}
+    style={style}
+    onClick={handleImageClick}
+  />
+  <p>タップして拡大</p>
+</div>
 
       {/* 拡大表示モーダル */}
       {isZoomed && (
