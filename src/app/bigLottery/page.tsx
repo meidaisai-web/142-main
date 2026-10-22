@@ -8,6 +8,7 @@ import OnlyImage from "@/components/OnlyImage";
 import Emphasis from "@/components/texts/Emphasis"
 import TransitionLink from "@/components/buttons/TransitionLink"
 import {List, ListItem, ListText} from "@/components/texts/List"
+import MeichamVoteStatus from "@/components/MeichamVoteStatus"
 
 export default function Page() {
     return (
@@ -65,7 +66,7 @@ export default function Page() {
                     <TransitionLink href="/search">こちら</TransitionLink>から、飲食部門・エンタメ部門・パフォーマンス部門すべてにご投票いただくと抽選券がもらえます！<br />
                     詳しくは<TransitionLink href="/champ">こちら</TransitionLink>も合わせてご確認ください。
                 </Text>
-                {/*　ここに投票状況をぶち込む */}
+                <MeichamVoteStatus />
                 <Text>明大祭公式パンフレットp.16</Text>
 
                 <SmallTitle>Ameijing Photo</SmallTitle>
