@@ -155,6 +155,8 @@ function SearchContent() {
             if (saved) {
                 const record = JSON.parse(saved);
                 if (typeof record.timestamp === "number" && Date.now() - record.timestamp <= STORAGE_TTL) {
+                    // localStorage はクライアントでしか読めず、SSR との hydration 差異を避けるためマウント後に反映する
+                    // eslint-disable-next-line react-hooks/set-state-in-effect
                     setSavedConditions(normalizeConditions(record));
                 } else {
                     window.localStorage.removeItem(STORAGE_KEY);
