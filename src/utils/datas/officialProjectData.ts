@@ -53,15 +53,15 @@ export const officialProjects: {
             link: '/meijic',
             date: [2]
         },
-        // {
-        //     title: 'Fight on the Stage',
-        //     description: '覚悟が交錯する夜―さあ、”推し”の勇姿を見届けろ。',
-        //     image: '/images/official-projects/fight-logo.png',
-        //     time: '17:10～18:00',
-        //     place: 'メインステージ',
-        //     link: '/fight',
-        //     date: [1]
-        // },
+        {
+            title: 'Fight on the Stage',
+            description: '覚悟が交錯する夜―さあ、”推し”の勇姿を見届けろ。',
+            image: '/images/official-projects/fight-logo.png',
+            time: '17:10～18:00',
+            place: 'メインステージ',
+            link: '/fight',
+            date: [1]
+        },
         // {
         //     title: '中夜祭',
         //     description: '万彩よ、交われ。',
@@ -116,14 +116,14 @@ export const officialProjects: {
             link: '/booth',
             date: [1, 2, 3]
         },
-        // {
-        //     title: '明大前商店街×明大祭',
-        //     description: '〜明大祭で当てよう！豪華景品〜',
-        //     time: '11:00〜18:00',
-        //     place: 'メディア棟入口付近',
-        //     link: '/lottely-shop',
-        //     date: [1, 2, 3]
-        // },
+        {
+            title: '明大前商店街×明大祭',
+            description: '〜明大祭で当てよう！豪華景品〜',
+            time: '11:00〜18:00',
+            place: 'メディア棟入口付近',
+            link: '/lottely-shop',
+            date: [1, 2, 3]
+        },
         // {
         //     title: 'KEIO×第142回明大祭',
         //     description: '～いつも駅からだった 明大前編～',
@@ -167,16 +167,16 @@ export const officialProjects: {
         //     link: '/ameijing',
         //     date: [1, 2, 3]
         // },
-        // {
-        //     title: 'Dream Canvas',
-        //     description: 'ー夜空を描こうー',
-        //     image: '/images/official-projects/dream-logo.png',
-        //     time: '11:00〜18:00',
-        //     thirdTime: '11:00〜17:00',
-        //     place: 'メディア棟M405・M406教室',
-        //     link: '/dream',
-        //     date: [1, 2, 3]
-        // },
+        {
+            title: 'Dream Canvas',
+            description: 'ー夜空を描こうー',
+            image: '/images/official-projects/dream-logo.png',
+            time: '11:00〜18:00',
+            thirdTime: '11:00〜17:00',
+            place: 'メディア棟M405・M406教室',
+            link: '/dream',
+            date: [1, 2, 3]
+        },
         {
             title: 'めいじっけん',
             description: 'つくって！ためして！君も大博士に！',
@@ -205,46 +205,46 @@ export const officialProjects: {
             link: '/limit',
             date: [1, 2, 3]
         },
-        // {
-        //     title: 'Meiji de Mage',
-        //     description: '～見習い魔法使いの修行録～',
-        //     image: '/images/official-projects/mage-logo.png',
-        //     time: '11:00〜18:00',
-        //     thirdTime: '11:00〜17:00',
-        //     place: '和泉図書館前開発局企画受付、メディア棟M402教室',
-        //     link: '/mage',
-        //     date: [1, 2, 3]
-        // },
-        // {
-        //     title: '記憶探し',
-        //     description: '～未来からのメッセージ～',
-        //     image: '/images/official-projects/memory-logo.png',
-        //     time: '11:00〜18:00',
-        //     thirdTime: '11:00〜17:00',
-        //     place: '公式LINE（詳細ページを参照）',
-        //     link: '/memory',
-        //     date: [1, 2, 3]
-        // },
-        // {
-        //     title: 'NO iMeiji, NO LIFE？',
-        //     description: '明大生のリアルなキャンパスライフ',
-        //     image: '/images/official-projects/noimeiji-logo.png',
-        //     time: '11:00〜18:00',
-        //     thirdTime: '11:00〜17:00',
-        //     place: '和泉ラーニングスクエアLS206教室、2階GB2-1･GB2-2',
-        //     link: '/noimeiji',
-        //     date: [1, 2, 3]
-        // },
-        // {
-        //     title: 'おもいで工房',
-        //     description: '明大祭の思い出であなただけのオリジナルミサンガに！',
-        //     image: '/images/official-projects/omoi-logo.png',
-        //     time: '11:00〜18:00',
-        //     thirdTime: '11:00〜17:00',
-        //     place: '第一校舎前体育館側',
-        //     link: '/memory',
-        //     date: [1, 2, 3]
-        // },
+        {
+            title: 'Meiji de Mage',
+            description: '～見習い魔法使いの修行録～',
+            image: '/images/official-projects/mage-logo.png',
+            time: '11:00〜18:00',
+            thirdTime: '11:00〜17:00',
+            place: '和泉図書館前開発局企画受付、メディア棟M402教室',
+            link: '/mage',
+            date: [1, 2, 3]
+        },
+        {
+            title: '記憶探し',
+            description: '～未来からのメッセージ～',
+            image: '/images/official-projects/memory-logo.png',
+            time: '11:00〜18:00',
+            thirdTime: '11:00〜17:00',
+            place: '公式LINE（詳細ページを参照）',
+            link: '/memory',
+            date: [1, 2, 3]
+        },
+        {
+            title: 'NO iMeiji, NO LIFE？',
+            description: '明大生のリアルなキャンパスライフ',
+            image: '/images/official-projects/noimeiji-logo.png',
+            time: '11:00〜18:00',
+            thirdTime: '11:00〜17:00',
+            place: '和泉ラーニングスクエアLS206教室、2階GB2-1･GB2-2',
+            link: '/noimeiji',
+            date: [1, 2, 3]
+        },
+        {
+            title: 'おもいで工房',
+            description: '明大祭の思い出であなただけのオリジナルミサンガに！',
+            image: '/images/official-projects/omoi-logo.png',
+            time: '11:00〜18:00',
+            thirdTime: '11:00〜17:00',
+            place: '第一校舎前体育館側',
+            link: '/omoi',
+            date: [1, 2, 3]
+        },
         // {
         //     title: '熱闘!!明治スポーツ',
         //     description: '見て、知って、体験して、明治のスポーツをもっと好きになりませんか？',

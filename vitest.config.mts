@@ -14,5 +14,7 @@ export default defineConfig({
         environment: "jsdom",
         setupFiles: ["./vitest.setup.ts"],
         include: ["src/**/*.test.{ts,tsx}"],
+        // テストファイルがまだ無いブランチでも npm test (GitHub Actions) を失敗させない
+        passWithNoTests: true,
     },
 });
