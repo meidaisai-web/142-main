@@ -1,4 +1,4 @@
-import CloudPageContainer from "@/components/base/CloudPageContainer"
+import StarPageContainer from "@/components/base/StarPageContainer/StarPageContainer"
 import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import SmallTitle from "@/components/texts/SmallTitle"
@@ -10,7 +10,7 @@ import ContactView from "@/components/texts/ContactView"
 
 const page = () => {
     return (
-        <CloudPageContainer>
+        <StarPageContainer>
             <PageTitle>明大祭・募金企画</PageTitle>
             <SectionTitle>「明大祭・募金企画」実施します！</SectionTitle>
             <SmallTitle className="mb-5">みなさまからのご支援が、明大祭を明るく彩ります！</SmallTitle>
@@ -32,7 +32,7 @@ const page = () => {
                     <ListItem>詳しい情報は、上記URLまたは「明治大学　明大祭プロジェクト」で検索してご確認ください。</ListItem>
                 </List> */}
             <ContactView department="第142回明大祭実行委員会 財務局　明大祭募金企画チーム" showPhone mail="142nd-bokin@meidaisai.jp" showAddress />
-        </CloudPageContainer>
+        </StarPageContainer>
     )
 }
 

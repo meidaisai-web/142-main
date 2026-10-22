@@ -1,12 +1,13 @@
-import nextVitals from "eslint-config-next/core-web-vitals";
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
 import nextTypescript from "eslint-config-next/typescript";
 
-const eslintConfig = [
-  ...nextVitals,
+const eslintConfig = defineConfig([
+  ...nextCoreWebVitals,
   ...nextTypescript,
-  { ignores: [".next/**", ".open-next/**", ".wrangler/**", "next-env.d.ts"] },
+  globalIgnores([".next/**", ".wrangler/**", ".open-next/**", "out/**", "build/**", "next-env.d.ts"]),
   {
-    // React Compiler は未導入のため、更新で追加された診断は既存コードの改善候補として残す。
+    // React Compiler 未導入の既存コード向けに、新しい診断は警告として改善候補を残す。
     rules: {
       "react-hooks/refs": "warn",
       "react-hooks/set-state-in-effect": "warn",
@@ -14,6 +15,6 @@ const eslintConfig = [
       "react-hooks/purity": "warn",
     },
   },
-];
+]);
 
 export default eslintConfig;

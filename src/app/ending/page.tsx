@@ -1,4 +1,4 @@
-import CloudPageContainer from "@/components/base/CloudPageContainer"
+import StarPageContainer from "@/components/base/StarPageContainer/StarPageContainer"
 import PageTitle from "@/components/texts/PageTitle"
 import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
@@ -12,7 +12,7 @@ import ContactView from "@/components/texts/ContactView"
 
 export default function Page() {
     return (
-        <CloudPageContainer>
+        <StarPageContainer>
             <PageTitle>Ending</PageTitle>
             <ImageLogo
                 src="/images/ending/ending-image.jpg"
@@ -57,6 +57,6 @@ export default function Page() {
              <SectionTitle>Ending紹介動画</SectionTitle>
             <Movie src="https://movie.meidaisai.jp/ending.mp4"/>
             <ContactView department="演出局結祭部門" mail="142nd-yusai@meidaisai.jp" />
-        </CloudPageContainer>
+        </StarPageContainer>
     )
 }

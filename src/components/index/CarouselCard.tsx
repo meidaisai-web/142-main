@@ -6,9 +6,10 @@ type Props = {
   title: string
   src: string
   href: string
+  imageClassName?: string
 }
 
-export default function CarouselCard({ title, src, href }: Props) {
+export default function CarouselCard({ title, src, href, imageClassName = 'object-contain' }: Props) {
   return (
     <Link href={href} className="group block">
       {/* 外枠 */}
@@ -16,12 +17,14 @@ export default function CarouselCard({ title, src, href }: Props) {
         {/* 中のカード（画像とタイトルを縦に並べる） */}
         <div className="flex flex-col gap-2">
           {/* 画像の箱 */}
-          <div className="relative aspect-square bg-white rounded-t-2xl overflow-hidden">
-            <Image src={src} alt={title} fill className="object-contain" />
+          <div className="relative aspect-square bg-white/60 rounded-t-2xl overflow-hidden">
+            <Image src={src} alt={title} fill className={imageClassName} />
           </div>
           {/* タイトルの箱 */}
-          <div className="bg-white rounded-b-2xl py-4">
-            <Text center noTopPadding className="text-gray-600">{title}</Text>
+          <div className="bg-accent-300/30 rounded-b-2xl py-4">
+            <Text center noTopPadding className="text-gray-600 whitespace-pre-line">
+              {title}
+            </Text>
           </div>
         </div>
       </div>

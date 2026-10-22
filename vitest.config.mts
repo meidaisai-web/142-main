@@ -1,0 +1,20 @@
+import { defineConfig } from "vitest/config";
+import { fileURLToPath } from "node:url";
+
+export default defineConfig({
+    esbuild: {
+        jsx: "automatic",
+    },
+    resolve: {
+        alias: {
+            "@": fileURLToPath(new URL("./src", import.meta.url)),
+        },
+    },
+    test: {
+        environment: "jsdom",
+        setupFiles: ["./vitest.setup.ts"],
+        include: ["src/**/*.test.{ts,tsx}"],
+        // テストファイルがまだ無いブランチでも npm test (GitHub Actions) を失敗させない
+        passWithNoTests: true,
+    },
+});
