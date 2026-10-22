@@ -68,7 +68,7 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                     )}
                     {/* <Menu menus={data.menuItems || []} /> */}
                     {/* 不参加の企画もVoteViewを出し、「投票対象ではありません」と表示する（category === null） */}
-                    {(!data.groupName.includes("明大祭実行委員会") && data.groupName !== '伊藤 汰海') &&
+                    {!data.groupName.includes("明大祭実行委員会") &&
                         <VoteView id={id} groupId={data.groupId} type={data.type} eventName={data.eventName} groupName={data.groupName} eventDate={data.eventDate} category={category} />
                     }
                 </div>
