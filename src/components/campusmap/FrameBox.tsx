@@ -12,7 +12,7 @@ const cornerClasses = [
 
 export default function FrameBox({ children, className = "" }: FrameBoxProps) {
     return (
-        <div className={`relative border-3 border-[#F6BDC6] bg-[#FFFBFB] text-black rounded-xl p-6 ${className}`}>
+        <div className={`relative border-3 border-[#F6BDC6] bg-[#FFFBFB] text-black rounded-xl p-6 max-[450px]:px-3 ${className}`}>
             {cornerClasses.map((position) => (
                 <span
                     key={position}

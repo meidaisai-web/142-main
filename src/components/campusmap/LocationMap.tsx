@@ -37,9 +37,11 @@ export default function LocationMap() {
                 .filter((location) => selected === null || selected === location.name)
                 .map((location) => (
                     <section key={location.name} className="mb-6">
-                        <h2 className={`relative isolate inline-block font-bold text-xl text-black mb-3 px-10 py-3 before:content-[''] before:absolute before:-z-10 before:-inset-x-4 before:inset-y-0 before:bg-[length:100%_100%] before:bg-no-repeat ${
+                        <h2 className={`relative isolate inline-block font-bold text-xl text-black mb-3 px-10 py-3 before:content-[''] before:absolute before:-z-10 before:inset-y-0 ${location.name === "食堂" ? "before:-right-4 before:left-3" : "before:-inset-x-4"} before:bg-[length:100%_100%] before:bg-no-repeat ${
                             location.name === "和泉ラーニングスクエア"
                                 ? "before:bg-[url('/images/campusmap/aaaa_aligned_to_3rd.svg')]"
+                                : location.name === "第二学生会館"
+                                ? "before:bg-[url('/images/campusmap/icon/Group%20645.svg')]"
                                 : "before:bg-[url('/images/campusmap/marker.svg')]"
                         }`}>{location.label}</h2>
                         <FrameBox>

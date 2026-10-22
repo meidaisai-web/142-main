@@ -1,10 +1,11 @@
 'use client';
 
-import { searchLegend } from "@/utils/managers/mapManager";
+import { getLegendImageSrc, searchLegend } from "@/utils/managers/mapManager";
 import MapItem from "./MapItem";
 import CheckItem from "./CheckItem";
 import FrameBox from "./FrameBox";
 import { useState } from "react";
+import Image from "next/image";
 import { Legend } from "@/utils/models/MapDataType";
 
 const legendList: Legend[] = [
@@ -41,12 +42,8 @@ export default function LegendMap() {
                 .filter((legend) => selected === null || selected === legend)
                 .map((legend) => (
                     <section key={legend} className="mb-6">
-                        <h2 className={`relative isolate inline-block font-bold text-xl text-black mb-3 px-10 py-3 before:content-[''] before:absolute before:-z-10 before:-inset-x-4 before:inset-y-0 before:bg-[length:100%_100%] before:bg-no-repeat ${
-                            legend === 'インフォメーションブース'
-                                ? "before:bg-[url('/images/campusmap/aaaa_aligned_to_3rd.svg')]"
-                                : "before:bg-[url('/images/campusmap/marker.svg')]"
-                        }`}>{legend}</h2>
                         <FrameBox>
+                            <Image src={getLegendImageSrc(legend)} alt={`${legend}の画像`} width={600} height={300} className="object-fit w-60 max-w-full mb-6" />
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-8">
                                 {searchLegend(legend).map((data, index) => (
                                     <MapItem key={index} {...data} />
