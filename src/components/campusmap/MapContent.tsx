@@ -17,6 +17,7 @@ export default function MapContent() {
                 <ZoomableImage src="/images/campusmap/map.jpg" alt="キャンパスマップ" width={800} height={800} className="w-full mt-8 rounded-xl max-w-2xl mx-auto" />
             </PageContainer>
             <Tab tabs={tabs} showTriangle buttonStyle cornerImage="/images/campusmap/sentakupoint.svg" />
+            <div className="h-50" />
         </div>
     )
 }

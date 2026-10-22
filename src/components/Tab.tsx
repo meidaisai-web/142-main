@@ -5,11 +5,7 @@ import Image from "next/image";
 import TabButton from "./buttons/TabButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";
-<<<<<<< HEAD
 import "swiper/css";
-=======
-import 'swiper/css';
->>>>>>> develop
 
 interface TabProps {
     tabs: {
@@ -192,6 +188,9 @@ export default function Tab({ tabs, showTriangle, closer, buttonStyle, cornerIma
             <div className="group" data-active={active}>
             <Swiper
                 spaceBetween={100}
+                autoHeight
+                observer
+                observeSlideChildren
                 onSwiper={(s) => {
                     contentRef.current = s;
                     enableIndicatorTransition();
@@ -217,11 +216,7 @@ export default function Tab({ tabs, showTriangle, closer, buttonStyle, cornerIma
                 onTouchEnd={() => {
                     enableIndicatorTransition();
                 }}
-<<<<<<< HEAD
                 className={buttonStyle ? 'mt-0' : 'mt-10'}
-=======
-                className="mt-8"
->>>>>>> develop
             >
                 {tabs.map((tab) => (
                     <SwiperSlide key={tab.key} className="px-5 pt-2">
