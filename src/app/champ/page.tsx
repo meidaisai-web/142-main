@@ -99,6 +99,11 @@ export default function Page() {
 	              <ListItem>受付の実行委員の指示で、「明大祭大抽選会 抽選券引き換え画面」ページ上部の引き換えるボタンを押してください。抽選券に交換いたします。</ListItem>
                   <ListItem><Emphasis>※引き換えボタンは、インフォメーションブースで引き換えるタイミングでタップしてください。事前にタップしてしまうと抽選券と引き換えることができなくなってしまいます。</Emphasis></ListItem>
                 </List>
+                <Image src="/images/championship/champ-change.svg"
+                    alt="step1"
+                    width={800} height={400}
+                    className="mx-auto w-100 mb-10" />
+
                 <AccentText className="mt-5">STEP4</AccentText>
                 <List>
 	              <ListItem>メディア棟前企画受付にある「明大祭大抽選会」まで行くと、抽選に参加できます！</ListItem>
