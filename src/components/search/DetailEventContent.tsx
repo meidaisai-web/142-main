@@ -211,7 +211,7 @@ interface EventTitleProps {
 function EventTitle({ children }: EventTitleProps) {
     return (
         <div className={`pt-13 w-full flex items-center justify-center `}>
-            <div className="w-screen shrink-0 aspect-[4784/1270] px-16 bg-center bg-no-repeat bg-contain flex items-center justify-center" style={{ backgroundImage: "url('/images/searchdetail/titlecloud.svg')" }}>
+            <div className="w-screen shrink-0 aspect-[4784/1270] md:aspect-auto sm:h-[calc(48rem*1300/4784)] md:h-[calc(48rem*2000/4784)] px-16 bg-center bg-no-repeat bg-contain sm:bg-[length:100%_100%] flex items-center justify-center" style={{ backgroundImage: "url('/images/searchdetail/titlecloud.svg')" }}>
                 <h2 className="text-center font-bold text-2xl sm:text-3xl">{children}</h2>
             </div>
         </div>
@@ -257,9 +257,9 @@ function Menu({ menus }: MenuProps) {
                 </div>
                 <div className="text-text px-10 pt-10 pb-10 text-lg">
                     {menus.map((menu) => (
-                        <div key={menu} className="pt-6">
+                        <div key={menu} className="pt-1">
                             <Text>{menu}</Text>
-                            <Image src="/images/searchdetail/menu-bar.svg" alt="" width={300} height={10} className="w-full h-auto" />
+                            <Image src="/images/searchdetail/menubar3.svg" alt="" width={300} height={10} className="w-full h-auto -mt-4" />
                         </div>
                     ))}
                 </div>
