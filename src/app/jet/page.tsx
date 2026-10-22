@@ -5,19 +5,23 @@ import Text from '@/components/texts/Text';
 import Emphasis from '@/components/texts/Emphasis';
 import SmallTitle from '@/components/texts/SmallTitle';
 import { text } from 'stream/consumers';
+import OnlyImage from '@/components/OnlyImage';
+import ContactView from '@/components/texts/ContactView';
 
 export default function about() {
     return (
         <CloudPageContainer>
             <PageTitle>JET GACHA STREAM〜カプセルがひらく、次の目的地〜</PageTitle>
+            <OnlyImage src="/images/jet/jet-logo.png" alt='JET GACHA' className="mx-auto w-50" />
             <SectionTitle>企画概要</SectionTitle>
             <Text>
                 「どの企画に行こう？」と迷っているそこのあなた！
+                <br />
                 <Emphasis>ガチャを回して、行き先を決めてみませんか？</Emphasis>
 
-                カプセルから出てくるのは、明大祭がもっと楽しくなるための目的地。どの企画に行くかは、回してからのお楽しみ！
+                <br /> カプセルから出てくるのは、明大祭がもっと楽しくなるための目的地。どの企画に行くかは、回してからのお楽しみ！
 
-                さらに、<Emphasis>参加した方には素敵な特典もご用意しています！</Emphasis>
+                <br /> さらに、<Emphasis>参加した方には素敵な特典もご用意しています！</Emphasis>
                 ガチャを回して、行き先を決めて、明大祭をもっと楽しもう！みなさんのご参加をお待ちしています！
             </Text>
 
@@ -27,6 +31,9 @@ export default function about() {
             <SmallTitle>実施日時</SmallTitle>
             <Text>10月30日(金).31日(土)11:00〜17:00
                 <br />11月1日(日)11:00〜16:30</Text>
+
+            <ContactView department="開発局黎幸部門" mail="142ndreikobumon@gmail.com" showPhone showAddress />
+
 
         </CloudPageContainer>
     );
