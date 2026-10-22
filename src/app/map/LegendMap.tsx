@@ -23,47 +23,47 @@ export default function LegendMap() {
     const LegendList: { name: Legend; src: string }[] = [
         {
             name: 'インフォメーションブース',
-            src: "/images/campusmap/icon/info.png"
+            src: "/images/campusmap/icon/info-icon.png"
         },
         {
             name: 'AED',
-            src: "/images/campusmap/icon/aed.png"
+            src: "/images/campusmap/icon/aed-icon.png"
         },
         {
             name: '休憩所',
-            src: "/images/campusmap/icon/rest.png"
+            src: "/images/campusmap/icon/rest-icon.png"
         },
         {
             name: 'ごみステーション',
-            src: "/images/campusmap/icon/gs.png"
+            src: "/images/campusmap/icon/gs-icon.png"
         },
         {
             name: 'バリアフリートイレ',
-            src: "/images/campusmap/icon/toilet.png"
+            src: "/images/campusmap/icon/toilet-icon.png"
         },
         {
             name: '自動販売機',
-            src: "/images/campusmap/icon/vending.png"
+            src: "/images/campusmap/icon/vending-icon.png"
         },
         {
             name: '喫煙所',
-            src: "/images/campusmap/icon/smoking.png"
+            src: "/images/campusmap/icon/smoking-icon.png"
         },
         {
             name: 'ATM',
-            src: "/images/campusmap/icon/atm.png"
+            src: "/images/campusmap/icon/atm-icon.png"
         },
         {
             name: '公衆電話',
-            src: "/images/campusmap/icon/phone.png"
+            src: "/images/campusmap/icon/phone-icon.png"
         },
         {
             name: '診療所',
-            src: "/images/campusmap/icon/infirmary.png"
+            src: "/images/campusmap/icon/infirmary-icon.png"
         },
         {
             name: 'ステージ',
-            src: "/images/campusmap/icon/stage.png"
+            src: "/images/campusmap/icon/stage-icon.png"
         },
     ]
     return (

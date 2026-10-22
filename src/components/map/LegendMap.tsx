@@ -20,50 +20,50 @@ export default function LegendMap() {
             behavior: "smooth"
         });
     }
-    const LegendList: { name: Legend; src: string; wide?: boolean }[] = [
+    const LegendList: { name: Legend; src: string }[] = [
         {
             name: 'インフォメーションブース',
-            src: "/images/campusmap/icon/info.png"
+            src: "/images/campusmap/icon/info-icon.png"
         },
         {
             name: 'AED',
-            src: "/images/campusmap/icon/aed.png"
+            src: "/images/campusmap/icon/aed-icon.png"
         },
         {
             name: '休憩所',
-            src: "/images/campusmap/icon/rest.png"
+            src: "/images/campusmap/icon/rest-icon.png"
         },
         {
             name: 'ごみステーション',
-            src: "/images/campusmap/icon/gs.png"
+            src: "/images/campusmap/icon/gs-icon.png"
         },
         {
             name: 'バリアフリートイレ',
-            src: "/images/campusmap/icon/toilet.png"
+            src: "/images/campusmap/icon/toilet-icon.png"
         },
         {
             name: '自動販売機',
-            src: "/images/campusmap/icon/vending.png"
+            src: "/images/campusmap/icon/vending-icon.png"
         },
         {
             name: '喫煙所',
-            src: "/images/campusmap/icon/smoking.png"
+            src: "/images/campusmap/icon/smoking-icon.png"
         },
         {
             name: 'ATM',
-            src: "/images/campusmap/icon/atm.png"
+            src: "/images/campusmap/icon/atm-icon.png"
         },
         {
             name: '公衆電話',
-            src: "/images/campusmap/icon/phone.png"
+            src: "/images/campusmap/icon/phone-icon.png"
         },
         {
             name: '診療所',
-            src: "/images/campusmap/icon/infirmary.png"
+            src: "/images/campusmap/icon/infirmary-icon.png"
         },
         {
             name: 'ステージ',
-            src: "/images/campusmap/icon/stage.png"
+            src: "/images/campusmap/icon/stage-icon.png"
         },
     ]
     return (
@@ -75,7 +75,6 @@ export default function LegendMap() {
                             key={legend.name}
                             name={legend.name}
                             src={legend.src}
-                            wide={legend.wide}
                             onClick={() => handleLegendClick(legend.name)}
                         />
                     ))}
@@ -94,7 +93,6 @@ export default function LegendMap() {
 interface LegendButtonProps {
     name: Legend;
     src: string;
-    wide?: boolean;
     onClick: () => void;
 }
 
@@ -114,15 +112,7 @@ function getEnglishName(name: Legend): string {
     };
     return translations[name] || '';
 }
-function LegendButton({ name, src, wide, onClick }: LegendButtonProps) {
-    // 横長画像はアイコン・和名・英名を含むので、画像だけをボタンいっぱいに表示する
-    if (wide) {
-        return (
-            <button onClick={onClick} className="w-75 h-12 p-1 m-2 border-2 rounded-lg bg-white mt-2 flex items-center justify-center">
-                <Image src={src} alt={name} width={423} height={76} className="h-full w-auto object-contain"></Image>
-            </button>
-        )
-    }
+function LegendButton({ name, src, onClick }: LegendButtonProps) {
     return (
         <button onClick={onClick} className="w-75 h-12 font-bold p-2 m-2 border-2 rounded-lg bg-white text-black mt-2 relative text-left">
             <div className="font-bold text-md -mt-1.5 ml-6">{name}</div>
