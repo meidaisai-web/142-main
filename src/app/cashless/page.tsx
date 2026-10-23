@@ -74,7 +74,7 @@ const page = () => {
                 <ListItem><TransitionLink href="/search/151">マーケティング研究会</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/177">商学部塩澤恵理ゼミナール</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/149">奥山雅之ゼミナール</TransitionLink></ListItem>
-                <ListItem><TransitionLink href="/search/144">国際日本学部宮本大人ゼミナール</TransitionLink></ListItem>
+                <ListItem><TransitionLink href="/search/83">Promontory</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/157">国際日本学部小野雅琴ゼミナール</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/187">山内解決ゼミナール</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/158">商学部福田康典ゼミナール</TransitionLink></ListItem>
