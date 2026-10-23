@@ -75,7 +75,7 @@ export default function Page() {
                     2026年10月30日(金).31日(土).11月1日(日)<br />
                     11:00～18:00
                 </Text>
-                <SmallTitle>抽選実施場所</SmallTitle>
+                <SmallTitle>抽選会実施場所</SmallTitle>
                 <Text>明治大学和泉キャンパスメディア棟入口付近</Text>
                 <SmallTitle>景品の内容</SmallTitle>
                 <Text>
