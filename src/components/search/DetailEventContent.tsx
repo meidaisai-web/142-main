@@ -10,7 +10,6 @@ import Link from "next/link";
 import ZoomableImage from "../ZoomableImage";
 import { getMeichamCategory } from "@/utils/managers/meichamManager";
 import SearchCloud from "./SearchCloud";
-import ZoomableImage from "../ZoomableImage";
 
 interface DetailContentProps {
     id: string;
