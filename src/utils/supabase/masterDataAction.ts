@@ -26,10 +26,7 @@ export async function getAllMasterDatas(key: MasterDataQuery): Promise<MasterDat
         return sorted === null ? null : sorted.slice(start, end + 1);
     }
 
-    if (key.keyword === "Web部門のみんなへ") {
-        // 特別なデータも通常と同じ件数でページを切り替える。
-        return returnDefaultData().slice(start, end + 1);
-    }
+
 
     const sort = key.sortType.orderColumn === "free"
         ? { orderColumn: "createdAt", ascending: true }

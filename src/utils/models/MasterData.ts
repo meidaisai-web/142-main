@@ -26,4 +26,5 @@ export type MasterData = {
     otherIcons: string[];
     menuItems: string[];
     qrcode: string;
+    championshipJoin?: boolean;
 }
