@@ -18,9 +18,11 @@ interface TabProps {
     buttonStyle?: boolean;
     /** 選択中のタブの上の角に置く飾り画像。先頭のタブは左上、それ以外は左右反転して右上 */
     cornerImage?: string;
+    /** true のとき、タブクリック・スワイプ時のスライドとインジケーター移動をアニメーションなしで即座に切り替える */
+    instant?: boolean;
 }
 
-export default function Tab({ tabs, showTriangle, closer, buttonStyle, cornerImage }: TabProps) {
+export default function Tab({ tabs, showTriangle, closer, buttonStyle, cornerImage, instant }: TabProps) {
     const [active, setActive] = useState(0);
     const contentRef = useRef<SwiperType | null>(null);
     const buttonRefs = useRef<HTMLButtonElement[]>([]);
@@ -94,7 +96,7 @@ export default function Tab({ tabs, showTriangle, closer, buttonStyle, cornerIma
     const enableIndicatorTransition = () => {
         const el = indicatorRef.current;
         if (!el) return;
-        el.style.transition = 'transform 200ms, width 200ms';
+        el.style.transition = instant ? 'none' : 'transform 200ms, width 200ms';
     };
 
     /**
@@ -119,7 +121,7 @@ export default function Tab({ tabs, showTriangle, closer, buttonStyle, cornerIma
     return (
         <div className="w-full">
             {buttonStyle && (
-                <div className="w-full px-5 mt-10">
+                <div className="w-full px-5 -mt-50">
                 <div className="flex items-end w-full max-w-4xl mx-auto gap-4 sm:gap-8">
                     {tabs.map((tab, index) => (
                         <button
@@ -188,6 +190,7 @@ export default function Tab({ tabs, showTriangle, closer, buttonStyle, cornerIma
             <div className="group" data-active={active}>
             <Swiper
                 spaceBetween={100}
+                speed={instant ? 0 : 300}
                 autoHeight
                 observer
                 observeSlideChildren
@@ -219,7 +222,7 @@ export default function Tab({ tabs, showTriangle, closer, buttonStyle, cornerIma
                 className={buttonStyle ? 'mt-0' : 'mt-10'}
             >
                 {tabs.map((tab) => (
-                    <SwiperSlide key={tab.key} className="px-5 pt-2">
+                    <SwiperSlide key={tab.key} className="px-5 pt-0">
                         {tab.content}
                     </SwiperSlide>
                 ))}
