@@ -6,12 +6,12 @@ import ModalPortal from "./ModalPortal";
 
 const LOGO_SRC = "/images/carousel/logo.svg";
 
-// 画面を抽選券そのものと勘違いされないための案内（引換カードと完了画面で共通。1文目と2文目で改行する）
+// 画面を抽選券そのものと勘違いされないための案内（引換カードで表示。1文目と2文目で改行する）
 export function VoucherNotice({ className = "" }: { className?: string }) {
     return (
         <p className={`text-xs sm:text-sm text-center bg-accent-50 rounded-lg px-3 py-2 leading-relaxed ${className}`}>
             こちらは抽選券ではありません。<br />
-            和泉図書館前Meidaisai Championship受付にて紙の抽選券に引き換えられます。
+            和泉図書館前 Meidaisai Championship受付にて紙の抽選券に引き換えられます。
         </p>
     )
 }
@@ -70,8 +70,9 @@ export default function VoucherCompleteOverlay({ onClose }: VoucherCompleteOverl
                         </div>
                     </div>
 
-                    <p className={`mt-6 text-center font-bold ${isCompleted ? 'text-xl text-primary-900' : 'text-sm sm:text-base'}`} aria-live="polite">
-                        {isCompleted ? '引き換えが完了しました。' : '受付スタッフの前で、右端までスライドしてください。'}
+                    {/* 完了したときだけ文言を出す（場所は先に確保して、表示されたときにスライダーがずれないようにする） */}
+                    <p className="mt-6 min-h-7 text-center font-bold text-xl text-primary-900" aria-live="polite">
+                        {isCompleted ? '引き換えが完了しました。' : ''}
                     </p>
 
                     {/* スライダー：見た目は自前で描き、操作は透明な range 入力で受け取る */}
@@ -102,8 +103,6 @@ export default function VoucherCompleteOverlay({ onClose }: VoucherCompleteOverl
                             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer disabled:cursor-default"
                         />
                     </div>
-
-                    <VoucherNotice className="mt-6" />
                 </div>
             </div>
         </ModalPortal>

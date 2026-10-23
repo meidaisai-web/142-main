@@ -60,7 +60,7 @@ export default function VoucherExchangeCard() {
 
                 <p className="text-red-600 font-bold text-xs sm:text-sm text-center mt-5 leading-relaxed">
                     以下のボタンは必ず、<br />
-                    和泉図書館前総合インフォメーションブースMeidaisai Championship受付<br />
+                    和泉図書館前 Meidaisai Championship受付<br />
                     でタップしてください。
                 </p>
                 <VoucherNotice className="mt-3" />
