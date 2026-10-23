@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { detectIncognito } from "detectincognitojs";
 import TransitionLink from "./buttons/TransitionLink";
-import VoucherCompleteOverlay from "./VoucherCompleteOverlay";
+import VoucherCompleteOverlay, { VoucherNotice } from "./VoucherCompleteOverlay";
+import ModalPortal from "./ModalPortal";
 import { hasVotedAllCategories, isVoucherAvailableToday } from "@/utils/managers/meichamManager";
 import { exchange, isAlreadyExchange, isInTime } from "@/utils/managers/voucherManager";
 
@@ -62,6 +63,7 @@ export default function VoucherExchangeCard() {
                     和泉図書館前総合インフォメーションブースMeidaisai Championship受付<br />
                     でタップしてください。
                 </p>
+                <VoucherNotice className="mt-3" />
 
                 <button
                     type="button"
@@ -122,9 +124,10 @@ function ExchangeConfirmModal({ onClose, onConfirm }: ExchangeConfirmModalProps)
     }, []);
 
     return (
+        <ModalPortal>
         <div className="fixed inset-0 z-50 flex justify-center items-center px-6 bg-text/50" onClick={onClose}>
             <div
-                className="relative w-full max-w-md bg-background border-[6px] border-accent-700 rounded-3xl text-text px-6 sm:px-10 pt-12 pb-8 shadow-lg flex flex-col items-center"
+                className="relative w-full max-w-md max-h-[90dvh] overflow-y-auto bg-background border-[6px] border-accent-700 rounded-3xl text-text px-6 sm:px-10 pt-12 pb-8 shadow-lg flex flex-col items-center"
                 onClick={(e) => e.stopPropagation()}
             >
                 <button onClick={onClose} className="absolute top-3 right-4 cursor-pointer p-1" aria-label="閉じる">
@@ -146,5 +149,6 @@ function ExchangeConfirmModal({ onClose, onConfirm }: ExchangeConfirmModalProps)
                 </button>
             </div>
         </div>
+        </ModalPortal>
     )
 }

@@ -2,6 +2,7 @@
 
 import { ReactNode, useEffect } from "react";
 import Link from "next/link";
+import ModalPortal from "../ModalPortal";
 import { MeichamCategory } from "@/utils/models/MeichamGenre";
 import { getGenresOfCategory, getUnvotedCategories } from "@/utils/managers/meichamManager";
 
@@ -47,9 +48,10 @@ export default function MeichamVoteModal({ step, hidden, onClose, onVote, eventN
     const unvotedCategories = step === 'done' ? getUnvotedCategories() : [];
 
     return (
+        <ModalPortal>
         <div className="fixed inset-0 z-50 flex justify-center items-center px-6 bg-text/50" onClick={onClose}>
             <div
-                className="relative w-full max-w-md bg-background border-[6px] border-primary rounded-3xl text-text px-6 sm:px-10 pt-12 pb-8 shadow-lg"
+                className="relative w-full max-w-md max-h-[90dvh] overflow-y-auto bg-background border-[6px] border-primary rounded-3xl text-text px-6 sm:px-10 pt-12 pb-8 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
             >
                 <button onClick={onClose} className="absolute top-3 right-4 cursor-pointer p-1" aria-label="閉じる">
@@ -113,6 +115,7 @@ export default function MeichamVoteModal({ step, hidden, onClose, onVote, eventN
                 )}
             </div>
         </div>
+        </ModalPortal>
     )
 }
 
