@@ -7,6 +7,7 @@ import VoteView from "./VoteView";
 import Text from "../texts/Text";
 import Image from "next/image";
 import Link from "next/link";
+import ZoomableImage from "../ZoomableImage";
 import { getMeichamCategory } from "@/utils/managers/meichamManager";
 import SearchCloud from "./SearchCloud";
 import ZoomableImage from "../ZoomableImage";
