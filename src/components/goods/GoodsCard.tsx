@@ -54,7 +54,7 @@ export default function GoodsCard({
                 src="/images/goods/goodstypecloud.svg"
                 alt=""
                 width={80}
-                height={50}
+                height={42}
               />
               <p className="absolute inset-0 flex items-center justify-center text-[12px] md:text-[15px]">
                 {type}
@@ -127,7 +127,7 @@ export default function GoodsCard({
                     src={src}
                     alt={`${name}${index + 1}`}
                     width={200}
-                    height={160}
+                    height={141}
                     className={`h-auto w-[90%] max-w-[200px] object-contain `}
                   />
                 </div>
@@ -139,7 +139,7 @@ export default function GoodsCard({
             src={image}
             alt={name}
             width={260}
-            height={200}
+            height={name === "ラバーバンド" ? 73 : 200}
             className={`h-auto object-contain ${name === "明大祭ボールペン"
               ? "w-[280px] translate-y-5"
               : name === "アクリルキーホルダー"
@@ -176,7 +176,7 @@ export default function GoodsCard({
             src="/images/goods/goodscloud.svg"
             alt=""
             width={220}
-            height={86}
+            height={102}
             className="w-full"
           />
 

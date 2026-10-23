@@ -52,7 +52,7 @@ export default function Page() {
             <AccentText>謎解き制作協力団体</AccentText>
             <Text>明治大学謎解きサークルSHERLOCK</Text>
             <AccentText>例題</AccentText>
-            <OnlyImage src="/images/memory/memory-example.png" alt="謎解きの例題画像" />
+            <OnlyImage src="/images/memory/memory-example.png" alt="謎解きの例題画像"  height={281} />
             <Text>答えは・・・企画に参加して確かめてみよう!!もっと難しい問題にもチャレンジできるよ！</Text>
             <AccentText className="mt-20">お問い合わせ</AccentText>
             <Text>
