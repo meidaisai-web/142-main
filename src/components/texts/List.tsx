@@ -89,7 +89,7 @@ export function List({ children, mark, numbered, alphabetic, gap, bottomMargin, 
                 if (isValidElement(child) && child.type === List) {
                     // Listコンポーネントが入れ子になっている場合、インデントを加える
                     return (
-                        <div className={`${numbered || alphabetic ? 'ml-5' : 'ml-4'}`}>
+                        <div className={`${numbered || alphabetic ? 'ml-5' : 'ml-5'}`}>
                             {child}
                         </div>
                     )
@@ -98,7 +98,7 @@ export function List({ children, mark, numbered, alphabetic, gap, bottomMargin, 
                 // ListTextコンポーネントが使用された場合、文字に揃うようにインデント調整
                 if (isValidElement(child) && child.type === ListText) {
                     return (
-                        <div className={`${numbered || alphabetic ? 'ml-5' : 'ml-4'}`}>
+                        <div className={`${numbered || alphabetic ? 'ml-5' : 'ml-5'}`}>
                             {child}
                         </div>
                     );
