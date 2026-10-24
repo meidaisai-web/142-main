@@ -11,7 +11,7 @@ export default function Page() {
         <CloudPageContainer>
                 <PageTitle>Ameijing Photo</PageTitle>
                 <SectionTitle>企画概要</SectionTitle>
-                <Text><Emphasis>明大祭の思い出を、とっておきの1枚に！</Emphasis><br />
+                <Text moreTopPadding><Emphasis>明大祭の思い出を、とっておきの1枚に！</Emphasis><br />
                 今年もフォトスポットが登場！<br />
                 ここでしか撮れない写真で、明大祭の思い出を残しませんか？<br />
                 撮影した写真をSNSに投稿すると、豪華賞品が当たるチャンスも！<br />

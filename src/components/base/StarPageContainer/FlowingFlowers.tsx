@@ -4,6 +4,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { IMAGE_ASPECT } from "./aspect";
+
 
 type FlowerProps = {
     src: string;
@@ -69,7 +71,7 @@ function Flower({
                     src={src}
                     alt=""
                     width={size}
-                    height={size}
+                    height={Math.round(size * IMAGE_ASPECT[src])}
                 />
             </motion.div>
         </motion.div>
