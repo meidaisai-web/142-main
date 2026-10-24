@@ -256,7 +256,7 @@ function DetailFilterView({
                                     <div
                                         role="group"
                                         aria-label={group.department}
-                                        className="flex min-w-0 flex-col gap-2 whitespace-nowrap [&_*]:text-sm sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3 sm:[&_*]:text-xl"
+                                        className="flex min-w-0 flex-col gap-2 whitespace-nowrap [&_*]:text-sm sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3 sm:[&_*]:text-lg"
                                     >
                                         {group.options.map((option) => (
                                             <Checkbox
