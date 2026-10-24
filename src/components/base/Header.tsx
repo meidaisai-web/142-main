@@ -49,20 +49,20 @@ export default function Header() {
 
           {/* 虫眼鏡・マップアイコン：トップページのみ表示 */}
       {isHome && (
-        <div className="absolute right-[40px] max-sm:right-[15px] top-6 max-sm:top-[50px] z-40 flex items-start gap-0 max-sm:-mr-2 sm:right-[30px] sm:gap-4">
+        <div className="absolute right-[40px] max-sm:right-[15px] top-6 max-sm:top-[50px] z-40 flex items-start gap-0 max-sm:gap-1 max-sm:-mr-2 sm:right-[30px] sm:gap-4">
 
           {/* 虫眼鏡 */}
           <Link
             href="/search"
             aria-label="企画を検索"
-            className="cloud-swing relative flex h-[73px] w-[82px] max-sm:-mr-4 items-start justify-center sm:h-[60px] sm:w-[88px]"
+            className="cloud-swing relative flex h-[80px] w-[89px] max-sm:-mr-4 items-start justify-center sm:h-[60px] sm:w-[88px]"
           >
             <Image
               src="/images/header/search.svg"
               alt="検索"
               width={200}
               height={160}
-              className="h-[68px] w-[82px] object-contain sm:h-[150px] sm:w-[180px] sm:-translate-y-1"
+              className="h-[75px] w-[89px] object-contain sm:h-[150px] sm:w-[180px] sm:-translate-y-1"
             />
           </Link>
 
@@ -70,14 +70,14 @@ export default function Header() {
           <Link
             href="/map"
             aria-label="マップ"
-            className="cloud-swing cloud-swing-delayed relative flex h-[78px] w-[90px] items-start justify-center sm:mt-4 sm:h-[60px] sm:w-[88px]"
+            className="cloud-swing cloud-swing-delayed relative flex h-[85px] w-[97px] items-start justify-center sm:mt-4 sm:h-[60px] sm:w-[88px]"
           >
             <Image
               src="/images/header/map.svg"
               alt="マップ"
               width={200}
               height={160}
-              className="h-[74px] w-[90px] object-contain sm:h-[130px] sm:w-[160px]"
+              className="h-[81px] w-[97px] object-contain sm:h-[130px] sm:w-[160px]"
             />
           </Link>
         </div>
