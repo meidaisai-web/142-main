@@ -307,7 +307,7 @@ function SearchContent() {
             className="flex w-full flex-col items-center"
             style={{ paddingBottom: "calc(14.35vw + 2rem + env(safe-area-inset-bottom, 0px))" }}
         >
-            <PageContainer reserveFooterSpace={false}>
+            <div className="w-full px-4 sm:px-8 lg:px-12">
                 <FilterView
                     keyword={keyword} setKeyword={setKeyword}
                     selectedTypes={selectedTypes} setSelectedTypes={setSelectedTypes}
@@ -317,6 +317,8 @@ function SearchContent() {
                     sortType={sortType} setSortType={setSortType}
                     onEnter={onTapSearchButton}
                 />
+            </div>
+            <PageContainer reserveFooterSpace={false}>
                 <div className="flex justify-center">
                     <button
                         type="button"
