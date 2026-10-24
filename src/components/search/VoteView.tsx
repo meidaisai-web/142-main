@@ -145,7 +145,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                     <p>明大祭No.1企画が決定します！</p>
                 </div>
                 <List mark="※" className="pt-3">
-                    <ListItem>企画へのお問い合わせは、和泉図書館前アンケート回収受付までお越しください。</ListItem>
+                    <ListItem>企画へのお問い合わせは、和泉図書館前 Meidaisai Championship受付までお越しください。</ListItem>
                 </List>
                 {category ? (
                     <>
