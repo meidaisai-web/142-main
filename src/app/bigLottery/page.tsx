@@ -64,8 +64,8 @@ export default function Page() {
                 <SmallTitle>Meidaisai Championship</SmallTitle>
                 <Text>
                     引き換え場所：和泉図書館前Meidaisai Championship受付<br />
-                    企画検索から、飲食部門・エンタメ部門・パフォーマンス部門すべてにご投票いただくと抽選券がもらえます！<br />
-                    <Button href="/meicham">詳しくはこちら</Button>
+                    <TransitionLink href="/search">企画検索</TransitionLink>から、飲食部門・エンタメ部門・パフォーマンス部門すべてにご投票いただくと抽選券がもらえます！<br />
+                    <Button href="/champ">詳しくはこちら</Button>
                 </Text>
                 <MeichamVoteStatus />
                 <Text>明大祭公式パンフレットp.16</Text>
