@@ -5,19 +5,15 @@ import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
 import Text from "@/components/texts/Text";
 import Emphasis from "@/components/texts/Emphasis";
-import ImageLogo from "@/components/texts/ImageLogo"
+import LogoImage from "@/components/LogoImage"
 import ContactView from "@/components/texts/ContactView";
 
 export default function Page() {
     return (
         <CloudPageContainer>
             <PageTitle>熱闘!!明治スポーツ</PageTitle>
-            <ImageLogo
-                src="/images/sports/sports01.png"
-                logoSrc="/images/sports/sports-logo.svg"
-                alt="企画の写真"
-                logoAlt="企画ロゴ" 
-                LogoClassName="w-1000"/>
+            <LogoImage src="/images/sports/sportslogo.png" alt="企画のロゴ画像" />
+            <LogoImage src="/images/sports/mainImage.png" alt="企画場所のイメージ画像" />
             <SectionTitle>企画概要</SectionTitle>
             <Emphasis>明治大学といえばおなじみのスポーツについて、展示や体験型企画を通してその魅力を発信する企画です！</Emphasis>
             <Text>現役選手に明大生ならではの視点でインタビュー。普段は見られない一面が見られるかも！また、選手の記録に挑戦できる体験型企画も用意しています！</Text>
