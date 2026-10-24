@@ -20,10 +20,10 @@ export default function Page() {
             <Emphasis>見て、知って、体験して、明治のスポーツをもっと好きになりませんか？</Emphasis>
             <Text>みなさまのご参加をお待ちしています！</Text>
             <SmallTitle>実施場所</SmallTitle>
-            <AccentText>展示</AccentText>
+            <AccentText>体験</AccentText>
             <Text>メディア棟M515教室</Text>
-            <AccentText>体験・展示</AccentText>
-            <Text>メディア棟M516教室</Text>
+            <AccentText>展示</AccentText>
+            <Text>メディア棟M515・M516教室</Text>
             <AccentText>選手への応援メッセージ</AccentText>
             <Text>和泉ラーニングスクエア4階アゴラ</Text>
             <SmallTitle>日時</SmallTitle>
