@@ -43,7 +43,8 @@ export default function Header() {
           src="/images/svg/logo-white.svg"
           alt="Logo"
           width={42}
-          height={42}
+          height={37}
+          className="w-10.5 h-auto"
         />
       </Link>
 

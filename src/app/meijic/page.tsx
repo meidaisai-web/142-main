@@ -30,7 +30,7 @@ export default function Page() {
                 観客席で出演者と共にこの熱狂を体感せよ。    
             </Text>
             <SectionTitle>企画概要</SectionTitle>
-            <OnlyImage src="/images/meijicstation/meijic01.jpg" alt="Meijic Station 1" className="mb-5" />
+            <OnlyImage src="/images/meijicstation/meijic01.jpg" alt="Meijic Station 1" className="mb-5"  height={334} />
             <Text>
                 明大祭に、新たな音楽のステージが登場！<br/>
                 さまざまな音楽の魅力を一度に楽しめる、ここでしか見られないパフォーマンスをお届けします。<br/>
