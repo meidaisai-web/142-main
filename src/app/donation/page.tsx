@@ -5,7 +5,6 @@ import SmallTitle from "@/components/texts/SmallTitle"
 import ImageText from "@/components/texts/ImageText"
 import Text from "@/components/texts/Text"
 import Emphasis from "@/components/texts/Emphasis"
-import { List, ListItem } from "@/components/texts/List"
 import ContactView from "@/components/texts/ContactView"
 
 const page = () => {
