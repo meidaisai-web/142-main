@@ -53,7 +53,15 @@ const page = () => {
     ]
 
         const helpItems = [
-        {
+         {
+            title: "ATMについて",
+            content: "大学構内にあるATMは以下のとおりです。",
+            list: (
+                <List mark="※">
+                    <ListItem>キャンパスマップは今後公開予定です。</ListItem>
+                </List>
+            ), },
+            {
             title: "休憩所",
             content: "キャンパス内には休憩所を設けております。お食事などの際にご利用ください。詳しい場所は、キャンパスマップにてご確認いただけます。",
             list: (
@@ -138,6 +146,50 @@ const RuleItem = ({ title, children }: RuleItemProps) => {
             <Text>
                 {children}
             </Text>
+        </div>
+    )
+}
+function ATMTable() {
+    const columns = [
+        "金融機関名\n（設置場所）",
+        "日付",
+        "稼働時間"
+    ]
+    const rows = [
+        { bank: "三井住友銀行", location: "第一校舎1階", time: {date: "10月30日(金)", time: "9：00〜18：00"} },
+        { time: {date: "10月31日(土)", time: "9：00〜13：00"} },
+        { time: {date: "11月1日(日)", time: "休止"} },
+        { bank: "ゆうちょ銀行", location: "メディア棟1階", time: {date: "10月30日(金)", time: "9：00〜19：00"} },
+        { time: {date: "10月31日(土)", time: "9：00〜17：00"} },
+        { time: {date: "11月1日(日)", time: "休止"} },
+    ]
+    return (
+        <div className="w-full mt-4 mb-4 overflow-x-auto">
+            <table className="w-full table-auto border-collapse border border-slate-400 shadow-md">
+                <thead className="bg-secondary text-white">
+                    <tr>
+                        {columns.map((columns) => (
+                            <th key={columns} className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-bold text-xs sm:text-sm md:text-base">
+                                {columns}
+                            </th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {rows.map((row, index) => (
+                        <tr key={index} className="bg-white hover:bg-gray-50 transition-colors">
+                            {row.bank && (
+                                <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-semibold bg-white" rowSpan={3}>
+                                    <span className="block text-black text-xs sm:text-sm md:text-base">{row.bank}</span>
+                                    <span className="block text-xs sm:text-sm text-gray-600 mt-1">（{row.location}）</span>
+                                </td>
+                            )}
+                            <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">{row.time.date}</td>
+                            <td className={`border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base ${row.time.time === "休止" && "text-primary"}`}>{row.time.time}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 }
