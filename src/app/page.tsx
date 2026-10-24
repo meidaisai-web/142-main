@@ -1,6 +1,5 @@
 import HeroSection from "@/components/index/HeroSection";
 import Loading from "@/components/base/Loading";
-import TopIppan from "@/components/index/TopIppan";
 import AnnounceSection from "@/components/index/AnnounceSection";
 import Access from "@/components/index/Access";
 import Airplane from "@/components/Airplane";

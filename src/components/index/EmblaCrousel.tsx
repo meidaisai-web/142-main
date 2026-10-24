@@ -1,5 +1,5 @@
 'use client'
-import React, { useCallback, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import {
   EmblaCarouselType,
   EmblaEventType,
@@ -9,6 +9,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import Link from 'next/link'
 import IndexTitle from '../texts/IndexTitle'
+import Image from 'next/image'
 const TWEEN_FACTOR_BASE = 0.52
 const numberWithinRange = (number: number, min: number, max: number): number =>
   Math.min(Math.max(number, min), max)
@@ -62,13 +63,13 @@ function EmblaCarousel() {
     align: 'center',
     containScroll: 'trimSnaps',
   }
-  const autoplayRef = useRef(
+  const [autoplay] = useState(() =>
     Autoplay({
       delay: 2000,
       stopOnInteraction: false
     })
   )
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [autoplayRef.current])
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [autoplay])
   const tweenFactor = useRef(0)
   const tweenNodes = useRef<HTMLElement[]>([])
   const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
@@ -172,15 +173,14 @@ function Item({ name, src, href }: ItemProps) {
       <div className='relative mb-20'>
         <div className='absolute -z-10 top-3 left-3 sm:top-4 sm:left-4 w-[47vw] md:w-[30vw] lg:w-[23vw] rounded-4xl sm:rounded-[3.0rem] overflow-hidden border-4 border-black'>
           <div className='bg-secondary-700 w-full aspect-square'>
-            
           </div>
           <div className="bg-secondary-700 py-6 md:py-4">
-          <h1 className="font-bold text-sm md:text-md lg:text-xl text-center text-secondary-700">{name}</h1>
+            <h1 className="font-bold text-sm md:text-md lg:text-xl text-center text-secondary-700">{name}</h1>
           </div>
         </div>
         <div className='active:translate-1 w-[47vw] md:w-[30vw] lg:w-[23vw] rounded-[1.6rem] sm:rounded-[2.5rem] overflow-hidden border-4 border-black'>
           <div className='bg-white w-full aspect-square'>
-            <img src={src} alt={name} className="w-full h-full object-cover"/>
+            <Image src={src} alt={name} fill className="w-full h-full object-cover" />
           </div>
           <div className="bg-secondary py-6 md:py-4">
             <h1 className="font-bold text-sm md:text-md lg:text-xl text-center">{name}</h1>
