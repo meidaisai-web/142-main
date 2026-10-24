@@ -239,7 +239,7 @@ function DetailFilterView({
                     className={checkbox.label === "ジャンル" ? "flex min-w-0 flex-col gap-3" : "flex gap-8"}
                 >
                     {checkbox.label === "ジャンル" ? (
-                        <div className="self-center -translate-x-10 sm:self-start sm:translate-x-0">
+                        <div className="self-start">
                             <Label>{checkbox.label}</Label>
                         </div>
                     ) : (
