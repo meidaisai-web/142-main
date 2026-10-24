@@ -4,11 +4,12 @@ import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
 import Text from "@/components/texts/Text";
-import OnlyImage from "@/components/OnlyImage";
+import Button from "@/components/buttons/Button"
 import Emphasis from "@/components/texts/Emphasis"
 import TransitionLink from "@/components/buttons/TransitionLink"
 import {List, ListItem, ListText} from "@/components/texts/List"
 import MeichamVoteStatus from "@/components/MeichamVoteStatus"
+import Image from "next/image";
 
 export default function Page() {
     return (
@@ -45,7 +46,7 @@ export default function Page() {
 
                 <AccentText>2.紙の抽選券を手に入れる</AccentText>
                 <Text>企画参加後、その場や各引き換え場所で紙の抽選券をGET！</Text>
-                {/* <OnlyImage src="" alt="" className="" /> GDからの画像待ち */}
+                <Image src="/images/bigLottery/bigLottery07.svg" alt="抽選券のサンプル画像" width={317} height={192} className="w-4/5 sm:w-1/2 h-auto my-4" />
                 <List mark="&#8251;">
                     <ListItem>引き換え場所が各参加企画で異なっているためご注意ください。</ListItem>
                     <ListItem>詳細は下記、抽選券配付企画をご覧ください。</ListItem>
@@ -63,8 +64,8 @@ export default function Page() {
                 <SmallTitle>Meidaisai Championship</SmallTitle>
                 <Text>
                     引き換え場所：和泉図書館前Meidaisai Championship受付<br />
-                    <TransitionLink href="/search">こちら</TransitionLink>から、飲食部門・エンタメ部門・パフォーマンス部門すべてにご投票いただくと抽選券がもらえます！<br />
-                    詳しくは<TransitionLink href="/champ">こちら</TransitionLink>も合わせてご確認ください。
+                    企画検索から、飲食部門・エンタメ部門・パフォーマンス部門すべてにご投票いただくと抽選券がもらえます！<br />
+                    <Button href="/meicham">詳しくはこちら</Button>
                 </Text>
                 <MeichamVoteStatus />
                 <Text>明大祭公式パンフレットp.16</Text>
@@ -133,7 +134,7 @@ export default function Page() {
                     <ListText>渉外局</ListText>
                     <List mark="・">
                         <ListItem><TransitionLink href="/booth">企業ブース</TransitionLink></ListItem>
-                        <ListItem>校友・父母歓迎スペース</ListItem>
+                        <ListItem><TransitionLink href="/stakeholders/alumni">校友・父母歓迎スペース</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/matsubara">松原小学校&times;明大祭</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/lottely-shop">明大前商店街&times;明大祭〜明大祭で当てよう！豪華景品〜</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/keio">KEIO&times;第142回明大祭〜いつも駅からだった　明大前編～</TransitionLink></ListItem>
