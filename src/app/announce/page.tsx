@@ -9,6 +9,10 @@ import { ReactNode } from "react"
 const page = () => {
     const visitorsRules = [
         {
+            title: "大学構内への入構について",
+            content: "ご来場の際は、公共交通機関をご利用ください。自動車・自転車でのご来校はご遠慮いただいております。明大祭当日は、キャンパス内の駐車場・駐輪場はご利用いただけません。また、近隣の飲食店や商業施設の駐車場・駐輪場への駐車・駐輪もご遠慮くださいますようお願いいたします。"
+        },
+        {
             title: "飲酒、酒類の持ち込みおよび販売・配布",
             content: "明治大学では、飲酒、酒類の持ち込みおよび販売・配布が禁止となっております（ノンアルコール飲料も含む）。また、飲酒者の大学構内への入場も禁止しております。飲酒者を大学構内で発見した場合、退構誘導をさせていただきます。"
         },
@@ -55,12 +59,10 @@ const page = () => {
         const helpItems = [
          {
             title: "ATMについて",
-            content: "大学構内にあるATMは以下のとおりです。",
-            list: (
-                <List mark="※">
-                    <ListItem>キャンパスマップは今後公開予定です。</ListItem>
-                </List>
-            ), },
+            content: <>大学構内にあるATMは以下のとおりです。<br />
+                <ATMTable />
+            </>
+             },
             {
             title: "休憩所",
             content: "キャンパス内には休憩所を設けております。お食事などの際にご利用ください。詳しい場所は、キャンパスマップにてご確認いただけます。",
@@ -185,7 +187,7 @@ function ATMTable() {
                                 </td>
                             )}
                             <td className="border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center text-xs sm:text-sm md:text-base">{row.time.date}</td>
-                            <td className={`border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base ${row.time.time === "休止" && "text-primary"}`}>{row.time.time}</td>
+                            <td className={`border border-slate-300 px-2 sm:px-3 md:px-4 py-2 md:py-3 text-center font-medium text-xs sm:text-sm md:text-base ${row.time.time === "休止" && "text-primary-900 font-bold"}`}>{row.time.time}</td>
                         </tr>
                     ))}
                 </tbody>
