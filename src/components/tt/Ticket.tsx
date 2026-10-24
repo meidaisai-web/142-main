@@ -26,10 +26,16 @@ export default function Ticket({
     const isGreen = variant === "green";
     if (layout === "timeline") {
         return (
-            <div className={`${styles.timeline} font-serif`}>
+            <div className={styles.timeline}>
                 <Image src="/images/tt/ticket-timeline.svg" alt="" fill sizes="340px" className="pointer-events-none select-none" />
                 <div className={styles.contents}>
-                    <p className={styles.time}>{time.replace(/\s*\n\s*/g, " ")}</p>
+                    <div className={styles.timeColumn}>
+                        <p className={styles.time}>
+                            {time.split(/([〜～~])/).map((part, index) => (
+                                <span key={index} className={/^[〜～~]$/.test(part) ? styles.timeSeparator : undefined}>{part.trim()}</span>
+                            ))}
+                        </p>
+                    </div>
                     <div className={styles.body}>
                         <div className={styles.text}>
                             <div className={styles.frame}>
@@ -37,7 +43,7 @@ export default function Ticket({
                             </div>
                             <p className={styles.subtitle}>{subtitle}</p>
                         </div>
-                        {imageSrc && <div className={styles.photo}><Image src={imageSrc} alt={imageAlt} fill sizes="44px" className="pointer-events-none object-contain" /></div>}
+                        {imageSrc && <div className={styles.photo}><Image src={imageSrc} alt={imageAlt} width={224} height={224} sizes="112px" className={styles.photoImage} /></div>}
                     </div>
                 </div>
             </div>
