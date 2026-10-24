@@ -4,7 +4,6 @@ import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
 import { List, ListItem } from "@/components/texts/List"
 import SmallTitle from "@/components/texts/SmallTitle"
-import TransitionLink from "@/components/buttons/TransitionLink"
 import { ReactNode } from "react"
 
 const page = () => {
