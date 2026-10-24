@@ -27,5 +27,7 @@ export function isAlreadyExchange(): boolean {
 
 // 開催日以外は引換できないようにする
 export function isInTime(): boolean {
-    return EXCHANGE_DATES.includes(getJapanDateString());
+    // TODO: テスト用。日付に関係なく引き換えできるようにしている。終わったらコメントアウトを外し、下の return true を消す
+    // return EXCHANGE_DATES.includes(getJapanDateString());
+    return true; // TODO: テスト用
 }
