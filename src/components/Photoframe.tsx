@@ -50,6 +50,7 @@ const Photoframe = ({
               src={leftImagePath}
               alt={leftName}
               fill
+              sizes="50vw"
               className="object-cover object-right-top"
             />
           </div>
@@ -82,6 +83,7 @@ const Photoframe = ({
               src={rightImagePath}
               alt={rightName}
               fill
+              sizes="50vw"
               className="object-cover object-right-top"
             />
           </div>

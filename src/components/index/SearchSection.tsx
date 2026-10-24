@@ -1,9 +1,12 @@
+'use client'
+
 import { useState } from "react";
 import IndexTitle from "../texts/IndexTitle";
 import SearchBar from "../texts/SearchBar";
 import Button from "../buttons/Button";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default function SearchSection() {
     const [searchText, setSearchText] = useState("");
@@ -12,7 +15,7 @@ export default function SearchSection() {
         { src: "/images/svg/index/timetable.svg", href: '/timetable', label: "タイムテーブル" }
     ]
     function transSearch() {
-        window.location.href = `/search?keyword=${searchText}`;
+        redirect(`/search?keyword=${searchText}`)
     }
     return (
         <div>
