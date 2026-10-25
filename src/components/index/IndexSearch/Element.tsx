@@ -59,12 +59,12 @@ export default function Element() {
     }, []);
 
     const images = [
-        { href: "/campusmap", label: "キャンパスマップ", icon: "/images/Indexsearch/map.svg" },
+        { href: "/map", label: "キャンパスマップ", icon: "/images/Indexsearch/map.svg" },
         { href: "/tt", label: "タイムテーブル", icon: "/images/Indexsearch/time.svg" },
         { href: "/meicham", label: "Meidaisai Championshipとは", icon: "/images/Indexsearch/meicham.svg"  }
     ];
     return (
-        <div className="grid grid-cols-3 gap-x-[7%] lg:gap-x-[12%] px-[10%] w-full max-w-2xl lg:max-w-4xl mx-auto">
+        <div className="grid grid-cols-3 gap-x-[7%] md:gap-x-[12%] px-[10%] w-full max-w-2xl lg:max-w-4xl mx-auto">
             {images.map((image, index) => (
                 <div key={index} className="relative aspect-square w-full group">
                     <Link href={image.href} className="relative block w-full h-full">
