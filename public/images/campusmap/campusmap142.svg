@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 461.93 380.6">
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="501.93" height="420.6" viewBox="-20 -20 501.93 420.6">
   <defs>
     <style>
       .cls-1 {
@@ -208,6 +208,7 @@
     <pattern id="_6_lpi_40_-3" data-name="6 lpi 40%" patternTransform="translate(-7901.6348 -5056.1075) rotate(45) scale(.25)" xlink:href="#_6_lpi_40_"/>
     <pattern id="_6_lpi_40_-4" data-name="6 lpi 40%" patternTransform="translate(-7920.7092 -5037.0583) rotate(45) scale(.25)" xlink:href="#_6_lpi_40_"/>
   </defs>
+  <rect x="-20" y="-20" width="501.93" height="420.6" fill="#fff" />
   <g id="_文字" data-name="文字">
     <g>
       <g>
