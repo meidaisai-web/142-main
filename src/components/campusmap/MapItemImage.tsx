@@ -15,7 +15,7 @@ export default function MapItemImage({ src, alt }: MapItemImageProps) {
                 aria-hidden
                 width={435}
                 height={328}
-                className="pointer-events-none min-[402px]:hidden absolute left-0 top-0 w-4/5 h-auto -translate-x-1/4 -translate-y-1/5"
+                className="pointer-events-none min-[402px]:hidden absolute left-0 top-0 w-4/5 h-auto -translate-x-1/4 -translate-y-1/3"
             />
             <Image src={src} alt={alt} width={200} height={200} className="relative w-full aspect-square object-cover rounded-lg" />
         </div>
