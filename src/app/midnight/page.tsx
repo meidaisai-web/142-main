@@ -8,6 +8,7 @@ import CloudPhoto from "@/components/CloudPhoto"
 import ImageLogo from "@/components/texts/ImageLogo"
 import ContactView from "@/components/texts/ContactView"
 import FloatingCross from "@/components/FloatingCross"
+import Movie from "@/components/Movie"
 
 export default function Page() {
     return (
@@ -81,7 +82,8 @@ export default function Page() {
                     <CloudPhoto src="/images/midnight/finale.jpg" name="全出演団体" className="max-w-[700px] mx-auto mt-6 lg:mt-10" />
                 </div>
 
-            {/* <SectionTitle>中夜祭紹介動画</SectionTitle> */}
+            <SectionTitle>中夜祭紹介動画</SectionTitle>
+            <Movie src="https://movie.meidaisai.jp/midnight.mp4"/>
             <ContactView department="演出局永燦部門" mail="142nd-eisan@meidaisai.jp" showPhone showAddress />
             </div>
         </CloudPageContainer>

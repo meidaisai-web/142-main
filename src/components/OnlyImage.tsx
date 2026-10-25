@@ -4,12 +4,14 @@ type OnlyImageProps = {
     src: string;
     alt: string;
     className?: string;
+    height?: number;
 };
 
 export default function OnlyImage({
     src,
     alt,
-    className
+    className,
+    height = 500
 }: OnlyImageProps) {
 
     return (
@@ -18,8 +20,8 @@ export default function OnlyImage({
                 src={src}
                 alt={alt}
                 width={500}
-                height={500}
-                className="rounded-2xl"
+                height={height}
+                className="rounded-md"
             />
         </div>
     );

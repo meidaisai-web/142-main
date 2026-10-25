@@ -6,7 +6,7 @@ import Text from "@/components/texts/Text"
 import SmallTitle from "@/components/texts/SmallTitle"
 import TransitionLink from "@/components/buttons/TransitionLink"
 import Link from "next/link"
-import Emphasis from "@/components/texts/Emphasis"
+
 export default function Page() {
     return (
         <div>
@@ -14,7 +14,7 @@ export default function Page() {
             <CloudPageContainer>
                 <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
                     <Image src="/images/icu/icu-logo.png" alt="ICUロゴ" className="w-[80%] md:w-[40%] max-w-[400px] h-auto" width={400} height={300} />
-                    <Image src="/images/icu/kakeru.png" alt="×" width={30} height={30} />
+                    <Image src="/images/icu/kakeru.png" alt="×" width={30} height={28} />
                     <Image src="/images/icu/xcard.svg" alt="明大祭xカード" className="w-[80%] md:w-[40%] max-w-[400px] h-auto" width={400} height={300} />
                 </div>
                 <SectionTitle>国際基督教大学の学園祭”ICU祭”と明大祭がコラボ！</SectionTitle>
@@ -23,10 +23,10 @@ export default function Page() {
                 <SectionTitle>コラボ動画はこちら！</SectionTitle>
                 <div className="flex items-center justify-center gap-8">
                     <Link href="https://www.instagram.com/reel/Dc0xhcFJs9H/?stkn=MWV0Nzh0eG9pZnk4Mg%3D%3D" target="_blank" rel="noopener noreferrer">
-                        <Image src="/images/icu/meidaisai-video.png" alt="コラボ動画" width={300} height={200} />
+                        <Image src="/images/icu/meidaisai-video.png" alt="コラボ動画" width={300} height={470} />
                     </Link>
                     <Link href="https://www.instagram.com/reel/Dc02EfNST18/?stkn=cTVxZG8yNndweHVr" target="_blank" rel="noopener noreferrer">
-                        <Image src="/images/icu/icu-video.png" alt="コラボ動画2" width={300} height={200} />
+                        <Image src="/images/icu/icu-video.png" alt="コラボ動画2" width={300} height={469} />
                     </Link>
                 </div>
                 <SmallTitle>各種SNSもぜひご覧ください！</SmallTitle>
@@ -40,7 +40,7 @@ export default function Page() {
                 <Text>国際基督教大学</Text>
                 <SmallTitle>ICU祭のホームページはこちら</SmallTitle>
                 <Link href="https://icu-fes.com/" target="_blank" rel="noopener noreferrer">
-                    <Image src="/images/icu/icu-hp.png" className="mx-auto" alt="ICU祭HP" width={400} height={300} />
+                    <Image src="/images/icu/icu-hp.png" className="mx-auto" alt="ICU祭HP" width={400} height={338} />
                 </Link>
                 <Text className="!text-center">画像をタップ</Text>
             </CloudPageContainer>
