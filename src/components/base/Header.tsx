@@ -40,25 +40,26 @@ export default function Header() {
     <header className={`w-full ${isHome ? "bg-accent-300" : "bg-header-gradient"} flex justify-between items-center px-5 fixed opacity-100 h-14 z-50 top-0`}
 
 >
-      {/* 下層ページのみ表示する画像 */}
+      {/* 下層ページでのみ */}
       {!isHome && (
-        <div className="absolute w-full">
-          <Link href="/search" className="absolute right-50">
+        <div className="absolute right-25 flex items-center gap-7 pointer-events-none inset-y-0">
+          <Link href="/search" className="pointer-events-auto">
             <Image
               src="/images/header/search-white.svg"
               alt=""
-              width={40}
-              height={40}
-              className="top-2"
+              width={34}
+              height={34}
+              className="block"
             />
           </Link>
 
-          <Link href="/map" className="absolute right-30 items-center">
+          <Link href="/map" className="pointer-events-auto">
             <Image
               src="/images/header/map-white.svg"
               alt=""
-              width={40}
-              height={40}
+              width={34}
+              height={34}
+              className="block"
             />
           </Link>
         </div>
@@ -77,7 +78,6 @@ export default function Header() {
         <Hamburger isOpen={isOpenHamburger} />
       </header>
 
-      { }
       {isHome && (
         <div className="fixed right-[40px] max-sm:right-[15px] top-6 max-sm:top-[50px] z-[49] flex items-start gap-0 max-sm:gap-1 max-sm:-mr-2 sm:right-[30px] sm:gap-4">
           {/* 虫眼鏡 */}
