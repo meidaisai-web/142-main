@@ -14,7 +14,6 @@ export default function Home() {
       <div className="h-20 md:h-40"/>
       <Airplane />
       <div className="h-80 md:h-60"/>
-      <TopIppan />
       <div className="h-20"/>
       <Line1 />
       <AnnounceSection />
