@@ -48,7 +48,7 @@ export default function MapItem({ name, description, src }: MapDataType) {
                 aria-hidden
                 width={435}
                 height={328}
-                className="pointer-events-none hidden min-[390px]:block absolute left-0 top-0 w-1/4 h-auto translate-x-[calc(-20%+0.5rem)] -translate-y-1/8"
+                className="pointer-events-none hidden min-[402px]:block absolute left-0 top-0 w-1/4 h-auto translate-x-[calc(-20%+0.5rem)] -translate-y-1/8"
             />
             <div className={`flex items-start w-full text-xs ${stacked?.wrap ?? ""}`}>
                 <MapItemImage src={src} alt={name} />
