@@ -72,20 +72,22 @@ const VOTE_HOURS: Record<string, [number, number]> = {
 export type VoteTimeStatus = 'ok' | 'outOfHours' | 'notEventDay';
 
 export function getVoteTimeStatus(eventDate: string): VoteTimeStatus {
-    const today = getJapanDateString();
-    const hours = VOTE_HOURS[today];
-    if (!hours) {
-        return 'outOfHours';
-    }
-    // "全日"は本祭3日間すべてが実施日
-    if (!eventDate.includes('全日')) {
-        const eventDays = [...eventDate.matchAll(/(\d{1,2})日/g)].map(match => Number(match[1]));
-        if (!eventDays.includes(getOnlyDate(today))) {
-            return 'notEventDay';
-        }
-    }
-    const hour = getJapanDate().getUTCHours();
-    return hours[0] <= hour && hour < hours[1] ? 'ok' : 'outOfHours';
+    // TODO: テスト用。日付・時間に関係なく投票できるようにしている。終わったらコメントアウトを外し、下の return 'ok' を消す
+    // const today = getJapanDateString();
+    // const hours = VOTE_HOURS[today];
+    // if (!hours) {
+    //     return 'outOfHours';
+    // }
+    // // "全日"は本祭3日間すべてが実施日
+    // if (!eventDate.includes('全日')) {
+    //     const eventDays = [...eventDate.matchAll(/(\d{1,2})日/g)].map(match => Number(match[1]));
+    //     if (!eventDays.includes(getOnlyDate(today))) {
+    //         return 'notEventDay';
+    //     }
+    // }
+    // const hour = getJapanDate().getUTCHours();
+    // return hours[0] <= hour && hour < hours[1] ? 'ok' : 'outOfHours';
+    return 'ok'; // TODO: テスト用
 }
 
 // 本日まだ投票していない部門
