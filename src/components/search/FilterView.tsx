@@ -70,26 +70,22 @@ export default function FilterView({
                         aria-hidden="true"
                         className="pointer-events-none absolute inset-x-0 -top-5 z-0 drop-shadow-[0_4px_1px_rgba(91,157,149,0.28)] transition-[filter] duration-200 group-hover:drop-shadow-[0_6px_3px_rgba(91,157,149,0.32)] group-active:drop-shadow-[0_1px_1px_rgba(91,157,149,0.24)] sm:-top-8 motion-reduce:transition-none"
                     >
-                        <Image
-                            src="/images/EventListView/Group614.svg"
-                            alt=""
-                            width={500}
-                            height={500}
-                            className="block h-auto w-[80%] sm:w-[70%] mx-auto object-contain"
-                        />
-                        {/* 同じ画像をマスクに使い、雲の外へ色がはみ出さないようにする。 */}
-                        <span
-                            className={`absolute inset-0 bg-[#84c7c2]/15 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 group-active:opacity-100 motion-reduce:transition-none ${isOpen ? "opacity-100" : "opacity-0"}`}
-                            style={{
-                                maskImage: "url('/images/EventListView/Group614.svg')",
-                                maskMode: "alpha",
-                                maskSize: "100% 100%",
-                                maskRepeat: "no-repeat",
-                                WebkitMaskImage: "url('/images/EventListView/Group614.svg')",
-                                WebkitMaskSize: "100% 100%",
-                                WebkitMaskRepeat: "no-repeat",
-                            }}
-                        />
+                        <div className="relative mx-auto w-[80%] sm:w-[70%]">
+                            <Image
+                                src="/images/EventListView/Group614.svg"
+                                alt=""
+                                width={1100}
+                                height={423}
+                                className={`block h-auto w-full object-contain transition-opacity duration-200 group-hover:opacity-0 group-focus-visible:opacity-0 group-active:opacity-0 motion-reduce:transition-none ${isOpen ? "opacity-0" : "opacity-100"}`}
+                            />
+                            <Image
+                                src="/images/EventListView/Group614-hover.svg"
+                                alt=""
+                                width={1100}
+                                height={423}
+                                className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 group-active:opacity-100 motion-reduce:transition-none ${isOpen ? "opacity-100" : "opacity-0"}`}
+                            />
+                        </div>
                     </div>
                     <div className="font-bold relative z-10 h-full w-full">
                         <div className="h-full w-full flex justify-center items-center">
@@ -250,7 +246,7 @@ function DetailFilterView({
                         <div className="grid grid-cols-[max-content_minmax(0,1fr)] items-center gap-x-2 gap-y-8 sm:gap-x-8 sm:gap-y-4">
                             {genreGroups.map((group) => (
                                 <div key={group.department} className="contents">
-                                    <span className="justify-self-end whitespace-nowrap border-b border-[#B19FCA] pb-0.5 sm:justify-self-start">
+                                    <span className="justify-self-end whitespace-nowrap border rounded-full border-[#c0b4d1] px-3 py-0.5 sm:justify-self-start">
                                         {group.department}
                                     </span>
                                     <div
