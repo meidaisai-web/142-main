@@ -15,7 +15,7 @@ export interface TimetableEvent {
 export function getTimelineRange(events: TimetableEvent[]) {
     const timed = events.filter((event) => Number.isFinite(event.startMinutes));
     return {
-        start: Math.floor(Math.min(600, ...timed.map((event) => event.startMinutes)) / 60) * 60,
+        start: 11 * 60,
         end: Math.ceil(Math.max(1080, ...timed.map((event) => event.endMinutes && event.endMinutes > event.startMinutes ? event.endMinutes : event.startMinutes + 20)) / 60) * 60,
     };
 }

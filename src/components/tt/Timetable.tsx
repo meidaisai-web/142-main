@@ -16,6 +16,7 @@ const PLACES = ["メインステージ", "パフォーマンスエリア", "エ�
 const GENRES = ["音楽", "ダンス", "パフォーマンス", "すべて"] as const;
 // 「すべて」は絞り込み用の項目で、企画のジャンルには使わない
 const ALL_GENRES = "すべて";
+const ALL_PLACES = "すべて";
 
 // ---------- 日付タブ ----------
 
@@ -256,7 +257,11 @@ export default function Timetable() {
     const { data, error, isLoading } = useSWR("stage-master-data", getStageMasterData);
 
     const togglePlace = (place: string) =>
-        setPlaces((prev) => (prev.includes(place) ? prev.filter((p) => p !== place) : [...prev, place]));
+        setPlaces((prev) => {
+            if (prev.includes(place)) return prev.filter((p) => p !== place);
+            if (place === ALL_PLACES) return [ALL_PLACES];
+            return [...prev.filter((p) => p !== ALL_PLACES), place];
+        });
 
     // 「すべて」と個別ジャンルは排他的
     const toggleGenre = (genre: string) =>
@@ -278,7 +283,7 @@ export default function Timetable() {
     const allEvents = timetableDays.flatMap((day) => day.events);
     const range = getTimelineRange(allEvents);
     const stageOptions = [...new Set<string>([...PLACES, ...allEvents.map((event) => event.place).filter(Boolean)])];
-    const visibleStages = stageOptions.filter((stage) => places.length === 0 || places.includes(stage));
+    const visibleStages = stageOptions.filter((stage) => places.length === 0 || places.includes(ALL_PLACES) || places.includes(stage));
     const tabs = timetableDays.map((day) => {
         return {
             id: day.id,
@@ -292,7 +297,7 @@ export default function Timetable() {
             tabs={tabs}
             between={
                 <div className="mx-auto grid max-w-4xl grid-cols-1 items-start gap-8 px-5 pt-10 md:grid-cols-2 md:gap-10">
-                    <FilterAccordion title="場所で探す" options={stageOptions} selected={places} onToggle={togglePlace} />
+                    <FilterAccordion title="場所で探す" options={[...stageOptions, ALL_PLACES]} selected={places} onToggle={togglePlace} />
                     <FilterAccordion title="ジャンルで探す" options={GENRES} selected={genres} onToggle={toggleGenre} />
                 </div>
             }

@@ -27,7 +27,7 @@ export default function Ticket({
     if (layout === "timeline") {
         return (
             <div className={styles.timeline}>
-                <Image src="/images/tt/ticket-timeline.svg" alt="" fill sizes="340px" className="pointer-events-none select-none" />
+                <Image src="/images/tt/ticket-timeline.png" alt="" fill unoptimized className="pointer-events-none select-none" />
                 <div className={styles.contents}>
                     <div className={styles.timeColumn}>
                         <p className={styles.time}>

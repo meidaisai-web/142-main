@@ -30,8 +30,8 @@
 .timeColumn::after {
     content: "";
     position: absolute;
-    inset: 0 0 0 auto;
-    width: 1px;
+    inset: max(3px, 4%) 0 max(4px, 10%) auto;
+    width: 2px;
     background: repeating-linear-gradient(to bottom, #777 0 5px, transparent 5px 11px);
 }
 
@@ -45,8 +45,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 13px;
-    line-height: 16px;
+    font-size: 15px;
+    line-height: 18px;
     color: #66616a;
 }
 
@@ -139,14 +139,14 @@
 
 @container (max-height: 65px) {
     .contents { inset-block: 8px 4px; }
-    .time { gap: 0; font-size: 11px; line-height: 12px; }
+    .time { gap: 0; font-size: 12px; line-height: 12px; }
     .time > span { flex-shrink: 0; }
     .title { font-size: 11px; }
     .photo { width: 20px; }
 }
 
 @container (max-width: 280px) {
-    .time { font-size: 11px; }
+    .time { font-size: 12px; }
 }
 
 /* 狭い画面で上演が重なったときは、画像より企画名の表示を優先する。 */
@@ -156,6 +156,6 @@
     .frame { padding-inline: 8px; }
     .title { font-size: 11px; }
     .subtitle { font-size: 11px; }
-    .time { font-size: 11px; }
+    .time { font-size: 12px; }
     .photo { display: none; }
 }

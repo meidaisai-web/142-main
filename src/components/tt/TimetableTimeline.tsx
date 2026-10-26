@@ -93,12 +93,12 @@ export default function TimetableTimeline({ events, stages, genres, month, date,
             >
                 <div style={{ width: singleStage ? "100%" : width, minWidth: "100%" }}>
                     <div className="sticky top-0 z-30 flex h-14 border-b border-[#eed3da] bg-white shadow-sm">
-                        <div className="sticky left-0 z-40 flex shrink-0 items-center justify-center border-r border-[#eed3da] bg-white text-xs text-gray-600" style={{ width: AXIS_WIDTH }}>時間</div>
+                        <div className="sticky left-0 z-40 flex shrink-0 items-center justify-center border-r border-[#eed3da] bg-white text-[15px] text-gray-600" style={{ width: AXIS_WIDTH }}>時間</div>
                         {columns.map(({ stage, count }) => <div key={stage} className="flex flex-1 shrink-0 items-center justify-center break-words border-r border-[#eed3da] bg-[#fff5f7] px-3 text-center text-sm font-bold text-[#79576a]" style={columnWidth(count)}>{stage}</div>)}
                     </div>
                     <div className="relative flex" style={{ height: TIMELINE_TOP_PADDING + height + 24 }}>
                         <div className="sticky left-0 z-20 shrink-0 border-r border-[#eed3da] bg-white" style={{ width: AXIS_WIDTH }}>
-                            {ticks.map((time) => <span key={time} className="absolute right-2 -translate-y-1/2 text-xs leading-4 tabular-nums text-gray-600" style={{ top: timeTop(time) }}>{formatTime(time)}</span>)}
+                            {ticks.map((time) => <span key={time} className="absolute right-2 -translate-y-1/2 text-[15px] leading-[18px] tabular-nums text-gray-600" style={{ top: timeTop(time) }}>{formatTime(time)}</span>)}
                             {showNow && <span role="img" aria-label={`現在時刻 ${formatTime(currentMinutes)}`} className="pointer-events-none absolute -right-1.5 h-3 w-3 -translate-y-1/2 rounded-full bg-[#998EC1]" style={{ top: timeTop(currentMinutes) }} />}
                         </div>
                         {columns.map(({ stage, count, items }) => (
