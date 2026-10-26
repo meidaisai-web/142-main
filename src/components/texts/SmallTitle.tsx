@@ -12,7 +12,7 @@ export default function SmallTitle({ className, children }: SmallTitleProps) {
                 src="/images/svg/titles/smallTitle.svg"
                 alt=""
                 width="40"
-                height="40"
+                height="37"
                 className="absolute transform -translate-x-7 -translate-y-5"
             />
             <h2 className="text-xl font-bold">

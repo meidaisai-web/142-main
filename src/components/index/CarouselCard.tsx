@@ -18,7 +18,7 @@ export default function CarouselCard({ title, src, href, imageClassName = 'objec
         <div className="flex flex-col gap-2">
           {/* 画像の箱 */}
           <div className="relative aspect-square bg-white/60 rounded-t-2xl overflow-hidden">
-            <Image src={src} alt={title} fill className={imageClassName} />
+            <Image src={src} alt={title} fill sizes="(min-width: 768px) 400px, 240px" className={imageClassName} />
           </div>
           {/* タイトルの箱 */}
           <div className="bg-accent-300/30 rounded-b-2xl py-4">

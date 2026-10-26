@@ -4,6 +4,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { IMAGE_ASPECT } from "./aspect";
+
 
 type FlowerData = {
     id: number;
@@ -102,7 +104,7 @@ export default function FloatingFlowers() {
                         src={flower.src}
                         alt=""
                         width={flower.size}
-                        height={flower.size}
+                        height={Math.round(flower.size * IMAGE_ASPECT[flower.src])}
                     />
                 </motion.div>
             ))}
