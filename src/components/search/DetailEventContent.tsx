@@ -3,6 +3,7 @@
 import { getUniqueMasterData } from "@/utils/supabase/masterDataAction";
 import { useEffect, useState } from "react";
 import { MasterData } from "@/utils/models/MasterData";
+import VoteView from "./VoteView";
 import Text from "../texts/Text";
 import Image from "next/image";
 import Link from "next/link";
@@ -59,7 +60,7 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                 <div className="w-full px-4 sm:px-14 md:px-18 lg:px-24 flex flex-col items-center">
                     <EventTitle>{data.eventName}</EventTitle>
                     <div className="relative w-full bg-white/80 rounded-xl p-8 sm:p-10 lg:p-20 flex justify-center items-center lg:items-start gap-8 mt-25 flex-col lg:flex-row">
-                    <Image  src="/images/searchdetail/search-conges.svg" alt="混雑マップ" width={300} height={600} className="absolute -top-17 -right-2 sm:-right-5 w-37 sm:w-50" />
+                    {/* <Image  src="/images/searchdetail/search-conges.svg" alt="混雑マップ" width={300} height={600} className="absolute -top-17 -right-2 sm:-right-5 w-37 sm:w-50" /> */}
                         <ImageView type={data.type} imageUrl={data.imageUrl} icons={data.icons} />
                         <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
                     </div>
@@ -84,11 +85,12 @@ export default function DetailEventContent({ id }: DetailContentProps) {
 }
 
 interface ImageViewProps {
+    type: string;
     imageUrl: string;
     icons?: string[];
 }
 
-function ImageView({ imageUrl, icons }: ImageViewProps) {
+function ImageView({ type, imageUrl, icons }: ImageViewProps) {
     return (
         <div className="w-full max-w-75 shrink-0">
             <EventImage imageUrl={imageUrl} icons={icons} />

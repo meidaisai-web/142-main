@@ -1,8 +1,7 @@
 import VoucherExchangeCard from "@/components/VoucherExchangeCard";
 import CloudPageContainer from "@/components/base/CloudPageContainer";
-import Text from "@/components/texts/Text"
 import SectionTitle from "@/components/texts/SectionTitle";
-import { List, ListItem, ListText } from "@/components/texts/List"
+import { List, ListItem } from "@/components/texts/List"
 import Emphasis from "@/components/texts/Emphasis";
 import PageTitle from "@/components/texts/PageTitle";
 import Image from "next/image";
