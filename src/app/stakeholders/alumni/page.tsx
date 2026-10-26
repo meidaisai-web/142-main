@@ -4,6 +4,7 @@ import SectionTitle from "@/components/texts/SectionTitle"
 import Text from "@/components/texts/Text"
 import Emphasis from "@/components/texts/Emphasis"
 import ContactView from "@/components/texts/ContactView"
+import TransitionLink from "@/components/buttons/TransitionLink"
 
 function page() {
     return (
@@ -16,6 +17,9 @@ function page() {
                 <SectionTitle>ご賛助へのお礼</SectionTitle>
                 <Text>第142回明大祭にご賛助くださいましたみなさまに心より感謝申し上げます。</Text>
                 <Text>みなさまのご協力により無事賛助活動を終了することができました。お力添えにより、今年度も無事に明大祭を開催できますこと、心より嬉しく感じております。ささいなお礼ではございますが、5,000円以上のご賛助をいただいた方に記念品をご用意しております。本品の到着まで楽しみにお待ちください。</Text>
+
+                <Text>また、ご希望の方は明大祭公式パンフレットにご芳名を掲載させていただきました。<TransitionLink href="/alumni-list" targetBlank>こちらのページ</TransitionLink>からもご芳名一覧をご覧いただけますので、よろしければご確認ください。</Text>
+
                 <Text>改めまして、この度第142回明大祭にご賛助いただき誠にありがとうございました。今後とも何卒よろしくお願い申し上げます。</Text>
                 <SectionTitle>校友・父母歓迎スペースについて</SectionTitle>
                 <Text>第142回明大祭開催期間である10月30日(金).31日(土).11月1日(日)の3日間、「校友・父母歓迎スペース企画」を実施することが決定しました。</Text>
