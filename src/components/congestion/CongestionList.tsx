@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Text from "@/components/texts/Text";
@@ -44,7 +44,7 @@ function toTentNumber(location: string): number | null {
   return match ? Number(match[1]) : null;
 }
 
-function StatusMark({ status }: { status: CrowdStatus | null }) {
+function StatusMark({ status, large = false }: { status: CrowdStatus | null; large?: boolean }) {
   if (status === null) {
     return (
       <span
@@ -66,7 +66,7 @@ function StatusMark({ status }: { status: CrowdStatus | null }) {
         alt={isSoldout ? "売り切れ" : "一時停止"}
         width={isSoldout ? 28 : 22}
         height={isSoldout ? 28 : 22}
-        className={`shrink-0 ${isSoldout ? "h-7 w-7" : "h-5 w-5"
+        className={`shrink-0 ${isSoldout ? (large ? "h-8 w-8" : "h-7 w-7") : (large ? "h-6 w-6" : "h-5 w-5")
           }`}
       />
     );
@@ -74,7 +74,7 @@ function StatusMark({ status }: { status: CrowdStatus | null }) {
 
   return (
     <span
-      className={`inline-block h-4 w-4 md:h-5 md:w-5 shrink-0 rounded-full shadow-sm ${info.color}`}
+      className={`inline-block shrink-0 rounded-full shadow-sm ${large ? "h-5 w-5 md:h-6 md:w-6" : "h-4 w-4 md:h-5 md:w-5"} ${info.color}`}
       role="img"
       aria-label={info.label}
     />
@@ -158,45 +158,36 @@ function StorePreview({ store, status }: { store: MasterData; status: CrowdStatu
   );
 }
 
+type WaitLimit = "short" | "medium" | "none";
+
+// 混雑状況を取り直す間隔（ミリ秒）
+const CONGESTION_REFRESH_INTERVAL_MS = 30 * 1000;
+
+// 待ち時間の絞り込み条件と、条件に合う混雑ステータス（null は制限なし）
+const waitLimitOptions: { value: WaitLimit; label: string; allowed: CrowdStatus[] | null }[] = [
+  { value: "short", label: "5分以下", allowed: ["short"] },
+  { value: "medium", label: "15分以下", allowed: ["short", "medium"] },
+  { value: "none", label: "すべて見る", allowed: null },
+];
+
 export default function CongestionList() {
-  const [filterStatuses, setFilterStatuses] = useState<CrowdStatus[]>([]);
+  const [waitLimit, setWaitLimit] = useState<WaitLimit>("none");
   const [stores, setStores] = useState<MasterData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [pressedId, setPressedId] = useState<number | null>(null);
-  const buttonRowRef = useRef<HTMLDivElement>(null);
-  const [textOffset, setTextOffset] = useState<number>(0);
 
-  useEffect(() => {
-    const row = buttonRowRef.current;
-    if (!row) return;
-
-    const updateOffset = () => {
-      const firstButton = row.firstElementChild;
-      if (!firstButton) return;
-      setTextOffset(firstButton.getBoundingClientRect().left - row.getBoundingClientRect().left);
-    };
-
-    updateOffset();
-
-    const observer = new ResizeObserver(updateOffset);
-    observer.observe(row);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  const allowedStatuses = waitLimitOptions.find((option) => option.value === waitLimit)?.allowed ?? null;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
-        setError(null);
         const data = await getStoreDataWithCongestion();
         if (!data) {
           setError("混雑状況の取得に失敗しました");
           return;
         }
+        setError(null);
         setStores(data);
       } catch (err) {
         console.log('データの取得に失敗しました:', err);
@@ -206,48 +197,69 @@ export default function CongestionList() {
       }
     };
     fetchData();
+
+    // リロードしなくても最新の混雑状況に更新されるよう、定期的に取得し直す
+    const timer = setInterval(fetchData, CONGESTION_REFRESH_INTERVAL_MS);
+    // タブに戻ったときにも取得し直す（バックグラウンドで止まっていた分を取り戻す）
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") fetchData();
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      clearInterval(timer);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
   }, []);
 
   return (
     <>
       <div className="mb-4 rounded-lg bg-primary-100 px-4 py-4 text-sm font-bold text-[#3E3D3F]">
-        <div style={{ paddingLeft: textOffset }}>
-          <Text className="text-[14px] sm:text-[15px]">
-            タップした状況の模擬店を薄く表示します。
-          </Text>
+        <Text center className="text-[14px] sm:text-[17px]">
+          待ち時間ごとに絞り込む
+        </Text>
+
+        <div className="mt-3 flex justify-center">
+          <div role="radiogroup" aria-label="待ち時間で絞り込み" className="inline-flex rounded-xl border-2 border-accent-900 bg-white p-1">
+            {waitLimitOptions.map((option) => {
+              const isSelected = waitLimit === option.value;
+
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  role="radio"
+                  aria-checked={isSelected}
+                  onClick={() => setWaitLimit(option.value)}
+                  className={`min-w-[6rem] rounded-md px-4 py-1.5 text-center transition-colors duration-200 sm:px-6 md:min-w-[9rem] md:px-8 md:py-2.5 md:text-base ${isSelected
+                    ? "bg-accent-900 text-white"
+                    : "text-[#3E3D3F] hover:bg-accent-100"
+                    }`}
+                >
+                  {option.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
-        <div ref={buttonRowRef} className="mt-3 flex flex-wrap justify-center gap-x-3 gap-y-3">
+
+        {/* 凡例 */}
+        <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm sm:text-base">
+          {/* 売り切れと一時停止は1つのまとまりにして、改行されても同じ行に置く */}
           {(
-            ["long", "medium", "short", "soldout", "paused"] as const
-          ).map((status) => {
-            const isActive = filterStatuses.includes(status);
-
-            return (
-              <button
-                key={status}
-                type="button"
-                onClick={() => {
-                  setFilterStatuses((prev) => {
-                    if (prev.includes(status)) {
-                      return prev.filter((item) => item !== status);
-                    }
-
-                    return [...prev, status];
-                  });
-                }}
-                aria-pressed={isActive}
-                className={`flex items-center gap-2 rounded-md border-2 px-3 py-2 transition-all duration-200 hover:translate-y-[1px] hover:shadow-xl active:translate-y-[3px] ${isActive
-                  ? "border-gray-300 bg-gray-300"
-                  : "border-accent-900 bg-white"
-                  }`}
-              >
-                <span className="flex h-7 items-center">
-                  <StatusMark status={status} />
-                </span>
-                <span>{statusInfo[status].label}</span>
-              </button>
-            );
-          })}
+            [["long"], ["medium"], ["short"], ["soldout", "paused"]] as const
+          ).map((group) => (
+            <div key={group.join()} className="flex gap-x-4">
+              {group.map((status) => (
+                <div key={status} className="flex items-center gap-1 whitespace-nowrap">
+                  <span className="flex h-8 items-center">
+                    <StatusMark status={status} large />
+                  </span>
+                  <span>{statusInfo[status].label}</span>
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
       <Text className="fontbold">
@@ -261,13 +273,17 @@ export default function CongestionList() {
         <div className="grid grid-cols-2 grid-flow-row gap-x-3 gap-y-2 sm:grid-flow-col sm:auto-cols-fr sm:grid-rows-[repeat(26,minmax(0,auto))] sm:gap-x-5 lg:grid-rows-[repeat(17,minmax(0,auto))]">
           {stores.map((store, index) => {
             const status = toCrowdStatus(store.congestion?.time);
-            const isDimmed = status !== null && filterStatuses.includes(status);
+            const isDimmed = allowedStatuses !== null && (status === null || !allowedStatuses.includes(status));
+            const isSoldoutOrPaused = status === "soldout" || status === "paused";
+            const isLightlyDimmed = allowedStatuses === null && isSoldoutOrPaused;
             return (
               <div
                 key={store.id}
                 className={`transition-all duration-200 ${isDimmed
                   ? "opacity-25 grayscale"
-                  : "opacity-100"
+                  : isLightlyDimmed
+                    ? "opacity-50"
+                    : "opacity-100"
                   }`}
               >
                 <HoverPreview preview={<StorePreview store={store} status={status} />}>
