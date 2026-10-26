@@ -7,6 +7,7 @@ import Text from "@/components/texts/Text";
 import HoverPreview from "@/components/congestion/HoverPreview";
 import { MasterData } from "@/utils/models/MasterData";
 import { getStoreDataWithCongestion } from "@/utils/supabase/masterDataAction";
+import { List, ListItem } from "../texts/List";
 
 type CrowdStatus =
   | "long"
@@ -215,37 +216,12 @@ export default function CongestionList() {
   return (
     <>
       <div className="mb-4 rounded-lg bg-primary-100 px-4 py-4 text-sm font-bold text-[#3E3D3F]">
-        <Text center className="text-[14px] sm:text-[17px]">
+        <Text center className="text-[15px] sm:text-[17px]">
           待ち時間ごとに絞り込む
         </Text>
 
-        <div className="mt-3 flex justify-center">
-          <div role="radiogroup" aria-label="待ち時間で絞り込み" className="inline-flex rounded-xl border-2 border-accent-900 bg-white p-1">
-            {waitLimitOptions.map((option) => {
-              const isSelected = waitLimit === option.value;
-
-              return (
-                <button
-                  key={option.value}
-                  type="button"
-                  role="radio"
-                  aria-checked={isSelected}
-                  onClick={() => setWaitLimit(option.value)}
-                  className={`min-w-[6rem] rounded-md px-4 py-1.5 text-center transition-colors duration-200 sm:px-6 md:min-w-[9rem] md:px-8 md:py-2.5 md:text-base ${isSelected
-                    ? "bg-accent-900 text-white"
-                    : "text-[#3E3D3F] hover:bg-accent-100"
-                    }`}
-                >
-                  {option.label}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* 凡例 */}
+{/* 凡例 */}
         <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm sm:text-base">
-          {/* 売り切れと一時停止は1つのまとまりにして、改行されても同じ行に置く */}
           {(
             [["long"], ["medium"], ["short"], ["soldout", "paused"]] as const
           ).map((group) => (
@@ -261,6 +237,34 @@ export default function CongestionList() {
             </div>
           ))}
         </div>
+
+        <div className="mt-3 flex justify-center">
+          <div role="radiogroup" aria-label="待ち時間で絞り込み" className="inline-flex rounded-xl border-2 border-accent-900 bg-white p-1">
+            {waitLimitOptions.map((option) => {
+              const isSelected = waitLimit === option.value;
+
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  role="radio"
+                  aria-checked={isSelected}
+                  onClick={() => setWaitLimit(option.value)}
+                  className={`min-w-[6rem] rounded-md px-4 py-2 text-center transition-colors duration-200 sm:px-6 md:min-w-[9rem] md:px-8 md:py-2.5 md:text-base ${isSelected
+                    ? "bg-accent-900 text-white"
+                    : "text-[#3E3D3F] hover:bg-accent-100"
+                    }`}
+                >
+                  {option.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <List mark="※" className="mt-2 flex justify-center text-sm sm:text-sm">
+          <ListItem>実際の待ち時間は前後する場合がございます。</ListItem>
+        </List>
       </div>
       <Text className="fontbold">
         タップで各企画の詳細ページに移動します。
