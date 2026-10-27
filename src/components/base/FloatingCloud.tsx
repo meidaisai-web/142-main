@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { IMAGE_ASPECT } from "./StarPageContainer/aspect";
+
 
 type CloudColor = "green" | "pink" | "purple";
 type CloudSize = "small" | "medium";
@@ -78,7 +80,7 @@ export default function FloatingCloud({
                 src={cloudImages[color]}
                 alt=""
                 width={cloudSize}
-                height={cloudSize}
+                height={Math.round(cloudSize * IMAGE_ASPECT[cloudImages[color]])}
             />
         </motion.div>
     );

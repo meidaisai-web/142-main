@@ -125,6 +125,7 @@ function FooterIconLink({ href, src, alt }: FooterIconLinkProps) {
 					src={src}
 					alt={alt}
 					fill
+					sizes="56px"
 					className="object-contain"
 				/>
 			</div>
