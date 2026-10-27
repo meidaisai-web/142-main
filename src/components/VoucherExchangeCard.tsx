@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { detectIncognito } from "detectincognitojs";
-import TransitionLink from "./buttons/TransitionLink";
 import VoucherCompleteOverlay, { VoucherNotice } from "./VoucherCompleteOverlay";
 import ModalPortal from "./ModalPortal";
-import { hasVotedAllCategories, isVoucherAvailableToday } from "@/utils/managers/meichamManager";
+import Link from "next/link";
+import TransitionLink from "./buttons/TransitionLink";
+import { getSearchUrlOfCategory, getUnvotedCategories, hasVotedAllCategories, isVoucherAvailableToday } from "@/utils/managers/meichamManager";
 import { exchange, isAlreadyExchange, isInTime } from "@/utils/managers/voucherManager";
 
 // 抽選券引換カードの表示状態
@@ -69,9 +70,9 @@ export default function VoucherExchangeCard() {
                     type="button"
                     onClick={isAvailable ? () => setHiddenAlert(false) : undefined}
                     disabled={!isAvailable}
-                    className={`mt-6 rounded-full border-2 px-10 py-1.5 min-w-48 text-sm sm:text-base transition-colors duration-100 ${isAvailable ? 'border-accent-700 text-accent-900 hover:bg-accent-50 cursor-pointer' : 'border-accent-100 text-accent-300 cursor-not-allowed'}`}
+                    className={`mt-6 rounded-full px-10 py-2.5 min-w-52 font-bold text-base transition-colors duration-100 ${isAvailable ? 'bg-secondary text-background hover:bg-primary-text cursor-pointer shadow' : 'bg-accent-50 text-accent-300 cursor-not-allowed'}`}
                 >
-                    {status === 'exchanged' ? '引き換え済み' : isAvailable ? '引き換える' : '引き換え不可'}
+                    {status === 'exchanged' ? '引き換え済み' : isAvailable ? '引き換える ＞' : '引き換え不可'}
                 </button>
 
                 {status === 'outOfPeriod' && (
@@ -87,12 +88,31 @@ export default function VoucherExchangeCard() {
                     <p className="text-sm text-center mt-5">本日の抽選券への引き換えは終了いたしました。</p>
                 )}
                 {status === 'notReady' && (
-                    <p className="text-sm text-center mt-5">
-                        投票が完了していない部門があります。<br />
-                        詳しくは<TransitionLink href="/bigLottery">こちら</TransitionLink>
-                    </p>
+                    <>
+                        <p className="text-sm text-center mt-5">投票が完了していない部門があります。</p>
+                        {/* 判定後（ブラウザ側）にだけ描画されるので、ここで投票記録を読んでよい */}
+                        <div className="flex flex-col gap-3 mt-4 w-full max-w-60">
+                            {getUnvotedCategories().map(unvoted => (
+                                <Link
+                                    key={unvoted}
+                                    href={getSearchUrlOfCategory(unvoted)}
+                                    className="flex justify-between items-center rounded-full border-2 border-primary text-primary-900 px-6 py-1.5 text-sm sm:text-base hover:bg-primary-100 transition-colors duration-100"
+                                >
+                                    <span className="flex-1 text-center">{unvoted}部門</span>
+                                    <span>＞</span>
+                                </Link>
+                            ))}
+                        </div>
+                    </>
                 )}
             </div>
+
+            {/* 大抽選会はめいちゃん以外の内容も多いので、カードの外に案内する。左右の強調線（＼ ／）で目立たせる */}
+            <p className="mt-10 pb-20 flex items-center justify-center gap-2 text-sm sm:text-base">
+                <EmphasisLines />
+                <span>明大祭大抽選会については<TransitionLink href="/bigLottery">こちら</TransitionLink></span>
+                <EmphasisLines flip />
+            </p>
 
             {!hiddenAlert &&
                 <ExchangeConfirmModal
@@ -150,5 +170,24 @@ function ExchangeConfirmModal({ onClose, onConfirm }: ExchangeConfirmModalProps)
             </div>
         </div>
         </ModalPortal>
+    )
+}
+
+// 文の左右に付ける漫画調の強調線。
+function EmphasisLines({ flip = false }: { flip?: boolean }) {
+    return (
+        <svg
+            aria-hidden="true"
+            viewBox="0 0 20 24"
+            className={`shrink-0 w-[1.1em] h-[1.3em] text-primary ${flip ? '-scale-x-100' : ''}`}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+        >
+            <line x1="3" y1="4" x2="10" y2="9.5" />
+            <line x1="2" y1="12" x2="11" y2="12" />
+            <line x1="3" y1="20" x2="10" y2="14.5" />
+        </svg>
     )
 }
