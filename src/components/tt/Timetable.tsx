@@ -194,8 +194,7 @@ function FilterAccordion({ title, options, selected, onToggle }: FilterAccordion
 
     return (
         <div className="min-w-0">
-            {/* 左上の飾りは SmallTitle のもの。飾りが左にはみ出すので ml-7 で逃がす */}
-            <SmallTitle className="mb-3 ml-7 mt-0 [&_h2]:text-2xl">{title}</SmallTitle>
+            <SmallTitle className="mb-3">{title}</SmallTitle>
             <button
                 type="button"
                 aria-expanded={open}
@@ -296,7 +295,7 @@ export default function Timetable() {
         <DateTabs
             tabs={tabs}
             between={
-                <div className="mx-auto grid max-w-4xl grid-cols-1 items-start gap-8 px-5 pt-10 md:grid-cols-2 md:gap-10">
+                <div className="mx-auto grid max-w-4xl grid-cols-1 items-start px-8 md:grid-cols-2 md:gap-x-10">
                     <FilterAccordion title="場所で探す" options={[...stageOptions, ALL_PLACES]} selected={places} onToggle={togglePlace} />
                     <FilterAccordion title="ジャンルで探す" options={GENRES} selected={genres} onToggle={toggleGenre} />
                 </div>

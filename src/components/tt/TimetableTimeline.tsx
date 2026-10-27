@@ -6,7 +6,7 @@ import Ticket from "./Ticket";
 import { getTimelineLanes, MIN_TICKET_MINUTES, type TimetableEvent } from "@/utils/timetable";
 
 const PIXELS_PER_MINUTE = 6;
-const AXIS_WIDTH = 64;
+const AXIS_WIDTH = "var(--timeline-axis-width)";
 const TIMELINE_TOP_PADDING = 12;
 const formatTime = (minutes: number) => `${Math.floor(minutes / 60).toString().padStart(2, "0")}:${(minutes % 60).toString().padStart(2, "0")}`;
 
@@ -43,10 +43,11 @@ export default function TimetableTimeline({ events, stages, genres, month, date,
     const columns = stages.map((stage) => ({ stage, ...getTimelineLanes(events.filter((event) => event.place === stage && Number.isFinite(event.startMinutes))) }));
     const singleStage = stages.length === 1;
     const viewportMaxWidth = singleStage ? 520 : stages.length === 2 ? 960 : undefined;
-    const width = AXIS_WIDTH + columns.reduce((total, column) => total + Math.max(320, column.count * 240), 0);
+    const stageWidth = (count: number) => `max(var(--timeline-stage-width), calc(${count} * var(--timeline-lane-width)))`;
+    const width = `calc(${AXIS_WIDTH} + ${columns.map(({ count }) => stageWidth(count)).join(" + ") || "0px"})`;
     const columnWidth = (count: number) => singleStage
         ? { width: 0, minWidth: 0 }
-        : { width: Math.max(320, count * 240), minWidth: Math.max(320, count * 240) };
+        : { width: stageWidth(count), minWidth: stageWidth(count) };
 
     const renderTicket = (event: TimetableEvent) => (
         <Link
@@ -60,14 +61,14 @@ export default function TimetableTimeline({ events, stages, genres, month, date,
     );
 
     return (
-        <section className="mx-auto max-w-7xl px-3 sm:px-5" aria-label={`${month}月${date}日のステージ別タイムテーブル`}>
+        <section className="mx-auto max-w-7xl px-3 [container-type:inline-size] sm:px-5" aria-label={`${month}月${date}日のステージ別タイムテーブル`}>
             <p className="mb-3 text-base text-gray-600">{singleStage ? "上下" : "上下左右"}にスクロール・ドラッグできます。チケットを押すと企画の詳細が開きます。</p>
             <div
                 ref={viewportRef}
                 role="region"
                 aria-label="時間・ステージ名固定のタイムテーブル"
                 tabIndex={0}
-                className="swiper-no-swiping relative isolate mx-auto h-[70vh] min-h-80 max-h-[800px] cursor-grab overflow-auto overscroll-contain rounded-xl border border-[#eed3da] bg-white focus-visible:outline-2 focus-visible:outline-purple-600 active:cursor-grabbing"
+                className="swiper-no-swiping relative isolate mx-auto h-[70vh] min-h-80 max-h-[800px] cursor-grab overflow-auto overscroll-contain rounded-xl border border-[#eed3da] bg-white [--timeline-axis-width:56px] [--timeline-stage-width:320px] [--timeline-lane-width:240px] max-sm:[--timeline-axis-width:44px] max-sm:[--timeline-stage-width:max(200px,calc(100cqw_-_88px))] max-sm:[--timeline-lane-width:200px] focus-visible:outline-2 focus-visible:outline-purple-600 active:cursor-grabbing"
                 style={{ touchAction: singleStage ? "pan-y" : "pan-x pan-y", maxWidth: viewportMaxWidth, overflowX: singleStage ? "hidden" : undefined }}
                 onDragStart={(event) => event.preventDefault()}
                 onPointerDown={(event) => {
@@ -93,12 +94,12 @@ export default function TimetableTimeline({ events, stages, genres, month, date,
             >
                 <div style={{ width: singleStage ? "100%" : width, minWidth: "100%" }}>
                     <div className="sticky top-0 z-30 flex h-14 border-b border-[#eed3da] bg-white shadow-sm">
-                        <div className="sticky left-0 z-40 flex shrink-0 items-center justify-center border-r border-[#eed3da] bg-white text-[15px] text-gray-600" style={{ width: AXIS_WIDTH }}>時間</div>
+                        <div className="sticky left-0 z-40 flex shrink-0 items-center justify-center border-r border-[#eed3da] bg-white text-xs text-gray-600" style={{ width: AXIS_WIDTH }}>時間</div>
                         {columns.map(({ stage, count }) => <div key={stage} className="flex flex-1 shrink-0 items-center justify-center break-words border-r border-[#eed3da] bg-[#fff5f7] px-3 text-center text-sm font-bold text-[#79576a]" style={columnWidth(count)}>{stage}</div>)}
                     </div>
                     <div className="relative flex" style={{ height: TIMELINE_TOP_PADDING + height + 24 }}>
                         <div className="sticky left-0 z-20 shrink-0 border-r border-[#eed3da] bg-white" style={{ width: AXIS_WIDTH }}>
-                            {ticks.map((time) => <span key={time} className="absolute right-2 -translate-y-1/2 text-[15px] leading-[18px] tabular-nums text-gray-600" style={{ top: timeTop(time) }}>{formatTime(time)}</span>)}
+                            {ticks.map((time) => <span key={time} className="absolute right-2 -translate-y-1/2 text-xs tabular-nums text-gray-600" style={{ top: timeTop(time) }}>{formatTime(time)}</span>)}
                             {showNow && <span role="img" aria-label={`現在時刻 ${formatTime(currentMinutes)}`} className="pointer-events-none absolute -right-1.5 h-3 w-3 -translate-y-1/2 rounded-full bg-[#998EC1]" style={{ top: timeTop(currentMinutes) }} />}
                         </div>
                         {columns.map(({ stage, count, items }) => (
