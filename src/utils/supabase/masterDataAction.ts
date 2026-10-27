@@ -78,6 +78,9 @@ function createFilteredQuery(key: MasterDataQuery) {
                 const excludedPlaces = ["メインステージ", "パフォーマンスエリア", "エントランスエリア", "第一校舎", "メディア棟", "和泉ラーニングスクエア"];
                 const excludeConditions = excludedPlaces.map((value) => `location.not.ilike.%${value}%`);
                 placeConditions.push(`and(${excludeConditions.join(",")})`);
+            } else if (place === "屋内ステージ") {
+                // 屋内ステージの企画は、場所が「和泉ラーニングスクエア LS101教室」と登録されている。
+                placeConditions.push("location.ilike.%LS101%");
             } else {
                 placeConditions.push(`location.ilike.%${place}%`);
             }
