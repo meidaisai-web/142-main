@@ -27,11 +27,16 @@
     padding-right: 6px;
 }
 
-.timeColumn::after {
+/* 縦の点線は切り欠きの中心に置き、上下は切り欠きの手前で止める。チケットが低くてもはみ出さない。 */
+.timeline::after {
     content: "";
     position: absolute;
-    inset: max(3px, 4%) 0 max(4px, 10%) auto;
+    z-index: 1;
+    left: calc(100cqw * 14.59 / 73.34 - 1px);
+    top: calc(100cqw * 6 / 73.34);
+    bottom: calc(100cqw * 6 / 73.34);
     width: 2px;
+    pointer-events: none;
     background: repeating-linear-gradient(to bottom, #777 0 5px, transparent 5px 11px);
 }
 

@@ -12,7 +12,7 @@ import SmallTitle from "@/components/texts/SmallTitle";
 
 // ---------- データ・型 ----------
 
-const PLACES = ["メインステージ", "パフォーマンスエリア", "エントランスエリア", "屋内ステージ"] as const;
+const PLACES = ["メインステージ", "パフォーマンスエリア", "エントランスエリア"] as const;
 const GENRES = ["音楽", "ダンス", "パフォーマンス", "すべて"] as const;
 // 「すべて」は絞り込み用の項目で、企画のジャンルには使わない
 const ALL_GENRES = "すべて";
