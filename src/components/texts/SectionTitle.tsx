@@ -17,8 +17,8 @@ export default function SectionTitle({
             src="/images/svg/Section-blue.svg"
             alt="SectionTitle-blue"
             width={55}
-            height={55}
-            className="absolute -left-1 -top-1"
+            height={48}
+            className="absolute -left-1 -top-1 h-auto"
           />
 
            {/* タイトル */}
@@ -31,8 +31,8 @@ export default function SectionTitle({
                 src="/images/svg/Section-pink.svg"
                 alt="SectionTitle-pink"
                 width={55}
-                height={55}
-                className="absolute -right-1 -bottom-1"
+                height={49}
+                className="absolute -right-1 -bottom-1 h-auto"
             />
         </div>
     );

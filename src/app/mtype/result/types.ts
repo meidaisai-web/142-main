@@ -24,6 +24,6 @@ export const typeDescriptions: Record<MTypeKey, string> = {
 export const typeColors: Record<MTypeKey, {color: string, code: string}> = {
     "A×C": {color: "オレンジ", code: "#F6A560"},
     "A×D": {color: "青", code: "#7AB9F6"},
-    "B×C": {color: "ピンク", code: "#F6A5C0"},
-    "B×D": {color: "紫", code: "#C4A5F6"},
+    "B×C": { color: "緑", code: "#5EB5B8"},
+    "B×D": { color: "ピンク", code: "#F6A5C0"},
 }

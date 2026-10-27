@@ -33,7 +33,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
             <Text center className="text-3xl font-bold">
                 {typeNames[type]}
             </Text>
-            <Image src={typeImages[type]} alt={type} width={300} height={300} className="mx-auto my-8" />
+            <Image src={typeImages[type]} alt={type} width={300} height={300} className="mx-auto my-8" loading="eager" />
             <Text center>{typeDescriptions[type]}</Text>
             <Text center className="font-bold" style={{ color: typeColors[type].code }}>
                 そんなあなたのラッキーカラーは{typeColors[type].color}！
