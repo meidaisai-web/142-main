@@ -60,8 +60,8 @@ export default function Element() {
 
     const images = [
         { href: "/map", label: "キャンパスマップ", icon: "/images/Indexsearch/map.svg" },
-        { href: "/tt", label: "タイムテーブル", icon: "/images/Indexsearch/time.svg" },
-        { href: "/meicham", label: "Meidaisai Championshipとは", icon: "/images/Indexsearch/meicham.svg"  }
+        { href: "/timetable", label: "タイムテーブル", icon: "/images/Indexsearch/time.svg" },
+        { href: "/champ", label: "Meidaisai Championshipとは", icon: "/images/Indexsearch/meicham.svg"  }
     ];
     return (
         <div className="grid grid-cols-3 gap-x-[7%] md:gap-x-[12%] px-[10%] w-full max-w-2xl lg:max-w-4xl mx-auto">
