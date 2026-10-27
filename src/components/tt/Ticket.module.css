@@ -153,3 +153,33 @@
     .time { font-size: 12px; }
     .photo { display: none; }
 }
+
+/* チケットの背景。縦に伸ばすときは、切り欠きのある上下はそのままにして中央だけを伸ばす。 */
+.bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+    user-select: none;
+}
+
+.bgTop,
+.bgBottom {
+    flex: none;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 73.34 / 5;
+}
+
+.bgBottom {
+    aspect-ratio: 73.34 / 4.53;
+}
+
+.bgMiddle {
+    flex: 1;
+    display: block;
+    width: 100%;
+    min-height: 0;
+}

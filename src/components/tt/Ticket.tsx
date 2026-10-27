@@ -4,6 +4,8 @@
 import Image from "next/image";
 import styles from "./Ticket.module.css";
 
+const TICKET_SRC = "/images/tt/new_ticket.svg";
+
 interface TicketProps {
     title: string;
     time: string;
@@ -24,7 +26,17 @@ export default function Ticket({
     if (layout === "timeline") {
         return (
             <div className={styles.timeline}>
-                <Image src="/images/tt/new_ticket.svg" alt="" fill unoptimized className="pointer-events-none select-none" />
+                <div className={styles.bg} aria-hidden="true">
+                    <svg className={styles.bgTop} viewBox="0 0 73.34 5" preserveAspectRatio="none">
+                        <image href={TICKET_SRC} width="73.34" height="32.53" />
+                    </svg>
+                    <svg className={styles.bgMiddle} viewBox="0 5 73.34 23" preserveAspectRatio="none">
+                        <image href={TICKET_SRC} width="73.34" height="32.53" />
+                    </svg>
+                    <svg className={styles.bgBottom} viewBox="0 28 73.34 4.53" preserveAspectRatio="none">
+                        <image href={TICKET_SRC} width="73.34" height="32.53" />
+                    </svg>
+                </div>
                 <div className={styles.contents}>
                     <div className={styles.timeColumn}>
                         <p className={styles.time}>
