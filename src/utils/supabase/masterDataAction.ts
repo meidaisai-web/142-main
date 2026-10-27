@@ -80,7 +80,8 @@ function createFilteredQuery(key: MasterDataQuery) {
                 placeConditions.push(`and(${excludeConditions.join(",")})`);
             } else if (place === "屋内ステージ") {
                 // 屋内ステージの企画は、場所が「和泉ラーニングスクエア LS101教室」と登録されている。
-                placeConditions.push("location.ilike.%LS101%");
+                // LS101教室のゲスト誘致企画(企画区分「教室」)は屋内ステージに含めない。
+                placeConditions.push("and(location.ilike.%LS101%,type.eq.総合ステージ)");
             } else {
                 placeConditions.push(`location.ilike.%${place}%`);
             }
