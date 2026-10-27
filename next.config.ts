@@ -1,15 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Cloudflare Workers Builds のキャッシュ復元が不完全で
-  // .next/cache/webpack の pack ファイルが欠落し ENOENT で
-  // ビルドが落ちることがあるため、本番ビルドでは永続キャッシュを無効化する
-  webpack: (config, { dev }) => {
-    if (!dev) {
-      config.cache = false;
-    }
-    return config;
-  },
+  // Next.js 16 から Turbopack が既定になった。
+  // 旧 webpack の永続キャッシュ無効化設定 (.next/cache/webpack の ENOENT 対策) は不要になったため削除
+  turbopack: {},
   images: {
     remotePatterns: [
       {

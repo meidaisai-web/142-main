@@ -9,7 +9,6 @@ type ShadowTextProps = {
 const ShadowText = ({
   children,
   sizeClass = 'text-3xl font-bold',
-  className = ''
 }: ShadowTextProps) => {
   return (
     <div className={`${sizeClass} [text-shadow:0px_4px_2px_rgba(0,0,0,0.20)] tracking-widest w-full px-10 text-center text-text`}>

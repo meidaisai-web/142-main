@@ -12,9 +12,7 @@ import Button from "../buttons/Button";
 import PageContainer from "../base/PageContainer";
 import FilterView from "./FilterView";
 import EventItems from "./EventListView";
-import MeichamSection from "./MeichamSection";
 import SectionTitle from "../texts/SectionTitle";
-import LeftButton from "../buttons/LeftButton";
 
 const STORAGE_KEY = "searchConditions";
 const STORAGE_TTL = 5 * 60 * 1000;
@@ -155,6 +153,8 @@ function SearchContent() {
             if (saved) {
                 const record = JSON.parse(saved);
                 if (typeof record.timestamp === "number" && Date.now() - record.timestamp <= STORAGE_TTL) {
+                    // localStorage はクライアントでしか読めず、SSR との hydration 差異を避けるためマウント後に反映する
+                    // eslint-disable-next-line react-hooks/set-state-in-effect
                     setSavedConditions(normalizeConditions(record));
                 } else {
                     window.localStorage.removeItem(STORAGE_KEY);

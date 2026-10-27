@@ -166,7 +166,6 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
             setShow(false);
             setLoading(false);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const [planeDuration, setPlaneDuration] = useState(AIRPLANE_DURATION_MIN);
@@ -283,6 +282,8 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
             AIRPLANE_DURATION_MAX,
             Math.max(AIRPLANE_DURATION_MIN, distance / speed),
         );
+        // window サイズ依存の値で SSR 時には求められないため、マウント後に反映する
+        /* eslint-disable react-hooks/set-state-in-effect */
         setPlaneDuration(duration);
         const delay = window.matchMedia(LG_QUERY).matches
             ? AIRPLANE_DELAY
@@ -292,6 +293,7 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
                 ? AIRPLANE_DELAY_SM
                 : AIRPLANE_DELAY_SP;
         setPlaneDelay(delay);
+        /* eslint-enable react-hooks/set-state-in-effect */
         const controls = animate(planeProgress, 1, {
             duration,
             delay,
@@ -408,8 +410,8 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
                     }}
                 >
 
-                    <Image src={cloud.src2} alt="" fill className="object-contain lg:hidden" />
-                    <Image src={cloud.src} alt="" fill className="hidden object-contain lg:block" />
+                    <Image src={cloud.src2} alt="" fill sizes="100vw" className="object-contain lg:hidden" />
+                    <Image src={cloud.src} alt="" fill sizes="100vw" className="hidden object-contain lg:block" />
                 </motion.div>
                 );
             })}
@@ -431,7 +433,7 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.7, delay: LOGO_IN_DELAY, ease: "easeOut" }}
                         >
-                            <Image src="/images/svg/loadinglogo.svg" alt="Logo" fill />
+                            <Image src="/images/svg/loadinglogo.svg" alt="Logo" fill sizes="300px" />
                         </motion.div>
 
                         <motion.div
@@ -441,7 +443,7 @@ export default function Loading({ setLoading = () => {} }: LoadingProps) {
                             transition={{ duration: LINE_DURATION, delay: LINE_DELAY, ease: "easeInOut" }}
                         >
                             <div className="absolute left-0 top-0 h-full w-[172px] sm:w-[296px] lg:w-[252px]">
-                                <Image src="/images/svg/loadingline.svg" alt="" fill />
+                                <Image src="/images/svg/loadingline.svg" alt="" fill sizes="300px" />
                             </div>
                         </motion.div>
                     </div>

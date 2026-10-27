@@ -32,7 +32,11 @@ export default function SectionTitle({
                 alt="SectionTitle-pink"
                 width={55}
                 height={49}
+<<<<<<< HEAD
                 className="absolute -right-1 -bottom-1 h-auto"
+=======
+                className="absolute -right-1 -bottom-1"
+>>>>>>> develop
             />
         </div>
     );
