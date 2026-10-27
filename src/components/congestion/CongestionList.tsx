@@ -215,7 +215,7 @@ export default function CongestionList() {
 
   return (
     <>
-      <div className="mb-4 rounded-lg bg-primary-100 px-4 py-4 text-sm font-bold text-[#3E3D3F]">
+      <div className="mb-4 rounded-lg bg-[color-mix(in_srgb,var(--color-primary-100)_70%,white)] px-4 py-4 text-sm font-bold text-[#3E3D3F]">
         <Text center className="text-[15px] sm:text-[17px]">
           待ち時間ごとに絞り込む
         </Text>
