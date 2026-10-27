@@ -4,6 +4,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { IMAGE_ASPECT } from "./aspect";
+
 
 const stars = [
     {
@@ -110,8 +112,8 @@ export default function FloatingStar({
                                 <Image
                                     src={star.src}
                                     alt=""
-                                    width={starSize}
-                                    height={starSize}
+                                    width={Math.round(starSize)}
+                                    height={Math.round(starSize * IMAGE_ASPECT[star.src])}
                                 />
                             </motion.div>
                         );

@@ -100,8 +100,6 @@ export default function ShootingStar({
         Math.ceil(pageHeight / SET_HEIGHT) + 1
     );
 
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-
     return (
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
             {Array.from({ length: SET_COUNT }).map((_, index) => (
