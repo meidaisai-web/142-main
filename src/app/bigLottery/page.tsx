@@ -63,10 +63,11 @@ export default function Page() {
                 <SectionTitle>抽選券配付企画</SectionTitle>
                 <SmallTitle>Meidaisai Championship</SmallTitle>
                 <Text>
-                    引き換え場所：和泉図書館前Meidaisai Championship受付<br />
-                    <TransitionLink href="/search">企画検索</TransitionLink>から、飲食部門・エンタメ部門・パフォーマンス部門すべてにご投票いただくと抽選券がもらえます！<br />
-                    <Button href="/champ">詳しくはこちら</Button>
+                    <TransitionLink href="/search">企画検索</TransitionLink>から、飲食部門・エンタメ部門・パフォーマンス部門すべてにご投票いただくと抽選券がもらえます！
                 </Text>
+                <AccentText>引き換え場所</AccentText>
+                <Text noJustify>和泉図書館前Meidaisai Championship受付</Text>
+                <Button href="/champ">詳しくはこちら</Button>
                 <MeichamVoteStatus />
                 <Text>明大祭公式パンフレットp.16</Text>
 
