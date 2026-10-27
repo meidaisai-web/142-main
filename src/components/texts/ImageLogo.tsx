@@ -8,6 +8,7 @@ type ImageLogoProps = {
   logoAlt: string;
   className?: string;
   LogoClassName?: string;
+  logoHeight?: number;
 };
 
 export default function ImageLogo({
@@ -17,6 +18,7 @@ export default function ImageLogo({
   logoAlt,
   className = "",
   LogoClassName = "",
+  logoHeight = 500,
 }: ImageLogoProps) {
   return (
     <div className={`relative ${className}`}>
@@ -27,10 +29,10 @@ export default function ImageLogo({
       <Image src={src} alt={alt} width={500} height={500} className="w-full rounded-lg"/>
 
       {/* フレーム画像 */}
-      <Image src="/images/ImageLogo/logoframe.svg" alt="フレーム" width={500} height={500} className="absolute inset-0 w-full h-full" />
+      <Image src="/images/ImageLogo/logoframe.svg" alt="フレーム" width={500} height={310} className="absolute inset-0 w-full h-full" />
 
       {/* 上に重ねるロゴ */}
-      <Image src={logoSrc} alt={logoAlt} width={500} height={500} className={`absolute inset-0 m-auto h-auto ${LogoClassName ?? ""}`}/>
+      <Image src={logoSrc} alt={logoAlt} width={500} height={logoHeight} className={`absolute inset-0 m-auto h-auto ${LogoClassName ?? ""}`}/>
     </div>
   );
 }

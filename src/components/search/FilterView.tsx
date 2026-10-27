@@ -99,7 +99,7 @@ export default function FilterView({
                             <Image
                                 src="/images/EventListView/Arrowright.svg"
                                 alt=""
-                                width={40}
+                                width={32}
                                 height={40}
                                 className={`w-5 h-7 sm:w-8 sm:h-10 mb-5 sm:mb-5 transition-transform -translate-y-1 sm:-translate-y-2  ${isOpen ? "rotate-180" : "rotate-0"}`}
                             />
