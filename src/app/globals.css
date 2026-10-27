@@ -62,36 +62,3 @@
     );
   }
 }
- 
-/* 雲を同じ方向に振り子のように揺らす */
-.cloud-swing {
-  transform-origin: top center;
-  animation: cloud-pendulum 3s ease-in-out infinite;
-}
-
-/* 2つ目も同じタイミングで揺らす */
-.cloud-swing-delayed {
-  animation-delay: 0s;
-}
-
-@keyframes cloud-pendulum {
-  0% {
-    transform: rotate(-2.5deg);
-  }
-
-  50% {
-    transform: rotate(2.5deg);
-  }
-
-  100% {
-    transform: rotate(-2.5deg);
-  }
-}
-
-/* 動きを減らす設定の人にはアニメーションを停止 */
-@media (prefers-reduced-motion: reduce) {
-  .cloud-swing,
-  .cloud-swing-delayed {
-    animation: none;
-  }
-}

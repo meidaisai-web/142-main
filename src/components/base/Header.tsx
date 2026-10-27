@@ -2,12 +2,21 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Hamburger from "./Hamburger/Hamburger";
 
+// 雲を同じ方向に振り子のように揺らす(動きを減らす設定の人には停止)
+const MotionLink = motion.create(Link);
+const cloudSwing = {
+  animate: { rotate: [-2.5, 2.5, -2.5] },
+  transition: { duration: 3, ease: "easeInOut" as const, repeat: Infinity },
+};
+
 export default function Header() {
+  const reduceMotion = useReducedMotion();
+  const swing = reduceMotion ? {} : cloudSwing;
   const [isOpenHamburger, setOpenHamburger] = useState(false);
 
   const pathname = usePathname()
@@ -47,8 +56,8 @@ export default function Header() {
             <Image
               src="/images/header/search-white.svg"
               alt=""
-              width={34}
-              height={34}
+              width={31}
+              height={31}
               className="block"
             />
           </Link>
@@ -57,8 +66,8 @@ export default function Header() {
             <Image
               src="/images/header/map-white.svg"
               alt=""
-              width={34}
-              height={34}
+              width={31}
+              height={31}
               className="block"
             />
           </Link>
@@ -81,10 +90,12 @@ export default function Header() {
       {isHome && (
         <div className="fixed right-[40px] max-sm:right-[15px] top-6 max-sm:top-[50px] z-[49] flex items-start gap-0 max-sm:gap-1 max-sm:-mr-2 sm:right-[30px] sm:gap-4">
           {/* 虫眼鏡 */}
-          <Link
+          <MotionLink
+            {...swing}
+            style={{ transformOrigin: "top center" }}
             href="/search"
             aria-label="企画を検索"
-            className="cloud-swing relative flex h-[80px] w-[89px] max-sm:-mr-4 items-start justify-center sm:h-[60px] sm:w-[88px] -top-1"
+            className="relative flex h-[80px] w-[89px] max-sm:-mr-4 items-start justify-center sm:h-[60px] sm:w-[88px] -top-1"
           >
             <Image
               src="/images/header/search.svg"
@@ -93,13 +104,15 @@ export default function Header() {
               height={160}
               className="h-[75px] w-[89px] object-contain sm:h-[150px] sm:w-[180px] sm:-translate-y-1 z-0"
             />
-          </Link>
+          </MotionLink>
 
           {/* マップ */}
-          <Link
+          <MotionLink
+            {...swing}
+            style={{ transformOrigin: "top center" }}
             href="/map"
             aria-label="マップ"
-            className="cloud-swing cloud-swing-delayed relative flex h-[85px] w-[97px] items-start justify-center sm:mt-4 sm:h-[60px] sm:w-[88px] -top-1"
+            className="relative flex h-[85px] w-[97px] items-start justify-center sm:mt-4 sm:h-[60px] sm:w-[88px] -top-1"
           >
             <Image
               src="/images/header/map.svg"
@@ -108,7 +121,7 @@ export default function Header() {
               height={160}
               className="h-[81px] w-[97px] object-contain sm:h-[130px] sm:w-[160px]"
             />
-          </Link>
+          </MotionLink>
         </div>
       )}
     </>
