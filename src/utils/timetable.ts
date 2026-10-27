@@ -20,14 +20,17 @@ export function getTimelineRange(events: TimetableEvent[]) {
     };
 }
 
+// 画像や文字が収まるよう、チケットはこの時間(分)より短くしない。
+export const MIN_TICKET_MINUTES = 18;
+
 // 同じステージの上演時間が重なる場合も、隣のレーンに分けて読めるようにする。
 export function getTimelineLanes(events: TimetableEvent[]) {
     const lanes: number[] = [];
     const items = [...events].sort((a, b) => a.startMinutes - b.startMinutes).map((event) => {
-        const end = event.endMinutes && event.endMinutes > event.startMinutes ? event.endMinutes : event.startMinutes + 20;
+        const end = Math.max(event.endMinutes && event.endMinutes > event.startMinutes ? event.endMinutes : event.startMinutes + 20, event.startMinutes + MIN_TICKET_MINUTES);
         let lane = lanes.findIndex((until) => until <= event.startMinutes);
         if (lane === -1) lane = lanes.length;
-        lanes[lane] = Math.max(end, event.startMinutes + 9);
+        lanes[lane] = end;
         return { event, lane, end };
     });
     return { items, count: Math.max(1, lanes.length) };

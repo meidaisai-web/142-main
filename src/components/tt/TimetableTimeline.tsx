@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Ticket from "./Ticket";
-import { getTimelineLanes, type TimetableEvent } from "@/utils/timetable";
+import { getTimelineLanes, MIN_TICKET_MINUTES, type TimetableEvent } from "@/utils/timetable";
 
 const PIXELS_PER_MINUTE = 6;
 const AXIS_WIDTH = 64;
@@ -55,7 +55,7 @@ export default function TimetableTimeline({ events, stages, genres, month, date,
             title={`${event.title}\n${event.subtitle}\n${event.time.replace(/\n/g, " ")}${event.endMinutes === null ? "（終了時刻未定）" : ""}`}
             className={`block h-full rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600 ${isMuted(event) ? "opacity-25 grayscale" : ""}`}
         >
-            <Ticket title={event.title} subtitle={event.subtitle} time={event.time} imageSrc={event.imageSrc} imageAlt={`${event.title}の企画画像`} variant="pink" layout="timeline" />
+            <Ticket title={event.title} subtitle={event.subtitle} time={event.time} imageSrc={event.imageSrc} imageAlt={`${event.title}の企画画像`} layout="timeline" />
         </Link>
     );
 
@@ -112,7 +112,7 @@ export default function TimetableTimeline({ events, stages, genres, month, date,
                                     />
                                 ))}
                                 {items.map(({ event, lane, end }, index) => (
-                                    <div key={`${event.id}-${event.startMinutes}-${index}`} className="absolute z-10 px-1" style={{ top: timeTop(event.startMinutes) + 2, height: Math.max(48, (end - event.startMinutes) * PIXELS_PER_MINUTE - 4), left: `${lane / count * 100}%`, width: `${100 / count}%` }}>
+                                    <div key={`${event.id}-${event.startMinutes}-${index}`} className="absolute z-10 px-1" style={{ top: timeTop(event.startMinutes) + 2, height: Math.max(MIN_TICKET_MINUTES, end - event.startMinutes) * PIXELS_PER_MINUTE - 4, left: `${lane / count * 100}%`, width: `${100 / count}%` }}>
                                         {renderTicket(event)}
                                     </div>
                                 ))}

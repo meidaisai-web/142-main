@@ -10,7 +10,6 @@ interface TicketProps {
     subtitle: string;
     imageSrc?: string;
     imageAlt?: string;
-    variant?: "pink" | "green";
     layout?: "default" | "timeline";
 }
 
@@ -20,14 +19,12 @@ export default function Ticket({
     subtitle,
     imageSrc,
     imageAlt = "",
-    variant = "pink",
     layout = "default",
 }: TicketProps) {
-    const isGreen = variant === "green";
     if (layout === "timeline") {
         return (
             <div className={styles.timeline}>
-                <Image src="/images/tt/ticket-timeline.png" alt="" fill unoptimized className="pointer-events-none select-none" />
+                <Image src="/images/tt/new_ticket.svg" alt="" fill unoptimized className="pointer-events-none select-none" />
                 <div className={styles.contents}>
                     <div className={styles.timeColumn}>
                         <p className={styles.time}>
@@ -54,7 +51,7 @@ export default function Ticket({
         <div className="@container relative w-full aspect-[820/347] min-w-0 max-w-[820px] mx-auto">
             {/* チケット本体 */}
             <Image
-                src={isGreen ? "/images/tt/ticket2-green.svg" : "/images/tt/ticket2.svg"}
+                src="/images/tt/ticket2.svg"
                 alt=""
                 fill
                 priority
@@ -91,9 +88,7 @@ export default function Ticket({
                     <div
                         className="relative flex min-h-[14cqw] w-full shrink-0 items-center justify-center"
                         style={{
-                            backgroundImage: isGreen
-                                ? "url(/images/tt/waku2-left-green.svg), url(/images/tt/waku2-right-green.svg)"
-                                : "url(/images/tt/waku2-left.svg), url(/images/tt/waku2-right.svg)",
+                            backgroundImage: "url(/images/tt/waku2-left.svg), url(/images/tt/waku2-right.svg)",
                             backgroundPosition: "left center, right center",
                             backgroundSize: "auto 100%",
                             backgroundRepeat: "no-repeat",
@@ -107,7 +102,7 @@ export default function Ticket({
 
                     {/* 団体名 */}
                     {/* 余白(pb)をline-clampと同じ要素に付けると3行目が余白部分に見えてしまうので、下線と余白は外側の要素に分ける */}
-                    <div className={`w-[85%] shrink-0 border-b ${isGreen ? "border-[#9FD0C6]" : "border-[#F6BDC6]"} pb-[2%]`}>
+                    <div className={`w-[85%] shrink-0 border-b border-[#F6BDC6] pb-[2%]`}>
                         <p className="line-clamp-2 break-words text-center font-serif text-[max(11px,2.2cqw)] leading-[1.2]">
                             {subtitle}
                         </p>
