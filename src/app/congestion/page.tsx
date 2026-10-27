@@ -11,9 +11,9 @@ export default function CrowdPage() {
       <PageTitle>混雑状況</PageTitle>
       {/* 説明文の左端をマップの左端に揃えるため、マップと同じ幅の枠に入れる */}
       <div className="mb-8 mx-auto w-full md:w-[75%]">
-        <Text className="text-[14px] sm:text-[20px] mb-3">
+        {/* <Text className="text-[14px] sm:text-[20px] mb-3">
           各模擬店の待ち時間を確認できます。
-        </Text>
+        </Text> */}
         <Image
           src="/images/congestion/congestion_map.png"
           alt="マップ"
