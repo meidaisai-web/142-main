@@ -56,8 +56,8 @@ export default function Header() {
             <Image
               src="/images/header/search-white.svg"
               alt=""
-              width={31}
-              height={31}
+              width={28}
+              height={28}
               className="block"
             />
           </Link>
@@ -66,8 +66,8 @@ export default function Header() {
             <Image
               src="/images/header/map-white.svg"
               alt=""
-              width={31}
-              height={31}
+              width={28}
+              height={28}
               className="block"
             />
           </Link>
