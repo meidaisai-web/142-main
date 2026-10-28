@@ -178,7 +178,11 @@ export async function getUniqueMasterData(id: string): Promise<MasterData | null
 
 export async function getStageMasterData(): Promise<MasterData[] | null> {
     const supabase = createClient();
-    const { data, error } = await supabase.from('MasterData142').select('*').eq('type', '総合ステージ');
+    // 企画名・実施日が未入力の行は、企画検索と同様に表示しない。タイムテーブルでは場所も必須。
+    const { data, error } = await supabase.from('MasterData142').select('*').eq('type', '総合ステージ')
+        .not("eventName", "is", null).neq("eventName", "")
+        .not("eventDate", "is", null).neq("eventDate", "")
+        .not("location", "is", null).neq("location", "");
     if (error) {
         console.log(`Error fetching stage master data: ${error.message}`);
         return null;
