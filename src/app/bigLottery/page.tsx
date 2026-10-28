@@ -15,7 +15,7 @@ export default function Page() {
     return (
         <div>
             <CloudPageContainer>
-                <PageTitle>明大祭大抽選会</PageTitle>
+                <PageTitle className="translate-x-2">明大祭大抽選会</PageTitle>
                 <SectionTitle>明大祭大抽選会とは</SectionTitle>
                 <Text>
                     明大祭実行委員会が実施している様々な企画に参加して、「明大祭大抽選会」の抽選券を手に入れよう！<br />
@@ -41,7 +41,7 @@ export default function Page() {
 
                 <SmallTitle>参加方法</SmallTitle>
 
-                <AccentText>1.抽選券配布企画に参加する</AccentText>
+                <AccentText>1.抽選券配付企画に参加する</AccentText>
                 <Text>下記に記載の抽選券配布企画に参加しよう！</Text>
 
                 <AccentText>2.紙の抽選券を手に入れる</AccentText>
