@@ -3,12 +3,9 @@
 import { getUniqueMasterData } from "@/utils/supabase/masterDataAction";
 import { useEffect, useState } from "react";
 import { MasterData } from "@/utils/models/MasterData";
-import VoteView from "./VoteView";
 import Text from "../texts/Text";
 import Image from "next/image";
 import Link from "next/link";
-import ZoomableImage from "../ZoomableImage";
-import { getMeichamCategory } from "@/utils/managers/meichamManager";
 import SearchCloud from "./SearchCloud";
 
 interface DetailContentProps {
@@ -60,7 +57,7 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                 <div className="w-full px-4 sm:px-14 md:px-18 lg:px-24 flex flex-col items-center">
                     <EventTitle>{data.eventName}</EventTitle>
                     <div className="w-full bg-white/80 rounded-xl p-4 sm:p-10 lg:p-20 flex justify-center items-center lg:items-start gap-8 mt-16 flex-col lg:flex-row">
-                        <ImageView type={data.type} imageUrl={data.imageUrl} icons={data.icons} />
+                        <ImageView imageUrl={data.imageUrl} icons={data.icons} />
                         <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
                     </div>
                     　 {data.location.includes("テント配置番号") && (
@@ -78,12 +75,11 @@ export default function DetailEventContent({ id }: DetailContentProps) {
 }
 
 interface ImageViewProps {
-    type: string;
     imageUrl: string;
     icons?: string[];
 }
 
-function ImageView({ type, imageUrl, icons }: ImageViewProps) {
+function ImageView({ imageUrl, icons }: ImageViewProps) {
     return (
         <div className="w-full max-w-75 shrink-0">
             <EventImage imageUrl={imageUrl} icons={icons} />

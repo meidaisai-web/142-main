@@ -1,19 +1,18 @@
 import StarPageContainer from "@/components/base/StarPageContainer/StarPageContainer"
 import PageTitle from "@/components/texts/PageTitle";
 import SectionTitle from "@/components/texts/SectionTitle";
-import Text from "@/components/texts/Text"; 
+import Text from "@/components/texts/Text";
 import Emphasis from "@/components/texts/Emphasis";
 import SmallTitle from "@/components/texts/SmallTitle";
-import { List, ListItem } from "@/components/texts/List" 
+import { List, ListItem } from "@/components/texts/List"
 import ContactView from "@/components/texts/ContactView";
 import OnlyImage from "@/components/OnlyImage";
-import Movie from "@/components/Movie";
 
 export default function Page() {
     return (
         <StarPageContainer>
             <PageTitle>明大王</PageTitle>
-            <OnlyImage src="/images/king/king.png" alt="明大王" />
+            <OnlyImage src="/images/king/king.png" alt="明大王"  height={388} />
 
             <SectionTitle>明大愛、暴走中。</SectionTitle>
             <Text center>
