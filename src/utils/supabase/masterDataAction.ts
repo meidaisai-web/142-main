@@ -43,7 +43,10 @@ export async function getAllMasterDatas(key: MasterDataQuery): Promise<MasterDat
 }
 
 function createFilteredQuery(key: MasterDataQuery) {
-    let query = createClient().from(MASTER_DATA_TABLE).select("*");
+    // 企画名・実施日が未入力の行は、情報が埋まるまで一覧に出さない。
+    let query = createClient().from(MASTER_DATA_TABLE).select("*")
+        .not("eventName", "is", null).neq("eventName", "")
+        .not("eventDate", "is", null).neq("eventDate", "");
 
     // スペース区切りの各キーワードはAND、各カラムへの一致はOR。
     if (key.keyword && key.keyword.trim()) {
