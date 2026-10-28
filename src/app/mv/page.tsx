@@ -20,7 +20,7 @@ export default function Page() {
                 <Text>（演出局Opening企画に関する詳細は<TransitionLink href="https://www.meidaisai.jp/opening">こちら</TransitionLink>）</Text>
                 <SectionTitle className="mt-15 mb-5">コメント</SectionTitle>
                 <SmallTitle>【演奏団体】Sparky</SmallTitle>
-                <ImageText src="/images/mv/group.jpg" alt="group photo Image">この度、第142回明大祭公式テーマソングを担当させていただきました、Sparkyです。誰もが何かに募中になり、駆け抜けていく明大祭の熱気や青春のきらめきを一曲に詰め込みました。テーマソング『オーバーフィット』が、来場された皆さんや明大生一人ひとりの特別な瞬間を鮮やかに彩り、記憶に残る思い出となれば幸いです。</ImageText>
+                <ImageText src="/images/mv/group.jpg" alt="group photo Image">この度、第142回明大祭公式テーマソングを担当させていただきました、Sparkyです。誰もが何かに夢中になり、駆け抜けていく明大祭の熱気や青春のきらめきを一曲に詰め込みました。テーマソング『オーバーフィット』が、来場された皆さんや明大生一人ひとりの特別な瞬間を鮮やかに彩り、記憶に残る思い出となれば幸いです。</ImageText>
                 <SmallTitle>【制作団体】学生映像制作チームNext Film監督　三木李温</SmallTitle>
                 <ImageText src="/images/mv/director.jpg" alt="mv director Image">見つかった！何が？ 永遠が 海と溶け合う太陽が</ImageText>
                 <SmallTitle>【主演】村瀬佳蓮</SmallTitle>
