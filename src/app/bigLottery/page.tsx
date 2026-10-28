@@ -102,7 +102,7 @@ export default function Page() {
                 <List>
                     <ListText>演出局</ListText>
                     <List mark="・">
-                        <ListItem><TransitionLink href="/theme">第142回明大祭公式テーマソングMV</TransitionLink></ListItem>
+                        <ListItem><TransitionLink href="/mv">第142回明大祭公式テーマソングMV</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/champ">Meidaisai Championship</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/opening">Opening</TransitionLink></ListItem>
                         <ListItem><TransitionLink href="/fight">Fight on the Stage</TransitionLink></ListItem>
