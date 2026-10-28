@@ -27,7 +27,7 @@ const questions = [
     {
         question: "公式パンフレットはもらえますか。",
         answer:
-            <>インフォメーションブース付近にて配布しております。インフォメーションブースの場所は、<TransitionLink href="/campusmap">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください。また、サイト上で<TransitionLink href="/pamphlet">電子パンフレット</TransitionLink>も公開しておりますので、あわせてご利用ください。</>
+            <>インフォメーションブース付近にて配布しております。インフォメーションブースの場所は、<TransitionLink href="/map">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください。また、サイト上で電子パンフレットも公開しておりますので、あわせてご利用ください。</>
     }
     ,
     {
@@ -39,7 +39,7 @@ const questions = [
     {
         question: "入試案内はどこにありますか。",
         answer:
-        <>大学ガイドブック・学部ガイドブックは第142回明大祭で行われている受験生応援企画（和泉ラーニングスクエアLS304・LS305教室、3階和泉ラーニングサポートベース）に置かれています。企画の詳細は<TransitionLink href="/wakuwaku">こちらのページ</TransitionLink>をご覧ください。また、<TransitionLink href= "https://www.meiji.ac.jp/koho/guidebook/index.html" targetBlank>大学公式サイトで電子版</TransitionLink>が公開されているので、そちらもご覧ください。</>
+        <>大学ガイドブック・学部ガイドブックは第142回明大祭で行われている受験生応援企画（和泉ラーニングスクエアLS304・LS305教室、3階和泉ラーニングサポートベース）に置かれています。企画の詳細は<TransitionLink href="/wakuwaku">こちらのページ</TransitionLink>をご覧ください。また、大学公式サイトで<TransitionLink href= "https://www.meiji.ac.jp/koho/guidebook/index.html" targetBlank>電子版</TransitionLink>が公開されているので、そちらもご覧ください。</>
     },
     {
         question: "会場でキャッシュレス決済は可能ですか。",
@@ -49,12 +49,12 @@ const questions = [
     {
         question: "キャンパス内で飲食は可能ですか。",
         answer:
-            <>可能です。休憩所がございますので、そちらをご利用ください。休憩所の場所は、<TransitionLink href="/campusmap">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください。</>
+            <>可能です。休憩所がございますので、そちらをご利用ください。休憩所の場所は、<TransitionLink href="/map">こちらのページ</TransitionLink>にてキャンパスマップをご確認ください。</>
     },
     {
         question: "食堂は営業していますか。",
         answer:
-            "明大祭期間中、1階と2階の一部のみ11時から14時まで営業しております。食券購入可能時間は11：00～13：30です。また、営業終了後は1階は15:30まで、2階は17:00まで休憩所としてご利用いただけます。",
+            "明大祭期間中、1階と2階の一部のみ11時から14時まで営業しております。食券購入可能時間は11:00～13:30です。また、営業終了後は1階は15:30まで、2階は17:00まで休憩所としてご利用いただけます。",
     },
     {
         question: "コンビニエンスストアはありますか。",
