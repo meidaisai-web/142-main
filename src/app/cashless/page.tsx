@@ -10,7 +10,6 @@ import { List, ListItem } from "@/components/texts/List"
 import ContactView from "@/components/texts/ContactView"
 import TransitionLink from "@/components/buttons/TransitionLink"
 
-
 const page = () => {
     return (
         <CloudPageContainer>
