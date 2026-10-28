@@ -14,9 +14,12 @@ export default function MapContent() {
     return (
         <div>
             <PageContainer>
-                <ZoomableImage src="/images/campusmap/map.jpg" alt="キャンパスマップ" width={800} height={800} className="mt-8 rounded-xl mx-auto" />
+                <ZoomableImage src="C:/images/campusmap/campusmap142.svg" alt="キャンパスマップ" width={800} height={800} className="w-full mt-8 rounded-xl max-w-2xl mx-auto" />
             </PageContainer>
-            <Tab tabs={tabs} />
+            <div className="-mt-50">
+                <Tab tabs={tabs} showTriangle buttonStyle cornerImage="/images/campusmap/sentakupoint.svg" instant /> 
+            </div>
+            <div className="h-50" />
         </div>
     )
 }
