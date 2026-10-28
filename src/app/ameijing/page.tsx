@@ -35,19 +35,6 @@ export default function Page() {
                     明大祭の思い出づくりに、ぜひ立ち寄ってみてください！
                 </ListText>
             </List>
-            {/* <Text>① 写真を撮ろう！</Text>
-            <Text>フォトスポットで、とっておきの1枚を撮影！</Text>
-            <Text moreTopPadding>② 写真を投稿して抽選券をGET！</Text>
-            <Text>
-                撮影した写真に明大祭に関するコメントを添えて、Xに投稿するか、Instagramのストーリーズに投稿！<br />
-                あわせて、明大祭公式Instagramをフォローしてください！<br />
-                フォロー画面と投稿画面を、フォトスポットの第一校舎側にある机のスタッフに見せると、抽選券がもらえます！<br />
-            </Text>
-            <Text moreTopPadding>③ 大抽選会に参加！</Text>
-            <Text>
-                抽選券を持って明大祭大抽選会へ。豪華賞品が当たるかも！<br />
-                明大祭の思い出づくりに、ぜひ立ち寄ってみてください！
-            </Text> */}
             <SmallTitle>実施日時・場所</SmallTitle>
             <AccentText>日時</AccentText>
             <Text>10月30日(金).31日(土).11月1日(日)</Text>
