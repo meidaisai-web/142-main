@@ -42,7 +42,7 @@ export default function Page() {
                 <SmallTitle>参加方法</SmallTitle>
 
                 <AccentText>1.抽選券配付企画に参加する</AccentText>
-                <Text>下記に記載の抽選券配布企画に参加しよう！</Text>
+                <Text>下記に記載の抽選券配付企画に参加しよう！</Text>
 
                 <AccentText>2.紙の抽選券を手に入れる</AccentText>
                 <Text>企画参加後、その場や各引き換え場所で紙の抽選券をGET！</Text>
