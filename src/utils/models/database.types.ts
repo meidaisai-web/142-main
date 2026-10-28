@@ -10,118 +10,142 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "12.2.3 (519615d)"
+    PostgrestVersion: "14.5"
   }
   public: {
     Tables: {
-      Analytics: {
+      ApplyConfig: {
         Row: {
-          created_at: string
-          eventData: string | null
-          eventName: string | null
+          dateKey: string
+          frame: string
           id: number
-          option: string | null
+          isEnabled: boolean
+          optionKey: string
+          order: number
+          placeOrder: number
+          remaining: number | null
+          subKey: string
+          typeOrder: number
+          updatedAt: string
         }
         Insert: {
-          created_at?: string
-          eventData?: string | null
-          eventName?: string | null
+          dateKey?: string
+          frame: string
           id?: number
-          option?: string | null
+          isEnabled?: boolean
+          optionKey: string
+          order?: number
+          placeOrder?: number
+          remaining?: number | null
+          subKey?: string
+          typeOrder?: number
+          updatedAt?: string
         }
         Update: {
-          created_at?: string
-          eventData?: string | null
-          eventName?: string | null
+          dateKey?: string
+          frame?: string
           id?: number
-          option?: string | null
+          isEnabled?: boolean
+          optionKey?: string
+          order?: number
+          placeOrder?: number
+          remaining?: number | null
+          subKey?: string
+          typeOrder?: number
+          updatedAt?: string
         }
         Relationships: []
       }
       ApplyRoom: {
         Row: {
-          about: string | null
+          about: string
           applyType: string
-          blackCurtain: boolean | null
+          blackCurtain: boolean
           check: string
           createdAt: string
-          date: string | null
+          date: string
+          derivedNumber: number
           deskType: string | null
-          follow: boolean | null
-          food: string | null
-          groupId: string | null
+          follow: boolean
+          food: string
+          groupId: string
           id: number
-          lowerSeatCount: number | null
-          place: string | null
-          presentation: string[] | null
-          regularActivity: boolean | null
+          lowerSeatCount: number
+          place: string
+          presentation: string[]
+          regularActivity: boolean
           request: string | null
-          roomCount: number | null
-          rule: boolean | null
-          sound: boolean | null
+          room: string | null
+          roomCount: number
+          rule: boolean
+          sound: boolean
           sponsor: string | null
-          subSecond: boolean | null
-          type: string | null
+          subSecond: boolean
+          type: string
           updatedAt: string
-          upperSeatCount: number | null
-          waitingRoom: boolean | null
-          winning: Database["public"]["Enums"]["Winning"]
+          upperSeatCount: number
+          waitingRoom: number | null
+          winning: string
         }
         Insert: {
-          about?: string | null
+          about: string
           applyType: string
-          blackCurtain?: boolean | null
+          blackCurtain: boolean
           check?: string
           createdAt?: string
-          date?: string | null
+          date: string
+          derivedNumber?: number
           deskType?: string | null
-          follow?: boolean | null
-          food?: string | null
-          groupId?: string | null
+          follow?: boolean
+          food: string
+          groupId?: string
           id?: number
-          lowerSeatCount?: number | null
-          place?: string | null
-          presentation?: string[] | null
-          regularActivity?: boolean | null
+          lowerSeatCount: number
+          place: string
+          presentation: string[]
+          regularActivity?: boolean
           request?: string | null
-          roomCount?: number | null
-          rule?: boolean | null
-          sound?: boolean | null
+          room?: string | null
+          roomCount: number
+          rule?: boolean
+          sound: boolean
           sponsor?: string | null
-          subSecond?: boolean | null
-          type?: string | null
+          subSecond?: boolean
+          type: string
           updatedAt?: string
-          upperSeatCount?: number | null
-          waitingRoom?: boolean | null
-          winning?: Database["public"]["Enums"]["Winning"]
+          upperSeatCount: number
+          waitingRoom?: number | null
+          winning: string
         }
         Update: {
-          about?: string | null
+          about?: string
           applyType?: string
-          blackCurtain?: boolean | null
+          blackCurtain?: boolean
           check?: string
           createdAt?: string
-          date?: string | null
+          date?: string
+          derivedNumber?: number
           deskType?: string | null
-          follow?: boolean | null
-          food?: string | null
-          groupId?: string | null
+          follow?: boolean
+          food?: string
+          groupId?: string
           id?: number
-          lowerSeatCount?: number | null
-          place?: string | null
-          presentation?: string[] | null
-          regularActivity?: boolean | null
+          lowerSeatCount?: number
+          place?: string
+          presentation?: string[]
+          regularActivity?: boolean
           request?: string | null
-          roomCount?: number | null
-          rule?: boolean | null
-          sound?: boolean | null
+          room?: string | null
+          roomCount?: number
+          rule?: boolean
+          sound?: boolean
           sponsor?: string | null
-          subSecond?: boolean | null
-          type?: string | null
+          subSecond?: boolean
+          type?: string
           updatedAt?: string
-          upperSeatCount?: number | null
-          waitingRoom?: boolean | null
-          winning?: Database["public"]["Enums"]["Winning"]
+          upperSeatCount?: number
+          waitingRoom?: number | null
+          winning?: string
         }
         Relationships: [
           {
@@ -135,58 +159,67 @@ export type Database = {
       }
       ApplyStage: {
         Row: {
-          about: string | null
+          about: string
           applyType: string
           check: string
           collaboration: string | null
           createdAt: string
-          follow: boolean | null
-          groupId: string | null
+          derivedNumber: number
+          follow: boolean
+          groupId: string
           id: number
-          regularActivity: boolean | null
-          rule: boolean | null
+          regularActivity: boolean
+          rule: boolean
+          scheduleDay: string | null
+          scheduleTime: string | null
           sponsor: string | null
           substitute: boolean
-          time: number | null
-          type: string | null
+          time: number
+          type: string
           updatedAt: string
-          winning: Database["public"]["Enums"]["Winning"]
+          winning: string
         }
         Insert: {
-          about?: string | null
+          about: string
           applyType: string
           check?: string
           collaboration?: string | null
           createdAt?: string
-          follow?: boolean | null
-          groupId?: string | null
+          derivedNumber?: number
+          follow?: boolean
+          groupId?: string
           id?: number
-          regularActivity?: boolean | null
-          rule?: boolean | null
+          regularActivity?: boolean
+          rule?: boolean
+          scheduleDay?: string | null
+          scheduleTime?: string | null
           sponsor?: string | null
           substitute?: boolean
-          time?: number | null
-          type?: string | null
+          time: number
+          type: string
           updatedAt?: string
-          winning?: Database["public"]["Enums"]["Winning"]
+          winning: string
         }
         Update: {
-          about?: string | null
+          about?: string
           applyType?: string
           check?: string
           collaboration?: string | null
           createdAt?: string
-          follow?: boolean | null
-          groupId?: string | null
+          derivedNumber?: number
+          follow?: boolean
+          groupId?: string
           id?: number
-          regularActivity?: boolean | null
-          rule?: boolean | null
+          regularActivity?: boolean
+          rule?: boolean
+          scheduleDay?: string | null
+          scheduleTime?: string | null
           sponsor?: string | null
           substitute?: boolean
-          time?: number | null
-          type?: string | null
+          time?: number
+          type?: string
           updatedAt?: string
-          winning?: Database["public"]["Enums"]["Winning"]
+          winning?: string
         }
         Relationships: [
           {
@@ -203,46 +236,52 @@ export type Database = {
           applyType: string
           check: string
           createdAt: string
-          follow: boolean | null
-          groupId: string | null
+          derivedNumber: number
+          follow: boolean
+          groupId: string
           id: number
-          regularActivity: boolean | null
-          rule: boolean | null
+          regularActivity: boolean
+          rule: boolean
           sponsor: string | null
+          storeNumber: number | null
           substitute: boolean
-          type: string | null
-          updatedAt: string | null
-          winning: Database["public"]["Enums"]["Winning"]
+          type: string
+          updatedAt: string
+          winning: string
         }
         Insert: {
           applyType: string
           check?: string
           createdAt?: string
-          follow?: boolean | null
-          groupId?: string | null
+          derivedNumber?: number
+          follow?: boolean
+          groupId?: string
           id?: number
-          regularActivity?: boolean | null
-          rule?: boolean | null
+          regularActivity?: boolean
+          rule?: boolean
           sponsor?: string | null
+          storeNumber?: number | null
           substitute?: boolean
-          type?: string | null
-          updatedAt?: string | null
-          winning?: Database["public"]["Enums"]["Winning"]
+          type: string
+          updatedAt?: string
+          winning: string
         }
         Update: {
           applyType?: string
           check?: string
           createdAt?: string
-          follow?: boolean | null
-          groupId?: string | null
+          derivedNumber?: number
+          follow?: boolean
+          groupId?: string
           id?: number
-          regularActivity?: boolean | null
-          rule?: boolean | null
+          regularActivity?: boolean
+          rule?: boolean
           sponsor?: string | null
+          storeNumber?: number | null
           substitute?: boolean
-          type?: string | null
-          updatedAt?: string | null
-          winning?: Database["public"]["Enums"]["Winning"]
+          type?: string
+          updatedAt?: string
+          winning?: string
         }
         Relationships: [
           {
@@ -253,6 +292,65 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      CroudMap: {
+        Row: {
+          id: string
+          masterDataID: number
+          time: string | null
+          timestamp: string | null
+        }
+        Insert: {
+          id?: string
+          masterDataID: number
+          time?: string | null
+          timestamp?: string | null
+        }
+        Update: {
+          id?: string
+          masterDataID?: number
+          time?: string | null
+          timestamp?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "CroudMap_masterDataID_fkey"
+            columns: ["masterDataID"]
+            isOneToOne: false
+            referencedRelation: "MasterData142"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      Document: {
+        Row: {
+          createdAt: string
+          dataName: string | null
+          frame: Database["public"]["Enums"]["Frame"]
+          id: number
+          showName: string
+          type: string | null
+          url: string | null
+        }
+        Insert: {
+          createdAt?: string
+          dataName?: string | null
+          frame: Database["public"]["Enums"]["Frame"]
+          id?: number
+          showName: string
+          type?: string | null
+          url?: string | null
+        }
+        Update: {
+          createdAt?: string
+          dataName?: string | null
+          frame?: Database["public"]["Enums"]["Frame"]
+          id?: number
+          showName?: string
+          type?: string | null
+          url?: string | null
+        }
+        Relationships: []
       }
       FightVote: {
         Row: {
@@ -280,43 +378,43 @@ export type Database = {
       }
       File: {
         Row: {
-          check: string | null
+          check: string
           createdAt: string
-          dataName: string | null
-          fileCategoryId: string | null
-          frame: Database["public"]["Enums"]["Frame"] | null
-          groupId: string | null
+          dataName: string
+          frame: Database["public"]["Enums"]["Frame"]
+          groupId: string
           id: number
           roomId: number | null
-          showName: string | null
+          showName: string
           stageId: number | null
           storeId: number | null
+          submitFolderId: number
         }
         Insert: {
-          check?: string | null
+          check?: string
           createdAt?: string
-          dataName?: string | null
-          fileCategoryId?: string | null
-          frame?: Database["public"]["Enums"]["Frame"] | null
-          groupId?: string | null
+          dataName: string
+          frame: Database["public"]["Enums"]["Frame"]
+          groupId: string
           id?: number
           roomId?: number | null
-          showName?: string | null
+          showName: string
           stageId?: number | null
           storeId?: number | null
+          submitFolderId: number
         }
         Update: {
-          check?: string | null
+          check?: string
           createdAt?: string
-          dataName?: string | null
-          fileCategoryId?: string | null
-          frame?: Database["public"]["Enums"]["Frame"] | null
-          groupId?: string | null
+          dataName?: string
+          frame?: Database["public"]["Enums"]["Frame"]
+          groupId?: string
           id?: number
           roomId?: number | null
-          showName?: string | null
+          showName?: string
           stageId?: number | null
           storeId?: number | null
+          submitFolderId?: number
         }
         Relationships: [
           {
@@ -348,30 +446,33 @@ export type Database = {
           createdAt: string
           email: string
           id: string
-          kanaName: string | null
-          name: string | null
-          type: Database["public"]["Enums"]["GroupType"] | null
-          updatedAt: string | null
+          kanaName: string
+          name: string
+          password: string | null
+          type: Database["public"]["Enums"]["GroupType"]
+          updatedAt: string
         }
         Insert: {
           check?: string
           createdAt?: string
           email: string
           id?: string
-          kanaName?: string | null
-          name?: string | null
-          type?: Database["public"]["Enums"]["GroupType"] | null
-          updatedAt?: string | null
+          kanaName: string
+          name: string
+          password?: string | null
+          type: Database["public"]["Enums"]["GroupType"]
+          updatedAt?: string
         }
         Update: {
           check?: string
           createdAt?: string
           email?: string
           id?: string
-          kanaName?: string | null
-          name?: string | null
-          type?: Database["public"]["Enums"]["GroupType"] | null
-          updatedAt?: string | null
+          kanaName?: string
+          name?: string
+          password?: string | null
+          type?: Database["public"]["Enums"]["GroupType"]
+          updatedAt?: string
         }
         Relationships: []
       }
@@ -518,12 +619,112 @@ export type Database = {
         }
         Relationships: []
       }
+      MasterData142: {
+        Row: {
+          catchphrase: string | null
+          championshipJoin: boolean | null
+          createdAt: string | null
+          enableShooting: string | null
+          eventContent: string | null
+          eventDate: string | null
+          eventName: string | null
+          featuredItems: string[] | null
+          foodIcons: string[] | null
+          genre: string | null
+          groupId: string
+          groupName: string | null
+          homepageUrl: string | null
+          icons: string[] | null
+          id: number
+          imageUrl: string | null
+          instagramAccount: string | null
+          location: string | null
+          menuItems: string[] | null
+          otherIcons: string[] | null
+          projectId: number
+          projectType: string
+          qrcode: string | null
+          searchKeywords: string | null
+          ticket: string | null
+          tiktokAccount: string | null
+          type: string | null
+          updatedAt: string | null
+          xAccount: string | null
+          youtubeAccount: string | null
+        }
+        Insert: {
+          catchphrase?: string | null
+          championshipJoin?: boolean | null
+          createdAt?: string | null
+          enableShooting?: string | null
+          eventContent?: string | null
+          eventDate?: string | null
+          eventName?: string | null
+          featuredItems?: string[] | null
+          foodIcons?: string[] | null
+          genre?: string | null
+          groupId: string
+          groupName?: string | null
+          homepageUrl?: string | null
+          icons?: string[] | null
+          id?: number
+          imageUrl?: string | null
+          instagramAccount?: string | null
+          location?: string | null
+          menuItems?: string[] | null
+          otherIcons?: string[] | null
+          projectId: number
+          projectType: string
+          qrcode?: string | null
+          searchKeywords?: string | null
+          ticket?: string | null
+          tiktokAccount?: string | null
+          type?: string | null
+          updatedAt?: string | null
+          xAccount?: string | null
+          youtubeAccount?: string | null
+        }
+        Update: {
+          catchphrase?: string | null
+          championshipJoin?: boolean | null
+          createdAt?: string | null
+          enableShooting?: string | null
+          eventContent?: string | null
+          eventDate?: string | null
+          eventName?: string | null
+          featuredItems?: string[] | null
+          foodIcons?: string[] | null
+          genre?: string | null
+          groupId?: string
+          groupName?: string | null
+          homepageUrl?: string | null
+          icons?: string[] | null
+          id?: number
+          imageUrl?: string | null
+          instagramAccount?: string | null
+          location?: string | null
+          menuItems?: string[] | null
+          otherIcons?: string[] | null
+          projectId?: number
+          projectType?: string
+          qrcode?: string | null
+          searchKeywords?: string | null
+          ticket?: string | null
+          tiktokAccount?: string | null
+          type?: string | null
+          updatedAt?: string | null
+          xAccount?: string | null
+          youtubeAccount?: string | null
+        }
+        Relationships: []
+      }
       MeidaisaiChampionship: {
         Row: {
           createdAt: string
           eventId: number
           groupId: string
           id: number
+          ip: string | null
           type: string
         }
         Insert: {
@@ -531,6 +732,7 @@ export type Database = {
           eventId: number
           groupId: string
           id?: number
+          ip?: string | null
           type: string
         }
         Update: {
@@ -538,6 +740,7 @@ export type Database = {
           eventId?: number
           groupId?: string
           id?: number
+          ip?: string | null
           type?: string
         }
         Relationships: [
@@ -550,30 +753,68 @@ export type Database = {
           },
         ]
       }
+      MeidaisaiChampionship142: {
+        Row: {
+          category: string
+          createdAt: string
+          eventId: number
+          groupId: string
+          id: number
+          ip: string | null
+          type: string | null
+        }
+        Insert: {
+          category: string
+          createdAt?: string
+          eventId: number
+          groupId: string
+          id?: number
+          ip?: string | null
+          type?: string | null
+        }
+        Update: {
+          category?: string
+          createdAt?: string
+          eventId?: number
+          groupId?: string
+          id?: number
+          ip?: string | null
+          type?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "MeidaisaiChampionship142_eventId_fkey"
+            columns: ["eventId"]
+            isOneToOne: false
+            referencedRelation: "MasterData142"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       OfficialCircles: {
         Row: {
           id: number
-          kanaName: string | null
+          kanaName: string
           name: string
         }
         Insert: {
           id?: number
-          kanaName?: string | null
+          kanaName: string
           name: string
         }
         Update: {
           id?: number
-          kanaName?: string | null
+          kanaName?: string
           name?: string
         }
         Relationships: []
       }
       ProjectManager: {
         Row: {
-          check: string | null
+          check: string
           createdAt: string
           email: string
-          frame: string
+          frame: Database["public"]["Enums"]["Frame"]
           groupId: string
           id: number
           kanaName: string
@@ -586,10 +827,10 @@ export type Database = {
           updatedAt: string
         }
         Insert: {
-          check?: string | null
+          check?: string
           createdAt?: string
           email: string
-          frame: string
+          frame: Database["public"]["Enums"]["Frame"]
           groupId?: string
           id?: number
           kanaName: string
@@ -602,10 +843,10 @@ export type Database = {
           updatedAt?: string
         }
         Update: {
-          check?: string | null
+          check?: string
           createdAt?: string
           email?: string
-          frame?: string
+          frame?: Database["public"]["Enums"]["Frame"]
           groupId?: string
           id?: number
           kanaName?: string
@@ -641,6 +882,147 @@ export type Database = {
           },
         ]
       }
+      RoomPlaceConfig: {
+        Row: {
+          deskTypeOptions: Json
+          foodOptionsMeiji: Json
+          foodOptionsOfficial: Json
+          foodOptionsOutside: Json
+          id: number
+          optionKey: string
+          presentationMode: string
+          presentationOptions: Json
+          seatLimit: number
+          showBlackCurtain: boolean
+          showDeskType: boolean
+          showRoomCount: boolean
+          showSeatCount: boolean
+          showSound: boolean
+          showWaitingRoom: boolean
+          subKey: string
+          updatedAt: string
+        }
+        Insert: {
+          deskTypeOptions?: Json
+          foodOptionsMeiji?: Json
+          foodOptionsOfficial?: Json
+          foodOptionsOutside?: Json
+          id?: number
+          optionKey: string
+          presentationMode?: string
+          presentationOptions?: Json
+          seatLimit?: number
+          showBlackCurtain?: boolean
+          showDeskType?: boolean
+          showRoomCount?: boolean
+          showSeatCount?: boolean
+          showSound?: boolean
+          showWaitingRoom?: boolean
+          subKey: string
+          updatedAt?: string
+        }
+        Update: {
+          deskTypeOptions?: Json
+          foodOptionsMeiji?: Json
+          foodOptionsOfficial?: Json
+          foodOptionsOutside?: Json
+          id?: number
+          optionKey?: string
+          presentationMode?: string
+          presentationOptions?: Json
+          seatLimit?: number
+          showBlackCurtain?: boolean
+          showDeskType?: boolean
+          showRoomCount?: boolean
+          showSeatCount?: boolean
+          showSound?: boolean
+          showWaitingRoom?: boolean
+          subKey?: string
+          updatedAt?: string
+        }
+        Relationships: []
+      }
+      Schedule: {
+        Row: {
+          createdAt: string
+          detail: string | null
+          end: string
+          frame: string | null
+          id: number
+          start: string
+          title: string
+          type: string | null
+          updatedAt: string
+          url: string | null
+        }
+        Insert: {
+          createdAt?: string
+          detail?: string | null
+          end: string
+          frame?: string | null
+          id?: number
+          start: string
+          title: string
+          type?: string | null
+          updatedAt?: string
+          url?: string | null
+        }
+        Update: {
+          createdAt?: string
+          detail?: string | null
+          end?: string
+          frame?: string | null
+          id?: number
+          start?: string
+          title?: string
+          type?: string | null
+          updatedAt?: string
+          url?: string | null
+        }
+        Relationships: []
+      }
+      SubmitFolder: {
+        Row: {
+          createdAt: string
+          customName: string | null
+          deadline: string | null
+          extension: string
+          frame: Database["public"]["Enums"]["Frame"]
+          id: number
+          noChangeName: boolean
+          showName: string
+          templateName: string | null
+          type: string | null
+          updatedAt: string
+        }
+        Insert: {
+          createdAt?: string
+          customName?: string | null
+          deadline?: string | null
+          extension: string
+          frame: Database["public"]["Enums"]["Frame"]
+          id?: number
+          noChangeName?: boolean
+          showName: string
+          templateName?: string | null
+          type?: string | null
+          updatedAt?: string
+        }
+        Update: {
+          createdAt?: string
+          customName?: string | null
+          deadline?: string | null
+          extension?: string
+          frame?: Database["public"]["Enums"]["Frame"]
+          id?: number
+          noChangeName?: boolean
+          showName?: string
+          templateName?: string | null
+          type?: string | null
+          updatedAt?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -652,14 +1034,6 @@ export type Database = {
       Check: "未確認" | "承認" | "却下"
       Frame: "room" | "stage" | "store"
       GroupType: "公認団体" | "学内団体" | "学外団体"
-      Winning:
-        | "当選"
-        | "落選"
-        | "未抽選"
-        | "2次抽選"
-        | "補欠"
-        | "テスト"
-        | "3次抽選"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -675,12 +1049,12 @@ export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
         DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -704,11 +1078,11 @@ export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -729,11 +1103,11 @@ export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -754,11 +1128,11 @@ export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
     | { schema: keyof DatabaseWithoutInternals },
-  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+  EnumName extends (DefaultSchemaEnumNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaEnumNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -771,11 +1145,11 @@ export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
     | { schema: keyof DatabaseWithoutInternals },
-  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+  CompositeTypeName extends (PublicCompositeTypeNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-    : never = never,
+    : never) = never,
 > = PublicCompositeTypeNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -790,15 +1164,6 @@ export const Constants = {
       Check: ["未確認", "承認", "却下"],
       Frame: ["room", "stage", "store"],
       GroupType: ["公認団体", "学内団体", "学外団体"],
-      Winning: [
-        "当選",
-        "落選",
-        "未抽選",
-        "2次抽選",
-        "補欠",
-        "テスト",
-        "3次抽選",
-      ],
     },
   },
 } as const

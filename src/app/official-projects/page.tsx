@@ -72,14 +72,14 @@ function Project({ title, description, image, alt, time, place, link }: ProjectP
                             <div>
                                 <h3 className="text-sm font-extrabold pl-7 pr-3">{title}</h3>
                                 <div className="flex items-center -mt-4">
-                                    <Image src="/images/official-projects/svg/title-accessory.svg" alt="" width={40} height={40} className="h-10 w-auto shrink-0 inline-block" />
+                                    <Image src="/images/official-projects/svg/title-accessory.svg" alt="" width={40} height={58} className="h-10 w-auto shrink-0 inline-block" />
                                     <div className="h-0.5 flex-1 bg-secondary" />
                                 </div>
                             </div>
                             <div>
                                 <h3 className="text-xs pl-7 pr-3">{description}</h3>
                                 <div className="flex items-center -mt-4">
-                                    <Image src="/images/official-projects/svg/description-accessory.svg" alt="" width={40} height={40} className="h-10 w-auto shrink-0 inline-block" />
+                                    <Image src="/images/official-projects/svg/description-accessory.svg" alt="" width={40} height={58} className="h-10 w-auto shrink-0 inline-block" />
                                     <div className="h-0.5 flex-1 bg-accent" />
                                 </div>
                             </div>
@@ -105,14 +105,14 @@ function Project({ title, description, image, alt, time, place, link }: ProjectP
                         <div>
                             <h3 className="text-sm font-extrabold pl-7 pr-3">{title}</h3>
                             <div className="flex items-center -mt-4">
-                                <Image src="/images/official-projects/svg/title-accessory.svg" alt="" width={40} height={40} className="h-10 w-auto shrink-0 inline-block" />
+                                <Image src="/images/official-projects/svg/title-accessory.svg" alt="" width={40} height={58} className="h-10 w-auto shrink-0 inline-block" />
                                 <div className="h-0.5 flex-1" />
                             </div>
                         </div>
                         <div>
                             <h3 className="text-xs pl-7 pr-3">{description}</h3>
                             <div className="flex items-center -mt-4">
-                                <Image src="/images/official-projects/svg/description-accessory.svg" alt="" width={40} height={40} className="h-10 w-auto shrink-0 inline-block" />
+                                <Image src="/images/official-projects/svg/description-accessory.svg" alt="" width={40} height={58} className="h-10 w-auto shrink-0 inline-block" />
                                 <div className="h-0.5 flex-1" />
                             </div>
                         </div>
