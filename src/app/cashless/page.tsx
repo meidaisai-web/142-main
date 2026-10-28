@@ -52,19 +52,24 @@ const page = () => {
             <SectionTitle>キャッシュレス対応模擬店一覧</SectionTitle>
             <Text>キャッシュレス対応の模擬店は23店！</Text>
             <AccentText className="mb-3">上記すべての決済方法に対応している6店 </AccentText>
-            <List mark="・">
+
+            <Text>詳細は今後公開予定です。</Text>
+            {/* <List mark="・">
                 <ListItem><TransitionLink href="/goods">明大祭グッズ</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/68">Next Film</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/258">ギターサークルストリート「street」</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/257">古都研究会</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/242">情報コミュニケーション学部山内勇ゼミナール</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/624">交響楽団</TransitionLink></ListItem>
-            </List>
+            </List> */}
+
             <List mark="※">
                 <ListItem><Emphasis>明大祭グッズのガチャガチャは、現金のみご利用いただけます。</Emphasis></ListItem>
             </List>
             <AccentText className="mb-3">交通系IC以外のキャッシュレスに対応している17店</AccentText>
-            <List mark="・">
+
+            <Text>詳細は今後公開予定です。</Text>
+            {/* <List mark="・">
                 <ListItem><TransitionLink href="/search/181">BREMEN</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/76">DamDam</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/256">MNB</TransitionLink></ListItem>
@@ -82,7 +87,7 @@ const page = () => {
                 <ListItem><TransitionLink href="/search/148">体育同好会連合会和道流空手道部</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/216">法学会</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/173">商学部大津健登ゼミナール</TransitionLink></ListItem>
-            </List>
+            </List> */}
             <SmallTitle className="mb-3">会場でキャッシュレス決済が利用可能か確認する方法</SmallTitle>
             <List numbered>
                 <ListItem>キャンパスマップに、各ブースのキャッシュレス決済対応状況を記載しています。</ListItem>

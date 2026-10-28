@@ -13,7 +13,7 @@ export default function Page() {
             <PageTitle>アクセス</PageTitle>
                 <Text>
                        第142回明大祭が開催される明治大学和泉キャンパスまでのアクセス方法です。
-                 <br />ご来場の際は公共交通機関のご利用をお願いいたします。
+                 <br />ご来場の際は徒歩または公共交通機関のご利用をお願いいたします。自動車・自転車でのご来校はご遠慮いただいております。
                 </Text>
                 <List mark="※">
                     <ListItem>
@@ -33,7 +33,7 @@ export default function Page() {
                     明大前駅までのアクセス
                 </SmallTitle>
                 <div className="mt-5 sm:w-3/4 lg:w-5/12 mx-auto rounded-lg overflow-hidden">
-                    <Image src="/images/map/access-map.jpg" alt="アクセスマップ" width={400} height={400} className="w-full" />
+                    <Image src="/images/map/access-map.jpg" alt="アクセスマップ" width={400} height={384} className="w-full" />
                 </div>
                 <SmallTitle className="mt-15">
                     明大前駅から和泉キャンパスまでのアクセス

@@ -2,12 +2,21 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Hamburger from "./Hamburger/Hamburger";
 
+// 雲を同じ方向に振り子のように揺らす(動きを減らす設定の人には停止)
+const MotionLink = motion.create(Link);
+const cloudSwing = {
+  animate: { rotate: [-2.5, 2.5, -2.5] },
+  transition: { duration: 3, ease: "easeInOut" as const, repeat: Infinity },
+};
+
 export default function Header() {
+  const reduceMotion = useReducedMotion();
+  const swing = reduceMotion ? {} : cloudSwing;
   const [isOpenHamburger, setOpenHamburger] = useState(false);
 
   const pathname = usePathname()
@@ -36,22 +45,88 @@ export default function Header() {
 
   const isHome = pathname === "/";
   return (
+    <>
     <header className={`w-full ${isHome ? "bg-accent-300" : "bg-header-gradient"} flex justify-between items-center px-5 fixed opacity-100 h-14 z-50 top-0`}
+
 >
+      {/* 下層ページでのみ */}
+      {!isHome && (
+        <div className="absolute right-25 flex items-center gap-7 pointer-events-none inset-y-0">
+          <Link href="/search" className="pointer-events-auto">
+            <Image
+              src="/images/header/search-white.svg"
+              alt=""
+              width={28}
+              height={28}
+              className="block"
+            />
+          </Link>
+
+          <Link href="/map" className="pointer-events-auto">
+            <Image
+              src="/images/header/map-white.svg"
+              alt=""
+              width={28}
+              height={28}
+              className="block"
+            />
+          </Link>
+        </div>
+      )}
+
       <Link href="/" className="absolute left-5">
         <Image
           src="/images/svg/logo-white.svg"
           alt="Logo"
           width={42}
-          height={42}
+          height={37}
+          className="w-10.5 h-auto"
         />
       </Link>
 
-      <HamburgerIcon isOpen={isOpenHamburger} setOpen={setOpenHamburger} />
-      <Hamburger isOpen={isOpenHamburger} />
-    </header>
+        <HamburgerIcon isOpen={isOpenHamburger} setOpen={setOpenHamburger} />
+        <Hamburger isOpen={isOpenHamburger} />
+      </header>
+
+      {isHome && (
+        <div className="fixed right-[40px] max-sm:right-[15px] top-6 max-sm:top-[50px] z-[49] flex items-start gap-0 max-sm:gap-1 max-sm:-mr-2 sm:right-[30px] sm:gap-4">
+          {/* 虫眼鏡 */}
+          <MotionLink
+            {...swing}
+            style={{ transformOrigin: "top center" }}
+            href="/search"
+            aria-label="企画を検索"
+            className="relative flex h-[80px] w-[89px] max-sm:-mr-4 items-start justify-center sm:h-[60px] sm:w-[88px] -top-1"
+          >
+            <Image
+              src="/images/header/search.svg"
+              alt="検索"
+              width={200}
+              height={160}
+              className="h-[75px] w-[89px] object-contain sm:h-[150px] sm:w-[180px] sm:-translate-y-1 z-0"
+            />
+          </MotionLink>
+
+          {/* マップ */}
+          <MotionLink
+            {...swing}
+            style={{ transformOrigin: "top center" }}
+            href="/map"
+            aria-label="マップ"
+            className="relative flex h-[85px] w-[97px] items-start justify-center sm:mt-4 sm:h-[60px] sm:w-[88px] -top-1"
+          >
+            <Image
+              src="/images/header/map.svg"
+              alt="マップ"
+              width={200}
+              height={160}
+              className="h-[81px] w-[97px] object-contain sm:h-[130px] sm:w-[160px]"
+            />
+          </MotionLink>
+        </div>
+      )}
+    </>
   );
-}
 
 
 
@@ -111,4 +186,7 @@ function HamburgerIcon({ isOpen, setOpen }: HamburgerIconProps) {
       </motion.svg>
     </motion.button>
   )
+}
+
+
 }

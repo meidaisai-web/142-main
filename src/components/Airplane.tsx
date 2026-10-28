@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 
@@ -355,9 +356,10 @@ export default function DottedLine() {
                         } as CSSProperties
                     }
                 >
-                    <img
+                    <Image
                         src="/images/svg/airplane-white.svg"
                         alt=""
+                        fill
                         className="block w-full h-auto object-contain"
                         style={{
                             transform: hasTurned
