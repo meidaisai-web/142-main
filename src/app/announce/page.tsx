@@ -5,6 +5,7 @@ import Text from "@/components/texts/Text"
 import { List, ListItem } from "@/components/texts/List"
 import SmallTitle from "@/components/texts/SmallTitle"
 import { ReactNode } from "react"
+import TransitionLink from "@/components/buttons/TransitionLink"
 
 const page = () => {
     const visitorsRules = [
@@ -18,21 +19,11 @@ const page = () => {
         },
         {
             title: "喫煙について",
-            content: <>明大祭では指定場所以外での喫煙を禁止しております。キャンパス周辺の路上や公園などにおける喫煙はご遠慮ください。<br />喫煙される方は体育館連絡ブリッジ横に設置されております喫煙所をご利用ください。詳しい場所は、キャンパスマップにてご確認いただけます。</>,
-            list: (
-                <List mark="※">
-                    <ListItem>キャンパスマップは今後公開予定です。</ListItem>
-                </List>
-            ),
+            content: <>明大祭では指定場所以外での喫煙を禁止しております。キャンパス周辺の路上や公園などにおける喫煙はご遠慮ください。<br />喫煙される方は体育館連絡ブリッジ横に設置されております喫煙所をご利用ください。詳しい場所は、<TransitionLink href="/map">キャンパスマップ</TransitionLink>にてご確認いただけます。</>,
         },
        {
            title: "立ち入り禁止エリアについて",
-           content: <>キャンパス内には安全面を考慮して立ち入りを禁止しているエリアがございます。このエリアへは立ち入らないようお願いいたします。詳しい場所は、キャンパスマップにてご確認いただけます。</>,
-            list: (
-                <List mark="※">
-                    <ListItem>キャンパスマップは今後公開予定です。</ListItem>
-                </List>
-            ),
+           content: <>キャンパス内には安全面を考慮して立ち入りを禁止しているエリアがございます。このエリアへは立ち入らないようお願いいたします。詳しい場所は、<TransitionLink href="/map">キャンパスマップ</TransitionLink>にてご確認いただけます。</>,
         },
         {
             title: "ペットについて",
@@ -56,21 +47,17 @@ const page = () => {
         }
     ]
 
-        const helpItems = [
-         {
+    const helpItems = [
+        {
             title: "ATMについて",
             content: <>大学構内にあるATMは以下のとおりです。<br />
                 <ATMTable />
             </>
-             },
-            {
+        },
+        {
             title: "休憩所",
-            content: "キャンパス内には休憩所を設けております。お食事などの際にご利用ください。詳しい場所は、キャンパスマップにてご確認いただけます。",
-            list: (
-                <List mark="※">
-                    <ListItem>キャンパスマップは今後公開予定です。</ListItem>
-                </List>
-            ), },
+            content: <>キャンパス内には休憩所を設けております。お食事などの際にご利用ください。詳しい場所は、<TransitionLink href="/map">キャンパスマップ</TransitionLink>にてご確認いただけます。</>,
+        },
         {
             title: "落とし物",
             content: "落とし物をした際は、和泉図書館前の総合インフォメーションまでお問い合わせください。また落とし物を見つけた際は、お近くの明大祭実行委員までお声掛けください。"
@@ -91,7 +78,7 @@ const page = () => {
             title: "悪質な宣伝・勧誘活動",
             content: "悪質な宣伝・勧誘を受けた際は、お近くの明大祭実行委員までお声掛けください。"
         }
-       ] 
+    ] 
 
     return (
         <div>
@@ -106,7 +93,6 @@ const page = () => {
                 {visitorsRules.map((rule, index) => (
                     <RuleItem key={index} title={rule.title}>
                         {rule.content}
-                        {rule.list}
                     </RuleItem>
                 ))}
                 <List mark="※">
@@ -121,7 +107,6 @@ const page = () => {
                         title={item.title}
                     >
                         {item.content}
-                        {item.list}
                     </RuleItem>
                 ))} 
                 <List mark="※">
@@ -158,11 +143,11 @@ function ATMTable() {
         "稼働時間"
     ]
     const rows = [
-        { bank: "三井住友銀行", location: "第一校舎1階", time: {date: "10月30日(金)", time: "9：00〜18：00"} },
-        { time: {date: "10月31日(土)", time: "9：00〜13：00"} },
+        { bank: "三井住友銀行", location: "第一校舎1階", time: {date: "10月30日(金)", time: "9:00〜18:00"} },
+        { time: {date: "10月31日(土)", time: "9:00〜13:00"} },
         { time: {date: "11月1日(日)", time: "休止"} },
-        { bank: "ゆうちょ銀行", location: "メディア棟1階", time: {date: "10月30日(金)", time: "9：00〜19：00"} },
-        { time: {date: "10月31日(土)", time: "9：00〜17：00"} },
+        { bank: "ゆうちょ銀行", location: "メディア棟1階", time: {date: "10月30日(金)", time: "9:00〜19:00"} },
+        { time: {date: "10月31日(土)", time: "9:00〜17:00"} },
         { time: {date: "11月1日(日)", time: "休止"} },
     ]
     return (
