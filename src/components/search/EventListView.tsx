@@ -227,7 +227,7 @@ function Icon({ name }: IconProps) {
     }
     if (!iconData.find(icon => icon.label === name)) {
         return (
-            <div className="w-full h-full rounded-md border-2 border-gray-300 fill-d9d9d9d" />
+            <div className="w-full h-full rounded-md border-2 border-black fill-d9d9d9d" />
         )
     }
     const iconId = iconData.find(icon => icon.label === name)?.id;
