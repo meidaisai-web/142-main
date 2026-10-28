@@ -12,7 +12,7 @@ export default function Page() {
         <div>
           <CloudPageContainer>
             <PageTitle>NO iMeiji, NO LIFE？</PageTitle>
-            <OnlyImage src="/images/noimage/noimage.png" alt="NO iMeiji, NO LIFE？" />
+            <OnlyImage src="/images/noimage/noimage.png" alt="NO iMeiji, NO LIFE？"  height={498} />
                 <SectionTitle>企画内容</SectionTitle>
                 <Text>和泉ラーニングスクエアのグループボックスでは明大生から募集した写真を展示しています！<br />
                       また、和泉ラーニングスクエアLS206教室では明大生から募集した写真を使用したオリジナルカードゲームで遊べるブースをご用意しています！</Text>

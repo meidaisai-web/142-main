@@ -70,38 +70,34 @@ export default function FilterView({
                         aria-hidden="true"
                         className="pointer-events-none absolute inset-x-0 -top-5 z-0 drop-shadow-[0_4px_1px_rgba(91,157,149,0.28)] transition-[filter] duration-200 group-hover:drop-shadow-[0_6px_3px_rgba(91,157,149,0.32)] group-active:drop-shadow-[0_1px_1px_rgba(91,157,149,0.24)] sm:-top-8 motion-reduce:transition-none"
                     >
-                        <Image
-                            src="/images/EventListView/Group614.svg"
-                            alt=""
-                            width={500}
-                            height={500}
-                            className="block h-auto w-[80%] mx-auto object-contain"
-                        />
-                        {/* 同じ画像をマスクに使い、雲の外へ色がはみ出さないようにする。 */}
-                        <span
-                            className={`absolute inset-0 bg-[#84c7c2]/15 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 group-active:opacity-100 motion-reduce:transition-none ${isOpen ? "opacity-100" : "opacity-0"}`}
-                            style={{
-                                maskImage: "url('/images/EventListView/Group614.svg')",
-                                maskMode: "alpha",
-                                maskSize: "100% 100%",
-                                maskRepeat: "no-repeat",
-                                WebkitMaskImage: "url('/images/EventListView/Group614.svg')",
-                                WebkitMaskSize: "100% 100%",
-                                WebkitMaskRepeat: "no-repeat",
-                            }}
-                        />
+                        <div className="relative mx-auto w-[80%] sm:w-[70%]">
+                            <Image
+                                src="/images/EventListView/Group614.svg"
+                                alt=""
+                                width={1100}
+                                height={423}
+                                className={`block h-auto w-full object-contain transition-opacity duration-200 group-hover:opacity-0 group-focus-visible:opacity-0 group-active:opacity-0 motion-reduce:transition-none ${isOpen ? "opacity-0" : "opacity-100"}`}
+                            />
+                            <Image
+                                src="/images/EventListView/Group614-hover.svg"
+                                alt=""
+                                width={1100}
+                                height={423}
+                                className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 group-active:opacity-100 motion-reduce:transition-none ${isOpen ? "opacity-100" : "opacity-0"}`}
+                            />
+                        </div>
                     </div>
                     <div className="font-bold relative z-10 h-full w-full">
                         <div className="h-full w-full flex justify-center items-center">
-                            <span className="w-20 sm:w-20  text-center text-md sm:text-xl mb-7 sm:mb-10">
+                            <span className="w-20 sm:w-20  text-center text-md sm:text-md mb-7 sm:mb-13">
                                 {isOpen ? "閉じる" : "詳細検索"}
                             </span>
                             <Image
                                 src="/images/EventListView/Arrowright.svg"
                                 alt=""
-                                width={40}
+                                width={32}
                                 height={40}
-                                className={`w-5 h-7 sm:w-8 sm:h-10 mb-5 sm:mb-5 transition-transform -translate-y-1 sm:-translate-y-2  ${isOpen ? "rotate-180" : "rotate-0"}`}
+                                className={`w-5 h-7 sm:w-5 sm:h-10 mb-5 sm:mb-8 transition-transform -translate-y-1 sm:-translate-y-2  ${isOpen ? "rotate-180" : "rotate-0"}`}
                             />
                         </div>
                     </div>
@@ -167,6 +163,21 @@ function DetailFilterView({
     selectedGenres,
     setSelectedGenres,
 }: DetailFilterViewProps) {
+    const genreGroups = [
+        {
+            department: "飲食部門",
+            options: ["模擬店", "喫茶"],
+        },
+        {
+            department: "パフォーマンス部門",
+            options: ["パフォーマンス", "音楽", "ダンス"],
+        },
+        {
+            department: "エンタメ部門",
+            options: ["ゲスト", "展示", "参加体験"],
+        },
+    ];
+
     const checkboxList = [
         {
             label: "企画区分",
@@ -199,7 +210,7 @@ function DetailFilterView({
             label: "ジャンル",
             selectedArray: selectedGenres,
             setSelectedArray: setSelectedGenres,
-            options: ["模擬店", "音楽", "ダンス", "喫茶", "ゲスト", "展示", "参加体験", "パフォーマンス"],
+            options: genreGroups.flatMap((group) => group.options),
         },
     ];
 
@@ -215,25 +226,58 @@ function DetailFilterView({
     };
 
     return (
-        <div className="flex flex-col gap-14 md:gap-6 mt-10 object-contain">
+        <div className="flex flex-col gap-14 md:gap-6 mt-10 object-contain text-[1rem]">
             {checkboxList.map((checkbox) => (
                 <div
                     key={checkbox.label}
                     role="group"
                     aria-label={checkbox.label}
-                    className="flex gap-8"
+                    className={checkbox.label === "ジャンル" ? "flex min-w-0 flex-col gap-3" : "flex gap-4 sm:gap-8"}
                 >
-                    <Label>{checkbox.label}</Label>
-                    <div className="flex flex-wrap gap-x-8 gap-y-3">
-                        {checkbox.options.map((option) => (
-                            <Checkbox
-                                key={option}
-                                label={option}
-                                checked={checkbox.selectedArray.includes(option)}
-                                setChecked={() => handleCheckboxChange(option, checkbox.setSelectedArray)}
-                            />
-                        ))}
-                    </div>
+                    {checkbox.label === "ジャンル" ? (
+                        <div className="self-start">
+                            <Label>{checkbox.label}</Label>
+                        </div>
+                    ) : (
+                        <Label>{checkbox.label}</Label>
+                    )}
+
+                    {checkbox.label === "ジャンル" ? (
+                        <div className="grid grid-cols-[max-content_minmax(0,1fr)] items-center gap-x-2 gap-y-8 sm:gap-x-8 sm:gap-y-4">
+                            {genreGroups.map((group) => (
+                                <div key={group.department} className="contents">
+                                    <span className="justify-self-end whitespace-nowrap border rounded-full border-[#c0b4d1] px-3 py-0.5 sm:justify-self-start">
+                                        {group.department}
+                                    </span>
+                                    <div
+                                        role="group"
+                                        aria-label={group.department}
+                                        className="flex min-w-0 flex-col gap-2 whitespace-nowrap sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3"
+                                    >
+                                        {group.options.map((option) => (
+                                            <Checkbox
+                                                key={option}
+                                                label={option}
+                                                checked={checkbox.selectedArray.includes(option)}
+                                                setChecked={() => handleCheckboxChange(option, checkbox.setSelectedArray)}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="flex flex-wrap gap-x-8 gap-y-3">
+                            {checkbox.options.map((option) => (
+                                <Checkbox
+                                    key={option}
+                                    label={option}
+                                    checked={checkbox.selectedArray.includes(option)}
+                                    setChecked={() => handleCheckboxChange(option, checkbox.setSelectedArray)}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             ))}
         </div>
@@ -266,7 +310,7 @@ function SortView({ sortType, setSortType }: SortViewProps) {
 
     return (
         <div className="flex justify-center">
-            <div className="flex flex-wrap mt-8 gap-4">
+            <div className="flex flex-wrap justify-center mt-8 gap-4">
                 {sortList.map((sort) => (
                     <button
                         key={sort.id}

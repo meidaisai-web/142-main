@@ -12,9 +12,7 @@ import Button from "../buttons/Button";
 import PageContainer from "../base/PageContainer";
 import FilterView from "./FilterView";
 import EventItems from "./EventListView";
-import MeichamSection from "./MeichamSection";
 import SectionTitle from "../texts/SectionTitle";
-import LeftButton from "../buttons/LeftButton";
 
 const STORAGE_KEY = "searchConditions";
 const STORAGE_TTL = 5 * 60 * 1000;
@@ -307,7 +305,7 @@ function SearchContent() {
             className="flex w-full flex-col items-center"
             style={{ paddingBottom: "calc(14.35vw + 2rem + env(safe-area-inset-bottom, 0px))" }}
         >
-            <PageContainer reserveFooterSpace={false}>
+            <PageContainer reserveFooterSpace={false} className="max-sm:px-4">
                 <FilterView
                     keyword={keyword} setKeyword={setKeyword}
                     selectedTypes={selectedTypes} setSelectedTypes={setSelectedTypes}
@@ -317,6 +315,8 @@ function SearchContent() {
                     sortType={sortType} setSortType={setSortType}
                     onEnter={onTapSearchButton}
                 />
+            </PageContainer>
+            <PageContainer reserveFooterSpace={false}>
                 <div className="flex justify-center">
                     <button
                         type="button"
