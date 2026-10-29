@@ -7,6 +7,7 @@ import ImageText from "@/components/texts/ImageText"
 import Text from "@/components/texts/Text"
 import MapImage from "@/components/MapImage"
 import ContactView from "@/components/texts/ContactView"
+import OnlyImage from "@/components/OnlyImage"
 
 export default function Page() {
     return (
