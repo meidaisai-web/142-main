@@ -22,7 +22,7 @@ export default function CarouselCard({ title, src, href, imageClassName = 'objec
           </div>
           {/* タイトルの箱 */}
           <div className="bg-accent-300/30 rounded-b-2xl py-4">
-            <Text center noTopPadding className="text-gray-600 whitespace-pre-line">
+            <Text center noTopPadding className="text-sm md:text-base text-gray-600 whitespace-pre-line">
               {title}
             </Text>
           </div>

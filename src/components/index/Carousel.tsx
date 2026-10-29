@@ -6,11 +6,11 @@ import ShadowText from '@/components/texts/ShadowText';
 import CarouselCard from '@/components/index/CarouselCard';
 
 const slides = [
-  { title: '第142回明大祭テーマ', src: '/images/carousel/catch.svg', href: '/theme', imageClassName: 'object-contain px-4' },
-  { title: '明大祭とは', src: '/images/carousel/logo.svg', href: '/about' },
   { title: '実行委員会企画まとめ', src: '/images/carousel/boad.svg', href: '/official-projects' , imageClassName: 'object-contain px-3' },
-  { title: '明大祭・募金企画', src: '/images/donation/donation.png', href: '/donation', imageClassName: 'object-cover' },
+  { title: '混雑状況', src: '/images/carousel/congestion_map.png', href: '/congestion' , imageClassName: 'object-contain px-3' },
+  { title: 'Fight on the Stage', src: '/images/fight/fight-logo.webp', href: '/fight' },
   { title: 'Opening', src: '/images/carousel/opening-logo.png', href: '/opening' },
+  { title: 'Ending', src: '/images/ending/endinglogo.svg', href: '/ending', imageClassName: 'object-contain' },
   { title: '受験生コレクション\n～わくわく明大生活～', src: '/images/carousel/wakuwaku-logo.png', href: '/wakuwaku' },
   { title: '明大祭公式グッズ', src: '/images/carousel/goods-logo.png', href: '/goods' },
 ]
