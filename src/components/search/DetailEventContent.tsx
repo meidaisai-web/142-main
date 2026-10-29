@@ -99,10 +99,30 @@ function WaitTimeView({ masterDataId }: WaitTimeViewProps) {
             const time = await getLatestWaitTime(masterDataId);
             setWaitTime(time);
         };
-        fetchWaitTime();
-        // 待ち時間は随時更新されるので30秒ごとに取り直す
-        const timer = setInterval(fetchWaitTime, 30 * 1000);
-        return () => clearInterval(timer);
+        // 待ち時間は随時更新されるので30秒ごとに取り直す。
+        // ただし、ほかのタブやアプリを見ている間は止める（開きっぱなしの人の分だけ Supabase への通信が続くのを防ぐ）
+        let timer: ReturnType<typeof setInterval> | null = null;
+        const start = () => {
+            if (timer !== null) return;
+            fetchWaitTime();
+            timer = setInterval(fetchWaitTime, 30 * 1000);
+        };
+        const stop = () => {
+            if (timer === null) return;
+            clearInterval(timer);
+            timer = null;
+        };
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === "visible") start();
+            else stop();
+        };
+
+        handleVisibilityChange();
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        return () => {
+            stop();
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
     }, [masterDataId]);
 
     return (

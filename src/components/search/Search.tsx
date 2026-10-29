@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import useSWR from "swr";
 import useSWRInfinite from "swr/infinite";
 import Image from "next/image";
-import type { MasterData } from "@/utils/models/MasterData";
+import type { MasterDataListItem } from "@/utils/models/MasterData";
 import type { SortType } from "@/utils/models/SortType";
 import { getAllMasterDatas, getAllMasterDatasForDateSort } from "@/utils/supabase/masterDataAction";
 import Button from "../buttons/Button";
@@ -17,6 +17,13 @@ import SectionTitle from "../texts/SectionTitle";
 const STORAGE_KEY = "searchConditions";
 const STORAGE_TTL = 5 * 60 * 1000;
 const PAGE_SIZE = 6;
+// 本祭期間中は企画データがほぼ変わらないので、タブやアプリに戻ったとき・回線が戻ったときの取り直しをしない
+// （スマホでは画面を切り替えるたびに読み込み済みの全ページを取り直してしまい、Supabase への通信が増えるため）
+const SWR_OPTIONS = {
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    revalidateIfStale: false,
+} as const;
 const SORT_COLUMNS = ["eventName", "groupName", "eventDate", "location", "free"];
 
 interface SearchConditions {
@@ -112,7 +119,7 @@ function makePageQuery(conditions: SearchConditions, pageIndex: number): PageQue
     };
 }
 
-async function fetchPage(key: FetchQuery): Promise<MasterData[]> {
+async function fetchPage(key: FetchQuery): Promise<MasterDataListItem[]> {
     const result = key.scope === "all-event-dates"
         ? await getAllMasterDatasForDateSort(key)
         : await getAllMasterDatas(key);
@@ -199,22 +206,23 @@ function SearchContent() {
     const {
         data: dateData, error: dateError, isLoading: dateLoading,
         isValidating: dateValidating, mutate: retryDates,
-    } = useSWR<MasterData[], Error>(
+    } = useSWR<MasterDataListItem[], Error>(
         ready && isDateSort ? { ...makePageQuery(conditions, 0), scope: "all-event-dates" } : null,
         fetchPage,
-        { keepPreviousData: false },
+        { ...SWR_OPTIONS, keepPreviousData: false },
     );
     const {
         data: pages, error: pagesError, isLoading: pagesLoading,
         isValidating: pagesValidating, mutate: retryPages, setSize,
-    } = useSWRInfinite<MasterData[], Error>(
-        (index: number, previousPage: MasterData[] | null) => {
+    } = useSWRInfinite<MasterDataListItem[], Error>(
+        (index: number, previousPage: MasterDataListItem[] | null) => {
             if (!ready || isDateSort || index >= batchCount) return null;
-            if (previousPage && previousPage.length < PAGE_SIZE) return null;
+            // 各ページは PAGE_SIZE+1 件まで返る。PAGE_SIZE 件以下なら、そのページで最後
+            if (previousPage && previousPage.length <= PAGE_SIZE) return null;
             return makePageQuery(conditions, index);
         },
         fetchPage,
-        { initialSize: 1, persistSize: false, revalidateFirstPage: false, keepPreviousData: false },
+        { ...SWR_OPTIONS, initialSize: 1, persistSize: false, revalidateFirstPage: false, keepPreviousData: false },
     );
 
     useEffect(() => {
@@ -232,21 +240,15 @@ function SearchContent() {
     const isValidating = isDateSort ? dateValidating : pagesValidating;
     const lastPage = pages?.[Math.min(pages.length, batchCount) - 1];
     const isLoadingMore = !isDateSort && !error && pages !== undefined
-        && pages.length < batchCount && lastPage?.length === PAGE_SIZE;
+        && pages.length < batchCount && (lastPage?.length ?? 0) > PAGE_SIZE;
     const retryResults = () => isDateSort ? retryDates() : retryPages();
 
-    // 最終バッチが6件ぴったりでも、次が空なら追加ボタンを表示しない。
-    const canCheckNext = ready && !isDateSort && !error && !isLoadingMore
-        && pages !== undefined && pages.length >= batchCount && lastPage?.length === PAGE_SIZE;
-    const { data: nextData, error: nextError, mutate: retryNextPage } = useSWR<MasterData[], Error>(
-        canCheckNext ? makePageQuery(conditions, batchCount) : null,
-        fetchPage,
-        { keepPreviousData: false },
-    );
+    // 最終ページを PAGE_SIZE+1 件まで取っているので、PAGE_SIZE 件より多ければ次のページがある
+    // （次のページの有無を確かめるための別の通信はしない）
     const hasNextPage = isDateSort
         ? Boolean(dateData && dateData.length > batchCount * PAGE_SIZE)
-        : canCheckNext && Boolean(nextData?.length);
-    const checkingNextPage = canCheckNext && nextData === undefined && !nextError;
+        : ready && !error && !isLoadingMore && pages !== undefined
+            && pages.length >= batchCount && (lastPage?.length ?? 0) > PAGE_SIZE;
 
     function scrollToResults() {
         const element = eventItemsRef.current;
@@ -351,16 +353,10 @@ function SearchContent() {
                             <Button className="mt-4" onClick={() => void retryResults().catch(() => {})}>再読み込み</Button>
                         </div>
                     )}
-                    {!error && (hasNextPage || checkingNextPage || isLoadingMore) && (
+                    {!error && (hasNextPage || isLoadingMore) && (
                         <Button onClick={loadMore} disabled={!hasNextPage || isLoading || isLoadingMore || isValidating} down>
-                            {isLoadingMore ? "読み込み中..." : checkingNextPage ? "続きの企画を確認中..." : "もっと読み込む"}
+                            {isLoadingMore ? "読み込み中..." : "もっと読み込む"}
                         </Button>
-                    )}
-                    {canCheckNext && nextError && (
-                        <div role="alert" className="text-center">
-                            <p className="mb-2 text-sm">続きの企画を確認できませんでした。</p>
-                            <Button onClick={() => void retryNextPage().catch(() => {})}>再試行</Button>
-                        </div>
                     )}
                 </div>
             </section>
