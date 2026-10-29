@@ -72,7 +72,7 @@ export default function Page() {
   return (
     <CloudPageContainer>
         <PageTitle>よくある質問</PageTitle>
-        <Text>お困りの際は、お近くの紫紺の法被を着た明大祭実行委員会にお声かけください。</Text>
+        <Text>お困りの際は、お近くの紫紺の法被を着た明大祭実行委員にお声かけください。</Text>
         <Trump questions={questions} />
     </CloudPageContainer>
   );

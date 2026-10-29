@@ -47,7 +47,7 @@ export default function about() {
             </div>
             <SmallTitle>茈耀（しよう）</SmallTitle>
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
-                <Image src="/images/theme/accent.svg" width={500} height={500} alt="アクセントカラー 此耀" className="w-32 h-auto shrink-0" />
+                <Image src="/images/theme/accent.svg" width={500} height={500} alt="アクセントカラー 茈耀" className="w-32 h-auto shrink-0" />
                 <Text>アクセントカラーは茈耀（しよう）です。<br />心に灯る、温かく優しい希望や道標、仲間との絆、明大生が最高の舞台で輝く瞬間を表現しています。</Text>
             </div>
 

@@ -43,7 +43,7 @@ export default function Page() {
             <SectionTitle>コンテンツ</SectionTitle>
             <List mark="・">
                 <ListItem>オープニング動画</ListItem>
-                <ListItem>オープニングアウト</ListItem>
+                <ListItem>オープニングアクト</ListItem>
                 <ListItem>Meidaisai Championship表彰式</ListItem>
                 <ListItem>団体パフォーマンス</ListItem>
                 <ListItem>スライドショー</ListItem>
@@ -60,8 +60,8 @@ export default function Page() {
                 <ListItem>中野ダンスサークルSIGN</ListItem>
                 <ListItem>男子チアリーディングチームANCHORS</ListItem>
             </List>
-             <SectionTitle>Ending紹介動画</SectionTitle>
-            <Movie src="https://movie.meidaisai.jp/ending.mp4"/>
+            <SectionTitle>Ending紹介動画</SectionTitle>
+            <Movie src="https://movie.meidaisai.jp/ending.mp4" />
             <ContactView department="演出局結祭部門" mail="142nd-yusai@meidaisai.jp" />
         </StarPageContainer>
     )
