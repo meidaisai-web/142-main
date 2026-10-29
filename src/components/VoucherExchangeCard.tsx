@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { detectIncognito } from "detectincognitojs";
-import TransitionLink from "./buttons/TransitionLink";
 import VoucherCompleteOverlay, { VoucherNotice } from "./VoucherCompleteOverlay";
 import ModalPortal from "./ModalPortal";
-import { hasVotedAllCategories, isVoucherAvailableToday } from "@/utils/managers/meichamManager";
+import Link from "next/link";
+import TransitionLink from "./buttons/TransitionLink";
+import { getSearchUrlOfCategory, getUnvotedCategories, hasVotedAllCategories, isVoucherAvailableToday } from "@/utils/managers/meichamManager";
 import { exchange, isAlreadyExchange, isInTime } from "@/utils/managers/voucherManager";
 
 // 抽選券引換カードの表示状態
@@ -69,9 +70,9 @@ export default function VoucherExchangeCard() {
                     type="button"
                     onClick={isAvailable ? () => setHiddenAlert(false) : undefined}
                     disabled={!isAvailable}
-                    className={`mt-6 rounded-full border-2 px-10 py-1.5 min-w-48 text-sm sm:text-base transition-colors duration-100 ${isAvailable ? 'border-accent-700 text-accent-900 hover:bg-accent-50 cursor-pointer' : 'border-accent-100 text-accent-300 cursor-not-allowed'}`}
+                    className={`mt-6 rounded-full px-10 py-2.5 min-w-52 font-bold text-base transition-colors duration-100 ${isAvailable ? 'bg-secondary text-background hover:bg-primary-text cursor-pointer shadow' : 'bg-accent-50 text-accent-300 cursor-not-allowed'}`}
                 >
-                    {status === 'exchanged' ? '引き換え済み' : isAvailable ? '引き換える' : '引き換え不可'}
+                    {status === 'exchanged' ? '引き換え済み' : isAvailable ? '引き換える ＞' : '引き換え不可'}
                 </button>
 
                 {status === 'outOfPeriod' && (
@@ -87,11 +88,25 @@ export default function VoucherExchangeCard() {
                     <p className="text-sm text-center mt-5">本日の抽選券への引き換えは終了いたしました。</p>
                 )}
                 {status === 'notReady' && (
-                    <p className="text-sm text-center mt-5">
-                        投票が完了していない部門があります。<br />
-                        詳しくは<TransitionLink href="/bigLottery">こちら</TransitionLink>
-                    </p>
+                    <>
+                        <p className="text-sm text-center mt-5">投票が完了していない部門があります。</p>
+                        {/* 判定後（ブラウザ側）にだけ描画されるので、ここで投票記録を読んでよい */}
+                        <div className="flex flex-col gap-3 mt-4 w-full max-w-60">
+                            {getUnvotedCategories().map(unvoted => (
+                                <Link
+                                    key={unvoted}
+                                    href={getSearchUrlOfCategory(unvoted)}
+                                    className="flex justify-between items-center rounded-full border-2 border-primary text-primary-900 px-6 py-1.5 text-sm sm:text-base hover:bg-primary-100 transition-colors duration-100"
+                                >
+                                    <span className="flex-1 text-center">{unvoted}部門</span>
+                                    <span>＞</span>
+                                </Link>
+                            ))}
+                        </div>
+                    </>
                 )}
+                <div className="mt-5">明大祭大抽選会については<TransitionLink href='/bigLottery'>こちら</TransitionLink></div>
+
             </div>
 
             {!hiddenAlert &&
@@ -125,30 +140,30 @@ function ExchangeConfirmModal({ onClose, onConfirm }: ExchangeConfirmModalProps)
 
     return (
         <ModalPortal>
-        <div className="fixed inset-0 z-50 flex justify-center items-center px-6 bg-text/50" onClick={onClose}>
-            <div
-                className="relative w-full max-w-md max-h-[90dvh] overflow-y-auto bg-background border-[6px] border-accent-700 rounded-3xl text-text px-6 sm:px-10 pt-12 pb-8 shadow-lg flex flex-col items-center"
-                onClick={(e) => e.stopPropagation()}
-            >
-                <button onClick={onClose} className="absolute top-3 right-4 cursor-pointer p-1" aria-label="閉じる">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                        <path d="M5 5l14 14M19 5L5 19" />
-                    </svg>
-                </button>
-                <h3 className="text-lg sm:text-xl font-medium border-b border-text pb-1 px-2">本当に引き換えますか？</h3>
-                <p className="text-red-600 font-bold text-xs sm:text-sm text-center mt-5 leading-relaxed">
-                    受付スタッフの前でのみ引き換えてください。<br />
-                    引き換えは1日1回です。
-                </p>
-                <button
-                    type="button"
-                    onClick={onConfirm}
-                    className="mt-8 rounded-full px-8 py-2 font-bold text-background bg-secondary hover:bg-primary-text cursor-pointer transition-colors duration-100"
+            <div className="fixed inset-0 z-50 flex justify-center items-center px-6 bg-text/50" onClick={onClose}>
+                <div
+                    className="relative w-full max-w-md max-h-[90dvh] overflow-y-auto bg-background border-[6px] border-accent-700 rounded-3xl text-text px-6 sm:px-10 pt-12 pb-8 shadow-lg flex flex-col items-center"
+                    onClick={(e) => e.stopPropagation()}
                 >
-                    引き換える ＞
-                </button>
+                    <button onClick={onClose} className="absolute top-3 right-4 cursor-pointer p-1" aria-label="閉じる">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                            <path d="M5 5l14 14M19 5L5 19" />
+                        </svg>
+                    </button>
+                    <h3 className="text-lg sm:text-xl font-medium border-b border-text pb-1 px-2">本当に引き換えますか？</h3>
+                    <p className="text-red-600 font-bold text-xs sm:text-sm text-center mt-5 leading-relaxed">
+                        受付スタッフの前でのみ引き換えてください。<br />
+                        引き換えは1日1回です。
+                    </p>
+                    <button
+                        type="button"
+                        onClick={onConfirm}
+                        className="mt-8 rounded-full px-8 py-2 font-bold text-background bg-secondary hover:bg-primary-text cursor-pointer transition-colors duration-100"
+                    >
+                        引き換える ＞
+                    </button>
+                </div>
             </div>
-        </div>
         </ModalPortal>
     )
 }

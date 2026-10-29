@@ -101,6 +101,13 @@ export function getGenresOfCategory(category: MeichamCategory): string[] {
         .map(([genre]) => genre);
 }
 
+// 部門に含まれるジャンルで絞り込んだ企画検索のURL（企画検索は ?genre=A&genre=B の形で受け取る）
+export function getSearchUrlOfCategory(category: MeichamCategory): string {
+    const params = new URLSearchParams();
+    getGenresOfCategory(category).forEach((genre) => params.append("genre", genre));
+    return `/search?${params.toString()}`;
+}
+
 // 抽選券の配布を終了した日（当日はここに日付を足してデプロイする）
 // 例: ['2026-10-30']
 const VOUCHER_CLOSED_DATES: string[] = [];
