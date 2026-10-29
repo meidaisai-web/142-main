@@ -1,4 +1,3 @@
-import { defaultEvent } from "../datas/defaultData";
 import type { MasterData } from "../models/MasterData";
 import type { SortType } from "../models/SortType";
 import { createClient } from "./client";
@@ -42,7 +41,10 @@ export async function getAllMasterDatas(key: MasterDataQuery): Promise<MasterDat
 }
 
 function createFilteredQuery(key: MasterDataQuery) {
-    let query = createClient().from(MASTER_DATA_TABLE).select("*");
+    // 企画名・実施日が未入力の行は、情報が埋まるまで一覧に出さない。
+    let query = createClient().from(MASTER_DATA_TABLE).select("*")
+        .not("eventName", "is", null).neq("eventName", "")
+        .not("eventDate", "is", null).neq("eventDate", "");
 
     // スペース区切りの各キーワードはAND、各カラムへの一致はOR。
     if (key.keyword && key.keyword.trim()) {
@@ -77,6 +79,10 @@ function createFilteredQuery(key: MasterDataQuery) {
                 const excludedPlaces = ["メインステージ", "パフォーマンスエリア", "エントランスエリア", "第一校舎", "メディア棟", "和泉ラーニングスクエア"];
                 const excludeConditions = excludedPlaces.map((value) => `location.not.ilike.%${value}%`);
                 placeConditions.push(`and(${excludeConditions.join(",")})`);
+            } else if (place === "屋内ステージ") {
+                // 屋内ステージの企画は、場所が「和泉ラーニングスクエア LS101教室」と登録されている。
+                // LS101教室のゲスト誘致企画(企画区分「教室」)は屋内ステージに含めない。
+                placeConditions.push("and(location.ilike.%LS101%,type.eq.総合ステージ)");
             } else {
                 placeConditions.push(`location.ilike.%${place}%`);
             }
@@ -94,10 +100,6 @@ function createFilteredQuery(key: MasterDataQuery) {
 // 実施日が文字列でも、該当する企画全体を日付順にしてからページ分割する。
 // Searchではこの全件結果をSWRで共有し、ページを進めるたびの再取得を避ける。
 export async function getAllMasterDatasForDateSort(key: MasterDataQuery): Promise<MasterData[] | null> {
-    if (key.keyword === "Web部門のみんなへ") {
-        return sortByEventDate(returnDefaultData(), key.sortType.ascending);
-    }
-
     const items: MasterData[] = [];
     let offset = 0;
     while (true) {
@@ -163,9 +165,6 @@ function sortByEventDate(items: MasterData[], ascending: boolean): MasterData[] 
 }
 
 export async function getUniqueMasterData(id: string): Promise<MasterData | null> {
-    if (Number(id) >= 39000) {
-        return returnDefaultData().find((event) => event.id === Number(id)) || null;
-    }
     const supabase = createClient();
     const { data, error } = await supabase.from(MASTER_DATA_TABLE).select("*").eq("id", id).single();
     if (error) {
