@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import ShadowText from "@/components/texts/ShadowText";
+import Frame from "@/components/index/Frame";
 
 const photos = [
     "/images/photogallery/photo-1.jpg",
@@ -31,18 +32,6 @@ const photos = [
     "/images/photogallery/photo-23.jpg",
 ];
 
-// 5枚の写真に重複しない番号を割り当てる
-function getUniqueIndexes(mainIndex: number) {
-    const indexes = [mainIndex];
-
-    for (let i = 1; i < photos.length && indexes.length < 5; i++) {
-        const index = (mainIndex + i) % photos.length;
-        indexes.push(index);
-    }
-
-    return indexes;
-}
-
 type PhotoFrameProps = {
     src: string;
     alt: string;
@@ -51,13 +40,13 @@ type PhotoFrameProps = {
 
 function PhotoFrame({ src, alt, className }: PhotoFrameProps) {
     return (
-        <div className={className}>
-            <div className="relative h-full w-full md:p-1">
-                <div className="relative h-full w-full overflow-hidden">
+        <div className={`rounded-xl drop-shadow-lg ${className}`}>
+            <div className="relative h-full w-full rounded-xl md:p-1">
+                <div className="relative h-full w-full overflow-hidden rounded-xl">
                     <AnimatePresence mode="sync">
                         <motion.div
                             key={src}
-                            className="absolute inset-0"
+                            className="absolute inset-0 rounded-xl"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
@@ -68,7 +57,7 @@ function PhotoFrame({ src, alt, className }: PhotoFrameProps) {
                                 alt={alt}
                                 fill
                                 sizes="(max-width: 767px) 100vw, 450px"
-                                className="object-cover"
+                                className="rounded-xl object-cover"
                             />
                         </motion.div>
                     </AnimatePresence>
@@ -79,14 +68,7 @@ function PhotoFrame({ src, alt, className }: PhotoFrameProps) {
 }
 
 export default function PhotoGallery() {
-    // 写真ごとに独立したインデックスを用意
-    const [mainIndex, setMainIndex] = useState(0);
-    const [topLeftIndex, setTopLeftIndex] = useState(1);
-    const [topRightIndex, setTopRightIndex] = useState(2);
-    const [bottomLeftIndex, setBottomLeftIndex] = useState(3);
-    const [bottomRightIndex, setBottomRightIndex] = useState(4);
-
-    const [photoIndexes, setPhotoIndexes] = useState([0, 1, 2, 3, 4]);
+    const [photoIndexes, setPhotoIndexes] = useState([0, 1, 2, 3, 4, 5, 6]);
 
     useEffect(() => {
         const timers = [
@@ -97,37 +79,27 @@ export default function PhotoGallery() {
                     const candidates = photos
                         .map((_, i) => i)
                         .filter((i) => !used.has(i) && i !== prev[0]);
-
                     if (candidates.length > 0) {
-                        next[0] = candidates[
-                            Math.floor(Math.random() * candidates.length)
-                        ];
+                        next[0] = candidates[Math.floor(Math.random() * candidates.length)];
                     }
-
                     return next;
                 });
-            }, 4000),
+            }, 8000),
 
-            ...[1, 2, 3, 4].map((position) =>
+            ...[1, 2, 3, 4, 5, 6].map((position) =>
                 setInterval(() => {
                     setPhotoIndexes((prev) => {
                         const next = [...prev];
-                        const used = new Set(
-                            next.filter((_, i) => i !== position)
-                        );
+                        const used = new Set(next.filter((_, i) => i !== position));
                         const candidates = photos
                             .map((_, i) => i)
                             .filter((i) => !used.has(i));
-
                         if (candidates.length > 0) {
-                            next[position] = candidates[
-                                Math.floor(Math.random() * candidates.length)
-                            ];
+                            next[position] = candidates[Math.floor(Math.random() * candidates.length)];
                         }
-
                         return next;
                     });
-                }, [5300, 6700, 5900, 7300][position - 1])
+                }, [10000, 13000, 11000, 14000, 12000, 15000][position - 1])
             ),
         ];
 
@@ -135,42 +107,51 @@ export default function PhotoGallery() {
     }, []);
 
     return (
-        <>
+        <section className="w-full overflow-hidden py-8 md:py-12">
             <ShadowText>フォトギャラリー</ShadowText>
-            <section className="w-full overflow-hidden py-8 md:py-12">
-                <div className="relative mx-auto hidden aspect-[1.4/1] w-[80%] max-w-[900px] md:block pt-5">
-                    <div className="absolute inset-[-7%] z-0 rounded-2xl border-2 border-white/100" />
+            <Frame className="!max-w-5xl">
+                <div className="relative mx-auto hidden aspect-[1.4/1] w-full max-w-[900px] md:block pt-5">
                     <PhotoFrame
                         src={photos[photoIndexes[1]]}
                         alt="明大祭の写真"
-                        className="absolute left-[-1%] top-[-1%] z-0 aspect-[4/5] w-[28%] rotate-[-12deg]"
+                        className="absolute left-[-2%] top-[0%] z-0 aspect-[4/5] w-[24%] rotate-[-13deg] bg-white/80 p-1"
                     />
                     <PhotoFrame
                         src={photos[photoIndexes[2]]}
                         alt="明大祭の写真"
-                        className="absolute right-[-1%] top-[-1%] z-0 aspect-[4/5] w-[28%] rotate-[10deg]"
+                        className="absolute left-[6%] top-[25%] z-0 aspect-[4/5] w-[26%] rotate-[9deg] bg-white/80 p-1"
                     />
                     <PhotoFrame
                         src={photos[photoIndexes[3]]}
                         alt="明大祭の写真"
-                        className="absolute bottom-[-1%] left-[-1%] z-0 aspect-[4/5] w-[28%] rotate-[8deg]"
+                        className="absolute left-[-3%] bottom-[2%] z-0 aspect-[4/5] w-[23%] rotate-[-6deg] bg-white/80 p-1"
                     />
                     <PhotoFrame
                         src={photos[photoIndexes[4]]}
                         alt="明大祭の写真"
-                        className="absolute bottom-[-1%] right-[-1%] z-0 aspect-[4/5] w-[28%] rotate-[-9deg]"
+                        className="absolute right-[-1%] top-[5%] z-0 aspect-[4/5] w-[22%] rotate-[12deg] bg-white/80 p-1"
+                    />
+                    <PhotoFrame
+                        src={photos[photoIndexes[5]]}
+                        alt="明大祭の写真"
+                        className="absolute right-[6%] top-[28%] z-0 aspect-[4/5] w-[25%] rotate-[-8deg] bg-white/80 p-1"
+                    />
+                    <PhotoFrame
+                        src={photos[photoIndexes[6]]}
+                        alt="明大祭の写真"
+                        className="absolute right-[-2%] bottom-[2%] z-0 aspect-[3/4] w-[22%] rotate-[5deg] bg-white/80 p-1"
                     />
                     <PhotoFrame
                         src={photos[photoIndexes[0]]}
                         alt="明大祭のメイン写真"
-                        className="absolute left-1/2 top-1/2 z-10 aspect-[4/5] w-[45%] max-w-[400px] -translate-x-1/2 -translate-y-1/2 rotate-[-2deg]"
+                        className="absolute left-1/2 top-1/2 z-10 aspect-[4/5] w-[40%] max-w-[400px] -translate-x-1/2 -translate-y-1/2 rotate-[-2deg] bg-white/80 p-1"
                     />
                 </div>
-                <div className="mx-auto w-[85%] max-w-[360px] md:hidden">
+                <div className="mx-auto w-[85%] max-w-[360px] md:hidden rounded-xl">
                     <PhotoFrame
                         src={photos[photoIndexes[0]]}
                         alt="明大祭のメイン写真"
-                        className="aspect-[4/5] w-full rotate-[-2deg]"
+                        className="aspect-[4/5] w-full rounded-xl"
                     />
                 </div>
                 <div className="mt-10 w-full overflow-hidden md:hidden">
@@ -186,7 +167,7 @@ export default function PhotoGallery() {
                         {[...photos, ...photos].map((src, index) => (
                             <div
                                 key={index}
-                                className="relative h-36 w-48 shrink-0 p-2 shadow-md"
+                                className="relative h-36 w-48 shrink-0 p-2 rounded-xl"
                             >
                                 <div className="relative h-full w-full overflow-hidden">
                                     <Image
@@ -194,14 +175,14 @@ export default function PhotoGallery() {
                                         alt={`明大祭の写真 ${index + 1}`}
                                         fill
                                         sizes="144px"
-                                        className="object-cover"
+                                        className="object-cover rounded-xl"
                                     />
                                 </div>
                             </div>
                         ))}
                     </motion.div>
                 </div>
-            </section>
-        </>
+            </Frame>
+        </section>
     );
 }
