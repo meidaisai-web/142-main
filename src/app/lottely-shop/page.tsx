@@ -7,6 +7,7 @@ import SectionTitle from "@/components/texts/SectionTitle"
 import { List, ListItem } from "@/components/texts/List"
 import ContactView from "@/components/texts/ContactView"
 import Image from "next/image"
+import MapImage from "@/components/MapImage"
 
 const storeList = [
     "あほうどり",
@@ -112,7 +113,7 @@ export default function Page() {
 
                 <SmallTitle>抽選実施場所</SmallTitle>
                 <Text>明治大学和泉キャンパスメディア棟入口付近</Text>
-                <Image src="/images/lottely/メディア棟前.svg" width={500} height={283} alt="抽選実施場所" />
+                <MapImage src="/images/lottely/メディア棟前.svg"alt="抽選実施場所" />
                 <SectionTitle>注意事項</SectionTitle>
 
                 <List mark="・">

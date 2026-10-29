@@ -8,6 +8,7 @@ import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import Text from "@/components/texts/Text";
 import Image from "next/image";
+import MapImage from "@/components/MapImage";
 
 const schedule = [
     {
@@ -63,7 +64,7 @@ export default function Page() {
             <SmallTitle>日時</SmallTitle>
             <Text>10月30日(金).31日(土).11月1日(日) 11:00〜16:00</Text>
             <SmallTitle>実施場所</SmallTitle>
-            <Image　src="/images/tour/和泉図書館前企画受付.svg" alt="和泉図書館前" width={600} height={400} />
+            <MapImage　src="/images/tour/和泉図書館前企画受付.svg" alt="和泉図書館前" />
             <SmallTitle>参加方法</SmallTitle>
             <Text>明治大解剖ツアーは<Emphasis>完全予約制</Emphasis>です。</Text>
             <Text><Emphasis>和泉図書館前開発局企画受付</Emphasis>にて予約を承っております。全日程<Emphasis>11:00</Emphasis>に受付を開始いたします。</Text>
