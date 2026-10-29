@@ -48,7 +48,7 @@ export default function SitemapPage() {
 					<TransitionLink href="/halloween">ハロウィンナイトin明大祭</TransitionLink>
 				 </div>
 
-				<AccentText>渉外局局企画</AccentText>
+				<AccentText>渉外局企画</AccentText>
 				<div className="flex flex-wrap gap-4 mt-5 mb-15">
 					<TransitionLink href="/booth">企業ブース</TransitionLink>
                 </div>
