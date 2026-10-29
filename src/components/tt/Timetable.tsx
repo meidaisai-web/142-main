@@ -278,7 +278,8 @@ export default function Timetable() {
         return <p role="alert" className="px-5 py-10 text-center">タイムテーブルのデータを取得できませんでした。時間をおいて再度お試しください。</p>;
     }
 
-    const timetableDays = getTimetableDays(data ?? []);
+    // 屋内ステージ(LS101)の列はタイムテーブルに出さない。LS101教室の企画自体は企画検索などで引き続き表示する。
+    const timetableDays = getTimetableDays((data ?? []).filter((event) => !event.location?.includes("LS101")));
     const allEvents = timetableDays.flatMap((day) => day.events);
     const range = getTimelineRange(allEvents);
     const stageOptions = [...new Set<string>([...PLACES, ...allEvents.map((event) => event.place).filter(Boolean)])];
