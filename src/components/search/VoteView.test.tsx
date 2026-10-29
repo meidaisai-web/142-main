@@ -241,8 +241,10 @@ describe("投票完了画面と抽選券", () => {
         await screen.findByText("投票完了！");
 
         expect(screen.getByText("あなたがまだ投票していない部門")).toBeInTheDocument();
-        expect(screen.getByRole("link", { name: /エンタメ部門/ })).toHaveAttribute("href", `/search?category=${encodeURIComponent("エンタメ")}`);
-        expect(screen.getByRole("link", { name: /パフォーマンス部門/ })).toHaveAttribute("href", `/search?category=${encodeURIComponent("パフォーマンス")}`);
+        // 企画検索は ?genre=A&genre=B の形で絞り込むので、部門に含まれるジャンルをすべて付けたURLになる
+        const searchUrl = (genres: string[]) => `/search?${new URLSearchParams(genres.map((genre) => ["genre", genre])).toString()}`;
+        expect(screen.getByRole("link", { name: /エンタメ部門/ })).toHaveAttribute("href", searchUrl(["参加体験", "ゲスト", "展示"]));
+        expect(screen.getByRole("link", { name: /パフォーマンス部門/ })).toHaveAttribute("href", searchUrl(["音楽", "ダンス", "パフォーマンス"]));
         expect(screen.queryByRole("link", { name: /抽選券をGET/ })).not.toBeInTheDocument();
     });
 

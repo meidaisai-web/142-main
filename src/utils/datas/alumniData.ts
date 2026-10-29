@@ -23,7 +23,7 @@ export const alumniList = [
         "name": "和田輝男",
         "year": "昭和44年",
         "division": "政治経済",
-        "position": "明治大学校友会相談役",
+        "position": "明治大学校友会　相談役",
         "message": "明大\n前へ…！"
     },
 
@@ -69,6 +69,14 @@ export const alumniList = [
 
     {
         "id": 9,
+        "name": "幡谷公朗",
+        "year": "昭和62年",
+        "division": "経営",
+        "position": "明治大学校友会茨城県水戸地域支部長"
+    },
+
+    {
+        "id": 10,
         "name": "関道雄",
         "year": "昭和53年",
         "division": "法",
@@ -76,7 +84,7 @@ export const alumniList = [
     },
 
     {
-        "id": 10,
+        "id": 11,
         "name": "永井伸彦",
         "year": "昭和57年",
         "division": "商",
@@ -85,7 +93,7 @@ export const alumniList = [
     },
 
     {
-        "id": 11,
+        "id": 12,
         "name": "大関清人",
         "year": "昭和44年",
         "division": "法",
@@ -94,7 +102,7 @@ export const alumniList = [
     },
 
     {
-        "id": 12,
+        "id": 13,
         "name": "菊地富雄",
         "year": "平成6年",
         "division": "政治経済",
@@ -103,7 +111,7 @@ export const alumniList = [
     },
 
     {
-        "id": 13,
+        "id": 14,
         "name": "若村和之",
         "year": "昭和53年",
         "division": "文",
@@ -111,7 +119,7 @@ export const alumniList = [
     },
 
     {
-        "id": 14,
+        "id": 15,
         "name": "井手雅康",
         "year": "昭和56年",
         "division": "商",
@@ -119,7 +127,7 @@ export const alumniList = [
     },
 
     {
-        "id": 15,
+        "id": 16,
         "name": "片野裕行",
         "year": "昭和34年",
         "division": "大学院商学研究科",
@@ -127,7 +135,7 @@ export const alumniList = [
     },
 
     {
-        "id": 16,
+        "id": 17,
         "name": "山口政廣",
         "year": "昭和35年",
         "division": "政治経済",
@@ -136,7 +144,7 @@ export const alumniList = [
     },
 
     {
-        "id": 17,
+        "id": 18,
         "name": "梓澤旭",
         "year": "昭和36年",
         "division": "法",
@@ -144,7 +152,7 @@ export const alumniList = [
     },
 
     {
-        "id": 18,
+        "id": 19,
         "name": "太田元幸",
         "year": "昭和38年",
         "division": "法",
@@ -152,7 +160,7 @@ export const alumniList = [
     },
 
     {
-        "id": 19,
+        "id": 20,
         "name": "依田巽",
         "year": "昭和38年",
         "division": "経営",
@@ -160,7 +168,7 @@ export const alumniList = [
     },
 
     {
-        "id": 20,
+        "id": 21,
         "name": "飯田光弘",
         "year": "昭和39年",
         "division": "法",
@@ -168,7 +176,7 @@ export const alumniList = [
     },
 
     {
-        "id": 21,
+        "id": 22,
         "name": "寺田達明",
         "year": "昭和40年",
         "division": "商",
@@ -176,7 +184,7 @@ export const alumniList = [
     },
 
     {
-        "id": 22,
+        "id": 23,
         "name": "岩田守弘",
         "year": "昭和41年",
         "division": "法",
@@ -184,7 +192,7 @@ export const alumniList = [
     },
 
     {
-        "id": 23,
+        "id": 24,
         "name": "髙澤徹",
         "year": "昭和44年",
         "division": "経営",
@@ -192,7 +200,7 @@ export const alumniList = [
     },
 
     {
-        "id": 24,
+        "id": 25,
         "name": "沼尻哲",
         "year": "昭和46年",
         "division": "商",
@@ -200,7 +208,7 @@ export const alumniList = [
     },
 
     {
-        "id": 25,
+        "id": 26,
         "name": "杉浦伸二",
         "year": "昭和48年",
         "division": "政治経済",
@@ -209,7 +217,7 @@ export const alumniList = [
     },
 
     {
-        "id": 26,
+        "id": 27,
         "name": "田口政博",
         "year": "昭和48年",
         "division": "工",
@@ -217,7 +225,7 @@ export const alumniList = [
     },
 
     {
-        "id": 27,
+        "id": 28,
         "name": "谷公一",
         "year": "昭和50年",
         "division": "政治経済",
@@ -226,14 +234,14 @@ export const alumniList = [
     },
 
     {
-        "id": 28,
+        "id": 29,
         "name": "梶原研",
         "year": "昭和51年",
         "division": "法"
     },
 
     {
-        "id": 29,
+        "id": 30,
         "name": "一宮栄司",
         "year": "昭和53年",
         "division": "工",
@@ -241,7 +249,7 @@ export const alumniList = [
     },
 
     {
-        "id": 30,
+        "id": 31,
         "name": "露木茂",
         "year": "昭和57年",
         "division": "政治経済",
@@ -249,7 +257,7 @@ export const alumniList = [
     },
 
     {
-        "id": 31,
+        "id": 32,
         "name": "玉井信光",
         "year": "昭和61年",
         "division": "商",
@@ -257,7 +265,7 @@ export const alumniList = [
     },
 
     {
-        "id": 32,
+        "id": 33,
         "name": "芳村正徳",
         "year": "昭和62年",
         "division": "法",
@@ -265,7 +273,7 @@ export const alumniList = [
     },
 
     {
-        "id": 33,
+        "id": 34,
         "name": "川原田健二",
         "year": "昭和63年",
         "division": "政治経済",
@@ -274,7 +282,7 @@ export const alumniList = [
     },
 
     {
-        "id": 34,
+        "id": 35,
         "name": "松本佳和",
         "year": "昭和63年",
         "division": "政治経済",
@@ -283,7 +291,7 @@ export const alumniList = [
     },
 
     {
-        "id": 35,
+        "id": 36,
         "name": "大池和寿",
         "year": "平成9年",
         "division": "商",
@@ -291,7 +299,7 @@ export const alumniList = [
     },
 
     {
-        "id": 36,
+        "id": 37,
         "name": "鈴木茂",
         "year": "平成10年",
         "division": "商",
@@ -300,7 +308,7 @@ export const alumniList = [
     },
 
     {
-        "id": 37,
+        "id": 38,
         "name": "矢野高史",
         "year": "平成12年",
         "division": "政治経済",
@@ -308,7 +316,7 @@ export const alumniList = [
     },
 
     {
-        "id": 38,
+        "id": 39,
         "name": "タケオ・リアル",
         "year": "平成19年",
         "division": "商",
@@ -317,14 +325,14 @@ export const alumniList = [
     },
 
     {
-        "id": 39,
+        "id": 40,
         "name": "石井貴之",
         "year": "令和2年",
         "division": "情報コミュニケーション"
     },
 
     {
-        "id": 40,
+        "id": 41,
         "name": "馬場達大",
         "year": "令和5年",
         "division": "政治経済",
@@ -332,31 +340,32 @@ export const alumniList = [
     },
 
     {
-        "id": 41,
+        "id": 42,
         "name": "内田日奈子",
         "year": "令和7年",
         "division": "情報コミュニケーション"
     },
 
     {
-        "id": 42,
+        "id": 43,
         "name": "川名彬宏",
         "year": "令和7年",
         "division": "商"
     },
 
     {
-        "id": 43,
+        "id": 44,
         "name": "許田佳右",
         "year": "令和7年",
         "division": "情報コミュニケーション"
     },
 
     {
-        "id": 44,
+        "id": 45,
         "name": "佐久間太福人",
         "year": "令和8年",
         "division": "政治経済",
         "message": "素晴らしい３日間になりますように！"
     }
-]
+
+];

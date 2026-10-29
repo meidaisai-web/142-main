@@ -43,7 +43,10 @@ export async function getAllMasterDatas(key: MasterDataQuery): Promise<MasterDat
 }
 
 function createFilteredQuery(key: MasterDataQuery) {
-    let query = createClient().from(MASTER_DATA_TABLE).select("*");
+    // 企画名・実施日が未入力の行は、情報が埋まるまで一覧に出さない。
+    let query = createClient().from(MASTER_DATA_TABLE).select("*")
+        .not("eventName", "is", null).neq("eventName", "")
+        .not("eventDate", "is", null).neq("eventDate", "");
 
     // スペース区切りの各キーワードはAND、各カラムへの一致はOR。
     if (key.keyword && key.keyword.trim()) {
@@ -78,6 +81,10 @@ function createFilteredQuery(key: MasterDataQuery) {
                 const excludedPlaces = ["メインステージ", "パフォーマンスエリア", "エントランスエリア", "第一校舎", "メディア棟", "和泉ラーニングスクエア"];
                 const excludeConditions = excludedPlaces.map((value) => `location.not.ilike.%${value}%`);
                 placeConditions.push(`and(${excludeConditions.join(",")})`);
+            } else if (place === "屋内ステージ") {
+                // 屋内ステージの企画は、場所が「和泉ラーニングスクエア LS101教室」と登録されている。
+                // LS101教室のゲスト誘致企画(企画区分「教室」)は屋内ステージに含めない。
+                placeConditions.push("and(location.ilike.%LS101%,type.eq.総合ステージ)");
             } else {
                 placeConditions.push(`location.ilike.%${place}%`);
             }

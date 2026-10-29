@@ -18,7 +18,7 @@ export default function Home() {
       <div className="h-70 md:h-40"/>
       <SearchSection />
       <Carousel />
-      <div className="h-20"/>
+      <IndexSearch/>
       <Line1 />
       <AnnounceSection />
       <div className="h-30"/>
