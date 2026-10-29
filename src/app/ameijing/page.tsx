@@ -7,6 +7,7 @@ import SectionTitle from "@/components/texts/SectionTitle"
 import AccentText from "@/components/texts/AccentText"
 import ContactView from "@/components/texts/ContactView"
 import { List, ListItem, ListText } from "@/components/texts/List"
+import OnlyImage from "@/components/OnlyImage"
 
 export default function Page() {
     return (
@@ -36,6 +37,10 @@ export default function Page() {
                 </ListText>
             </List>
             <SmallTitle>実施日時・場所</SmallTitle>
+            <OnlyImage
+                src="/images/ameijing/centercircle.svg"
+                alt="アメイジングフォトスポットマップ"
+                className="w-3/4 sm:w-1/2 md:w-1/3 mt-5" />
             <AccentText>日時</AccentText>
             <Text>10月30日(金).31日(土).11月1日(日)</Text>
             <AccentText>場所</AccentText>
