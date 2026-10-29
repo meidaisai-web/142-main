@@ -94,7 +94,14 @@ function WaitTimeView({ masterDataId }: WaitTimeViewProps) {
     const [waitTime, setWaitTime] = useState<string | null>(null);
 
     useEffect(() => {
-        getLatestWaitTime(masterDataId).then(setWaitTime);
+        const fetchWaitTime = async () => {
+            const time = await getLatestWaitTime(masterDataId);
+            setWaitTime(time);
+        };
+        fetchWaitTime();
+        // 待ち時間は随時更新されるので30秒ごとに取り直す
+        const timer = setInterval(fetchWaitTime, 30 * 1000);
+        return () => clearInterval(timer);
     }, [masterDataId]);
 
     return (
