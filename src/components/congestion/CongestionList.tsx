@@ -10,30 +10,30 @@ import { getStoreDataWithCongestion } from "@/utils/supabase/masterDataAction";
 import { List, ListItem } from "../texts/List";
 
 type CrowdStatus =
-  | "long"
-  | "medium"
   | "short"
-  | "soldout"
-  | "paused";
+  | "medium"
+  | "long"
+  | "paused"
+  | "soldout";
 
 const statusInfo: Record<
   CrowdStatus,
   { label: string; color: string }
 > = {
-  long: { label: "15分以上", color: "bg-primary-700" },
-  medium: { label: "5〜15分", color: "bg-secondary-700" },
   short: { label: "5分以下", color: "bg-accent-700" },
-  soldout: { label: "売り切れ", color: "#E60012" },
+  medium: { label: "5〜15分", color: "bg-secondary-700" },
+  long: { label: "15分以上", color: "bg-primary-700" },
   paused: { label: "一時停止", color: "#E60012" },
+  soldout: { label: "売り切れ", color: "#E60012" },
 };
 
 // CongestionMap.time に入っている値と混雑ステータスの対応
 const timeToStatus: Record<string, CrowdStatus> = {
-  "15分以上": "long",
-  "5分〜15分": "medium",
   "5分以下": "short",
-  "売り切れ": "soldout",
+  "5分〜15分": "medium",
+  "15分以上": "long",
   "一時停止": "paused",
+  "売り切れ": "soldout",
 };
 
 function toCrowdStatus(time: string | undefined): CrowdStatus | null {
@@ -223,7 +223,7 @@ export default function CongestionList() {
 {/* 凡例 */}
         <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm sm:text-base">
           {(
-            [["long"], ["medium"], ["short"], ["soldout", "paused"]] as const
+            [["short"],["medium"],["long"], ["paused" , "soldout"]] as const
           ).map((group) => (
             <div key={group.join()} className="flex gap-x-4">
               {group.map((status) => (

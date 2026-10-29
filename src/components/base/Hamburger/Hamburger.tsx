@@ -46,19 +46,26 @@ const hamburgerContents: HamburgerSectionProps[] = [
         content: [
             { href: "/about", label: "明大祭とは" },
             { href: "/theme", label: "第142回明大祭テーマ" },
+            { href: "/mv", label: "第142回明大祭テーマソングMV" },
             { href: "/announce", label: "ご来場のみなさまへのお願い" },
+            { href: "/access", label: "アクセス" },
+            { href: "/map", label: "キャンパスマップ" },
             { href: "/cashless", label: "明大祭・キャッシュレス決済" },
-            { href: "/access", label: "アクセス" }
+            { href: "/pamphlet", label: "第142回明大祭公式パンフレット" }
         ]
     },
 
     {
         title: "企画",
         content: [
-             { href: "/search", label: "企画検索" },
+            { href: "/search", label: "企画検索" },
             { href: "/official-projects", label: "実行委員会企画まとめ" },
-            { href: "/map", label: "キャンパスマップ" },
-            { href: "/cashless", label: "明大祭・キャッシュレス決済" },
+            { href: "/timetable", label: "タイムテーブル" },
+            { href: "/congestion", label: "混雑状況" },
+            { href: "/goods", label: "第142回明大祭公式グッズ" },
+            { href: "/donation", label: "明大祭・募金企画" },
+            { href: "/bigLottery", label: "明大祭大抽選会" },
+            { href: "/voucher", label: "明大祭大抽選会引き換え画面" },
         ]
     }
 ]

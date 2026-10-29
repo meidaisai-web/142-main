@@ -27,14 +27,14 @@ export const officialProjects: {
             link: '/opening',
             date: [1]
         },
-        // {
-        //     title: '付属校企画',
-        //     description: '明大世田谷が、明大祭に初登場！',
-        //     time: '12:20～13:20',
-        //     place: 'エントランスエリア',
-        //     link: '/setagaya',
-        //     date: [1]
-        // },
+        {
+            title: '付属校企画',
+            description: '明大世田谷が、明大祭に初登場！',
+            time: '12:20～13:20',
+            place: 'エントランスエリア',
+            link: '/setagaya',
+            date: [1]
+        },
         {
             title: '明大王',
             description: '明治への愛はGPAじゃ、測れない。その愛は、本物か、集え、野生の明大生！',
@@ -97,16 +97,16 @@ export const officialProjects: {
             link: '/sticker',
             date: [1, 2, 3]
         },
-        // {
-        //     title: '明大祭大抽選会',
-        //     description: '参加無料！豪華景品！ハズレなし！',
-        //     time: '13:00～18:00',
-        //     secondTime: '12:00～18:00',
-        //     thirdTime: '12:00～17:00',
-        //     place: 'メディア棟前明大祭大抽選会ブース',
-        //     link: '/bigLottery',
-        //     date: [1, 2, 3]
-        // },
+        {
+            title: '明大祭大抽選会',
+            description: '参加無料！豪華景品！ハズレなし！',
+            time: '13:00～18:00',
+            secondTime: '12:00～18:00',
+            thirdTime: '12:00～17:00',
+            place: 'メディア棟前明大祭大抽選会ブース',
+            link: '/bigLottery',
+            date: [1, 2, 3]
+        },
         {
             title: '企業ブース',
             description: 'あの有名企業が明大祭に！',
@@ -151,22 +151,22 @@ export const officialProjects: {
             link: '/champ',
             date: [1, 2, 3]
         },
-        // {
-        //     title: 'M-TYPE',
-        //     description: '今日のあなた、何タイプ？',
-        //     time: '11:00〜18:00',
-        //     place: '公式サイト、公式LINE、M-TYPE冊子',
-        //     link: '/mtype',
-        //     date: [1, 2, 3]
-        // },
-        // {
-        //     title: 'Ameijing Photo',
-        //     description: '明大祭の思い出を、とっておきの1枚に！',
-        //     time: '11:00〜18:00',
-        //     place: 'センターサークル フォトブース前',
-        //     link: '/ameijing',
-        //     date: [1, 2, 3]
-        // },
+        {
+            title: 'M-TYPE',
+            description: '今日のあなた、何タイプ？',
+            time: '11:00〜18:00',
+            place: '公式サイト、公式LINE、M-TYPE冊子',
+            link: '/mtype',
+            date: [1, 2, 3]
+        },
+        {
+            title: 'Ameijing Photo',
+            description: '明大祭の思い出を、とっておきの1枚に！',
+            time: '11:00〜18:00',
+            place: 'センターサークル フォトブース前',
+            link: '/ameijing',
+            date: [1, 2, 3]
+        },
         {
             title: 'Dream Canvas',
             description: 'ー夜空を描こうー',
@@ -186,16 +186,16 @@ export const officialProjects: {
             link: '/experiment',
             date: [1, 2, 3]
         },
-        // {
-        //     title: 'JET GACHA STREAM',
-        //     description: '〜カプセルがひらく、次の目的地〜',
-        //     image: '/images/official-projects/jet-logo.png',
-        //     time: '11:00〜17:00',
-        //     thirdTime: '11:00〜16:30',
-        //     place: "第一校舎前図書館側",
-        //     link: "/jet",
-        //     date: [1, 2, 3]
-        // },
+        {
+            title: 'JET GACHA STREAM',
+            description: '〜カプセルがひらく、次の目的地〜',
+            image: '/images/official-projects/jet-logo.png',
+            time: '11:00〜17:00',
+            thirdTime: '11:00〜16:30',
+            place: "第一校舎前図書館側",
+            link: "/jet",
+            date: [1, 2, 3]
+        },
         {
             title: 'LIMIT∞BREAK',
             description: '超えろ、キミの本気。挑め、世界の記録。',
