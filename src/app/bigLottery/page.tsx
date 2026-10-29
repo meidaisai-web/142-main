@@ -9,7 +9,8 @@ import Emphasis from "@/components/texts/Emphasis"
 import TransitionLink from "@/components/buttons/TransitionLink"
 import {List, ListItem, ListText} from "@/components/texts/List"
 import MeichamVoteStatus from "@/components/MeichamVoteStatus"
-import Image from "next/image";
+import MapImage from "@/components/MapImage"
+import Image from "next/image"
 
 export default function Page() {
     return (
@@ -17,7 +18,7 @@ export default function Page() {
             <CloudPageContainer>
                 <PageTitle className="translate-x-2">明大祭大抽選会</PageTitle>
                 <SectionTitle>明大祭大抽選会とは</SectionTitle>
-                <Text>
+                <Text>  
                     明大祭実行委員会が実施している様々な企画に参加して、「明大祭大抽選会」の抽選券を手に入れよう！<br />
                     気になる景品が当たるチャンス…！<br />
                     参加費は無料のため、気軽に参加OK！<br />
@@ -25,6 +26,10 @@ export default function Page() {
                 </Text>
 
                 <SmallTitle>実施場所</SmallTitle>
+                <MapImage
+                    src="/images/bigLottery/メディア棟前大抽選会.svg"
+                    alt="メディア棟前"
+                />
                 <Text>
                     メディア棟前明大祭大抽選会ブース<br />
                 </Text>
