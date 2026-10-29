@@ -25,6 +25,12 @@ export default function Page() {
                 </Text>
 
                 <SmallTitle>実施場所</SmallTitle>
+                <Image
+                    src="/images/bigLottery/メディア棟前大抽選会.svg"
+                    alt="メディア棟前"
+                    width={600}
+                    height={400}
+                />
                 <Text>
                     メディア棟前明大祭大抽選会ブース<br />
                 </Text>
