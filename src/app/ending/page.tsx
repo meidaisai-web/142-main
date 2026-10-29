@@ -8,6 +8,7 @@ import { List, ListItem } from "@/components/texts/List"
 import ImageLogo from "@/components/texts/ImageLogo"
 import Movie from "@/components/Movie"
 import ContactView from "@/components/texts/ContactView"
+import OnlyImage from "@/components/OnlyImage"
 
 
 export default function Page() {
@@ -34,7 +35,10 @@ export default function Page() {
 
             <SmallTitle>場所 </SmallTitle>
             <Text>メインステージ</Text>
-
+            <OnlyImage
+                src="/images/ending/mainstage.svg"
+                alt="メインステージ"
+                className="w-3/4 sm:w-1/2 md:w-1/3 mt-5" />
             <SectionTitle>コンテンツ</SectionTitle>
             <List mark="・">
                 <ListItem>オープニング動画</ListItem>

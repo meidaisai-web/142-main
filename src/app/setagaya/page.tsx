@@ -38,6 +38,10 @@ export default function about() {
 
             <SmallTitle>実施場所</SmallTitle>
             <Text>エントランスエリア</Text>
+            <OnlyImage
+                src="/images/setagaya/entranse.svg"
+                alt="エントランスエリア"
+                className="w-3/4 sm:w-1/2 md:w-1/3 mt-5" />
 
             <AccentText>日時</AccentText>
             <Text>11月1日(日) 12:20～13:20</Text>

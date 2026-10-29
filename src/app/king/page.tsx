@@ -46,6 +46,10 @@ export default function Page() {
             <Text>11月1日(日) 14:00〜14:50</Text>
             <SmallTitle>場所</SmallTitle>
             <Text>メインステージ</Text>
+            <OnlyImage
+                src="/images/king/mainstage.svg"
+                alt="メインステージ"
+                className="w-3/4 sm:w-1/2 md:w-1/3 mt-5" />
 
             <SectionTitle>出演団体</SectionTitle>
             <List>
