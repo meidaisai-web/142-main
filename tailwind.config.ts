@@ -12,6 +12,7 @@ const config: Config = {
                 foreground: "var(--foreground)",
                 primary: {
                     DEFAULT: "var(--color-primary)",
+                    300: "var(--color-primary-300)",
                     700: "var(--color-primary-700)",
                     text: "var(--color-primary-text)"
                 },

@@ -159,7 +159,7 @@ export default function VoteView({ id, groupId, type, eventName, groupName, even
                 )}
                 <div className="flex flex-col gap-5 w-full mt-5 items-center">
                     <TransitionLink href='/champ'>Meidaisai Championshipとは</TransitionLink>
-                    <TransitionLink href='/voucher'>抽選券引き換え画面</TransitionLink>
+                    {/* <TransitionLink href='/voucher'>抽選券引き換え画面</TransitionLink> */}
                 </div>
             </div>
             {category &&

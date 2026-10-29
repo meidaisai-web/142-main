@@ -14,7 +14,7 @@ export const officialProjects: {
             title: 'ハロウィンナイトin明大祭',
             description: 'お菓子をもらうか、いたずらされるか。今夜はハロウィンパーティー！',
             time: '16:00〜18:00',
-            place: '和泉図書館前開発局企画受付、和泉ラーニングスクエア入口付近',
+            place: '和泉図書館前開発局企画受付、和泉ラーニングスクエア休憩所付近',
             link: '/halloween',
             date: [2]
         },
@@ -62,15 +62,15 @@ export const officialProjects: {
             link: '/fight',
             date: [1]
         },
-        // {
-        //     title: '中夜祭',
-        //     description: '万彩よ、交われ。',
-        //     image: '/images/official-projects/midnight-logo.png',
-        //     time: '17:10～18:00',
-        //     place: 'メインステージ',
-        //     link: '/midnight',
-        //     date: [2]
-        // },
+        {
+            title: '中夜祭',
+            description: '万彩よ、交われ。',
+            image: '/images/official-projects/midnight-logo.png',
+            time: '17:10～18:00',
+            place: 'メインステージ',
+            link: '/midnight',
+            date: [2]
+        },
         {
             title: 'Ending',
             description: 'この夢を、もう少し',
@@ -124,15 +124,15 @@ export const officialProjects: {
             link: '/lottely-shop',
             date: [1, 2, 3]
         },
-        // {
-        //     title: 'KEIO×第142回明大祭',
-        //     description: '～いつも駅からだった 明大前編～',
-        //     image: '/images/official-projects/keio-book.jpg',
-        //     time: '11:00〜18:00',
-        //     place: 'メディア棟入口付近',
-        //     link: '/keio',
-        //     date: [1, 2, 3]
-        // },
+        {
+            title: 'KEIO×第142回明大祭',
+            description: '～いつも駅からだった 明大前編～',
+            image: '/images/official-projects/keio-book.jpg',
+            time: '11:00〜18:00',
+            place: 'メディア棟入口付近',
+            link: '/keio',
+            date: [1, 2, 3]
+        },
         {
             title: '松原小学校×明大祭',
             description: '小学生と大学生のコラボ企画！',
@@ -141,16 +141,16 @@ export const officialProjects: {
             link: '/matsubara',
             date: [1, 2, 3]
         },
-        // {
-        //     title: 'Meidaisai Championship',
-        //     description: 'あなたの想いが、Championを決める。',
-        //     image: '/images/official-projects/meidaisaichampionship-logo.png',
-        //     time: '11:00〜19:00',
-        //     thirdTime: '11:00〜17:00',
-        //     place: '公式サイト、和泉図書館前Meidaisai Championship受付',
-        //     link: '/champ',
-        //     date: [1, 2, 3]
-        // },
+        {
+            title: 'Meidaisai Championship',
+            description: 'あなたの想いが、Championを決める。',
+            image: '/images/official-projects/meidaisaichampionship-logo.png',
+            time: '11:00〜19:00',
+            thirdTime: '11:00〜17:00',
+            place: '公式サイト、和泉図書館前Meidaisai Championship受付',
+            link: '/champ',
+            date: [1, 2, 3]
+        },
         // {
         //     title: 'M-TYPE',
         //     description: '今日のあなた、何タイプ？',
@@ -232,7 +232,7 @@ export const officialProjects: {
             time: '11:00〜18:00',
             thirdTime: '11:00〜17:00',
             place: '和泉ラーニングスクエアLS206教室、2階GB2-1･GB2-2',
-            link: '/noimeiji',
+            link: '/noimage',
             date: [1, 2, 3]
         },
         {
@@ -245,16 +245,16 @@ export const officialProjects: {
             link: '/omoi',
             date: [1, 2, 3]
         },
-        // {
-        //     title: '熱闘!!明治スポーツ',
-        //     description: '見て、知って、体験して、明治のスポーツをもっと好きになりませんか？',
-        //     image: '/images/official-projects/sports-logo.png',
-        //     time: '11:00〜18:00',
-        //     thirdTime: '11:00〜17:00',
-        //     place: 'メディア棟M515･M516教室、和泉ラーニングスクエア4階アゴラ',
-        //     link: '/sports',
-        //     date: [1, 2, 3]
-        // },
+        {
+            title: '熱闘!!明治スポーツ',
+            description: '見て、知って、体験して、明治のスポーツをもっと好きになりませんか？',
+            image: '/images/official-projects/sports-logo.png',
+            time: '11:00〜18:00',
+            thirdTime: '11:00〜17:00',
+            place: 'メディア棟M515･M516教室、和泉ラーニングスクエア4階アゴラ',
+            link: '/sports',
+            date: [1, 2, 3]
+        },
         {
             title: '明治大解剖ツアー',
             description: 'あなたの知らない”明治”を見つけに行こう！',
