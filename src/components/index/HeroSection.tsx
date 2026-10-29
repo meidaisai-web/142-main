@@ -8,29 +8,31 @@ export default function HeroSection() {
         <div className="relative w-screen h-full">
           <Image
             src="/images/svg/hero/background.jpg"
-            alt="Background Image"
+            alt=""
             width={500}
             height={500}
+            priority
             className="hidden sm:block w-screen h-full object-fill"
           />
           <Image
             src="/images/svg/hero/newbackground2.jpg"
-            alt="Background Image"
+            alt=""
             width={500}
             height={500}
+            priority
             className="block sm:hidden w-screen h-full object-fill"
           />
 
           <Image
             src="/images/svg/hero/shadow.svg"
-            alt="Foreground Image"
-            width={500}
-            height={500}
-            className="hidden sm:block absolute right-0 h-full object-fit -top-40"
+            alt=""
+            width={771}
+            height={921}
+            className="hidden sm:block absolute right-0 w-auto h-full object-fit -top-40"
           />
           <Image
             src="/images/svg/hero/fireflower.svg"
-            alt="Foreground Image"
+            alt=""
             width={500}
             height={500}
             className="absolute left-10 w-25 h-25 object-fit top-50"
@@ -44,9 +46,10 @@ export default function HeroSection() {
             <div className="absolute aspect-square rounded-full blur-lg bg-white w-full h-full" />
             <Image
               src="/images/svg/hero/142logo.svg"
-              alt="第142回明大祭ロゴ"
+              alt=""
               width={250}
               height={250}
+              priority
               className="absolute z-10 m-auto top-10 left-0 right-0 bottom-0 w-4/5"
             />
           </div>
@@ -56,6 +59,7 @@ export default function HeroSection() {
               alt="第142回明大祭"
               width={550}
               height={550}
+              priority
               className="drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)]"
             />
             <div className="sm:border-b-4 border-primary px-10 pb-4">
@@ -64,12 +68,13 @@ export default function HeroSection() {
                 alt="鳴らせ鼓動、響かせ青春"
                 width={440}
                 height={440}
+                priority
                 className="drop-shadow-[0_6px_6px_rgba(0,0,0,0.4)]"
               />
             </div>
             <Image
               src="/images/svg/hero/fireflower.svg"
-              alt="Foreground Image"
+              alt=""
               width={500}
               height={500}
               className="absolute w-25 h-25 object-fit -translate-y-20 -right-20 sm:translate-0 sm:-bottom-10 pr-5"

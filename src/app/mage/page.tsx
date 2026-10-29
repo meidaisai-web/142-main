@@ -4,7 +4,7 @@ import SectionTitle from "@/components/texts/SectionTitle";
 import SmallTitle from "@/components/texts/SmallTitle";
 import Text from "@/components/texts/Text";
 import Emphasis from "@/components/texts/Emphasis";
-import { List, ListItem, ListText } from "@/components/texts/List";
+import { List, ListItem } from "@/components/texts/List";
 import ContactView from "@/components/texts/ContactView"
 import AccentText from "@/components/texts/AccentText"
 import OnlyImage from "@/components/OnlyImage";
