@@ -105,14 +105,9 @@ export default function VoucherExchangeCard() {
                         </div>
                     </>
                 )}
-            </div>
+                <div className="mt-5">明大祭大抽選会については<TransitionLink href='/bigLottery'>こちら</TransitionLink></div>
 
-            {/* 大抽選会はめいちゃん以外の内容も多いので、カードの外に案内する。左右の強調線（＼ ／）で目立たせる */}
-            <p className="mt-10 pb-20 flex items-center justify-center gap-2 text-sm sm:text-base">
-                <EmphasisLines />
-                <span>明大祭大抽選会については<TransitionLink href="/bigLottery">こちら</TransitionLink></span>
-                <EmphasisLines flip />
-            </p>
+            </div>
 
             {!hiddenAlert &&
                 <ExchangeConfirmModal
@@ -145,49 +140,30 @@ function ExchangeConfirmModal({ onClose, onConfirm }: ExchangeConfirmModalProps)
 
     return (
         <ModalPortal>
-        <div className="fixed inset-0 z-50 flex justify-center items-center px-6 bg-text/50" onClick={onClose}>
-            <div
-                className="relative w-full max-w-md max-h-[90dvh] overflow-y-auto bg-background border-[6px] border-accent-700 rounded-3xl text-text px-6 sm:px-10 pt-12 pb-8 shadow-lg flex flex-col items-center"
-                onClick={(e) => e.stopPropagation()}
-            >
-                <button onClick={onClose} className="absolute top-3 right-4 cursor-pointer p-1" aria-label="閉じる">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                        <path d="M5 5l14 14M19 5L5 19" />
-                    </svg>
-                </button>
-                <h3 className="text-lg sm:text-xl font-medium border-b border-text pb-1 px-2">本当に引き換えますか？</h3>
-                <p className="text-red-600 font-bold text-xs sm:text-sm text-center mt-5 leading-relaxed">
-                    受付スタッフの前でのみ引き換えてください。<br />
-                    引き換えは1日1回です。
-                </p>
-                <button
-                    type="button"
-                    onClick={onConfirm}
-                    className="mt-8 rounded-full px-8 py-2 font-bold text-background bg-secondary hover:bg-primary-text cursor-pointer transition-colors duration-100"
+            <div className="fixed inset-0 z-50 flex justify-center items-center px-6 bg-text/50" onClick={onClose}>
+                <div
+                    className="relative w-full max-w-md max-h-[90dvh] overflow-y-auto bg-background border-[6px] border-accent-700 rounded-3xl text-text px-6 sm:px-10 pt-12 pb-8 shadow-lg flex flex-col items-center"
+                    onClick={(e) => e.stopPropagation()}
                 >
-                    引き換える ＞
-                </button>
+                    <button onClick={onClose} className="absolute top-3 right-4 cursor-pointer p-1" aria-label="閉じる">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                            <path d="M5 5l14 14M19 5L5 19" />
+                        </svg>
+                    </button>
+                    <h3 className="text-lg sm:text-xl font-medium border-b border-text pb-1 px-2">本当に引き換えますか？</h3>
+                    <p className="text-red-600 font-bold text-xs sm:text-sm text-center mt-5 leading-relaxed">
+                        受付スタッフの前でのみ引き換えてください。<br />
+                        引き換えは1日1回です。
+                    </p>
+                    <button
+                        type="button"
+                        onClick={onConfirm}
+                        className="mt-8 rounded-full px-8 py-2 font-bold text-background bg-secondary hover:bg-primary-text cursor-pointer transition-colors duration-100"
+                    >
+                        引き換える ＞
+                    </button>
+                </div>
             </div>
-        </div>
         </ModalPortal>
-    )
-}
-
-// 文の左右に付ける漫画調の強調線。
-function EmphasisLines({ flip = false }: { flip?: boolean }) {
-    return (
-        <svg
-            aria-hidden="true"
-            viewBox="0 0 20 24"
-            className={`shrink-0 w-[1.1em] h-[1.3em] text-primary ${flip ? '-scale-x-100' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-        >
-            <line x1="3" y1="4" x2="10" y2="9.5" />
-            <line x1="2" y1="12" x2="11" y2="12" />
-            <line x1="3" y1="20" x2="10" y2="14.5" />
-        </svg>
     )
 }
