@@ -175,9 +175,10 @@ export async function getUniqueMasterData(id: string): Promise<MasterData | null
     }
     return data as MasterData;
 }
+
 export async function getStoreDataWithCongestion(): Promise<MasterData[] | null> {
     const supabase = createClient();
-    const { data, error } = await supabase.from('MasterData142').select(`
+    const { data, error } = await supabase.from(MASTER_DATA_TABLE).select(`
         id,
         groupId,
         projectId,
@@ -229,4 +230,19 @@ export async function getStoreDataWithCongestion(): Promise<MasterData[] | null>
             congestion: CongestionMap?.[0],
         }))
         .sort((a, b) => a.location.localeCompare(b.location, 'ja', { numeric: true })) as MasterData[];
+}
+
+export async function getStageMasterData(): Promise<MasterData[] | null> {
+    const supabase = createClient();
+    // 企画名・実施日が未入力の行は、企画検索と同様に表示しない。タイムテーブルでは場所も必須。
+    const { data, error } = await supabase.from('MasterData142').select('*').eq('type', '総合ステージ')
+        .not("eventName", "is", null).neq("eventName", "")
+        .not("eventDate", "is", null).neq("eventDate", "")
+        .not("location", "is", null).neq("location", "");
+    if (error) {
+        console.log(`Error fetching stage master data: ${error.message}`);
+        return null;
+    }
+    console.log('Fetched stage data:', data);
+    return data as MasterData[] ;
 }
