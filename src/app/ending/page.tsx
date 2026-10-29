@@ -19,7 +19,8 @@ export default function Page() {
                 logoSrc="/images/ending/endinglogo.svg"
                 alt="Ending"
                 logoAlt="Ending Logo"
-                logoHeight={408} />
+                logoHeight={408}
+                LogoClassName="scale-80" />
             <SectionTitle>この夢を、もう少し</SectionTitle>
             <Text center>
                 <Emphasis bold>
