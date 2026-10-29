@@ -26,7 +26,7 @@ export const recommendations: Record<MTypeKey, Record<DayKey, Project[]>> = {
             { id: "165", name: "みんなでENJOYスマブラ", group: "M.smash!" },
             { id: "579", name: "LIMIT∞BREAK", group: "明大祭実行委員会開発局凌閃部門", href: "/limit" },
             { id: "499", name: "NO iMeiji, NO LIFE？【カードゲーム】", group: "明大祭実行委員会開発局凌閃部門", href: "/noimage" },
-            { id: "", name: "おもいで工房", group: "明大祭実行委員会開発局凌閃部門", href: "/memory" },
+            { id: "", name: "おもいで工房", group: "明大祭実行委員会開発局凌閃部門", href: "/omoi" },
         ],
         "2026-10-31": [
             { id: "212", name: "アンニョン！韓国", group: "韓国人留学生会" },
@@ -41,7 +41,7 @@ export const recommendations: Record<MTypeKey, Record<DayKey, Project[]>> = {
             { id: "165", name: "みんなでENJOYスマブラ", group: "M.smash!" },
             { id: "579", name: "LIMIT∞BREAK", group: "明大祭実行委員会開発局凌閃部門", href: "/limit" },
             { id: "499", name: "NO iMeiji, NO LIFE？【カードゲーム】", group: "明大祭実行委員会開発局凌閃部門", href: "/noimage" },
-            { id: "", name: "おもいで工房", group: "明大祭実行委員会開発局凌閃部門", href: "/memory" },
+            { id: "", name: "おもいで工房", group: "明大祭実行委員会開発局凌閃部門", href: "/omoi" },
         ],
         "2026-11-01": [
             { id: "212", name: "アンニョン！韓国", group: "韓国人留学生会" },
@@ -55,7 +55,7 @@ export const recommendations: Record<MTypeKey, Record<DayKey, Project[]>> = {
             { id: "165", name: "みんなでENJOYスマブラ", group: "M.smash!" },
             { id: "579", name: "LIMIT∞BREAK", group: "明大祭実行委員会開発局凌閃部門", href: "/limit" },
             { id: "499", name: "NO iMeiji, NO LIFE？【カードゲーム】", group: "明大祭実行委員会開発局凌閃部門", href: "/noimage" },
-            { id: "", name: "おもいで工房", group: "明大祭実行委員会開発局凌閃部門", href: "/memory" },
+            { id: "", name: "おもいで工房", group: "明大祭実行委員会開発局凌閃部門", href: "/omoi" },
         ],
     },
     "A×D": {
