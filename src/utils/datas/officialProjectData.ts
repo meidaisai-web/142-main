@@ -232,7 +232,7 @@ export const officialProjects: {
             time: '11:00〜18:00',
             thirdTime: '11:00〜17:00',
             place: '和泉ラーニングスクエアLS206教室、2階GB2-1･GB2-2',
-            link: '/noimeiji',
+            link: '/noimage',
             date: [1, 2, 3]
         },
         {
