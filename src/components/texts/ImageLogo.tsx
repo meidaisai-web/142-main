@@ -32,7 +32,7 @@ export default function ImageLogo({
       <Image src="/images/ImageLogo/logoframe.svg" alt="フレーム" width={500} height={310} className="absolute inset-0 w-full h-full" />
 
       {/* 上に重ねるロゴ */}
-      <Image src={logoSrc} alt={logoAlt} width={500} height={logoHeight} className={`absolute inset-0 m-auto h-auto ${LogoClassName ?? ""}`}/>
+      <Image src={logoSrc} alt={logoAlt} width={500} height={logoHeight} className={`absolute inset-0 m-auto h-full w-full object-contain ${LogoClassName ?? ""}`}/>
     </div>
   );
 }

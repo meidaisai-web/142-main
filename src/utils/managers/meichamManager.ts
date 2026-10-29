@@ -72,6 +72,7 @@ const VOTE_HOURS: Record<string, [number, number]> = {
 export type VoteTimeStatus = 'ok' | 'outOfHours' | 'notEventDay';
 
 export function getVoteTimeStatus(eventDate: string): VoteTimeStatus {
+
     const today = getJapanDateString();
     const hours = VOTE_HOURS[today];
     if (!hours) {

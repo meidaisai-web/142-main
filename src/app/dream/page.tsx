@@ -18,7 +18,7 @@ export default function Page() {
                 <SmallTitle>実施場所</SmallTitle>
                 <Text>メディア棟M405・M406教室</Text>
                 <AccentText>日時</AccentText>
-                <Text>10月30日(金).31(土)11:00〜18:00<br />11月1日(日)11:00〜17:00</Text>
+                <Text>10月30日(金).31日(土)11:00〜18:00<br />11月1日(日)11:00〜17:00</Text>
                 <ContactView department="開発局黎幸部門" mail="142ndreikobumon@gmail.com" showPhone showAddress />
             </StarPageContainer>
         </div>
