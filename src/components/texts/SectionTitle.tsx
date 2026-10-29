@@ -18,7 +18,7 @@ export default function SectionTitle({
             alt="SectionTitle-blue"
             width={55}
             height={48}
-            className="absolute -left-1 -top-1"
+            className="absolute -left-1 -top-1 h-auto"
           />
 
            {/* タイトル */}
@@ -32,7 +32,7 @@ export default function SectionTitle({
                 alt="SectionTitle-pink"
                 width={55}
                 height={49}
-                className="absolute -right-1 -bottom-1"
+                className="absolute -right-1 -bottom-1 h-auto"
             />
         </div>
     );
