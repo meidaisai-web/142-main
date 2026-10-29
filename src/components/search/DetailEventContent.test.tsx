@@ -10,6 +10,10 @@ vi.mock("@/utils/supabase/masterDataAction", () => ({
     getUniqueMasterData: vi.fn(),
 }));
 
+vi.mock("@/utils/supabase/croudMapAction", () => ({
+    getLatestWaitTime: vi.fn().mockResolvedValue(null),
+}));
+
 // VoteView の中身は VoteView.test.tsx で確認するので、ここでは表示されたかと渡された部門だけを見る
 vi.mock("./VoteView", () => ({
     default: ({ category }: ComponentProps<typeof VoteView>) => (

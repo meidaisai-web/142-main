@@ -6,6 +6,7 @@ import Airplane from "@/components/Airplane";
 import Line1 from "@/components/animation/Line1";
 import Line2 from "@/components/animation/Line2";
 import Carousel from "@/components/index/Carousel";
+import SearchSection from "@/components/index/SearchSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <div className="h-20 md:h-40"/>
       <Airplane />
       <div className="h-70 md:h-40"/>
+      <SearchSection />
       <Carousel />
       <Line1 />
       <AnnounceSection />

@@ -14,7 +14,7 @@ export const officialProjects: {
             title: 'ハロウィンナイトin明大祭',
             description: 'お菓子をもらうか、いたずらされるか。今夜はハロウィンパーティー！',
             time: '16:00〜18:00',
-            place: '和泉図書館前開発局企画受付、和泉ラーニングスクエア入口付近',
+            place: '和泉図書館前開発局企画受付、和泉ラーニングスクエア休憩所付近',
             link: '/halloween',
             date: [2]
         },
@@ -232,7 +232,7 @@ export const officialProjects: {
             time: '11:00〜18:00',
             thirdTime: '11:00〜17:00',
             place: '和泉ラーニングスクエアLS206教室、2階GB2-1･GB2-2',
-            link: '/noimeiji',
+            link: '/noimage',
             date: [1, 2, 3]
         },
         {

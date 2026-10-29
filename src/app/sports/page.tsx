@@ -17,7 +17,7 @@ export default function Page() {
                 logoSrc="/images/sports/sports-logo.svg"
                 alt="企画の写真"
                 logoAlt="企画ロゴ"
-                LogoClassName="w-1000"/>
+                LogoClassName="scale-170" />
             <SectionTitle>企画概要</SectionTitle>
             <Emphasis>明治大学といえばおなじみのスポーツについて、展示や体験型企画を通してその魅力を発信する企画です！</Emphasis>
             <Text>現役選手に明大生ならではの視点でインタビュー。普段は見られない一面が見られるかも！また、選手の記録に挑戦できる体験型企画も用意しています！</Text>
