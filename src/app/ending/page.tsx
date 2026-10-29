@@ -8,6 +8,7 @@ import { List, ListItem } from "@/components/texts/List"
 import ImageLogo from "@/components/texts/ImageLogo"
 import Movie from "@/components/Movie"
 import ContactView from "@/components/texts/ContactView"
+import MapImage from "@/components/MapImage"
 
 
 export default function Page() {
@@ -19,7 +20,8 @@ export default function Page() {
                 logoSrc="/images/ending/endinglogo.svg"
                 alt="Ending"
                 logoAlt="Ending Logo"
-                logoHeight={408} />
+                logoHeight={408}
+                LogoClassName="scale-80" />
             <SectionTitle>この夢を、もう少し</SectionTitle>
             <Text center>
                 <Emphasis bold>
@@ -34,11 +36,14 @@ export default function Page() {
 
             <SmallTitle>場所 </SmallTitle>
             <Text>メインステージ</Text>
-
+            <MapImage
+                src="/images/ending/mainstage.svg"
+                alt="メインステージ"
+                 />
             <SectionTitle>コンテンツ</SectionTitle>
             <List mark="・">
                 <ListItem>オープニング動画</ListItem>
-                <ListItem>オープニングアウト</ListItem>
+                <ListItem>オープニングアクト</ListItem>
                 <ListItem>Meidaisai Championship表彰式</ListItem>
                 <ListItem>団体パフォーマンス</ListItem>
                 <ListItem>スライドショー</ListItem>
@@ -55,8 +60,8 @@ export default function Page() {
                 <ListItem>中野ダンスサークルSIGN</ListItem>
                 <ListItem>男子チアリーディングチームANCHORS</ListItem>
             </List>
-             <SectionTitle>Ending紹介動画</SectionTitle>
-            <Movie src="https://movie.meidaisai.jp/ending.mp4"/>
+            <SectionTitle>Ending紹介動画</SectionTitle>
+            <Movie src="https://movie.meidaisai.jp/ending.mp4" />
             <ContactView department="演出局結祭部門" mail="142nd-yusai@meidaisai.jp" />
         </StarPageContainer>
     )

@@ -4,6 +4,7 @@ import HamburgerTitle from "./HamburgerTitle";
 import HamburgerLink from "./HamburgerLink";
 import { HamburgerAccordion } from "./HamburgerAccordion";
 import { useState } from "react";
+import Button from "@/components/buttons/Button";
 
 interface HamburgerProps {
     isOpen: boolean;
@@ -12,7 +13,7 @@ interface HamburgerProps {
 export default function Hamburger({ isOpen }: HamburgerProps) {
     return (
         <motion.div
-            className="absolute z-40 whitespace-nowrap m-0 bg-secondary-50 pt-18 top-0 right-0 w-screen h-screen overflow-scroll"
+            className="absolute z-40 flex flex-col whitespace-nowrap m-0 bg-secondary-50 pt-18 top-0 right-0 w-screen h-screen overflow-scroll"
             initial="closed"
             animate={isOpen ? "open" : "closed"}
             transition={{
@@ -32,6 +33,9 @@ export default function Hamburger({ isOpen }: HamburgerProps) {
         >
             <HamburgerSP />
             <HamburgerPC />
+            <div className="mt-auto pb-20">
+                <Button href="/search" size="lg" className="!bg-accent hover:!bg-accent-900">企画検索はこちら</Button>
+            </div>
         </motion.div>
     )
 }
@@ -42,18 +46,27 @@ const hamburgerContents: HamburgerSectionProps[] = [
         content: [
             { href: "/about", label: "明大祭とは" },
             { href: "/theme", label: "第142回明大祭テーマ" },
+            { href: "/mv", label: "第142回明大祭テーマソングMV" },
             { href: "/announce", label: "ご来場のみなさまへのお願い" },
+            { href: "/access", label: "アクセス" },
+            { href: "/faq", label: "よくある質問" },
+            { href: "/map", label: "キャンパスマップ" },
             { href: "/cashless", label: "明大祭・キャッシュレス決済" },
-            { href: "/access", label: "アクセス" }
+            { href: "/pamphlet", label: "第142回明大祭公式パンフレット" }
         ]
     },
 
     {
-        title: "コラボ企画",
+        title: "企画",
         content: [
-            { href: "/matsubara", label: "松原小学校×明大祭" },
-            { href: "/lottely-shop", label: "明大前商店街×明大祭～明大祭で当てよう！豪華景品～" },
-            { href: "/icu", label: "ICU祭×明大祭" }
+            { href: "/search", label: "企画検索" },
+            { href: "/official-projects", label: "実行委員会企画まとめ" },
+            { href: "/timetable", label: "タイムテーブル" },
+            { href: "/congestion", label: "混雑状況" },
+            { href: "/goods", label: "第142回明大祭公式グッズ" },
+            { href: "/donation", label: "明大祭・募金企画" },
+            { href: "/bigLottery", label: "明大祭大抽選会" },
+            { href: "/voucher", label: "明大祭大抽選会引き換え画面" },
         ]
     }
 ]
@@ -69,11 +82,13 @@ const forOutside = [
         ]
     },
 
-     {
-        title: "特集",
+    {
+        title: "コラボ企画",
         content: [
-            { href: "/official-projects", label: "実行委員会企画まとめ" },
-            { href: "/donation", label: "明大祭・募金企画" }
+            { href: "/matsubara", label: "松原小学校×明大祭" },
+            { href: "/keio", label: "KEIO×第142回明大祭" },
+            { href: "/lottely-shop", label: "明大前商店街×明大祭" },
+            { href: "/icu", label: "ICU祭×明大祭" }
         ]
     },
     
