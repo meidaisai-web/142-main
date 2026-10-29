@@ -61,7 +61,8 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                 <div className="w-full px-4 sm:px-14 md:px-18 lg:px-24 flex flex-col items-center">
                     <EventTitle>{data.eventName}</EventTitle>
                     <div className="relative w-full bg-white/80 rounded-xl p-8 sm:p-10 lg:p-20 flex justify-center items-center lg:items-start gap-8 mt-25 flex-col lg:flex-row">
-                        <WaitTimeView masterDataId={data.id} />
+                        {/* 待ち時間は模擬店企画のみ集計しているため、それ以外では出さない */}
+                        {data.type === "模擬店" && <WaitTimeView masterDataId={data.id} />}
                         <ImageView imageUrl={data.imageUrl} icons={data.icons} />
                         <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
                     </div>
