@@ -88,23 +88,12 @@ export default function Countdown({
   const isFestival =
     elapsedDays >= 0 && elapsedDays < EVENT_DAYS;
 
-  // 本祭終了後：11月2日以降
-  const isAfterFestival = elapsedDays >= EVENT_DAYS;
-
   // 開催前：残り日数
   // 本祭中：1・2・3日目
-  // 終了後：本祭終了の翌日を1日として加算
-  //
-  // 10月30日 → 明大祭 1日目
-  // 10月31日 → 明大祭 2日目
-  // 11月1日  → 明大祭 3日目
-  // 11月2日  → 開催から 1日
-  // 11月3日  → 開催から 2日
+  // 本祭終了後（11月2日以降）：0日で固定
   const displayNumber = isFestival
     ? elapsedDays + 1
-    : isAfterFestival
-      ? elapsedDays - EVENT_DAYS + 1
-      : -elapsedDays;
+    : Math.max(0, -elapsedDays);
 
   return (
     <div>
@@ -131,30 +120,17 @@ export default function Countdown({
           </div>
 
           <div className="absolute sm:relative w-fit right-6 sm:right-auto flex flex-col items-end sm:items-start justify-start mt-2 sm:mt-0">
-            {isFestival || isAfterFestival ? (
-              <div className="absolute z-10 -mt-12 h-12 w-36 sm:-mt-16 sm:h-16 sm:w-48">
-                <Image
-                  src={
-                    isFestival
-                      ? ""
-                      : ""
-                  }
-                  alt={isFestival ? "明大祭" : "開催から"}
-                  fill
-                  sizes="(min-width: 640px) 192px, 144px"
-                  className="object-contain select-none"
-                />
-              </div>
-            ) : (
-              <p className="absolute font-black text-primary-700 text-shadow-[4px_4px_4px_rgba(0,0,0,0.25)] text-nowrap z-10 -mt-6">
-                <span className="text-4xl sm:text-5xl">
-                  開催
-                </span>
+            <p className="absolute font-black text-primary-700 text-shadow-[4px_4px_4px_rgba(0,0,0,0.25)] text-nowrap z-10 -mt-6">
+              <span className="text-4xl sm:text-5xl">
+                {isFestival ? "明大祭" : "開催"}
+              </span>
+
+              {!isFestival && (
                 <span className="text-2xl sm:text-3xl">
                   まで
                 </span>
-              </p>
-            )}
+              )}
+            </p>
 
             <div className="relative flex items-end justify-end">
               <div className="relative flex items-center justify-center w-28 sm:w-40 aspect-square">
