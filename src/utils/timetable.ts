@@ -36,6 +36,11 @@ export function getTimelineLanes(events: TimetableEvent[]) {
     return { items, count: Math.max(1, lanes.length) };
 }
 
+// DBでは「LS101」「和泉ラーニングスクエア LS101教室」など表記がゆれているため、同じ列にまとまるよう統一する。
+function normalizePlace(location: string) {
+    return location?.includes("LS101") ? "LS101教室" : location;
+}
+
 export function getTimetableDays(data: MasterData[]) {
     const days = [
         { id: "day1", label: "10.30 Fri", month: 10, date: 30, events: [] as TimetableEvent[] },
@@ -65,7 +70,7 @@ export function getTimetableDays(data: MasterData[]) {
                 time: start ? (end ? `${start}\n〜\n${end}` : start) : "時間未定",
                 startMinutes: start ? Number(startHour) * 60 + Number(startMinute) : Infinity,
                 endMinutes: end ? Number(endHour) * 60 + Number(endMinute) : null,
-                place: event.location,
+                place: normalizePlace(event.location),
                 genre: event.genre,
             });
         }
