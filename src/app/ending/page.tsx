@@ -47,7 +47,7 @@ export default function Page() {
             </List>
             <SectionTitle>出演団体</SectionTitle>
             <List mark="・">
-                <ListItem>ジャグリングルサークルDietz</ListItem>
+                <ListItem>ジャグリングサークルDietz</ListItem>
                 <ListItem>アカペラサークルSound Arts</ListItem>
                 <ListItem>K-popカバーダンスサークルMercie</ListItem>
                 <ListItem>MDD</ListItem>
