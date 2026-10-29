@@ -49,6 +49,7 @@ const hamburgerContents: HamburgerSectionProps[] = [
             { href: "/mv", label: "第142回明大祭テーマソングMV" },
             { href: "/announce", label: "ご来場のみなさまへのお願い" },
             { href: "/access", label: "アクセス" },
+            { href: "/faq", label: "よくある質問" },
             { href: "/map", label: "キャンパスマップ" },
             { href: "/cashless", label: "明大祭・キャッシュレス決済" },
             { href: "/pamphlet", label: "第142回明大祭公式パンフレット" }
