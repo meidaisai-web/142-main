@@ -6,7 +6,6 @@ import Airplane from "@/components/Airplane";
 import Line1 from "@/components/animation/Line1";
 import Line2 from "@/components/animation/Line2";
 import Carousel from "@/components/index/Carousel";
-import MType from "@/components/index/M-TYPE";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <Airplane />
       <div className="h-70 md:h-40"/>
       <Carousel />
-      <MType />
       <Line1 />
       <AnnounceSection />
       <div className="h-30"/>
