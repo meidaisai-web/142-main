@@ -59,15 +59,15 @@ export default function Element() {
     }, []);
 
     const images = [
-        { href: "/map", label: "キャンパスマップ", icon: "/images/Indexsearch/map.svg" },
-        // { href: "/timetable", label: "タイムテーブル", icon: "/images/Indexsearch/time.svg" },
-        { href: "/champ", label: "Meidaisai Championshipとは", icon: "/images/Indexsearch/meicham.svg"  }
+        { congestion: "/map", label: "混雑マップ", icon: "/images/Indexsearch/congestion.svg" },
+        { congestion: "/timetable", label: "タイムテーブル", icon: "/images/Indexsearch/time.svg" },
+        { congestion: "/champ", label: "Meidaisai Championshipとは", icon: "/images/Indexsearch/meicham.svg"  }
     ];
     return (
-        <div className="grid grid-cols-2 gap-x-[20%] md:gap-x-[25%] px-[15%] w-full max-w-2xl lg:max-w-4xl mx-auto">
+          <div className="grid grid-cols-3 gap-x-[7%] lg:gap-x-[12%] px-[10%] w-full max-w-2xl lg:max-w-4xl mx-auto">
             {images.map((image, index) => (
                 <div key={index} className="relative aspect-square w-full group">
-                    <Link href={image.href} className="relative block w-full h-full">
+                    <Link href={image.congestion} className="relative block w-full h-full">
                         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 136 136" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id={`circle-grad-${index}`} x1="0" y1="0" x2="0" y2="136" gradientUnits="userSpaceOnUse">
