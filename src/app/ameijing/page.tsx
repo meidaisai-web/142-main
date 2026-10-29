@@ -37,14 +37,14 @@ export default function Page() {
                 </ListText>
             </List>
             <SmallTitle>実施日時・場所</SmallTitle>
-            <OnlyImage
-                src="/images/ameijing/centercircle.svg"
-                alt="アメイジングフォトスポットマップ"
-                className="w-3/4 sm:w-1/2 md:w-1/3 mt-5" />
             <AccentText>日時</AccentText>
             <Text>10月30日(金).31日(土).11月1日(日)</Text>
             <AccentText>場所</AccentText>
             <Text>センターサークル フォトブース前</Text>
+            <OnlyImage
+                src="/images/ameijing/centercircle.svg"
+                alt="アメイジングフォトスポットマップ"
+                className="w-3/4 sm:w-1/2 md:w-1/3 mt-5" />
             <ContactView department="広報局" mail="142nd-kouhou@meidaisai.jp" showPhone showAddress />
         </CloudPageContainer>
     )
