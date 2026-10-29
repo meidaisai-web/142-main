@@ -8,6 +8,8 @@ import Emphasis from '@/components/texts/Emphasis';
 import ContactView from '@/components/texts/ContactView';
 import Movie from '@/components/Movie';
 import ImageLogo from '@/components/texts/ImageLogo';
+import OnlyImage from "@/components/OnlyImage";
+import MapImage from "@/components/MapImage";
 
 export default function Page() {
     return (
@@ -39,6 +41,10 @@ export default function Page() {
             <Text>10月30日(金) 11:00～11:50</Text>
             <SmallTitle>場所</SmallTitle>
             <Text>メインステージ</Text>
+            <MapImage 
+                src="/images/opening/mainstage.svg"
+                alt="メインステージ"
+                />
             <SectionTitle>コンテンツ</SectionTitle>
             <List numbered>
 	            <ListItem>オープニング動画</ListItem>

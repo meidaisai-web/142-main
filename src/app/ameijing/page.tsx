@@ -7,6 +7,8 @@ import SectionTitle from "@/components/texts/SectionTitle"
 import AccentText from "@/components/texts/AccentText"
 import ContactView from "@/components/texts/ContactView"
 import { List, ListItem, ListText } from "@/components/texts/List"
+import OnlyImage from "@/components/OnlyImage"
+import MapImage from "@/components/MapImage"
 
 export default function Page() {
     return (
@@ -40,6 +42,10 @@ export default function Page() {
             <Text>10月30日(金).31日(土).11月1日(日)</Text>
             <AccentText>場所</AccentText>
             <Text>センターサークル フォトブース前</Text>
+            <MapImage
+                src="/images/ameijing/centercircle.svg"
+                alt="アメイジングフォトスポットマップ"
+                />
             <ContactView department="広報局" mail="142nd-kouhou@meidaisai.jp" showPhone showAddress />
         </CloudPageContainer>
     )

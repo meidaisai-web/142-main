@@ -9,6 +9,7 @@ import ImageLogo from "@/components/texts/ImageLogo"
 import ContactView from "@/components/texts/ContactView"
 import FloatingCross from "@/components/FloatingCross"
 import Movie from "@/components/Movie"
+import MapImage from "@/components/MapImage"
 
 export default function Page() {
     return (
@@ -38,6 +39,10 @@ export default function Page() {
 
                 <SmallTitle>場所</SmallTitle>
                 <Text>メインステージ</Text>
+                <MapImage
+                    src="/images/midnight/mainstage.svg"
+                    alt="メインステージ"
+                    />
 
                 <SmallTitle>日時</SmallTitle>
                 <Text>10月31日(土) 17:10 〜 18:00</Text>
