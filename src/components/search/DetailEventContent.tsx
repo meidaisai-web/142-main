@@ -10,6 +10,7 @@ import VoteView from "./VoteView";
 import ZoomableImage from "../ZoomableImage";
 import { getMeichamCategory } from "@/utils/managers/meichamManager";
 import SearchCloud from "./SearchCloud";
+import { getLatestWaitTime } from "@/utils/supabase/croudMapAction";
 
 interface DetailContentProps {
     id: string;
@@ -60,7 +61,7 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                 <div className="w-full px-4 sm:px-14 md:px-18 lg:px-24 flex flex-col items-center">
                     <EventTitle>{data.eventName}</EventTitle>
                     <div className="relative w-full bg-white/80 rounded-xl p-8 sm:p-10 lg:p-20 flex justify-center items-center lg:items-start gap-8 mt-25 flex-col lg:flex-row">
-                    {/* <Image  src="/images/searchdetail/search-conges.svg" alt="混雑マップ" width={300} height={600} className="absolute -top-17 -right-2 sm:-right-5 w-37 sm:w-50" /> */}
+                        <WaitTimeView masterDataId={data.id} />
                         <ImageView imageUrl={data.imageUrl} icons={data.icons} />
                         <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
                     </div>
@@ -80,6 +81,36 @@ export default function DetailEventContent({ id }: DetailContentProps) {
                     }
                 </div>
             )}
+        </div>
+    )
+}
+
+interface WaitTimeViewProps {
+    masterDataId: number;
+}
+
+// 雲の画像の白い部分に最新の待ち時間を重ねて表示する
+function WaitTimeView({ masterDataId }: WaitTimeViewProps) {
+    const [waitTime, setWaitTime] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchWaitTime = async () => {
+            const time = await getLatestWaitTime(masterDataId);
+            setWaitTime(time);
+        };
+        fetchWaitTime();
+        // 待ち時間は随時更新されるので30秒ごとに取り直す
+        const timer = setInterval(fetchWaitTime, 30 * 1000);
+        return () => clearInterval(timer);
+    }, [masterDataId]);
+
+    return (
+        <div className="absolute -top-17 -right-2 sm:-right-5 w-37 sm:w-50">
+            <Image src="/images/searchdetail/search-conges.svg" alt="待ち時間" width={840} height={541} className="w-full h-auto" />
+            {/* 左上の「待ち時間」ラベルを避けた、白い雲の内側に配置 */}
+            <div className="absolute left-[16%] right-[6%] top-[42%] bottom-[10%] -translate-y-[3px] flex items-center justify-center">
+                <Text center noTopPadding className="font-bold text-primary-700 text-sm sm:text-lg leading-tight">{waitTime ?? "-"}</Text>
+            </div>
         </div>
     )
 }
