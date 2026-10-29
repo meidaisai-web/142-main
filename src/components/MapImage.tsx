@@ -8,6 +8,6 @@ interface MapImageProps {
 
 export default function MapImage({ src, alt, className }: MapImageProps) {
     return (
-        <OnlyImage src={src} alt={alt} className={`max-w-72 ${className}`} />
+        <OnlyImage src={src} alt={alt} className={`max-w-lg ${className}`} />
     )
 }

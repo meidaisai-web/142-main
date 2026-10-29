@@ -7,7 +7,7 @@ import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
 import ImageLogo from "@/components/texts/ImageLogo";
 import ContactView from "@/components/texts/ContactView";
-import OnlyImage from "@/components/OnlyImage";
+import MapImage from "@/components/MapImage";
 
 
 export default function Page() {
@@ -51,10 +51,10 @@ export default function Page() {
             <Text>10月30日(金) 17:10～18:00</Text>
             <SmallTitle>場所 </SmallTitle>
             <Text>メインステージ</Text>
-            <OnlyImage
+            <MapImage
                 src="/images/fight/mainstage.svg"
                 alt="メインステージ"
-                className="w-3/4 sm:w-1/2 md:w-1/3 mt-5" />
+                />
             <SectionTitle>出演団体</SectionTitle>
             <AccentText>Amazing dream</AccentText>
             <Text>アカペラサークルamour、ミュージカル研究会</Text>

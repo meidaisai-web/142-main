@@ -7,6 +7,7 @@ import SectionTitle from "@/components/texts/SectionTitle"
 import AccentText from "@/components/texts/AccentText"
 import ContactView from "@/components/texts/ContactView"
 import OnlyImage from "@/components/OnlyImage"
+import MapImage from "@/components/MapImage"
 export default function Page() {
     return (
         <div>
@@ -25,10 +26,10 @@ export default function Page() {
                 11月1日(日)11:00～17:00</Text>
                 <SmallTitle>企画実施場所</SmallTitle>
                 <Text>第一校舎前体育館側</Text>
-                <OnlyImage
+                <MapImage
                     src="/images/omoi/gym.svg"
                     alt="おもいで工房マップ"
-                    className="w-3/4 sm:w-1/2 md:w-1/3 mt-5" />
+                    />
                 <ContactView department="開発局凌閃部門" mail="142ndryousenbumon@gmail.com" showPhone showAddress />
             </CloudPageContainer>
         </div>

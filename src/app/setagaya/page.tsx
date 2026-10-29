@@ -7,15 +7,15 @@ import SmallTitle from '@/components/texts/SmallTitle';
 import AccentText from "@/components/texts/AccentText"
 import { text } from 'stream/consumers';
 import ContactView from '@/components/texts/ContactView';
- import OnlyImage from '@/components/OnlyImage';'@/components/texts/OnlyImage';
- import Image from 'next/image';
+import MapImage from '@/components/MapImage';
+import Image from 'next/image';
 
 export default function about() {
     return (
         <CloudPageContainer>
             <PageTitle>付属校企画</PageTitle>
-             <Image src="/images/setagaya/setagaya.webp" alt="明大世田谷" width={1829} height={1598} className="mx-auto w-50"/>
-            
+            <Image src="/images/setagaya/setagaya.webp" alt="明大世田谷" width={1829} height={1598} className="mx-auto w-50" />
+
             <SectionTitle>企画概要</SectionTitle>
             <Text>
                 <Emphasis>明大世田谷が、明大祭に初登場！</Emphasis>
@@ -38,10 +38,10 @@ export default function about() {
 
             <SmallTitle>実施場所</SmallTitle>
             <Text>エントランスエリア</Text>
-            <OnlyImage
+            <MapImage
                 src="/images/setagaya/entranse.svg"
                 alt="エントランスエリア"
-                className="w-3/4 sm:w-1/2 md:w-1/3 mt-5" />
+            />
 
             <AccentText>日時</AccentText>
             <Text>11月1日(日) 12:20～13:20</Text>
