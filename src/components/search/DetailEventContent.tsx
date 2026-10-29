@@ -6,10 +6,10 @@ import { MasterData } from "@/utils/models/MasterData";
 import Text from "../texts/Text";
 import Image from "next/image";
 import Link from "next/link";
+import VoteView from "./VoteView";
 import ZoomableImage from "../ZoomableImage";
 import { getMeichamCategory } from "@/utils/managers/meichamManager";
 import SearchCloud from "./SearchCloud";
-import VoteView from "./VoteView";
 
 interface DetailContentProps {
     id: string;

@@ -22,7 +22,7 @@
     "@opennextjs/cloudflare": "^1.20.12",
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.117.2",
-    "detectincognitojs": "^1.6.2",
+    "detectincognitojs": "^1.9.0",
     "embla-carousel": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
