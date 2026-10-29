@@ -7,6 +7,7 @@ import SmallTitle from "@/components/texts/SmallTitle";
 import { List, ListItem } from "@/components/texts/List"
 import ContactView from "@/components/texts/ContactView";
 import OnlyImage from "@/components/OnlyImage";
+import MapImage from "@/components/MapImage";
 
 export default function Page() {
     return (
@@ -46,6 +47,10 @@ export default function Page() {
             <Text>11月1日(日) 14:00〜14:50</Text>
             <SmallTitle>場所</SmallTitle>
             <Text>メインステージ</Text>
+            <MapImage
+                src="/images/king/mainstage.svg"
+                alt="メインステージ"
+                 />
 
             <SectionTitle>出演団体</SectionTitle>
             <List>

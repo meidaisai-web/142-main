@@ -7,6 +7,7 @@ import SmallTitle from "@/components/texts/SmallTitle";
 import AccentText from "@/components/texts/AccentText";
 import ImageLogo from "@/components/texts/ImageLogo";
 import ContactView from "@/components/texts/ContactView";
+import MapImage from "@/components/MapImage";
 
 
 export default function Page() {
@@ -18,7 +19,7 @@ export default function Page() {
                 logoSrc="/images/fight/fight-logo.webp"
                 alt="Ending"
                 logoAlt="Ending Logo"
-                LogoClassName="w-1/4 !m-5 sm:!m-9 md:!m-12 !inset-auto !top-0 !left-0" />
+                LogoClassName="!w-1/4 !h-auto !m-5 sm:!m-9 md:!m-12 !inset-auto !top-0 !left-0 scale-110" />
             <SectionTitle>覚悟が交錯する夜―さあ、”推し”の勇姿を見届けろ。</SectionTitle>
             <Text center>
                 <Emphasis bold>
@@ -50,6 +51,10 @@ export default function Page() {
             <Text>10月30日(金) 17:10～18:00</Text>
             <SmallTitle>場所 </SmallTitle>
             <Text>メインステージ</Text>
+            <MapImage
+                src="/images/fight/mainstage.svg"
+                alt="メインステージ"
+                />
             <SectionTitle>出演団体</SectionTitle>
             <AccentText>Amazing dream</AccentText>
             <Text>アカペラサークルamour、ミュージカル研究会</Text>
