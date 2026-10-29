@@ -48,7 +48,7 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^3.2.7",
-    "wrangler": "^4.49.1"
+    "wrangler": "4.155.0"
   },
   "overrides": {
     "@node-minify/core": {
