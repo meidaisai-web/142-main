@@ -18,7 +18,7 @@ export default function Page() {
                 logoSrc="/images/fight/fight-logo.webp"
                 alt="Ending"
                 logoAlt="Ending Logo"
-                LogoClassName="w-1/4 !m-5 sm:!m-9 md:!m-12 !inset-auto !top-0 !left-0" />
+                LogoClassName="!w-1/4 !h-auto !m-5 sm:!m-9 md:!m-12 !inset-auto !top-0 !left-0" />
             <SectionTitle>覚悟が交錯する夜―さあ、”推し”の勇姿を見届けろ。</SectionTitle>
             <Text center>
                 <Emphasis bold>
