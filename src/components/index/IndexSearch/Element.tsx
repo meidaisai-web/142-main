@@ -59,7 +59,7 @@ export default function Element() {
     }, []);
 
     const images = [
-        { congestion: "/map", label: "混雑マップ", icon: "/images/Indexsearch/congestion.svg" },
+        { congestion: "/congestion", label: "混雑状況", icon: "/images/Indexsearch/congestion.svg" },
         { congestion: "/timetable", label: "タイムテーブル", icon: "/images/Indexsearch/time.svg" },
         { congestion: "/champ", label: "Meidaisai Championshipとは", icon: "/images/Indexsearch/meicham.svg"  }
     ];
