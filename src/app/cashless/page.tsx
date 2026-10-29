@@ -16,7 +16,7 @@ const page = () => {
             <PageTitle>明大祭・キャッシュレス決済</PageTitle>
             <SectionTitle>明大祭でキャッシュレス決済が使えます！</SectionTitle>
             <SmallTitle className="mb-5">明大祭を、もっと便利に、もっとスムーズに！</SmallTitle>
-            <Text>昨年度に引き続き、明大祭の模擬店にキャッシュレス決済を導入いたします！</Text>
+            <Text>昨年度に引き続き、明大祭にキャッシュレス決済を導入いたします！</Text>
             <SectionTitle>使える決済方法</SectionTitle>
             <AccentText>クレジットカード</AccentText>
             <List mark="・">
@@ -49,27 +49,23 @@ const page = () => {
                 <ListItem>はやかけん</ListItem>
             </List>
             <Text>など</Text>
-            <SectionTitle>キャッシュレス対応模擬店一覧</SectionTitle>
-            <Text>キャッシュレス対応の模擬店は23店！</Text>
+            <SectionTitle>キャッシュレス対応店舗一覧</SectionTitle>
+            <Text>キャッシュレス対応の店舗は24店！</Text>
             <AccentText className="mb-3">上記すべての決済方法に対応している6店 </AccentText>
-
-            <Text>詳細は今後公開予定です。</Text>
-            {/* <List mark="・">
+            <List mark="・">
                 <ListItem><TransitionLink href="/goods">明大祭グッズ</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/68">Next Film</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/258">ギターサークルストリート「street」</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/257">古都研究会</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/242">情報コミュニケーション学部山内勇ゼミナール</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/624">交響楽団</TransitionLink></ListItem>
-            </List> */}
+            </List>
 
             <List mark="※">
                 <ListItem><Emphasis>明大祭グッズのガチャガチャは、現金のみご利用いただけます。</Emphasis></ListItem>
             </List>
             <AccentText className="mb-3">交通系IC以外のキャッシュレスに対応している17店</AccentText>
-
-            <Text>詳細は今後公開予定です。</Text>
-            {/* <List mark="・">
+            <List mark="・">
                 <ListItem><TransitionLink href="/search/181">BREMEN</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/76">DamDam</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/256">MNB</TransitionLink></ListItem>
@@ -87,7 +83,8 @@ const page = () => {
                 <ListItem><TransitionLink href="/search/148">体育同好会連合会和道流空手道部</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/216">法学会</TransitionLink></ListItem>
                 <ListItem><TransitionLink href="/search/173">商学部大津健登ゼミナール</TransitionLink></ListItem>
-            </List> */}
+                <ListItem><TransitionLink href="/search/182">FAIR テニスクラブ</TransitionLink></ListItem>
+            </List>
             <SmallTitle className="mb-3">会場でキャッシュレス決済が利用可能か確認する方法</SmallTitle>
             <List numbered>
                 <ListItem>キャンパスマップに、各ブースのキャッシュレス決済対応状況を記載しています。</ListItem>
@@ -99,7 +96,7 @@ const page = () => {
             <SmallTitle className="mb-3">ご利用にあたってのお願い</SmallTitle>
             <List mark="・">
                 <ListItem><Emphasis>PayPayはご利用いただけません。</Emphasis></ListItem>
-                <ListItem>一部の模擬店のみでキャッシュレス決済をご利用いただけます。</ListItem>
+                <ListItem>一部の店舗のみでキャッシュレス決済をご利用いただけます。</ListItem>
                 <ListItem>電波状況により、決済に時間がかかる場合がございます。ご了承ください。</ListItem>
             </List>
             <ContactView department="財務局キャッシュレス決済導入チーム" showPhone mail="142nd-cashless@meidaisai.jp" showAddress />

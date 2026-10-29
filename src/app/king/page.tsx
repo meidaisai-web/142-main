@@ -5,8 +5,10 @@ import Text from "@/components/texts/Text";
 import Emphasis from "@/components/texts/Emphasis";
 import SmallTitle from "@/components/texts/SmallTitle";
 import { List, ListItem } from "@/components/texts/List"
+import Movie from "@/components/Movie";
 import ContactView from "@/components/texts/ContactView";
 import OnlyImage from "@/components/OnlyImage";
+import MapImage from "@/components/MapImage";
 
 export default function Page() {
     return (
@@ -46,6 +48,10 @@ export default function Page() {
             <Text>11月1日(日) 14:00〜14:50</Text>
             <SmallTitle>場所</SmallTitle>
             <Text>メインステージ</Text>
+            <MapImage
+                src="/images/king/mainstage.svg"
+                alt="メインステージ"
+                 />
 
             <SectionTitle>出演団体</SectionTitle>
             <List>
@@ -54,10 +60,8 @@ export default function Page() {
                 <ListItem>計画型むらさきーず</ListItem>
                 <ListItem>学⭐︎プロジェクツ</ListItem>
             </List>
-
-            {/* <SectionTitle>明大王紹介動画</SectionTitle>
-            <Movie src="https://movie.meidaisai.jp/king.mp4" /> */}
-
+            <SectionTitle>明大王紹介動画</SectionTitle>
+            <Movie src="https://movie.meidaisai.jp/king.mp4"/>
             <ContactView department="演出局永燦部門" mail="142nd-eisan@meidaisai.jp" />
         </StarPageContainer>
     )

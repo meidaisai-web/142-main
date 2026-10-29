@@ -5,6 +5,7 @@ import Text from '@/components/texts/Text';
 import Emphasis from '@/components/texts/Emphasis';
 import SmallTitle from '@/components/texts/SmallTitle';
 import { text } from 'stream/consumers';
+import MapImage from '@/components/MapImage';
 import OnlyImage from '@/components/OnlyImage';
 import ContactView from '@/components/texts/ContactView';
 
@@ -27,6 +28,10 @@ export default function about() {
 
             <SmallTitle>実施場所</SmallTitle>
             <Text>第一校舎前図書館側（校門から入ってまっすぐ！）</Text>
+            <MapImage
+                src="/images/jet/first.svg"
+                alt="JET GACHAマップ"
+                />
 
             <SmallTitle>実施日時</SmallTitle>
             <Text>10月30日(金).31日(土)11:00〜17:00
