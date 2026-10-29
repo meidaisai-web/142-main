@@ -22,7 +22,7 @@ export default function Page() {
                     logoSrc="/images/midnight/midnightlogo.svg"
                     alt="企画の写真"
                     logoAlt="企画ロゴ"
-                    LogoClassName="scale-85" />
+                    LogoClassName="scale-70" />
             </div>
 
             <SectionTitle>万彩よ交われ。</SectionTitle>

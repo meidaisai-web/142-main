@@ -18,7 +18,8 @@ export default function Page() {
                 logoSrc="/images/opening/openinglogo.svg"
                 alt="企画の写真"
                 logoAlt="企画ロゴ"
-                logoHeight={338} />
+                logoHeight={338}
+                LogoClassName="scale-83" />
             <SectionTitle>解き放て、青春のファンファーレを。</SectionTitle>
             <Text center>
                 <Emphasis bold>

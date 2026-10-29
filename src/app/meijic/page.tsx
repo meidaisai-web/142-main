@@ -20,7 +20,7 @@ export default function Page() {
                 logoSrc="/images/meijicstation/meijiclogo.svg"
                 alt="企画の写真"
                 logoAlt="企画ロゴ"
-                LogoClassName="scale-125" />
+                LogoClassName="scale-135" />
             <SectionTitle>音楽に溺れる。</SectionTitle>
             <Text center>
                 <Emphasis bold>
