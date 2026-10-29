@@ -19,7 +19,8 @@ export default function Page() {
                 src="/images/meijicstation/meijic02.jpg"
                 logoSrc="/images/meijicstation/meijiclogo.svg"
                 alt="企画の写真"
-                logoAlt="企画ロゴ" />
+                logoAlt="企画ロゴ"
+                LogoClassName="scale-125" />
             <SectionTitle>音楽に溺れる。</SectionTitle>
             <Text center>
                 <Emphasis bold>
