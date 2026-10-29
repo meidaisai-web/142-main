@@ -3,12 +3,13 @@
 import { getUniqueMasterData } from "@/utils/supabase/masterDataAction";
 import { useEffect, useState } from "react";
 import { MasterData } from "@/utils/models/MasterData";
-import VoteView from "./VoteView";
 import Text from "../texts/Text";
 import Image from "next/image";
 import Link from "next/link";
 import ZoomableImage from "../ZoomableImage";
+import { getMeichamCategory } from "@/utils/managers/meichamManager";
 import SearchCloud from "./SearchCloud";
+import VoteView from "./VoteView";
 
 interface DetailContentProps {
     id: string;
@@ -18,6 +19,7 @@ export default function DetailEventContent({ id }: DetailContentProps) {
     const [data, setData] = useState<MasterData | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const category = data?.championshipJoin ? getMeichamCategory(data.genre) : null;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -57,14 +59,25 @@ export default function DetailEventContent({ id }: DetailContentProps) {
             {!loading && !error && data && (
                 <div className="w-full px-4 sm:px-14 md:px-18 lg:px-24 flex flex-col items-center">
                     <EventTitle>{data.eventName}</EventTitle>
-                    <div className="w-full bg-white/80 rounded-xl p-4 sm:p-10 lg:p-20 flex justify-center items-center lg:items-start gap-8 mt-16 flex-col lg:flex-row">
-                        <ImageView type={data.type} imageUrl={data.imageUrl} icons={data.icons} />
+                    <div className="relative w-full bg-white/80 rounded-xl p-8 sm:p-10 lg:p-20 flex justify-center items-center lg:items-start gap-8 mt-25 flex-col lg:flex-row">
+                    {/* <Image  src="/images/searchdetail/search-conges.svg" alt="混雑マップ" width={300} height={600} className="absolute -top-17 -right-2 sm:-right-5 w-37 sm:w-50" /> */}
+                        <ImageView imageUrl={data.imageUrl} icons={data.icons} />
                         <InfoView group={data.groupName} date={data.eventDate} location={data.location} catchphrase={data.catchphrase} detail={data.eventContent} instagram={data.instagramAccount} x={data.xAccount} youtube={data.youtubeAccount} tiktok={data.tiktokAccount} homepage={data.homepageUrl} />
                     </div>
-                    {/* {data.location.includes("テント配置番号") && (
-                        <ZoomableImage src="/images/map/tent.jpg" alt="テントマップ" width={600} height={300} className="bg-white p-1 rounded-xl object-contain w-full h-fit max-w-xl mt-16" />
-                    )} */}
-                    {/* <VoteView id={id} groupId={data.groupId} type={data.type} eventName={data.eventName} groupName={data.groupName} eventDate={data.eventDate} /> */}
+
+                    <div className="w-full flex flex-col sm:flex-row items-center sm:self-center justify-center gap-10 sm:gap-10 md:gap-20 mt-20">
+                        <Menu menus={data.menuItems || []} />
+                        {data.location.includes("テント配置番号") && (
+                            <div className="w-full sm:w-auto  min-w-0 max-w-3xl sm:pt-6">
+                                <ZoomableImage src="/images/map/tent.svg" alt="テントマップ" width={1200} height={600} className="p-1 bg-white rounded-sm object-contain w-full h-fit" />
+                            </div>
+                        )}
+                    </div>
+
+                    {/* 不参加の企画もVoteViewを出し、「投票対象ではありません」と表示する。（category === null） */}
+                    {(!data.groupName.includes("明大祭実行委員会") && data.groupName !== '伊藤 汰海') &&
+                        <VoteView id={id} groupId={data.groupId} type={data.type} eventName={data.eventName} groupName={data.groupName} eventDate={data.eventDate} category={category} />
+                    }
                 </div>
             )}
         </div>
@@ -72,12 +85,11 @@ export default function DetailEventContent({ id }: DetailContentProps) {
 }
 
 interface ImageViewProps {
-    type: string;
     imageUrl: string;
     icons?: string[];
 }
 
-function ImageView({ type, imageUrl, icons }: ImageViewProps) {
+function ImageView({ imageUrl, icons }: ImageViewProps) {
     return (
         <div className="w-full max-w-75 shrink-0">
             <EventImage imageUrl={imageUrl} icons={icons} />
@@ -106,7 +118,7 @@ function InfoView({ group, date, location, catchphrase, detail, instagram, x, ti
             <InfoRow label="日時">{date}</InfoRow>
             <InfoRow label="場所">{location}</InfoRow>
             <div>
-                <AccessoryText lineColor="var(--color-primary)" accessory="/images/searchdetail/description-accessory-green.svg" className="mt-5 font-bold">
+                <AccessoryText lineColor="var(--color-primary)" accessory="/images/searchdetail/description-accessory-green.svg" className="mt-5 mb-3 font-bold">
                     {catchphrase}
                 </AccessoryText>
                 <Text className="break-words">{detail}</Text>
@@ -198,7 +210,7 @@ interface EventTitleProps {
 function EventTitle({ children }: EventTitleProps) {
     return (
         <div className={`pt-13 w-full flex items-center justify-center `}>
-            <div className="w-screen shrink-0 aspect-[4784/1270] px-16 bg-center bg-no-repeat bg-contain flex items-center justify-center" style={{ backgroundImage: "url('/images/searchdetail/titlecloud.svg')" }}>
+            <div className="w-screen shrink-0 aspect-[4784/1270] md:aspect-auto sm:h-[calc(48rem*1300/4784)] md:h-[calc(48rem*2000/4784)] px-16 bg-center bg-no-repeat bg-contain sm:bg-[length:100%_100%] flex items-center justify-center" style={{ backgroundImage: "url('/images/searchdetail/titlecloud.svg')" }}>
                 <h2 className="text-center font-bold text-2xl sm:text-3xl">{children}</h2>
             </div>
         </div>
@@ -223,6 +235,34 @@ function EventImage({ imageUrl, icons }: EventImageProps) {
                 ))}
             </div>
             <Image src={imgSrc} alt="企画画像" width={300} height={300} className="rounded-lg w-full max-w-75 aspect-square object-cover" onError={() => setImgSrc('/images/svg/no-image.svg')}/>
+        </div>
+    )
+}
+
+
+interface MenuProps {
+    menus: string[]
+}
+function Menu({ menus }: MenuProps) {
+    if (menus.length === 0) {
+        return null;
+    }
+    return (
+        <div className="relative shrink-0">
+            <div className="relative rounded-xl border-primary-700 border-2 w-80 bg-white">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 isolate flex items-center justify-center w-40 py-3">
+                    <Image src="/images/searchdetail/menu-cloud.svg" width={500} height={500} className="absolute inset-0 w-full h-full object-contain -z-10" alt="" />
+                    <Text center className="text-2xl font-bold text-primary-700">Menu</Text>
+                </div>
+                <div className="text-text px-10 pt-10 pb-10 text-lg">
+                    {menus.map((menu) => (
+                        <div key={menu} className="pt-1">
+                            <Text>{menu}</Text>
+                            <Image src="/images/searchdetail/menubar3.svg" alt="" width={300} height={10} className="w-full h-auto -mt-4" />
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     )
 }
