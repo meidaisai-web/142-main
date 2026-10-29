@@ -7,10 +7,10 @@ import CarouselCard from '@/components/index/CarouselCard';
 
 const slides = [
   { title: '実行委員会企画まとめ', src: '/images/carousel/boad.svg', href: '/official-projects' , imageClassName: 'object-contain px-3' },
-  { title: '混雑状況', src: '/images/carousel/congestion_map.png', href: '/congestion' , imageClassName: 'object-contain px-3' },
   { title: 'Fight on the Stage', src: '/images/fight/fight-logo.webp', href: '/fight' },
   { title: 'Opening', src: '/images/carousel/opening-logo.png', href: '/opening' },
   { title: 'Ending', src: '/images/ending/endinglogo.svg', href: '/ending', imageClassName: 'object-contain' },
+  { title: '混雑状況', src: '/images/carousel/congestion_map.png', href: '/congestion' , imageClassName: 'object-contain px-3' },
   { title: '受験生コレクション\n～わくわく明大生活～', src: '/images/carousel/wakuwaku-logo.png', href: '/wakuwaku' },
   { title: '明大祭公式グッズ', src: '/images/carousel/goods-logo.png', href: '/goods' },
 ]
