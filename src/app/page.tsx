@@ -8,6 +8,7 @@ import Line2 from "@/components/animation/Line2";
 import Carousel from "@/components/index/Carousel";
 import IndexSearch from "@/components/index/IndexSearch/IndexSearch";
 import MTYPE from "@/components/index/MTYPE"
+import PhotoGallery from "@/components/index/PhotoGallery";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <Access />
       <div className="h-20 block md:hidden"/>
       <Line2 />
+      <PhotoGallery />
     </main>
   );
 }
