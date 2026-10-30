@@ -27,7 +27,7 @@ export default function Home() {
       <Access />
       <div className="h-20 block md:hidden"/>
       <Line2 />
-      <PhotoGallery />
+      <PhotoGallery /> 
     </main>
   );
 }
