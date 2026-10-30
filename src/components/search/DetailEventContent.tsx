@@ -10,6 +10,7 @@ import VoteView from "./VoteView";
 import ZoomableImage from "../ZoomableImage";
 import { getMeichamCategory } from "@/utils/managers/meichamManager";
 import SearchCloud from "./SearchCloud";
+import EventPhoto from "./EventPhoto";
 import { getLatestWaitTime } from "@/utils/supabase/croudMapAction";
 
 interface DetailContentProps {
@@ -99,10 +100,30 @@ function WaitTimeView({ masterDataId }: WaitTimeViewProps) {
             const time = await getLatestWaitTime(masterDataId);
             setWaitTime(time);
         };
-        fetchWaitTime();
-        // 待ち時間は随時更新されるので30秒ごとに取り直す
-        const timer = setInterval(fetchWaitTime, 30 * 1000);
-        return () => clearInterval(timer);
+        // 待ち時間は随時更新されるので30秒ごとに取り直す。
+        // ただし、ほかのタブやアプリを見ている間は止める（開きっぱなしの人の分だけ Supabase への通信が続くのを防ぐ）
+        let timer: ReturnType<typeof setInterval> | null = null;
+        const start = () => {
+            if (timer !== null) return;
+            fetchWaitTime();
+            timer = setInterval(fetchWaitTime, 30 * 1000);
+        };
+        const stop = () => {
+            if (timer === null) return;
+            clearInterval(timer);
+            timer = null;
+        };
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === "visible") start();
+            else stop();
+        };
+
+        handleVisibilityChange();
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        return () => {
+            stop();
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
     }, [masterDataId]);
 
     return (
@@ -255,8 +276,6 @@ interface EventImageProps {
 }
 
 function EventImage({ imageUrl, icons }: EventImageProps) {
-    const [imgSrc, setImgSrc] = useState(imageUrl);
-
     return (
         <div className="gap-5 flex flex-col">
             <div className="flex flex-wrap items-center gap-4 text-sm">
@@ -266,7 +285,7 @@ function EventImage({ imageUrl, icons }: EventImageProps) {
                     </div>
                 ))}
             </div>
-            <Image src={imgSrc} alt="企画画像" width={300} height={300} className="rounded-lg w-full max-w-75 aspect-square object-cover" onError={() => setImgSrc('/images/svg/no-image.svg')}/>
+            <EventPhoto imageUrl={imageUrl} size="large" width={300} height={300} className="rounded-lg w-full max-w-75 aspect-square object-cover" />
         </div>
     )
 }

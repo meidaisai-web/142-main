@@ -42,3 +42,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .wrangler/
+
+# ビルド時に scripts/generate-event-thumbnails.mjs が作る企画画像の縮小版
+/public/images/events/
