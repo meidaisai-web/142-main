@@ -29,48 +29,48 @@ export default function page() {
                 <List>
                     <ListText>演出局</ListText>
                     <List mark="・">
-                        <ListItem><TransitionLink href="/mv">第142回明大祭公式テーマソングMV</TransitionLink><LotteryTicketBadge id="mv" /></ListItem>
-                        <ListItem><TransitionLink href="/champ">Meidaisai Championship</TransitionLink><LotteryTicketBadge id="champ" /></ListItem>
-                        <ListItem><TransitionLink href="/opening">Opening</TransitionLink><LotteryTicketBadge id="opening" /></ListItem>
-                        <ListItem><TransitionLink href="/fight">Fight on the Stage</TransitionLink><LotteryTicketBadge id="fight" /></ListItem>
-                        <ListItem><TransitionLink href="/meijic">Meijic Station</TransitionLink><LotteryTicketBadge id="meijic" /></ListItem>
-                        <ListItem><TransitionLink href="/midnight">中夜祭</TransitionLink><LotteryTicketBadge id="midnight" /></ListItem>
-                        <ListItem><TransitionLink href="/king">明大王</TransitionLink><LotteryTicketBadge id="king" /></ListItem>
+                        <ListItem><LotteryTicketBadge id="mv" /><TransitionLink href="/mv">第142回明大祭公式テーマソングMV</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="champ" /><TransitionLink href="/champ">Meidaisai Championship</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="opening" /><TransitionLink href="/opening">Opening</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="fight" /><TransitionLink href="/fight">Fight on the Stage</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="meijic" /><TransitionLink href="/meijic">Meijic Station</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="midnight" /><TransitionLink href="/midnight">中夜祭</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="king" /><TransitionLink href="/king">明大王</TransitionLink></ListItem>
                     </List>
                     <ListText>開発局</ListText>
                     <List mark="・">
-                        <ListItem><TransitionLink href="/tour">明治大解剖ツアー</TransitionLink><LotteryTicketBadge id="tour" /></ListItem>
-                        <ListItem><TransitionLink href="/jet">JET GACHA STREAM〜カプセルがひらく、次の目的地〜</TransitionLink><LotteryTicketBadge id="jet" /></ListItem>
-                        <ListItem><TransitionLink href="/noimage">NO iMeiji, NO LIFE？</TransitionLink><LotteryTicketBadge id="noimage" /></ListItem>
-                        <ListItem><TransitionLink href="/dream">Dream Canvas－夜空を描こう－</TransitionLink><LotteryTicketBadge id="dream" /></ListItem>
-                        <ListItem><TransitionLink href="/ilumi">明大祭イルミネーション</TransitionLink><LotteryTicketBadge id="ilumi" /></ListItem>
-                        <ListItem><TransitionLink href="/mage">Meiji de Mage～見習い魔法使いの修行録～</TransitionLink><LotteryTicketBadge id="mage" /></ListItem>
-                        <ListItem><TransitionLink href="/memory">記憶探し～未来からのメッセージ～</TransitionLink><LotteryTicketBadge id="memory" /></ListItem>
-                        <ListItem><TransitionLink href="/wakuwaku">受験生コレクション～わくわく明大生活～</TransitionLink><LotteryTicketBadge id="wakuwaku" /></ListItem>
-                        <ListItem><TransitionLink href="/sports">熱闘!!明治スポーツ</TransitionLink><LotteryTicketBadge id="sports" /></ListItem>
-                        <ListItem><TransitionLink href="/omoi">おもいで工房</TransitionLink><LotteryTicketBadge id="omoi" /></ListItem>
-                        <ListItem><TransitionLink href="/mtype">M-TYPE</TransitionLink><LotteryTicketBadge id="mtype" /></ListItem>
-                        <ListItem><TransitionLink href="/experiment">めいじっけん</TransitionLink><LotteryTicketBadge id="experiment" /></ListItem>
-                        <ListItem><TransitionLink href="/limit">LIMIT&infin;BREAK</TransitionLink><LotteryTicketBadge id="limit" /></ListItem>
-                        <ListItem>超めいだい&#9825;宣伝部</ListItem>
-                        <ListItem><TransitionLink href="/halloween">ハロウィンナイトin明大祭</TransitionLink><LotteryTicketBadge id="halloween" /></ListItem>
+                        <ListItem><LotteryTicketBadge id="tour" /><TransitionLink href="/tour">明治大解剖ツアー</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="jet" /><TransitionLink href="/jet">JET GACHA STREAM〜カプセルがひらく、次の目的地〜</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="noimage" /><TransitionLink href="/noimage">NO iMeiji, NO LIFE？</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="dream" /><TransitionLink href="/dream">Dream Canvas－夜空を描こう－</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="ilumi" /><TransitionLink href="/ilumi">明大祭イルミネーション</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="mage" /><TransitionLink href="/mage">Meiji de Mage～見習い魔法使いの修行録～</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="memory" /><TransitionLink href="/memory">記憶探し～未来からのメッセージ～</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="wakuwaku" /><TransitionLink href="/wakuwaku">受験生コレクション～わくわく明大生活～</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="sports" /><TransitionLink href="/sports">熱闘!!明治スポーツ</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="omoi" /><TransitionLink href="/omoi">おもいで工房</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="mtype" /><TransitionLink href="/mtype">M-TYPE</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="experiment" /><TransitionLink href="/experiment">めいじっけん</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="limit" /><TransitionLink href="/limit">LIMIT&infin;BREAK</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="senden" />超めいだい&#9825;宣伝部</ListItem>
+                        <ListItem><LotteryTicketBadge id="halloween" /><TransitionLink href="/halloween">ハロウィンナイトin明大祭</TransitionLink></ListItem>
                     </List>
                     <ListText>広報局</ListText>
                     <List mark="・">
-                        <ListItem><TransitionLink href="/ameijing">Ameijing Photo</TransitionLink><LotteryTicketBadge id="ameijing" /></ListItem>
+                        <ListItem><LotteryTicketBadge id="ameijing" /><TransitionLink href="/ameijing">Ameijing Photo</TransitionLink></ListItem>
                     </List>
                     <ListText>渉外局</ListText>
                     <List mark="・">
-                        <ListItem><TransitionLink href="/booth">企業ブース</TransitionLink><LotteryTicketBadge id="booth" /></ListItem>
-                        <ListItem><TransitionLink href="/stakeholders/alumni">校友・父母歓迎スペース</TransitionLink><LotteryTicketBadge id="alumni" /></ListItem>
-                        <ListItem><TransitionLink href="/matsubara">松原小学校&times;明大祭</TransitionLink><LotteryTicketBadge id="matsubara" /></ListItem>
-                        <ListItem><TransitionLink href="/lottely-shop">明大前商店街&times;明大祭〜明大祭で当てよう！豪華景品〜</TransitionLink><LotteryTicketBadge id="lottely-shop" /></ListItem>
-                        <ListItem><TransitionLink href="/keio">KEIO&times;第142回明大祭〜いつも駅からだった　明大前編～</TransitionLink><LotteryTicketBadge id="keio" /></ListItem>
+                        <ListItem><LotteryTicketBadge id="booth" /><TransitionLink href="/booth">企業ブース</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="alumni" /><TransitionLink href="/stakeholders/alumni">校友・父母歓迎スペース</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="matsubara" /><TransitionLink href="/matsubara">松原小学校&times;明大祭</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="lottely-shop" /><TransitionLink href="/lottely-shop">明大前商店街&times;明大祭〜明大祭で当てよう！豪華景品〜</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="keio" /><TransitionLink href="/keio">KEIO&times;第142回明大祭〜いつも駅からだった　明大前編～</TransitionLink></ListItem>
                     </List>
                     <ListText>制作局</ListText>
                     <List mark="・">
-                        <ListItem><TransitionLink href="/goods">明大祭公式グッズ企画</TransitionLink><LotteryTicketBadge id="goods" /></ListItem>
-                        <ListItem><TransitionLink href="/sticker">第142回明大祭公式ステッカー</TransitionLink><LotteryTicketBadge id="sticker" /></ListItem>
+                        <ListItem><LotteryTicketBadge id="goods" /><TransitionLink href="/goods">明大祭公式グッズ企画</TransitionLink></ListItem>
+                        <ListItem><LotteryTicketBadge id="sticker" /><TransitionLink href="/sticker">第142回明大祭公式ステッカー</TransitionLink></ListItem>
                     </List>
                 </List>
                 <Text center className="mt-10">明大祭大抽選会企画詳細ページは<TransitionLink href="/bigLottery">こちら</TransitionLink></Text>

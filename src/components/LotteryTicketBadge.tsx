@@ -19,19 +19,26 @@ const STATUS_CLASS: Record<LotteryTicketStatus, string> = {
     "配布終了": "bg-gray-400 text-white",
 };
 
+// 全ステータスで同じ幅にして、リストの企画名が揃うようにする
+const BASE_CLASS = "mr-2 inline-block w-[5.5em] rounded-full px-2 py-0.5 text-center text-xs font-semibold align-middle whitespace-nowrap";
+const PLACEHOLDER = "残りわずか";
+
 // 抽選券の配布状況バッジ。全バッジで同じSWRキーを使うため、取得は1回にまとまる。
-// エラー時・該当行がない時は何も表示しない。
+// エラー時・該当行がない時はバッジを出さず、空白だけ残す。
 export default function LotteryTicketBadge({ id, className }: LotteryTicketBadgeProps) {
     const { data } = useSWR("lottery-tickets", getLotteryTickets, {
         refreshInterval: REFRESH_INTERVAL_MS,
     });
 
     const ticket = data?.find((t) => t.id === id);
-    if (!ticket || !(ticket.status in STATUS_CLASS)) return null;
+    // 左端で縦に揃えるため、未取得・エラー時も同じ幅の空白を確保する
+    if (!ticket || !(ticket.status in STATUS_CLASS)) {
+        return <span aria-hidden className={`${BASE_CLASS} invisible`}>{PLACEHOLDER}</span>;
+    }
 
     return (
         <span
-            className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-semibold align-middle whitespace-nowrap ${STATUS_CLASS[ticket.status]} ${className ?? ""}`}
+            className={`${BASE_CLASS} ${STATUS_CLASS[ticket.status]} ${className ?? ""}`}
         >
             {ticket.status}
         </span>
