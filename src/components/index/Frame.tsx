@@ -8,8 +8,8 @@ export default function Frame({
   className = "",
 }: FrameProps) {
   return (
-    <div className="flex justify-center">
-      <div className={`relative rounded-3xl border-2 border-white bg-white/20 sm:rounded-2xl mx-5 p-10 sm:mx-10 shadow-lg mt-6 max-w-4xl ${className}`}>
+    <div className="w-full px-5 sm:px-10">
+      <div className={`relative rounded-3xl border-2 border-white bg-white/20 sm:rounded-2xl p-10 shadow-lg mt-6 max-w-4xl mx-auto w-full ${className}`}>
         <CornerBolt position="tl" />
         <CornerBolt position="tr" />
         <CornerBolt position="bl" />
