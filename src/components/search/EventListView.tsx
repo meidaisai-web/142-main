@@ -1,13 +1,13 @@
 'use client';
 
-import type { MasterData } from "@/utils/models/MasterData";
+import type { MasterDataListItem } from "@/utils/models/MasterData";
 import Image from "next/image";
 import Link from "next/link";
 import EventPhoto from "./EventPhoto";
 import type { RefObject } from "react";
 
 interface EventItemsProps {
-    datas: (MasterData[] | null)[] | undefined;
+    datas: (MasterDataListItem[] | null)[] | undefined;
     itemsRef?: RefObject<HTMLDivElement | null>;
     isLoading?: boolean;
 }
@@ -25,7 +25,7 @@ export default function EventItems({ datas, itemsRef, isLoading = false }: Event
 }
 
 interface EventItemProps {
-    data: MasterData;
+    data: MasterDataListItem;
 }
 
 function EventItem({ data }: EventItemProps) {
