@@ -157,7 +157,8 @@ function DateTabs({ tabs, between }: { tabs: DateTab[]; between?: ReactNode }) {
                 }}
                 onTouchStart={() => setIndicatorTransition(false)}
                 onTouchEnd={() => setIndicatorTransition(true)}
-                className="w-full"
+                // sticky が効くよう overflow:hidden を clip に変える(スライドの外側は切り取るだけ)
+                className="w-full !overflow-clip"
             >
                 {tabs.map((tab) => (
                     <SwiperSlide key={tab.id}>
