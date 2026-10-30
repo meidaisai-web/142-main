@@ -28,8 +28,7 @@ const photos = [
     "/images/photogallery/photo-19.jpg",
     "/images/photogallery/photo-20.jpg",
     "/images/photogallery/photo-21.jpg",
-    "/images/photogallery/photo-22.jpg",
-    "/images/photogallery/photo-23.jpg",
+    "/images/photogallery/photo-22.jpg"
 ];
 
 type PhotoFrameProps = {
@@ -110,11 +109,11 @@ export default function PhotoGallery() {
         <section className="w-full overflow-hidden py-8 md:py-12">
             <ShadowText>フォトギャラリー</ShadowText>
             <Frame className="!max-w-5xl">
-                <div className="relative mx-auto hidden aspect-[1.4/1] w-full max-w-[900px] md:block pt-5 drop-shadow-[4px_5px_0px_rgba(0,0,0,0.2)]">
+                <div className="relative mx-auto hidden aspect-[1.4/1] w-full max-w-[900px] md:block pt-5 drop-shadow-[4px_5px_10px_rgba(0,0,0,0.2)]">
                     <PhotoFrame
                         src={photos[photoIndexes[1]]}
                         alt="明大祭の写真"
-                        className="absolute left-[-2%] top-[0%] z-0 aspect-[4/5] w-[24%] rotate-[-13deg] bg-white/80 p-0.5 drop-shadow-[4px_5px_0px_rgba(0,0,0,0.2)]"
+                        className="absolute left-[-2%] top-[0%] z-0 aspect-[4/5] w-[24%] rotate-[-13deg] bg-white/80 p-0.5 drop-shadow-[4px_5px_10px_rgba(0,0,0,0.2)]"
                     />
                     <PhotoFrame
                         src={photos[photoIndexes[2]]}
@@ -163,6 +162,7 @@ export default function PhotoGallery() {
                 <div className="mt-10 w-full overflow-hidden md:hidden">
                     <motion.div
                         className="flex w-max gap-4"
+                        style={{ willChange: "transform" }}
                         animate={{ x: ["0%", "-50%"] }}
                         transition={{
                             duration: 80,
@@ -173,17 +173,15 @@ export default function PhotoGallery() {
                         {[...photos, ...photos].map((src, index) => (
                             <div
                                 key={index}
-                                className="relative h-36 w-48 shrink-0 p-2 rounded-xl"
+                                className="relative h-36 w-48 shrink-0 overflow-hidden rounded-xl"
                             >
-                                <div className="relative h-full w-full overflow-hidden">
-                                    <Image
-                                        src={src}
-                                        alt={`明大祭の写真 ${index + 1}`}
-                                        fill
-                                        sizes="144px"
-                                        className="object-cover rounded-xl"
-                                    />
-                                </div>
+                                <Image
+                                    src={src}
+                                    alt={`明大祭の写真 ${index + 1}`}
+                                    fill
+                                    sizes="192px"
+                                    className="object-cover"
+                                />
                             </div>
                         ))}
                     </motion.div>
