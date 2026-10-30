@@ -114,13 +114,6 @@ export const mapData: MapDataType[] = [
         description: '1階〜6階の椅子やベンチのあるスペースは休憩所となっております。',
     },
     {
-        name: '和泉図書館 休憩所',
-        legend: '休憩所',
-        location: ['和泉図書館'],
-        src: '/images/campusmap/rest_library.jpg',
-        description: '図書館入って左手にある和泉図書館サロンを休憩所として開放しております。'
-    },
-    {
         name: '和泉図書館横（屋外）休憩所',
         legend: '休憩所',
         location: ['和泉図書館', 'メディア棟', '和泉図書館'],
