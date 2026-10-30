@@ -107,7 +107,9 @@ export default function PhotoGallery() {
 
     return (
         <section className="w-full overflow-hidden py-8 md:py-12">
+            
             <ShadowText>フォトギャラリー</ShadowText>
+            <ShadowText>－明大祭1日目－</ShadowText>
             <Frame className="!max-w-5xl">
                 <div className="relative mx-auto hidden aspect-[1.4/1] w-full max-w-[900px] md:block pt-5 drop-shadow-[4px_5px_10px_rgba(0,0,0,0.2)]">
                     <PhotoFrame

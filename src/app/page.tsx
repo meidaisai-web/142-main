@@ -26,8 +26,8 @@ export default function Home() {
       <div className="h-30"/>
       <Access />
       <div className="h-20 block md:hidden"/>
-      <PhotoGallery />
       <Line2 />
+      <PhotoGallery />
     </main>
   );
 }
