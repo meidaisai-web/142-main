@@ -10,6 +10,7 @@ import VoteView from "./VoteView";
 import ZoomableImage from "../ZoomableImage";
 import { getMeichamCategory } from "@/utils/managers/meichamManager";
 import SearchCloud from "./SearchCloud";
+import EventPhoto from "./EventPhoto";
 import { getLatestWaitTime } from "@/utils/supabase/croudMapAction";
 
 interface DetailContentProps {
@@ -255,8 +256,6 @@ interface EventImageProps {
 }
 
 function EventImage({ imageUrl, icons }: EventImageProps) {
-    const [imgSrc, setImgSrc] = useState(imageUrl);
-
     return (
         <div className="gap-5 flex flex-col">
             <div className="flex flex-wrap items-center gap-4 text-sm">
@@ -266,7 +265,7 @@ function EventImage({ imageUrl, icons }: EventImageProps) {
                     </div>
                 ))}
             </div>
-            <Image src={imgSrc} alt="企画画像" width={300} height={300} className="rounded-lg w-full max-w-75 aspect-square object-cover" onError={() => setImgSrc('/images/svg/no-image.svg')}/>
+            <EventPhoto imageUrl={imageUrl} size="large" width={300} height={300} className="rounded-lg w-full max-w-75 aspect-square object-cover" />
         </div>
     )
 }
