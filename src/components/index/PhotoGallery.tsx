@@ -40,7 +40,7 @@ type PhotoFrameProps = {
 
 function PhotoFrame({ src, alt, className }: PhotoFrameProps) {
     return (
-        <div className={`rounded-xl drop-shadow-lg ${className}`}>
+        <div className={`rounded-xl ${className}`}>
             <div className="relative h-full w-full rounded-xl md:p-1">
                 <div className="relative h-full w-full overflow-hidden rounded-xl">
                     <AnimatePresence mode="sync">
@@ -110,48 +110,54 @@ export default function PhotoGallery() {
         <section className="w-full overflow-hidden py-8 md:py-12">
             <ShadowText>フォトギャラリー</ShadowText>
             <Frame className="!max-w-5xl">
-                <div className="relative mx-auto hidden aspect-[1.4/1] w-full max-w-[900px] md:block pt-5">
+                <div className="relative mx-auto hidden aspect-[1.4/1] w-full max-w-[900px] md:block pt-5 drop-shadow-[4px_5px_0px_rgba(0,0,0,0.2)]">
                     <PhotoFrame
                         src={photos[photoIndexes[1]]}
                         alt="明大祭の写真"
-                        className="absolute left-[-2%] top-[0%] z-0 aspect-[4/5] w-[24%] rotate-[-13deg] bg-white/80 p-1"
+                        className="absolute left-[-2%] top-[0%] z-0 aspect-[4/5] w-[24%] rotate-[-13deg] bg-white/80 p-0.5 drop-shadow-[4px_5px_0px_rgba(0,0,0,0.2)]"
                     />
                     <PhotoFrame
                         src={photos[photoIndexes[2]]}
                         alt="明大祭の写真"
-                        className="absolute left-[6%] top-[25%] z-0 aspect-[4/5] w-[26%] rotate-[9deg] bg-white/80 p-1"
+                        className="absolute left-[6%] top-[25%] z-0 aspect-[4/5] w-[26%] rotate-[9deg] bg-white/80 p-0.5 drop-shadow-[0_4px_8px_rgba(0,0,0,0.2)]"
                     />
                     <PhotoFrame
                         src={photos[photoIndexes[3]]}
                         alt="明大祭の写真"
-                        className="absolute left-[-3%] bottom-[2%] z-0 aspect-[4/5] w-[23%] rotate-[-6deg] bg-white/80 p-1"
+                        className="absolute left-[-3%] bottom-[2%] z-0 aspect-[4/5] w-[23%] rotate-[-6deg] bg-white/80 p-0.5 drop-shadow-[0_4px_8px_rgba(0,0,0,0.2)]"
                     />
                     <PhotoFrame
                         src={photos[photoIndexes[4]]}
                         alt="明大祭の写真"
-                        className="absolute right-[-1%] top-[5%] z-0 aspect-[4/5] w-[22%] rotate-[12deg] bg-white/80 p-1"
+                        className="absolute right-[-1%] top-[5%] z-0 aspect-[4/5] w-[22%] rotate-[12deg] bg-white/80 p-0.5 drop-shadow-[0_4px_8px_rgba(0,0,0,0.2)]"
                     />
                     <PhotoFrame
                         src={photos[photoIndexes[5]]}
                         alt="明大祭の写真"
-                        className="absolute right-[6%] top-[28%] z-0 aspect-[4/5] w-[25%] rotate-[-8deg] bg-white/80 p-1"
+                        className="absolute right-[6%] top-[28%] z-0 aspect-[4/5] w-[25%] rotate-[-8deg] bg-white/80 p-0.5 drop-shadow-[0_4px_8px_rgba(0,0,0,0.2)]"
                     />
                     <PhotoFrame
                         src={photos[photoIndexes[6]]}
                         alt="明大祭の写真"
-                        className="absolute right-[-2%] bottom-[2%] z-0 aspect-[3/4] w-[22%] rotate-[5deg] bg-white/80 p-1"
+                        className="absolute right-[-2%] bottom-[2%] z-0 aspect-[3/4] w-[22%] rotate-[5deg] bg-white/80 p-0.5 drop-shadow-[0_4px_8px_rgba(0,0,0,0.2)]"
                     />
                     <PhotoFrame
                         src={photos[photoIndexes[0]]}
                         alt="明大祭のメイン写真"
-                        className="absolute left-1/2 top-1/2 z-10 aspect-[4/5] w-[40%] max-w-[400px] -translate-x-1/2 -translate-y-1/2 rotate-[-2deg] bg-white/80 p-1"
+                        className="absolute left-1/2 top-1/2 z-10 aspect-[4/5] w-[40%] max-w-[400px] -translate-x-1/2 -translate-y-1/2 rotate-[-2deg] bg-white/80 p-0.5 drop-shadow-[0_4px_8px_rgba(0,0,0,0.2)]"
                     />
                 </div>
-                <div className="mx-auto w-[85%] max-w-[360px] md:hidden rounded-xl">
+                <div className="relative mx-auto w-[85%] max-w-[360px] md:hidden 
+                rounded-xl 
+                after:absolute after:inset-0 
+                after:translate-x-3 after:translate-y-3
+                after:rounded-xl after:bg-secondary-100
+                after:-z-10">
+
                     <PhotoFrame
                         src={photos[photoIndexes[0]]}
                         alt="明大祭のメイン写真"
-                        className="aspect-[4/5] w-full rounded-xl"
+                        className="relative z-0 aspect-[4/5] w-full rounded-xl"
                     />
                 </div>
                 <div className="mt-10 w-full overflow-hidden md:hidden">
