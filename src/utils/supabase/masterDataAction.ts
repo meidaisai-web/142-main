@@ -1,10 +1,12 @@
-import { defaultEvent } from "../datas/defaultData";
-import type { MasterData } from "../models/MasterData";
+import type { MasterData, MasterDataListItem } from "../models/MasterData";
 import type { SortType } from "../models/SortType";
 import { createClient } from "./client";
 
 const MASTER_DATA_TABLE = "MasterData142";
 const DATE_FETCH_SIZE = 500;
+// 企画一覧で使う項目だけを取得する（説明文など長い項目を取らず、通信量を減らす）
+// ※項目を変えるときは models/MasterData.ts の MasterDataListItem も同じに変えること
+const LIST_COLUMNS = "id,eventName,groupName,imageUrl,icons,genre,eventDate,location,catchphrase";
 
 type MasterDataQuery = {
     page: number;
@@ -17,19 +19,19 @@ type MasterDataQuery = {
     sortType: SortType;
 };
 
-export async function getAllMasterDatas(key: MasterDataQuery): Promise<MasterData[] | null> {
+// 1ページぶん（limit件）に加えて、次のページがあるかを知るために1件多く返す。
+// 呼び出し側は先頭の limit 件だけを表示し、limit 件より多ければ「次のページがある」と判断する
+// （次のページの有無を確かめるための別の通信をしなくて済む）
+export async function getAllMasterDatas(key: MasterDataQuery): Promise<MasterDataListItem[] | null> {
     const start = key.limit * key.page;
-    const end = start + key.limit - 1;
+    const end = start + key.limit; // 1件多く取る
 
     if (key.sortType.orderColumn === "eventDate") {
         const sorted = await getAllMasterDatasForDateSort(key);
         return sorted === null ? null : sorted.slice(start, end + 1);
     }
 
-    if (key.keyword === "Web部門のみんなへ") {
-        // 特別なデータも通常と同じ件数でページを切り替える。
-        return returnDefaultData().slice(start, end + 1);
-    }
+
 
     const sort = key.sortType.orderColumn === "free"
         ? { orderColumn: "createdAt", ascending: true }
@@ -43,11 +45,14 @@ export async function getAllMasterDatas(key: MasterDataQuery): Promise<MasterDat
         console.error(`Error fetching master data: ${error.message}`);
         return null;
     }
-    return data as MasterData[];
+    return data as MasterDataListItem[];
 }
 
 function createFilteredQuery(key: MasterDataQuery) {
-    let query = createClient().from(MASTER_DATA_TABLE).select("*");
+    // 企画名・実施日が未入力の行は、情報が埋まるまで一覧に出さない。
+    let query = createClient().from(MASTER_DATA_TABLE).select(LIST_COLUMNS)
+        .not("eventName", "is", null).neq("eventName", "")
+        .not("eventDate", "is", null).neq("eventDate", "");
 
     // スペース区切りの各キーワードはAND、各カラムへの一致はOR。
     if (key.keyword && key.keyword.trim()) {
@@ -82,6 +87,10 @@ function createFilteredQuery(key: MasterDataQuery) {
                 const excludedPlaces = ["メインステージ", "パフォーマンスエリア", "エントランスエリア", "第一校舎", "メディア棟", "和泉ラーニングスクエア"];
                 const excludeConditions = excludedPlaces.map((value) => `location.not.ilike.%${value}%`);
                 placeConditions.push(`and(${excludeConditions.join(",")})`);
+            } else if (place === "屋内ステージ") {
+                // 屋内ステージの企画は、場所が「和泉ラーニングスクエア LS101教室」と登録されている。
+                // LS101教室のゲスト誘致企画(企画区分「教室」)は屋内ステージに含めない。
+                placeConditions.push("and(location.ilike.%LS101%,type.eq.総合ステージ)");
             } else {
                 placeConditions.push(`location.ilike.%${place}%`);
             }
@@ -98,12 +107,8 @@ function createFilteredQuery(key: MasterDataQuery) {
 
 // 実施日が文字列でも、該当する企画全体を日付順にしてからページ分割する。
 // Searchではこの全件結果をSWRで共有し、ページを進めるたびの再取得を避ける。
-export async function getAllMasterDatasForDateSort(key: MasterDataQuery): Promise<MasterData[] | null> {
-    if (key.keyword === "Web部門のみんなへ") {
-        return sortByEventDate(returnDefaultData(), key.sortType.ascending);
-    }
-
-    const items: MasterData[] = [];
+export async function getAllMasterDatasForDateSort(key: MasterDataQuery): Promise<MasterDataListItem[] | null> {
+    const items: MasterDataListItem[] = [];
     let offset = 0;
     while (true) {
         const { data, error } = await createFilteredQuery(key)
@@ -113,7 +118,7 @@ export async function getAllMasterDatasForDateSort(key: MasterDataQuery): Promis
             console.error(`Error fetching master data for date sorting: ${error.message}`);
             return null;
         }
-        const batch = (data ?? []) as MasterData[];
+        const batch = (data ?? []) as MasterDataListItem[];
         if (batch.length === 0) break;
         items.push(...batch);
         // DB側の1回の取得上限が500件より小さくても、途中で終了しない。
@@ -153,7 +158,7 @@ function eventDateKey(value: string): number | null {
     return candidates.length > 0 ? Math.min(...candidates) : null;
 }
 
-function sortByEventDate(items: MasterData[], ascending: boolean): MasterData[] {
+function sortByEventDate(items: MasterDataListItem[], ascending: boolean): MasterDataListItem[] {
     const keyed = items.map((item) => ({ item, key: eventDateKey(item.eventDate) }));
     keyed.sort((a, b) => {
         // 日付未定の企画は、昇順・降順とも最後に置く。
@@ -168,9 +173,6 @@ function sortByEventDate(items: MasterData[], ascending: boolean): MasterData[] 
 }
 
 export async function getUniqueMasterData(id: string): Promise<MasterData | null> {
-    if (Number(id) >= 39000) {
-        return returnDefaultData().find((event) => event.id === Number(id)) || null;
-    }
     const supabase = createClient();
     const { data, error } = await supabase.from(MASTER_DATA_TABLE).select("*").eq("id", id).single();
     if (error) {
@@ -180,6 +182,73 @@ export async function getUniqueMasterData(id: string): Promise<MasterData | null
     return data as MasterData;
 }
 
-function returnDefaultData(): MasterData[] {
-    return defaultEvent;
+export async function getStoreDataWithCongestion(): Promise<MasterData[] | null> {
+    const supabase = createClient();
+    const { data, error } = await supabase.from(MASTER_DATA_TABLE).select(`
+        id,
+        groupId,
+        projectId,
+        imageUrl,
+        eventName,
+        groupName,
+        catchphrase,
+        eventContent,
+        genre,
+        icons,
+        location,
+        eventDate,
+        xAccount,
+        instagramAccount,
+        tiktokAccount,
+        youtubeAccount,
+        homepageUrl,
+        searchKeywords,
+        createdAt,
+        updatedAt,
+        type,
+        enableShooting,
+        ticket,
+        foodIcons,
+        otherIcons,
+        menuItems,
+        qrcode,
+        CongestionMap (
+            id,
+            time,
+            timestamp
+        )
+    `)
+        .eq('type', '模擬店')
+        // 企画ごとに最新の混雑データ1件のみ取得
+        .order('timestamp', { referencedTable: 'CongestionMap', ascending: false })
+        .limit(1, { referencedTable: 'CongestionMap' });
+
+    if (error) {
+        console.log(`Error fetching store data with congestion: ${error.message}`);
+        return null;
+    }
+
+    // 埋め込みリソースは配列で返るので、先頭(最新)の1件を congestion に詰め替える
+    // DBの文字列順だと「1番, 10番, 11番…」になるので、数字を数値として比較して場所名順に並べる
+    return data
+        .map(({ CongestionMap, ...store }) => ({
+            ...store,
+            congestion: CongestionMap?.[0],
+        }))
+        .sort((a, b) => a.location.localeCompare(b.location, 'ja', { numeric: true })) as MasterData[];
+}
+
+export async function getStageMasterData(): Promise<MasterData[] | null> {
+    const supabase = createClient();
+    // 企画名・実施日が未入力の行は、企画検索と同様に表示しない。タイムテーブルでは場所も必須。
+    const { data, error } = await supabase.from('MasterData142').select('*').eq('type', '総合ステージ')
+        .not("eventName", "is", null).neq("eventName", "")
+        .not("eventDate", "is", null).neq("eventDate", "")
+        .not("location", "is", null).neq("location", "");
+    if (error) {
+        console.log(`Error fetching stage master data: ${error.message}`);
+        return null;
+    }
+    console.log('Fetched stage data:', data);
+    return data as MasterData[] ;
 }

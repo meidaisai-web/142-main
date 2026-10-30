@@ -28,7 +28,7 @@ function groupByLegend(data: MapDataType[]): ShowLocationType[] {
     return groupedData;
 }
 
-function getLegendImageSrc(legend: Legend): string {
+export function getLegendImageSrc(legend: Legend): string {
     const basePath = '/images/campusmap/icon/';
     switch (legend) {
         case 'インフォメーションブース':

@@ -2,18 +2,18 @@ import { MapDataType } from "../models/MapDataType";
 
 export const mapData: MapDataType[] = [
     {
+        name: '総合インフォメーション',
+        legend: 'インフォメーションブース',
+        location: ['メディア棟', '和泉図書館'],
+        src: '/images/campusmap/info_main.jpg',
+        description: 'エントランスを入ってすぐ、和泉図書館前にある一番大きなインフォメーションブースです。落とし物・迷子の対応は、第一校舎1階の国際交流ラウンジで行っております。'
+    },
+    {
         name: "第一校舎インフォメーションブース",
         legend: "インフォメーションブース",
         location: ["第一校舎"],
         src: "/images/campusmap/info_first.jpg",
         description: "第一校舎1階に設置されているインフォメーションブースです。第一校舎での企画をお探しの際などにご利用ください。"
-    },
-    {
-        name: '総合インフォメーション',
-        legend: 'インフォメーションブース',
-        location: ['メディア棟', '和泉図書館'],
-        src: '/images/campusmap/info_main.jpg',
-        description: 'エントランスを入ってすぐ、和泉図書館前にある一番大きなインフォメーションブースです。落としものや迷子の対応もここで承っております。'
     },
     {
         name: 'LSインフォメーションブース',
@@ -48,7 +48,7 @@ export const mapData: MapDataType[] = [
         legend: "AED",
         location: ["第一校舎"],
         src: "/images/campusmap/aed_first_2.jpg",
-        description: "診療所内の事務室にございます。中にいる職員の方にお声がけください。明大祭期間の開室時間は9:00〜19:00となっております。"
+        description: "診療所内の事務室にございます。中にいる職員の方にお声がけください。明大祭期間の開室時間は10:00〜19:00となっております。"
     },
     {
         name: 'メディア棟1階 AED',
@@ -97,7 +97,7 @@ export const mapData: MapDataType[] = [
         legend: '休憩所',
         location: ['第一校舎'],
         src: '/images/campusmap/rest_first.jpg',
-        description: '1階ラウンジ、2階エレベーター前、3階エレベーター前、214教室の横、317教室の横、3階リフレッシュルーム、4階エレベーター前（企画実施日のみ）、4階リフレッシュルーム（企画実施日のみ）の8箇所に休憩所がございます。'
+        description: '1階ラウンジ、2階エレベーター前、214教室の横、3階リフレッシュルーム、3階エレベーター前、317教室の横、4階リフレッシュルーム、4階エレベーター前の8箇所に休憩所がございます。'
     },
     {
         name: 'メディア棟 休憩所',
@@ -111,14 +111,7 @@ export const mapData: MapDataType[] = [
         legend: '休憩所',
         location: ['和泉ラーニングスクエア'],
         src: '/images/campusmap/rest_ls.jpg',
-        description: '1階〜5階の椅子やベンチのあるスペースは休憩所となっております。ただし2階アゴラ、2階階段横カウンターは企画実施中は休憩所でなくなります。',
-    },
-    {
-        name: '和泉図書館 休憩所',
-        legend: '休憩所',
-        location: ['和泉図書館'],
-        src: '/images/campusmap/rest_library.jpg',
-        description: '図書館入って左手にある和泉図書館サロンを休憩所として開放しております。'
+        description: '1階〜6階の椅子やベンチのあるスペースは休憩所となっております。',
     },
     {
         name: '和泉図書館横（屋外）休憩所',
@@ -132,7 +125,7 @@ export const mapData: MapDataType[] = [
         legend: '休憩所',
         location: ['食堂'],
         src: '/images/campusmap/rest_cafe.jpg',
-        description: '食堂内のテーブル席は休憩所として開放しております。'
+        description: '11:00~14:00は食堂が営業しています。（ラストオーダー13:30）また営業終了後も1階は15:30まで、2階は17:00まで休憩所として利用可能です。'
     },
     {
         name: '第二学生会館2階 休憩所',
@@ -223,7 +216,7 @@ export const mapData: MapDataType[] = [
         legend: 'バリアフリートイレ',
         location: ['和泉ラーニングスクエア'],
         src: '/images/campusmap/toilet_ls.jpg',
-        description: '1階、4階、6階にございます。トイレの場所は各階に設置されているフロアマップをご確認ください。'
+        description: '1階、4階にございます。トイレの場所は各階に設置されているフロアマップをご確認ください。'
     },
     {
         name: '食堂1階 トイレ',
@@ -233,32 +226,25 @@ export const mapData: MapDataType[] = [
         description: '1階にございます。入ってそのまま正面にお進みください。また、男子トイレは1階、女子トイレは2階にございます。'
     },
     {
-        name: '和泉図書館 トイレ',
-        legend: 'バリアフリートイレ',
-        location: ['和泉図書館'],
-        src: '/images/campusmap/toilet_library.jpg',
-        description: '1階、入って右手にございます。'
-    },
-    {
         name: '第一校舎1階 自動販売機',
         legend: '自動販売機',
         location: ['第一校舎'],
         src: '/images/campusmap/vending_first.jpg',
-        description: '1階入口横、1階ラウンジ、1階E階段横に飲料販売機がございます。また、1階ラウンジには菓子販売機もございます。'
+        description: '1階入口横、1階正面階段横、1階ラウンジ、1階E階段横に飲料販売機がございます。また、1階エレベーター前には菓子販売機もございます。'
     },
     {
         name: 'メディア棟 自動販売機',
         legend: '自動販売機',
         location: ['メディア棟'],
         src: '/images/campusmap/vending_media.jpg',
-        description: '1階ラウンジ奥、階A・Bラウンジ、5階ラウンジに飲料販売機がございます。また、5階ラウンジには菓子販売機、1階ラウンジ奥にはアイス販売機もございます。'
+        description: '1階ラウンジ奥、1階エスカレーター横、4階A・Bラウンジ、5階ラウンジに飲料販売機がございます。また、5階ラウンジには菓子販売機、1階ラウンジ奥にはアイス販売機もございます。'
     },
     {
         name: '和泉ラーニングスクエア（LS）自動販売機',
         legend: '自動販売機',
         location: ['和泉ラーニングスクエア'],
         src: '/images/campusmap/vending_ls.jpg',
-        description: '1階ラウンジ、3階食堂連絡通路前、4階渡り廊下に飲料販売機がございます。'
+        description: '1階ラウンジ、3階食堂連絡通路前、4階渡り廊下に飲料販売機がございます。1階ラウンジには菓子販売機もございます。'
     },
     {
         name: '和泉図書館 自動販売機',
@@ -279,42 +265,28 @@ export const mapData: MapDataType[] = [
         legend: '自動販売機',
         location: ['食堂', '第二学生会館'],
         src: '/images/campusmap/vending_mart.jpg',
-        description: '明大マートの横にアイス販売機がございます。'
+        description: '明大マートの横に飲料販売機とアイス販売機がございます。'
     },
     {
-        name: '体育館ブリッジ横 喫煙所',
+        name: '体育館連絡ブリッジ横 喫煙所',
         legend: '喫煙所',
         location: ['第一校舎'],
         src: '/images/campusmap/smoking.jpg',
-        description: '体育館ブリッジ横に設置しております。向かって、第一校舎の左側の通路を進んだ先にあります。今年度の明大祭は、指定場所以外での喫煙を禁止しております。必ずこちらの喫煙所を利用するようにお願いします。'
+        description: '体育館連絡ブリッジ横に設置しております。第一校舎に向かって左側の通路を進んだ先にあります。今年度の明大祭は、指定場所以外での喫煙を禁止しております。必ずこちらの喫煙所を利用するようにお願いします。'
     },
     {
         name: '第一校舎 ATM',
         legend: 'ATM',
         location: ['第一校舎'],
         src: '/images/campusmap/atm_first.jpg',
-        description: '三井住友銀行のATMです。三菱UFJ銀行もご利用可能です。第一校舎1階、入口すぐ左にございます。明大祭期間中は11月1日（土）の9：00〜13：00のみ稼働しております。'
+        description: '三井住友銀行のATMです。三菱UFJ銀行もご利用可能です。第一校舎1階、入口すぐ左にございます。明大祭期間中は10月30日(金)9：00〜18：00、10月31日(土)9：00〜13：00に稼働しております。11月1日(日)は稼働しておりません。'
     },
     {
         name: 'メディア棟 ATM',
         legend: 'ATM',
         location: ['メディア棟'],
         src: '/images/campusmap/atm_media.jpg',
-        description: 'ゆうちょ銀行のATMです。メディア棟1階ラウンジの奥にございます。明大祭期間中は11月1日（土）の9：00〜17：00のみ稼働しております。'
-    },
-    {
-        name: '第一校舎1階 公衆電話',
-        legend: '公衆電話',
-        location: ['第一校舎'],
-        src: '/images/campusmap/phone_first.jpg',
-        description: '第一校舎1階、エントランス入ってエレベーターを通過してすぐ右側にございます。'
-    },
-    {
-        name: 'メディア棟1階 公衆電話',
-        legend: '公衆電話',
-        location: ['メディア棟', '和泉図書館'],
-        src: '/images/campusmap/phone_media.jpg',
-        description: 'メディア棟1階、エスカレーターの側面にございます。'
+        description: 'ゆうちょ銀行のATMです。メディア棟1階ラウンジの奥にございます。明大祭期間中は10月30日(金)9：00〜19：00、10月31日(土)9：00〜17：00に稼働しております。11月1日(日)は稼働しておりません。'
     },
     {
         name: '明大マート前 公衆電話',

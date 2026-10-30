@@ -35,7 +35,7 @@ export default function Page() {
                 <SmallTitle>下北沢地域での取り組み</SmallTitle>
                 <AccentText>下北沢盆踊り</AccentText>
                 <ImageText src="/images/stakeholders/area/shimokita.jpg" alt="下北沢盆踊り">昨年度から新たな挑戦として、下北沢地域のみなさまとの交流を開始し、7月25日(土)、26日(日)に開催された「下北沢盆踊り2026」に参加させていただきました。また、昨年度は「ムーンアートナイト下北沢2025」、「シモキタロボフェス2025」にも参加し、ボランティアとして微力ながら尽力いたしました。今後も良好な関係を築いていけるよう、盤石な協力体制を構築してまいります。</ImageText>
-                <ContactView department="渉外局界隈部門" mail="kaiwai@meidasai.jp" showAddress showPhone />
+                <ContactView department="渉外局界隈部門" mail="kaiwai@meidaisai.jp" showAddress showPhone />
             </CloudPageContainer>
         </div>
     )
