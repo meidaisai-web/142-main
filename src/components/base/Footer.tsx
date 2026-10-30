@@ -9,8 +9,6 @@ import { usePathname } from "next/navigation";
 export default function Footer() {
 	const pathname = usePathname();
 
-	if (pathname === "/fight-vote") return null;
-
 	const isSubPage = pathname !== "/";
 
 	return (
