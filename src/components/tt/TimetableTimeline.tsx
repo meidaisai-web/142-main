@@ -65,10 +65,10 @@ export default function TimetableTimeline({ events, stages, genres, month, date,
         <section className="mx-auto max-w-7xl px-3 [container-type:inline-size] sm:px-5" aria-label={`${month}月${date}日のステージ別タイムテーブル`}>
             <p className="mb-3 text-base text-gray-600">{singleStage ? "" : "左右にスクロール・ドラッグできます。"}チケットを押すと企画の詳細が開きます。</p>
             <div className="mx-auto" style={{ maxWidth: viewportMaxWidth }}>
-            {/* ステージ名の行は画面上部に固定する。横スクロールの領域の中だと縦のstickyが効かないので、本体とは別にして横位置だけ同期する */}
+            {/* ステージ名の行はサイト共通ヘッダー(h-14, fixed)の直下に固定する。横スクロールの領域の中だと縦のstickyが効かないので、本体とは別にして横位置だけ同期する */}
             <div
                 ref={headerRef}
-                className="sticky top-0 z-30 overflow-hidden rounded-t-xl border border-b-0 border-[#eed3da] bg-white shadow-sm [--timeline-axis-width:56px] [--timeline-stage-width:320px] [--timeline-lane-width:240px] max-sm:[--timeline-axis-width:44px] max-sm:[--timeline-stage-width:max(200px,calc(100cqw_-_88px))] max-sm:[--timeline-lane-width:200px]"
+                className="sticky top-14 z-30 overflow-hidden rounded-t-xl border border-b-0 border-[#eed3da] bg-white shadow-sm [--timeline-axis-width:56px] [--timeline-stage-width:320px] [--timeline-lane-width:240px] max-sm:[--timeline-axis-width:44px] max-sm:[--timeline-stage-width:max(200px,calc(100cqw_-_88px))] max-sm:[--timeline-lane-width:200px]"
             >
                 <div className="flex h-14" style={{ width: singleStage ? "100%" : width, minWidth: "100%" }}>
                     <div className="sticky left-0 z-40 flex shrink-0 items-center justify-center border-r border-[#eed3da] bg-white text-xs text-gray-600" style={{ width: AXIS_WIDTH }}>時間</div>
