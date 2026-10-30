@@ -334,7 +334,7 @@ describe("投票の送信", () => {
         await waitReady();
 
         await selectAll(user);
-        vi.spyOn(localStorage, "setItem").mockImplementation(() => { throw new Error("QuotaExceededError"); });
+        vi.spyOn(Storage.prototype, "setItem").mockImplementation(() => { throw new Error("QuotaExceededError"); });
         await user.click(submitButton());
 
         await waitFor(() => expect(dialogMessage()).toHaveTextContent(SEND_FAILED_MESSAGE));
@@ -346,10 +346,10 @@ describe("投票の送信", () => {
         await waitReady();
 
         await selectAll(user);
-        const originalSetItem = localStorage.setItem.bind(localStorage);
-        vi.spyOn(localStorage, "setItem").mockImplementation((key, value) => {
+        const originalSetItem = Storage.prototype.setItem;
+        vi.spyOn(Storage.prototype, "setItem").mockImplementation((key, value) => {
             if (key === STORAGE_KEY) throw new Error("QuotaExceededError");
-            originalSetItem(key, value);
+            originalSetItem.call(localStorage, key, value);
         });
         await user.click(submitButton());
 
