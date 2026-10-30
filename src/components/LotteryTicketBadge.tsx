@@ -20,7 +20,7 @@ const STATUS_CLASS: Record<LotteryTicketStatus, string> = {
 };
 
 // 全ステータスで同じ幅にして、リストの企画名が揃うようにする
-const BASE_CLASS = "mr-2 inline-block w-24 rounded-full px-1 py-0.5 text-center text-xs font-semibold align-middle whitespace-nowrap";
+const BASE_CLASS = "mr-2 inline-block w-18 rounded-full px-1 py-0.5 text-center text-xs font-semibold align-middle whitespace-nowrap";
 const PLACEHOLDER = "残りわずか";
 
 // 抽選券の配布状況バッジ。全バッジで同じSWRキーを使うため、取得は1回にまとまる。

@@ -68,7 +68,8 @@ export default function Page() {
 
 
                 <SectionTitle>抽選券配付企画</SectionTitle>
-                <SmallTitle><LotteryTicketBadge id="champ" />Meidaisai Championship</SmallTitle>
+                <SmallTitle>Meidaisai Championship</SmallTitle>
+                <LotteryTicketBadge id="champ" />
                 <Text>
                     <TransitionLink href="/search">企画検索</TransitionLink>から、飲食部門・エンタメ部門・パフォーマンス部門すべてにご投票いただくと抽選券がもらえます！
                 </Text>
@@ -78,7 +79,8 @@ export default function Page() {
                 <MeichamVoteStatus />
                 <Text>明大祭公式パンフレットp.16</Text>
 
-                <SmallTitle><LotteryTicketBadge id="ameijing" />Ameijing Photo</SmallTitle>
+                <SmallTitle>Ameijing Photo</SmallTitle>
+                <LotteryTicketBadge id="ameijing" />
                 <Text>
                     企画実施場所：センターサークル前<br />
                     <TransitionLink href="/ameijing">詳しくはこちら</TransitionLink><br />

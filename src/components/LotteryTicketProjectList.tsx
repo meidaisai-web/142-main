@@ -10,9 +10,9 @@ export default function LotteryTicketProjectList() {
             {lotteryTicketDepartments.map(({ department, projects }) => (
                 <section key={department} className="mb-3">
                     <h4 className="font-semibold">{department}</h4>
-                    <ul className="ml-2">
+                    <ul>
                         {projects.map(({ id, name, href }) => (
-                            <li key={id} className="flex items-start mb-1 font-semibold">
+                            <li key={id} className="flex items-center mb-3 font-semibold">
                                 <LotteryTicketBadge id={id} className="shrink-0 mt-0.5" />
                                 <span className="min-w-0 flex-1">
                                     {href ? <TransitionLink href={href}>{name}</TransitionLink> : name}
