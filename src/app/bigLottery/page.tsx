@@ -85,7 +85,12 @@ export default function Page() {
                 <Text>明大祭公式パンフレットp.16</Text>
 
                 <SmallTitle>Ameijing Photo</SmallTitle>
-                <LotteryTicketBadge id="ameijing" />
+                {/* <LotteryTicketBadge id="ameijing" /> */}
+                <span
+                    className="mr-2 inline-block w-18 rounded-full px-1 py-0.5 text-center text-xs font-semibold align-middle whitespace-nowrap bg-gray-400 text-white"
+                >
+                    配付終了
+                </span>
                 <Text>
                     企画実施場所：センターサークル前<br />
                     <TransitionLink href="/ameijing">詳しくはこちら</TransitionLink><br />
