@@ -110,7 +110,7 @@ export function getSearchUrlOfCategory(category: MeichamCategory): string {
 }
 
 // 抽選券の配布を終了した日（当日はここに日付を足してデプロイする）
-const VOUCHER_CLOSED_DATES: string[] = ['2026-11-1'];
+const VOUCHER_CLOSED_DATES: string[] = ['2026-11-01'];
 
 
 // 本日の抽選券がまだ配布中か
