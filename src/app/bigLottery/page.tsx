@@ -69,7 +69,12 @@ export default function Page() {
 
                 <SectionTitle>抽選券配付企画</SectionTitle>
                 <SmallTitle>Meidaisai Championship</SmallTitle>
-                <LotteryTicketBadge id="champ" />
+                {/* <LotteryTicketBadge id="champ" /> */}
+                <span
+                    className="mr-2 inline-block w-18 rounded-full px-1 py-0.5 text-center text-xs font-semibold align-middle whitespace-nowrap bg-gray-400 text-white"
+                >
+                    配付終了
+                </span>
                 <Text>
                     <TransitionLink href="/search">企画検索</TransitionLink>から、飲食部門・エンタメ部門・パフォーマンス部門すべてにご投票いただくと抽選券がもらえます！
                 </Text>
