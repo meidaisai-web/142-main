@@ -73,10 +73,15 @@ async function makeThumbnails(imageUrl) {
 }
 
 async function main() {
-    try {
-        process.loadEnvFile(".env.local"); // ローカル用。CI では環境変数が直接渡される
-    } catch {
-        // .env.local がなければ何もしない
+    // ローカル用。CI では環境変数が直接渡される。
+    // このリポジトリの環境変数は .env に置く運用なので、.env.local だけでは読めず縮小版が作られなかった。
+    // loadEnvFile は設定済みの値を上書きしないので、先に読んだ .env.local が優先される
+    for (const file of [".env.local", ".env"]) {
+        try {
+            process.loadEnvFile(file);
+        } catch {
+            // ファイルがなければ何もしない
+        }
     }
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;

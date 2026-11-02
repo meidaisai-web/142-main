@@ -4,14 +4,7 @@ import { ReactNode, useEffect } from "react";
 import Link from "next/link";
 import ModalPortal from "../ModalPortal";
 import { MeichamCategory } from "@/utils/models/MeichamGenre";
-import { getGenresOfCategory, getUnvotedCategories } from "@/utils/managers/meichamManager";
-
-// 部門に含まれるジャンルで絞り込んだ企画検索のURL（企画検索は ?genre=A&genre=B の形で受け取る）
-function searchUrlOfCategory(category: MeichamCategory): string {
-    const params = new URLSearchParams();
-    getGenresOfCategory(category).forEach((genre) => params.append("genre", genre));
-    return `/search?${params.toString()}`;
-}
+import { getSearchUrlOfCategory, getUnvotedCategories } from "@/utils/managers/meichamManager";
 
 export type MeichamVoteModalStep = 'confirm' | 'done';
 
@@ -91,7 +84,7 @@ export default function MeichamVoteModal({ step, hidden, onClose, onVote, eventN
                                 <p className="text-sm sm:text-base">あなたがまだ投票していない部門</p>
                                 <div className="flex flex-col gap-3 mt-4 w-full max-w-60">
                                     {unvotedCategories.map(unvoted => (
-                                        <OutlineLink key={unvoted} href={searchUrlOfCategory(unvoted)}>
+                                        <OutlineLink key={unvoted} href={getSearchUrlOfCategory(unvoted)}>
                                             {unvoted}部門
                                         </OutlineLink>
                                     ))}
