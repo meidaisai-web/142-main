@@ -7,28 +7,28 @@ import ShadowText from "@/components/texts/ShadowText";
 import Frame from "@/components/index/Frame";
 
 const photos = [
-    "/images/photogallery/photo-1.jpg",
-    "/images/photogallery/photo-2.jpg",
-    "/images/photogallery/photo-3.jpg",
-    "/images/photogallery/photo-4.jpg",
-    "/images/photogallery/photo-5.jpg",
-    "/images/photogallery/photo-6.jpg",
-    "/images/photogallery/photo-7.jpg",
-    "/images/photogallery/photo-8.jpg",
-    "/images/photogallery/photo-9.jpg",
-    "/images/photogallery/photo-10.jpg",
-    "/images/photogallery/photo-11.jpg",
-    "/images/photogallery/photo-12.jpg",
-    "/images/photogallery/photo-13.jpg",
-    "/images/photogallery/photo-14.jpg",
-    "/images/photogallery/photo-15.jpg",
-    "/images/photogallery/photo-16.jpg",
-    "/images/photogallery/photo-17.jpg",
-    "/images/photogallery/photo-18.jpg",
-    "/images/photogallery/photo-19.jpg",
-    "/images/photogallery/photo-20.jpg",
-    "/images/photogallery/photo-21.jpg",
-    "/images/photogallery/photo-22.jpg"
+    "/images/photogallery/gallery-1.jpg",
+    "/images/photogallery/gallery-2.jpg",
+    "/images/photogallery/gallery-3.jpg",
+    "/images/photogallery/gallery-4.jpg",
+    "/images/photogallery/gallery-5.jpg",
+    "/images/photogallery/gallery-6.jpg",
+    "/images/photogallery/gallery-7.jpg",
+    "/images/photogallery/gallery-8.jpg",
+    "/images/photogallery/gallery-9.jpg",
+    "/images/photogallery/gallery-10.jpg",
+    "/images/photogallery/gallery-11.jpg",
+    "/images/photogallery/gallery-12.jpg",
+    "/images/photogallery/gallery-13.jpg",
+    "/images/photogallery/gallery-14.jpg",
+    "/images/photogallery/gallery-15.jpg",
+    "/images/photogallery/gallery-16.jpg",
+    "/images/photogallery/gallery-17.jpg",
+    "/images/photogallery/gallery-18.jpg",
+    "/images/photogallery/gallery-19.jpg",
+    "/images/photogallery/gallery-20.jpg",
+    "/images/photogallery/gallery-21.jpg",
+    "/images/photogallery/gallery-22.jpg"
 ];
 
 type PhotoFrameProps = {
@@ -108,6 +108,7 @@ export default function PhotoGallery() {
     return (
         <section className="w-full overflow-hidden py-8 md:py-12">
             <ShadowText>フォトギャラリー</ShadowText>
+            <ShadowText>－明大祭最終日－</ShadowText>
             <Frame className="!max-w-5xl">
                 <div className="relative mx-auto hidden aspect-[1.4/1] w-full max-w-[900px] md:block pt-5 drop-shadow-[4px_5px_10px_rgba(0,0,0,0.2)]">
                     <PhotoFrame
