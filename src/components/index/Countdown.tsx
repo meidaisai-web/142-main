@@ -88,9 +88,12 @@ export default function Countdown({
   const isFestival =
     elapsedDays >= 0 && elapsedDays < EVENT_DAYS;
 
+  // 本祭終了後（11月2日以降）
+  const isEnded = elapsedDays >= EVENT_DAYS;
+
   // 開催前：残り日数
   // 本祭中：1・2・3日目
-  // 本祭終了後（11月2日以降）：0日で固定
+  // 本祭終了後：「終了」を表示
   const displayNumber = isFestival
     ? elapsedDays + 1
     : Math.max(0, -elapsedDays);
@@ -122,10 +125,10 @@ export default function Countdown({
           <div className="absolute sm:relative w-fit right-6 sm:right-auto flex flex-col items-end sm:items-start justify-start mt-2 sm:mt-0">
             <p className="absolute font-black text-primary-700 text-shadow-[4px_4px_4px_rgba(0,0,0,0.25)] text-nowrap z-10 -mt-6">
               <span className="text-4xl sm:text-5xl">
-                {isFestival ? "明大祭" : "開催"}
+                {isFestival || isEnded ? "明大祭" : "開催"}
               </span>
 
-              {!isFestival && (
+              {!isFestival && !isEnded && (
                 <span className="text-2xl sm:text-3xl">
                   まで
                 </span>
@@ -143,11 +146,11 @@ export default function Countdown({
                 />
 
                 <p className="z-10 relative text-white text-shadow-[0_4px_4px_rgba(0,0,0,0.25)] text-5xl sm:text-7xl font-bold">
-                  {displayNumber}
+                  {isEnded ? "閉" : displayNumber}
                 </p>
               </div>
 
-              <div className="relative w-16 sm:w-20 aspect-square flex items-center justify-center -translate-x-6">
+              <div className="relative w-20 sm:w-31 aspect-square flex items-center justify-center -translate-x-6">
                 <Image
                   src="/images/countdown/smallcircle.svg"
                   alt=""
@@ -163,7 +166,7 @@ export default function Countdown({
                       : "text-4xl sm:text-5xl"
                   }`}
                 >
-                  {isFestival ? "日目" : "日"}
+                  {isFestival ? "日目" : isEnded ? "幕" : "日"}
                 </p>
               </div>
             </div>
