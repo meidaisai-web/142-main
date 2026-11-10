@@ -9,6 +9,7 @@ import Carousel from "@/components/index/Carousel";
 import IndexSearch from "@/components/index/IndexSearch/IndexSearch";
 import MTYPE from "@/components/index/MTYPE"
 import PhotoGallery from "@/components/index/PhotoGallery";
+import Thx from "@/components/index/Thx";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Loading />
       <HeroSection />
       <div className="h-20 md:h-40"/>
+      <Thx />
       <Airplane />
       <div className="h-70 md:h-40"/>
       <Carousel />
